@@ -1,0 +1,130 @@
+[
+  {
+    "id": "american-history",
+    "name": "American History",
+    "description": "History centered on the United States, its peoples, institutions, and global role.",
+    "sortOrder": 10
+  },
+  {
+    "id": "world-history",
+    "name": "World History",
+    "description": "History centered outside the United States or across multiple regions, empires, or global systems.",
+    "sortOrder": 20
+  },
+  {
+    "id": "history",
+    "name": "History",
+    "description": "Historical works not better classified under American History, World History, or War & Military.",
+    "sortOrder": 30,
+    "fallback": true
+  },
+  {
+    "id": "biography",
+    "name": "Biography",
+    "description": "Life stories written about another person or group of people.",
+    "sortOrder": 40
+  },
+  {
+    "id": "memoir-and-autobiography",
+    "name": "Memoir & Autobiography",
+    "description": "First-person life writing, personal history, and autobiographical nonfiction.",
+    "sortOrder": 50
+  },
+  {
+    "id": "politics-and-government",
+    "name": "Politics & Government",
+    "description": "Politics, elections, public policy, statecraft, diplomacy, and government institutions.",
+    "sortOrder": 60
+  },
+  {
+    "id": "society-and-culture",
+    "name": "Society & Culture",
+    "description": "Social life, cultural change, communities, institutions, and contemporary public debates.",
+    "sortOrder": 70
+  },
+  {
+    "id": "journalism-and-reportage",
+    "name": "Journalism & Reportage",
+    "description": "Reported nonfiction, investigative work, contemporary events, and narrative journalism.",
+    "sortOrder": 80
+  },
+  {
+    "id": "science",
+    "name": "Science",
+    "description": "Natural sciences, mathematics, psychology, and scientific discovery.",
+    "sortOrder": 90
+  },
+  {
+    "id": "medicine-and-public-health",
+    "name": "Medicine & Public Health",
+    "description": "Medicine, disease, health systems, public health, and the body.",
+    "sortOrder": 100
+  },
+  {
+    "id": "nature-and-environment",
+    "name": "Nature & Environment",
+    "description": "Natural history, animals, ecology, climate, conservation, and environmental change.",
+    "sortOrder": 110
+  },
+  {
+    "id": "technology",
+    "name": "Technology",
+    "description": "Technology, computing, engineering, infrastructure, and their social effects.",
+    "sortOrder": 120
+  },
+  {
+    "id": "business-and-economics",
+    "name": "Business & Economics",
+    "description": "Business, labor, finance, markets, economic history, and capitalism.",
+    "sortOrder": 130
+  },
+  {
+    "id": "arts-and-criticism",
+    "name": "Arts & Criticism",
+    "description": "Art, music, film, performance, literary criticism, and cultural criticism.",
+    "sortOrder": 140
+  },
+  {
+    "id": "religion",
+    "name": "Religion",
+    "description": "Religion, spirituality, theology, religious history, and belief.",
+    "sortOrder": 150
+  },
+  {
+    "id": "war-and-military",
+    "name": "War & Military",
+    "description": "War, military institutions, battles, soldiers, and armed conflict.",
+    "sortOrder": 160
+  },
+  {
+    "id": "race-gender-and-identity",
+    "name": "Race, Gender & Identity",
+    "description": "Race, ethnicity, gender, sexuality, identity, civil rights, and inequality.",
+    "sortOrder": 170
+  },
+  {
+    "id": "travel-and-place",
+    "name": "Travel & Place",
+    "description": "Travel writing, place-based narrative, geography, landscapes, and local exploration.",
+    "sortOrder": 180
+  },
+  {
+    "id": "sports",
+    "name": "Sports",
+    "description": "Sports, athletes, sporting cultures, and athletic institutions.",
+    "sortOrder": 190
+  },
+  {
+    "id": "true-crime-and-justice",
+    "name": "True Crime & Justice",
+    "description": "Crime, courts, policing, prisons, legal systems, and miscarriages of justice.",
+    "sortOrder": 200
+  },
+  {
+    "id": "general-nonfiction",
+    "name": "General Nonfiction",
+    "description": "Nonfiction works that do not yet have enough signal for a more specific subject.",
+    "sortOrder": 210,
+    "fallback": true
+  }
+]

@@ -121,7 +121,18 @@ export type SubjectSummary = {
   slug: string;
   name: string;
   bookCount: number;
+  description?: string;
+  sortOrder?: number;
+  fallback?: boolean;
   topBookId?: string;
+};
+
+export type SubjectDefinition = {
+  id: string;
+  name: string;
+  description: string;
+  sortOrder: number;
+  fallback?: boolean;
 };
 
 export type BookStats = {

@@ -116,15 +116,15 @@ time,
 
 .book-drawer-backdrop {
   opacity: 0;
-  transition: opacity 180ms ease;
+  transition: opacity 280ms ease;
 }
 
 .book-drawer-panel {
   opacity: 0;
-  transform: translateX(48px);
+  transform: translateX(72px);
   transition:
-    opacity 260ms ease,
-    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 420ms ease,
+    transform 680ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -135,39 +135,39 @@ time,
 
 .book-drawer-section {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(12px);
   transition:
-    opacity 240ms ease,
-    transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 360ms ease,
+    transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
 .book-drawer-section:nth-child(1) {
-  transition-delay: 20ms;
+  transition-delay: 40ms;
 }
 
 .book-drawer-section:nth-child(2) {
-  transition-delay: 70ms;
+  transition-delay: 120ms;
 }
 
 .book-drawer-section:nth-child(3) {
-  transition-delay: 105ms;
+  transition-delay: 170ms;
 }
 
 .book-drawer-section:nth-child(4) {
-  transition-delay: 135ms;
+  transition-delay: 215ms;
 }
 
 .book-drawer-section:nth-child(5) {
-  transition-delay: 165ms;
+  transition-delay: 260ms;
 }
 
 .book-drawer-section:nth-child(6) {
-  transition-delay: 190ms;
+  transition-delay: 300ms;
 }
 
 .book-drawer-section:nth-child(7) {
-  transition-delay: 210ms;
+  transition-delay: 330ms;
 }
 
 .book-drawer-layer.is-open .book-drawer-backdrop {
@@ -185,14 +185,36 @@ time,
 }
 
 .book-drawer-layer.is-open .book-cover-lift {
-  box-shadow: 0 16px 26px color-mix(in srgb, var(--ink) 14%, transparent);
-  transform: translateY(-3px);
+  transform: translateY(-1px);
 }
 
 .book-cover-lift {
+  position: relative;
+  width: fit-content;
   transition:
-    box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1),
-    transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.book-cover-surface {
+  box-shadow: 0 12px 22px color-mix(in srgb, var(--ink) 13%, transparent);
+  transition:
+    border-color 220ms ease,
+    box-shadow 420ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: box-shadow, transform;
+}
+
+.book-cover-lift:hover,
+.book-cover-lift:focus-visible {
+  transform: translateY(-4px) rotate(-0.45deg);
+}
+
+.book-cover-lift:hover .book-cover-surface,
+.book-cover-lift:focus-visible .book-cover-surface {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  box-shadow: 0 24px 40px color-mix(in srgb, var(--ink) 24%, transparent);
+  transform: translateY(-4px);
 }
 
 .book-table-row {
@@ -202,6 +224,35 @@ time,
 .book-table-row-active {
   background: color-mix(in srgb, var(--accent-soft) 56%, transparent);
   box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.book-detail-cover {
+  box-shadow: 0 10px 22px color-mix(in srgb, var(--ink) 13%, transparent);
+}
+
+.book-detail-stats {
+  border-top: 1px solid var(--line);
+}
+
+.book-detail-text-link {
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  text-decoration-line: underline;
+  text-underline-offset: 0.18rem;
+  transition: color 160ms ease, text-decoration-color 160ms ease;
+}
+
+.book-detail-text-link:hover,
+.book-detail-text-link:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+@media (min-width: 1024px) {
+  .book-detail-stats {
+    position: sticky;
+    top: 6.5rem;
+    border-top: 0;
+  }
 }
 
 .award-history-link {
@@ -235,6 +286,72 @@ time,
   color: color-mix(in srgb, var(--ink) 78%, var(--muted));
 }
 
+.subject-chip {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--panel) 82%, transparent);
+  color: color-mix(in srgb, var(--ink) 84%, var(--muted));
+  transition:
+    border-color 180ms ease,
+    box-shadow 240ms cubic-bezier(0.16, 1, 0.3, 1),
+    color 180ms ease,
+    transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.subject-chip::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--subject-chip-tint, var(--accent-soft));
+  content: "";
+  opacity: 0.18;
+  transition: opacity 180ms ease;
+}
+
+.subject-chip:hover,
+.subject-chip:focus-visible {
+  border-color: color-mix(in srgb, var(--subject-chip-color, var(--accent)) 58%, var(--line));
+  box-shadow: 0 8px 18px color-mix(in srgb, var(--subject-chip-color, var(--accent)) 18%, transparent);
+  color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.subject-chip:hover::before,
+.subject-chip:focus-visible::before {
+  opacity: 0.42;
+}
+
+.subject-chip-0 {
+  --subject-chip-color: #8f2f24;
+  --subject-chip-tint: #ead6d2;
+}
+
+.subject-chip-1 {
+  --subject-chip-color: #245e54;
+  --subject-chip-tint: #d2e4dd;
+}
+
+.subject-chip-2 {
+  --subject-chip-color: #8a6424;
+  --subject-chip-tint: #eadfca;
+}
+
+.subject-chip-3 {
+  --subject-chip-color: #4b5f93;
+  --subject-chip-tint: #d8deec;
+}
+
+.subject-chip-4 {
+  --subject-chip-color: #7d3f68;
+  --subject-chip-tint: #ead7e4;
+}
+
+.subject-chip-5 {
+  --subject-chip-color: #5f6841;
+  --subject-chip-tint: #dde3ce;
+}
+
 .book-drawer-layer.is-closing {
   pointer-events: none;
 }
@@ -245,8 +362,8 @@ time,
 
 .book-drawer-layer.is-closing .book-drawer-panel {
   opacity: 0;
-  transform: translateX(28px);
-  transition-duration: 220ms;
+  transform: translateX(44px);
+  transition-duration: 360ms;
 }
 
 .book-drawer-layer.is-closing .book-drawer-section {
@@ -264,7 +381,7 @@ time,
     max-height: min(88vh, 46rem);
     border-top-width: 1px;
     border-left-width: 0;
-    transform: translateY(44px);
+    transform: translateY(72px);
   }
 
   .book-drawer-panel::before {
@@ -283,7 +400,7 @@ time,
   }
 
   .book-drawer-layer.is-closing .book-drawer-panel {
-    transform: translateY(32px);
+    transform: translateY(48px);
   }
 }
 

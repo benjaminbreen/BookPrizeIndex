@@ -25,6 +25,7 @@ export const editionsById = byId(data.editions);
 export const publishersById = byId(data.publishers);
 export const imprintsById = byId(data.imprints);
 export const sourcesById = byId(data.sources);
+export const subjectsByName = new Map(data.subjects.map((item) => [item.name.toLowerCase(), item]));
 export const statsByBookId = new Map(data.stats.map((item) => [item.bookId, item]));
 
 export function getBookStats(bookId: string): BookStats {

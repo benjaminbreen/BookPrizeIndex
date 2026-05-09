@@ -3,10 +3,10 @@
 import Link from "next/link";
 import { BookOpen, Check, ChevronLeft, ChevronRight, Clipboard, FileText, Link2, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { awardsById, getBookStats, imprintsById, publishersById, sourcesById, statusLabels } from "@/lib/data";
-import type { AwardAppearance, Book, SourceConfidence } from "@/lib/types";
+import { awardsById, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName } from "@/lib/data";
+import type { AwardAppearance, Book } from "@/lib/types";
 
-const DRAWER_EXIT_MS = 220;
+const DRAWER_EXIT_MS = 360;
 
 type BookDrawerSnapshot = {
   book: Book;
@@ -90,8 +90,8 @@ export function BookDrawer({
   const stats = getBookStats(renderedBook.id);
   const sortedAppearances = [...renderedAppearances].sort((a, b) => b.year - a.year || a.statusRank - b.statusRank);
   const layerState = isClosing ? "is-closing" : hasEntered ? "is-open" : "is-entering";
-  const sourceBadges = getSourceBadges(renderedBook, renderedAppearances);
   const citation = formatCitation(renderedBook, publisher);
+  const summaryPreview = renderedBook.summary ? makeSummaryPreview(renderedBook.summary) : "";
 
   function copyCitation() {
     setCitationCopied(true);
@@ -105,7 +105,7 @@ export function BookDrawer({
     <div className={`book-drawer-layer fixed inset-0 z-30 ${layerState}`}>
       <button aria-label="Close detail panel" className="book-drawer-backdrop absolute inset-0 bg-black/45 backdrop-blur-[1px]" onClick={onClose} />
       <aside className="book-drawer-panel absolute bottom-0 right-0 top-0 flex w-full max-w-[45rem] flex-col overflow-y-auto border-l hairline bg-[var(--paper)] p-5 shadow-2xl sm:p-7">
-        <div className="book-drawer-section mb-7 flex items-center justify-between">
+        <div className="book-drawer-section mb-5 flex items-center justify-between">
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Book record</p>
           <div className="flex items-center gap-4">
             <button
@@ -132,18 +132,23 @@ export function BookDrawer({
         </div>
 
         <div className="book-drawer-section grid gap-7 border-b hairline pb-6 sm:grid-cols-[8.5rem_1fr]">
-          <MiniCover title={renderedBook.title} author={renderedBook.authors.map((author) => author.name).join(", ")} thumbnailUrl={renderedBook.thumbnailUrl} />
+          <MiniCover
+            title={renderedBook.title}
+            author={renderedBook.authors.map((author) => author.name).join(", ")}
+            href={`/books/${renderedBook.slug}`}
+            thumbnailUrl={renderedBook.thumbnailUrl}
+          />
           <div className="self-center">
             <h2 className="text-4xl font-medium leading-tight">{renderedBook.title}</h2>
             <p className="mt-4 text-xl muted">{renderedBook.authors.map((author) => author.name).join(", ")}</p>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {sourceBadges.map((badge) => (
-                <span className="source-confidence-badge border hairline px-2.5 py-1 font-[var(--font-mono)] text-[0.62rem] uppercase tracking-[0.12em]" key={badge.confidence}>
-                  {badge.label}
-                  <span className="plain-number ml-1">{badge.count}</span>
-                </span>
-              ))}
-            </div>
+            {summaryPreview ? (
+              <p className="mt-5 max-w-2xl font-[var(--font-serif)] text-base italic leading-7 muted">
+                {summaryPreview}{" "}
+                <Link className="book-detail-text-link font-[var(--font-sans)] text-sm not-italic" href={`/books/${renderedBook.slug}`}>
+                  Read more
+                </Link>
+              </p>
+            ) : null}
           </div>
         </div>
 
@@ -161,7 +166,7 @@ export function BookDrawer({
             <div className="grid gap-2 border-b hairline py-3">
               <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">Subjects</dt>
               <dd className="flex flex-wrap gap-2">
-                {renderedBook.subjects.length ? renderedBook.subjects.map((subject) => <Chip key={subject}>{subject}</Chip>) : "Not yet classified"}
+                {renderedBook.subjects.length ? renderedBook.subjects.map((subject, index) => <SubjectChip index={index} key={subject} subject={subject} />) : "Not yet classified"}
               </dd>
             </div>
           </div>
@@ -224,7 +229,7 @@ export function BookDrawer({
           </div>
           <p className="mt-3 text-sm muted">Subjects</p>
           <div className="mt-3 flex flex-wrap gap-2">
-            {renderedBook.subjects.map((subject) => <Chip key={subject}>{subject}</Chip>)}
+            {renderedBook.subjects.map((subject, index) => <SubjectChip index={index} key={subject} subject={subject} />)}
           </div>
           <div className="mt-6 flex items-start gap-3 text-sm muted">
             <BookOpen className="mt-1 shrink-0" size={17} />
@@ -254,43 +259,36 @@ function Meta({ label, value }: { label: string; value: string }) {
   );
 }
 
-function MiniCover({ title, author, thumbnailUrl }: { title: string; author: string; thumbnailUrl?: string }) {
+function MiniCover({ title, author, href, thumbnailUrl }: { title: string; author: string; href: string; thumbnailUrl?: string }) {
   if (thumbnailUrl) {
     return (
-      <div className="book-cover-lift w-32">
-        <img className="aspect-[0.72] w-full border hairline object-cover shadow-sm" src={thumbnailUrl} alt={`Cover of ${title}`} />
-      </div>
+      <Link className="book-cover-lift focus-ring block w-32" href={href} aria-label={`Open full record for ${title}`}>
+        <img className="book-cover-surface aspect-[0.72] w-full border hairline object-cover" src={thumbnailUrl} alt={`Cover of ${title}`} />
+      </Link>
     );
   }
   return (
-    <div className="book-cover-lift aspect-[0.72] w-32 border hairline bg-[color-mix(in_srgb,var(--panel)_84%,var(--line))] p-4">
-      <div className="flex h-full flex-col items-center justify-between border hairline p-3 text-center">
+    <Link className="book-cover-lift focus-ring block aspect-[0.72] w-32 border hairline bg-[color-mix(in_srgb,var(--panel)_84%,var(--line))] p-4" href={href} aria-label={`Open full record for ${title}`}>
+      <div className="book-cover-surface flex h-full flex-col items-center justify-between border hairline p-3 text-center">
         <p className="font-[var(--font-mono)] text-[0.58rem] uppercase tracking-[0.24em]">{title.slice(0, 34)}</p>
         <div className="h-11 w-11 rounded-full border hairline" />
         <p className="font-[var(--font-mono)] text-[0.52rem] uppercase tracking-[0.18em] muted">{author.slice(0, 28)}</p>
       </div>
-    </div>
+    </Link>
   );
 }
 
-function Chip({ children }: { children: React.ReactNode }) {
-  return <span className="rounded-full border hairline px-3 py-1 text-xs">{children}</span>;
+function SubjectChip({ subject, index }: { subject: string; index: number }) {
+  const subjectSlug = dataSubjectSlug(subject);
+  return (
+    <Link className={`subject-chip subject-chip-${index % 6} focus-ring rounded-full border hairline px-3 py-1 text-xs`} href={subjectSlug ? `/subjects/${subjectSlug}` : "/subjects"}>
+      {subject}
+    </Link>
+  );
 }
 
-function getSourceBadges(book: Book, appearances: AwardAppearance[]) {
-  const counts = new Map<SourceConfidence, number>();
-  const sourceIds = new Set([...book.sourceIds, ...appearances.flatMap((appearance) => appearance.sourceIds)]);
-
-  sourceIds.forEach((sourceId) => {
-    const confidence = sourcesById.get(sourceId)?.confidence ?? "unknown";
-    counts.set(confidence, (counts.get(confidence) ?? 0) + 1);
-  });
-
-  if (!counts.size) counts.set("unknown", 1);
-
-  return Array.from(counts.entries())
-    .sort(([a], [b]) => confidenceOrder.indexOf(a) - confidenceOrder.indexOf(b))
-    .map(([confidence, count]) => ({ confidence, count, label: confidenceLabels[confidence] }));
+function dataSubjectSlug(subject: string) {
+  return subjectsByName.get(subject.toLowerCase())?.slug;
 }
 
 function formatCitation(book: Book, publisher?: string) {
@@ -300,12 +298,11 @@ function formatCitation(book: Book, publisher?: string) {
   return `${authors}.${year} ${book.title}.${publisherText}`.replace(/\s+/g, " ").trim();
 }
 
-const confidenceOrder: SourceConfidence[] = ["official", "catalog", "retailer", "manual", "unknown"];
-
-const confidenceLabels: Record<SourceConfidence, string> = {
-  official: "Official",
-  catalog: "Catalog",
-  retailer: "Retailer",
-  manual: "Manual",
-  unknown: "Unverified",
-};
+function makeSummaryPreview(summary: string) {
+  const cleaned = summary.replace(/\s+/g, " ").trim();
+  if (cleaned.length <= 230) return cleaned;
+  const clipped = cleaned.slice(0, 230);
+  const sentenceBreak = Math.max(clipped.lastIndexOf(". "), clipped.lastIndexOf("! "), clipped.lastIndexOf("? "));
+  if (sentenceBreak > 120) return `${clipped.slice(0, sentenceBreak + 1)}`;
+  return `${clipped.replace(/[,;:\s]+$/, "")}...`;
+}

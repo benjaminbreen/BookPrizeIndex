@@ -1,7 +1,8 @@
 import Link from "next/link";
+import type React from "react";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
-import { awardsById, booksById, data, getBookStats, imprintsById, publishersById, statusLabels } from "@/lib/data";
+import { awardsById, booksById, data, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName } from "@/lib/data";
 
 export function generateStaticParams() {
   return data.books.map((book) => ({ slug: book.slug }));
@@ -39,13 +40,16 @@ export default async function BookPage({ params }: PageProps) {
 
   return (
     <main>
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[19rem_1fr] lg:px-8">
-        <aside className="border-r-0 hairline lg:border-r lg:pr-8">
+      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[18rem_minmax(0,1fr)_20rem] lg:items-start lg:px-8">
+        <aside className="border-r-0 hairline lg:border-r lg:pr-7">
           <BookCover title={book.title} author={book.authors.map((author) => author.name).join(", ")} thumbnailUrl={book.thumbnailUrl} />
           <dl className="mt-4 grid text-[0.78rem]">
             <RailMeta label="Author" value={book.authors.map((author) => author.name).join(", ")} />
             <RailMeta label="Publisher" value={publisher?.name ?? "Not yet sourced"} />
-            <RailMeta label="Imprint" value={imprint?.name ?? "Unknown"} />
+            <RailMeta
+              label="Imprint"
+              value={imprint ? <Link className="book-detail-text-link" href={`/publishers/${imprint.id.replace(/^imprint-/, "")}`}>{imprint.name}</Link> : "Unknown"}
+            />
             <RailMeta label="Publication year" value={String(book.publicationYear ?? "Unknown")} />
             <RailMeta label="Pages" value={book.pageCount ? String(book.pageCount) : "Not yet sourced"} />
             <RailMeta label="ISBN" value={book.isbn13.join(", ") || "Not yet sourced"} />
@@ -53,54 +57,46 @@ export default async function BookPage({ params }: PageProps) {
           </dl>
         </aside>
 
-        <section>
-          <div className="grid gap-10 lg:grid-cols-[1fr_24rem]">
-            <div>
-              <h1 className="font-[var(--font-serif)] text-5xl font-light leading-[1.02] sm:text-6xl">{book.title}</h1>
-              {book.subtitle ? <p className="mt-3 text-2xl">{book.subtitle}</p> : null}
-              <p className="mt-4 text-xl muted">{book.authors.map((author) => author.name).join(", ")}</p>
+        <section className="min-w-0">
+          <h1 className="font-[var(--font-serif)] text-5xl font-light leading-[1.02] sm:text-6xl">{book.title}</h1>
+          {book.subtitle ? <p className="mt-3 text-2xl">{book.subtitle}</p> : null}
+          <p className="mt-4 text-xl muted">{book.authors.map((author) => author.name).join(", ")}</p>
 
-              <div className="mt-8 max-w-3xl space-y-5 text-base leading-8">
-                {book.summary ? (
-                  <p>{book.summary}</p>
-                ) : (
-                  <>
-                    <p className="muted">
-                      Publisher summary has not yet been sourced for this record. The detail page is ready to display a
-                      concise sourced summary once the enrichment pipeline adds publisher-page data.
-                    </p>
-                    <p className="muted">
-                      Award history, imprint data, search links, and subject assignments below are generated from the
-                      current imported prize records.
-                    </p>
-                  </>
-                )}
-              </div>
+          <div className="mt-8 max-w-3xl space-y-5 text-base leading-8">
+            {book.summary ? (
+              <p>{book.summary}</p>
+            ) : (
+              <>
+                <p className="muted">
+                  Publisher summary has not yet been sourced for this record. The detail page is ready to display a
+                  concise sourced summary once the enrichment pipeline adds publisher-page data.
+                </p>
+                <p className="muted">
+                  Award history, imprint data, search links, and subject assignments below are generated from the
+                  current imported prize records.
+                </p>
+              </>
+            )}
+          </div>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                {book.subjects.map((subject) => (
-                  <Link
-                    className="focus-ring border hairline px-4 py-2 text-sm transition hover:bg-[var(--accent-soft)]"
-                    href={`/subjects/${slugify(subject)}`}
-                    key={subject}
-                  >
-                    {subject}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <dl className="self-end text-sm lg:pt-20">
-              <StatLine label="Awards won" value={String(stats.wins)} />
-              <StatLine label="Shortlisted" value={String(stats.statuses.finalist + stats.statuses.shortlist)} />
-              <StatLine label="Longlisted" value={String(stats.statuses.longlist)} />
-              <StatLine label="First award year" value={String(firstAwardYear ?? "Unknown")} />
-              <StatLine label="Latest recognition" value={String(latestRecognition ?? "Unknown")} />
-              <StatLine label="Publisher" value={publisher?.name ?? "Not yet sourced"} />
-              <StatLine label="Imprint" value={imprint?.name ?? "Unknown"} />
-            </dl>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {book.subjects.map((subject, index) => (
+              <SubjectPill index={index} key={subject} subject={subject} />
+            ))}
           </div>
         </section>
+
+        <aside className="book-detail-stats mt-8 text-sm lg:mt-28">
+          <dl>
+            <StatLine label="Awards won" value={String(stats.wins)} />
+            <StatLine label="Shortlisted" value={String(stats.statuses.finalist + stats.statuses.shortlist)} />
+            <StatLine label="Longlisted" value={String(stats.statuses.longlist)} />
+            <StatLine label="First award year" value={String(firstAwardYear ?? "Unknown")} />
+            <StatLine label="Latest recognition" value={String(latestRecognition ?? "Unknown")} />
+            <StatLine label="Publisher" value={publisher?.name ?? "Not yet sourced"} />
+            <StatLine label="Imprint" value={imprint?.name ?? "Unknown"} />
+          </dl>
+        </aside>
       </section>
 
       <section className="border-t hairline">
@@ -196,10 +192,10 @@ export default async function BookPage({ params }: PageProps) {
 
 function BookCover({ title, author, thumbnailUrl }: { title: string; author: string; thumbnailUrl?: string }) {
   if (thumbnailUrl) {
-    return <img className="aspect-[0.72] w-full max-w-[16rem] border hairline object-cover shadow-sm" src={thumbnailUrl} alt={`Cover of ${title}`} />;
+    return <img className="book-detail-cover aspect-[0.72] w-full max-w-[16rem] border hairline object-cover" src={thumbnailUrl} alt={`Cover of ${title}`} />;
   }
   return (
-    <div className="aspect-[0.72] w-full max-w-[16rem] border hairline bg-[color-mix(in_srgb,var(--panel)_84%,var(--line))] p-7 shadow-sm">
+    <div className="book-detail-cover aspect-[0.72] w-full max-w-[16rem] border hairline bg-[color-mix(in_srgb,var(--panel)_84%,var(--line))] p-7">
       <div className="flex h-full flex-col items-center justify-between border hairline p-5 text-center">
         <p className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.28em]">{title.slice(0, 52)}</p>
         <div className="h-20 w-20 rounded-full border hairline" />
@@ -209,7 +205,7 @@ function BookCover({ title, author, thumbnailUrl }: { title: string; author: str
   );
 }
 
-function RailMeta({ label, value }: { label: string; value: string }) {
+function RailMeta({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="grid grid-cols-[6.2rem_1fr] gap-3 border-b hairline py-2">
       <dt className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.12em] muted">{label}</dt>
@@ -235,6 +231,15 @@ function ConnectionRow({ href, label, meta }: { href: string; label: string; met
         {meta}
         <ArrowUpRight size={12} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
+    </Link>
+  );
+}
+
+function SubjectPill({ subject, index }: { subject: string; index: number }) {
+  const slug = subjectsByName.get(subject.toLowerCase())?.slug ?? slugify(subject);
+  return (
+    <Link className={`subject-chip subject-chip-${index % 6} focus-ring rounded-full border hairline px-4 py-2 text-sm`} href={`/subjects/${slug}`}>
+      {subject}
     </Link>
   );
 }
