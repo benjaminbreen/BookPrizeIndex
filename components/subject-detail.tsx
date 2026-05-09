@@ -156,7 +156,7 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
 
           <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] sm:grid-cols-2 lg:grid-cols-2">
             <MiniPanel title="Top awards in this subject" rows={topAwards} footer="View all awards" href="/awards" />
-            <MiniPanel title="Top imprints in this subject" rows={topImprints} footer="View all imprints" href="/publishers" />
+            <MiniPanel title="Top imprints in this subject" rows={topImprints} footer="View all imprints" href="/imprints" />
           </div>
         </aside>
       </section>

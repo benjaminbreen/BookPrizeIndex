@@ -1,10 +1,15 @@
 {
-  "generatedAt": "2026-05-09T16:56:39.454Z",
+  "generatedAt": "2026-05-09T17:40:47.214Z",
   "files": [
     {
       "file": "national-book-awards.json",
       "generatedAt": "2026-05-09T16:45:53.632Z",
       "records": 838
+    },
+    {
+      "file": "nbcc.json",
+      "generatedAt": "2026-05-09T17:39:59.054Z",
+      "records": 736
     },
     {
       "file": "pulitzer.json",
@@ -13,9 +18,9 @@
     }
   ],
   "totals": {
-    "records": 1432,
-    "awards": 2,
-    "categories": 29,
+    "records": 2168,
+    "awards": 3,
+    "categories": 33,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
@@ -73,6 +78,16 @@
       "latestYear": 1975
     },
     {
+      "awardId": "national-book-critics-circle-awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "records": 214,
+      "winners": 43,
+      "finalists": 171,
+      "earliestYear": 1983,
+      "latestYear": 2025
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-biography-and-autobiography",
       "categoryName": "Biography and Autobiography",
@@ -121,6 +136,16 @@
       "finalists": 0,
       "earliestYear": 1938,
       "latestYear": 1940
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "records": 167,
+      "winners": 51,
+      "finalists": 116,
+      "earliestYear": 1975,
+      "latestYear": 2025
     },
     {
       "awardId": "national-book-awards",
@@ -243,6 +268,16 @@
       "latestYear": 1983
     },
     {
+      "awardId": "national-book-critics-circle-awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "records": 99,
+      "winners": 21,
+      "finalists": 78,
+      "earliestYear": 2005,
+      "latestYear": 2025
+    },
+    {
       "awardId": "pulitzer-prize",
       "categoryId": "pulitzer-memoir-or-autobiography",
       "categoryName": "Memoir or Autobiography",
@@ -270,6 +305,16 @@
       "winners": 98,
       "finalists": 389,
       "earliestYear": 1935,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 256,
+      "winners": 52,
+      "finalists": 204,
+      "earliestYear": 1975,
       "latestYear": 2025
     },
     {

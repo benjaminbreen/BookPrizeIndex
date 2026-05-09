@@ -31,6 +31,7 @@ export type Publisher = {
 export type Imprint = {
   id: string;
   name: string;
+  shortName?: string;
   publisherId?: string;
   websiteUrl?: string;
   sourceIds: string[];
@@ -52,7 +53,10 @@ export type Book = {
   imprintId?: string;
   pageCount?: number;
   isbn13: string[];
+  primarySubject?: string;
   subjects: string[];
+  primaryTopic?: string;
+  topics: string[];
   centralFigures: string[];
   summary?: string;
   thumbnailUrl?: string;
@@ -133,6 +137,13 @@ export type SubjectDefinition = {
   description: string;
   sortOrder: number;
   fallback?: boolean;
+};
+
+export type TopicDefinition = {
+  id: string;
+  name: string;
+  description: string;
+  sortOrder: number;
 };
 
 export type BookStats = {

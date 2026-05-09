@@ -48,7 +48,7 @@ export default async function BookPage({ params }: PageProps) {
             <RailMeta label="Publisher" value={publisher?.name ?? "Not yet sourced"} />
             <RailMeta
               label="Imprint"
-              value={imprint ? <Link className="book-detail-text-link" href={`/publishers/${imprint.id.replace(/^imprint-/, "")}`}>{imprint.name}</Link> : "Unknown"}
+              value={imprint ? <Link className="book-detail-text-link" href={`/imprints/${imprint.id.replace(/^imprint-/, "")}`}>{imprint.name}</Link> : "Unknown"}
             />
             <RailMeta label="Publication year" value={String(book.publicationYear ?? "Unknown")} />
             <RailMeta label="Pages" value={book.pageCount ? String(book.pageCount) : "Not yet sourced"} />
@@ -93,8 +93,7 @@ export default async function BookPage({ params }: PageProps) {
             <StatLine label="Longlisted" value={String(stats.statuses.longlist)} />
             <StatLine label="First award year" value={String(firstAwardYear ?? "Unknown")} />
             <StatLine label="Latest recognition" value={String(latestRecognition ?? "Unknown")} />
-            <StatLine label="Publisher" value={publisher?.name ?? "Not yet sourced"} />
-            <StatLine label="Imprint" value={imprint?.name ?? "Unknown"} />
+            <StatLine label="Award score" value={String(stats.score)} />
           </dl>
         </aside>
       </section>
@@ -162,7 +161,7 @@ export default async function BookPage({ params }: PageProps) {
               ))}
               {imprint ? (
                 <ConnectionRow
-                  href={`/publishers/${imprint.id.replace(/^imprint-/, "")}`}
+                  href={`/imprints/${imprint.id.replace(/^imprint-/, "")}`}
                   label={`Books from ${imprint.name}`}
                   meta={`${data.books.filter((candidate) => candidate.imprintId === imprint.id).length} books`}
                 />

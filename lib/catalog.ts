@@ -1,6 +1,6 @@
 import MiniSearch from "minisearch";
 import { data, awardsById, getBookStats, imprintsById, publishersById } from "@/lib/data";
-import type { Book } from "@/lib/types";
+import type { Book, Imprint, Publisher } from "@/lib/types";
 
 export type BookSortKey = "score" | "year" | "title" | "wins" | "lists" | "imprint" | "publisher";
 
@@ -83,6 +83,49 @@ export function filterBooksByQuery(books: Book[], query: string) {
 
 export function booksForImprint(imprintId: string) {
   return data.books.filter((book) => book.imprintId === imprintId);
+}
+
+export function imprintsForPublisher(publisherId: string) {
+  return data.imprints
+    .filter((imprint) => imprint.publisherId === publisherId)
+    .sort((a, b) => imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name));
+}
+
+export function booksForPublisher(publisherId: string) {
+  return data.books.filter((book) => book.publisherId === publisherId);
+}
+
+export function publisherStats(publisherId: string) {
+  const books = booksForPublisher(publisherId);
+  const bookIds = new Set(books.map((book) => book.id));
+  const appearances = data.appearances.filter((appearance) => bookIds.has(appearance.bookId));
+  return {
+    books: books.length,
+    imprints: imprintsForPublisher(publisherId).length,
+    appearances: appearances.length,
+    score: books.reduce((sum, book) => sum + getBookStats(book.id).score, 0),
+    wins: books.reduce((sum, book) => sum + getBookStats(book.id).wins, 0),
+  };
+}
+
+export function imprintStats(imprintId: string) {
+  const books = booksForImprint(imprintId);
+  const bookIds = new Set(books.map((book) => book.id));
+  const appearances = data.appearances.filter((appearance) => bookIds.has(appearance.bookId));
+  return {
+    books: books.length,
+    appearances: appearances.length,
+    score: books.reduce((sum, book) => sum + getBookStats(book.id).score, 0),
+    wins: books.reduce((sum, book) => sum + getBookStats(book.id).wins, 0),
+  };
+}
+
+export function publisherSlug(publisher: Publisher) {
+  return publisher.id.replace(/^publisher-/, "");
+}
+
+export function imprintSlug(imprint: Imprint) {
+  return imprint.id.replace(/^imprint-/, "");
 }
 
 export function booksForSubject(slug: string) {

@@ -73,5 +73,59 @@
         "coverageNotes": "Covers winners and finalists listed in the National Book Award for Nonfiction tables, including historical nonfiction subcategories when the award was divided."
       }
     ]
+  },
+  {
+    "id": "national-book-critics-circle-awards",
+    "name": "National Book Critics Circle Awards",
+    "organization": "National Book Critics Circle",
+    "geography": "United States",
+    "officialUrl": "https://www.bookcritics.org/awards/",
+    "notes": "Initial importer uses Wikipedia category pages as deterministic secondary sources while retaining the official NBCC awards and past-awards pages for later source verification and publisher enrichment.",
+    "categories": [
+      {
+        "id": "nbcc-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://www.bookcritics.org/awards/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Nonfiction",
+        "sourceLabel": "Wikipedia: National Book Critics Circle Award for Nonfiction",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1975-present",
+        "coverageNotes": "Covers winners and finalists listed in the NBCC Nonfiction table."
+      },
+      {
+        "id": "nbcc-biography",
+        "name": "Biography",
+        "officialUrl": "https://www.bookcritics.org/awards/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Biography",
+        "sourceLabel": "Wikipedia: National Book Critics Circle Award for Biography",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1983-present",
+        "coverageNotes": "Covers winners and finalists listed in the NBCC Biography table."
+      },
+      {
+        "id": "nbcc-memoir-and-autobiography",
+        "name": "Memoir and Autobiography",
+        "officialUrl": "https://www.bookcritics.org/awards/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Memoir_and_Autobiography",
+        "sourceLabel": "Wikipedia: National Book Critics Circle Award for Memoir and Autobiography",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2005-present",
+        "coverageNotes": "Importer keeps 2005 onward records so this split category does not duplicate the earlier Biography/Autobiography lineage."
+      },
+      {
+        "id": "nbcc-criticism",
+        "name": "Criticism",
+        "officialUrl": "https://www.bookcritics.org/awards/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Criticism",
+        "sourceLabel": "Wikipedia: National Book Critics Circle Award for Criticism",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1975-present",
+        "coverageNotes": "Covers winners and finalists listed in the NBCC Criticism table."
+      }
+    ]
   }
 ]

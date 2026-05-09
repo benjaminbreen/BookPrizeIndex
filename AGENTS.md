@@ -62,6 +62,7 @@ Current prototype:
 - `npm run data:enrich` rebuilds the catalog, runs `scripts/enrich-books.ts`, writes `sources/enrichment/books.generated.json`, then rebuilds the catalog again.
 - `scripts/enrich-books.ts` queries Open Library and Google Books for top-scoring books with missing fields, selected by `getBookStats`.
 - It writes ISBN, page count, summary, external thumbnail URL, Google Books publisher-style link, source IDs, and publisher patches where available.
+- It treats Wikipedia as deferred enrichment; Open Library / Google Books queues do not select books only missing Wikipedia links.
 - It merges into `sources/enrichment/books.generated.json` rather than replacing the whole file.
 - It writes `data/public/book-enrichment-report.json` and `data/public/enrichment-report.json` with per-book enrichment status, provider matches, confidence scores, changed fields, skipped fields, and warnings.
 
@@ -76,7 +77,7 @@ Important limitations:
 Preferred next shape for this workflow:
 
 1. Run `npm run data:build` first so the latest award imports are reflected in book IDs.
-2. Run `npm run books:queue -- --limit 100` to generate a missing-field queue for books lacking ISBN, page count, summary, thumbnail, publisher URL, or Wikipedia URL.
+2. Run `npm run books:queue -- --limit 100` to generate a missing-field queue for books lacking catalog metadata: ISBN, page count, summary, thumbnail, or publisher URL. Wikipedia appears as a deferred field for a separate pass.
 3. Run `npm run books:enrich -- --limit 25` for a small targeted pass, then inspect `data/public/book-enrichment-report.json`.
 4. Merge new patches into `sources/enrichment/books.generated.json` without deleting existing reviewed patches.
 5. Download usable cover thumbnails into `public/book-covers/` when license/source policy allows it, and point `thumbnailUrl` at the local asset.
@@ -118,6 +119,8 @@ Historical winners-only coverage is acceptable where finalist/shortlist records 
 - `npm run books:enrich -- --limit 25`: run targeted Open Library / Google Books book metadata enrichment.
 - `npm run data:enrich`: run book metadata enrichment wrapped by rebuilds before and after.
 - `npm run data:import:pulitzer`: import normalized raw Pulitzer nonfiction records into `data/raw/award-records/pulitzer.json`.
+- `npm run data:import:nba`: import normalized raw National Book Awards nonfiction records into `data/raw/award-records/national-book-awards.json`.
+- `npm run data:import:nbcc`: import normalized raw National Book Critics Circle nonfiction-related records into `data/raw/award-records/nbcc.json`.
 - `npm run data:validate:raw`: validate raw award-record corpus files and write `data/raw/award-records/import-report.json`.
 
 ## Immediate Priority
@@ -127,6 +130,6 @@ Implement the corpus creation plan in `PLAN.md`, starting with:
 1. `sources/prizes.json`
 2. normalized award-record types
 3. importer framework
-4. National Book Awards and NBCC importers
+4. more major-award importers: Andrew Carnegie, Kirkus, Baillie Gifford, Cundill
 5. build-data changes to consume normalized award records
 6. richer import coverage reports

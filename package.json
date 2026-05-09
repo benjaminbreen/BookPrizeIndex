@@ -14,6 +14,7 @@
     "data:import:pulitzer": "tsx scripts/import-award-records/pulitzer.ts",
     "data:import:nba": "tsx scripts/import-award-records/national-book-awards.ts",
     "data:import:national-book-awards": "npm run data:import:nba",
+    "data:import:nbcc": "tsx scripts/import-award-records/nbcc.ts",
     "data:validate:raw": "tsx scripts/import-award-records/validate.ts",
     "lint": "next lint"
   },

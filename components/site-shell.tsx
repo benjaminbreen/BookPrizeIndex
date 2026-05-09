@@ -100,11 +100,14 @@ function labelForPart(part: string, href: string) {
   if (part === "awards") return "Awards";
   if (part === "subjects") return "Subjects";
   if (part === "publishers") return "Publishers";
+  if (part === "imprints") return "Imprints";
   const award = data.awards.find((item) => href === `/awards/${item.slug}`);
   if (award) return award.shortName ?? award.name;
   const subject = data.subjects.find((item) => href === `/subjects/${item.slug}`);
   if (subject) return subject.name;
-  const imprint = data.imprints.find((item) => href === `/publishers/${item.id.replace(/^imprint-/, "")}`);
+  const publisher = data.publishers.find((item) => href === `/publishers/${item.id.replace(/^publisher-/, "")}`);
+  if (publisher) return publisher.name;
+  const imprint = data.imprints.find((item) => href === `/imprints/${item.id.replace(/^imprint-/, "")}`);
   if (imprint) return imprint.name;
   const book = data.books.find((item) => href === `/books/${item.slug}`);
   if (book) return book.title;

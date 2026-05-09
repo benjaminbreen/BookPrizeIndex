@@ -19,12 +19,14 @@ type ReportRow = {
   status: "enriched" | "no_missing_fields" | "no_new_fields" | "not_found" | "low_confidence" | "error";
   fields: string[];
   skippedFields?: string[];
-  missingFields?: MissingBookField[];
+  missingFields?: CatalogMissingBookField[];
+  deferredFields?: DeferredMissingBookField[];
   matches?: MatchReport[];
   notes?: string;
 };
 
-type MissingBookField = "isbn13" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink" | "wikipedia";
+type CatalogMissingBookField = "isbn13" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink";
+type DeferredMissingBookField = "wikipedia";
 
 type MatchReport = {
   provider: "google_books" | "open_library";
@@ -72,8 +74,13 @@ const minimumScore = Number(process.env.ENRICH_MIN_SCORE ?? readArg("--min-score
 async function main() {
   const generatedAt = new Date().toISOString();
   const selected = [...data.books]
-    .filter((book) => missingFieldsForBook(book).length > 0)
-    .sort((a, b) => getBookStats(b.id).score - getBookStats(a.id).score || a.title.localeCompare(b.title))
+    .filter((book) => catalogMissingFieldsForBook(book).length > 0)
+    .sort(
+      (a, b) =>
+        catalogMissingFieldsForBook(b).length - catalogMissingFieldsForBook(a).length ||
+        getBookStats(b.id).score - getBookStats(a.id).score ||
+        a.title.localeCompare(b.title),
+    )
     .slice(0, limit);
 
   const patch = await readExistingPatch(generatedAt);
@@ -81,7 +88,8 @@ async function main() {
 
   for (const book of selected) {
     const author = book.authors.map((item) => item.name).join(" ");
-    const missingFields = missingFieldsForBook(book);
+    const missingFields = catalogMissingFieldsForBook(book);
+    const deferredFields = deferredMissingFieldsForBook(book);
     if (!missingFields.length) {
       report.push({ bookId: book.id, title: book.title, author, status: "no_missing_fields", fields: [] });
       continue;
@@ -108,19 +116,25 @@ async function main() {
           status: matches.length ? "low_confidence" : "not_found",
           fields: [],
           missingFields,
+          deferredFields,
           matches,
           notes,
         });
         continue;
       }
 
-      const enriched = mergeMetadata(book, openLibrary?.doc, google?.item, generatedAt);
+      const enriched = mergeMetadata(
+        book,
+        openLibrary && openLibrary.score >= minimumScore ? openLibrary.doc : undefined,
+        google && google.score >= minimumScore ? google.item : undefined,
+        generatedAt,
+      );
       if (!Object.keys(enriched.bookPatch).length) {
         const notes = [openLibraryResult, googleResult]
           .filter((result) => result.status === "rejected")
           .map((result) => result.reason instanceof Error ? result.reason.message : String(result.reason))
           .join("; ");
-        report.push({ bookId: book.id, title: book.title, author, status: "no_new_fields", fields: [], missingFields, matches, notes });
+        report.push({ bookId: book.id, title: book.title, author, status: "no_new_fields", fields: [], missingFields, deferredFields, matches, notes });
         continue;
       }
       patch.books[book.id] = mergePatch(patch.books[book.id] ?? {}, enriched.bookPatch);
@@ -134,6 +148,7 @@ async function main() {
         fields: Object.keys(enriched.bookPatch),
         skippedFields: missingFields.filter((field) => !Object.keys(enriched.bookPatch).includes(fieldToPatchKey(field))),
         missingFields,
+        deferredFields,
         matches,
       });
     } catch (error) {
@@ -207,14 +222,12 @@ function delay(ms: number) {
 function bestOpenLibraryMatch(book: Book, author: string, docs: OpenLibraryDoc[]) {
   return docs
     .map((doc) => ({ doc, score: matchScore(book.title, author, doc.title, doc.author_name?.join(" ")) }))
-    .filter((item) => item.score >= minimumScore)
     .sort((a, b) => b.score - a.score)[0];
 }
 
 function bestGoogleMatch(book: Book, author: string, items: GoogleVolume[]) {
   return items
     .map((item) => ({ item, score: matchScore(book.title, author, item.volumeInfo?.title, item.volumeInfo?.authors?.join(" ")) }))
-    .filter((entry) => entry.score >= minimumScore)
     .sort((a, b) => b.score - a.score)[0];
 }
 
@@ -289,15 +302,18 @@ function mergeMetadata(book: Book, openLibrary: OpenLibraryDoc | undefined, goog
   return { bookPatch, publishers, sources };
 }
 
-function missingFieldsForBook(book: Book): MissingBookField[] {
-  const fields: MissingBookField[] = [];
+function catalogMissingFieldsForBook(book: Book): CatalogMissingBookField[] {
+  const fields: CatalogMissingBookField[] = [];
   if (!book.isbn13.length) fields.push("isbn13");
   if (!book.pageCount) fields.push("pageCount");
   if (!book.summary) fields.push("summary");
   if (!book.thumbnailUrl) fields.push("thumbnailUrl");
   if (!book.links.publisher) fields.push("publisherLink");
-  if (!book.links.wikipedia) fields.push("wikipedia");
   return fields;
+}
+
+function deferredMissingFieldsForBook(book: Book): DeferredMissingBookField[] {
+  return book.links.wikipedia ? [] : ["wikipedia"];
 }
 
 function mergePatch(current: Partial<Book>, next: Partial<Book>): Partial<Book> {
@@ -317,7 +333,7 @@ function mergePatch(current: Partial<Book>, next: Partial<Book>): Partial<Book> 
   return merged;
 }
 
-function fieldToPatchKey(field: MissingBookField) {
+function fieldToPatchKey(field: CatalogMissingBookField) {
   return field === "publisherLink" ? "links" : field;
 }
 

@@ -1,10 +1,9 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { BookDrawer } from "@/components/book-drawer";
-import { booksById, data, statusLabels } from "@/lib/data";
+import { booksById, data, imprintsById, statusLabels } from "@/lib/data";
 import type { AwardAppearance, Book } from "@/lib/types";
 
 export function AwardBookList({ appearances }: { appearances: AwardAppearance[] }) {
@@ -69,7 +68,7 @@ export function AwardBookList({ appearances }: { appearances: AwardAppearance[] 
               <th className="px-4 py-2 font-normal">Result</th>
               <th className="px-4 py-2 font-normal">Book</th>
               <th className="px-4 py-2 font-normal">Author</th>
-              <th className="px-4 py-2 font-normal">Source</th>
+              <th className="px-4 py-2 font-normal">Imprint</th>
             </tr>
           </thead>
           <tbody>
@@ -91,19 +90,7 @@ export function AwardBookList({ appearances }: { appearances: AwardAppearance[] 
                     <span className="transition group-hover:text-[var(--accent)]">{book.title}</span>
                   </td>
                   <td className="px-4 py-2 muted">{book.authors.map((author) => author.name).join(", ")}</td>
-                  <td className="px-4 py-2 font-[var(--font-mono)] text-xs muted">
-                    {appearance.sourceUrl ? (
-                      <a
-                        className="inline-flex items-center gap-1 hover:text-[var(--ink)]"
-                        href={appearance.sourceUrl}
-                        onClick={(event) => event.stopPropagation()}
-                      >
-                        Official <ArrowUpRight size={12} />
-                      </a>
-                    ) : (
-                      "Pending"
-                    )}
-                  </td>
+                  <td className="px-4 py-2 muted">{displayImprint(book.imprintId)}</td>
                 </tr>
               );
             })}
@@ -121,4 +108,10 @@ export function AwardBookList({ appearances }: { appearances: AwardAppearance[] 
       />
     </>
   );
+}
+
+function displayImprint(imprintId?: string) {
+  if (!imprintId) return "Unknown";
+  const imprint = imprintsById.get(imprintId);
+  return imprint?.shortName ?? imprint?.name ?? "Unknown";
 }

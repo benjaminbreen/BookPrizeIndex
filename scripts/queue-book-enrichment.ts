@@ -4,7 +4,8 @@ import { fileURLToPath } from "node:url";
 import { data, getBookStats } from "../lib/data";
 import type { Book } from "../lib/types";
 
-type MissingBookField = "isbn13" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink" | "wikipedia";
+type CatalogMissingBookField = "isbn13" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink";
+type DeferredMissingBookField = "wikipedia";
 
 type QueueRow = {
   bookId: string;
@@ -12,7 +13,8 @@ type QueueRow = {
   title: string;
   author: string;
   score: number;
-  missingFields: MissingBookField[];
+  missingFields: CatalogMissingBookField[];
+  deferredFields: DeferredMissingBookField[];
 };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -25,7 +27,7 @@ async function main() {
   const queue = data.books
     .map((book) => toQueueRow(book))
     .filter((row) => row.missingFields.length > 0)
-    .sort((a, b) => b.score - a.score || a.title.localeCompare(b.title))
+    .sort((a, b) => b.missingFields.length - a.missingFields.length || b.score - a.score || a.title.localeCompare(b.title))
     .slice(0, limit);
 
   await fs.mkdir(publicDataDir, { recursive: true });
@@ -38,13 +40,14 @@ async function main() {
 }
 
 function toQueueRow(book: Book): QueueRow {
-  const missingFields: MissingBookField[] = [];
+  const missingFields: CatalogMissingBookField[] = [];
+  const deferredFields: DeferredMissingBookField[] = [];
   if (!book.isbn13.length) missingFields.push("isbn13");
   if (!book.pageCount) missingFields.push("pageCount");
   if (!book.summary) missingFields.push("summary");
   if (!book.thumbnailUrl) missingFields.push("thumbnailUrl");
   if (!book.links.publisher) missingFields.push("publisherLink");
-  if (!book.links.wikipedia) missingFields.push("wikipedia");
+  if (!book.links.wikipedia) deferredFields.push("wikipedia");
 
   return {
     bookId: book.id,
@@ -53,6 +56,7 @@ function toQueueRow(book: Book): QueueRow {
     author: book.authors.map((item) => item.name).join(" "),
     score: getBookStats(book.id).score,
     missingFields,
+    deferredFields,
   };
 }
 

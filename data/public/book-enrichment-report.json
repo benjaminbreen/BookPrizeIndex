@@ -1,37 +1,130 @@
 {
-  "generatedAt": "2026-05-09T17:10:58.722Z",
-  "limit": 1,
+  "generatedAt": "2026-05-09T17:43:58.477Z",
+  "limit": 3,
   "minimumScore": 0.58,
-  "selectedCount": 1,
+  "selectedCount": 3,
   "report": [
     {
-      "bookId": "book-all-that-she-carried-tiya-miles",
-      "title": "All That She Carried",
-      "author": "Tiya Miles",
-      "status": "no_new_fields",
-      "fields": [],
+      "bookId": "book-fathoms-rebecca-giggs",
+      "title": "Fathoms",
+      "author": "Rebecca Giggs",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "pageCount",
+        "summary",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
       "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
         "wikipedia"
       ],
       "matches": [
         {
           "provider": "google_books",
-          "title": "All That She Carried",
-          "author": "Tiya Miles",
-          "url": "https://books.google.com/books/about/All_That_She_Carried.html?hl=&id=ZXAtEAAAQBAJ",
+          "title": "Fathoms",
+          "author": "Rebecca Giggs",
+          "url": "https://play.google.com/store/books/details?id=joK2DwAAQBAJ",
           "score": 1,
           "accepted": true
         },
         {
           "provider": "open_library",
-          "title": "All That She Carried",
-          "author": "Tiya Miles",
-          "url": "https://openlibrary.org/works/OL24522613W",
+          "title": "Fathoms",
+          "author": "Rebecca Giggs",
+          "url": "https://openlibrary.org/works/OL20828366W",
+          "score": 1,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-g-man-beverly-gage",
+      "title": "G-Man",
+      "author": "Beverly Gage",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "G-Man (Pulitzer Prize Winner)",
+          "author": "Beverly Gage",
+          "url": "https://books.google.com/books/about/G_Man_Pulitzer_Prize_Winner.html?hl=&id=0BfQEAAAQBAJ",
+          "score": 0.475,
+          "accepted": false
+        },
+        {
+          "provider": "open_library",
+          "title": "G-Man",
+          "author": "Beverly Gage",
+          "url": "https://openlibrary.org/works/OL27593197W",
           "score": 1,
           "accepted": true
         }
       ],
       "notes": ""
+    },
+    {
+      "bookId": "book-heavy-kiese-laymon",
+      "title": "Heavy",
+      "author": "Kiese Laymon",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "pageCount",
+        "summary",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Heavy",
+          "author": "Kiese Laymon",
+          "url": "https://play.google.com/store/books/details?id=0iezCwAAQBAJ",
+          "score": 1,
+          "accepted": true
+        },
+        {
+          "provider": "open_library",
+          "title": "Heavy",
+          "author": "Kiese Laymon",
+          "url": "https://openlibrary.org/works/OL19754790W",
+          "score": 1,
+          "accepted": true
+        }
+      ]
     }
   ]
 }

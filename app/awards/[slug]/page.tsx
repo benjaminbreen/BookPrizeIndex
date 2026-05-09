@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowUpRight } from "lucide-react";
 import { AwardBookList } from "@/components/award-book-list";
 import { booksById, data, getBookStats, imprintsById, publishersById } from "@/lib/data";
 
@@ -35,18 +34,15 @@ export default async function AwardPage({ params }: PageProps) {
   const finalists = appearances.filter((appearance) => appearance.status === "finalist").length;
   const shortlisted = appearances.filter((appearance) => appearance.status === "shortlist").length;
   const longlisted = appearances.filter((appearance) => appearance.status === "longlist").length;
-  const topBooks = books
-    .sort((a, b) => getBookStats(b!.id).score - getBookStats(a!.id).score || a!.title.localeCompare(b!.title))
-    .slice(0, 5);
   const topImprints = topCounts(
-    books.map((book) => (book?.imprintId ? imprintsById.get(book.imprintId)?.name ?? "" : "")),
+    books.map((book) => {
+      const imprint = book?.imprintId ? imprintsById.get(book.imprintId) : undefined;
+      return imprint?.shortName ?? imprint?.name ?? "";
+    }),
   );
   const topPublishers = topCounts(
     books.map((book) => (book?.publisherId ? publishersById.get(book.publisherId)?.name ?? "" : "")),
   );
-  const relatedAwards = data.awards
-    .filter((item) => item.id !== award.id && item.subjectAreas.some((subject) => award.subjectAreas.includes(subject)))
-    .slice(0, 5);
 
   return (
     <main>
@@ -114,18 +110,8 @@ export default async function AwardPage({ params }: PageProps) {
           </div>
 
           <aside className="paper-surface border-t hairline py-8 lg:border-l lg:border-t-0 lg:pl-8">
-            <h2 className="font-[var(--font-serif)] text-2xl font-light">Browse connections</h2>
-            <div className="mt-5 border-t hairline">
-              {relatedAwards.map((item) => (
-                <ConnectionRow href={`/awards/${item.slug}`} key={item.id} label={item.shortName ?? item.name} meta="related prize" />
-              ))}
-              {topBooks.map((book) => book ? (
-                <ConnectionRow href={`/books/${book.slug}`} key={book.id} label={book.title} meta={`${getBookStats(book.id).lists} records`} />
-              ) : null)}
-            </div>
-
-            <div className="mt-8 grid gap-px overflow-hidden border hairline bg-[var(--line)]">
-              <MiniPanel title="Top imprints" rows={topImprints} href="/publishers" footer="View all imprints" />
+            <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)]">
+              <MiniPanel title="Top imprints" rows={topImprints} href="/imprints" footer="View all imprints" />
               <MiniPanel title="Top publishers" rows={topPublishers} href="/publishers" footer="View all publishers" />
             </div>
           </aside>
@@ -182,18 +168,6 @@ function StatLine({ label, value }: { label: string; value: string }) {
       <dt className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.16em] muted">{label}</dt>
       <dd className="plain-number text-right">{value}</dd>
     </div>
-  );
-}
-
-function ConnectionRow({ href, label, meta }: { href: string; label: string; meta: string }) {
-  return (
-    <Link className="group flex items-center justify-between gap-4 border-b hairline py-3 text-sm transition hover:bg-[var(--panel)]" href={href}>
-      <span>{label}</span>
-      <span className="flex items-center gap-2 font-[var(--font-mono)] text-xs muted">
-        {meta}
-        <ArrowUpRight size={12} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </span>
-    </Link>
   );
 }
 

@@ -156,11 +156,14 @@ Recommended first importer batch:
 
 Progress:
 
-- `sources/prizes.json` now contains the initial Pulitzer registry.
+- `sources/prizes.json` now contains the initial Pulitzer, National Book Awards, and National Book Critics Circle registry entries.
 - `scripts/import-award-records/pulitzer.ts` imports Pulitzer General Nonfiction, History, Biography or Autobiography, and Memoir or Autobiography from deterministic MediaWiki tables as a secondary source.
-- `data/raw/award-records/pulitzer.json` is the first normalized raw corpus artifact.
+- `scripts/import-award-records/national-book-awards.ts` imports National Book Awards nonfiction records, including historical nonfiction subcategories, from deterministic MediaWiki tables as a secondary source.
+- `scripts/import-award-records/nbcc.ts` imports NBCC Nonfiction, Biography, Memoir and Autobiography, and Criticism records from deterministic MediaWiki tables as a secondary source. Memoir and Autobiography is filtered to 2005 onward to avoid duplicating the earlier Biography/Autobiography lineage.
+- `data/raw/award-records/pulitzer.json`, `data/raw/award-records/national-book-awards.json`, and `data/raw/award-records/nbcc.json` are the first normalized raw corpus artifacts.
 - `scripts/import-award-records/validate.ts` writes `data/raw/award-records/import-report.json`.
-- Next importer targets should be National Book Awards and National Book Critics Circle.
+- Current raw corpus validation covers 2,168 award records across 3 files with no missing source URLs or duplicate canonical keys.
+- Next importer targets should be Andrew Carnegie Medal for Excellence in Nonfiction, Kirkus Prize for Nonfiction, Baillie Gifford Prize, or Cundill History Prize.
 
 ## Phase 2: Book Identity And Metadata Reconciliation
 

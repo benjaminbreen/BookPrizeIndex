@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import type React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { AlignJustify, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Filter, MoreHorizontal, Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { BookDrawer } from "@/components/book-drawer";
 import { filterBooksByQuery, sortBooks, type BookSortKey } from "@/lib/catalog";
-import { data, getBookStats, imprintsById, publishersById } from "@/lib/data";
+import { data, getBookStats, imprintsById, publishersById, subjectsByName } from "@/lib/data";
 import type { Book } from "@/lib/types";
 
 export function BookCatalog({
@@ -45,7 +46,7 @@ export function BookCatalog({
   const goPrevious = selectedIndex > 0 ? () => openBook(filteredRows[selectedIndex - 1]) : undefined;
   const goNext = selectedIndex >= 0 && selectedIndex < totalRows - 1 ? () => openBook(filteredRows[selectedIndex + 1]) : undefined;
   const rowPadding = density === "compact" ? "py-2" : density === "roomy" ? "py-5" : "py-3.5";
-  const chipPadding = density === "compact" ? "py-0" : "py-0.5";
+  const topicChipPadding = density === "compact" ? "py-[0.08rem]" : "py-[0.14rem]";
 
   useEffect(() => {
     const slug = searchParams.get("book");
@@ -205,14 +206,25 @@ export function BookCatalog({
                   <td className={`px-3 ${rowPadding}`}>{publisher || "Not yet sourced"}</td>
                   <td className={`px-3 ${rowPadding}`}>{imprint || "Unknown"}</td>
                   <td className={`px-3 ${rowPadding}`}>
-                    <div className="flex max-w-72 flex-wrap gap-1">
-                      {book.subjects.slice(0, 2).map((subject) => (
-                        <span className={`border hairline px-2 ${chipPadding} font-[var(--font-mono)] text-[0.62rem] uppercase tracking-[0.08em]`} key={subject}>
-                          {subject}
-                        </span>
+                    <div className="flex max-w-72 flex-wrap items-center gap-1.5">
+                      {book.subjects.slice(0, 2).map((subject, subjectIndex) => (
+                        <CatalogSubjectPill
+                          index={subjectIndex}
+                          key={subject}
+                          onClick={(event) => event.stopPropagation()}
+                          subject={subject}
+                        />
                       ))}
                       {book.subjects.length > 2 ? (
-                        <span className={`plain-number border hairline px-2 ${chipPadding} text-[0.62rem]`}>+{book.subjects.length - 2}</span>
+                        <span className="plain-number rounded-full border hairline px-2 py-[0.18rem] text-[0.58rem] text-[var(--muted)]">+{book.subjects.length - 2}</span>
+                      ) : null}
+                      {book.topics.slice(0, 3).map((topic) => (
+                        <span className={`topic-chip rounded-full border hairline px-1.5 ${topicChipPadding} font-[var(--font-mono)] text-[0.48rem] uppercase tracking-[0.08em]`} key={topic}>
+                          {topic}
+                        </span>
+                      ))}
+                      {book.topics.length > 3 ? (
+                        <span className="plain-number topic-chip rounded-full border hairline px-1.5 py-[0.08rem] text-[0.48rem]">+{book.topics.length - 3}</span>
                       ) : null}
                     </div>
                   </td>
@@ -275,6 +287,27 @@ export function BookCatalog({
         onPrevious={goPrevious}
       />
     </section>
+  );
+}
+
+function CatalogSubjectPill({
+  subject,
+  index,
+  onClick,
+}: {
+  subject: string;
+  index: number;
+  onClick: React.MouseEventHandler<HTMLAnchorElement>;
+}) {
+  const subjectSlug = subjectsByName.get(subject.toLowerCase())?.slug;
+  return (
+    <Link
+      className={`subject-chip subject-chip-${index % 6} subject-chip-compact focus-ring rounded-full border hairline px-2.5 py-[0.22rem] text-[0.62rem]`}
+      href={subjectSlug ? `/subjects/${subjectSlug}` : "/subjects"}
+      onClick={onClick}
+    >
+      {subject}
+    </Link>
   );
 }
 
