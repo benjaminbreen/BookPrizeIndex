@@ -1,0 +1,20 @@
+[
+  {
+    "id": "nonfiction-history-awards-by-imprint",
+    "label": "Nonfiction history awards by imprint seed workbook",
+    "file": "nonfiction_history_awards_by_imprint.xlsx",
+    "type": "xlsx",
+    "sourceSheet": "Sources",
+    "appearancesSheet": "Raw appearances",
+    "notes": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later.",
+    "mappings": {
+      "imprint": "Imprint",
+      "year": "Year",
+      "author": "Author",
+      "title": "Title",
+      "awardShort": "Award short",
+      "status": "Status",
+      "award": "Award"
+    }
+  }
+]

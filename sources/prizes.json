@@ -1,0 +1,77 @@
+[
+  {
+    "id": "pulitzer-prize",
+    "name": "Pulitzer Prize",
+    "organization": "The Pulitzer Prizes / Columbia University",
+    "geography": "United States",
+    "officialUrl": "https://www.pulitzer.org/prize-winners-by-year",
+    "notes": "Official Pulitzer pages are canonical, but command-line fetching is currently blocked by Cloudflare. Initial importer uses Wikipedia category pages as a deterministic secondary source while retaining official category URLs in registry metadata.",
+    "categories": [
+      {
+        "id": "pulitzer-general-nonfiction",
+        "name": "General Nonfiction",
+        "officialUrl": "https://www.pulitzer.org/prize-winners-by-category/223",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_General_Nonfiction",
+        "sourceLabel": "Wikipedia: Pulitzer Prize for General Nonfiction",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1962-present",
+        "coverageNotes": "Winners from 1962 onward; Pulitzer finalists are generally available beginning in 1980."
+      },
+      {
+        "id": "pulitzer-history",
+        "name": "History",
+        "officialUrl": "https://www.pulitzer.org/prize-winners-by-category/220",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_History",
+        "sourceLabel": "Wikipedia: Pulitzer Prize for History",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1917-present",
+        "coverageNotes": "Winners from the beginning of the Pulitzer book prizes; finalists are generally available beginning in 1980."
+      },
+      {
+        "id": "pulitzer-biography-or-autobiography",
+        "name": "Biography or Autobiography",
+        "officialUrl": "https://www.pulitzer.org/prize-winners-by-category/222",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_Biography",
+        "sourceLabel": "Wikipedia: Pulitzer Prize for Biography",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1917-2022",
+        "coverageNotes": "Pulitzer separated Memoir or Autobiography into a distinct category beginning with the 2023 prizes."
+      },
+      {
+        "id": "pulitzer-memoir-or-autobiography",
+        "name": "Memoir or Autobiography",
+        "officialUrl": "https://www.pulitzer.org/prize-winners-by-category/650",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_Memoir_or_Autobiography",
+        "sourceLabel": "Wikipedia: Pulitzer Prize for Memoir or Autobiography",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2023-present",
+        "coverageNotes": "Newer Pulitzer category split from Biography or Autobiography."
+      }
+    ]
+  },
+  {
+    "id": "national-book-awards",
+    "name": "National Book Awards",
+    "organization": "National Book Foundation",
+    "geography": "United States",
+    "officialUrl": "https://www.nationalbook.org/national-book-awards/",
+    "notes": "Initial nonfiction importer uses the Wikipedia National Book Award for Nonfiction page as a deterministic secondary source. The official archive should be used for later verification, publisher enrichment, and annual-page source links.",
+    "categories": [
+      {
+        "id": "national-book-awards-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://www.nationalbook.org/national-book-awards/search/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+        "sourceLabel": "Wikipedia: National Book Award for Nonfiction",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1935-1940; 1950-present; multiple nonfiction subcategories 1964-1983",
+        "coverageNotes": "Covers winners and finalists listed in the National Book Award for Nonfiction tables, including historical nonfiction subcategories when the award was divided."
+      }
+    ]
+  }
+]

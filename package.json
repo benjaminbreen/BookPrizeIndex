@@ -1,0 +1,39 @@
+{
+  "name": "book-award-explorer",
+  "version": "1.0.0",
+  "description": "Static-first explorer for nonfiction book awards.",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "npm run data:build && next build",
+    "start": "next start",
+    "data:build": "tsx scripts/build-data.ts",
+    "data:enrich": "npm run data:build && tsx scripts/enrich-books.ts && npm run data:build",
+    "data:import:pulitzer": "tsx scripts/import-award-records/pulitzer.ts",
+    "data:import:nba": "tsx scripts/import-award-records/national-book-awards.ts",
+    "data:import:national-book-awards": "npm run data:import:nba",
+    "data:validate:raw": "tsx scripts/import-award-records/validate.ts",
+    "lint": "next lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@types/node": "^25.6.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "lucide-react": "^1.14.0",
+    "minisearch": "^7.2.0",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0"
+  }
+}

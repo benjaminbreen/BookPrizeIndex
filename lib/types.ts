@@ -1,0 +1,146 @@
+export type AwardStatus =
+  | "winner"
+  | "co_winner"
+  | "finalist"
+  | "shortlist"
+  | "longlist"
+  | "honorable_mention"
+  | "commended"
+  | "notable"
+  | "unknown";
+
+export type SourceConfidence = "official" | "catalog" | "retailer" | "manual" | "unknown";
+
+export type SourceRef = {
+  id: string;
+  label: string;
+  url: string;
+  accessedAt?: string;
+  field?: string;
+  confidence: SourceConfidence;
+  note?: string;
+};
+
+export type Publisher = {
+  id: string;
+  name: string;
+  websiteUrl?: string;
+  sourceIds: string[];
+};
+
+export type Imprint = {
+  id: string;
+  name: string;
+  publisherId?: string;
+  websiteUrl?: string;
+  sourceIds: string[];
+};
+
+export type Person = {
+  id: string;
+  name: string;
+};
+
+export type Book = {
+  id: string;
+  slug: string;
+  title: string;
+  subtitle?: string;
+  authors: Person[];
+  publicationYear?: number;
+  publisherId?: string;
+  imprintId?: string;
+  pageCount?: number;
+  isbn13: string[];
+  subjects: string[];
+  centralFigures: string[];
+  summary?: string;
+  thumbnailUrl?: string;
+  links: {
+    publisher?: string;
+    amazon?: string;
+    bookshop?: string;
+    indiebound?: string;
+    worldcat?: string;
+    wikipedia?: string;
+    wikidata?: string;
+  };
+  sourceIds: string[];
+};
+
+export type Award = {
+  id: string;
+  slug: string;
+  name: string;
+  shortName?: string;
+  awardType?: "major_award" | "award";
+  organization?: string;
+  description?: string;
+  geography?: string;
+  subjectAreas: string[];
+  deadline?: string;
+  criteria?: string;
+  prizeAmount?: string;
+  logoUrl?: string;
+  logoAlt?: string;
+  logoSourceUrl?: string;
+  logoCredit?: string;
+  links: {
+    official?: string;
+    criteria?: string;
+    submission?: string;
+  };
+  sourceIds: string[];
+};
+
+export type AwardEdition = {
+  id: string;
+  awardId: string;
+  year: number;
+  category?: string;
+  announcementUrl?: string;
+  sourceIds: string[];
+};
+
+export type AwardAppearance = {
+  id: string;
+  bookId: string;
+  awardId: string;
+  awardEditionId: string;
+  year: number;
+  status: AwardStatus;
+  originalStatus: string;
+  statusRank: number;
+  isTie: boolean;
+  sourceUrl?: string;
+  sourceIds: string[];
+};
+
+export type SubjectSummary = {
+  id: string;
+  slug: string;
+  name: string;
+  bookCount: number;
+  topBookId?: string;
+};
+
+export type BookStats = {
+  bookId: string;
+  wins: number;
+  lists: number;
+  score: number;
+  statuses: Record<AwardStatus, number>;
+};
+
+export type PublicData = {
+  generatedAt: string;
+  books: Book[];
+  awards: Award[];
+  editions: AwardEdition[];
+  appearances: AwardAppearance[];
+  publishers: Publisher[];
+  imprints: Imprint[];
+  subjects: SubjectSummary[];
+  sources: SourceRef[];
+  stats: BookStats[];
+};
