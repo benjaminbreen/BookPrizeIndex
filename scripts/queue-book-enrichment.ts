@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { data, getBookStats } from "../lib/data";
 import type { Book } from "../lib/types";
 
-type CatalogMissingBookField = "isbn13" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink";
+type CatalogMissingBookField = "isbn13" | "publicationYear" | "publisherId" | "imprintId" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink";
 type DeferredMissingBookField = "wikipedia";
 
 type QueueRow = {
@@ -15,6 +15,7 @@ type QueueRow = {
   score: number;
   missingFields: CatalogMissingBookField[];
   deferredFields: DeferredMissingBookField[];
+  recommendedAction: "catalog_completion" | "imprint_review";
 };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -43,6 +44,9 @@ function toQueueRow(book: Book): QueueRow {
   const missingFields: CatalogMissingBookField[] = [];
   const deferredFields: DeferredMissingBookField[] = [];
   if (!book.isbn13.length) missingFields.push("isbn13");
+  if (!book.publicationYear) missingFields.push("publicationYear");
+  if (!book.publisherId) missingFields.push("publisherId");
+  if (!book.imprintId) missingFields.push("imprintId");
   if (!book.pageCount) missingFields.push("pageCount");
   if (!book.summary) missingFields.push("summary");
   if (!book.thumbnailUrl) missingFields.push("thumbnailUrl");
@@ -57,6 +61,7 @@ function toQueueRow(book: Book): QueueRow {
     score: getBookStats(book.id).score,
     missingFields,
     deferredFields,
+    recommendedAction: missingFields.some((field) => field !== "imprintId") ? "catalog_completion" : "imprint_review",
   };
 }
 

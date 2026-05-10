@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { ChevronDown, MoreHorizontal, Search } from "lucide-react";
 import { useMemo, useState } from "react";
+import type React from "react";
 import { BookDrawer } from "@/components/book-drawer";
 import { filterBooksByQuery, sortBooks, type BookSortKey } from "@/lib/catalog";
-import { awardsById, data, getBookStats, imprintsById, publishersById, statusLabels } from "@/lib/data";
+import { awardsById, data, getBookStats, imprintsById, publishersById } from "@/lib/data";
+import { topicSlug } from "@/lib/topics";
 import type { Book, SubjectSummary } from "@/lib/types";
 
 export function SubjectDetail({ subject, books }: { subject: SubjectSummary; books: Book[] }) {
@@ -25,21 +27,20 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
   const yearRange = years.length ? `${Math.min(...years)}-${Math.max(...years)}` : "Unknown";
   const uniqueImprints = new Set(books.map((book) => book.imprintId).filter(Boolean));
   const relatedSubjects = data.subjects.filter((item) => item.id !== subject.id).slice(0, 6);
-  const statusDistribution = getStatusDistribution(appearances);
+  const topicMix = topTopicCounts(books, subject.name);
   const topAwards = topCounts(appearances.map((appearance) => awardsById.get(appearance.awardId)?.shortName ?? awardsById.get(appearance.awardId)?.name ?? ""));
   const topImprints = topCounts(books.map((book) => (book.imprintId ? imprintsById.get(book.imprintId)?.name ?? "" : "")));
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-      <section className="grid gap-8 lg:grid-cols-[1fr_0.55fr] lg:items-center">
+      <section className="grid gap-8 lg:grid-cols-[1fr_0.5fr] lg:items-center">
         <div>
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Subject</p>
           <h1 className="mt-3 text-5xl font-light leading-tight">{subject.name}</h1>
           <p className="mt-4 max-w-2xl text-lg leading-8 muted">{subjectDeck(subject.name)}</p>
         </div>
-        <div className="grid grid-cols-2 border-l hairline sm:grid-cols-4 lg:grid-cols-4">
+        <div className="subject-hero-metrics grid grid-cols-3 border-l hairline">
           <HeroMetric value={books.length} label="Books" />
-          <HeroMetric value={appearances.length} label="Award appearances" />
           <HeroMetric value={uniqueImprints.size} label="Imprints" />
           <HeroMetric value={yearRange} label="Year range" />
         </div>
@@ -96,15 +97,15 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
                 <th className="px-4 py-3 font-normal">Author</th>
                 <th className="px-4 py-3 font-normal">Wins</th>
                 <th className="px-4 py-3 font-normal">Lists</th>
-                <th className="px-4 py-3 font-normal">Publisher / Imprint</th>
+                <th className="px-4 py-3 font-normal">Imprint</th>
                 <th className="px-4 py-3 font-normal" />
               </tr>
             </thead>
             <tbody>
               {rows.map((book) => {
                 const stats = getBookStats(book.id);
-                const publisher = book.publisherId ? publishersById.get(book.publisherId)?.name : "";
                 const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name : "";
+                const publisher = book.publisherId ? publishersById.get(book.publisherId)?.name : "";
                 return (
                   <tr
                     className={`book-table-row cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)] ${
@@ -122,7 +123,7 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
                     <td className="px-4 py-3">{book.authors.map((author) => author.name).join(", ")}</td>
                     <td className="plain-number px-4 py-3 text-xs">{stats.wins}</td>
                     <td className="plain-number px-4 py-3 text-xs">{stats.lists}</td>
-                    <td className="px-4 py-3">{publisher || imprint || "Not yet sourced"}</td>
+                    <td className="px-4 py-3">{imprint || publisher || "Not yet sourced"}</td>
                     <td className="px-4 py-3"><MoreHorizontal size={16} /></td>
                   </tr>
                 );
@@ -146,10 +147,10 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
             </div>
           </Panel>
 
-          <Panel title="Award results distribution">
-            <div className="grid gap-2">
-              {statusDistribution.map((row) => (
-                <DistributionRow key={row.label} {...row} />
+          <Panel title="Topic mix">
+            <div className="grid gap-3">
+              {topicMix.map((row, index) => (
+                <DistributionRow colorIndex={index} key={row.label} {...row} total={books.length} />
               ))}
             </div>
           </Panel>
@@ -176,8 +177,8 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
 function HeroMetric({ value, label }: { value: string | number; label: string }) {
   return (
     <div className="border-r hairline px-5 py-7 text-center last:border-r-0">
-      <p className="plain-number text-3xl">{value}</p>
-      <p className="mt-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">{label}</p>
+      <p className="plain-number text-2xl">{value}</p>
+      <p className="mt-2 font-[var(--font-mono)] text-[0.62rem] uppercase tracking-[0.14em]">{label}</p>
     </div>
   );
 }
@@ -208,33 +209,62 @@ function MiniPanel({ title, rows, footer, href }: { title: string; rows: { label
   );
 }
 
-function DistributionRow({ label, value, total }: { label: string; value: number; total: number }) {
+function DistributionRow({ colorIndex, label, value, total }: { colorIndex: number; label: string; value: number; total: number }) {
   const pct = total ? Math.round((value / total) * 100) : 0;
   return (
-    <div className="grid grid-cols-[5.5rem_1fr_4.5rem] items-center gap-3 text-sm">
-      <span>{label}</span>
-      <span className="h-1.5 bg-[var(--line)]"><span className="block h-full bg-[var(--ink)]" style={{ width: `${pct}%` }} /></span>
-      <span className="plain-number text-right text-xs">{value} ({pct}%)</span>
-    </div>
+    <Link
+      className={`topic-mix-row topic-mix-color-${colorIndex % 8} focus-ring`}
+      href={`/topics/${topicSlug(label)}`}
+      style={{ "--topic-mix-pct": `${pct}%` } as React.CSSProperties}
+    >
+      <span className="topic-mix-label">{label}</span>
+      <span className="topic-mix-track"><span className="topic-mix-fill" /></span>
+      <span className="plain-number topic-mix-value">{value} ({pct}%)</span>
+    </Link>
   );
 }
 
-function getStatusDistribution(appearances: typeof data.appearances) {
-  const labels = ["winner", "shortlist", "longlist", "finalist"] as const;
-  return labels.map((status) => ({
-    label: statusLabels[status],
-    value: appearances.filter((appearance) => appearance.status === status).length,
-    total: appearances.length,
-  })).filter((row) => row.value > 0);
-}
-
-function topCounts(values: string[]) {
+function topCounts(values: string[], limit = 5) {
   const counts = new Map<string, number>();
   for (const value of values.filter(Boolean)) counts.set(value, (counts.get(value) ?? 0) + 1);
   return [...counts.entries()]
     .map(([label, value]) => ({ label, value }))
     .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label))
-    .slice(0, 5);
+    .slice(0, limit);
+}
+
+function topTopicCounts(books: Book[], subjectName: string) {
+  const genericTopics = new Set(["Biography & Public Lives", "Regional & Local History", "Empire & Colonialism", "Essays & Cultural Criticism"]);
+  const preferredBySubject: Record<string, Set<string>> = {
+    Biography: new Set([
+      "Political Biography",
+      "Presidential Biography",
+      "Military Biography",
+      "Literary Biography",
+      "Artistic Biography",
+      "Scientific Biography",
+      "Business Biography",
+      "Religious Biography",
+      "Sports Biography",
+      "Activist Biography",
+      "Family Biography",
+      "Group Biography",
+      "Intellectual Biography",
+      "Black History & Culture",
+      "Civil Rights & Racial Justice",
+      "Slavery & Emancipation",
+      "American Civil War",
+      "World War II",
+      "Vietnam War",
+      "Cold War & Nuclear Politics",
+    ]),
+  };
+  const preferred = preferredBySubject[subjectName];
+  const topicForBook = (book: Book) => {
+    const topics = book.topics ?? [];
+    return topics.find((topic) => preferred?.has(topic)) ?? topics.find((topic) => !genericTopics.has(topic)) ?? book.primaryTopic ?? "";
+  };
+  return topCounts(books.map(topicForBook), 10);
 }
 
 function subjectDeck(name: string) {

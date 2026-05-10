@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { awardsById, data } from "@/lib/data";
+import { topicNameForSlug } from "@/lib/topics";
 
 const navItems = [
   { href: "/books", label: "Books" },
@@ -99,12 +100,16 @@ function labelForPart(part: string, href: string) {
   if (part === "books") return "Books";
   if (part === "awards") return "Awards";
   if (part === "subjects") return "Subjects";
+  if (part === "topics") return "Topics";
   if (part === "publishers") return "Publishers";
   if (part === "imprints") return "Imprints";
   const award = data.awards.find((item) => href === `/awards/${item.slug}`);
   if (award) return award.shortName ?? award.name;
+  const awardProgram = (data.awardPrograms ?? []).find((item) => href === `/awards/${item.slug}`);
+  if (awardProgram) return awardProgram.name;
   const subject = data.subjects.find((item) => href === `/subjects/${item.slug}`);
   if (subject) return subject.name;
+  if (href.startsWith("/topics/")) return topicNameForSlug(part) ?? part.replaceAll("-", " ");
   const publisher = data.publishers.find((item) => href === `/publishers/${item.id.replace(/^publisher-/, "")}`);
   if (publisher) return publisher.name;
   const imprint = data.imprints.find((item) => href === `/imprints/${item.id.replace(/^imprint-/, "")}`);

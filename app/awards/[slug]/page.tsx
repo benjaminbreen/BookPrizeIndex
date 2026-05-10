@@ -5,7 +5,7 @@ import { AwardBookList } from "@/components/award-book-list";
 import { booksById, data, getBookStats, imprintsById, publishersById } from "@/lib/data";
 
 export function generateStaticParams() {
-  return data.awards.map((award) => ({ slug: award.slug }));
+  return [...data.awards.map((award) => ({ slug: award.slug })), ...(data.awardPrograms ?? []).map((program) => ({ slug: program.slug }))];
 }
 
 type PageProps = {
@@ -15,12 +15,15 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const award = data.awards.find((item) => item.slug === slug);
-  return { title: award ? `${award.name} / The Book Prize Index` : "Award / The Book Prize Index" };
+  const program = (data.awardPrograms ?? []).find((item) => item.slug === slug);
+  return { title: program && shouldRenderProgram(program) ? `${program.name} / The Book Prize Index` : award ? `${award.name} / The Book Prize Index` : "Award / The Book Prize Index" };
 }
 
 export default async function AwardPage({ params }: PageProps) {
   const { slug } = await params;
   const award = data.awards.find((item) => item.slug === slug);
+  const program = (data.awardPrograms ?? []).find((item) => item.slug === slug);
+  if (program && shouldRenderProgram(program)) return <AwardProgramPage program={program} />;
   if (!award) notFound();
 
   const appearances = data.appearances
@@ -56,7 +59,6 @@ export default async function AwardPage({ params }: PageProps) {
             />
             <dl className="mt-4 grid text-[0.78rem]">
               <RailMeta label="Organization" value={award.organization ?? "Not yet sourced"} />
-              <RailMeta label="Type" value={award.awardType === "award" ? "Award" : "Major award"} />
               <RailMeta label="Subject" value={award.subjectAreas.join(", ")} />
               <RailMeta label="Records" value={String(appearances.length)} />
               <RailMeta label="Year range" value={yearRange} />
@@ -77,6 +79,9 @@ export default async function AwardPage({ params }: PageProps) {
                   {award.subjectAreas.map((subject) => (
                     <span className="border hairline px-4 py-2 text-sm" key={subject}>{subject}</span>
                   ))}
+                  <span className="border hairline px-4 py-2 text-sm">
+                    {award.awardType === "award" ? "Award" : "Major award"}
+                  </span>
                 </div>
               </div>
 
@@ -107,6 +112,148 @@ export default async function AwardPage({ params }: PageProps) {
             <Suspense>
               <AwardBookList appearances={appearances} />
             </Suspense>
+          </div>
+
+          <aside className="paper-surface border-t hairline py-8 lg:border-l lg:border-t-0 lg:pl-8">
+            <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)]">
+              <MiniPanel title="Top imprints" rows={topImprints} href="/imprints" footer="View all imprints" />
+              <MiniPanel title="Top publishers" rows={topPublishers} href="/publishers" footer="View all publishers" />
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function shouldRenderProgram(program?: NonNullable<typeof data.awardPrograms>[number]) {
+  if (!program) return false;
+  return data.awards.filter((award) => award.programId === program.id).length > 1;
+}
+
+function AwardProgramPage({ program }: { program: NonNullable<typeof data.awardPrograms>[number] }) {
+  const categoryRows = data.awards
+    .filter((award) => award.programId === program.id)
+    .map((award) => {
+      const awardAppearances = data.appearances.filter((appearance) => appearance.awardId === award.id);
+      const years = awardAppearances.map((appearance) => appearance.year);
+      return {
+        award,
+        records: awardAppearances.length,
+        books: new Set(awardAppearances.map((appearance) => appearance.bookId)).size,
+        years,
+        yearRange: award.categoryYears ?? (years.length ? `${Math.min(...years)}-${Math.max(...years)}` : "Unknown"),
+      };
+    })
+    .sort((a, b) => b.records - a.records || a.award.name.localeCompare(b.award.name));
+  const awardIds = new Set(categoryRows.map((row) => row.award.id));
+  const appearances = data.appearances.filter((appearance) => awardIds.has(appearance.awardId));
+  const years = appearances.map((appearance) => appearance.year);
+  const bookIds = new Set(appearances.map((appearance) => appearance.bookId));
+  const subjects = [...new Set(categoryRows.flatMap((row) => row.award.subjectAreas))].sort((a, b) => a.localeCompare(b));
+  const activeCategories = categoryRows.filter((row) => /present/i.test(row.yearRange)).length;
+  const historicalCategories = Math.max(categoryRows.length - activeCategories, 0);
+  const topImprints = topCounts(
+    [...bookIds].map((bookId) => {
+      const book = booksById.get(bookId);
+      const imprint = book?.imprintId ? imprintsById.get(book.imprintId) : undefined;
+      return imprint?.shortName ?? imprint?.name ?? "";
+    }),
+  );
+  const topPublishers = topCounts(
+    [...bookIds].map((bookId) => {
+      const book = booksById.get(bookId);
+      return book?.publisherId ? publishersById.get(book.publisherId)?.name ?? "" : "";
+    }),
+  );
+
+  return (
+    <main>
+      <section className="paper-surface border-b hairline">
+        <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-6 px-4 py-7 sm:px-6 lg:grid-cols-[24rem_1fr] lg:px-8">
+          <aside className="paper-surface border-r-0 hairline lg:border-r lg:pr-9">
+            <AwardMark name={program.name} />
+            <dl className="mt-4 grid text-[0.78rem]">
+              <RailMeta label="Organization" value={program.organization ?? "Not yet sourced"} />
+              <RailMeta label="Categories" value={String(categoryRows.length)} />
+              <RailMeta label="Records" value={String(appearances.length)} />
+              <RailMeta label="Year range" value={years.length ? `${Math.min(...years)}-${Math.max(...years)}` : "Unknown"} />
+            </dl>
+          </aside>
+
+          <section className="paper-surface">
+            <div className="grid gap-x-10 gap-y-7 lg:grid-cols-[1fr_18rem] xl:grid-cols-[1fr_20rem]">
+              <h1 className="font-[var(--font-serif)] text-4xl font-light leading-[1.06] sm:text-[4rem] lg:col-span-2 xl:max-w-5xl">
+                {program.name}
+              </h1>
+              <div>
+                <p className="mt-3 max-w-3xl text-lg leading-8 muted">
+                  {program.description ?? `A program-level overview of ${program.name} categories currently represented in The Book Prize Index.`}
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {subjects.map((subject) => (
+                    <span className="border hairline px-4 py-2 text-sm" key={subject}>{subject}</span>
+                  ))}
+                  <span className="border hairline px-4 py-2 text-sm">Award program</span>
+                </div>
+              </div>
+
+              <dl className="paper-surface self-start text-sm">
+                <StatLine label="Categories" value={String(categoryRows.length)} />
+                <StatLine label="Active" value={String(activeCategories)} />
+                <StatLine label="Historical" value={String(historicalCategories)} />
+                <StatLine label="Records" value={String(appearances.length)} />
+                <StatLine label="Books" value={String(bookIds.size)} />
+                <StatLine label="First year" value={String(years.length ? Math.min(...years) : "Unknown")} />
+                <StatLine label="Latest year" value={String(years.length ? Math.max(...years) : "Unknown")} />
+              </dl>
+            </div>
+          </section>
+
+          <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 lg:grid-cols-[1fr_1fr_2fr]">
+            <AdminMeta label="Official site" value={program.officialUrl ?? "Not yet sourced"} />
+            <AdminMeta label="Coverage" numberValue value={`${categoryRows.length} categories represented`} />
+            <AdminMeta label="Notes" value={program.notes ?? "Category coverage is based on imported source-backed award records."} />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="paper-surface mx-auto grid max-w-7xl gap-0 px-4 sm:px-6 lg:grid-cols-[1fr_20rem] xl:grid-cols-[1fr_22rem] lg:px-8">
+          <div className="paper-surface py-8 lg:pr-10">
+            <h2 className="font-[var(--font-serif)] text-2xl font-light">Categories</h2>
+            <div className="mt-4 overflow-x-auto">
+              <table className="w-full min-w-[760px] border-collapse text-left">
+                <thead className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.12em] muted">
+                  <tr className="border-b hairline">
+                    <th className="py-2 pr-4 font-normal">Category</th>
+                    <th className="px-4 py-2 font-normal">Years</th>
+                    <th className="px-4 py-2 font-normal">Subject</th>
+                    <th className="px-4 py-2 text-right font-normal">Records</th>
+                    <th className="w-12 px-4 py-2" />
+                  </tr>
+                </thead>
+                <tbody>
+                  {categoryRows.map(({ award, records, yearRange }) => (
+                    <tr className="book-table-row border-b hairline text-sm transition hover:bg-[var(--accent-soft)]" key={award.id}>
+                      <td className="py-3 pr-4">
+                        <Link className="transition hover:text-[var(--accent)]" href={`/awards/${award.slug}`}>
+                          {award.categoryName ?? award.name}
+                        </Link>
+                      </td>
+                      <td className="plain-number px-4 py-3 text-xs muted">{yearRange}</td>
+                      <td className="px-4 py-3 muted">{award.subjectAreas.join(", ")}</td>
+                      <td className="plain-number px-4 py-3 text-right">{records}</td>
+                      <td className="px-4 py-3 text-right">
+                        <Link aria-label={`View ${award.name}`} className="subjects-row-icon focus-ring ml-auto" href={`/awards/${award.slug}`}>
+                          ›
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
 
           <aside className="paper-surface border-t hairline py-8 lg:border-l lg:border-t-0 lg:pl-8">

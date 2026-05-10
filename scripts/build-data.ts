@@ -1,11 +1,23 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import XLSX from "xlsx";
+import type { RawAwardRecord, RawAwardRecordSourceConfidence, RawAwardRecordStatus } from "../lib/award-records";
+import {
+  applyAwardProgramMetadata,
+  buildAwardPrograms,
+  findPrizeRegistryCategory,
+  mergeDuplicateAwardCategories,
+  type PrizeRegistryFileEntry,
+} from "./build/award-programs";
+import { applyCuration, applySourcePatches, mergeObject, readCuration, readEnrichment, type CurationFile } from "./build/curation";
+import { publicDataDir, rawAwardRecordsDir, sourcesDir } from "./build/paths";
+import { buildCanonicalTitleResolver, type CanonicalTitleResolver, type TitleCandidate } from "./build/title-resolver";
+import { clean, slugify } from "./build/text";
 import type {
   Award,
   AwardAppearance,
   AwardEdition,
+  AwardProgram,
   AwardStatus,
   Book,
   BookStats,
@@ -13,7 +25,9 @@ import type {
   Person,
   PublicData,
   Publisher,
+  SubjectDecision,
   SourceRef,
+  SubjectEvidence,
   SubjectDefinition,
   SubjectSummary,
   TopicDefinition,
@@ -40,14 +54,6 @@ type RawAppearanceRow = {
   Award?: string;
 };
 
-type CurationFile = {
-  books?: Record<string, Partial<Book>>;
-  awards?: Record<string, Partial<Award>>;
-  imprints?: Record<string, Partial<Imprint>>;
-  publishers?: Record<string, Partial<Publisher>>;
-  sources?: Record<string, SourceRef>;
-};
-
 type SubjectClassificationReportEntry = {
   bookId: string;
   title: string;
@@ -56,6 +62,7 @@ type SubjectClassificationReportEntry = {
   confidence: "high" | "medium" | "low";
   reasons: string[];
   reviewReason?: string;
+  candidates?: Array<{ subject: string; score: number }>;
 };
 
 type TopicClassificationReportEntry = {
@@ -70,25 +77,92 @@ type TopicClassificationReportEntry = {
   reviewReason?: string;
 };
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(__dirname, "..");
-const sourcesDir = path.join(root, "sources");
-const publicDataDir = path.join(root, "data", "public");
+type BookTopicClassification = {
+  primaryTopic?: string;
+  topics: string[];
+  confidence: "high" | "medium" | "low";
+  reasons: string[];
+  reviewReason?: string;
+};
 
-function slugify(input: string) {
-  return input
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/&/g, " and ")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 96);
-}
+type GeneratedTopicClassification = {
+  primaryTopic?: string;
+  topics?: string[];
+  confidence?: "high" | "medium" | "low";
+  method?: string;
+  reviewStatus?: "generated" | "reviewed" | "rejected";
+  rationale?: string;
+};
 
-function clean(input: unknown) {
-  return String(input ?? "").trim().replace(/\s+/g, " ");
-}
+type GeneratedTopicsFile = {
+  generatedAt?: string;
+  notes?: string;
+  books?: Record<string, GeneratedTopicClassification>;
+};
+
+type TaxonomyValidationReport = {
+  subjectErrors: string[];
+  topicErrors: string[];
+  totals: {
+    books: number;
+    subjectErrors: number;
+    topicErrors: number;
+  };
+};
+
+type TopicSummary = {
+  generatedAt: string;
+  topics: { topic: string; bookCount: number; appearanceCount: number }[];
+  byYear: { year: number; topic: string; appearanceCount: number; bookCount: number }[];
+  byAward: { awardId: string; awardName: string; topic: string; appearanceCount: number; bookCount: number }[];
+  byAwardYear: { awardId: string; awardName: string; year: number; topic: string; appearanceCount: number; bookCount: number }[];
+};
+
+type SuspiciousSubjectTopicReportEntry = {
+  bookId: string;
+  title: string;
+  author: string;
+  primarySubject?: string;
+  primaryTopic?: string;
+  topics: string[];
+  reason: string;
+  suggestedSubject?: string;
+};
+
+type SubjectMapEntry = {
+  match: string;
+  subject: string;
+  weight: number;
+  confidence: "high" | "medium" | "low";
+};
+
+type SubjectMapFile = {
+  notes?: string;
+  entries: SubjectMapEntry[];
+};
+
+type SubjectMapRule = SubjectMapEntry & {
+  pattern: RegExp;
+};
+
+type BookSubjectClassification = {
+  subjects: string[];
+  confidence: "high" | "medium" | "low";
+  reasons: string[];
+  reviewReason?: string;
+  candidates: Array<{ subject: string; score: number }>;
+};
+
+type SubjectReviewReportEntry = {
+  bookId: string;
+  title: string;
+  author: string;
+  primarySubject?: string;
+  confidence?: "high" | "medium" | "low";
+  reasons: string[];
+  candidates: SubjectDecision["candidates"];
+  evidence: SubjectEvidence[];
+};
 
 function normalizeStatus(status: string): { status: AwardStatus; rank: number; isTie: boolean } {
   const value = status.toLowerCase();
@@ -107,6 +181,37 @@ function normalizeStatus(status: string): { status: AwardStatus; rank: number; i
   return { status: "unknown", rank: 99, isTie };
 }
 
+function normalizeRawStatus(status: RawAwardRecordStatus): { status: AwardStatus; rank: number; isTie: boolean } {
+  if (status === "co_winner") return { status, rank: 1, isTie: true };
+  if (status === "winner") return { status, rank: 1, isTie: false };
+  if (status === "finalist") return { status, rank: 2, isTie: false };
+  if (status === "shortlist") return { status, rank: 3, isTie: false };
+  if (status === "longlist") return { status, rank: 4, isTie: false };
+  if (status === "honorable_mention") return { status, rank: 5, isTie: false };
+  if (status === "commended") return { status, rank: 6, isTie: false };
+  return { status: "unknown", rank: 99, isTie: false };
+}
+
+function awardRecognitionWeight(status: AwardStatus, isMajorAward: boolean) {
+  if (status === "winner" || status === "co_winner") return isMajorAward ? 10 : 6;
+  if (status === "finalist" || status === "shortlist") return isMajorAward ? 4 : 2;
+  if (status === "longlist") return isMajorAward ? 2 : 1;
+  return 0;
+}
+
+function compareBookStats(a: BookStats, b: BookStats) {
+  return (
+    b.score - a.score ||
+    b.majorWins - a.majorWins ||
+    b.wins - a.wins ||
+    b.majorShortlists - a.majorShortlists ||
+    b.normalShortlists - a.normalShortlists ||
+    b.majorLonglists - a.majorLonglists ||
+    b.normalLonglists - a.normalLonglists ||
+    a.bookId.localeCompare(b.bookId)
+  );
+}
+
 function splitPeople(authorText: string): Person[] {
   return authorText
     .split(/\s+(?:and|&)\s+|,\s+(?=[A-Z][^,]+$)/)
@@ -123,11 +228,355 @@ function inferSubjects(awardName: string, title: string): string[] {
   if (text.includes("memoir")) subjects.add("Memoir & Autobiography");
   if (text.includes("science")) subjects.add("Science");
   if (text.includes("medicine") || text.includes("virology") || text.includes("vagina")) subjects.add("Medicine & Public Health");
-  if (text.includes("american") || text.includes("mexican") || text.includes("pulitzer")) subjects.add("American History");
+  if (text.includes("american") || text.includes("mexican")) subjects.add("American History");
   if (text.includes("global") || text.includes("world") || text.includes("empire")) subjects.add("World History");
   if (text.includes("politic") || text.includes("government")) subjects.add("Politics & Government");
   if (text.includes("society") || text.includes("social")) subjects.add("Society & Culture");
   return [...subjects];
+}
+
+function cleanDisplaySummary(summary?: string) {
+  const normalized = clean(summary);
+  if (!normalized) return undefined;
+
+  const embeddedStart = findEmbeddedSummaryStart(normalized);
+  if (embeddedStart) return removePromotionalSummaryBlocks(embeddedStart);
+
+  const sentences = splitSummarySentences(normalized);
+  const startIndex = findSummaryStartIndex(sentences);
+  const cleaned = removePromotionalSummaryBlocks(sentences.slice(startIndex).join(" "));
+  return cleaned || normalized;
+}
+
+function findEmbeddedSummaryStart(summary: string) {
+  const candidatePattern = /(?:^|[•|]\s*|[.!?]\s+|\b\d{4}\s+)(the|a|an|in|on|from|when|as|this|with|at|for)\b/gi;
+  for (const match of summary.matchAll(candidatePattern)) {
+    const start = (match.index ?? 0) + match[0].length - match[1].length;
+    const candidate = summary.slice(start).trim();
+    const firstSentence = splitSummarySentences(candidate)[0] ?? candidate.slice(0, 260);
+    if (isDescriptiveSummarySentence(firstSentence)) return candidate;
+  }
+  return undefined;
+}
+
+function removePromotionalSummaryBlocks(summary: string) {
+  return clean(summary)
+    .replace(
+      /\s+(?:winner|finalist|shortlisted|longlisted|recipient|one of the|a new york times|new york times bestseller|national book award winner)\b[\s\S]*?(?=\b(?:in|on)\s+(?:\d{3,4}|[A-Z]))/gi,
+      " ",
+    )
+    .replace(/\s+[“"][^”"]{12,260}[”"]\s*[—-]\s*[^.?!]+[.?!]?/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function splitSummarySentences(summary: string) {
+  const protectedSummary = summary
+    .replace(/\bMr\./g, "Mr<prd>")
+    .replace(/\bMrs\./g, "Mrs<prd>")
+    .replace(/\bMs\./g, "Ms<prd>")
+    .replace(/\bDr\./g, "Dr<prd>")
+    .replace(/\bProf\./g, "Prof<prd>")
+    .replace(/\bSt\./g, "St<prd>")
+    .replace(/\bU\.S\./g, "U<prd>S<prd>")
+    .replace(/\bU\.K\./g, "U<prd>K<prd>")
+    .replace(/\be\.g\./g, "e<prd>g<prd>")
+    .replace(/\bi\.e\./g, "i<prd>e<prd>");
+  return protectedSummary
+    .split(/(?<=[.!?])\s+(?=[A-Z0-9"'“‘])/)
+    .map((sentence) => sentence.replace(/<prd>/g, ".").trim())
+    .filter(Boolean);
+}
+
+function findSummaryStartIndex(sentences: string[]) {
+  const firstDescriptive = sentences.findIndex(isDescriptiveSummarySentence);
+  if (firstDescriptive >= 0) return firstDescriptive;
+  const firstNonPromo = sentences.findIndex((sentence) => !isPromotionalSummarySentence(sentence));
+  return firstNonPromo >= 0 ? firstNonPromo : 0;
+}
+
+function isDescriptiveSummarySentence(sentence: string) {
+  const text = sentence.trim();
+  const lower = text.toLowerCase();
+  if (!text || isPromotionalSummarySentence(text)) return false;
+  if (/[“”"]\s*[—-]\s*[A-Z]/.test(text)) return false;
+  return (
+    lower.startsWith("the ") ||
+    lower.startsWith("a ") ||
+    lower.startsWith("an ") ||
+    lower.startsWith("in ") ||
+    lower.startsWith("on ") ||
+    lower.startsWith("from ") ||
+    lower.startsWith("when ") ||
+    lower.startsWith("as ") ||
+    lower.startsWith("this ") ||
+    lower.startsWith("with ") ||
+    lower.startsWith("at ") ||
+    lower.startsWith("for ")
+  );
+}
+
+function isPromotionalSummarySentence(sentence: string) {
+  const text = sentence.trim();
+  const lower = text.toLowerCase();
+  if (!text) return true;
+  if (/^[“"‘']/.test(text)) return true;
+  if (/[”"']\s*[—-]\s*[A-Z]/.test(text)) return true;
+  if (/^(winner|finalist|shortlisted|longlisted|nominated|recipient)\b/i.test(text)) return true;
+  if (/^(national book award|new york times|usa today|washington post|wall street journal|publishers weekly|kirkus reviews|library journal)\b/i.test(text)) return true;
+  if (/^(a|an|one of)\s+(.{0,80})\b(best|notable|editors['’]? choice|favorite|most anticipated|top)\b/i.test(text)) return true;
+  if (/^(named|selected|chosen)\s+(.{0,60})\b(best|notable|favorite)\b/i.test(text)) return true;
+  if (/^(praise for|acclaim for|advance praise|reviews for)\b/i.test(text)) return true;
+  if (/^(new york times|international|national|instant)?\s*bestseller\b/i.test(text)) return true;
+  if (/^\*?\s*(?:winner|finalist|shortlisted|longlisted)\b/i.test(text)) return true;
+  if (lower.includes("best book of") || lower.includes("best books of") || lower.includes("editors' choice") || lower.includes("editors’ choice")) return true;
+  return false;
+}
+
+async function importRawAwardRecords({
+  books,
+  awards,
+  editions,
+  appearances,
+  imprints,
+  publishers,
+  sources,
+  generatedAt,
+  titleResolver,
+  prizeRegistry,
+}: {
+  books: Map<string, Book>;
+  awards: Map<string, Award>;
+  editions: Map<string, AwardEdition>;
+  appearances: Map<string, AwardAppearance>;
+  imprints: Map<string, Imprint>;
+  publishers: Map<string, Publisher>;
+  sources: Map<string, SourceRef>;
+  generatedAt: string;
+  titleResolver: CanonicalTitleResolver;
+  prizeRegistry: PrizeRegistryFileEntry[];
+}) {
+  let files: string[] = [];
+  try {
+    files = (await fs.readdir(rawAwardRecordsDir)).filter((file) => file.endsWith(".json") && file !== "import-report.json").sort();
+  } catch {
+    return;
+  }
+
+  for (const file of files) {
+    const parsed = JSON.parse(await fs.readFile(path.join(rawAwardRecordsDir, file), "utf8")) as { records?: RawAwardRecord[] };
+    for (const record of parsed.records ?? []) {
+      const authors = record.authors.map(clean).filter(Boolean);
+      const title = titleResolver.resolve(record.title, authors);
+      if (!title || isInvalidRawBookTitle(title) || !authors.length || !record.year || !record.categoryName) continue;
+
+      const authorText = authors.join(" and ");
+      const authorPeople = authors.map((name) => ({ id: `person-${slugify(name)}`, name }));
+      const bookSlug = slugify(`${title}-${authorText}`);
+      const bookId = `book-${bookSlug}`;
+      const awardName = displayAwardName(record);
+      const awardSlug = slugify(awardName);
+      const awardId = `award-${awardSlug}`;
+      const editionId = `edition-${awardSlug}-${record.year}`;
+      const sourceId = sourceIdForRawRecord(record);
+      const sourceIds = [sourceId];
+
+      if (!sources.has(sourceId)) {
+        sources.set(sourceId, {
+          id: sourceId,
+          label: record.sourceLabel || `${awardName} source`,
+          url: record.sourceUrl,
+          accessedAt: generatedAt,
+          confidence: mapRawSourceConfidence(record.sourceConfidence),
+          field: "award",
+          note: record.notes,
+        });
+      }
+
+      const publisherId = record.publisher ? `publisher-${slugify(record.publisher)}` : undefined;
+      if (publisherId && !publishers.has(publisherId)) {
+        publishers.set(publisherId, {
+          id: publisherId,
+          name: record.publisher!,
+          sourceIds,
+        });
+      }
+
+      const imprintId = record.imprint ? `imprint-${slugify(record.imprint)}` : undefined;
+      if (imprintId && !imprints.has(imprintId)) {
+        imprints.set(imprintId, {
+          id: imprintId,
+          name: record.imprint!,
+          publisherId,
+          sourceIds,
+        });
+      }
+
+      if (!books.has(bookId)) {
+        books.set(bookId, {
+          id: bookId,
+          slug: bookSlug,
+          title,
+          authors: authorPeople,
+          publisherId,
+          imprintId,
+          isbn13: [],
+          subjects: inferSubjects(awardName, title),
+          topics: [],
+          centralFigures: [],
+          links: {
+            amazon: `https://www.amazon.com/s?k=${encodeURIComponent(`${title} ${authorText}`)}`,
+            bookshop: `https://bookshop.org/search?keywords=${encodeURIComponent(`${title} ${authorText}`)}`,
+            indiebound: `https://www.indiebound.org/search/book?keys=${encodeURIComponent(`${title} ${authorText}`)}`,
+            worldcat: `https://search.worldcat.org/search?q=${encodeURIComponent(`${title} ${authorText}`)}`,
+          },
+          sourceIds,
+        });
+      } else {
+        const book = books.get(bookId)!;
+        if (!book.publisherId && publisherId) book.publisherId = publisherId;
+        if (!book.imprintId && imprintId) book.imprintId = imprintId;
+        book.sourceIds = [...new Set([...book.sourceIds, sourceId])];
+        book.subjects = [...new Set([...book.subjects, ...inferSubjects(awardName, title)])];
+      }
+
+      if (!awards.has(awardId)) {
+        const subjectAreas = inferSubjects(awardName, "").filter((subject) => subject !== "Nonfiction");
+        const registryCategory = findPrizeRegistryCategory(prizeRegistry, record.awardId, record.categoryId);
+        awards.set(awardId, {
+          id: awardId,
+          slug: awardSlug,
+          name: awardName,
+          programId: record.awardId,
+          categoryName: displayCategoryName(record.categoryName),
+          categoryYears: registryCategory?.activeYears,
+          shortName: shortAwardName(record),
+          organization: organizationForRawAward(record),
+          awardType: "major_award",
+          subjectAreas: subjectAreas.length ? subjectAreas : ["Nonfiction"],
+          links: {
+            official: record.notes?.match(/https?:\/\/\S+/)?.[0],
+          },
+          sourceIds,
+        });
+      } else {
+        const award = awards.get(awardId)!;
+        award.sourceIds = [...new Set([...award.sourceIds, sourceId])];
+      }
+
+      if (!editions.has(editionId)) {
+        editions.set(editionId, {
+          id: editionId,
+          awardId,
+          year: record.year,
+          category: record.categoryName,
+          announcementUrl: record.sourceUrl,
+          sourceIds,
+        });
+      }
+
+      const normalized = normalizeRawStatus(record.status);
+      const appearanceId = `appearance-${bookSlug}-${awardSlug}-${record.year}-${slugify(record.status)}`;
+      appearances.set(appearanceId, {
+        id: appearanceId,
+        bookId,
+        awardId,
+        awardEditionId: editionId,
+        year: record.year,
+        status: normalized.status,
+        originalStatus: record.status,
+        statusRank: normalized.rank,
+        isTie: normalized.isTie,
+        sourceUrl: record.sourceUrl,
+        sourceIds,
+      });
+    }
+  }
+}
+
+function isInvalidRawBookTitle(title: string) {
+  return /^(winner|co[-\s]?winner|finalist|shortlist|shortlisted|longlist|longlisted|honou?rable mention|notable)$/i.test(clean(title));
+}
+
+function displayAwardName(record: RawAwardRecord) {
+  const category = displayCategoryName(record.categoryName);
+  if (/^pulitzer prize$/i.test(record.awardName)) return `Pulitzer Prize in ${category}`;
+  if (/^national book awards$/i.test(record.awardName)) return `National Book Award for ${category}`;
+  if (/^national book critics circle awards$/i.test(record.awardName)) return `National Book Critics Circle Award for ${category}`;
+  if (/^los angeles times book prize$/i.test(record.awardName)) return `Los Angeles Times Book Prize for ${category}`;
+  if (/^prose awards$/i.test(record.awardName)) return `PROSE Award for ${category}`;
+  return category && !record.awardName.toLowerCase().includes(category.toLowerCase()) ? `${record.awardName}: ${category}` : record.awardName;
+}
+
+function displayCategoryName(input: string) {
+  return clean(input).replace(/\b(nonfiction|reference|biography)\b/gi, (match) => {
+    if (/^and$/i.test(match)) return "and";
+    return match.slice(0, 1).toUpperCase() + match.slice(1).toLowerCase();
+  });
+}
+
+function shortAwardName(record: RawAwardRecord) {
+  if (/^pulitzer prize$/i.test(record.awardName)) return `Pulitzer ${record.categoryName}`;
+  if (/^national book awards$/i.test(record.awardName)) return `NBA ${record.categoryName}`;
+  if (/^national book critics circle awards$/i.test(record.awardName)) return `NBCC ${record.categoryName}`;
+  return undefined;
+}
+
+function organizationForRawAward(record: RawAwardRecord) {
+  if (/^pulitzer prize$/i.test(record.awardName)) return "Columbia University";
+  if (/^national book awards$/i.test(record.awardName)) return "National Book Foundation";
+  if (/^national book critics circle awards$/i.test(record.awardName)) return "National Book Critics Circle";
+  return undefined;
+}
+
+function sourceIdForRawRecord(record: RawAwardRecord) {
+  return `source-award-record-${slugify(`${record.categoryId}-${record.sourceLabel || record.sourceUrl}`)}`;
+}
+
+function mapRawSourceConfidence(confidence: RawAwardRecordSourceConfidence): SourceRef["confidence"] {
+  if (confidence === "official") return "official";
+  if (confidence === "manual") return "manual";
+  if (confidence === "secondary") return "catalog";
+  return "unknown";
+}
+
+async function buildTitleResolver(manifest: ManifestEntry[]) {
+  const candidates: TitleCandidate[] = [];
+
+  for (const source of manifest) {
+    if (source.type !== "xlsx") continue;
+    const workbook = XLSX.readFile(path.join(sourcesDir, source.file));
+    const appearanceRows = XLSX.utils.sheet_to_json<RawAppearanceRow>(
+      workbook.Sheets[source.appearancesSheet ?? "Raw appearances"] ?? {},
+      { defval: "" },
+    );
+    for (const row of appearanceRows) {
+      const title = clean(row.Title);
+      const authorText = clean(row.Author);
+      if (!title || !authorText) continue;
+      candidates.push({
+        title,
+        authors: splitPeople(authorText).map((author) => author.name),
+      });
+    }
+  }
+
+  try {
+    const files = (await fs.readdir(rawAwardRecordsDir)).filter((file) => file.endsWith(".json") && file !== "import-report.json").sort();
+    for (const file of files) {
+      const parsed = JSON.parse(await fs.readFile(path.join(rawAwardRecordsDir, file), "utf8")) as { records?: RawAwardRecord[] };
+      for (const record of parsed.records ?? []) {
+        const title = clean(record.title);
+        const authors = record.authors.map(clean).filter(Boolean);
+        if (!title || isInvalidRawBookTitle(title) || !authors.length) continue;
+        candidates.push({ title, authors });
+      }
+    }
+  } catch {
+    // Raw award records are optional while bootstrapping a new installation.
+  }
+
+  return buildCanonicalTitleResolver(candidates);
 }
 
 async function main() {
@@ -135,14 +584,23 @@ async function main() {
   const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8")) as ManifestEntry[];
   const subjectDefinitions = await readSubjectDefinitions();
   const topicDefinitions = await readTopicDefinitions();
+  const subjectMapRules = await readSubjectMapRules(subjectDefinitions);
   const curation = await readCuration();
   const enrichment = await readEnrichment();
+  const generatedTopics = await readGeneratedTopics();
+  const prizeRegistry = await readPrizeRegistry();
   const curatedBookSubjectIds = new Set(
     Object.entries(curation.books ?? {})
       .filter(([, patch]) => Array.isArray(patch.subjects))
       .map(([id]) => id),
   );
+  const curatedBookTopicIds = new Set(
+    Object.entries(curation.books ?? {})
+      .filter(([, patch]) => Array.isArray(patch.topics) || patch.primaryTopic)
+      .map(([id]) => id),
+  );
   const generatedAt = new Date().toISOString();
+  const titleResolver = await buildTitleResolver(manifest);
 
   const books = new Map<string, Book>();
   const awards = new Map<string, Award>();
@@ -186,8 +644,8 @@ async function main() {
     }
 
     for (const row of appearanceRows) {
-      const title = clean(row.Title);
       const authorText = clean(row.Author);
+      const title = titleResolver.resolve(row.Title ?? "", splitPeople(authorText).map((author) => author.name));
       const year = Number(row.Year);
       const awardName = clean(row.Award);
       const originalStatus = clean(row.Status);
@@ -277,44 +735,72 @@ async function main() {
     }
   }
 
+  await importRawAwardRecords({ books, awards, editions, appearances, imprints, publishers, sources, generatedAt, titleResolver, prizeRegistry });
+
   applySourcePatches(sources, enrichment.sources);
-  applyCuration(books, enrichment.books);
+  applyBookCuration(books, enrichment.books, titleResolver);
   applyCuration(awards, enrichment.awards);
   applyCuration(imprints, enrichment.imprints);
   applyCuration(publishers, enrichment.publishers);
   applySourcePatches(sources, curation.sources);
-  applyCuration(books, curation.books);
+  applyBookCuration(books, curation.books, titleResolver);
   applyCuration(awards, curation.awards);
   applyCuration(imprints, curation.imprints);
   applyCuration(publishers, curation.publishers);
+  if (process.env.DEBUG_AWARD_MERGE === "1") console.log(`Awards before program metadata: ${awards.size}`);
+  applyAwardProgramMetadata(awards, prizeRegistry);
+  if (process.env.DEBUG_AWARD_MERGE === "1") console.log(`Awards before duplicate merge: ${awards.size}; appearances: ${appearances.size}`);
+  mergeDuplicateAwardCategories(awards, editions, appearances);
+  if (process.env.DEBUG_AWARD_MERGE === "1") console.log(`Awards after duplicate merge: ${awards.size}; appearances: ${appearances.size}`);
 
   for (const book of books.values()) {
     const imprint = book.imprintId ? imprints.get(book.imprintId) : undefined;
     if (imprint?.publisherId) {
       book.publisherId = imprint.publisherId;
     }
+    book.displaySummary = cleanDisplaySummary(book.summary);
   }
 
-  const subjectClassificationReport = classifyBooksBySubject({
+  const { report: subjectClassificationReport, classifications: subjectClassifications } = classifyBooksBySubject({
     books,
     awards,
     appearances,
     subjectDefinitions,
     curatedBookSubjectIds,
   });
-  const topicClassificationReport = classifyBooksByTopic({ books, topicDefinitions });
-
-  const statusWeights: Record<AwardStatus, number> = {
-    winner: 5,
-    co_winner: 5,
-    finalist: 3,
-    shortlist: 2,
-    longlist: 1,
-    honorable_mention: 1,
-    commended: 1,
-    notable: 1,
-    unknown: 0,
-  };
+  const { report: topicClassificationReport, classifications: topicClassifications } = classifyBooksByTopic({
+    books,
+    topicDefinitions,
+    generatedTopics,
+    curatedBookTopicIds,
+  });
+  const subjectEvidenceReport = applySubjectEvidenceDecisions({
+    books,
+    awards,
+    appearances,
+    subjectDefinitions,
+    curatedBookSubjectIds,
+    topicClassifications,
+    subjectClassifications,
+    subjectMapRules,
+  });
+  const subjectReviewReport = buildSubjectReviewReport(books);
+  const suspiciousSubjectTopicReport = buildSuspiciousSubjectTopicReport(books);
+  const taxonomyValidationReport = validateTaxonomy({
+    books,
+    subjectDefinitions,
+    topicDefinitions,
+  });
+  if (taxonomyValidationReport.totals.subjectErrors || taxonomyValidationReport.totals.topicErrors) {
+    await fs.mkdir(publicDataDir, { recursive: true });
+    await fs.writeFile(
+      path.join(publicDataDir, "taxonomy-validation-report.json"),
+      `${JSON.stringify(taxonomyValidationReport, null, 2)}\n`,
+    );
+    throw new Error(
+      `Taxonomy validation failed: ${taxonomyValidationReport.totals.subjectErrors} subject errors, ${taxonomyValidationReport.totals.topicErrors} topic errors.`,
+    );
+  }
 
   const stats = new Map<string, BookStats>();
   for (const book of books.values()) {
@@ -323,6 +809,12 @@ async function main() {
       wins: 0,
       lists: 0,
       score: 0,
+      majorWins: 0,
+      normalWins: 0,
+      majorShortlists: 0,
+      normalShortlists: 0,
+      majorLonglists: 0,
+      normalLonglists: 0,
       statuses: {
         winner: 0,
         co_winner: 0,
@@ -340,10 +832,22 @@ async function main() {
   for (const appearance of appearances.values()) {
     const stat = stats.get(appearance.bookId);
     if (!stat) continue;
+    const award = awards.get(appearance.awardId);
+    const isMajorAward = award?.awardType !== "award";
     stat.lists += 1;
     stat.statuses[appearance.status] += 1;
-    stat.score += statusWeights[appearance.status];
-    if (appearance.status === "winner" || appearance.status === "co_winner") stat.wins += 1;
+    stat.score += awardRecognitionWeight(appearance.status, isMajorAward);
+    if (appearance.status === "winner" || appearance.status === "co_winner") {
+      stat.wins += 1;
+      if (isMajorAward) stat.majorWins += 1;
+      else stat.normalWins += 1;
+    } else if (appearance.status === "finalist" || appearance.status === "shortlist") {
+      if (isMajorAward) stat.majorShortlists += 1;
+      else stat.normalShortlists += 1;
+    } else if (appearance.status === "longlist") {
+      if (isMajorAward) stat.majorLonglists += 1;
+      else stat.normalLonglists += 1;
+    }
   }
 
   const subjectDefinitionsByName = new Map(subjectDefinitions.map((subject) => [subject.name, subject]));
@@ -377,6 +881,7 @@ async function main() {
   const publicData: PublicData = {
     generatedAt,
     books: [...books.values()].sort((a, b) => a.title.localeCompare(b.title)),
+    awardPrograms: buildAwardPrograms(prizeRegistry, awards, appearances),
     awards: [...awards.values()].sort((a, b) => a.name.localeCompare(b.name)),
     editions: [...editions.values()].sort((a, b) => b.year - a.year),
     appearances: [...appearances.values()].sort((a, b) => b.year - a.year || a.statusRank - b.statusRank),
@@ -384,11 +889,22 @@ async function main() {
     imprints: [...imprints.values()].sort((a, b) => a.name.localeCompare(b.name)),
     subjects,
     sources: [...sources.values()],
-    stats: [...stats.values()].sort((a, b) => b.score - a.score),
+    stats: [...stats.values()].sort(compareBookStats),
   };
+  const topicSummary = buildTopicSummary({
+    generatedAt,
+    books,
+    awards,
+    appearances,
+    topicDefinitions,
+  });
 
   await fs.mkdir(publicDataDir, { recursive: true });
   await fs.writeFile(path.join(publicDataDir, "catalog.json"), `${JSON.stringify(publicData, null, 2)}\n`);
+  await fs.writeFile(
+    path.join(publicDataDir, "taxonomy-validation-report.json"),
+    `${JSON.stringify(taxonomyValidationReport, null, 2)}\n`,
+  );
   await fs.writeFile(
     path.join(publicDataDir, "subject-classification-report.json"),
     `${JSON.stringify(subjectClassificationReport, null, 2)}\n`,
@@ -397,6 +913,19 @@ async function main() {
     path.join(publicDataDir, "topic-classification-report.json"),
     `${JSON.stringify(topicClassificationReport, null, 2)}\n`,
   );
+  await fs.writeFile(
+    path.join(publicDataDir, "subject-evidence-report.json"),
+    `${JSON.stringify(subjectEvidenceReport, null, 2)}\n`,
+  );
+  await fs.writeFile(
+    path.join(publicDataDir, "subject-review-report.json"),
+    `${JSON.stringify(subjectReviewReport, null, 2)}\n`,
+  );
+  await fs.writeFile(
+    path.join(publicDataDir, "suspicious-subject-topic-report.json"),
+    `${JSON.stringify(suspiciousSubjectTopicReport, null, 2)}\n`,
+  );
+  await fs.writeFile(path.join(publicDataDir, "topic-summary.json"), `${JSON.stringify(topicSummary, null, 2)}\n`);
 
   const warnings = {
     missingPublisherCount: publicData.books.filter((book) => !book.publisherId).length,
@@ -437,18 +966,38 @@ async function readTopicDefinitions(): Promise<TopicDefinition[]> {
   return topics;
 }
 
+async function readSubjectMapRules(subjectDefinitions: SubjectDefinition[]): Promise<SubjectMapRule[]> {
+  const allowedSubjects = new Set(subjectDefinitions.map((subject) => subject.name));
+  const parsed = JSON.parse(await fs.readFile(path.join(sourcesDir, "subject-map.json"), "utf8")) as SubjectMapFile;
+  return parsed.entries.map((entry) => {
+    if (!allowedSubjects.has(entry.subject)) {
+      throw new Error(`Subject map entry references unknown subject: ${entry.subject}`);
+    }
+    return {
+      ...entry,
+      pattern: new RegExp(entry.match, "i"),
+    };
+  });
+}
+
 function classifyBooksByTopic({
   books,
   topicDefinitions,
+  generatedTopics,
+  curatedBookTopicIds,
 }: {
   books: Map<string, Book>;
   topicDefinitions: TopicDefinition[];
-}): TopicClassificationReportEntry[] {
+  generatedTopics: GeneratedTopicsFile;
+  curatedBookTopicIds: Set<string>;
+}): { report: TopicClassificationReportEntry[]; classifications: Map<string, BookTopicClassification> } {
   const allowedTopics = new Set(topicDefinitions.map((topic) => topic.name));
   const report: TopicClassificationReportEntry[] = [];
+  const classifications = new Map<string, BookTopicClassification>();
 
   for (const book of books.values()) {
-    const classification = classifyBookTopic(book, allowedTopics);
+    const classification = classifyBookTopic(book, allowedTopics, generatedTopics.books?.[book.id], curatedBookTopicIds.has(book.id));
+    classifications.set(book.id, classification);
     book.primaryTopic = classification.primaryTopic;
     book.topics = classification.topics;
     if (classification.confidence !== "high" || classification.topics.length > 1) {
@@ -466,18 +1015,44 @@ function classifyBooksByTopic({
     }
   }
 
-  return report.sort(
-    (a, b) =>
-      confidenceRank(a.confidence) - confidenceRank(b.confidence) ||
-      (a.primaryTopic ?? "").localeCompare(b.primaryTopic ?? "") ||
-      a.title.localeCompare(b.title),
-  );
+  return {
+    report: report.sort(
+      (a, b) =>
+        confidenceRank(a.confidence) - confidenceRank(b.confidence) ||
+        (a.primaryTopic ?? "").localeCompare(b.primaryTopic ?? "") ||
+        a.title.localeCompare(b.title),
+    ),
+    classifications,
+  };
 }
 
 function classifyBookTopic(
   book: Book,
   allowedTopics: Set<string>,
+  generated?: GeneratedTopicClassification,
+  isCurated = false,
 ): { primaryTopic?: string; topics: string[]; confidence: "high" | "medium" | "low"; reasons: string[]; reviewReason?: string } {
+  const curatedTopics = normalizeTopicPatch(book.primaryTopic, book.topics, allowedTopics);
+  if (isCurated && curatedTopics.topics.length) {
+    return {
+      primaryTopic: curatedTopics.primaryTopic,
+      topics: curatedTopics.topics,
+      confidence: "high",
+      reasons: ["manual topic curation"],
+    };
+  }
+
+  const generatedTopics = normalizeTopicPatch(generated?.primaryTopic, generated?.topics, allowedTopics);
+  if (generatedTopics.topics.length && generated?.reviewStatus !== "rejected") {
+    return {
+      primaryTopic: generatedTopics.primaryTopic,
+      topics: generatedTopics.topics,
+      confidence: generated?.confidence ?? "medium",
+      reasons: [generated?.method ? `generated topic enrichment: ${generated.method}` : "generated topic enrichment"],
+      reviewReason: generated?.confidence === "low" ? generated.rationale ?? "Generated topic classification is low confidence." : undefined,
+    };
+  }
+
   const title = `${book.title} ${book.subtitle ?? ""}`.toLowerCase();
   const summary = (book.summary ?? "").toLowerCase();
   const text = `${title} ${summary} ${(book.primarySubject ?? "").toLowerCase()}`;
@@ -493,6 +1068,8 @@ function classifyBookTopic(
   if (overrides) overrides.forEach((topic, index) => add(topic, "title-level topic override", 8 - index / 10));
 
   if (/\b(watergate|president|presidency|executive|obama|fbi|hoover)\b/.test(text)) add("Presidency & Executive Power", "presidency/executive keyword", 5);
+  if (/\b(president|presidency|lincoln|washington|jefferson|adams|roosevelt|truman|kennedy|johnson|nixon|reagan|clinton|obama)\b/.test(text) && book.primarySubject === "Biography") add("Presidential Biography", "presidential biography keyword", 8);
+  if (/\b(politician|senator|governor|mayor|statesman|diplomat|cabinet|secretary of state|public office)\b/.test(text) && book.primarySubject === "Biography") add("Political Biography", "political biography keyword", 8);
   if (/\b(election|vote|voting|democracy|democratic|franchise|one person no vote)\b/.test(text)) add("Democracy & Elections", "democracy/elections keyword", 5);
   if (/\b(constitution|constitutional|founding|madison)\b/.test(text)) add("Constitutional History", "constitutional keyword", 5);
   if (/\b(law|legal|rights|deportation|border law|citizenship)\b/.test(text)) add("Law & Legal Change", "law/legal keyword", 4);
@@ -500,14 +1077,22 @@ function classifyBookTopic(
   if (/\b(crime|police|violence|murder|flower moon|bruises)\b/.test(text)) add("Crime, Policing & Violence", "crime/policing keyword", 5);
   if (/\b(prison|incarceration|solitary|halfway home|attica)\b/.test(text)) add("Prisons & Incarceration", "prison/incarceration keyword", 6);
   if (/\b(war|military|battle|soldier|veteran|vietnam|tokyo|iraq|afghanistan|hitler|nazi)\b/.test(text)) add("War & Military Strategy", "war/military keyword", 5);
+  if (/\b(civil war|confederacy|confederate|union army|appomattox|gettysburg)\b/.test(text)) add("American Civil War", "Civil War keyword", 7);
+  if (/\b(world war i|first world war|great war|1914|1918)\b/.test(text)) add("World War I", "World War I keyword", 7);
+  if (/\b(world war ii|second world war|wwii|pearl harbor|d-day|nazi|hitler|third reich|tokyo|manhattan project|oppenheimer)\b/.test(text)) add("World War II", "World War II keyword", 7);
+  if (/\b(vietnam|viet nam|john paul vann|hanoi|saigon|hue 1968)\b/.test(text)) add("Vietnam War", "Vietnam War keyword", 7);
+  if (book.primarySubject === "Biography" && /\b(war|military|battle|soldier|general|veteran|vietnam|iraq|afghanistan)\b/.test(text)) add("Military Biography", "military biography keyword", 8);
   if (/\b(veteran|combat|marching home|soldiers)\b/.test(text)) add("Soldiers, Veterans & Combat Experience", "combat/veteran keyword", 5);
   if (/\b(cold war|nuclear|doomsday|soviet|chernobyl)\b/.test(text)) add("Cold War & Nuclear Politics", "cold war/nuclear keyword", 5);
   if (/\b(intelligence|surveillance|secrecy|classified|directorate|pentagon|machine|spy)\b/.test(text)) add("Intelligence, Secrecy & Surveillance", "intelligence/secrecy keyword", 5);
   if (/\b(genocide|atrocity|pogrom|massacre|torture|holocaust|katyn|kl)\b/.test(text)) add("Genocide, Atrocity & Political Violence", "atrocity keyword", 6);
+  if (/\b(holocaust|shoah|auschwitz|nazi genocide)\b/.test(text)) add("Holocaust", "Holocaust keyword", 7);
   if (/\b(empire|colonial|imperial|anarchy|colonialism)\b/.test(text)) add("Empire & Colonialism", "empire/colonial keyword", 5);
   if (/\b(slavery|slave|emancipation|plantation|abolition)\b/.test(text)) add("Slavery & Emancipation", "slavery/emancipation keyword", 6);
+  if (/\b(reconstruction|freedmen|freedpeople)\b/.test(text)) add("Reconstruction", "Reconstruction keyword", 6);
   if (/\b(indigenous|native|lakota|tribe|tribal|wounded knee|settler|nations)\b/.test(text)) add("Indigenous History", "Indigenous history keyword", 6);
   if (/\b(civil rights|racial justice|segregation|jim crow|white supremacy)\b/.test(text)) add("Civil Rights & Racial Justice", "civil rights/racial justice keyword", 6);
+  if (book.primarySubject === "Biography" && /\b(activist|movement|civil rights|abolitionist|organizer|reformer|malcolm|douglass|martin luther king)\b/.test(text)) add("Activist Biography", "activist biography keyword", 8);
   if (/\b(black|african american|douglass|baldwin|malcolm|black-owned|black folk|black in blues)\b/.test(text)) add("Black History & Culture", "Black history/culture keyword", 5);
   if (/\b(immigration|immigrant|refugee|border|deport|undocumented|migrant|asylum)\b/.test(text)) add("Immigration, Refugees & Borderlands", "immigration/border keyword", 6);
   if (/\b(cuba|haiti|mexico|mexican|latin america|caribbean|el norte|america america)\b/.test(text)) add("Latin America & the Caribbean", "Latin America/Caribbean keyword", 5);
@@ -518,10 +1103,19 @@ function classifyBookTopic(
   if (/\b(religion|religious|church|god|evangelical|faith|christian|jewish|jews|priest)\b/.test(text)) add("Religion & Religious Movements", "religion keyword", 5);
   if (/\b(evangelical|christian nationalism|christian nationalist)\b/.test(text)) add("Evangelicalism & Christian Nationalism", "evangelicalism keyword", 6);
   if (/\b(gender|women|woman|feminism|firebrand|first lady|property)\b/.test(text)) add("Gender & Feminism", "gender/feminism keyword", 5);
-  if (/\b(lgbtq|queer|gay|trans|sexuality|deviant|darkroom|other olympians)\b/.test(text)) add("LGBTQ History & Life", "LGBTQ keyword", 6);
+  if (/\b(lgbtq|queer|gay|transgender|trans(?![-a-z])|sexuality|deviant|darkroom|other olympians)\b/.test(text)) add("LGBTQ History & Life", "LGBTQ keyword", 6);
   if (/\b(abortion|reproductive|roe|adoption|relinquished|family policy|undue burden)\b/.test(text)) add("Reproductive Rights & Family Policy", "reproductive/family policy keyword", 6);
   if (/\b(family|childhood|children|adoption|child|father|mother|daughter|son)\b/.test(text)) add("Family, Childhood & Adoption", "family/childhood keyword", 4);
-  if (book.primarySubject === "Biography") add("Biography & Public Lives", "biography subject", 4);
+  if (book.primarySubject === "Biography" && /\b(family|families|father|mother|daughter|son|sister|brother|hemingses|kin)\b/.test(text)) add("Family Biography", "family biography keyword", 8);
+  if (book.primarySubject === "Biography" && /\b(group biography|collective biography|lives of|circle of|generation of)\b/.test(text)) add("Group Biography", "group biography keyword", 8);
+  if (book.primarySubject === "Biography" && /\b(scientist|science|physicist|chemist|biology|mathematician|oppenheimer|einstein|darwin)\b/.test(text)) add("Scientific Biography", "scientific biography keyword", 8);
+  if (book.primarySubject === "Biography" && /\b(writer|writers|novelist|poet|literary|orwell|shakespeare|baldwin|woolf|mccarthy)\b/.test(text)) add("Literary Biography", "literary biography keyword", 8);
+  if (book.primarySubject === "Biography" && /\b(artist|painter|composer|musician|singer|performer|actor|art|music|picasso|dolly)\b/.test(text)) add("Artistic Biography", "artistic biography keyword", 8);
+  if (book.primarySubject === "Biography" && /\b(businessman|businesswoman|entrepreneur|capitalist|corporation|financier|industrialist)\b/.test(text)) add("Business Biography", "business biography keyword", 8);
+  if (book.primarySubject === "Biography" && /\b(religious|religion|church|priest|pastor|minister|rabbi|faith|theologian)\b/.test(text)) add("Religious Biography", "religious biography keyword", 8);
+  if (book.primarySubject === "Biography" && /\b(athlete|sport|sports|olympian|boxing|baseball|football|ali)\b/.test(text)) add("Sports Biography", "sports biography keyword", 8);
+  if (book.primarySubject === "Biography" && /\b(intellectual|thinker|philosopher|ideas|journalist|lippmann|public intellectual)\b/.test(text)) add("Intellectual Biography", "intellectual biography keyword", 8);
+  if (book.primarySubject === "Biography") add("Biography & Public Lives", "biography fallback", 1);
   if (book.primarySubject === "Memoir & Autobiography") add("Memoir & Personal History", "memoir subject", 4);
   if (/\b(grief|trauma|recovery|death takes|memorial|survivors)\b/.test(text)) add("Grief, Trauma & Recovery", "grief/trauma keyword", 5);
   if (/\b(ideas|intellectual|existentialist|choice|upper air|method)\b/.test(text)) add("Intellectual History & Ideas", "intellectual history keyword", 4);
@@ -585,9 +1179,17 @@ function classifyBookTopic(
   };
 }
 
+function normalizeTopicPatch(primaryTopic: string | undefined, topics: string[] | undefined, allowedTopics: Set<string>) {
+  const normalizedTopics = [...new Set([primaryTopic, ...(topics ?? [])].filter((topic): topic is string => Boolean(topic && allowedTopics.has(topic))))];
+  return {
+    primaryTopic: normalizedTopics[0],
+    topics: normalizedTopics.slice(0, 4),
+  };
+}
+
 function addFallbackTopic(book: Book, add: (topic: string, reason: string, weight?: number) => void) {
   const fallbackBySubject: Record<string, string> = {
-    "American History": "American Politics",
+    "American History": "Regional & Local History",
     "World History": "Empire & Colonialism",
     "History": "Regional & Local History",
     "Biography": "Biography & Public Lives",
@@ -614,12 +1216,605 @@ function addFallbackTopic(book: Book, add: (topic: string, reason: string, weigh
   if (fallback) add(fallback, "subject fallback", 1);
 }
 
+function applySubjectEvidenceDecisions({
+  books,
+  awards,
+  appearances,
+  subjectDefinitions,
+  curatedBookSubjectIds,
+  topicClassifications,
+  subjectClassifications,
+  subjectMapRules,
+}: {
+  books: Map<string, Book>;
+  awards: Map<string, Award>;
+  appearances: Map<string, AwardAppearance>;
+  subjectDefinitions: SubjectDefinition[];
+  curatedBookSubjectIds: Set<string>;
+  topicClassifications: Map<string, BookTopicClassification>;
+  subjectClassifications: Map<string, BookSubjectClassification>;
+  subjectMapRules: SubjectMapRule[];
+}) {
+  const allowedSubjects = new Set(subjectDefinitions.map((subject) => subject.name));
+  const appearancesByBookId = new Map<string, AwardAppearance[]>();
+  for (const appearance of appearances.values()) {
+    const current = appearancesByBookId.get(appearance.bookId) ?? [];
+    current.push(appearance);
+    appearancesByBookId.set(appearance.bookId, current);
+  }
+  const report: Array<{
+    bookId: string;
+    title: string;
+    author: string;
+    primarySubject?: string;
+    confidence?: "high" | "medium" | "low";
+    candidates: SubjectDecision["candidates"];
+    evidence: SubjectEvidence[];
+  }> = [];
+
+  for (const book of books.values()) {
+    const evidence = buildSubjectEvidenceForBook({
+      book,
+      awards,
+      appearances: appearancesByBookId.get(book.id) ?? [],
+      curatedBookSubjectIds,
+      subjectClassifications,
+      topicClassifications,
+      subjectMapRules,
+      allowedSubjects,
+    });
+    const decision = decideSubject(book, evidence, curatedBookSubjectIds.has(book.id), allowedSubjects);
+    const subject = decision.primarySubject;
+    if (!subject || !allowedSubjects.has(subject)) {
+      book.primarySubject = "General Nonfiction";
+      book.subjects = ["General Nonfiction"];
+      book.subjectEvidence = {
+        primarySubject: "General Nonfiction",
+        confidence: "low",
+        method: "fallback",
+        candidates: [],
+        evidence,
+      };
+      continue;
+    }
+    book.primarySubject = subject;
+    book.subjects = [subject];
+    book.subjectEvidence = decision;
+    if (decision.confidence !== "high" || decision.candidates.length > 1) {
+      report.push({
+        bookId: book.id,
+        title: book.title,
+        author: book.authors.map((author) => author.name).join(", "),
+        primarySubject: book.primarySubject,
+        confidence: decision.confidence,
+        candidates: decision.candidates,
+        evidence: decision.evidence,
+      });
+    }
+  }
+  return report.sort((a, b) => confidenceRank(a.confidence ?? "low") - confidenceRank(b.confidence ?? "low") || a.title.localeCompare(b.title));
+}
+
+function buildSubjectEvidenceForBook({
+  book,
+  awards,
+  appearances,
+  curatedBookSubjectIds,
+  subjectClassifications,
+  topicClassifications,
+  subjectMapRules,
+  allowedSubjects,
+}: {
+  book: Book;
+  awards: Map<string, Award>;
+  appearances: AwardAppearance[];
+  curatedBookSubjectIds: Set<string>;
+  subjectClassifications: Map<string, BookSubjectClassification>;
+  topicClassifications: Map<string, BookTopicClassification>;
+  subjectMapRules: SubjectMapRule[];
+  allowedSubjects: Set<string>;
+}) {
+  const evidence: SubjectEvidence[] = [];
+  const seenEvidence = new Set<string>();
+  const addEvidence = (item: Omit<SubjectEvidence, "id">) => {
+    if (!allowedSubjects.has(item.mappedSubject)) return;
+    const key = `${item.source}\u0000${item.rawLabel.toLowerCase()}\u0000${item.mappedSubject}`;
+    if (seenEvidence.has(key)) return;
+    seenEvidence.add(key);
+    evidence.push({ ...item, id: `subject-evidence-${book.id}-${evidence.length + 1}` });
+  };
+
+  if (curatedBookSubjectIds.has(book.id)) {
+    for (const [index, subject] of book.subjects.entries()) {
+      addEvidence({
+        source: "manual_curation",
+        rawLabel: subject,
+        mappedSubject: subject,
+        score: 10 - index,
+        confidence: "high",
+        note: "Manual curation in sources/curation.json.",
+      });
+    }
+  }
+
+  for (const category of book.subjectCategories ?? []) {
+    for (const mapped of mapRawSubjectLabel(category.label, subjectMapRules, category.source === "bisac" ? 2 : 0)) {
+      addEvidence({
+        source: category.source,
+        scheme: category.scheme,
+        rawLabel: category.label,
+        mappedSubject: mapped.subject,
+        score: mapped.score,
+        confidence: mapped.confidence,
+        sourceId: category.sourceId,
+      });
+    }
+  }
+
+  for (const appearance of appearances) {
+    const award = awards.get(appearance.awardId);
+    if (!award) continue;
+    for (const rawLabel of [award.name, ...award.subjectAreas]) {
+      if (isGenericSubjectLabel(rawLabel)) continue;
+      for (const mapped of mapRawSubjectLabel(rawLabel, subjectMapRules, -3)) {
+        addEvidence({
+          source: "award_category",
+          rawLabel,
+          mappedSubject: mapped.subject,
+          score: Math.min(2, Math.max(1, mapped.score)),
+          confidence: "low",
+          sourceId: appearance.sourceIds[0] ?? award.sourceIds[0],
+        });
+      }
+    }
+  }
+
+  const subjectClassification = subjectClassifications.get(book.id);
+  for (const candidate of subjectClassification?.candidates ?? []) {
+    addEvidence({
+      source: "keyword_classifier",
+      rawLabel: candidate.subject,
+      mappedSubject: candidate.subject,
+      score: Math.min(2, Math.max(1, candidate.score)),
+      confidence: "low",
+      note: subjectClassification?.reasons.join("; "),
+    });
+  }
+
+  const topicClassification = topicClassifications.get(book.id);
+  if (topicClassification?.primaryTopic) {
+    for (const topic of topicClassification.topics) {
+      const mapped = subjectForTopic(topic);
+      if (!mapped) continue;
+      const onlyFallback = topicClassification.reasons.length === 1 && topicClassification.reasons[0] === "subject fallback";
+      addEvidence({
+        source: "topic_classifier",
+        rawLabel: topic,
+        mappedSubject: mapped,
+        score: onlyFallback ? 1 : topic === topicClassification.primaryTopic ? 2 : 1,
+        confidence: "low",
+        note: topicClassification.reasons.join("; "),
+      });
+    }
+  }
+
+  return evidence.sort((a, b) => b.score - a.score || a.mappedSubject.localeCompare(b.mappedSubject));
+}
+
+function isGenericSubjectLabel(label: string) {
+  const normalized = label.toLowerCase().trim();
+  return (
+    normalized === "nonfiction" ||
+    normalized === "general nonfiction" ||
+    normalized.includes("award for nonfiction") ||
+    normalized.includes("excellence in nonfiction")
+  );
+}
+
+function mapRawSubjectLabel(label: string, rules: SubjectMapRule[], bonus = 0) {
+  return rules
+    .filter((rule) => rule.pattern.test(label))
+    .map((rule) => ({
+      subject: rule.subject,
+      score: Math.max(1, rule.weight + bonus),
+      confidence: rule.confidence,
+    }));
+}
+
+function decideSubject(book: Book, evidence: SubjectEvidence[], isCurated: boolean, allowedSubjects: Set<string>): SubjectDecision {
+  const decisiveEvidence = isCurated ? evidence : evidence.filter((item) => isDecisiveSubjectEvidence(item));
+  const scoringEvidence = decisiveEvidence.length ? decisiveEvidence : evidence.filter((item) => item.mappedSubject !== "General Nonfiction");
+  const scores = new Map<string, { score: number; evidenceCount: number; highCount: number }>();
+  for (const item of scoringEvidence) {
+    const current = scores.get(item.mappedSubject) ?? { score: 0, evidenceCount: 0, highCount: 0 };
+    current.score += item.score;
+    current.evidenceCount += 1;
+    if (item.confidence === "high") current.highCount += 1;
+    scores.set(item.mappedSubject, current);
+  }
+  if (!scores.size && book.primarySubject && allowedSubjects.has(book.primarySubject)) {
+    scores.set(book.primarySubject, { score: 1, evidenceCount: 1, highCount: 0 });
+  }
+  const candidates = [...scores.entries()]
+    .map(([subject, values]) => ({ subject, score: Number(values.score.toFixed(2)), evidenceCount: values.evidenceCount, highCount: values.highCount }))
+    .sort((a, b) => b.score - a.score || b.highCount - a.highCount || subjectTieBreakRank(a.subject) - subjectTieBreakRank(b.subject) || a.subject.localeCompare(b.subject));
+  const primarySubject = candidates[0]?.subject ?? "General Nonfiction";
+  const top = candidates[0];
+  const confidence = isCurated || decisiveEvidence.some((item) => item.mappedSubject === primarySubject && item.confidence === "high") ? "high" : decisiveEvidence.length ? "medium" : "low";
+  return {
+    primarySubject,
+    confidence,
+    method: isCurated ? "manual" : candidates.length ? "evidence_score" : "fallback",
+    candidates: candidates.map(({ subject, score, evidenceCount }) => ({ subject, score, evidenceCount })),
+    evidence: evidence.slice(0, 12),
+  };
+}
+
+function isDecisiveSubjectEvidence(item: SubjectEvidence) {
+  return ["manual_curation", "bisac", "google_books", "open_library", "publisher"].includes(item.source) && item.mappedSubject !== "General Nonfiction";
+}
+
+function subjectTieBreakRank(subject: string) {
+  const rank: Record<string, number> = {
+    Biography: 0,
+    "Memoir & Autobiography": 1,
+    "Race & Ethnicity": 2,
+    "Gender & Sexuality": 3,
+    Science: 4,
+    "Medicine & Public Health": 5,
+    "Nature & Environment": 6,
+    "War & Military": 7,
+    "True Crime & Justice": 8,
+    "American History": 9,
+    "World History": 10,
+    History: 11,
+    "Politics & Government": 12,
+    "Society & Culture": 13,
+    "Arts & Criticism": 14,
+    "General Nonfiction": 99,
+  };
+  return rank[subject] ?? 50;
+}
+
+function buildSubjectReviewReport(books: Map<string, Book>): SubjectReviewReportEntry[] {
+  const rows: SubjectReviewReportEntry[] = [];
+  for (const book of books.values()) {
+    const decision = book.subjectEvidence;
+    if (!decision) continue;
+    const reasons: string[] = [];
+    const top = decision.candidates[0];
+    const second = decision.candidates[1];
+    const decisive = decision.evidence.filter(isDecisiveSubjectEvidence);
+    if (decision.confidence !== "high") reasons.push(`${decision.confidence} confidence subject decision`);
+    if (!decisive.length) reasons.push("no catalog/BISAC/Open Library/Google/publisher subject evidence");
+    if (top && second && top.score - second.score <= 2) reasons.push(`close candidate scores: ${top.subject} ${top.score} vs ${second.subject} ${second.score}`);
+    if (decision.primarySubject === "General Nonfiction") reasons.push("still filed as General Nonfiction");
+    if (looksLikeBiography(book) && decision.primarySubject !== "Biography" && decision.primarySubject !== "Memoir & Autobiography") {
+      reasons.push("title looks biographical but primary subject is not biography/memoir");
+    }
+    if (decision.evidence.some((item) => isDecisiveSubjectEvidence(item) && item.mappedSubject !== decision.primarySubject)) {
+      reasons.push("catalog evidence conflicts with selected primary subject");
+    }
+    if (!reasons.length) continue;
+    rows.push({
+      bookId: book.id,
+      title: book.title,
+      author: book.authors.map((author) => author.name).join(", "),
+      primarySubject: decision.primarySubject,
+      confidence: decision.confidence,
+      reasons,
+      candidates: decision.candidates.slice(0, 5),
+      evidence: decision.evidence.slice(0, 8),
+    });
+  }
+  return rows.sort((a, b) => confidenceRank(a.confidence ?? "low") - confidenceRank(b.confidence ?? "low") || b.reasons.length - a.reasons.length || a.title.localeCompare(b.title));
+}
+
+function looksLikeBiography(book: Book) {
+  const text = `${book.title} ${book.subtitle ?? ""}`.toLowerCase();
+  return /\b(biography|life of|life and times of|portrait of|a life|his life|her life|memoir|autobiography)\b/.test(text);
+}
+
+function subjectForTopic(topic: string) {
+  const map: Record<string, string> = {
+    "American Politics": "Politics & Government",
+    "Democracy & Elections": "Politics & Government",
+    "Presidency & Executive Power": "Politics & Government",
+    "Constitutional History": "American History",
+    "Law & Legal Change": "True Crime & Justice",
+    "Courts & Trials": "True Crime & Justice",
+    "Crime, Policing & Violence": "True Crime & Justice",
+    "Prisons & Incarceration": "True Crime & Justice",
+    "War & Military Strategy": "War & Military",
+    "American Civil War": "War & Military",
+    "World War I": "War & Military",
+    "World War II": "War & Military",
+    "Vietnam War": "War & Military",
+    "Soldiers, Veterans & Combat Experience": "War & Military",
+    "Cold War & Nuclear Politics": "War & Military",
+    Holocaust: "World History",
+    "Intelligence, Secrecy & Surveillance": "Politics & Government",
+    "Genocide, Atrocity & Political Violence": "War & Military",
+    "Empire & Colonialism": "World History",
+    "Slavery & Emancipation": "American History",
+    Reconstruction: "American History",
+    "Indigenous History": "American History",
+    "Civil Rights & Racial Justice": "Race & Ethnicity",
+    "Black History & Culture": "Race & Ethnicity",
+    "Immigration, Refugees & Borderlands": "Society & Culture",
+    "Latin America & the Caribbean": "World History",
+    "Europe & Russia": "World History",
+    "Asia & the Pacific": "World History",
+    "Middle East & North Africa": "World History",
+    "Africa & the African Diaspora": "World History",
+    "Religion & Religious Movements": "Religion",
+    "Evangelicalism & Christian Nationalism": "Religion",
+    "Gender & Feminism": "Gender & Sexuality",
+    "LGBTQ History & Life": "Gender & Sexuality",
+    "Reproductive Rights & Family Policy": "Gender & Sexuality",
+    "Family, Childhood & Adoption": "Society & Culture",
+    "Biography & Public Lives": "Biography",
+    "Political Biography": "Biography",
+    "Presidential Biography": "Biography",
+    "Military Biography": "Biography",
+    "Literary Biography": "Biography",
+    "Artistic Biography": "Biography",
+    "Scientific Biography": "Biography",
+    "Business Biography": "Biography",
+    "Religious Biography": "Biography",
+    "Sports Biography": "Biography",
+    "Activist Biography": "Biography",
+    "Family Biography": "Biography",
+    "Group Biography": "Biography",
+    "Intellectual Biography": "Biography",
+    "Memoir & Personal History": "Memoir & Autobiography",
+    "Grief, Trauma & Recovery": "Memoir & Autobiography",
+    "Intellectual History & Ideas": "History",
+    "Literature & Writers": "Arts & Criticism",
+    "Art, Music & Performance": "Arts & Criticism",
+    "Film, Television & Popular Culture": "Arts & Criticism",
+    "Media, Journalism & Public Opinion": "Journalism & Reportage",
+    "Social Movements & Activism": "Society & Culture",
+    "Class, Poverty & Inequality": "Society & Culture",
+    "Housing, Cities & Urban Life": "Society & Culture",
+    "Labor, Work & Organizing": "Business & Economics",
+    "Business, Capitalism & Corporations": "Business & Economics",
+    "Money, Markets & Economic Policy": "Business & Economics",
+    "Food, Agriculture & Land": "Business & Economics",
+    "Infrastructure, Engineering & Built Environment": "Technology",
+    "Technology, Computing & AI": "Technology",
+    "Science & Discovery": "Science",
+    "Medicine, Health & the Body": "Medicine & Public Health",
+    "Disease, Epidemics & Drugs": "Medicine & Public Health",
+    "Mental Health & Psychology": "Medicine & Public Health",
+    "Disability & Difference": "Medicine & Public Health",
+    "Climate, Weather & Disaster": "Nature & Environment",
+    "Environment, Conservation & Pollution": "Nature & Environment",
+    "Natural History & Animals": "Nature & Environment",
+    "Oceans, Rivers & Water": "Nature & Environment",
+    "Energy, Extraction & Resources": "Business & Economics",
+    "Travel, Exploration & Place": "Travel & Place",
+    "Regional & Local History": "History",
+    "Education & Universities": "Society & Culture",
+    "Sports & Athletes": "Sports",
+    "Death, Memory & Commemoration": "History",
+    "Archives, Museums & Historical Method": "History",
+    "Settler Colonialism": "World History",
+    "Migration & Diaspora": "Society & Culture",
+    "Nationalism & Authoritarianism": "Politics & Government",
+    "Human Rights & International Law": "Politics & Government",
+    "Public Health Systems": "Medicine & Public Health",
+    "Drugs, Addiction & Treatment": "Medicine & Public Health",
+    "Essays & Cultural Criticism": "Arts & Criticism",
+  };
+  return map[topic];
+}
+
+function buildSuspiciousSubjectTopicReport(books: Map<string, Book>): SuspiciousSubjectTopicReportEntry[] {
+  const rows: SuspiciousSubjectTopicReportEntry[] = [];
+  const suspiciousPairs = new Set([
+    "Travel & Place\u0000Nationalism & Authoritarianism",
+    "Travel & Place\u0000Mental Health & Psychology",
+    "Travel & Place\u0000Medicine, Health & the Body",
+    "Biography\u0000Oceans, Rivers & Water",
+    "Biography\u0000Business, Capitalism & Corporations",
+    "American History\u0000Science & Discovery",
+    "American History\u0000Medicine, Health & the Body",
+    "American History\u0000Natural History & Animals",
+    "General Nonfiction\u0000Essays & Cultural Criticism",
+  ]);
+  for (const book of books.values()) {
+    const suggestedSubject = book.primaryTopic ? subjectForTopic(book.primaryTopic) : undefined;
+    const key = `${book.primarySubject}\u0000${book.primaryTopic}`;
+    if (book.primarySubject === "General Nonfiction") {
+      rows.push(reportRow(book, "General Nonfiction remains after topic-derived subject assignment.", suggestedSubject));
+      continue;
+    }
+    if (suggestedSubject && suggestedSubject !== book.primarySubject && !getTitleSubjectOverrides().has(slugify(book.title))) {
+      rows.push(reportRow(book, `Primary topic usually maps to ${suggestedSubject}.`, suggestedSubject));
+      continue;
+    }
+    if (suspiciousPairs.has(key)) {
+      rows.push(reportRow(book, "Subject/topic pairing looks suspicious.", suggestedSubject));
+    }
+  }
+  return rows.sort((a, b) => a.primarySubject!.localeCompare(b.primarySubject!) || a.title.localeCompare(b.title));
+}
+
+function reportRow(book: Book, reason: string, suggestedSubject?: string): SuspiciousSubjectTopicReportEntry {
+  return {
+    bookId: book.id,
+    title: book.title,
+    author: book.authors.map((author) => author.name).join(", "),
+    primarySubject: book.primarySubject,
+    primaryTopic: book.primaryTopic,
+    topics: book.topics,
+    reason,
+    suggestedSubject,
+  };
+}
+
+function validateTaxonomy({
+  books,
+  subjectDefinitions,
+  topicDefinitions,
+}: {
+  books: Map<string, Book>;
+  subjectDefinitions: SubjectDefinition[];
+  topicDefinitions: TopicDefinition[];
+}): TaxonomyValidationReport {
+  const allowedSubjects = new Set(subjectDefinitions.map((subject) => subject.name));
+  const allowedTopics = new Set(topicDefinitions.map((topic) => topic.name));
+  const subjectErrors: string[] = [];
+  const topicErrors: string[] = [];
+
+  for (const book of books.values()) {
+    if (!book.primarySubject) {
+      subjectErrors.push(`${book.id}: missing primarySubject`);
+    } else if (!allowedSubjects.has(book.primarySubject)) {
+      subjectErrors.push(`${book.id}: invalid primarySubject "${book.primarySubject}"`);
+    }
+    if (!Array.isArray(book.subjects) || book.subjects.length !== 1) {
+      subjectErrors.push(`${book.id}: expected exactly one subject, found ${JSON.stringify(book.subjects)}`);
+    } else if (book.subjects[0] !== book.primarySubject) {
+      subjectErrors.push(`${book.id}: subjects[0] "${book.subjects[0]}" does not match primarySubject "${book.primarySubject}"`);
+    }
+
+    if (!book.primaryTopic) {
+      topicErrors.push(`${book.id}: missing primaryTopic`);
+    } else if (!allowedTopics.has(book.primaryTopic)) {
+      topicErrors.push(`${book.id}: invalid primaryTopic "${book.primaryTopic}"`);
+    }
+    if (!Array.isArray(book.topics) || !book.topics.length) {
+      topicErrors.push(`${book.id}: missing topics`);
+    } else {
+      if (book.primaryTopic && book.topics[0] !== book.primaryTopic) {
+        topicErrors.push(`${book.id}: topics[0] "${book.topics[0]}" does not match primaryTopic "${book.primaryTopic}"`);
+      }
+      for (const topic of book.topics) {
+        if (!allowedTopics.has(topic)) topicErrors.push(`${book.id}: invalid topic "${topic}"`);
+      }
+    }
+  }
+
+  return {
+    subjectErrors,
+    topicErrors,
+    totals: {
+      books: books.size,
+      subjectErrors: subjectErrors.length,
+      topicErrors: topicErrors.length,
+    },
+  };
+}
+
+function buildTopicSummary({
+  generatedAt,
+  books,
+  awards,
+  appearances,
+  topicDefinitions,
+}: {
+  generatedAt: string;
+  books: Map<string, Book>;
+  awards: Map<string, Award>;
+  appearances: Map<string, AwardAppearance>;
+  topicDefinitions: TopicDefinition[];
+}): TopicSummary {
+  const topicBookIds = new Map<string, Set<string>>();
+  const topicAppearanceCounts = new Map<string, number>();
+  const byYear = new Map<string, { year: number; topic: string; appearanceCount: number; bookIds: Set<string> }>();
+  const byAward = new Map<string, { awardId: string; awardName: string; topic: string; appearanceCount: number; bookIds: Set<string> }>();
+  const byAwardYear = new Map<string, { awardId: string; awardName: string; year: number; topic: string; appearanceCount: number; bookIds: Set<string> }>();
+
+  for (const appearance of appearances.values()) {
+    const book = books.get(appearance.bookId);
+    const topic = book?.primaryTopic;
+    const award = awards.get(appearance.awardId);
+    if (!book || !topic || !award) continue;
+
+    const topicBooks = topicBookIds.get(topic) ?? new Set<string>();
+    topicBooks.add(book.id);
+    topicBookIds.set(topic, topicBooks);
+    topicAppearanceCounts.set(topic, (topicAppearanceCounts.get(topic) ?? 0) + 1);
+
+    const yearKey = `${appearance.year}\u0000${topic}`;
+    const yearEntry = byYear.get(yearKey) ?? { year: appearance.year, topic, appearanceCount: 0, bookIds: new Set<string>() };
+    yearEntry.appearanceCount += 1;
+    yearEntry.bookIds.add(book.id);
+    byYear.set(yearKey, yearEntry);
+
+    const awardKey = `${award.id}\u0000${topic}`;
+    const awardEntry = byAward.get(awardKey) ?? { awardId: award.id, awardName: award.name, topic, appearanceCount: 0, bookIds: new Set<string>() };
+    awardEntry.appearanceCount += 1;
+    awardEntry.bookIds.add(book.id);
+    byAward.set(awardKey, awardEntry);
+
+    const awardYearKey = `${award.id}\u0000${appearance.year}\u0000${topic}`;
+    const awardYearEntry = byAwardYear.get(awardYearKey) ?? {
+      awardId: award.id,
+      awardName: award.name,
+      year: appearance.year,
+      topic,
+      appearanceCount: 0,
+      bookIds: new Set<string>(),
+    };
+    awardYearEntry.appearanceCount += 1;
+    awardYearEntry.bookIds.add(book.id);
+    byAwardYear.set(awardYearKey, awardYearEntry);
+  }
+
+  const topicOrder = new Map(topicDefinitions.map((topic) => [topic.name, topic.sortOrder]));
+  const sortTopicRows = <T extends { topic: string; appearanceCount: number }>(rows: T[]) =>
+    rows.sort((a, b) => (topicOrder.get(a.topic) ?? 9999) - (topicOrder.get(b.topic) ?? 9999) || b.appearanceCount - a.appearanceCount || a.topic.localeCompare(b.topic));
+
+  return {
+    generatedAt,
+    topics: sortTopicRows(
+      [...topicBookIds.entries()].map(([topic, bookIds]) => ({
+        topic,
+        bookCount: bookIds.size,
+        appearanceCount: topicAppearanceCounts.get(topic) ?? 0,
+      })),
+    ),
+    byYear: sortTopicRows(
+      [...byYear.values()].map((entry) => ({
+        year: entry.year,
+        topic: entry.topic,
+        appearanceCount: entry.appearanceCount,
+        bookCount: entry.bookIds.size,
+      })),
+    ).sort((a, b) => a.year - b.year || (topicOrder.get(a.topic) ?? 9999) - (topicOrder.get(b.topic) ?? 9999)),
+    byAward: sortTopicRows(
+      [...byAward.values()].map((entry) => ({
+        awardId: entry.awardId,
+        awardName: entry.awardName,
+        topic: entry.topic,
+        appearanceCount: entry.appearanceCount,
+        bookCount: entry.bookIds.size,
+      })),
+    ).sort((a, b) => a.awardName.localeCompare(b.awardName) || (topicOrder.get(a.topic) ?? 9999) - (topicOrder.get(b.topic) ?? 9999)),
+    byAwardYear: sortTopicRows(
+      [...byAwardYear.values()].map((entry) => ({
+        awardId: entry.awardId,
+        awardName: entry.awardName,
+        year: entry.year,
+        topic: entry.topic,
+        appearanceCount: entry.appearanceCount,
+        bookCount: entry.bookIds.size,
+      })),
+    ).sort((a, b) => a.awardName.localeCompare(b.awardName) || a.year - b.year || (topicOrder.get(a.topic) ?? 9999) - (topicOrder.get(b.topic) ?? 9999)),
+  };
+}
+
 function getTitleTopicOverrides() {
   return new Map<string, string[]>([
     ["challenger", ["Infrastructure, Engineering & Built Environment", "Presidency & Executive Power", "Technology, Computing & AI"]],
+    ["challenger-a-true-story-of-heroism-and-disaster-on-the-edge-of-space", ["Infrastructure, Engineering & Built Environment", "Presidency & Executive Power", "Technology, Computing & AI"]],
     ["watergate", ["Presidency & Executive Power", "Media, Journalism & Public Opinion", "Law & Legal Change"]],
     ["native-nations", ["Indigenous History", "Settler Colonialism", "Empire & Colonialism"]],
     ["the-deviant-s-war", ["LGBTQ History & Life", "Civil Rights & Racial Justice", "Social Movements & Activism"]],
+    ["the-deviant-s-war-the-homosexual-vs-the-united-states-of-america", ["LGBTQ History & Life", "Civil Rights & Racial Justice", "Social Movements & Activism"]],
     ["combee", ["Slavery & Emancipation", "Food, Agriculture & Land", "War & Military Strategy"]],
     ["plantation-goods", ["Slavery & Emancipation", "Business, Capitalism & Corporations", "Food, Agriculture & Land"]],
     ["no-right-to-an-honest-living", ["Labor, Work & Organizing", "Black History & Culture", "Class, Poverty & Inequality"]],
@@ -631,6 +1826,8 @@ function getTitleTopicOverrides() {
     ["a-brief-history-of-everyone-who-ever-lived", ["Science & Discovery", "Family, Childhood & Adoption"]],
     ["a-cold-welcome", ["Climate, Weather & Disaster", "Empire & Colonialism", "Environment, Conservation & Pollution"]],
     ["a-fistful-of-shells", ["Africa & the African Diaspora", "Business, Capitalism & Corporations", "Empire & Colonialism"]],
+    ["a-beautiful-mind", ["Mental Health & Psychology", "Biography & Public Lives", "Science & Discovery"]],
+    ["a-day-in-the-life-of-abed-salama-anatomy-of-a-jerusalem-tragedy", ["Middle East & North Africa", "Human Rights & International Law", "Media, Journalism & Public Opinion"]],
     ["a-furious-sky", ["Climate, Weather & Disaster", "Oceans, Rivers & Water"]],
     ["a-little-devil-in-america", ["Essays & Cultural Criticism", "Black History & Culture", "Art, Music & Performance"]],
     ["a-machine-to-move-ocean-and-earth", ["Infrastructure, Engineering & Built Environment", "Oceans, Rivers & Water"]],
@@ -683,10 +1880,11 @@ function getTitleTopicOverrides() {
     ["fathoms", ["Natural History & Animals", "Oceans, Rivers & Water", "Environment, Conservation & Pollution"]],
     ["fire-weather", ["Climate, Weather & Disaster", "Environment, Conservation & Pollution"]],
     ["four-hundred-souls", ["Black History & Culture", "Slavery & Emancipation", "Civil Rights & Racial Justice"]],
-    ["frederick-douglass-prophet-of-freedom", ["Biography & Public Lives", "Slavery & Emancipation", "Black History & Culture"]],
-    ["g-man", ["Presidency & Executive Power", "Intelligence, Secrecy & Surveillance", "Biography & Public Lives"]],
+    ["frederick-douglass-prophet-of-freedom", ["Activist Biography", "Slavery & Emancipation", "Black History & Culture"]],
+    ["g-man", ["Political Biography", "Presidency & Executive Power", "Intelligence, Secrecy & Surveillance"]],
     ["h-is-for-hawk", ["Grief, Trauma & Recovery", "Natural History & Animals", "Memoir & Personal History"]],
-    ["his-name-is-george-floyd", ["Crime, Policing & Violence", "Civil Rights & Racial Justice", "Biography & Public Lives"]],
+    ["hidden-valley-road", ["Mental Health & Psychology", "Medicine, Health & the Body", "Family, Childhood & Adoption"]],
+    ["his-name-is-george-floyd", ["Activist Biography", "Crime, Policing & Violence", "Civil Rights & Racial Justice"]],
     ["how-to-hide-an-empire", ["Empire & Colonialism", "American Politics", "Settler Colonialism"]],
     ["i-ve-been-here-all-the-while", ["Indigenous History", "Settler Colonialism", "Slavery & Emancipation"]],
     ["hue-1968", ["War & Military Strategy", "Soldiers, Veterans & Combat Experience", "Asia & the Pacific"]],
@@ -718,9 +1916,12 @@ function getTitleTopicOverrides() {
     ["the-family-roe", ["Reproductive Rights & Family Policy", "Law & Legal Change", "Family, Childhood & Adoption"]],
     ["the-great-displacement", ["Climate, Weather & Disaster", "Housing, Cities & Urban Life", "Migration & Diaspora"]],
     ["the-heartbeat-of-wounded-knee", ["Indigenous History", "Civil Rights & Racial Justice", "Settler Colonialism"]],
+    ["the-indian-world-of-george-washington", ["Indigenous History", "Settler Colonialism", "Empire & Colonialism"]],
     ["the-invisible-kingdom", ["Medicine, Health & the Body", "Disability & Difference", "Memoir & Personal History"]],
     ["the-least-of-us", ["Drugs, Addiction & Treatment", "Disease, Epidemics & Drugs", "Class, Poverty & Inequality"]],
     ["the-other-slavery", ["Slavery & Emancipation", "Indigenous History", "Empire & Colonialism"]],
+    ["the-plains-across-the-overland-emigrants-on-the-trans-mississippi-west-1840-60", ["Migration & Diaspora", "Regional & Local History", "Settler Colonialism"]],
+    ["the-new-negro", ["Black History & Culture", "Art, Music & Performance", "Literature & Writers"]],
     ["the-pentagon-s-brain", ["Intelligence, Secrecy & Surveillance", "Technology, Computing & AI", "Cold War & Nuclear Politics"]],
     ["the-rediscovery-of-america", ["Indigenous History", "Settler Colonialism", "American Politics"]],
     ["the-undertow", ["Nationalism & Authoritarianism", "Evangelicalism & Christian Nationalism", "American Politics"]],
@@ -751,7 +1952,7 @@ function classifyBooksBySubject({
   appearances: Map<string, AwardAppearance>;
   subjectDefinitions: SubjectDefinition[];
   curatedBookSubjectIds: Set<string>;
-}): SubjectClassificationReportEntry[] {
+}): { report: SubjectClassificationReportEntry[]; classifications: Map<string, BookSubjectClassification> } {
   const allowedSubjects = new Set(subjectDefinitions.map((subject) => subject.name));
   const aliases = new Map([
     ["Nonfiction", "General Nonfiction"],
@@ -763,6 +1964,7 @@ function classifyBooksBySubject({
     ["Race, Gender & Identity", "Race & Ethnicity"],
   ]);
   const report: SubjectClassificationReportEntry[] = [];
+  const classifications = new Map<string, BookSubjectClassification>();
   const appearancesByBookId = new Map<string, AwardAppearance[]>();
   for (const appearance of appearances.values()) {
     const current = appearancesByBookId.get(appearance.bookId) ?? [];
@@ -779,10 +1981,17 @@ function classifyBooksBySubject({
     if (curatedBookSubjectIds.has(book.id)) {
       book.subjects = normalizedCuratedSubjects.length ? normalizedCuratedSubjects : ["General Nonfiction"];
       book.primarySubject = book.subjects[0];
+      classifications.set(book.id, {
+        subjects: book.subjects,
+        confidence: "high",
+        reasons: ["manual subject curation"],
+        candidates: book.subjects.map((subject, index) => ({ subject, score: 10 - index })),
+      });
       continue;
     }
 
     const classification = classifyBookSubject(book, awardNames, allowedSubjects, aliases);
+    classifications.set(book.id, classification);
     book.subjects = classification.subjects;
     book.primarySubject = classification.subjects[0];
     if (classification.confidence !== "high" || classification.subjects.some((subject) => subject === "History" || subject === "General Nonfiction")) {
@@ -794,16 +2003,20 @@ function classifyBooksBySubject({
         confidence: classification.confidence,
         reasons: classification.reasons,
         reviewReason: classification.reviewReason,
+        candidates: classification.candidates,
       });
     }
   }
 
-  return report.sort(
-    (a, b) =>
-      confidenceRank(a.confidence) - confidenceRank(b.confidence) ||
-      a.subjects.join(", ").localeCompare(b.subjects.join(", ")) ||
-      a.title.localeCompare(b.title),
-  );
+  return {
+    report: report.sort(
+      (a, b) =>
+        confidenceRank(a.confidence) - confidenceRank(b.confidence) ||
+        a.subjects.join(", ").localeCompare(b.subjects.join(", ")) ||
+        a.title.localeCompare(b.title),
+    ),
+    classifications,
+  };
 }
 
 function classifyBookSubject(
@@ -811,7 +2024,7 @@ function classifyBookSubject(
   awardNames: string[],
   allowedSubjects: Set<string>,
   aliases: Map<string, string>,
-): { subjects: string[]; confidence: "high" | "medium" | "low"; reasons: string[]; reviewReason?: string } {
+): BookSubjectClassification {
   const title = `${book.title} ${book.subtitle ?? ""}`.toLowerCase();
   const summary = (book.summary ?? "").toLowerCase();
   const awardsText = awardNames.join(" ").toLowerCase();
@@ -830,7 +2043,7 @@ function classifyBookSubject(
   }
 
   if (/\b(memoir|autobiograph|my life|personal history)\b/.test(text)) add("Memoir & Autobiography", "memoir/autobiography keyword", 3);
-  if (/\b(biography|life of|portrait of)\b/.test(text) || /^([a-z.'-]+\s){0,3}[a-z.'-]+:/.test(title)) add("Biography", "biography/title pattern", 2);
+  if (/\b(biography|life of|life and times of|portrait of|a life|his life|her life)\b/.test(text)) add("Biography", "biography/title pattern", 2);
   if (/\b(american|united states|u\.s\.|usa|mexican american|native american|african american|civil war|reconstruction|jim crow|slavery|enslaved|founding|president|presidential)\b/.test(text)) {
     add("American History", "American history keyword", 3);
   }
@@ -852,7 +2065,7 @@ function classifyBookSubject(
   if (/\b(race|racial|black|civil rights|indigenous|native|latino|latina|asian american|african american|ethnicity|diaspora|migrant|immigrant|refugee)\b/.test(text)) {
     add("Race & Ethnicity", "race/ethnicity keyword", 2);
   }
-  if (/\b(gender|women|woman|queer|trans|sexuality|feminism|abortion|reproductive|gay|lesbian)\b/.test(text)) {
+  if (/\b(gender|women|woman|queer|transgender|trans(?![-a-z])|sexuality|feminism|abortion|reproductive|gay|lesbian)\b/.test(text)) {
     add("Gender & Sexuality", "gender/sexuality keyword", 2);
   }
   if (/\b(travel|journey|walk|walking|voyage|sea|border|place|landscape|road|mountain|grand canyon|park)\b/.test(text)) add("Travel & Place", "travel/place keyword", 2);
@@ -867,7 +2080,7 @@ function classifyBookSubject(
     .filter(([subject]) => allowedSubjects.has(subject))
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
     .map(([subject]) => subject);
-  const subjects = candidates.slice(0, 3);
+  const subjects = candidates.slice(0, 1);
 
   if (!subjects.length) {
     return {
@@ -875,6 +2088,7 @@ function classifyBookSubject(
       confidence: "low",
       reasons: ["no specific subject keyword matched"],
       reviewReason: "Only the General Nonfiction fallback matched.",
+      candidates: [],
     };
   }
 
@@ -884,6 +2098,7 @@ function classifyBookSubject(
     subjects,
     confidence,
     reasons,
+    candidates: candidates.map((subject) => ({ subject, score: matched.get(subject) ?? 0 })),
     reviewReason: onlyBroadHistory
       ? "History matched, but no more specific history subject matched."
       : candidates.length > subjects.length
@@ -1115,64 +2330,33 @@ function getTitleSubjectOverrides() {
   ]);
 }
 
-async function readCuration(): Promise<CurationFile> {
+async function readGeneratedTopics(): Promise<GeneratedTopicsFile> {
   try {
-    return JSON.parse(await fs.readFile(path.join(sourcesDir, "curation.json"), "utf8")) as CurationFile;
+    return JSON.parse(await fs.readFile(path.join(sourcesDir, "enrichment", "topics.generated.json"), "utf8")) as GeneratedTopicsFile;
   } catch {
-    return {};
+    return { books: {} };
   }
 }
 
-async function readEnrichment(): Promise<CurationFile> {
-  const enrichmentDir = path.join(sourcesDir, "enrichment");
-  const merged: CurationFile = { books: {}, awards: {}, imprints: {}, publishers: {}, sources: {} };
+async function readPrizeRegistry(): Promise<PrizeRegistryFileEntry[]> {
   try {
-    const files = await fs.readdir(enrichmentDir);
-    for (const file of files.filter((item) => item.endsWith(".json")).sort()) {
-      const parsed = JSON.parse(await fs.readFile(path.join(enrichmentDir, file), "utf8")) as CurationFile;
-      Object.assign(merged.books!, parsed.books);
-      Object.assign(merged.awards!, parsed.awards);
-      Object.assign(merged.imprints!, parsed.imprints);
-      Object.assign(merged.publishers!, parsed.publishers);
-      Object.assign(merged.sources!, parsed.sources);
-    }
+    return JSON.parse(await fs.readFile(path.join(sourcesDir, "prizes.json"), "utf8")) as PrizeRegistryFileEntry[];
   } catch {
-    return {};
-  }
-  return merged;
-}
-
-function applySourcePatches(sources: Map<string, SourceRef>, patches?: Record<string, SourceRef>) {
-  if (!patches) return;
-  for (const [id, source] of Object.entries(patches)) {
-    sources.set(id, source);
+    return [];
   }
 }
 
-function applyCuration<T extends { id: string }>(items: Map<string, T>, patches?: Record<string, Partial<T>>) {
+function applyBookCuration(books: Map<string, Book>, patches: Record<string, Partial<Book>> | undefined, titleResolver: CanonicalTitleResolver) {
   if (!patches) return;
   for (const [id, patch] of Object.entries(patches)) {
-    const current = items.get(id);
+    const targetId = titleResolver.resolveBookId(id);
+    const current = books.get(targetId);
     if (!current) {
-      items.set(id, { id, ...patch } as T);
+      books.set(targetId, { id: targetId, ...patch } as Book);
       continue;
     }
-    items.set(id, mergeObject(current, patch));
+    books.set(targetId, mergeObject(current, patch));
   }
-}
-
-function mergeObject<T>(current: T, patch: Partial<T>): T {
-  const output = { ...current } as Record<string, unknown>;
-  for (const [key, value] of Object.entries(patch)) {
-    if (Array.isArray(value)) {
-      output[key] = value;
-    } else if (value && typeof value === "object" && !Array.isArray(value)) {
-      output[key] = { ...((output[key] as object | undefined) ?? {}), ...value };
-    } else if (value !== undefined) {
-      output[key] = value;
-    }
-  }
-  return output as T;
 }
 
 main().catch((error) => {

@@ -1,0 +1,27 @@
+{
+  "notes": "Maps BISAC-style, catalog, award, topic, and keyword labels into the public Book Prize Index subject buckets. More exact BISAC codes can be added here as enrichment starts preserving them.",
+  "entries": [
+    { "match": "\\bBIOGRAPHY\\b|biography|autobiography|memoir|life of|life story|presidents? and heads of state|^[A-Z][^,]+,\\s+[^,]+,?\\s+\\d{4}", "subject": "Biography", "weight": 6, "confidence": "high" },
+    { "match": "memoir|autobiography|personal history", "subject": "Memoir & Autobiography", "weight": 6, "confidence": "high" },
+    { "match": "HISTORY\\s*/\\s*United States|American history|United States history|Civil War|Reconstruction|Founding|Constitutional History|Slavery & Emancipation|Indigenous History|Regional & Local History", "subject": "American History", "weight": 5, "confidence": "high" },
+    { "match": "World History|global history|Europe|Russia|Asia|Pacific|Africa|Middle East|Latin America|Caribbean|Empire & Colonialism|Settler Colonialism", "subject": "World History", "weight": 5, "confidence": "high" },
+    { "match": "\\bHISTORY\\b|historical|history prize|Bancroft|Cundill|Wolfson", "subject": "History", "weight": 3, "confidence": "medium" },
+    { "match": "POLITICAL SCIENCE|Politics|Government|American Politics|Democracy|Elections|Presidency|Executive Power|Nationalism|Authoritarianism|Human Rights|International Law", "subject": "Politics & Government", "weight": 5, "confidence": "high" },
+    { "match": "SOCIAL SCIENCE|Society|Culture|Family|Childhood|Adoption|Social Movements|Class|Poverty|Inequality|Housing|Cities|Urban Life|Education|Migration|Diaspora", "subject": "Society & Culture", "weight": 5, "confidence": "high" },
+    { "match": "Race|Ethnic|African American|Black History|Civil Rights|Racial Justice|Indigenous|Native American|Latino|Latina|Diaspora", "subject": "Race & Ethnicity", "weight": 6, "confidence": "high" },
+    { "match": "Gender|Sexuality|Feminism|LGBTQ|Queer|Reproductive Rights", "subject": "Gender & Sexuality", "weight": 6, "confidence": "high" },
+    { "match": "Journalism|Reportage|Media|Public Opinion|Investigative", "subject": "Journalism & Reportage", "weight": 5, "confidence": "high" },
+    { "match": "\\bSCIENCE\\b|Science|Discovery|Physics|Physique|Nuclear physics|Biology|Evolution|Natural Science", "subject": "Science", "weight": 6, "confidence": "high" },
+    { "match": "MEDICAL|Medicine|Health|Disease|Epidemic|Drugs|Addiction|Psychology|Disability", "subject": "Medicine & Public Health", "weight": 6, "confidence": "high" },
+    { "match": "NATURE|Environment|Climate|Weather|Disaster|Conservation|Natural History|Animals|Oceans|Rivers|Water", "subject": "Nature & Environment", "weight": 6, "confidence": "high" },
+    { "match": "\\bTECHNOLOGY\\b|Computing|\\bAI\\b|Engineering|Infrastructure|Built Environment", "subject": "Technology", "weight": 6, "confidence": "high" },
+    { "match": "BUSINESS|ECONOMICS|Business|Economics|Capitalism|Corporations|Markets|Finance|Labor|Agriculture|Extraction|Resources", "subject": "Business & Economics", "weight": 5, "confidence": "high" },
+    { "match": "\\bART\\b|PERFORMING ARTS|LITERARY CRITICISM|Art|Music|Performance|Literature|Writers|Film|Television|Popular Culture|Essays|Cultural Criticism", "subject": "Arts & Criticism", "weight": 5, "confidence": "high" },
+    { "match": "RELIGION|Religion|Religious|Evangelical|Christian|Jewish|Islam|Theology", "subject": "Religion", "weight": 6, "confidence": "high" },
+    { "match": "\\bMilitary\\b|\\bWar\\b|\\bWarfare\\b|\\bCombat\\b|\\bVeterans?\\b|Cold War|Nuclear Warfare|Genocide|Atrocity", "subject": "War & Military", "weight": 6, "confidence": "high" },
+    { "match": "TRAVEL|Travel|Exploration|Place|Regional|Local", "subject": "Travel & Place", "weight": 5, "confidence": "high" },
+    { "match": "SPORTS|Sports|Athletes", "subject": "Sports", "weight": 6, "confidence": "high" },
+    { "match": "TRUE CRIME|Crime|Policing|Violence|Prisons|Incarceration|Law|Legal|Courts|Trials", "subject": "True Crime & Justice", "weight": 5, "confidence": "high" },
+    { "match": "Nonfiction|General Nonfiction", "subject": "General Nonfiction", "weight": 1, "confidence": "low" }
+  ]
+}

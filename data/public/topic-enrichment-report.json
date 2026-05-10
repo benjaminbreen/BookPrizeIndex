@@ -1,0 +1,69 @@
+{
+  "generatedAt": "2026-05-10T16:44:15.070Z",
+  "dryRun": false,
+  "budgetUsd": 0.05,
+  "estimatedSpendUsd": 0.0003,
+  "embeddingModel": "text-embedding-3-small",
+  "llmModel": "gpt-4o-mini",
+  "totals": {
+    "considered": 1,
+    "changed": 1,
+    "cached": 1,
+    "embedded": 0,
+    "llmCalls": 1,
+    "skippedNoText": 0,
+    "lowConfidence": 0
+  },
+  "books": [
+    {
+      "bookId": "book-g-man-j-edgar-hoover-and-the-making-of-the-american-century-beverly-gage",
+      "title": "G-Man: J. Edgar Hoover and the Making of the American Century",
+      "author": "Beverly Gage",
+      "inputHash": "bc357c80c27232e592c7f3df14a67edc27940fa2df251c284a70da994da0ed3b",
+      "sourceTextTokensEstimate": 104,
+      "method": "embedding+llm",
+      "primaryTopic": "Intelligence, Secrecy & Surveillance",
+      "topics": [
+        "Intelligence, Secrecy & Surveillance",
+        "Political Biography",
+        "Business, Capitalism & Corporations"
+      ],
+      "confidence": "high",
+      "candidateScores": [
+        {
+          "topic": "Business Biography",
+          "score": 0.361
+        },
+        {
+          "topic": "Presidential Biography",
+          "score": 0.3608
+        },
+        {
+          "topic": "Biography & Public Lives",
+          "score": 0.3438
+        },
+        {
+          "topic": "Intelligence, Secrecy & Surveillance",
+          "score": 0.3422
+        },
+        {
+          "topic": "Business, Capitalism & Corporations",
+          "score": 0.3286
+        },
+        {
+          "topic": "Intellectual Biography",
+          "score": 0.3212
+        },
+        {
+          "topic": "Military Biography",
+          "score": 0.314
+        },
+        {
+          "topic": "Political Biography",
+          "score": 0.3137
+        }
+      ],
+      "rationale": "The book focuses on J. Edgar Hoover, who was deeply involved in intelligence and secrecy as the head of the FBI. While it is a biography, it also intersects with themes of political biography due to Hoover's significant role in American governance and influence."
+    }
+  ]
+}

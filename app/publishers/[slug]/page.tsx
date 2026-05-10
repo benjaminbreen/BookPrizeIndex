@@ -3,8 +3,10 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { BookCatalog } from "@/components/book-catalog";
+import { ImprintLogoMark } from "@/components/imprint-logo-mark";
 import { booksForPublisher, imprintSlug, imprintsForPublisher, imprintStats, publisherSlug, publisherStats } from "@/lib/catalog";
 import { data } from "@/lib/data";
+import { getImprintLogo } from "@/lib/imprint-logos";
 
 export function generateStaticParams() {
   return data.publishers.filter((publisher) => publisherStats(publisher.id).books > 0).map((publisher) => ({ slug: publisherSlug(publisher) }));
@@ -58,11 +60,14 @@ export default async function PublisherPage({ params }: PageProps) {
             {imprints.map((imprint) => {
               const itemStats = imprintStats(imprint.id);
               return (
-                <Link className="border hairline p-4 transition hover:bg-[var(--accent-soft)]" href={`/imprints/${imprintSlug(imprint)}`} key={imprint.id}>
-                  <p className="font-medium">{imprint.name}</p>
-                  <p className="mt-2 font-[var(--font-mono)] text-xs muted">
-                    {itemStats.books} books / {itemStats.appearances} appearances
-                  </p>
+                <Link className="flex items-center gap-4 border hairline p-4 transition hover:bg-[var(--accent-soft)]" href={`/imprints/${imprintSlug(imprint)}`} key={imprint.id}>
+                  <ImprintLogoMark className="h-14 w-20" logoPath={getImprintLogo(imprint.id)?.logoPath} name={imprint.name} />
+                  <span className="min-w-0">
+                    <span className="block truncate font-medium">{imprint.name}</span>
+                    <span className="mt-2 block font-[var(--font-mono)] text-xs muted">
+                      {itemStats.books} books / {itemStats.appearances} appearances
+                    </span>
+                  </span>
                 </Link>
               );
             })}

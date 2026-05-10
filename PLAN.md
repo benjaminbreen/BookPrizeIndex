@@ -42,6 +42,9 @@ US:
 - National Book Critics Circle: Nonfiction, Biography, Autobiography/Memoir, Criticism
 - Andrew Carnegie Medal for Excellence in Nonfiction
 - Kirkus Prize for Nonfiction
+- Baillie Gifford Prize for Non-Fiction
+- Cundill History Prize
+- PEN/John Kenneth Galbraith Award for Nonfiction
 - Los Angeles Times Book Prize nonfiction categories
 - PEN America: Galbraith Nonfiction, Bograd Weld Biography, E.O. Wilson Science Writing, major essay/current-affairs prizes where records are strong
 - Lukas Prize Project: J. Anthony Lukas Book Prize, Mark Lynton History Prize
@@ -151,19 +154,26 @@ Recommended first importer batch:
 1. Pulitzer nonfiction categories
 2. National Book Awards nonfiction archive
 3. National Book Critics Circle nonfiction-related categories
-4. Baillie Gifford Prize
-5. PEN/Galbraith or Cundill, depending on source tractability
+4. Kirkus Prize for Nonfiction
+5. Baillie Gifford Prize
+6. PEN/Galbraith or Cundill, depending on source tractability
 
 Progress:
 
-- `sources/prizes.json` now contains the initial Pulitzer, National Book Awards, and National Book Critics Circle registry entries.
+- `sources/prizes.json` now contains the initial Pulitzer, National Book Awards, National Book Critics Circle, Andrew Carnegie Medals, Kirkus Prize, Baillie Gifford Prize, Cundill History Prize, PEN/Galbraith, and Los Angeles Times Book Prize registry entries.
 - `scripts/import-award-records/pulitzer.ts` imports Pulitzer General Nonfiction, History, Biography or Autobiography, and Memoir or Autobiography from deterministic MediaWiki tables as a secondary source.
 - `scripts/import-award-records/national-book-awards.ts` imports National Book Awards nonfiction records, including historical nonfiction subcategories, from deterministic MediaWiki tables as a secondary source.
 - `scripts/import-award-records/nbcc.ts` imports NBCC Nonfiction, Biography, Memoir and Autobiography, and Criticism records from deterministic MediaWiki tables as a secondary source. Memoir and Autobiography is filtered to 2005 onward to avoid duplicating the earlier Biography/Autobiography lineage.
-- `data/raw/award-records/pulitzer.json`, `data/raw/award-records/national-book-awards.json`, and `data/raw/award-records/nbcc.json` are the first normalized raw corpus artifacts.
+- `scripts/import-award-records/carnegie.ts` imports Andrew Carnegie Medal nonfiction winners and finalists from the deterministic MediaWiki table as a secondary source, including the 2018 no-winner year.
+- `scripts/import-award-records/kirkus.ts` imports Kirkus Prize nonfiction winners and finalists from the deterministic MediaWiki table as a secondary source.
+- `scripts/import-award-records/baillie-gifford.ts` imports Baillie Gifford Prize / Samuel Johnson Prize winners and shortlisted books from deterministic MediaWiki decade tables as a secondary source.
+- `scripts/import-award-records/cundill.ts` imports Cundill History Prize winners, finalists, and longlisted books from the deterministic MediaWiki table as a secondary source.
+- `scripts/import-award-records/pen-galbraith.ts` imports PEN/John Kenneth Galbraith Award nonfiction winners, runners-up, and finalists from the deterministic MediaWiki table as a secondary source. Runner-up rows are normalized to finalist status.
+- `scripts/import-award-records/latimes.ts` imports Los Angeles Times Book Prize History, Biography, Current Interest, and Science and Technology winners and finalists from deterministic MediaWiki category tables as secondary sources.
+- `data/raw/award-records/pulitzer.json`, `data/raw/award-records/national-book-awards.json`, `data/raw/award-records/nbcc.json`, `data/raw/award-records/carnegie.json`, `data/raw/award-records/kirkus.json`, `data/raw/award-records/baillie-gifford.json`, `data/raw/award-records/cundill.json`, `data/raw/award-records/pen-galbraith.json`, and `data/raw/award-records/latimes.json` are the first normalized raw corpus artifacts.
 - `scripts/import-award-records/validate.ts` writes `data/raw/award-records/import-report.json`.
-- Current raw corpus validation covers 2,168 award records across 3 files with no missing source URLs or duplicate canonical keys.
-- Next importer targets should be Andrew Carnegie Medal for Excellence in Nonfiction, Kirkus Prize for Nonfiction, Baillie Gifford Prize, or Cundill History Prize.
+- Current raw corpus validation covers 3,388 award records across 9 files with no missing source URLs or duplicate canonical keys.
+- Next importer targets should be narrower PEN America nonfiction/biography/science awards, Bancroft/Mark Lynton/Frederick Douglass history prizes, or official-source verification for the secondary-source imports.
 
 ## Phase 2: Book Identity And Metadata Reconciliation
 

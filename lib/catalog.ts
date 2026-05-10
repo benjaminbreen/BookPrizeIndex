@@ -2,7 +2,7 @@ import MiniSearch from "minisearch";
 import { data, awardsById, getBookStats, imprintsById, publishersById } from "@/lib/data";
 import type { Book, Imprint, Publisher } from "@/lib/types";
 
-export type BookSortKey = "score" | "year" | "title" | "wins" | "lists" | "imprint" | "publisher";
+export type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
 
 export type BookSearchDocument = {
   id: string;
@@ -55,10 +55,27 @@ export function sortBooks(books: Book[], sortKey: BookSortKey) {
   return [...books].sort((a, b) => {
     const aStats = getBookStats(a.id);
     const bStats = getBookStats(b.id);
-    if (sortKey === "score") return bStats.score - aStats.score || a.title.localeCompare(b.title);
+    if (sortKey === "score") {
+      return (
+        bStats.score - aStats.score ||
+        bStats.majorWins - aStats.majorWins ||
+        bStats.wins - aStats.wins ||
+        bStats.majorShortlists - aStats.majorShortlists ||
+        bStats.normalShortlists - aStats.normalShortlists ||
+        bStats.majorLonglists - aStats.majorLonglists ||
+        bStats.normalLonglists - aStats.normalLonglists ||
+        (b.publicationYear ?? 0) - (a.publicationYear ?? 0) ||
+        a.title.localeCompare(b.title)
+      );
+    }
     if (sortKey === "wins") return bStats.wins - aStats.wins || a.title.localeCompare(b.title);
     if (sortKey === "lists") return bStats.lists - aStats.lists || a.title.localeCompare(b.title);
     if (sortKey === "year") return (b.publicationYear ?? 0) - (a.publicationYear ?? 0) || a.title.localeCompare(b.title);
+    if (sortKey === "author") {
+      const aAuthor = a.authors.map((author) => author.name).join(", ");
+      const bAuthor = b.authors.map((author) => author.name).join(", ");
+      return aAuthor.localeCompare(bAuthor) || a.title.localeCompare(b.title);
+    }
     if (sortKey === "imprint") {
       const aImprint = a.imprintId ? imprintsById.get(a.imprintId)?.name ?? "" : "";
       const bImprint = b.imprintId ? imprintsById.get(b.imprintId)?.name ?? "" : "";
@@ -68,6 +85,9 @@ export function sortBooks(books: Book[], sortKey: BookSortKey) {
       const aPublisher = a.publisherId ? publishersById.get(a.publisherId)?.name ?? "" : "";
       const bPublisher = b.publisherId ? publishersById.get(b.publisherId)?.name ?? "" : "";
       return aPublisher.localeCompare(bPublisher) || a.title.localeCompare(b.title);
+    }
+    if (sortKey === "subject") {
+      return (a.primarySubject ?? "").localeCompare(b.primarySubject ?? "") || a.title.localeCompare(b.title);
     }
     return a.title.localeCompare(b.title);
   });

@@ -3,15 +3,19 @@
 import Link from "next/link";
 import { ChevronRight, Search } from "lucide-react";
 import { useMemo, useState } from "react";
+import { ImprintLogoMark } from "@/components/imprint-logo-mark";
 import { imprintSlug, imprintsForPublisher, imprintStats, publisherSlug, publisherStats } from "@/lib/catalog";
 import { data } from "@/lib/data";
+import { getImprintLogo } from "@/lib/imprint-logos";
 
 type SortKey = "activity" | "name" | "imprints";
+type AnalysisView = "publishers" | "imprints";
 
 export function PublisherBrowser() {
   const [query, setQuery] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("activity");
   const [letter, setLetter] = useState<string | null>(null);
+  const [analysisView, setAnalysisView] = useState<AnalysisView>("publishers");
 
   const allRows = useMemo(
     () =>
@@ -24,6 +28,7 @@ export function PublisherBrowser() {
         .filter((row) => row.stats.books > 0),
     [],
   );
+  const publishersById = useMemo(() => new Map(data.publishers.map((publisher) => [publisher.id, publisher])), []);
 
   const publisherRows = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -42,6 +47,28 @@ export function PublisherBrowser() {
       });
   }, [allRows, letter, query, sortKey]);
 
+  const imprintRows = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    return data.imprints
+      .map((imprint) => ({
+        imprint,
+        publisher: imprint.publisherId ? publishersById.get(imprint.publisherId) : undefined,
+        stats: imprintStats(imprint.id),
+      }))
+      .filter((row) => row.stats.books > 0)
+      .filter((row) => {
+        const haystack = `${row.imprint.name} ${row.imprint.shortName ?? ""} ${row.publisher?.name ?? ""}`.toLowerCase();
+        const matchesQuery = !q || haystack.includes(q);
+        const first = (row.imprint.shortName ?? row.imprint.name)[0]?.toUpperCase() ?? "#";
+        const matchesLetter = !letter || (letter === "#" ? !/[A-Z]/.test(first) : first === letter);
+        return matchesQuery && matchesLetter;
+      })
+      .sort((a, b) => {
+        if (sortKey === "name") return (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
+        return b.stats.score - a.stats.score || (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
+      });
+  }, [letter, publishersById, query, sortKey]);
+
   const totalAppearances = data.appearances.length;
   const years = data.appearances.map((appearance) => appearance.year);
   const topPublishers = [...allRows].sort((a, b) => b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name)).slice(0, 5);
@@ -57,6 +84,9 @@ export function PublisherBrowser() {
             <p className="mt-5 max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted">
               Publishers are parent organizations. Imprints are publishing labels grouped beneath each publisher and ordered by award activity.
             </p>
+            <p className="mt-3 max-w-2xl text-sm leading-6 muted">
+              Historical labels and short-lived sub-imprints are consolidated under their clearest parent publisher where the source data supports it.
+            </p>
           </div>
           <div className="grid grid-cols-4 border-l hairline">
             <HeroMetric value={allRows.length} label="Publishers" />
@@ -69,20 +99,40 @@ export function PublisherBrowser() {
 
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[1fr_22rem] lg:px-8">
         <div>
-          <div className="panel mb-4 grid gap-3 border hairline p-3 lg:grid-cols-[1fr_auto_auto]">
+          <div className="panel mb-4 grid gap-3 border hairline p-3 lg:grid-cols-[auto_1fr_auto_auto]">
+            <div>
+              <p className="mb-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] muted">Analyze by</p>
+              <div className="inline-flex overflow-hidden rounded-md border hairline bg-[color-mix(in_srgb,var(--paper)_68%,var(--panel))] text-sm">
+                {(["publishers", "imprints"] as const).map((view) => (
+                  <button
+                    className={`focus-ring min-w-28 px-4 py-3 capitalize transition ${
+                      analysisView === view ? "bg-[var(--ink)] text-[var(--paper)]" : "hover:bg-[var(--panel)]"
+                    }`}
+                    key={view}
+                    onClick={() => {
+                      setAnalysisView(view);
+                      if (view === "imprints" && sortKey === "imprints") setSortKey("activity");
+                    }}
+                    type="button"
+                  >
+                    {view}
+                  </button>
+                ))}
+              </div>
+            </div>
             <label className="flex items-center gap-3 border hairline px-4 py-3">
               <Search size={17} className="muted" />
               <input
                 className="w-full bg-transparent text-sm outline-none placeholder:text-[var(--muted)]"
-                placeholder="Search publishers or imprints..."
+                placeholder={analysisView === "publishers" ? "Search publishers or imprints..." : "Search imprints or parent publishers..."}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
               />
             </label>
             <select className="border hairline bg-transparent px-4 py-3 text-sm" value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)}>
               <option value="activity">Most-awarded first</option>
-              <option value="name">Publisher A-Z</option>
-              <option value="imprints">Most imprints</option>
+              <option value="name">{analysisView === "publishers" ? "Publisher A-Z" : "Imprint A-Z"}</option>
+              {analysisView === "publishers" ? <option value="imprints">Most imprints</option> : null}
             </select>
             <Link className="inline-flex items-center justify-center gap-2 border hairline px-4 py-3 text-sm transition hover:bg-[var(--accent-soft)]" href="/imprints">
               All imprints
@@ -91,31 +141,60 @@ export function PublisherBrowser() {
           </div>
 
           <div className="overflow-hidden border hairline">
-            {publisherRows.map(({ publisher, stats, imprints }, index) => (
-              <div className="grid gap-4 border-b hairline p-4 last:border-b-0 lg:grid-cols-[18rem_1fr]" key={publisher.id}>
-                <Link className="group" href={`/publishers/${publisherSlug(publisher)}`}>
-                  <p className="font-[var(--font-mono)] text-xs plain-number muted">{String(index + 1).padStart(2, "0")}</p>
-                  <h2 className="mt-2 font-[var(--font-serif)] text-2xl font-light group-hover:text-[var(--accent)]">{publisher.name}</h2>
-                  <p className="mt-2 font-[var(--font-mono)] text-xs muted">
-                    {stats.imprints} imprints / {stats.appearances} appearances
-                  </p>
-                </Link>
-                <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
-                  {imprints.slice(0, 6).map((imprint) => {
-                    const itemStats = imprintStats(imprint.id);
-                    return (
-                      <Link className="group grid grid-cols-[1fr_auto] items-center gap-3 border hairline px-4 py-3 transition hover:bg-[var(--accent-soft)]" href={`/imprints/${imprintSlug(imprint)}`} key={imprint.id}>
-                        <span>
-                          <span className="block text-sm font-medium">{imprint.shortName ?? imprint.name}</span>
-                          <span className="mt-1 block font-[var(--font-mono)] text-xs muted">{itemStats.appearances} appearances</span>
-                        </span>
-                        <ChevronRight size={15} className="transition group-hover:translate-x-0.5" />
-                      </Link>
-                    );
-                  })}
+            {analysisView === "publishers" ? (
+              publisherRows.map(({ publisher, stats, imprints }, index) => (
+                <div className="grid gap-4 border-b hairline p-4 last:border-b-0 lg:grid-cols-[18rem_1fr]" key={publisher.id}>
+                  <Link className="group" href={`/publishers/${publisherSlug(publisher)}`}>
+                    <p className="font-[var(--font-mono)] text-xs plain-number muted">{String(index + 1).padStart(2, "0")}</p>
+                    <h2 className="mt-2 font-[var(--font-serif)] text-2xl font-light group-hover:text-[var(--accent)]">{publisher.name}</h2>
+                    <p className="mt-2 font-[var(--font-mono)] text-xs muted">
+                      {stats.imprints} imprints / {stats.appearances} appearances
+                    </p>
+                  </Link>
+                  <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
+                    {imprints.slice(0, 6).map((imprint) => {
+                      const itemStats = imprintStats(imprint.id);
+                      return (
+                        <Link className="group grid grid-cols-[1fr_auto] items-center gap-3 border hairline px-4 py-3 transition hover:bg-[var(--accent-soft)]" href={`/imprints/${imprintSlug(imprint)}`} key={imprint.id}>
+                          <span>
+                            <span className="block text-sm font-medium">{imprint.shortName ?? imprint.name}</span>
+                            <span className="mt-1 block font-[var(--font-mono)] text-xs muted">{itemStats.appearances} appearances</span>
+                          </span>
+                          <ChevronRight size={15} className="transition group-hover:translate-x-0.5" />
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              imprintRows.map(({ imprint, publisher, stats }, index) => (
+                <Link
+                  className="group grid gap-4 border-b hairline p-4 transition last:border-b-0 hover:bg-[var(--accent-soft)] sm:grid-cols-[4rem_1.25fr_12rem_9rem]"
+                  href={`/imprints/${imprintSlug(imprint)}`}
+                  key={imprint.id}
+                >
+                  <p className="font-[var(--font-mono)] text-xs plain-number muted">{String(index + 1).padStart(2, "0")}</p>
+                  <span className="flex min-w-0 items-center gap-4">
+                    <ImprintLogoMark logoPath={getImprintLogo(imprint.id)?.logoPath} name={imprint.name} />
+                    <span className="min-w-0">
+                      <span className="block font-[var(--font-serif)] text-2xl font-light group-hover:text-[var(--accent)]">{imprint.shortName ?? imprint.name}</span>
+                      <span className="mt-2 block text-sm muted">
+                        {imprint.shortName ? `${imprint.name} / ${publisher?.name ?? "Parent not yet sourced"}` : publisher?.name ?? "Parent not yet sourced"}
+                      </span>
+                    </span>
+                  </span>
+                  <span className="text-sm">
+                    <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Parent</span>
+                    <span className="mt-1 block">{publisher?.name ?? "Not yet sourced"}</span>
+                  </span>
+                  <span className="grid content-start gap-1 font-[var(--font-mono)] text-xs muted">
+                    <span><span className="plain-number text-[var(--ink)]">{stats.books}</span> books</span>
+                    <span><span className="plain-number text-[var(--ink)]">{stats.appearances}</span> appearances</span>
+                  </span>
+                </Link>
+              ))
+            )}
           </div>
         </div>
 

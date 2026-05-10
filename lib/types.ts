@@ -42,6 +42,47 @@ export type Person = {
   name: string;
 };
 
+export type SubjectEvidenceSource =
+  | "manual_curation"
+  | "bisac"
+  | "google_books"
+  | "open_library"
+  | "publisher"
+  | "award_category"
+  | "topic_classifier"
+  | "keyword_classifier";
+
+export type SubjectEvidence = {
+  id: string;
+  source: SubjectEvidenceSource;
+  scheme?: string;
+  rawLabel: string;
+  mappedSubject: string;
+  score: number;
+  confidence: "high" | "medium" | "low";
+  note?: string;
+  sourceId?: string;
+};
+
+export type SubjectDecision = {
+  primarySubject: string;
+  confidence: "high" | "medium" | "low";
+  method: "manual" | "evidence_score" | "fallback";
+  candidates: Array<{
+    subject: string;
+    score: number;
+    evidenceCount: number;
+  }>;
+  evidence: SubjectEvidence[];
+};
+
+export type BookSubjectCategory = {
+  source: "bisac" | "google_books" | "open_library" | "publisher";
+  scheme?: string;
+  label: string;
+  sourceId?: string;
+};
+
 export type Book = {
   id: string;
   slug: string;
@@ -55,10 +96,13 @@ export type Book = {
   isbn13: string[];
   primarySubject?: string;
   subjects: string[];
+  subjectCategories?: BookSubjectCategory[];
+  subjectEvidence?: SubjectDecision;
   primaryTopic?: string;
   topics: string[];
   centralFigures: string[];
   summary?: string;
+  displaySummary?: string;
   thumbnailUrl?: string;
   links: {
     publisher?: string;
@@ -76,6 +120,9 @@ export type Award = {
   id: string;
   slug: string;
   name: string;
+  programId?: string;
+  categoryName?: string;
+  categoryYears?: string;
   shortName?: string;
   awardType?: "major_award" | "award";
   organization?: string;
@@ -94,6 +141,18 @@ export type Award = {
     criteria?: string;
     submission?: string;
   };
+  sourceIds: string[];
+};
+
+export type AwardProgram = {
+  id: string;
+  slug: string;
+  name: string;
+  organization?: string;
+  description?: string;
+  geography?: string;
+  notes?: string;
+  officialUrl?: string;
   sourceIds: string[];
 };
 
@@ -151,12 +210,19 @@ export type BookStats = {
   wins: number;
   lists: number;
   score: number;
+  majorWins: number;
+  normalWins: number;
+  majorShortlists: number;
+  normalShortlists: number;
+  majorLonglists: number;
+  normalLonglists: number;
   statuses: Record<AwardStatus, number>;
 };
 
 export type PublicData = {
   generatedAt: string;
   books: Book[];
+  awardPrograms: AwardProgram[];
   awards: Award[];
   editions: AwardEdition[];
   appearances: AwardAppearance[];

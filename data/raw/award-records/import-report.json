@@ -1,6 +1,31 @@
 {
-  "generatedAt": "2026-05-09T17:40:47.214Z",
+  "generatedAt": "2026-05-10T21:03:06.830Z",
   "files": [
+    {
+      "file": "baillie-gifford.json",
+      "generatedAt": "2026-05-09T23:16:19.736Z",
+      "records": 160
+    },
+    {
+      "file": "carnegie.json",
+      "generatedAt": "2026-05-09T23:04:42.203Z",
+      "records": 44
+    },
+    {
+      "file": "cundill.json",
+      "generatedAt": "2026-05-09T23:21:38.394Z",
+      "records": 188
+    },
+    {
+      "file": "kirkus.json",
+      "generatedAt": "2026-05-09T23:13:20.973Z",
+      "records": 72
+    },
+    {
+      "file": "latimes.json",
+      "generatedAt": "2026-05-09T23:29:21.795Z",
+      "records": 711
+    },
     {
       "file": "national-book-awards.json",
       "generatedAt": "2026-05-09T16:45:53.632Z",
@@ -12,21 +37,81 @@
       "records": 736
     },
     {
+      "file": "pen-galbraith.json",
+      "generatedAt": "2026-05-09T23:26:31.600Z",
+      "records": 45
+    },
+    {
+      "file": "prose.json",
+      "generatedAt": "2026-05-10T21:03:06.465Z",
+      "records": 1397
+    },
+    {
       "file": "pulitzer.json",
       "generatedAt": "2026-05-09T00:32:17.513Z",
       "records": 594
     }
   ],
   "totals": {
-    "records": 2168,
-    "awards": 3,
-    "categories": 33,
+    "records": 4785,
+    "awards": 10,
+    "categories": 78,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
     "duplicateCanonicalKeys": 0
   },
   "byCategory": [
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-anthropology-and-sociology",
+      "categoryName": "Anthropology and Sociology",
+      "records": 50,
+      "winners": 29,
+      "finalists": 0,
+      "earliestYear": 1993,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-archaeology-and-ancient-history",
+      "categoryName": "Archaeology and Ancient History",
+      "records": 22,
+      "winners": 12,
+      "finalists": 0,
+      "earliestYear": 2005,
+      "latestYear": 2020
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-architecture-and-urban-planning",
+      "categoryName": "Architecture and Urban Planning",
+      "records": 51,
+      "winners": 28,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-art-history-and-criticism",
+      "categoryName": "Art History and Criticism",
+      "records": 59,
+      "winners": 32,
+      "finalists": 0,
+      "earliestYear": 2005,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-arts-and-culture",
+      "categoryName": "Arts and Culture",
+      "records": 10,
+      "winners": 7,
+      "finalists": 0,
+      "earliestYear": 1995,
+      "latestYear": 2004
+    },
     {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-autobiography-and-biography-hardcover",
@@ -68,6 +153,16 @@
       "latestYear": 1980
     },
     {
+      "awardId": "los-angeles-times-book-prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "records": 182,
+      "winners": 43,
+      "finalists": 139,
+      "earliestYear": 1981,
+      "latestYear": 2023
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-biography",
       "categoryName": "Biography",
@@ -96,6 +191,16 @@
       "finalists": 24,
       "earliestYear": 1977,
       "latestYear": 1979
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-biography-and-autobiography",
+      "categoryName": "Biography and Autobiography",
+      "records": 35,
+      "winners": 20,
+      "finalists": 0,
+      "earliestYear": 2002,
+      "latestYear": 2026
     },
     {
       "awardId": "national-book-awards",
@@ -128,6 +233,36 @@
       "latestYear": 1980
     },
     {
+      "awardId": "prose-awards",
+      "categoryId": "prose-biological-anthropology-and-ancient-history",
+      "categoryName": "Biological Anthropology and Ancient History",
+      "records": 8,
+      "winners": 7,
+      "finalists": 0,
+      "earliestYear": 2018,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-biological-sciences",
+      "categoryName": "Biological Sciences",
+      "records": 51,
+      "winners": 29,
+      "finalists": 0,
+      "earliestYear": 1992,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-biomedicine-and-neuroscience",
+      "categoryName": "Biomedicine and Neuroscience",
+      "records": 49,
+      "winners": 29,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-bookseller-discovery",
       "categoryName": "Bookseller Discovery",
@@ -138,6 +273,56 @@
       "latestYear": 1940
     },
     {
+      "awardId": "prose-awards",
+      "categoryId": "prose-business-finance-and-management",
+      "categoryName": "Business, Finance, and Management",
+      "records": 51,
+      "winners": 31,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-chemistry-physics-astronomy-and-cosmology",
+      "categoryName": "Chemistry, Physics, Astronomy, and Cosmology",
+      "records": 61,
+      "winners": 46,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-classics-and-ancient-history",
+      "categoryName": "Classics and Ancient History",
+      "records": 33,
+      "winners": 19,
+      "finalists": 0,
+      "earliestYear": 2004,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-clinical-medicine",
+      "categoryName": "Clinical Medicine",
+      "records": 52,
+      "winners": 29,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-computing-and-information-sciences",
+      "categoryName": "Computing and Information Sciences",
+      "records": 40,
+      "winners": 28,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
       "awardId": "national-book-critics-circle-awards",
       "categoryId": "nbcc-criticism",
       "categoryName": "Criticism",
@@ -146,6 +331,16 @@
       "finalists": 116,
       "earliestYear": 1975,
       "latestYear": 2025
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "records": 179,
+      "winners": 44,
+      "finalists": 135,
+      "earliestYear": 1980,
+      "latestYear": 2023
     },
     {
       "awardId": "national-book-awards",
@@ -166,6 +361,46 @@
       "finalists": 4,
       "earliestYear": 1980,
       "latestYear": 1980
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-earth-and-environmental-sciences",
+      "categoryName": "Earth and Environmental Sciences",
+      "records": 68,
+      "winners": 42,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-economics",
+      "categoryName": "Economics",
+      "records": 48,
+      "winners": 29,
+      "finalists": 0,
+      "earliestYear": 1992,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-education",
+      "categoryName": "Education",
+      "records": 43,
+      "winners": 25,
+      "finalists": 0,
+      "earliestYear": 2006,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-engineering-and-technology",
+      "categoryName": "Engineering and Technology",
+      "records": 43,
+      "winners": 29,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
     },
     {
       "awardId": "pulitzer-prize",
@@ -218,6 +453,36 @@
       "latestYear": 1980
     },
     {
+      "awardId": "prose-awards",
+      "categoryId": "prose-government-and-politics",
+      "categoryName": "Government and Politics",
+      "records": 52,
+      "winners": 29,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "cundill-history-prize",
+      "categoryId": "cundill-history",
+      "categoryName": "History",
+      "records": 188,
+      "winners": 18,
+      "finalists": 89,
+      "earliestYear": 2008,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "records": 173,
+      "winners": 48,
+      "finalists": 125,
+      "earliestYear": 1980,
+      "latestYear": 2023
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-history",
       "categoryName": "History",
@@ -226,6 +491,16 @@
       "finalists": 28,
       "earliestYear": 1972,
       "latestYear": 1975
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-history",
+      "categoryName": "History",
+      "records": 17,
+      "winners": 10,
+      "finalists": 0,
+      "earliestYear": 1992,
+      "latestYear": 2004
     },
     {
       "awardId": "pulitzer-prize",
@@ -258,6 +533,16 @@
       "latestYear": 1983
     },
     {
+      "awardId": "prose-awards",
+      "categoryId": "prose-history-of-science-medicine-and-technology",
+      "categoryName": "History of Science, Medicine, and Technology",
+      "records": 34,
+      "winners": 21,
+      "finalists": 0,
+      "earliestYear": 1993,
+      "latestYear": 2026
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-history-paperback",
       "categoryName": "History Paperback",
@@ -266,6 +551,46 @@
       "finalists": 15,
       "earliestYear": 1980,
       "latestYear": 1983
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-law-and-legal-studies",
+      "categoryName": "Law and Legal Studies",
+      "records": 45,
+      "winners": 27,
+      "finalists": 0,
+      "earliestYear": 1993,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-literature-language-and-linguistics",
+      "categoryName": "Literature, Language, and Linguistics",
+      "records": 71,
+      "winners": 45,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-mathematics-and-statistics",
+      "categoryName": "Mathematics and Statistics",
+      "records": 46,
+      "winners": 28,
+      "finalists": 0,
+      "earliestYear": 1992,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-media-and-cultural-studies",
+      "categoryName": "Media and Cultural Studies",
+      "records": 31,
+      "winners": 17,
+      "finalists": 0,
+      "earliestYear": 2005,
+      "latestYear": 2026
     },
     {
       "awardId": "national-book-critics-circle-awards",
@@ -298,6 +623,46 @@
       "latestYear": 1938
     },
     {
+      "awardId": "prose-awards",
+      "categoryId": "prose-music-and-the-performing-arts",
+      "categoryName": "Music and the Performing Arts",
+      "records": 23,
+      "winners": 16,
+      "finalists": 0,
+      "earliestYear": 2007,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "baillie-gifford-prize",
+      "categoryId": "baillie-gifford-nonfiction",
+      "categoryName": "Non-Fiction",
+      "records": 160,
+      "winners": 27,
+      "finalists": 133,
+      "earliestYear": 1999,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 44,
+      "winners": 14,
+      "finalists": 30,
+      "earliestYear": 2012,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "kirkus-prize",
+      "categoryId": "kirkus-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 72,
+      "winners": 12,
+      "finalists": 60,
+      "earliestYear": 2014,
+      "latestYear": 2025
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-nonfiction",
       "categoryName": "Nonfiction",
@@ -316,6 +681,76 @@
       "finalists": 204,
       "earliestYear": 1975,
       "latestYear": 2025
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 45,
+      "winners": 12,
+      "finalists": 33,
+      "earliestYear": 2007,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-nonfiction-graphic-novels",
+      "categoryName": "Nonfiction Graphic Novels",
+      "records": 5,
+      "winners": 5,
+      "finalists": 0,
+      "earliestYear": 2021,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-nursing-allied-health-and-social-work",
+      "categoryName": "Nursing, Allied Health, and Social Work",
+      "records": 37,
+      "winners": 25,
+      "finalists": 0,
+      "earliestYear": 1993,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-outstanding-work-by-a-trade-publisher",
+      "categoryName": "Outstanding Work by a Trade Publisher",
+      "records": 18,
+      "winners": 12,
+      "finalists": 0,
+      "earliestYear": 2015,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-philosophy-and-religion",
+      "categoryName": "Philosophy and Religion",
+      "records": 44,
+      "winners": 28,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-popular-science-and-mathematics",
+      "categoryName": "Popular Science and Mathematics",
+      "records": 26,
+      "winners": 14,
+      "finalists": 0,
+      "earliestYear": 2012,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-psychology",
+      "categoryName": "Psychology",
+      "records": 51,
+      "winners": 34,
+      "finalists": 0,
+      "earliestYear": 1992,
+      "latestYear": 2026
     },
     {
       "awardId": "national-book-awards",
@@ -338,6 +773,16 @@
       "latestYear": 1980
     },
     {
+      "awardId": "los-angeles-times-book-prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "records": 177,
+      "winners": 35,
+      "finalists": 142,
+      "earliestYear": 1989,
+      "latestYear": 2023
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-science-hardcover",
       "categoryName": "Science Hardcover",
@@ -356,6 +801,46 @@
       "finalists": 15,
       "earliestYear": 1980,
       "latestYear": 1983
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-social-sciences",
+      "categoryName": "Social Sciences",
+      "records": 2,
+      "winners": 2,
+      "finalists": 0,
+      "earliestYear": 1991,
+      "latestYear": 1998
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-theology-and-religious-studies",
+      "categoryName": "Theology and Religious Studies",
+      "records": 42,
+      "winners": 23,
+      "finalists": 0,
+      "earliestYear": 2002,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-u-s-history",
+      "categoryName": "U.S. History",
+      "records": 39,
+      "winners": 18,
+      "finalists": 0,
+      "earliestYear": 2005,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "prose-awards",
+      "categoryId": "prose-world-history",
+      "categoryName": "World History",
+      "records": 40,
+      "winners": 22,
+      "finalists": 0,
+      "earliestYear": 2007,
+      "latestYear": 2026
     }
   ],
   "duplicateKeys": []

@@ -1,6 +1,8 @@
 import Link from "next/link";
+import { ImprintLogoMark } from "@/components/imprint-logo-mark";
 import { imprintSlug, imprintStats } from "@/lib/catalog";
 import { data, publishersById } from "@/lib/data";
+import { getImprintLogo } from "@/lib/imprint-logos";
 
 export const metadata = {
   title: "Imprints / The Book Prize Index",
@@ -20,13 +22,17 @@ export default function ImprintsPage() {
         {imprints.map((imprint) => {
           const stats = imprintStats(imprint.id);
           const publisher = imprint.publisherId ? publishersById.get(imprint.publisherId) : undefined;
+          const logo = getImprintLogo(imprint.id);
           return (
-            <Link className="bg-[var(--paper)] p-5 transition hover:bg-[var(--accent-soft)]" href={`/imprints/${imprintSlug(imprint)}`} key={imprint.id}>
-              <p className="font-[var(--font-serif)] text-2xl font-light">{imprint.name}</p>
-              <p className="mt-3 font-[var(--font-mono)] text-xs muted">
-                {stats.books} books / {stats.appearances} appearances
-              </p>
-              {publisher ? <p className="mt-2 text-sm muted">{publisher.name}</p> : null}
+            <Link className="flex min-h-36 gap-5 bg-[var(--paper)] p-5 transition hover:bg-[var(--accent-soft)]" href={`/imprints/${imprintSlug(imprint)}`} key={imprint.id}>
+              <ImprintLogoMark className="h-20 w-24" logoPath={logo?.logoPath} name={imprint.name} />
+              <span className="min-w-0">
+                <span className="block font-[var(--font-serif)] text-2xl font-light leading-snug">{imprint.name}</span>
+                <span className="mt-3 block font-[var(--font-mono)] text-xs muted">
+                  {stats.books} books / {stats.appearances} appearances
+                </span>
+                {publisher ? <span className="mt-2 block text-sm muted">{publisher.name}</span> : null}
+              </span>
             </Link>
           );
         })}

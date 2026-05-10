@@ -3,6 +3,7 @@ import type React from "react";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { awardsById, booksById, data, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName } from "@/lib/data";
+import type { Book } from "@/lib/types";
 
 export function generateStaticParams() {
   return data.books.map((book) => ({ slug: book.slug }));
@@ -30,13 +31,12 @@ export default async function BookPage({ params }: PageProps) {
   const publisher = book.publisherId ? publishersById.get(book.publisherId) : undefined;
   const firstAwardYear = appearances.length ? Math.min(...appearances.map((appearance) => appearance.year)) : undefined;
   const latestRecognition = appearances.length ? Math.max(...appearances.map((appearance) => appearance.year)) : undefined;
-  const relatedSubjects = data.subjects.filter((subject) => book.subjects.includes(subject.name)).slice(0, 5);
   const authorNames = new Set(book.authors.map((author) => author.name));
   const booksByAuthor = data.books
     .filter((candidate) => candidate.id !== book.id && candidate.authors.some((author) => authorNames.has(author.name)))
     .slice(0, 1);
   const relatedBooks = findRelatedBooks(book.id).slice(0, 4);
-  const subjectValue = book.subjects.length ? book.subjects.join(", ") : "Not yet classified";
+  const detailSummary = detailPageSummary(book);
 
   return (
     <main>
@@ -53,7 +53,6 @@ export default async function BookPage({ params }: PageProps) {
             <RailMeta label="Publication year" value={String(book.publicationYear ?? "Unknown")} />
             <RailMeta label="Pages" value={book.pageCount ? String(book.pageCount) : "Not yet sourced"} />
             <RailMeta label="ISBN" value={book.isbn13.join(", ") || "Not yet sourced"} />
-            <RailMeta label="Subjects" value={subjectValue} />
           </dl>
         </aside>
 
@@ -63,26 +62,26 @@ export default async function BookPage({ params }: PageProps) {
           <p className="mt-4 text-xl muted">{book.authors.map((author) => author.name).join(", ")}</p>
 
           <div className="mt-8 max-w-3xl space-y-5 text-base leading-8">
-            {book.summary ? (
-              <p>{book.summary}</p>
+            {detailSummary ? (
+              <p>{detailSummary}</p>
             ) : (
               <>
                 <p className="muted">
-                  Publisher summary has not yet been sourced for this record. The detail page is ready to display a
-                  concise sourced summary once the enrichment pipeline adds publisher-page data.
+                  Catalog metadata is still pending for this record. The prize history is available, but publisher,
+                  ISBN, cover, page count, and summary fields may need source-backed enrichment.
                 </p>
                 <p className="muted">
-                  Award history, imprint data, search links, and subject assignments below are generated from the
-                  current imported prize records.
+                  Award history and subject assignments below are generated from the current imported prize records
+                  and catalog evidence that has already been matched.
                 </p>
               </>
             )}
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            {book.subjects.map((subject, index) => (
-              <SubjectPill index={index} key={subject} subject={subject} />
-            ))}
+            {book.primarySubject ? <SubjectPill index={0} subject={book.primarySubject} /> : null}
+            {book.topics.map((topic, index) => <TopicTag isPrimary={topic === book.primaryTopic || index === 0} key={topic} topic={topic} />)}
+            <SubjectEvidenceHint book={book} />
           </div>
         </section>
 
@@ -95,6 +94,7 @@ export default async function BookPage({ params }: PageProps) {
             <StatLine label="Latest recognition" value={String(latestRecognition ?? "Unknown")} />
             <StatLine label="Award score" value={String(stats.score)} />
           </dl>
+          <RetailerLinks book={book} />
         </aside>
       </section>
 
@@ -153,19 +153,9 @@ export default async function BookPage({ params }: PageProps) {
           <aside className="border-t hairline py-8 lg:border-l lg:border-t-0 lg:pl-10">
             <h2 className="font-[var(--font-serif)] text-2xl font-light">Browse connections</h2>
             <div className="mt-5 border-t hairline">
-              {relatedSubjects.map((subject) => (
-                <ConnectionRow href={`/subjects/${subject.slug}`} key={subject.id} label={subject.name} meta={`${subject.bookCount} books`} />
-              ))}
               {booksByAuthor.map((candidate) => (
                 <ConnectionRow href={`/books/${candidate.slug}`} key={candidate.id} label={`Books by ${book.authors[0]?.name}`} meta="same author" />
               ))}
-              {imprint ? (
-                <ConnectionRow
-                  href={`/imprints/${imprint.id.replace(/^imprint-/, "")}`}
-                  label={`Books from ${imprint.name}`}
-                  meta={`${data.books.filter((candidate) => candidate.imprintId === imprint.id).length} books`}
-                />
-              ) : null}
             </div>
             {relatedBooks.length ? (
               <div className="mt-8">
@@ -187,6 +177,70 @@ export default async function BookPage({ params }: PageProps) {
       </section>
     </main>
   );
+}
+
+function SubjectEvidenceHint({ book }: { book: Book }) {
+  const decision = book.subjectEvidence;
+  if (!decision) return null;
+  const topCandidates = decision.candidates.slice(0, 3);
+  const topEvidence = decision.evidence.slice(0, 3);
+  return (
+    <span className="subject-evidence-hint">
+      <button className="subject-evidence-trigger focus-ring" type="button" aria-label={`Subject assignment evidence for ${decision.primarySubject}`}>
+        ?
+      </button>
+      <span className="subject-evidence-label">Subject assignment</span>
+      <span className="subject-evidence-tooltip" role="tooltip">
+        <span className="subject-evidence-tooltip-title">{decision.primarySubject} · {decision.confidence} confidence</span>
+        {decision.confidence === "low" ? (
+          <span className="subject-evidence-tooltip-list">
+            Catalog subject evidence is still thin for this record; the current assignment is provisional.
+          </span>
+        ) : null}
+        <span className="subject-evidence-tooltip-grid">
+          {topCandidates.map((candidate) => (
+            <span className="subject-evidence-tooltip-row" key={candidate.subject}>
+              <span>{candidate.subject}</span>
+              <span className="plain-number">{candidate.score}</span>
+              <span>{candidate.evidenceCount} signals</span>
+            </span>
+          ))}
+        </span>
+        <span className="subject-evidence-tooltip-list">
+          {topEvidence.map((item) => (
+            <span key={item.id}>{`${sourceLabel(item.source)}: ${item.rawLabel} -> ${item.mappedSubject}`}</span>
+          ))}
+        </span>
+      </span>
+    </span>
+  );
+}
+
+function sourceLabel(source: NonNullable<Book["subjectEvidence"]>["evidence"][number]["source"]) {
+  return source
+    .split("_")
+    .map((part) => part.slice(0, 1).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function detailPageSummary(book: Book) {
+  const source = book.summary ?? book.displaySummary;
+  if (!source) return undefined;
+  const cleaned = source
+    .replace(/\s+/g, " ")
+    .replace(/\b(?:pulitzer prize winner|national book award winner|new york times bestseller)\b\s*[•:,-]?\s*/gi, " ")
+    .replace(/[“"][^”"]{20,260}[”"]\s*\([^)]{3,120}\),?\s*/g, " ")
+    .replace(/^from\b[\s\S]{20,420}?\b(long before|in this|this)\b/i, (_match, start: string) => start[0].toUpperCase() + start.slice(1))
+    .replace(/\b(?:winner|finalist|shortlisted|longlisted)\s+of\s+[^.?!]+[.?!]/gi, " ")
+    .trim();
+  const sentences = cleaned.match(/[^.!?]+[.!?]+(?:["”])?/g) ?? [];
+  const descriptiveSentences = sentences
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.length > 35 && !/^(winner|finalist|shortlisted|longlisted|recipient)\b/i.test(sentence));
+  const excerpt = descriptiveSentences.slice(0, 3).join(" ");
+  if (excerpt.length >= 260) return excerpt;
+  const fallback = cleaned.slice(0, 620).trim();
+  return fallback.length > 180 ? fallback : book.displaySummary;
 }
 
 function BookCover({ title, author, thumbnailUrl }: { title: string; author: string; thumbnailUrl?: string }) {
@@ -222,6 +276,43 @@ function StatLine({ label, value }: { label: string; value: string }) {
   );
 }
 
+function RetailerLinks({ book }: { book: Book }) {
+  const links = retailerLinks(book);
+  if (!links.length) return null;
+  return (
+    <div className="book-retailer-links">
+      <p className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.18em] muted">Find this book</p>
+      <div className="mt-3 flex flex-nowrap items-center gap-2">
+        {links.map((link) => (
+          <a
+            aria-label={link.label}
+            className="book-retailer-link focus-ring"
+            href={link.href}
+            key={link.label}
+            rel="noreferrer"
+            target="_blank"
+            title={link.label}
+          >
+            <img alt="" src={link.icon} />
+            <span className="book-retailer-tooltip" role="tooltip">{`Buy on ${link.label}`}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function retailerLinks(book: Book) {
+  const query = encodeURIComponent([book.title, book.authors[0]?.name].filter(Boolean).join(" "));
+  const isbn = book.isbn13[0];
+  return [
+    book.links.bookshop ? { label: "Bookshop.org", href: book.links.bookshop, icon: "/icons/bookshop.png" } : undefined,
+    book.links.indiebound ? { label: "IndieBound", href: book.links.indiebound, icon: "/icons/indiebound.png" } : undefined,
+    { label: "Barnes & Noble", href: `https://www.barnesandnoble.com/s/${encodeURIComponent(isbn ?? [book.title, book.authors[0]?.name].filter(Boolean).join(" "))}`, icon: "/icons/bn.png" },
+    book.links.amazon ? { label: "Amazon", href: book.links.amazon, icon: "/icons/amazon.png" } : undefined,
+  ].filter((link): link is { label: string; href: string; icon: string } => Boolean(link?.href) && Boolean(query || isbn));
+}
+
 function ConnectionRow({ href, label, meta }: { href: string; label: string; meta: string }) {
   return (
     <Link className="group flex items-center justify-between gap-4 border-b hairline py-3 text-sm transition hover:bg-[var(--panel)]" href={href}>
@@ -237,8 +328,16 @@ function ConnectionRow({ href, label, meta }: { href: string; label: string; met
 function SubjectPill({ subject, index }: { subject: string; index: number }) {
   const slug = subjectsByName.get(subject.toLowerCase())?.slug ?? slugify(subject);
   return (
-    <Link className={`subject-chip subject-chip-${index % 6} focus-ring rounded-full border hairline px-4 py-2 text-sm`} href={`/subjects/${slug}`}>
+    <Link className={`subject-chip ${subjectChipClass(subject)} focus-ring rounded-full border hairline px-4 py-2 text-sm`} href={`/subjects/${slug}`}>
       {subject}
+    </Link>
+  );
+}
+
+function TopicTag({ topic, isPrimary }: { topic: string; isPrimary?: boolean }) {
+  return (
+    <Link className={`topic-tag focus-ring ${isPrimary ? "topic-tag-primary" : ""}`} href={`/books?topic=${encodeURIComponent(topic)}`}>
+      {topic}
     </Link>
   );
 }
@@ -247,18 +346,59 @@ function findRelatedBooks(bookId: string) {
   const book = booksById.get(bookId);
   if (!book) return [];
   const subjectSet = new Set(book.subjects);
+  const topicSet = new Set(book.topics);
+  const awardSet = new Set(data.appearances.filter((appearance) => appearance.bookId === book.id).map((appearance) => appearance.awardId));
   return data.books
     .filter((candidate) => candidate.id !== book.id)
     .map((candidate) => ({
       candidate,
-      score:
-        candidate.subjects.filter((subject) => subjectSet.has(subject)).length * 3 +
-        (candidate.imprintId && candidate.imprintId === book.imprintId ? 1 : 0) +
-        getBookStats(candidate.id).score / 20,
+      score: relatedBookScore({ awardSet, book, candidate, subjectSet, topicSet }),
     }))
-    .filter((item) => item.score > 0)
+    .filter((item) => item.score >= 4)
     .sort((a, b) => b.score - a.score || a.candidate.title.localeCompare(b.candidate.title))
     .map((item) => item.candidate);
+}
+
+function subjectChipClass(subject: string) {
+  const normalized = subject.toLowerCase();
+  if (normalized.includes("american history") || normalized === "history") return "subject-chip-brick";
+  if (normalized.includes("world history") || normalized.includes("travel")) return "subject-chip-teal";
+  if (normalized.includes("biography") || normalized.includes("memoir")) return "subject-chip-plum";
+  if (normalized.includes("politics") || normalized.includes("journalism")) return "subject-chip-indigo";
+  if (normalized.includes("society") || normalized.includes("race") || normalized.includes("gender") || normalized.includes("religion")) return "subject-chip-olive";
+  if (normalized.includes("science") || normalized.includes("medicine") || normalized.includes("technology") || normalized.includes("nature")) return "subject-chip-slate";
+  if (normalized.includes("business") || normalized.includes("arts") || normalized.includes("sports")) return "subject-chip-ochre";
+  if (normalized.includes("war") || normalized.includes("crime") || normalized.includes("justice")) return "subject-chip-forest";
+  return "subject-chip-teal";
+}
+
+function relatedBookScore({
+  awardSet,
+  book,
+  candidate,
+  subjectSet,
+  topicSet,
+}: {
+  awardSet: Set<string>;
+  book: Book;
+  candidate: Book;
+  subjectSet: Set<string>;
+  topicSet: Set<string>;
+}) {
+  const candidateAwards = data.appearances.filter((appearance) => appearance.bookId === candidate.id).map((appearance) => appearance.awardId);
+  const sameAwardCount = candidateAwards.filter((awardId) => awardSet.has(awardId)).length;
+  const topicOverlap = candidate.topics.filter((topic) => topicSet.has(topic)).length;
+  const samePrimaryTopic = book.primaryTopic && candidate.primaryTopic === book.primaryTopic ? 1 : 0;
+  const sameSubject = candidate.subjects.filter((subject) => subjectSet.has(subject)).length;
+  const sameImprint = candidate.imprintId && candidate.imprintId === book.imprintId ? 1 : 0;
+  return (
+    samePrimaryTopic * 12 +
+    topicOverlap * 4 +
+    sameAwardCount * 2 +
+    sameSubject * 2 +
+    sameImprint +
+    getBookStats(candidate.id).score / 50
+  );
 }
 
 function slugify(input: string) {

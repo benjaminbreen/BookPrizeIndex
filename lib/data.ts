@@ -20,6 +20,7 @@ export function byId<T extends { id: string }>(items: T[]) {
 }
 
 export const booksById = byId(data.books);
+export const awardProgramsById = byId(data.awardPrograms ?? []);
 export const awardsById = byId(data.awards);
 export const editionsById = byId(data.editions);
 export const publishersById = byId(data.publishers);
@@ -34,6 +35,12 @@ export function getBookStats(bookId: string): BookStats {
     wins: 0,
     lists: 0,
     score: 0,
+    majorWins: 0,
+    normalWins: 0,
+    majorShortlists: 0,
+    normalShortlists: 0,
+    majorLonglists: 0,
+    normalLonglists: 0,
     statuses: {
       winner: 0,
       co_winner: 0,

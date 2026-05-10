@@ -127,5 +127,194 @@
         "coverageNotes": "Covers winners and finalists listed in the NBCC Criticism table."
       }
     ]
+  },
+  {
+    "id": "andrew-carnegie-medals",
+    "name": "Andrew Carnegie Medals for Excellence",
+    "organization": "American Library Association / Reference and User Services Association",
+    "geography": "United States",
+    "officialUrl": "https://www.ala.org/rusa/awards/carnegie-medals",
+    "notes": "Initial nonfiction importer uses the Wikipedia Carnegie Medals page as a deterministic secondary source while retaining official ALA/RUSA URLs for later verification and publisher enrichment.",
+    "categories": [
+      {
+        "id": "carnegie-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://www.ala.org/rusa/awards/carnegie-medals",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
+        "sourceLabel": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2012-present",
+        "coverageNotes": "Covers nonfiction winners and finalists listed in the Carnegie Medals nonfiction table."
+      }
+    ]
+  },
+  {
+    "id": "kirkus-prize",
+    "name": "Kirkus Prize",
+    "organization": "Kirkus Reviews",
+    "geography": "United States",
+    "officialUrl": "https://www.kirkusreviews.com/prize/",
+    "notes": "Initial nonfiction importer uses the Wikipedia Kirkus Prize table as a deterministic secondary source while retaining the official Kirkus prize page for later verification and publisher enrichment.",
+    "categories": [
+      {
+        "id": "kirkus-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://www.kirkusreviews.com/prize/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Kirkus_Prize",
+        "sourceLabel": "Wikipedia: Kirkus Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2014-present",
+        "coverageNotes": "Covers nonfiction winners and finalists listed in the Kirkus Prize nonfiction table."
+      }
+    ]
+  },
+  {
+    "id": "baillie-gifford-prize",
+    "name": "Baillie Gifford Prize for Non-Fiction",
+    "organization": "The Baillie Gifford Prize",
+    "geography": "United Kingdom",
+    "officialUrl": "https://www.thebailliegiffordprize.co.uk/",
+    "notes": "Formerly the Samuel Johnson Prize. Initial importer uses the Wikipedia Baillie Gifford Prize tables as deterministic secondary sources while retaining the official prize site for later verification and publisher enrichment.",
+    "categories": [
+      {
+        "id": "baillie-gifford-nonfiction",
+        "name": "Non-Fiction",
+        "officialUrl": "https://www.thebailliegiffordprize.co.uk/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Baillie_Gifford_Prize",
+        "sourceLabel": "Wikipedia: Baillie Gifford Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1999-present",
+        "coverageNotes": "Covers winners and shortlisted books listed in the decade tables for the Baillie Gifford Prize and its earlier Samuel Johnson Prize name."
+      }
+    ]
+  },
+  {
+    "id": "cundill-history-prize",
+    "name": "Cundill History Prize",
+    "organization": "McGill University",
+    "geography": "Canada / International",
+    "officialUrl": "https://www.cundillprize.com/",
+    "notes": "Initial importer uses the Wikipedia Cundill History Prize table as a deterministic secondary source while retaining the official Cundill site for later verification and publisher enrichment.",
+    "categories": [
+      {
+        "id": "cundill-history",
+        "name": "History",
+        "officialUrl": "https://www.cundillprize.com/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Cundill_History_Prize",
+        "sourceLabel": "Wikipedia: Cundill History Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2008-present",
+        "coverageNotes": "Covers winners, finalists/shortlists, and longlists listed in the Cundill History Prize table."
+      }
+    ]
+  },
+  {
+    "id": "pen-galbraith-award",
+    "name": "PEN/John Kenneth Galbraith Award for Nonfiction",
+    "organization": "PEN America",
+    "geography": "United States",
+    "officialUrl": "https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/",
+    "notes": "Initial importer uses the Wikipedia PEN/Galbraith table as a deterministic secondary source while retaining the official PEN America award page for later verification.",
+    "categories": [
+      {
+        "id": "pen-galbraith-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+        "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2007-present",
+        "coverageNotes": "Covers winners, runners-up, and finalists listed in the PEN/Galbraith table. Runners-up are normalized to finalist status in the raw corpus."
+      }
+    ]
+  },
+  {
+    "id": "los-angeles-times-book-prize",
+    "name": "Los Angeles Times Book Prize",
+    "organization": "Los Angeles Times",
+    "geography": "United States",
+    "officialUrl": "https://www.latimes.com/entertainment-arts/books",
+    "notes": "Initial nonfiction importer uses Wikipedia category tables as deterministic secondary sources while retaining the Los Angeles Times books section as the official source root for later verification.",
+    "categories": [
+      {
+        "id": "latimes-history",
+        "name": "History",
+        "officialUrl": "https://www.latimes.com/entertainment-arts/books",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+        "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1980-present",
+        "coverageNotes": "Covers winners and finalists listed in the category table."
+      },
+      {
+        "id": "latimes-biography",
+        "name": "Biography",
+        "officialUrl": "https://www.latimes.com/entertainment-arts/books",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Biography",
+        "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for Biography",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1981-present",
+        "coverageNotes": "Covers winners and finalists listed in the category table."
+      },
+      {
+        "id": "latimes-current-interest",
+        "name": "Current Interest",
+        "officialUrl": "https://www.latimes.com/entertainment-arts/books",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Current_Interest",
+        "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for Current Interest",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1980-present",
+        "coverageNotes": "Covers winners and finalists listed in the category table."
+      },
+      {
+        "id": "latimes-science-technology",
+        "name": "Science and Technology",
+        "officialUrl": "https://www.latimes.com/entertainment-arts/books",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Science_and_Technology",
+        "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for Science and Technology",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1989-present",
+        "coverageNotes": "Covers winners and finalists listed in the category table."
+      }
+    ]
+  },
+  {
+    "id": "prose-awards",
+    "name": "PROSE Awards",
+    "organization": "Association of American Publishers",
+    "geography": "United States / International",
+    "officialUrl": "https://proseawards.com/",
+    "notes": "Initial importer uses the official PROSE Awards winners archive. The first pass imports category winners from the current winners page; finalist PDFs should be imported in a later pass.",
+    "categories": []
+  },
+  {
+    "id": "wolfson-history-prize",
+    "name": "Wolfson History Prize",
+    "organization": "Wolfson Foundation",
+    "geography": "United Kingdom / International",
+    "officialUrl": "https://www.wolfsonhistoryprize.org.uk/",
+    "notes": "Importer uses the official Wolfson History Prize all-winners archive. Until 2016, the official page lists multiple annual awards; from 2017 onward it lists one winner and a shortlist.",
+    "categories": [
+      {
+        "id": "wolfson-history",
+        "name": "History",
+        "officialUrl": "https://www.wolfsonhistoryprize.org.uk/",
+        "sourceUrl": "https://www.wolfsonhistoryprize.org.uk/past-winners/all-winners/",
+        "sourceLabel": "Wolfson History Prize all winners",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1972-present",
+        "coverageNotes": "Covers all official winners from 1972 onward and shortlists from 2017 onward where listed by the official archive."
+      }
+    ]
   }
 ]

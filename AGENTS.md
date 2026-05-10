@@ -121,6 +121,12 @@ Historical winners-only coverage is acceptable where finalist/shortlist records 
 - `npm run data:import:pulitzer`: import normalized raw Pulitzer nonfiction records into `data/raw/award-records/pulitzer.json`.
 - `npm run data:import:nba`: import normalized raw National Book Awards nonfiction records into `data/raw/award-records/national-book-awards.json`.
 - `npm run data:import:nbcc`: import normalized raw National Book Critics Circle nonfiction-related records into `data/raw/award-records/nbcc.json`.
+- `npm run data:import:carnegie`: import normalized raw Andrew Carnegie Medal nonfiction records into `data/raw/award-records/carnegie.json`.
+- `npm run data:import:kirkus`: import normalized raw Kirkus Prize nonfiction records into `data/raw/award-records/kirkus.json`.
+- `npm run data:import:baillie-gifford`: import normalized raw Baillie Gifford Prize nonfiction records into `data/raw/award-records/baillie-gifford.json`.
+- `npm run data:import:cundill`: import normalized raw Cundill History Prize records into `data/raw/award-records/cundill.json`.
+- `npm run data:import:pen-galbraith`: import normalized raw PEN/John Kenneth Galbraith Award nonfiction records into `data/raw/award-records/pen-galbraith.json`.
+- `npm run data:import:latimes`: import normalized raw Los Angeles Times Book Prize nonfiction-category records into `data/raw/award-records/latimes.json`.
 - `npm run data:validate:raw`: validate raw award-record corpus files and write `data/raw/award-records/import-report.json`.
 
 ## Immediate Priority
@@ -130,6 +136,6 @@ Implement the corpus creation plan in `PLAN.md`, starting with:
 1. `sources/prizes.json`
 2. normalized award-record types
 3. importer framework
-4. more major-award importers: Andrew Carnegie, Kirkus, Baillie Gifford, Cundill
+4. more major-award importers: Kirkus, Baillie Gifford, Cundill
 5. build-data changes to consume normalized award records
 6. richer import coverage reports

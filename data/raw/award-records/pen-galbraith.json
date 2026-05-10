@@ -1,0 +1,782 @@
+{
+  "generatedAt": "2026-05-09T23:26:31.600Z",
+  "metadata": {
+    "importer": "scripts/import-award-records/pen-galbraith.ts",
+    "source": "MediaWiki wikitable for PEN/John Kenneth Galbraith Award winners, runners-up, and finalists",
+    "notes": "The official PEN America award page is retained in sources/prizes.json, but this first importer uses Wikipedia as a deterministic secondary source. Runner-up rows are normalized to finalist status.",
+    "categories": [
+      {
+        "categoryId": "pen-galbraith-nonfiction",
+        "categoryName": "Nonfiction",
+        "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+        "records": 45,
+        "winners": 12,
+        "finalists": 33,
+        "yearRange": "2007-2026"
+      }
+    ]
+  },
+  "records": [
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "finalist",
+      "title": "A Greek Tragedy: One Day, a Deadly Shipwreck, and the Human Cost of the Refugee Crisis",
+      "authors": [
+        "Jeanne Carstensen"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "finalist",
+      "title": "Being Jewish After the Destruction of Gaza: A Reckoning",
+      "authors": [
+        "Peter Beinart"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "finalist",
+      "title": "Nothing More of This Land: Community, Power, and the Search for Indigenous Identity",
+      "authors": [
+        "Joseph Lee"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "finalist",
+      "title": "The Zorg: A Tale of Greed and Murder That Inspired the Abolition of Slavery",
+      "authors": [
+        "Siddharth Kara"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "finalist",
+      "title": "We Survived the Night",
+      "authors": [
+        "Julian Brave NoiseCat"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "winner",
+      "title": "In the Shadow of Liberty: The Invisible History of Immigrant Detention in the United States",
+      "authors": [
+        "Ana Raquel Minian"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Achilles Trap: Saddam Hussein, the C.I.A., and the Origins of America’s Invasion of Iraq",
+      "authors": [
+        "Steve Coll"
+      ],
+      "publisher": "Penguin Press",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Lucky Ones: A Memoir",
+      "authors": [
+        "Zara Chowdhary"
+      ],
+      "publisher": "Crown",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Rent Collectors: Exploitation, Murder, and Redemption in Immigrant LA",
+      "authors": [
+        "Jesse Katz"
+      ],
+      "publisher": "Astra House",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "winner",
+      "title": "The Great Escape: A True Story of Forced Labor and Immigrant Dreams in America",
+      "authors": [
+        "Saket Soni"
+      ],
+      "publisher": "Algonquin Books",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Cobalt Red: How the Blood of the Congo Powers Our Lives",
+      "authors": [
+        "Siddarth Kara"
+      ],
+      "publisher": "St. Martin's Press",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Fire Weather: A True Story from a Hotter World",
+      "authors": [
+        "John Vaillant"
+      ],
+      "publisher": "Alfred A. Knopf",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Outrage Machine: How Tech Amplifies Discontent, Disrupts Democracy—And What We Can Do About It",
+      "authors": [
+        "Tobias Rose-Stockwell"
+      ],
+      "publisher": "Legacy Lit",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "finalist",
+      "title": "We Were Once a Family: A Story of Love, Death, and Child Removal in America",
+      "authors": [
+        "Roxanna Asgarian"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "winner",
+      "title": "The Inheritors: An Intimate Portrait of South Africa’s Racial Reckoning",
+      "authors": [
+        "Eve Fairbanks"
+      ],
+      "publisher": "Simon & Schuster",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "finalist",
+      "title": "Bad Mexicans: Race, Empire, and Revolution in the Borderlands",
+      "authors": [
+        "Kelly Lytle Hernández"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "finalist",
+      "title": "Solito: A Memoir",
+      "authors": [
+        "Javier Zamora"
+      ],
+      "publisher": "Hogarth Press",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "finalist",
+      "title": "South to America: A Journey Below the Mason-Dixon to Understand the Soul of a Nation",
+      "authors": [
+        "Imani Perry"
+      ],
+      "publisher": "HarperCollins Publishers",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "finalist",
+      "title": "The War of Nerves: Inside the Cold War Mind",
+      "authors": [
+        "Martin Sixsmith"
+      ],
+      "publisher": "Pegasus Books",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "winner",
+      "title": "All That She Carried: The Journey of Ashley's Sack, a Black Family Keepsake",
+      "authors": [
+        "Tiya Miles"
+      ],
+      "publisher": "Random House",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "finalist",
+      "title": "Halfway Home: Race, Punishment, and the Afterlife of Mass Incarceration",
+      "authors": [
+        "Reuben Jonathan Miller"
+      ],
+      "publisher": "Little Brown and Company",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "finalist",
+      "title": "How the Word Is Passed: A Reckoning with the History of Slavery Across America",
+      "authors": [
+        "Clint Smith"
+      ],
+      "publisher": "Little Brown and Company",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "finalist",
+      "title": "Invisible Child: Poverty, Survival & Hope in an American City",
+      "authors": [
+        "Andrea Elliott"
+      ],
+      "publisher": "Random House",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "finalist",
+      "title": "Let the Record Show: A Political History of ACT UP New York, 1987-1993",
+      "authors": [
+        "Sarah Schulman"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "winner",
+      "title": "Wayward Lives, Beautiful Experiments: Intimate Histories of Riotous Black Girls, Troublesome Women, and Queer Radicals",
+      "authors": [
+        "Saidiya Hartman"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "winner",
+      "title": "In a Day's Work: The Fight to End Sexual Violence Against America’s Most Vulnerable Workers",
+      "authors": [
+        "Bernice Yeung"
+      ],
+      "publisher": "Crown",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "winner",
+      "title": "Evicted: Poverty and Profit in the American City",
+      "authors": [
+        "Matthew Desmond"
+      ],
+      "publisher": "Crown",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "winner",
+      "title": "Five Days at Memorial: Life and Death in a Storm-Ravaged Hospital",
+      "authors": [
+        "Sheri Fink"
+      ],
+      "publisher": "Crown",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "finalist",
+      "title": "League of Denial",
+      "authors": [
+        "Mark Fainaru-Wada",
+        "Steve Fainaru"
+      ],
+      "publisher": "Crown Archetype",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "finalist",
+      "title": "Our Declaration",
+      "authors": [
+        "Danielle Allen"
+      ],
+      "publisher": "Liveright",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "finalist",
+      "title": "The Big Truck That Went By",
+      "authors": [
+        "Jonathan M. Katz"
+      ],
+      "publisher": "Palgrave Macmillan",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "finalist",
+      "title": "This Changes Everything",
+      "authors": [
+        "Naomi Klein"
+      ],
+      "publisher": "Simon & Schuster",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "winner",
+      "title": "Behind the Beautiful Forevers: Life, Death, and Hope in a Mumbai Undercity",
+      "authors": [
+        "Katherine Boo"
+      ],
+      "publisher": "Random House",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "finalist",
+      "title": "God's Hotel: A Doctor, a Hospital, and a Pilgrimage to the Heart of Medicine",
+      "authors": [
+        "Victoria Sweet"
+      ],
+      "publisher": "Riverhead Books",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "finalist",
+      "title": "Iron Curtain",
+      "authors": [
+        "Anne Applebaum"
+      ],
+      "publisher": "Doubleday",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "finalist",
+      "title": "Moby-Duck",
+      "authors": [
+        "Donovan Hohn"
+      ],
+      "publisher": "Penguin Books",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2011,
+      "status": "winner",
+      "title": "Texas Tough: The Rise of America's Prison Empire",
+      "authors": [
+        "Robert Perkinson"
+      ],
+      "publisher": "Picador",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2011,
+      "status": "finalist",
+      "title": "Cultures of War: Pearl Harbor / Hiroshima / 9-11 / Iraq",
+      "authors": [
+        "John W. Dower"
+      ],
+      "publisher": "W.W. Norton & Co.",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2011,
+      "status": "finalist",
+      "title": "The Warmth of Other Suns",
+      "authors": [
+        "Isabel Wilkerson"
+      ],
+      "publisher": "Random House",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2009,
+      "status": "winner",
+      "title": "The Bin Ladens: An Arabian Family in the American Century",
+      "authors": [
+        "Steve Coll"
+      ],
+      "publisher": "Penguin Group)",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2009,
+      "status": "finalist",
+      "title": "Posthumous Keats: A Personal Biography",
+      "authors": [
+        "Stanley Plumly"
+      ],
+      "publisher": "W.W. Norton & Co.",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2009,
+      "status": "finalist",
+      "title": "Samuel Johnson: The Struggle",
+      "authors": [
+        "Jeffrey Meyers"
+      ],
+      "publisher": "Basic Books",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2007,
+      "status": "winner",
+      "title": "House of War: The Pentagon and the Disastrous Rise of American Power",
+      "authors": [
+        "James Carroll"
+      ],
+      "publisher": "Mariner Books",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2007,
+      "status": "finalist",
+      "title": "Fiasco: The American Military Adventure in Iraq",
+      "authors": [
+        "Thomas E. Ricks"
+      ],
+      "publisher": "Penguin Press",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    },
+    {
+      "awardId": "pen-galbraith-award",
+      "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+      "categoryId": "pen-galbraith-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2007,
+      "status": "finalist",
+      "title": "The Race Beat: The Press, the Civil Rights Struggle, and the Awakening of a Nation",
+      "authors": [
+        "Gene Roberts",
+        "Hank Klibanoff"
+      ],
+      "publisher": "Knopf",
+      "sourceUrl": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+      "sourceLabel": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { BookOpen, Check, ChevronLeft, ChevronRight, Clipboard, FileText, Link2, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { awardsById, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName } from "@/lib/data";
 import type { AwardAppearance, Book } from "@/lib/types";
 
@@ -33,6 +33,7 @@ export function BookDrawer({
   const [isClosing, setIsClosing] = useState(false);
   const [hasEntered, setHasEntered] = useState(Boolean(book));
   const [citationCopied, setCitationCopied] = useState(false);
+  const panelRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (book) {
@@ -40,8 +41,14 @@ export function BookDrawer({
       setIsClosing(false);
       setHasEntered(false);
       setCitationCopied(false);
-      const frame = window.requestAnimationFrame(() => setHasEntered(true));
-      return () => window.cancelAnimationFrame(frame);
+      let secondFrame = 0;
+      const firstFrame = window.requestAnimationFrame(() => {
+        secondFrame = window.requestAnimationFrame(() => setHasEntered(true));
+      });
+      return () => {
+        window.cancelAnimationFrame(firstFrame);
+        window.cancelAnimationFrame(secondFrame);
+      };
     }
 
     if (!snapshot) {
@@ -81,6 +88,11 @@ export function BookDrawer({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isClosing, onClose, onNext, onPrevious, snapshot]);
 
+  useEffect(() => {
+    if (!book) return;
+    panelRef.current?.scrollTo({ top: 0 });
+  }, [book?.id]);
+
   if (!snapshot) return null;
   const renderedBook = snapshot.book;
   const renderedAppearances = book ? appearances : snapshot.appearances;
@@ -91,7 +103,7 @@ export function BookDrawer({
   const sortedAppearances = [...renderedAppearances].sort((a, b) => b.year - a.year || a.statusRank - b.statusRank);
   const layerState = isClosing ? "is-closing" : hasEntered ? "is-open" : "is-entering";
   const citation = formatCitation(renderedBook, publisher);
-  const summaryPreview = renderedBook.summary ? makeSummaryPreview(renderedBook.summary) : "";
+  const summaryPreview = renderedBook.displaySummary ?? renderedBook.summary ? makeSummaryPreview(renderedBook.displaySummary ?? renderedBook.summary ?? "") : "";
 
   function copyCitation() {
     setCitationCopied(true);
@@ -104,7 +116,7 @@ export function BookDrawer({
   return (
     <div className={`book-drawer-layer fixed inset-0 z-30 ${layerState}`}>
       <button aria-label="Close detail panel" className="book-drawer-backdrop absolute inset-0 bg-black/45 backdrop-blur-[1px]" onClick={onClose} />
-      <aside className="book-drawer-panel absolute bottom-0 right-0 top-0 flex w-full max-w-[45rem] flex-col overflow-y-auto border-l hairline bg-[var(--paper)] p-5 shadow-2xl sm:p-7">
+      <aside ref={panelRef} className="book-drawer-panel absolute bottom-0 right-0 top-0 flex w-full max-w-[45rem] flex-col overflow-y-auto border-l hairline bg-[var(--paper)] p-5 shadow-2xl sm:p-7">
         <div className="book-drawer-section mb-5 flex items-center justify-between">
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Book record</p>
           <div className="flex items-center gap-4">
@@ -132,17 +144,26 @@ export function BookDrawer({
         </div>
 
         <div className="book-drawer-section grid gap-7 border-b hairline pb-6 sm:grid-cols-[8.5rem_1fr]">
-          <MiniCover
-            title={renderedBook.title}
-            author={renderedBook.authors.map((author) => author.name).join(", ")}
-            href={`/books/${renderedBook.slug}`}
-            thumbnailUrl={renderedBook.thumbnailUrl}
-          />
+          <div className="grid content-start justify-items-start gap-3">
+            <MiniCover
+              title={renderedBook.title}
+              author={renderedBook.authors.map((author) => author.name).join(", ")}
+              href={`/books/${renderedBook.slug}`}
+              thumbnailUrl={renderedBook.thumbnailUrl}
+            />
+            <Link
+              className="focus-ring inline-flex w-32 items-center justify-center gap-2 border hairline px-3 py-2 text-sm transition hover:bg-[var(--panel)]"
+              href={`/books/${renderedBook.slug}`}
+            >
+              <FileText size={15} />
+              Full record
+            </Link>
+          </div>
           <div className="self-center">
-            <h2 className="text-4xl font-medium leading-tight">{renderedBook.title}</h2>
-            <p className="mt-4 text-xl muted">{renderedBook.authors.map((author) => author.name).join(", ")}</p>
+            <h2 className="text-[2rem] font-medium leading-[1.12] sm:text-[2.35rem]">{renderedBook.title}</h2>
+            <p className="mt-3 text-lg muted">{renderedBook.authors.map((author) => author.name).join(", ")}</p>
             {summaryPreview ? (
-              <p className="mt-5 max-w-2xl font-[var(--font-serif)] text-base italic leading-7 muted">
+              <p className="mt-4 max-w-2xl font-[var(--font-serif)] text-base italic leading-7 muted">
                 {summaryPreview}{" "}
                 <Link className="book-detail-text-link font-[var(--font-sans)] text-sm not-italic" href={`/books/${renderedBook.slug}`}>
                   Read more
@@ -164,9 +185,9 @@ export function BookDrawer({
             <Meta label="Publisher" value={publisher ?? "Not yet sourced"} />
             <Meta label="Imprint" value={imprint ?? "Unknown"} />
             <div className="grid gap-2 border-b hairline py-3">
-              <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">Subjects</dt>
+              <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">Primary subject</dt>
               <dd className="flex flex-wrap gap-2">
-                {renderedBook.subjects.length ? renderedBook.subjects.map((subject, index) => <SubjectChip index={index} key={subject} subject={subject} />) : "Not yet classified"}
+                {renderedBook.primarySubject ? <SubjectChip index={0} subject={renderedBook.primarySubject} /> : "Not yet classified"}
               </dd>
             </div>
           </div>
@@ -227,10 +248,19 @@ export function BookDrawer({
               <ChevronRight size={15} />
             </Link>
           </div>
-          <p className="mt-3 text-sm muted">Subjects</p>
+          <p className="mt-3 text-sm muted">All subjects</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {renderedBook.subjects.map((subject, index) => <SubjectChip index={index} key={subject} subject={subject} />)}
           </div>
+          {renderedBook.topics.length ? (
+            <>
+              <p className="mt-5 text-sm muted">Topics</p>
+              <div className="mt-3 flex flex-wrap gap-x-3 gap-y-2">
+                {renderedBook.topics.map((topic, index) => <TopicTag isPrimary={topic === renderedBook.primaryTopic || index === 0} key={topic} topic={topic} />)}
+              </div>
+            </>
+          ) : null}
+          <SubjectEvidencePanel book={renderedBook} />
           <div className="mt-6 flex items-start gap-3 text-sm muted">
             <BookOpen className="mt-1 shrink-0" size={17} />
             <p>Publisher summaries, cover thumbnails, page counts, and ISBNs will replace placeholders as enrichment sources are added.</p>
@@ -239,6 +269,48 @@ export function BookDrawer({
       </aside>
     </div>
   );
+}
+
+function SubjectEvidencePanel({ book }: { book: Book }) {
+  const decision = book.subjectEvidence;
+  if (!decision) return null;
+  return (
+    <div className="mt-6 border-t hairline pt-5">
+      <div className="flex items-center justify-between gap-4">
+        <h4 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Subject evidence</h4>
+        <span className="font-[var(--font-mono)] text-[0.65rem] uppercase tracking-[0.14em] muted">{decision.confidence} confidence</span>
+      </div>
+      <div className="mt-3 grid gap-2 text-xs">
+        {decision.candidates.slice(0, 3).map((candidate) => (
+          <div className="grid grid-cols-[1fr_auto_auto] gap-3 border-b hairline py-2 last:border-b-0" key={candidate.subject}>
+            <span>{candidate.subject}</span>
+            <span className="plain-number muted">{candidate.score}</span>
+            <span className="muted">{candidate.evidenceCount} signals</span>
+          </div>
+        ))}
+      </div>
+      {decision.confidence === "low" ? (
+        <p className="mt-3 text-xs leading-5 muted">
+          Catalog subject evidence is still thin for this record; the current assignment is provisional.
+        </p>
+      ) : null}
+      <div className="mt-3 space-y-2">
+        {decision.evidence.slice(0, 4).map((item) => (
+          <p className="text-xs leading-5 muted" key={item.id}>
+            <span className="text-[var(--ink)]">{sourceLabel(item.source)}</span>
+            {`: ${item.rawLabel} -> ${item.mappedSubject}`}
+          </p>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function sourceLabel(source: NonNullable<Book["subjectEvidence"]>["evidence"][number]["source"]) {
+  return source
+    .split("_")
+    .map((part) => part.slice(0, 1).toUpperCase() + part.slice(1))
+    .join(" ");
 }
 
 function Metric({ label, value }: { label: string; value: number }) {
@@ -281,14 +353,35 @@ function MiniCover({ title, author, href, thumbnailUrl }: { title: string; autho
 function SubjectChip({ subject, index }: { subject: string; index: number }) {
   const subjectSlug = dataSubjectSlug(subject);
   return (
-    <Link className={`subject-chip subject-chip-${index % 6} focus-ring rounded-full border hairline px-3 py-1 text-xs`} href={subjectSlug ? `/subjects/${subjectSlug}` : "/subjects"}>
+    <Link className={`subject-chip ${subjectChipClass(subject)} focus-ring rounded-full border hairline px-3 py-1 text-xs`} href={subjectSlug ? `/subjects/${subjectSlug}` : "/subjects"}>
       {subject}
+    </Link>
+  );
+}
+
+function TopicTag({ topic, isPrimary }: { topic: string; isPrimary?: boolean }) {
+  return (
+    <Link className={`topic-tag focus-ring ${isPrimary ? "topic-tag-primary" : ""}`} href={`/books?topic=${encodeURIComponent(topic)}`}>
+      {topic}
     </Link>
   );
 }
 
 function dataSubjectSlug(subject: string) {
   return subjectsByName.get(subject.toLowerCase())?.slug;
+}
+
+function subjectChipClass(subject: string) {
+  const normalized = subject.toLowerCase();
+  if (normalized.includes("american history") || normalized === "history") return "subject-chip-brick";
+  if (normalized.includes("world history") || normalized.includes("travel")) return "subject-chip-teal";
+  if (normalized.includes("biography") || normalized.includes("memoir")) return "subject-chip-plum";
+  if (normalized.includes("politics") || normalized.includes("journalism")) return "subject-chip-indigo";
+  if (normalized.includes("society") || normalized.includes("race") || normalized.includes("gender") || normalized.includes("religion")) return "subject-chip-olive";
+  if (normalized.includes("science") || normalized.includes("medicine") || normalized.includes("technology") || normalized.includes("nature")) return "subject-chip-slate";
+  if (normalized.includes("business") || normalized.includes("arts") || normalized.includes("sports")) return "subject-chip-ochre";
+  if (normalized.includes("war") || normalized.includes("crime") || normalized.includes("justice")) return "subject-chip-forest";
+  return "subject-chip-teal";
 }
 
 function formatCitation(book: Book, publisher?: string) {
