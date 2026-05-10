@@ -86,31 +86,49 @@ const approvedCommonsTitles: Record<string, string> = {
 };
 
 const localLogoAliases: Record<string, string> = {
-  "imprint-bantam-books": "imprint-random-house",
   "imprint-free-press": "imprint-simon-and-schuster",
   "imprint-harcourt": "imprint-houghton-mifflin-harcourt",
   "imprint-harper-and-row": "imprint-harper",
-  "imprint-houghton-mifflin": "imprint-houghton-mifflin-harcourt",
-  "imprint-mariner-books": "imprint-houghton-mifflin-harcourt",
   "imprint-metropolitan-books": "imprint-henry-holt",
-  "imprint-modern-library": "imprint-random-house",
-  "imprint-new-american-library": "imprint-random-house",
-  "imprint-one-world": "imprint-random-house",
-  "imprint-penguin-books": "imprint-random-house",
-  "imprint-penguin-press": "imprint-random-house",
   "imprint-pocket-books": "imprint-simon-and-schuster",
-  "imprint-putnam": "imprint-random-house",
-  "imprint-signet": "imprint-random-house",
   "imprint-st-martin-s-press": "imprint-henry-holt",
   "imprint-summit-books": "imprint-simon-and-schuster",
   "imprint-times-books": "imprint-henry-holt",
-  "imprint-viking": "imprint-random-house",
-  "imprint-villard": "imprint-random-house",
-  "imprint-vintage-books": "imprint-random-house",
 };
 
 const approvedDirectLogoUrls: Record<string, string> = {
+  "imprint-bantam-books": "https://assets.penguinrandomhouse.com/wp-content/uploads/2023/10/12155339/Bantam_logo.png",
+  "imprint-harpercollins": "https://www.harpercollins.com/cdn/shop/files/footer-logo_7ce61f7b-377b-4234-a833-402fa5a744e2_230x.png?v=1614765644",
+  "imprint-modern-library": "https://www.penguinrandomhouse.com/wp-content/themes/penguinrandomhouse/logos/Modern_Library_logo_bw.png",
+  "imprint-one-world": "https://assets.penguinrandomhouse.com/wp-content/uploads/2018/08/06153338/OW-Hi-Res.jpg",
+  "imprint-penguin-press": "https://www.penguinrandomhouse.com/wp-content/themes/penguinrandomhouse/logos/Penguin_Press_logo_bw_type.png",
+  "imprint-putnam": "https://www.penguinrandomhouse.com/wp-content/themes/penguinrandomhouse/logos/Putnam_logo_bw.png",
+  "imprint-random-house": "https://www.penguinrandomhouse.com/wp-content/themes/penguinrandomhouse/logos/Random_House_logo_bw.png",
+  "imprint-viking": "https://www.penguinrandomhouse.com/wp-content/themes/penguinrandomhouse/logos/Viking_logo_bw.png",
+  "imprint-vintage-books": "https://live-knopf-doubleday.pantheonsite.io/wp-content/uploads/2023/06/Vintage.png",
   "imprint-w-w-norton": "https://appservices.wwnorton.com/media/api/v1/asset/cf/5cf68354f9543f0017537085/seagull_logo-homepage.svg",
+};
+
+const approvedDirectLogoTitles: Record<string, string> = {
+  "imprint-bantam-books": "Official Bantam logo from Penguin Random House",
+  "imprint-harpercollins": "Official HarperCollins footer logo",
+  "imprint-modern-library": "Official Modern Library logo from Penguin Random House",
+  "imprint-one-world": "Official One World logo from Penguin Random House",
+  "imprint-penguin-press": "Official Penguin Press logo from Penguin Random House",
+  "imprint-putnam": "Official Putnam logo from Penguin Random House",
+  "imprint-random-house": "Official Random House logo from Penguin Random House",
+  "imprint-viking": "Official Viking logo from Penguin Random House",
+  "imprint-vintage-books": "Official Vintage logo from Knopf Doubleday",
+  "imprint-w-w-norton": "Official W. W. Norton seagull logo",
+};
+
+const curatedWordmarkLogos: Record<string, string> = {
+  "imprint-allen-lane": "Allen Lane",
+  "imprint-graywolf-press": "Graywolf",
+  "imprint-houghton-mifflin": "Houghton Mifflin",
+  "imprint-mariner-books": "Mariner Books",
+  "imprint-spiegel-and-grau": "Spiegel & Grau",
+  "imprint-touchstone": "Touchstone",
 };
 
 async function main() {
@@ -142,24 +160,6 @@ async function main() {
 }
 
 async function fetchLogoForImprint(imprint: Imprint): Promise<LogoManifestEntry> {
-  const aliasId = localLogoAliases[imprint.id];
-  if (aliasId) {
-    const aliasOutputName = `${aliasId}.png`;
-    const outputName = `${imprint.id}.png`;
-    const aliasOutputPath = path.join(outputDir, aliasOutputName);
-    const outputPath = path.join(outputDir, outputName);
-    if (await exists(aliasOutputPath)) {
-      if (!(await exists(outputPath))) await fs.copyFile(aliasOutputPath, outputPath);
-      return {
-        imprintId: imprint.id,
-        imprintName: imprint.name,
-        status: "downloaded",
-        logoPath: `/imprint-logos/${outputName}`,
-        sourceTitle: `Same-brand logo from ${aliasId}`,
-      };
-    }
-  }
-
   const directUrl = approvedDirectLogoUrls[imprint.id];
   if (directUrl) {
     const outputName = `${imprint.id}.png`;
@@ -176,9 +176,41 @@ async function fetchLogoForImprint(imprint: Imprint): Promise<LogoManifestEntry>
       status: "downloaded",
       logoPath: `/imprint-logos/${outputName}`,
       originalPath: `/imprint-logos/_originals/${originalName}`,
-      sourceTitle: "Official W. W. Norton seagull logo",
+      sourceTitle: approvedDirectLogoTitles[imprint.id] ?? `Direct logo source for ${imprint.name}`,
       sourceUrl: directUrl,
     };
+  }
+
+  const wordmark = curatedWordmarkLogos[imprint.id];
+  if (wordmark) {
+    const outputName = `${imprint.id}.png`;
+    const outputPath = path.join(outputDir, outputName);
+    await createCuratedWordmark(wordmark, outputPath);
+    return {
+      imprintId: imprint.id,
+      imprintName: imprint.name,
+      status: "downloaded",
+      logoPath: `/imprint-logos/${outputName}`,
+      sourceTitle: "Curated text wordmark fallback",
+    };
+  }
+
+  const aliasId = localLogoAliases[imprint.id];
+  if (aliasId) {
+    const aliasOutputName = `${aliasId}.png`;
+    const outputName = `${imprint.id}.png`;
+    const aliasOutputPath = path.join(outputDir, aliasOutputName);
+    const outputPath = path.join(outputDir, outputName);
+    if (await exists(aliasOutputPath)) {
+      if (!(await exists(outputPath))) await fs.copyFile(aliasOutputPath, outputPath);
+      return {
+        imprintId: imprint.id,
+        imprintName: imprint.name,
+        status: "downloaded",
+        logoPath: `/imprint-logos/${outputName}`,
+        sourceTitle: `Same-brand logo from ${aliasId}`,
+      };
+    }
   }
 
   const title = approvedCommonsTitles[imprint.id];
@@ -309,8 +341,14 @@ async function exists(filePath: string) {
 async function normalizeToTransparentPng(inputPath: string, outputPath: string) {
   await execFileAsync("magick", [
     inputPath,
+    "-alpha",
+    "set",
     "-background",
     "none",
+    "-fuzz",
+    "4%",
+    "-trim",
+    "+repage",
     "-resize",
     `${targetWidth - 32}x${targetHeight - 32}>`,
     "-gravity",
@@ -319,6 +357,35 @@ async function normalizeToTransparentPng(inputPath: string, outputPath: string) 
     `${targetWidth}x${targetHeight}`,
     "PNG32:" + outputPath,
   ]);
+}
+
+async function createCuratedWordmark(label: string, outputPath: string) {
+  await execFileAsync("magick", [
+    "-background",
+    "none",
+    "-fill",
+    "#111111",
+    "-font",
+    "Helvetica",
+    "-gravity",
+    "center",
+    "-pointsize",
+    pointSizeForLabel(label),
+    `label:${label}`,
+    "-resize",
+    `${targetWidth - 28}x${targetHeight - 36}>`,
+    "-gravity",
+    "center",
+    "-extent",
+    `${targetWidth}x${targetHeight}`,
+    "PNG32:" + outputPath,
+  ]);
+}
+
+function pointSizeForLabel(label: string) {
+  if (label.length > 18) return "27";
+  if (label.length > 13) return "31";
+  return "36";
 }
 
 function isSupportedMime(mime: string) {

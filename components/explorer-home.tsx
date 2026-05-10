@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ArrowRight, Filter, Info, Search } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { BookDrawer } from "@/components/book-drawer";
+import { AWARD_REGION_COOKIE, type AwardRegionFilter, matchesAwardRegion, regionLabel } from "@/lib/award-region";
 import {
   bookSearchText,
   booksById,
@@ -15,12 +16,11 @@ import {
 import type { PublicData } from "@/lib/types";
 
 type SortKey = "score" | "year" | "title" | "wins" | "lists" | "imprint";
-type RegionFilter = "us" | "world";
 type TypeFilter = "fiction" | "nonfiction" | "all";
 
-export function ExplorerHome({ data }: { data: PublicData }) {
+export function ExplorerHome({ data, defaultRegion }: { data: PublicData; defaultRegion: AwardRegionFilter }) {
   const [query, setQuery] = useState("");
-  const [region, setRegion] = useState<RegionFilter>("world");
+  const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
   const [type, setType] = useState<TypeFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("score");
   const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
@@ -65,7 +65,7 @@ export function ExplorerHome({ data }: { data: PublicData }) {
   const goPrevious = selectedIndex > 0 ? () => openBook(topBooks[selectedIndex - 1].id) : undefined;
   const goNext = selectedIndex >= 0 && selectedIndex < topBooks.length - 1 ? () => openBook(topBooks[selectedIndex + 1].id) : undefined;
   const browseData = useMemo(() => getBrowseData(data, region, type), [data, region, type]);
-  const showingLabel = `${region === "world" ? "World" : "US"} · ${type === "all" ? "All" : titleCase(type)}`;
+  const showingLabel = `${regionLabel(region)} · ${type === "all" ? "All" : titleCase(type)}`;
 
   useEffect(() => {
     const slug = searchParams.get("book");
@@ -98,6 +98,11 @@ export function ExplorerHome({ data }: { data: PublicData }) {
   function closeBook() {
     setSelectedBookId(null);
     setBookParam(null);
+  }
+
+  function setRegion(nextRegion: AwardRegionFilter) {
+    setRegionState(nextRegion);
+    document.cookie = `${AWARD_REGION_COOKIE}=${nextRegion}; path=/; max-age=31536000; samesite=lax`;
   }
 
   return (
@@ -258,8 +263,8 @@ export function ExplorerHome({ data }: { data: PublicData }) {
                     <td className="px-4 py-4 text-sm">{book.authors.map((author) => author.name).join(", ")}</td>
                     <td className="plain-number px-4 py-4 text-sm">{stats.wins}</td>
                     <td className="plain-number px-4 py-4 text-sm">{stats.lists}</td>
-                    <td className="px-4 py-4 text-sm">{imprint || "Unknown"}</td>
-                    <td className="px-4 py-4 text-sm muted">{publisher || "Not yet sourced"}</td>
+                    <td className={`px-4 py-4 text-sm ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</td>
+                    <td className={`px-4 py-4 text-sm ${publisher ? "muted" : "book-missing-value"}`}>{publisher || "Not yet sourced"}</td>
                   </tr>
                 );
               })}
@@ -362,9 +367,10 @@ function FilterButton({
   );
 }
 
-function getBrowseData(data: PublicData, region: RegionFilter, type: TypeFilter) {
+function getBrowseData(data: PublicData, region: AwardRegionFilter, type: TypeFilter) {
+  const programsById = new Map((data.awardPrograms ?? []).map((program) => [program.id, program]));
   const awards = data.awards.filter((award) => {
-    const matchesRegion = region === "world" || isUsAward(award.geography);
+    const matchesRegion = matchesAwardRegion(award, region, programsById);
     const matchesType =
       type === "all" ||
       award.subjectAreas.some((subject) => {
@@ -397,12 +403,6 @@ function getBrowseData(data: PublicData, region: RegionFilter, type: TypeFilter)
       .filter((award) => award.recordCount > 0)
       .sort((a, b) => b.recordCount - a.recordCount || a.name.localeCompare(b.name)),
   };
-}
-
-function isUsAward(geography?: string) {
-  if (!geography) return true;
-  const normalized = geography.toLowerCase();
-  return normalized.includes("united states") || normalized.includes("american") || normalized.includes("americas");
 }
 
 function titleCase(value: string) {

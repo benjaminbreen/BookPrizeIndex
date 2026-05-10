@@ -8,14 +8,14 @@ import { imprintSlug, imprintsForPublisher, imprintStats, publisherSlug, publish
 import { data } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
 
-type SortKey = "activity" | "name" | "imprints";
+type SortKey = "major_activity" | "all_activity" | "name" | "imprints";
 type AnalysisView = "publishers" | "imprints";
 
 export function PublisherBrowser() {
   const [query, setQuery] = useState("");
-  const [sortKey, setSortKey] = useState<SortKey>("activity");
+  const [sortKey, setSortKey] = useState<SortKey>("major_activity");
   const [letter, setLetter] = useState<string | null>(null);
-  const [analysisView, setAnalysisView] = useState<AnalysisView>("publishers");
+  const [analysisView, setAnalysisView] = useState<AnalysisView>("imprints");
 
   const allRows = useMemo(
     () =>
@@ -43,7 +43,8 @@ export function PublisherBrowser() {
       .sort((a, b) => {
         if (sortKey === "name") return a.publisher.name.localeCompare(b.publisher.name);
         if (sortKey === "imprints") return b.stats.imprints - a.stats.imprints || a.publisher.name.localeCompare(b.publisher.name);
-        return b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name);
+        if (sortKey === "all_activity") return b.stats.score - a.stats.score || b.stats.majorScore - a.stats.majorScore || a.publisher.name.localeCompare(b.publisher.name);
+        return b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name);
       });
   }, [allRows, letter, query, sortKey]);
 
@@ -65,14 +66,15 @@ export function PublisherBrowser() {
       })
       .sort((a, b) => {
         if (sortKey === "name") return (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
-        return b.stats.score - a.stats.score || (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
+        if (sortKey === "all_activity") return b.stats.score - a.stats.score || b.stats.majorScore - a.stats.majorScore || (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
+        return b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
       });
   }, [letter, publishersById, query, sortKey]);
 
   const totalAppearances = data.appearances.length;
   const years = data.appearances.map((appearance) => appearance.year);
-  const topPublishers = [...allRows].sort((a, b) => b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name)).slice(0, 5);
-  const topImprints = [...data.imprints].sort((a, b) => imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name)).slice(0, 5);
+  const topPublishers = [...allRows].sort((a, b) => b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name)).slice(0, 5);
+  const topImprints = [...data.imprints].sort((a, b) => imprintStats(b.id).majorAppearances - imprintStats(a.id).majorAppearances || imprintStats(b.id).majorScore - imprintStats(a.id).majorScore || imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name)).slice(0, 5);
 
   return (
     <main>
@@ -88,7 +90,7 @@ export function PublisherBrowser() {
               Historical labels and short-lived sub-imprints are consolidated under their clearest parent publisher where the source data supports it.
             </p>
           </div>
-          <div className="grid grid-cols-4 border-l hairline">
+          <div className="grid grid-cols-2 border-l hairline sm:grid-cols-4">
             <HeroMetric value={allRows.length} label="Publishers" />
             <HeroMetric value={data.imprints.length} label="Imprints" />
             <HeroMetric value={totalAppearances.toLocaleString()} label="Appearances" />
@@ -99,7 +101,7 @@ export function PublisherBrowser() {
 
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[1fr_22rem] lg:px-8">
         <div>
-          <div className="panel mb-4 grid gap-3 border hairline p-3 lg:grid-cols-[auto_1fr_auto_auto]">
+          <div className="paper-surface mb-4 grid gap-3 border hairline p-3 lg:grid-cols-[auto_1fr_auto_auto]">
             <div>
               <p className="mb-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] muted">Analyze by</p>
               <div className="inline-flex overflow-hidden rounded-md border hairline bg-[color-mix(in_srgb,var(--paper)_68%,var(--panel))] text-sm">
@@ -111,7 +113,7 @@ export function PublisherBrowser() {
                     key={view}
                     onClick={() => {
                       setAnalysisView(view);
-                      if (view === "imprints" && sortKey === "imprints") setSortKey("activity");
+                      if (view === "imprints" && sortKey === "imprints") setSortKey("major_activity");
                     }}
                     type="button"
                   >
@@ -130,7 +132,8 @@ export function PublisherBrowser() {
               />
             </label>
             <select className="border hairline bg-transparent px-4 py-3 text-sm" value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)}>
-              <option value="activity">Most-awarded first</option>
+              <option value="major_activity">Most-awarded (major awards)</option>
+              <option value="all_activity">Most-awarded (all awards)</option>
               <option value="name">{analysisView === "publishers" ? "Publisher A-Z" : "Imprint A-Z"}</option>
               {analysisView === "publishers" ? <option value="imprints">Most imprints</option> : null}
             </select>
@@ -140,15 +143,15 @@ export function PublisherBrowser() {
             </Link>
           </div>
 
-          <div className="overflow-hidden border hairline">
+          <div className="paper-surface overflow-hidden border hairline">
             {analysisView === "publishers" ? (
               publisherRows.map(({ publisher, stats, imprints }, index) => (
-                <div className="grid gap-4 border-b hairline p-4 last:border-b-0 lg:grid-cols-[18rem_1fr]" key={publisher.id}>
+                <div className="paper-surface grid gap-4 border-b hairline p-4 last:border-b-0 lg:grid-cols-[18rem_1fr]" key={publisher.id}>
                   <Link className="group" href={`/publishers/${publisherSlug(publisher)}`}>
                     <p className="font-[var(--font-mono)] text-xs plain-number muted">{String(index + 1).padStart(2, "0")}</p>
                     <h2 className="mt-2 font-[var(--font-serif)] text-2xl font-light group-hover:text-[var(--accent)]">{publisher.name}</h2>
                     <p className="mt-2 font-[var(--font-mono)] text-xs muted">
-                      {stats.imprints} imprints / {stats.appearances} appearances
+                      {stats.imprints} imprints / {stats.majorAppearances} major / {stats.appearances} total
                     </p>
                   </Link>
                   <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
@@ -158,7 +161,7 @@ export function PublisherBrowser() {
                         <Link className="group grid grid-cols-[1fr_auto] items-center gap-3 border hairline px-4 py-3 transition hover:bg-[var(--accent-soft)]" href={`/imprints/${imprintSlug(imprint)}`} key={imprint.id}>
                           <span>
                             <span className="block text-sm font-medium">{imprint.shortName ?? imprint.name}</span>
-                            <span className="mt-1 block font-[var(--font-mono)] text-xs muted">{itemStats.appearances} appearances</span>
+                            <span className="mt-1 block font-[var(--font-mono)] text-xs muted">{itemStats.majorAppearances} major / {itemStats.appearances} total</span>
                           </span>
                           <ChevronRight size={15} className="transition group-hover:translate-x-0.5" />
                         </Link>
@@ -170,7 +173,7 @@ export function PublisherBrowser() {
             ) : (
               imprintRows.map(({ imprint, publisher, stats }, index) => (
                 <Link
-                  className="group grid gap-4 border-b hairline p-4 transition last:border-b-0 hover:bg-[var(--accent-soft)] sm:grid-cols-[4rem_1.25fr_12rem_9rem]"
+                  className="group paper-surface grid gap-4 border-b hairline p-4 transition last:border-b-0 hover:bg-[var(--accent-soft)] sm:grid-cols-[4rem_1.25fr_12rem_9rem]"
                   href={`/imprints/${imprintSlug(imprint)}`}
                   key={imprint.id}
                 >
@@ -190,6 +193,7 @@ export function PublisherBrowser() {
                   </span>
                   <span className="grid content-start gap-1 font-[var(--font-mono)] text-xs muted">
                     <span><span className="plain-number text-[var(--ink)]">{stats.books}</span> books</span>
+                    <span><span className="plain-number text-[var(--ink)]">{stats.majorAppearances}</span> major appearances</span>
                     <span><span className="plain-number text-[var(--ink)]">{stats.appearances}</span> appearances</span>
                   </span>
                 </Link>
@@ -199,17 +203,17 @@ export function PublisherBrowser() {
         </div>
 
         <aside className="grid content-start gap-4">
-          <RankingPanel title="Top publishers by award activity" href="/publishers" rows={topPublishers.map((row) => ({
+          <RankingPanel title="Top publishers by major awards" href="/publishers" rows={topPublishers.map((row) => ({
             label: row.publisher.name,
-            value: row.stats.score,
+            value: row.stats.majorAppearances,
             href: `/publishers/${publisherSlug(row.publisher)}`,
           }))} />
-          <RankingPanel title="Top imprints overall" href="/imprints" rows={topImprints.map((imprint) => ({
+          <RankingPanel title="Top imprints by major awards" href="/imprints" rows={topImprints.map((imprint) => ({
             label: imprint.name,
-            value: imprintStats(imprint.id).score,
+            value: imprintStats(imprint.id).majorAppearances,
             href: `/imprints/${imprintSlug(imprint)}`,
           }))} />
-          <div className="border hairline p-5">
+          <div className="paper-surface border hairline p-5">
             <h2 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Browse by letter</h2>
             <div className="mt-4 grid grid-cols-9 gap-2 font-[var(--font-mono)] text-xs">
               {"ABCDEFGHIJKLMNOPQRSTUVWXYZ#".split("").map((item) => (
@@ -233,8 +237,8 @@ export function PublisherBrowser() {
 
 function HeroMetric({ value, label }: { value: string | number; label: string }) {
   return (
-    <div className="border-r hairline px-4 py-6 text-center last:border-r-0">
-      <p className="plain-number text-2xl">{value}</p>
+    <div className="border-r border-b hairline px-3 py-5 text-center even:border-r-0 sm:border-b-0 sm:px-4 sm:py-6 sm:even:border-r sm:last:border-r-0">
+      <p className="plain-number text-xl sm:text-2xl">{value}</p>
       <p className="mt-2 font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">{label}</p>
     </div>
   );
@@ -242,7 +246,7 @@ function HeroMetric({ value, label }: { value: string | number; label: string })
 
 function RankingPanel({ title, rows, href }: { title: string; href: string; rows: { label: string; value: number; href: string }[] }) {
   return (
-    <div className="border hairline p-5">
+    <div className="paper-surface border hairline p-5">
       <h2 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">{title}</h2>
       <div className="mt-4 grid gap-2">
         {rows.map((row, index) => (

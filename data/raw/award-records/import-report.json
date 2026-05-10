@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T21:03:06.830Z",
+  "generatedAt": "2026-05-10T22:53:49.370Z",
   "files": [
     {
       "file": "baillie-gifford.json",
@@ -37,9 +37,19 @@
       "records": 736
     },
     {
+      "file": "orwell.json",
+      "generatedAt": "2026-05-10T22:43:52.550Z",
+      "records": 56
+    },
+    {
       "file": "pen-galbraith.json",
       "generatedAt": "2026-05-09T23:26:31.600Z",
       "records": 45
+    },
+    {
+      "file": "phi-beta-kappa.json",
+      "generatedAt": "2026-05-10T21:39:19.975Z",
+      "records": 202
     },
     {
       "file": "prose.json",
@@ -50,12 +60,22 @@
       "file": "pulitzer.json",
       "generatedAt": "2026-05-09T00:32:17.513Z",
       "records": 594
+    },
+    {
+      "file": "royal-society.json",
+      "generatedAt": "2026-05-10T22:44:16.990Z",
+      "records": 169
+    },
+    {
+      "file": "wolfson.json",
+      "generatedAt": "2026-05-10T21:32:49.688Z",
+      "records": 140
     }
   ],
   "totals": {
-    "records": 4785,
-    "awards": 10,
-    "categories": 78,
+    "records": 5352,
+    "awards": 14,
+    "categories": 84,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
@@ -293,6 +313,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "phi-beta-kappa-book-awards",
+      "categoryId": "pbk-gauss",
+      "categoryName": "Christian Gauss Award",
+      "records": 72,
+      "winners": 72,
+      "finalists": 0,
+      "earliestYear": 1954,
+      "latestYear": 2025
+    },
+    {
       "awardId": "prose-awards",
       "categoryId": "prose-classics-and-ancient-history",
       "categoryName": "Classics and Ancient History",
@@ -513,6 +543,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "wolfson-history-prize",
+      "categoryId": "wolfson-history",
+      "categoryName": "History",
+      "records": 140,
+      "winners": 93,
+      "finalists": 0,
+      "earliestYear": 1972,
+      "latestYear": 2025
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-history-and-biography",
       "categoryName": "History and biography",
@@ -723,6 +763,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "phi-beta-kappa-book-awards",
+      "categoryId": "pbk-science",
+      "categoryName": "Phi Beta Kappa Award in Science",
+      "records": 65,
+      "winners": 65,
+      "finalists": 0,
+      "earliestYear": 1961,
+      "latestYear": 2025
+    },
+    {
       "awardId": "prose-awards",
       "categoryId": "prose-philosophy-and-religion",
       "categoryName": "Philosophy and Religion",
@@ -731,6 +781,16 @@
       "finalists": 0,
       "earliestYear": 1991,
       "latestYear": 2026
+    },
+    {
+      "awardId": "orwell-prize",
+      "categoryId": "orwell-political-writing",
+      "categoryName": "Political Writing",
+      "records": 56,
+      "winners": 7,
+      "finalists": 0,
+      "earliestYear": 2019,
+      "latestYear": 2025
     },
     {
       "awardId": "prose-awards",
@@ -751,6 +811,16 @@
       "finalists": 0,
       "earliestYear": 1992,
       "latestYear": 2026
+    },
+    {
+      "awardId": "phi-beta-kappa-book-awards",
+      "categoryId": "pbk-emerson",
+      "categoryName": "Ralph Waldo Emerson Award",
+      "records": 65,
+      "winners": 65,
+      "finalists": 0,
+      "earliestYear": 1960,
+      "latestYear": 2025
     },
     {
       "awardId": "national-book-awards",
@@ -781,6 +851,16 @@
       "finalists": 142,
       "earliestYear": 1989,
       "latestYear": 2023
+    },
+    {
+      "awardId": "royal-society-science-book-prize",
+      "categoryId": "royal-society-science",
+      "categoryName": "Science Book Prize",
+      "records": 169,
+      "winners": 39,
+      "finalists": 0,
+      "earliestYear": 1988,
+      "latestYear": 2025
     },
     {
       "awardId": "national-book-awards",

@@ -316,5 +316,90 @@
         "coverageNotes": "Covers all official winners from 1972 onward and shortlists from 2017 onward where listed by the official archive."
       }
     ]
+  },
+  {
+    "id": "phi-beta-kappa-book-awards",
+    "name": "Phi Beta Kappa Book Awards",
+    "organization": "The Phi Beta Kappa Society",
+    "geography": "United States publication",
+    "officialUrl": "https://www.pbk.org/awards/bookawards",
+    "notes": "Importer uses the official Phi Beta Kappa past-winner pages for the Christian Gauss Award, Phi Beta Kappa Award in Science, and Ralph Waldo Emerson Award.",
+    "categories": [
+      {
+        "id": "pbk-gauss",
+        "name": "Christian Gauss Award",
+        "officialUrl": "https://www.pbk.org/awards/bookawards",
+        "sourceUrl": "https://www.pbk.org/awards/bookawards/gauss-winners",
+        "sourceLabel": "Phi Beta Kappa Christian Gauss Award winners",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1954-present",
+        "coverageNotes": "Covers winners listed on the official Christian Gauss Award past-winners page."
+      },
+      {
+        "id": "pbk-science",
+        "name": "Phi Beta Kappa Award in Science",
+        "officialUrl": "https://www.pbk.org/awards/bookawards",
+        "sourceUrl": "https://www.pbk.org/awards/bookawards/science-winners",
+        "sourceLabel": "Phi Beta Kappa Award in Science winners",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1961-present",
+        "coverageNotes": "Covers winners listed on the official Phi Beta Kappa Award in Science past-winners page."
+      },
+      {
+        "id": "pbk-emerson",
+        "name": "Ralph Waldo Emerson Award",
+        "officialUrl": "https://www.pbk.org/awards/bookawards",
+        "sourceUrl": "https://www.pbk.org/awards/bookawards/emerson-winners",
+        "sourceLabel": "Phi Beta Kappa Ralph Waldo Emerson Award winners",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1960-present",
+        "coverageNotes": "Covers winners listed on the official Ralph Waldo Emerson Award past-winners page."
+      }
+    ]
+  },
+  {
+    "id": "royal-society-science-book-prize",
+    "name": "Royal Society Science Book Prize",
+    "organization": "The Royal Society",
+    "geography": "United Kingdom / International",
+    "officialUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/",
+    "notes": "Importer uses the deterministic Wikipedia table because command-line access to the current Royal Society competition archive is blocked by its web application firewall. Official Royal Society URLs are retained for later verification.",
+    "categories": [
+      {
+        "id": "royal-society-science",
+        "name": "Science Book Prize",
+        "officialUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Royal_Society_Science_Book_Prize",
+        "sourceLabel": "Wikipedia: Royal Society Science Book Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1988-present",
+        "coverageNotes": "Covers winners from 1988 onward and shortlisted books from 2000 onward where listed in the deterministic table."
+      }
+    ]
+  },
+  {
+    "id": "orwell-prize",
+    "name": "Orwell Prize",
+    "organization": "The Orwell Foundation",
+    "geography": "United Kingdom / International",
+    "officialUrl": "https://www.orwellfoundation.com/the-orwell-prizes/",
+    "notes": "Importer currently imports the nonfiction-specific Political Writing category from 2019 onward. The older combined book category is intentionally excluded because it mixes fiction and nonfiction before the current split.",
+    "categories": [
+      {
+        "id": "orwell-political-writing",
+        "name": "Political Writing",
+        "officialUrl": "https://www.orwellfoundation.com/the-orwell-prizes/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+        "sourceLabel": "Wikipedia: Orwell Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2019-present",
+        "coverageNotes": "Covers winners and shortlisted books in the nonfiction-specific Orwell Prize for Political Writing table from 2019 onward."
+      }
+    ]
   }
 ]

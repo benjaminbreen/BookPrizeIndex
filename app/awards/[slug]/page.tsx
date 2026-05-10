@@ -37,6 +37,8 @@ export default async function AwardPage({ params }: PageProps) {
   const finalists = appearances.filter((appearance) => appearance.status === "finalist").length;
   const shortlisted = appearances.filter((appearance) => appearance.status === "shortlist").length;
   const longlisted = appearances.filter((appearance) => appearance.status === "longlist").length;
+  const sourcedRecords = appearances.filter((appearance) => appearance.sourceUrl || appearance.sourceIds.length).length;
+  const sourceCoverage = appearances.length ? `${Math.round((sourcedRecords / appearances.length) * 100)}%` : "Unknown";
   const topImprints = topCounts(
     books.map((book) => {
       const imprint = book?.imprintId ? imprintsById.get(book.imprintId) : undefined;
@@ -59,6 +61,8 @@ export default async function AwardPage({ params }: PageProps) {
             />
             <dl className="mt-4 grid text-[0.78rem]">
               <RailMeta label="Organization" value={award.organization ?? "Not yet sourced"} />
+              <RailMeta label="Region" value={formatAwardGeography(award.geography)} />
+              <RailMeta label="Type" value={award.awardType === "award" ? "Award" : "Major award"} />
               <RailMeta label="Subject" value={award.subjectAreas.join(", ")} />
               <RailMeta label="Records" value={String(appearances.length)} />
               <RailMeta label="Year range" value={yearRange} />
@@ -101,6 +105,12 @@ export default async function AwardPage({ params }: PageProps) {
             <AdminMeta label="Deadline" numberValue value={award.deadline ?? "Not yet sourced"} />
             <AdminMeta label="Prize amount" numberValue value={award.prizeAmount ?? "Not yet sourced"} />
             <AdminMeta label="Criteria" value={award.criteria ?? "Not yet sourced"} />
+          </div>
+          <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 md:grid-cols-4">
+            <AdminMeta label="Source coverage" numberValue value={sourceCoverage} />
+            <AdminMeta label="Sourced records" numberValue value={`${sourcedRecords} of ${appearances.length}`} />
+            <AdminMeta label="Official site" value={award.links.official ?? "Not yet sourced"} />
+            <AdminMeta label="Submission info" value={award.links.submission ?? award.links.criteria ?? "Not yet sourced"} />
           </div>
         </div>
       </section>
@@ -150,6 +160,8 @@ function AwardProgramPage({ program }: { program: NonNullable<typeof data.awardP
   const appearances = data.appearances.filter((appearance) => awardIds.has(appearance.awardId));
   const years = appearances.map((appearance) => appearance.year);
   const bookIds = new Set(appearances.map((appearance) => appearance.bookId));
+  const sourcedRecords = appearances.filter((appearance) => appearance.sourceUrl || appearance.sourceIds.length).length;
+  const sourceCoverage = appearances.length ? `${Math.round((sourcedRecords / appearances.length) * 100)}%` : "Unknown";
   const subjects = [...new Set(categoryRows.flatMap((row) => row.award.subjectAreas))].sort((a, b) => a.localeCompare(b));
   const activeCategories = categoryRows.filter((row) => /present/i.test(row.yearRange)).length;
   const historicalCategories = Math.max(categoryRows.length - activeCategories, 0);
@@ -175,6 +187,7 @@ function AwardProgramPage({ program }: { program: NonNullable<typeof data.awardP
             <AwardMark name={program.name} />
             <dl className="mt-4 grid text-[0.78rem]">
               <RailMeta label="Organization" value={program.organization ?? "Not yet sourced"} />
+              <RailMeta label="Region" value={formatAwardGeography(program.geography)} />
               <RailMeta label="Categories" value={String(categoryRows.length)} />
               <RailMeta label="Records" value={String(appearances.length)} />
               <RailMeta label="Year range" value={years.length ? `${Math.min(...years)}-${Math.max(...years)}` : "Unknown"} />
@@ -214,6 +227,11 @@ function AwardProgramPage({ program }: { program: NonNullable<typeof data.awardP
             <AdminMeta label="Official site" value={program.officialUrl ?? "Not yet sourced"} />
             <AdminMeta label="Coverage" numberValue value={`${categoryRows.length} categories represented`} />
             <AdminMeta label="Notes" value={program.notes ?? "Category coverage is based on imported source-backed award records."} />
+          </div>
+          <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 md:grid-cols-3">
+            <AdminMeta label="Source coverage" numberValue value={sourceCoverage} />
+            <AdminMeta label="Sourced records" numberValue value={`${sourcedRecords} of ${appearances.length}`} />
+            <AdminMeta label="Active categories" numberValue value={`${activeCategories} active / ${historicalCategories} historical`} />
           </div>
         </div>
       </section>
@@ -292,19 +310,28 @@ function AwardMark({ logoAlt, logoUrl, name }: { logoAlt?: string; logoUrl?: str
 }
 
 function RailMeta({ label, value }: { label: string; value: string }) {
+  const isMissing = value === "Not yet sourced" || value === "Unknown";
   return (
     <div className="grid grid-cols-[7.4rem_1fr] gap-4 border-b hairline py-2">
       <dt className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.12em] muted">{label}</dt>
-      <dd className="plain-number text-right leading-relaxed">{value}</dd>
+      <dd className={`plain-number text-right leading-relaxed ${isMissing ? "book-missing-value" : ""}`}>{value}</dd>
     </div>
   );
 }
 
 function AdminMeta({ label, numberValue = false, value }: { label: string; numberValue?: boolean; value: string }) {
+  const isMissing = value === "Not yet sourced" || value === "Unknown";
+  const isUrl = /^https?:\/\//.test(value);
   return (
     <div className="paper-surface grid gap-2 p-3 sm:grid-cols-[8rem_1fr] lg:block lg:p-4">
       <p className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] muted">{label}</p>
-      <p className={`${numberValue ? "plain-number " : ""}text-sm leading-5 lg:mt-2`}>{value}</p>
+      {isUrl ? (
+        <a className="book-detail-text-link mt-0 text-sm leading-5 lg:mt-2 lg:inline-block" href={value} rel="noreferrer" target="_blank">
+          Open source
+        </a>
+      ) : (
+        <p className={`${numberValue ? "plain-number " : ""}text-sm leading-5 lg:mt-2 ${isMissing ? "book-missing-value" : ""}`}>{value}</p>
+      )}
     </div>
   );
 }
@@ -316,6 +343,14 @@ function StatLine({ label, value }: { label: string; value: string }) {
       <dd className="plain-number text-right">{value}</dd>
     </div>
   );
+}
+
+function formatAwardGeography(geography?: string) {
+  if (!geography) return "Unknown";
+  const normalized = geography.toLowerCase();
+  if (normalized === "us" || normalized === "usa" || normalized === "united states") return "US";
+  if (normalized === "uk" || normalized === "united kingdom") return "UK";
+  return geography;
 }
 
 function MiniPanel({ title, rows, footer, href }: { title: string; rows: { label: string; value: number }[]; footer: string; href: string }) {

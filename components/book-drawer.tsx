@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpen, Check, ChevronLeft, ChevronRight, Clipboard, FileText, Link2, X } from "lucide-react";
+import { BookOpen, Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, Link2, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { awardsById, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName } from "@/lib/data";
 import type { AwardAppearance, Book } from "@/lib/types";
@@ -143,7 +143,7 @@ export function BookDrawer({
           </div>
         </div>
 
-        <div className="book-drawer-section grid gap-7 border-b hairline pb-6 sm:grid-cols-[8.5rem_1fr]">
+        <div className="book-drawer-section grid gap-6 border-b hairline pb-5 sm:grid-cols-[8.5rem_1fr]">
           <div className="grid content-start justify-items-start gap-3">
             <MiniCover
               title={renderedBook.title}
@@ -160,10 +160,10 @@ export function BookDrawer({
             </Link>
           </div>
           <div className="self-center">
-            <h2 className="text-[2rem] font-medium leading-[1.12] sm:text-[2.35rem]">{renderedBook.title}</h2>
-            <p className="mt-3 text-lg muted">{renderedBook.authors.map((author) => author.name).join(", ")}</p>
+            <h2 className="text-[1.9rem] font-medium leading-[1.12] sm:text-[2.2rem]">{renderedBook.title}</h2>
+            <p className="mt-2.5 text-lg muted">{renderedBook.authors.map((author) => author.name).join(", ")}</p>
             {summaryPreview ? (
-              <p className="mt-4 max-w-2xl font-[var(--font-serif)] text-base italic leading-7 muted">
+              <p className="mt-3.5 max-w-2xl font-[var(--font-serif)] text-base italic leading-7 muted">
                 {summaryPreview}{" "}
                 <Link className="book-detail-text-link font-[var(--font-sans)] text-sm not-italic" href={`/books/${renderedBook.slug}`}>
                   Read more
@@ -173,21 +173,21 @@ export function BookDrawer({
           </div>
         </div>
 
-        <div className="book-drawer-section grid grid-cols-4 border-b hairline py-4 font-[var(--font-mono)] text-center text-xs">
+        <div className="book-drawer-section grid grid-cols-4 border-b hairline py-3 font-[var(--font-mono)] text-center text-xs">
           <Metric label="Wins" value={stats.wins} />
           <Metric label="Lists" value={stats.lists} />
           <Metric label="Score" value={stats.score} />
           <Metric label="Year" value={renderedBook.publicationYear ?? 0} />
         </div>
 
-        <dl className="book-drawer-section grid border-b hairline py-3 text-sm sm:grid-cols-2">
+        <dl className="book-drawer-section grid border-b hairline py-2 text-sm sm:grid-cols-2">
           <div className="sm:border-r hairline sm:pr-6">
             <Meta label="Publisher" value={publisher ?? "Not yet sourced"} />
             <Meta label="Imprint" value={imprint ?? "Unknown"} />
-            <div className="grid gap-2 border-b hairline py-3">
+            <div className="grid gap-2 border-b hairline py-2.5">
               <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">Primary subject</dt>
               <dd className="flex flex-wrap gap-2">
-                {renderedBook.primarySubject ? <SubjectChip index={0} subject={renderedBook.primarySubject} /> : "Not yet classified"}
+                {renderedBook.primarySubject ? <SubjectChip index={0} subject={renderedBook.primarySubject} /> : <span className="book-missing-value">Not yet classified</span>}
               </dd>
             </div>
           </div>
@@ -198,7 +198,7 @@ export function BookDrawer({
           </div>
         </dl>
 
-        <div className="book-drawer-section mt-6">
+        <div className="book-drawer-section mt-5">
           <div className="flex items-center justify-between">
             <h3 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Award history</h3>
             <p className="font-[var(--font-mono)] text-xs muted"><span className="plain-number">{sortedAppearances.length}</span> total</p>
@@ -207,16 +207,34 @@ export function BookDrawer({
             {sortedAppearances.map((appearance) => {
               const award = awardsById.get(appearance.awardId);
               return (
-                <Link
-                  className="award-history-link grid grid-cols-[1fr_auto_auto_auto] items-center gap-4 border-b hairline px-4 py-3 text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
-                  href={award ? `/awards/${award.slug}` : "#"}
+                <div
+                  className="award-history-link grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-4 border-b hairline px-4 py-3 text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
                   key={appearance.id}
                 >
-                  <span>{award?.name}</span>
+                  <Link className="focus-ring transition hover:text-[var(--accent)]" href={award ? `/awards/${award.slug}` : "#"}>
+                    {award?.name}
+                  </Link>
                   <span className="plain-number text-xs">{appearance.year}</span>
                   <span>{statusLabels[appearance.status]}</span>
-                  <ChevronRight size={15} />
-                </Link>
+                  {appearance.sourceUrl ? (
+                    <a
+                      aria-label={`Open source for ${award?.name ?? "award record"}`}
+                      className="focus-ring grid h-7 w-7 place-items-center text-[var(--muted)] transition hover:text-[var(--accent)]"
+                      href={appearance.sourceUrl}
+                      onClick={(event) => event.stopPropagation()}
+                      rel="noreferrer"
+                      target="_blank"
+                      title="Source"
+                    >
+                      <ExternalLink size={14} />
+                    </a>
+                  ) : (
+                    <span className="h-7 w-7" />
+                  )}
+                  <Link className="focus-ring grid h-7 w-7 place-items-center transition hover:text-[var(--accent)]" href={award ? `/awards/${award.slug}` : "#"} aria-label={`Open ${award?.name ?? "award"}`}>
+                    <ChevronRight size={15} />
+                  </Link>
+                </div>
               );
             })}
           </div>
@@ -317,16 +335,17 @@ function Metric({ label, value }: { label: string; value: number }) {
   return (
     <div className="border-r hairline px-3 last:border-r-0">
       <p className="uppercase tracking-[0.16em] muted">{label}</p>
-      <p className="plain-number mt-2 text-2xl text-[var(--ink)]">{value || "—"}</p>
+      <p className="plain-number mt-1.5 text-2xl text-[var(--ink)]">{value || "—"}</p>
     </div>
   );
 }
 
 function Meta({ label, value }: { label: string; value: string }) {
+  const isMissing = value === "Not yet sourced" || value === "Unknown" || value === "Not yet classified";
   return (
-    <div className="grid gap-1 border-b hairline py-3">
+    <div className="grid gap-1 border-b hairline py-2.5">
       <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">{label}</dt>
-      <dd>{value}</dd>
+      <dd className={isMissing ? "book-missing-value" : undefined}>{value}</dd>
     </div>
   );
 }

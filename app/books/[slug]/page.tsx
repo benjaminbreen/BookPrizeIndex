@@ -119,8 +119,9 @@ export default async function BookPage({ params }: PageProps) {
                       <tr className="border-b hairline text-sm" key={appearance.id}>
                         <td className="py-2 pr-4">
                           {award ? (
-                            <Link className="transition hover:text-[var(--accent)]" href={`/awards/${award.slug}`}>
-                              {award.name}
+                            <Link className="book-award-row-link transition hover:text-[var(--accent)]" href={`/awards/${award.slug}`}>
+                              <AwardLogoMark logoAlt={award.logoAlt} logoUrl={award.logoUrl} name={award.name} />
+                              <span>{award.name}</span>
                             </Link>
                           ) : null}
                         </td>
@@ -154,7 +155,7 @@ export default async function BookPage({ params }: PageProps) {
             <h2 className="font-[var(--font-serif)] text-2xl font-light">Browse connections</h2>
             <div className="mt-5 border-t hairline">
               {booksByAuthor.map((candidate) => (
-                <ConnectionRow href={`/books/${candidate.slug}`} key={candidate.id} label={`Books by ${book.authors[0]?.name}`} meta="same author" />
+                <ConnectionRow book={candidate} href={`/books/${candidate.slug}`} key={candidate.id} label={`Books by ${book.authors[0]?.name}`} meta="same author" />
               ))}
             </div>
             {relatedBooks.length ? (
@@ -163,6 +164,7 @@ export default async function BookPage({ params }: PageProps) {
                 <div className="mt-3 border-t hairline">
                   {relatedBooks.map((candidate) => (
                     <ConnectionRow
+                      book={candidate}
                       href={`/books/${candidate.slug}`}
                       key={candidate.id}
                       label={candidate.title}
@@ -258,6 +260,14 @@ function BookCover({ title, author, thumbnailUrl }: { title: string; author: str
   );
 }
 
+function AwardLogoMark({ logoAlt, logoUrl, name }: { logoAlt?: string; logoUrl?: string; name: string }) {
+  return (
+    <span className="book-award-logo" aria-hidden="true">
+      {logoUrl ? <img alt={logoAlt ?? `${name} logo`} src={logoUrl} /> : <span>{name.trim()[0]?.toUpperCase() ?? "?"}</span>}
+    </span>
+  );
+}
+
 function RailMeta({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="grid grid-cols-[6.2rem_1fr] gap-3 border-b hairline py-2">
@@ -313,15 +323,26 @@ function retailerLinks(book: Book) {
   ].filter((link): link is { label: string; href: string; icon: string } => Boolean(link?.href) && Boolean(query || isbn));
 }
 
-function ConnectionRow({ href, label, meta }: { href: string; label: string; meta: string }) {
+function ConnectionRow({ book, href, label, meta }: { book?: Book; href: string; label: string; meta: string }) {
   return (
     <Link className="group flex items-center justify-between gap-4 border-b hairline py-3 text-sm transition hover:bg-[var(--panel)]" href={href}>
-      <span>{label}</span>
+      <span className="flex min-w-0 items-center gap-3">
+        {book ? <BookThumb book={book} /> : null}
+        <span className="min-w-0">{label}</span>
+      </span>
       <span className="flex items-center gap-2 font-[var(--font-mono)] text-xs muted">
         {meta}
         <ArrowUpRight size={12} className="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </span>
     </Link>
+  );
+}
+
+function BookThumb({ book }: { book: Book }) {
+  return (
+    <span className="book-connection-thumb" aria-hidden="true">
+      {book.thumbnailUrl ? <img alt="" src={book.thumbnailUrl} /> : <span>{book.title.trim()[0]?.toUpperCase() ?? "?"}</span>}
+    </span>
   );
 }
 

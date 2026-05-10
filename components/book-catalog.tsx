@@ -25,12 +25,16 @@ export function BookCatalog({
   books,
   title = "Books",
   deck,
+  secondaryDeck,
   limit,
+  compactHeader = false,
 }: {
   books: Book[];
-  title?: string;
-  deck?: string;
+  title?: string | null;
+  deck?: React.ReactNode;
+  secondaryDeck?: React.ReactNode;
   limit?: number;
+  compactHeader?: boolean;
 }) {
   const [query, setQuery] = useState("");
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
@@ -195,14 +199,19 @@ export function BookCatalog({
   ].filter(Boolean) as Array<{ id: string; label: string; onRemove: () => void }>;
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <div className="mb-6 grid gap-5 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+    <section className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${compactHeader ? "pb-10" : "py-10"}`}>
+      <div className={`mb-6 grid gap-5 lg:items-end ${compactHeader ? "lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.9fr)]" : "lg:grid-cols-[0.75fr_1.25fr]"}`}>
         <div>
-          <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Catalog</p>
-          <h1 className="mt-2 text-4xl leading-tight">{title}</h1>
-          {deck ? <p className="mt-3 max-w-md text-lg leading-7 muted">{deck}</p> : null}
+          {title === null ? null : (
+            <>
+              <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Catalog</p>
+              <h1 className="mt-2 text-4xl leading-tight">{title}</h1>
+            </>
+          )}
+          {deck ? <p className={`${title === null ? "" : "mt-3"} max-w-2xl text-lg leading-7 muted`}>{deck}</p> : null}
+          {secondaryDeck ? <p className="mt-3 max-w-2xl text-sm leading-6 muted">{secondaryDeck}</p> : null}
         </div>
-        <div className="grid gap-3">
+        <div className={`grid gap-3 ${compactHeader ? "lg:justify-self-end lg:w-full lg:max-w-3xl" : ""}`}>
           <div className="subjects-search focus-within:border-[var(--ink)]">
             <Search size={18} className="muted" />
             <input
@@ -460,6 +469,14 @@ export function BookCatalog({
                   }`}
                   style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
                   onClick={() => openBook(book)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      openBook(book);
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
                 >
                   <td className={`plain-number px-3 ${rowPadding} text-xs`}>{displayYear ?? "—"}</td>
                   <td className={`px-3 ${rowPadding}`}>
@@ -480,7 +497,7 @@ export function BookCatalog({
                   <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.wins}</td>
                   <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.lists}</td>
                   <td className={`px-3 ${rowPadding}`}>
-                    <span className="line-clamp-2">{imprint || "Unknown"}</span>
+                    <span className={`line-clamp-2 ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</span>
                   </td>
                   <td className={`px-3 ${rowPadding}`}>
                     <div className="grid max-w-full gap-2">

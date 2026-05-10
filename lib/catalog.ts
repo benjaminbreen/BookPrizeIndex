@@ -108,23 +108,43 @@ export function booksForImprint(imprintId: string) {
 export function imprintsForPublisher(publisherId: string) {
   return data.imprints
     .filter((imprint) => imprint.publisherId === publisherId)
-    .sort((a, b) => imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name));
+    .sort((a, b) => imprintStats(b.id).majorScore - imprintStats(a.id).majorScore || imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name));
 }
 
 export function booksForPublisher(publisherId: string) {
   return data.books.filter((book) => book.publisherId === publisherId);
 }
 
+function isGlobalMajorAward(awardId: string) {
+  const award = awardsById.get(awardId);
+  return award?.awardType === "major_award" && award.programId !== "prose-awards" && !award.id.startsWith("award-prose-award-");
+}
+
+function majorBookScore(bookId: string) {
+  return data.appearances
+    .filter((appearance) => appearance.bookId === bookId && isGlobalMajorAward(appearance.awardId))
+    .reduce((sum, appearance) => {
+      if (appearance.status === "winner" || appearance.status === "co_winner") return sum + 6;
+      if (appearance.status === "finalist" || appearance.status === "shortlist") return sum + 3;
+      if (appearance.status === "longlist") return sum + 1;
+      return sum + 1;
+    }, 0);
+}
+
 export function publisherStats(publisherId: string) {
   const books = booksForPublisher(publisherId);
   const bookIds = new Set(books.map((book) => book.id));
   const appearances = data.appearances.filter((appearance) => bookIds.has(appearance.bookId));
+  const majorAppearances = appearances.filter((appearance) => isGlobalMajorAward(appearance.awardId));
   return {
     books: books.length,
     imprints: imprintsForPublisher(publisherId).length,
     appearances: appearances.length,
+    majorAppearances: majorAppearances.length,
     score: books.reduce((sum, book) => sum + getBookStats(book.id).score, 0),
+    majorScore: books.reduce((sum, book) => sum + majorBookScore(book.id), 0),
     wins: books.reduce((sum, book) => sum + getBookStats(book.id).wins, 0),
+    majorWins: majorAppearances.filter((appearance) => appearance.status === "winner" || appearance.status === "co_winner").length,
   };
 }
 
@@ -132,11 +152,15 @@ export function imprintStats(imprintId: string) {
   const books = booksForImprint(imprintId);
   const bookIds = new Set(books.map((book) => book.id));
   const appearances = data.appearances.filter((appearance) => bookIds.has(appearance.bookId));
+  const majorAppearances = appearances.filter((appearance) => isGlobalMajorAward(appearance.awardId));
   return {
     books: books.length,
     appearances: appearances.length,
+    majorAppearances: majorAppearances.length,
     score: books.reduce((sum, book) => sum + getBookStats(book.id).score, 0),
+    majorScore: books.reduce((sum, book) => sum + majorBookScore(book.id), 0),
     wins: books.reduce((sum, book) => sum + getBookStats(book.id).wins, 0),
+    majorWins: majorAppearances.filter((appearance) => appearance.status === "winner" || appearance.status === "co_winner").length,
   };
 }
 

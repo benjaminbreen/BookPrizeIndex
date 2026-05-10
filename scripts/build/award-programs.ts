@@ -54,9 +54,11 @@ export function applyAwardProgramMetadata(awards: Map<string, Award>, prizeRegis
   );
 
   for (const award of awards.values()) {
-    if (award.programId && award.categoryName) continue;
     const normalized = normalizeAwardNameForProgramMatch(award.name);
-    const match = matchers.find((candidate) => candidate.name === normalized);
+    const match =
+      award.programId && award.categoryName
+        ? matchers.find((candidate) => candidate.prize.id === award.programId && normalizeAwardCategoryName(candidate.category.name) === normalizeAwardCategoryName(award.categoryName ?? ""))
+        : matchers.find((candidate) => candidate.name === normalized);
     if (!match) continue;
 
     award.programId = award.programId ?? match.prize.id;
@@ -133,7 +135,6 @@ export function mergeDuplicateAwardCategories(
 
 function awardNameCandidates(prizeName: string, categoryName: string) {
   const candidates = [
-    prizeName,
     `${prizeName}: ${categoryName}`,
     `${prizeName} for ${categoryName}`,
     `${prizeName} in ${categoryName}`,

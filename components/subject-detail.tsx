@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronDown, MoreHorizontal, Search } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import type React from "react";
 import { BookDrawer } from "@/components/book-drawer";
@@ -123,8 +123,8 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
                     <td className="px-4 py-3">{book.authors.map((author) => author.name).join(", ")}</td>
                     <td className="plain-number px-4 py-3 text-xs">{stats.wins}</td>
                     <td className="plain-number px-4 py-3 text-xs">{stats.lists}</td>
-                    <td className="px-4 py-3">{imprint || publisher || "Not yet sourced"}</td>
-                    <td className="px-4 py-3"><MoreHorizontal size={16} /></td>
+                    <td className={`px-4 py-3 ${imprint || publisher ? "" : "book-missing-value"}`}>{imprint || publisher || "Not yet sourced"}</td>
+                    <td className="px-4 py-3" aria-hidden="true" />
                   </tr>
                 );
               })}

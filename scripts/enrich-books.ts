@@ -26,6 +26,18 @@ type ReportRow = {
   notes?: string;
 };
 
+type AttemptRow = {
+  bookId: string;
+  slug: string;
+  title: string;
+  author: string;
+  status: ReportRow["status"];
+  attemptedAt: string;
+  missingFields?: CatalogMissingBookField[];
+  matches?: MatchReport[];
+  notes?: string;
+};
+
 type CatalogMissingBookField = "isbn13" | "publicationYear" | "publisherId" | "imprintId" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink";
 type DeferredMissingBookField = "wikipedia";
 
@@ -87,6 +99,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const outputDir = path.join(root, "sources", "enrichment");
 const publicDataDir = path.join(root, "data", "public");
+const attemptsPath = path.join(publicDataDir, "book-enrichment-attempts.json");
 const limit = Number(process.env.BOOK_COMPLETION_LIMIT ?? process.env.ENRICH_LIMIT ?? readArg("--limit") ?? "25");
 const minimumScore = Number(process.env.BOOK_COMPLETION_MIN_SCORE ?? process.env.ENRICH_MIN_SCORE ?? readArg("--min-score") ?? "0.58");
 const provider = process.env.BOOK_COMPLETION_PROVIDER ?? process.env.ENRICH_PROVIDER ?? "all";
@@ -96,8 +109,11 @@ const useGoogleBooks = provider !== "open_library" && provider !== "openlibrary"
 async function main() {
   const generatedAt = new Date().toISOString();
   const requestedBookIds = new Set((process.env.BOOK_COMPLETION_BOOK_IDS ?? process.env.ENRICH_BOOK_IDS ?? "").split(",").map((item) => item.trim()).filter(Boolean));
+  const retryFailures = hasArg("--retry-failures") || process.env.BOOK_COMPLETION_RETRY_FAILURES === "1" || process.env.ENRICH_RETRY_FAILURES === "1";
+  const attempts = await readAttempts();
   const selected = (requestedBookIds.size ? data.books.filter((book) => requestedBookIds.has(book.id) || requestedBookIds.has(book.slug)) : [...data.books])
     .filter((book) => catalogMissingFieldsForBook(book).length > 0)
+    .filter((book) => requestedBookIds.size || retryFailures || !isRecentUnproductiveAttempt(attempts[book.id], book))
     .sort(
       (a, b) =>
         catalogMissingFieldsForBook(b).length - catalogMissingFieldsForBook(a).length ||
@@ -200,8 +216,43 @@ async function main() {
   await fs.writeFile(path.join(publicDataDir, "book-completion-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataDir, "book-enrichment-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataDir, "enrichment-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
+  await writeAttempts({ ...attempts, ...Object.fromEntries(report.map((row) => [row.bookId, toAttemptRow(row, generatedAt)])) });
   const enrichedCount = report.filter((row) => row.status === "enriched").length;
   console.log(`Completed ${enrichedCount}/${selected.length} books. Report written to data/public/book-completion-report.json.`);
+}
+
+async function readAttempts(): Promise<Record<string, AttemptRow>> {
+  try {
+    const parsed = JSON.parse(await fs.readFile(attemptsPath, "utf8")) as { attempts?: Record<string, AttemptRow> };
+    return parsed.attempts ?? {};
+  } catch {
+    return {};
+  }
+}
+
+async function writeAttempts(attempts: Record<string, AttemptRow>) {
+  await fs.writeFile(attemptsPath, `${JSON.stringify({ generatedAt: new Date().toISOString(), attempts }, null, 2)}\n`);
+}
+
+function toAttemptRow(row: ReportRow, attemptedAt: string): AttemptRow {
+  return {
+    bookId: row.bookId,
+    slug: row.slug,
+    title: row.title,
+    author: row.author,
+    status: row.status,
+    attemptedAt,
+    missingFields: row.missingFields,
+    matches: row.matches,
+    notes: row.notes,
+  };
+}
+
+function isRecentUnproductiveAttempt(attempt: AttemptRow | undefined, book: Book) {
+  if (!attempt) return false;
+  if (!["low_confidence", "not_found", "no_new_fields", "error"].includes(attempt.status)) return false;
+  const sameMissingFields = JSON.stringify(attempt.missingFields ?? []) === JSON.stringify(catalogMissingFieldsForBook(book));
+  return sameMissingFields;
 }
 
 async function readExistingPatch(generatedAt: string): Promise<EnrichmentPatch> {
