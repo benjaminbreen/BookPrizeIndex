@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2026-05-09T23:04:42.203Z",
+  "generatedAt": "2026-05-11T05:15:55.882Z",
   "metadata": {
     "importer": "scripts/import-award-records/carnegie.ts",
-    "source": "MediaWiki wikitable for Andrew Carnegie Medals nonfiction winners and finalists",
-    "notes": "The official ALA/RUSA Carnegie Medals pages are retained in sources/prizes.json, but this first importer uses Wikipedia as a deterministic secondary source.",
+    "source": "MediaWiki wikitable for Andrew Carnegie Medals nonfiction winners/finalists plus official ALA annual pages for longlists",
+    "notes": "Winners and finalists are parsed from the deterministic Wikipedia table; nonfiction longlists are parsed from official ALA Carnegie annual pages where available.",
     "categories": [
       {
         "categoryId": "carnegie-nonfiction",
         "categoryName": "Nonfiction",
         "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
-        "records": 44,
+        "records": 327,
         "winners": 14,
         "finalists": 30,
+        "longlisted": 283,
         "yearRange": "2012-2026"
       }
     ]
@@ -70,6 +71,342 @@
       "awardName": "Andrew Carnegie Medals for Excellence",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "A Marriage at Sea: A True Story of Love, Obsession, and Shipwreck",
+      "authors": [
+        "Sophie Elmhirst"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Access: Inside the Abortion Underground and the Sixty-Year Battle for Reproductive Freedom",
+      "authors": [
+        "Rebecca Grant"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "America, América: A New History of the New World",
+      "authors": [
+        "Greg Grandin"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Baldwin: A Love Story",
+      "authors": [
+        "Nicholas Boggs"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Claire McCardell: The Designer Who Set Women Free",
+      "authors": [
+        "Elizabeth Evitts Dickinson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Cults Like Us: Why Doomsday Thinking Drives America",
+      "authors": [
+        "Jane Borden"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Exophony: Voyages Outside the Mother Tongue",
+      "authors": [
+        "Yoko Tawada, translated by Lisa Hoffman-Kuroda"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Ghosts of Hiroshima",
+      "authors": [
+        "Charles Pellegrino"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Is a River Alive?",
+      "authors": [
+        "Robert Macfarlane"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Medicine River: A Story of Survival and the Legacy of Indian Boarding Schools",
+      "authors": [
+        "Mary Annette Pember"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Misbehaving at the Crossroads: Essays and Writings",
+      "authors": [
+        "Honorée Fannone Jeffers"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Murderland: Crime and Bloodlust in the Time of Serial Killers",
+      "authors": [
+        "Caroline Fraser"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "One Day, Everyone Will Have Always Been against This",
+      "authors": [
+        "Omar El Akkad"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Original Sins: The (Mis)education of Black and Native Children and the Construction of American Racism",
+      "authors": [
+        "Eve L. Ewing"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Spell Freedom: The Underground Schools That Built the Civil Rights Movement",
+      "authors": [
+        "Elaine Weiss"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "The Insider: Malcolm Cowley and the Triumph of American Literature",
+      "authors": [
+        "Gerald Howard"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "The Martians: The True Story of an Alien Craze that Captured Turn-of-the-Century America",
+      "authors": [
+        "David Baron"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Toni at Random: The Iconic Writer’s Legendary Editorship",
+      "authors": [
+        "Dana A. Williams"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "We Tell Ourselves Stories: Joan Didion and the American Dream Machine",
+      "authors": [
+        "Alissa Wilkinson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "We the People: A History of the U.S. Constitution",
+      "authors": [
+        "Jill Lepore"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Without Fear: Black Women and the Making of Human Rights",
+      "authors": [
+        "Keisha N. Blain"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2026-winners",
+      "sourceLabel": "ALA Carnegie Medals 2026 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2025,
       "status": "winner",
       "title": "A Walk in the Park: The True Story of a Spectacular Misadventure in the Grand Canyon",
@@ -111,6 +448,328 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
       "sourceLabel": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
       "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "By the Fire We Carry: The Generations-Long Fight for Justice on Native Land",
+      "authors": [
+        "Rebecca Nagle"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Cold Crematorium: Reporting from the Land of Auschwitz",
+      "authors": [
+        "József. Translated by Paul Olchváry Debreczeni"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Everyone Who Is Gone Is Here: The United States, Central America, and the Making of a Crisis",
+      "authors": [
+        "Jonathan Blitzer"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Feeding Ghosts: A Graphic Memoir",
+      "authors": [
+        "Tessa. Illustrated by the author Hulls"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Hip-Hop Is History",
+      "authors": [
+        "Questlove",
+        "Ben Greenman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Ingrained: The Making of a Craftsman",
+      "authors": [
+        "Callum Robinson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Language City: The Fight to Preserve Endangered Mother Tongues in New York",
+      "authors": [
+        "Ross Perlin"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Night Flyer: Harrier Tubman and the Faith Dreams of a Free People",
+      "authors": [
+        "Tiya Miles"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Out of the Sierra: A Story of Rarámuri Resistance",
+      "authors": [
+        "Victoria Blanco"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Personal Score: Sport, Culture, Identity",
+      "authors": [
+        "Ellen van Neerven"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Private Revolutions: Four Women Face China’s New Social Order",
+      "authors": [
+        "Yuan Yang"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Sing Like Fish: How Sound Rules Life Under Water",
+      "authors": [
+        "Amorina Kingdon"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Survival Is a Promise: The Eternal Life of Audre Lorde",
+      "authors": [
+        "Alexis Pauline Gumbs"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "The Catalyst: RNA and the Quest to Unlock Life’s Deepest Secrets",
+      "authors": [
+        "Thomas R. Cech"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "The Infernal Machine: A True Story of Dynamite, Terror, and the Rise of the Modern Detective",
+      "authors": [
+        "Steven Johnson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "There’s Always This Year: On Basketball and Ascension",
+      "authors": [
+        "Hanif Abdurraqib"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "This Part Is Silent: A Life between Cultures",
+      "authors": [
+        "SJ Kim"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Thunder Song",
+      "authors": [
+        "Sasha taqʷ&scaron LaPointe",
+        "əblu"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "When Women Ran Fifth Avenue: Glamour and Power at the Dawn of American Fashion",
+      "authors": [
+        "Julie Satow"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Whiskey Tender",
+      "authors": [
+        "Deborah Jackson Taffa"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
+      "sourceLabel": "ALA Carnegie Medals 2025 annual page",
+      "sourceConfidence": "official",
       "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
     },
     {
@@ -166,6 +825,343 @@
       "awardName": "Andrew Carnegie Medals for Excellence",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "A Darker Wilderness: Black Nature Writing from Soil to Stars",
+      "authors": [
+        "Erin Sharkey"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "A Fever in the Heartland: The Ku Klux Klan’s Plot to Take over America, and the Woman Who Stopped Them",
+      "authors": [
+        "Timothy Egan"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "A Man of Two Faces: A Memoir, A History, A Memorial",
+      "authors": [
+        "Viet Thanh Nguyen"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Airplane Mode: An Irrelevant History of Travel",
+      "authors": [
+        "Shahnaz Habib"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "American Whitelash: A Changing Nation and the Cost of Progress",
+      "authors": [
+        "Wesley Lowery"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "An Amerikan Family: The Shakurs and the Nation They Created",
+      "authors": [
+        "Santi Elijah Holley"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Better Living Through Birding: Notes from a Black Man in the Natural World",
+      "authors": [
+        "Christian Cooper"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Brave the Wild River: The Untold Story of Two Women Who Mapped the Botany of the Grand Canyon",
+      "authors": [
+        "Melissa L. Sevigny"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "He/She/They: How We Talk about Gender and Why It Matters",
+      "authors": [
+        "Schuyler Bailar"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Master Slave Husband Wife: An Epic Journey from Slavery to Freedom",
+      "authors": [
+        "Ilyon Woo"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Okinawa",
+      "authors": [
+        "Susumu. Translated by Jocelyne Allen Higa"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Our Migrant Souls: A Meditation on Race and the Meanings and Myths of “Latino.”",
+      "authors": [
+        "Héctor Tobar"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Poverty, By America",
+      "authors": [
+        "Matthew Desmond"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Project 562: Changing the Way We See Native America",
+      "authors": [
+        "Matika Wilbur"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The 272: The Families Who Were Enslaved and Sold to Build the American Catholic Church",
+      "authors": [
+        "Rachel L. Swarns"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The Burning of the World: The Great Chicago Fire and the War for a City’s Soul",
+      "authors": [
+        "Scott W. Berg"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The Country of the Blind: A Memoir at the End of Sight",
+      "authors": [
+        "Andrew Leland"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The New Guys: The Historic Class of Astronauts That Broke Barriers and Changed the Face of Space Travel",
+      "authors": [
+        "Meredith Bagby"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The People’s Hospital: Hope and Peril in American Medicine",
+      "authors": [
+        "Ricardo Nuila"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The Riders Come Out at Night: Brutality, Corruption, and Cover Up in Oakland",
+      "authors": [
+        "Ali Winston",
+        "Darwin BondGraham"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Wonder Drug: The Secret History of Thalidomide in America and Its Hidden Victims",
+      "authors": [
+        "Jennifer Vanderbes"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2024-winners",
+      "sourceLabel": "ALA Carnegie Medals 2024 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2023,
       "status": "winner",
       "title": "An Immense World: How Animal Senses Reveal the Hidden Realms Around Us",
@@ -207,6 +1203,299 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
       "sourceLabel": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
       "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Also a Poet: Frank O'Hara, My Father, and Me",
+      "authors": [
+        "Ada Calhoun"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "By Hands Now Known: Jim Crow's Legal Executioners",
+      "authors": [
+        "Margaret A. Burnham"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Ducks: Two Years on the Oil Sands",
+      "authors": [
+        "Kate Beaton"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Every Good Boy Does Fine: A Love Story, in Music Lessons",
+      "authors": [
+        "Jeremy Denk"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Indigenous Continent: The Epic Contest for North America",
+      "authors": [
+        "H&auml",
+        "m&auml",
+        "l&auml",
+        "Pekka inen"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Lost & Found",
+      "authors": [
+        "Kathryn Schulz"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Paradise Falls: The True Story of an Environmental Catastrophe",
+      "authors": [
+        "Keith O'Brien"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Sandy Hook: An American Tragedy and the Battle for Truth",
+      "authors": [
+        "Elizabeth Williamson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Solito",
+      "authors": [
+        "Javier Zamora"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Stay True",
+      "authors": [
+        "Hua Hsu"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "The Impossible City: A Hong Kong Memoir",
+      "authors": [
+        "Karen Cheung"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "The Invisible Kingdom: Reimagining Chronic Illness",
+      "authors": [
+        "Meghan O'Rourke"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "The Man Who Could Move Clouds",
+      "authors": [
+        "Ingrid Rojas Contreras"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "The Third Person",
+      "authors": [
+        "Emma Grove"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "The Treeline: The Last Forest and the Future of Life on Earth",
+      "authors": [
+        "Ben Rawlence"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
+      "authors": [
+        "Steven Thrasher"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "This Is What It Sounds Like: What the Music You Love Says About You",
+      "authors": [
+        "Susan Rogers",
+        "Ogi Ogas"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2023,
+      "status": "longlist",
+      "title": "Vortex: A True Story of History's Deadliest Storm, an Unspeakable War, and Liberation",
+      "authors": [
+        "Scott Carney",
+        "Jason Miklian"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2023-winners",
+      "sourceLabel": "ALA Carnegie Medals 2023 annual page",
+      "sourceConfidence": "official",
       "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
     },
     {
@@ -262,6 +1551,311 @@
       "awardName": "Andrew Carnegie Medals for Excellence",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "A Most Remarkable Creature: The Hidden Life and Epic Journey of the World's Smartest Birds of Prey",
+      "authors": [
+        "Jonathan Meiburg"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Chasing Me to My Grave: Memoir of the Jim Crow South",
+      "authors": [
+        "Winfred Rembert"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Empire of Pain: The Secret History of the Sackler Dynasty",
+      "authors": [
+        "Patrick Radden Keefer"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Facing the Mountain: A True Story of Japanese American Heroes in World War II",
+      "authors": [
+        "Daniel James Brown"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Fuzz: When Nature Breaks the Law",
+      "authors": [
+        "Mary Roach"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Mother of Invention: How Good Ideas Get Ignored in an Economy Built for Men",
+      "authors": [
+        "Mar&ccedil",
+        "Katrine al"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "My Broken Language",
+      "authors": [
+        "Quiara Alegría Hudes"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Poet Warrior",
+      "authors": [
+        "Joy Harjo"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Smile: The Story of a Face",
+      "authors": [
+        "Sarah Ruhl"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "The Anthropocene Reviewed: Essays on a Human-Centered Planet",
+      "authors": [
+        "John Green"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "The Case of the Murderous Dr. Cream: The Hunt for a Victorian Era Serial Killer",
+      "authors": [
+        "Dean Jobb"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "The Glitter in the Green: In Search of Hummingbirds",
+      "authors": [
+        "Jon Dunn"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "The Ground Breaking: An American City and Its Search for Justice",
+      "authors": [
+        "Scott Ellsworth"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "The Least of Us: True Tales of America and Hope in the Age of Fentanyl and Meth",
+      "authors": [
+        "Sam Quinones"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "The Secret History of Home Economics: How Trailblazing Women Harnessed the Power of Home and Changed the Way We Live",
+      "authors": [
+        "Danielle Dreilinger"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "The Sum of Us: What Racism Costs Everyone and How We Can Prosper Together",
+      "authors": [
+        "Heather McGhee"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Tom Stoppard: A Life",
+      "authors": [
+        "Hermione Lee"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Under a White Sky: The Nature of the Future",
+      "authors": [
+        "Elizabeth Kolbert"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2022,
+      "status": "longlist",
+      "title": "Why Peacocks? An Unlikely Search for Meaning in the World's Most Magnificent Bird",
+      "authors": [
+        "Sean Flynn"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2022-winners",
+      "sourceLabel": "ALA Carnegie Medals 2022 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2021,
       "status": "winner",
       "title": "Fathoms: The World in the Whale",
@@ -303,6 +1897,279 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
       "sourceLabel": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
       "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "Caste: The Origins of Our Discontents",
+      "authors": [
+        "Isabel Wilkerson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "Conditional Citizens: On Belonging in America",
+      "authors": [
+        "Laila Lalami"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "Eat the Buddha: Life and Death in a Tibetan Town",
+      "authors": [
+        "Barbara Demick"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "God's Shadow: Sultan Selim, His Ottoman Empire, and the Making of the Modern World",
+      "authors": [
+        "Alan Mikhail"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "Hidden Valley Road: Inside the Mind of an American Family",
+      "authors": [
+        "Robert Kolker"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "Humankind: A Hopeful History",
+      "authors": [
+        "Rutger Bregman, translated by Elizabeth Manton and Erica Moore"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "Minor Feelings: An Asian American Reckoning",
+      "authors": [
+        "Cathy Park Hong"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "My Autobiography of Carson McCullers",
+      "authors": [
+        "Jenn Shapland"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "One Mighty and Irresistible Tide: The Epic Struggle over American Immigration, 1924-1965",
+      "authors": [
+        "Jia Lynn Yang"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "Paper Bullets: Two Artists Who Risked Their Lives to Defy the Nazis",
+      "authors": [
+        "Jeffrey H. Jackson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "Recollections of My Nonexistence",
+      "authors": [
+        "Rebecca Solnit"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "The Beauty in Breaking",
+      "authors": [
+        "Michele Harper"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "The Book of Eels: Our Enduring Fascination with the Most Mysterious Creatures in the Natural World",
+      "authors": [
+        "Patrik Svensson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "The Dead Are Arising: The Life of Malcolm X",
+      "authors": [
+        "Les Payne",
+        "Tamara Payne"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "The Dragons, the Giant, the Women",
+      "authors": [
+        "Wayétu Moore"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "The King of Confidence: A Tale of Utopian Dreamers, Frontier Schemers, True Believers, False Prophets, and the Murder of an American Monarch",
+      "authors": [
+        "Miles Harvey"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2021,
+      "status": "longlist",
+      "title": "The Undocumented Americans",
+      "authors": [
+        "Karla Cornejo Villavicencio"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2021-winners",
+      "sourceLabel": "ALA Carnegie Medals 2021 annual page",
+      "sourceConfidence": "official",
       "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
     },
     {
@@ -358,6 +2225,358 @@
       "awardName": "Andrew Carnegie Medals for Excellence",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "American Moonshot: John F. Kennedy and the Great Space Race",
+      "authors": [
+        "Douglas Brinkley"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "An American Summer: Love and Death in Chicago",
+      "authors": [
+        "Alex Kotlowitz"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Becoming Dr. Seuss: Theodor Geisel and the Making of an American Imagination",
+      "authors": [
+        "Brian Jay Jones"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Elderhood: Redefining Aging, Transforming Medicine, Reimagining Life",
+      "authors": [
+        "Louise Aronson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Furious Hours: Murder, Fraud, and the Last Trial of Harper Lee",
+      "authors": [
+        "Casey Cep"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "In the Country of Women",
+      "authors": [
+        "Susan Straight"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "In the Dream House: A Memoir",
+      "authors": [
+        "Carmen Maria Machado"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Invisible Women: Data Bias in a World Designed for Men",
+      "authors": [
+        "Caroline Criado Perez"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Janis: Her Life and Music",
+      "authors": [
+        "Holly George-Warren"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Losing Earth: A Recent History",
+      "authors": [
+        "Nathaniel Rich"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Mama's Last Hug: Animal and Human Emotions",
+      "authors": [
+        "Frans de Waal"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Parkland",
+      "authors": [
+        "Dave Cullen"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Places and Names: On War, Revolution, and Returning",
+      "authors": [
+        "Elliot Ackerman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Say Nothing: A True Story of Murder and Memory in Northern Ireland",
+      "authors": [
+        "Patrick Radden Keefe"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Silver, Sword & Stone: Three Crucibles of the Latin American Story",
+      "authors": [
+        "Marie Arana"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "The Ice at the End of the World: Greenland's Secret Past and Earth's Perilous Future",
+      "authors": [
+        "Jon Gertner"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "The Outlaw Ocean: Journeys across the Last Untamed Frontier",
+      "authors": [
+        "Ian Urbina"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "The Source of Self-Regard: Selected Essays, Speeches, and Meditations",
+      "authors": [
+        "Toni Morrison"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "The Uninhabitable Earth: Life after Warming",
+      "authors": [
+        "David Wallace-Wells"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "The Yellow House",
+      "authors": [
+        "Sarah M. Broom"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "Underland: A Deep Time Journey",
+      "authors": [
+        "Robert Macfarlane"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2020,
+      "status": "longlist",
+      "title": "What You Have Heard Is True: A Memoir of Witness and Resistance",
+      "authors": [
+        "Carolyn Forché"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2020-winners",
+      "sourceLabel": "ALA Carnegie Medals 2020 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2019,
       "status": "winner",
       "title": "Heavy: An American Memoir",
@@ -406,6 +2625,312 @@
       "awardName": "Andrew Carnegie Medals for Excellence",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "Boom Town: The Fantastical Saga of Oklahoma City, Its Chaotic Founding, Its Apocalyptic Weather, Its Purloined Basketball Team, and the Dream of Becoming a World-Class Metropolis",
+      "authors": [
+        "Sam Anderson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "Burning Down the Haus: Punk Rock, Revolution, and the Fall of the Berlin Wall",
+      "authors": [
+        "Tim Mohr"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "Educated",
+      "authors": [
+        "Tara Westover"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "Fascism: A Warning",
+      "authors": [
+        "Madeleine Albright"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "High-Risers: Cabrini-Green and the Fate of American Public Housing",
+      "authors": [
+        "Ben Austen"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "How to Write an Autobiographical Novel",
+      "authors": [
+        "Alexander Chee"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "I'll Be Gone in the Dark: One Woman's Obsessive Search for the Golden State Killer",
+      "authors": [
+        "Michelle McNamara"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "In Extremis: The Life and Death of the War Correspondent Marie Colvin",
+      "authors": [
+        "Lindsey Hilsum"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "Looking for Lorraine: The Radiant and Radical Life of Lorraine Hansberry",
+      "authors": [
+        "Imani Perry"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "Palaces for the People: How Social Infrastructure Can Help Fight Inequality, Polarization, and the Decline of Civic Life",
+      "authors": [
+        "Eric Klinenberg"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "Ruth Bader Ginsburg",
+      "authors": [
+        "Jane Sherron De Hart"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "The Cost of Living",
+      "authors": [
+        "Deborah Levy"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "The Feather Thief: Beauty, Obsession, and the Natural History Heist of the Century",
+      "authors": [
+        "Kirk Wallace Johnson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "The Girl Who Smiled Beads: A Story of War and What Comes After",
+      "authors": [
+        "Clemantine Wamariya",
+        "Elizabeth Weil"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "The Library Book",
+      "authors": [
+        "Susan Orlean"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "The Poisoned City: Flint's Water and the American Urban Tragedy",
+      "authors": [
+        "Anna Clark"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "The Sun Does Shine: How I Found Life and Freedom on Death Row",
+      "authors": [
+        "Anthony Ray Hinton",
+        "Lara Love Hardin"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "There Will Be No Miracles Here",
+      "authors": [
+        "Casey Gerald"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2019,
+      "status": "longlist",
+      "title": "Tigerland, 1968-1969: A City Divided, a Nation Torn Apart, and a Magical Season of Healing",
+      "authors": [
+        "Wil Haygood"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2019-winners",
+      "sourceLabel": "ALA Carnegie Medals 2019 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2018,
       "status": "finalist",
       "title": "Killers of the Flower Moon: The Osage Murders and the Birth of the FBI",
@@ -431,6 +2956,310 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
       "sourceLabel": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
       "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Black Edge: Inside Information, Dirty Money, and the Quest to Bring Down the Most Wanted Man on Wall Street",
+      "authors": [
+        "Sheelah Kolhatkar"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Bunk: The Rise of Hoaxes, Humbug, Plagiarists, Phonies, Post-Facts, and Fake News",
+      "authors": [
+        "Kevin Young"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Gorbachev: His Life and Times",
+      "authors": [
+        "William Taubman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Grant",
+      "authors": [
+        "Ron Chernow"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Hué 1968: A Turning Point of the American War in Vietnam",
+      "authors": [
+        "Mark Bowden"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Hunger: A Memoir of (My) Body",
+      "authors": [
+        "Roxane Gay"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Leonardo Da Vinci",
+      "authors": [
+        "Walter Isaacson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Locking Up Our Own: Crime and Punishment in Black America",
+      "authors": [
+        "James Forman Jr."
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Richard Nixon",
+      "authors": [
+        "John A. Farrell"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "The Best Land Under Heaven: The Donner Party in the Age of Manifest Destiny",
+      "authors": [
+        "Michael Wallis"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "The Gulf: The Making of an American Sea",
+      "authors": [
+        "Jack E. Davis"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "The Rise and Fall of Adam and Eve",
+      "authors": [
+        "Stephen Greenblatt"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "The Vaccine Race: Science, Politics, and the Human Costs of Defeating Disease",
+      "authors": [
+        "Meredith Wadman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Theft by Finding: Diaries, 1977-2002",
+      "authors": [
+        "David Sedaris"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "True South: Henry Hampton and Eyes on the Prize, the Landmark Television Series That Reframed the Civil Rights Movement",
+      "authors": [
+        "Jon Else"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "We Crossed a Bridge and It Trembled: Voices from Syria",
+      "authors": [
+        "Wendy Pearlman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "We Were Eight Years in Power: An American Tragedy",
+      "authors": [
+        "Ta-Nehisi Coates"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "Where the Past Begins: A Writer's Memoir",
+      "authors": [
+        "Amy Tan"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2018,
+      "status": "longlist",
+      "title": "You Don't Have to Say You Love Me: A Memoir",
+      "authors": [
+        "Sherman Alexie"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2018-winners",
+      "sourceLabel": "ALA Carnegie Medals 2018 annual page",
+      "sourceConfidence": "official",
       "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
     },
     {
@@ -486,6 +3315,342 @@
       "awardName": "Andrew Carnegie Medals for Excellence",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Another Day in the Death of America: A Chronicle of Ten Short Lives",
+      "authors": [
+        "Gary Younge"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Cast Away: True Stories of Survival from Europe's Refugee Crisis",
+      "authors": [
+        "Charlotte McDonald-Gibson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "City of Thorns: Nine Lives in the World's Largest Refugee Camp",
+      "authors": [
+        "Ben Rawlence"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Exiled in America: Life on the Margins in a Residential Motel",
+      "authors": [
+        "Christopher P. Dum"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Eyes on the Street: The Life of Jane Jacobs",
+      "authors": [
+        "Robert Kanigel"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Grunt: The Curious Science of Humans at War",
+      "authors": [
+        "Mary Roach"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Hidden Figures:The American Dream and the Untold Story of the Black Women Mathematicians Who Helped Win the Space Race",
+      "authors": [
+        "Margot Lee Shetterly"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "How to Survive a Plague: The Inside Story of How Citizens and Science Tamed AIDS",
+      "authors": [
+        "David France"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Kill 'Em and Leave: Searching for James Brown and the American Soul",
+      "authors": [
+        "James McBride"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Lab Girl",
+      "authors": [
+        "Hope Jahren"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Mad Enchantment: Claude Monet and the Painting of the Water Lilies",
+      "authors": [
+        "Ross King"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Of Arms and Artists: The American Revolution through Painters' Eyes",
+      "authors": [
+        "Paul Staiti"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Paper: Paging through History",
+      "authors": [
+        "Mark Kurlansky"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "The Dragon behind the Glass. A True Story of Power, Obsession, and the World's Most Coveted Fish",
+      "authors": [
+        "Emily Voight"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "The Firebrand and the First Lady: Pauli Murray, Eleanor Roosevelt, and the Struggle for Social Justice",
+      "authors": [
+        "Patricia Bell-Scott"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "The Glass Universe: How the Ladies of the Harvard Observatory Took the Measure of the Stars",
+      "authors": [
+        "Dava Sobel"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "The Hour of Land: A Personal Topography of America's National Parks",
+      "authors": [
+        "Terry Tempest Williams"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "The Revenge of Analog: Real Things and Why They Matter",
+      "authors": [
+        "David Sax"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Truevine: Two Brothers, a Kidnapping, and a Mother's Quest-A True Story of the Jim Crow South",
+      "authors": [
+        "Beth Macy"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "White Trash: The 400-Year Untold History of Class in America",
+      "authors": [
+        "Nancy Isenberg"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2017,
+      "status": "longlist",
+      "title": "Writing to Save a Life: The Louis Till File",
+      "authors": [
+        "John Edgar Wideman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2017-winners",
+      "sourceLabel": "ALA Carnegie Medals 2017 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2016,
       "status": "winner",
       "title": "Hold Still: A Memoir with Photographs",
@@ -527,6 +3692,294 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
       "sourceLabel": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
       "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "American Reckoning: The Vietnam War and Our National Identity",
+      "authors": [
+        "Christian G. Appy"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Between the World and Me",
+      "authors": [
+        "Ta-Nehisi Coates"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Beyond Words: What Animals Think and Feel",
+      "authors": [
+        "Carl Safina"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Do No Harm: Stories of Life, Death, and Brain Surgery",
+      "authors": [
+        "Henry Marsh"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Empire of Self: A Life of Gore Vidal",
+      "authors": [
+        "Jay Parini"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Give Us the Ballot: The Modern Struggle for Voting Rights in America",
+      "authors": [
+        "Ari Berman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "How the World Moves: The Odyssey of an American Indian Family",
+      "authors": [
+        "Peter Nabokov"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Invention of Nature: Alexander von Humboldt's New World",
+      "authors": [
+        "Andrea Wulf"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Listening to Stone: The Art and Life of Isamu Noguchi",
+      "authors": [
+        "Hayden Herrera"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "M Train",
+      "authors": [
+        "Patti Smith"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "On the Move",
+      "authors": [
+        "Oliver Sacks"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Pacific: Silicon Chips and Surfboards, Coral Reefs and Atom Bombs, Brutal Dictators, Fading Empires, and the Coming Collision of the World's Superpowers",
+      "authors": [
+        "Simon Winchester"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Showdown: Thurgood Marshall and the Supreme Court Nomination That Changed America",
+      "authors": [
+        "Wil Haygood"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Something Must Be Done about Prince Edward County: A Family, a Virginia Town, a Civil Rights Battle",
+      "authors": [
+        "Kristen Green"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "The Age of Acquiescence: The Life and Death of American Resistance to Organized Wealth and Power",
+      "authors": [
+        "Steve Fraser"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "The Witches: Salem, 1692",
+      "authors": [
+        "Stacy Schiff"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "Thieves of State: Why Corruption Threatens Global Security",
+      "authors": [
+        "Sarah Chayes"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2016,
+      "status": "longlist",
+      "title": "To Explain the World: The Discovery of Modern Science",
+      "authors": [
+        "Steven Weinberg"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2016-winners",
+      "sourceLabel": "ALA Carnegie Medals 2016 annual page",
+      "sourceConfidence": "official",
       "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
     },
     {
@@ -582,6 +4035,262 @@
       "awardName": "Andrew Carnegie Medals for Excellence",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "Blood Royal: A True Tale of Crime and Detection in Medieval Paris",
+      "authors": [
+        "Eric Jager"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "Dark Invasion: 1915; Germany's Secret War and the Hunt for the First Terrorist Cell in America",
+      "authors": [
+        "Howard Blum"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "Factory Man: How One Furniture Maker Battled Offshoring, Stayed Local-and Helped Save an American Town",
+      "authors": [
+        "Beth Macy"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "In the Kingdom of Ice: The Grand and Terrible Polar Voyage of the USS Jeanette",
+      "authors": [
+        "Hampton Sides"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "Jerry Lee Lewis: His Own Story",
+      "authors": [
+        "Rick Bragg"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "John Quincy Adams: American Visionary",
+      "authors": [
+        "Fred Kaplan"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "No Place to Hide: Edward Snowden, the NSA, and the U.S. Surveillance State",
+      "authors": [
+        "Glenn Greenwald"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "Pandora's DNA: Tracing the Breast Cancer Genes through History, Science, and One Family Tree",
+      "authors": [
+        "Lizzie Stark"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "Spare Parts: Four Undocumented Teenagers, One Ugly Robot, and the Battle for the American Dream",
+      "authors": [
+        "Joshua Davis"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "The Birth of the Pill: How Four Crusaders Reinvented Sex and Launched a Revolution",
+      "authors": [
+        "Jonathan Eig"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "The Human Age: The World Shaped by Us",
+      "authors": [
+        "Diane Ackerman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "The Innovators: How a Group of Inventors, Hackers, Geniuses, and Geeks Created the Digital Revolution",
+      "authors": [
+        "Walter Isaacson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "The Most Dangerous Book: The Battle for James Joyce's Ulysses",
+      "authors": [
+        "Kevin Birmingham"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "The Secret History of Wonder Woman",
+      "authors": [
+        "Jill Lepore"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "The Short and Tragic Life of Robert Peace: A Brilliant Young Man Who Left Newark for the Ivy League",
+      "authors": [
+        "Jeff Hobbs"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2015,
+      "status": "longlist",
+      "title": "The Story of the Jews: Finding the Words, 1000 BC-1492 AD",
+      "authors": [
+        "Simon Schama"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2015-winners",
+      "sourceLabel": "ALA Carnegie Medals 2015 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2014,
       "status": "winner",
       "title": "The Bully Pulpit: Theodore Roosevelt, William Howard Taft, and the Golden Age of Journalism",
@@ -623,6 +4332,326 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
       "sourceLabel": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
       "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Animal Wise: The Thoughts and Emotions of our Fel- low Creatures",
+      "authors": [
+        "Virginia Morell"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Bolivar: American Liberator",
+      "authors": [
+        "Marie Arana"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Book of Ages: The Life and Opinions of Jane Franklin",
+      "authors": [
+        "Jill Lepore"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Command and Control: Nuclear Weapons, the Damascus Accident, and the Illusion of Safety",
+      "authors": [
+        "Eric Schlosser"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Darling: A Spiritual Autobiography",
+      "authors": [
+        "Richard Rodriguez"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Going Clear: Scientology, Hollywood, and the Prison of Belief",
+      "authors": [
+        "Lawrence Wright"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Gulp: Adventures on the Alimentary Canal",
+      "authors": [
+        "Mary Roach"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Jack London: An American Life",
+      "authors": [
+        "Earle Labor"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Johnny Cash: The Life",
+      "authors": [
+        "Robert Hilburn"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Lawrence in Arabia: War, Deceit, Imperial Folly, and the Making of the Modern Middle East",
+      "authors": [
+        "Scott Anderson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "On the Map: A Mind-Expanding Exploration of the Way the World Looks",
+      "authors": [
+        "Simon Garfield"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Scott. Wilson",
+      "authors": [
+        "A. Berg"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "The Boys in the Boat: Nine Americans and Their Quest for Gold at the 1936 Berlin Olympics",
+      "authors": [
+        "Daniel James Brown"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "The Faraway Nearby",
+      "authors": [
+        "Rebecca Solnit"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "The Riddle of the Labyrinth: The Quest to Crack an Ancient Code",
+      "authors": [
+        "Margalit Fox"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "The Skies Belong to Us: Love and Terror in the Golden Age of Hijacking",
+      "authors": [
+        "Brendan I. Koerner"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "The Unwinding: An Inner History of the New America",
+      "authors": [
+        "George Packer"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "To the End of June: The Intimate Life of American Foster Care",
+      "authors": [
+        "Cris Beam"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Year Zero: A History of 1945",
+      "authors": [
+        "Ian Buruma"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2014,
+      "status": "longlist",
+      "title": "Zealot: The Life and Times of Jesus of Nazareth",
+      "authors": [
+        "Reza Aslan"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2014-winners",
+      "sourceLabel": "ALA Carnegie Medals 2014 annual page",
+      "sourceConfidence": "official",
       "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
     },
     {
@@ -678,6 +4707,246 @@
       "awardName": "Andrew Carnegie Medals for Excellence",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Barack Obama: The Story. (Simon & Schuster) Meacham, Jon. Thomas Jefferson: The Art of Power",
+      "authors": [
+        "David Maraniss"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Behind the Beautiful Forevers: Life, Death, and Hope in a Mumbai Undercity",
+      "authors": [
+        "Katherine Boo"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Fire in the Ashes: Twenty-Five Years among the Poorest Children in America",
+      "authors": [
+        "Jonathan Kozol"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Full Body Burden: Growing Up in the Nuclear Shadow of Rocky Flats. (Crown)King, Ross. Leonardo and the Last Supper",
+      "authors": [
+        "Kristen Iversen"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "James Joyce: A New Biography",
+      "authors": [
+        "Gordon Bowker"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Ocean of Life: The Fate of Man and the Sea. (Viking) Rushdie, Salman. Joseph Anton: A Memoir",
+      "authors": [
+        "Callum Roberts"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Quiet: The Power of Introverts in a World That Can't Stop Talking",
+      "authors": [
+        "Susan Cain"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Shooting Victoria: Madness, Mayhem, and the Rebirth of the British Monarchy",
+      "authors": [
+        "Paul Thomas Murphy"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Some of My Best Friends Are Black: The Strange Story of Integration in America",
+      "authors": [
+        "Tanner Colby"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "The Oath: The Obama White House and the Supreme Court",
+      "authors": [
+        "Jeffrey Toobin"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "The Passage of Power: The Years of Lyndon Johnson",
+      "authors": [
+        "Robert A. Caro"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "The Patriarch: The Remarkable Life and Turbulent Times of Joseph P. Kennedy",
+      "authors": [
+        "David Nasaw"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "The Social Conquest of Earth. (Norton/Liveright) Winterson, Jeanette. Why Be Happy When You Could Be Normal?",
+      "authors": [
+        "Edward O. Wilson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Turing's Cathedral: The Origins of the Digital Universe",
+      "authors": [
+        "George Dyson"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2013,
+      "status": "longlist",
+      "title": "Why Does the World Exist? An Existential Detective Story. (Norton/Liveright)Ingrassia, Paul. Engines of Change: A History of the American Dream in Fifteen Cars",
+      "authors": [
+        "Jim Holt"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2013-winners",
+      "sourceLabel": "ALA Carnegie Medals 2013 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2012,
       "status": "winner",
       "title": "Catherine the Great: Portrait of a Woman",
@@ -719,6 +4988,278 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
       "sourceLabel": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
       "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Apollo's Angels: A History of Ballet",
+      "authors": [
+        "Jennifer Homans"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Arguably: Essays",
+      "authors": [
+        "Christopher Hitchens"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Class Warfare: Inside the Fight to Fix America's Schools",
+      "authors": [
+        "Steven Brill"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Destiny of the Republic: A Tale of Madness, Medicine, and the Murder of a President",
+      "authors": [
+        "Candice Millard"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Elizabeth and Hazel: Two Women of Little Rock",
+      "authors": [
+        "David Margolick"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Inside Scientology: The Story of America's Most Secretive Religion",
+      "authors": [
+        "Janet Reitman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Rin Tin Tin: The Life and the Legend",
+      "authors": [
+        "Susan Orlean"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "The Big Thirst: The Secret Life and Turbulent Future of Water",
+      "authors": [
+        "Charles Fishman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "The Emperor of All Maladies: A Biography of Cancer",
+      "authors": [
+        "Siddhartha Mukherjee"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "The Greater Journey: American in Paris",
+      "authors": [
+        "David McCullough"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "The Memory Palace",
+      "authors": [
+        "Mira Bartók"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "The Paper Garden: An Artist (Begins Her Work Life) at 72",
+      "authors": [
+        "Molly Peacock"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "The Social Animal: The Hidden Sources of Love, Character, and Achievement",
+      "authors": [
+        "David Brooks"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "The Swerve: How the World Became Modern",
+      "authors": [
+        "Stephen Greenblatt"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Thinking, Fast and Slow",
+      "authors": [
+        "Daniel Kahneman"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Turn Right at Machu Picchu: Rediscovering the Lost City One Step at a Time",
+      "authors": [
+        "Mark Adams"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+    },
+    {
+      "awardId": "andrew-carnegie-medals",
+      "awardName": "Andrew Carnegie Medals for Excellence",
+      "categoryId": "carnegie-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2012,
+      "status": "longlist",
+      "title": "Unbroken: A World War II Story of Survival, Resilience, and Redemption",
+      "authors": [
+        "Laura Hillenbrand"
+      ],
+      "sourceUrl": "https://www.ala.org/carnegie-medals/2012-winners",
+      "sourceLabel": "ALA Carnegie Medals 2012 annual page",
+      "sourceConfidence": "official",
       "notes": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
     }
   ]

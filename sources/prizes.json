@@ -2,6 +2,8 @@
   {
     "id": "pulitzer-prize",
     "name": "Pulitzer Prize",
+    "awardType": "major_award",
+    "scope": "general",
     "organization": "The Pulitzer Prizes / Columbia University",
     "geography": "United States",
     "officialUrl": "https://www.pulitzer.org/prize-winners-by-year",
@@ -56,6 +58,8 @@
   {
     "id": "national-book-awards",
     "name": "National Book Awards",
+    "awardType": "major_award",
+    "scope": "general",
     "organization": "National Book Foundation",
     "geography": "United States",
     "officialUrl": "https://www.nationalbook.org/national-book-awards/",
@@ -77,6 +81,8 @@
   {
     "id": "national-book-critics-circle-awards",
     "name": "National Book Critics Circle Awards",
+    "awardType": "major_award",
+    "scope": "general",
     "organization": "National Book Critics Circle",
     "geography": "United States",
     "officialUrl": "https://www.bookcritics.org/awards/",
@@ -131,6 +137,8 @@
   {
     "id": "andrew-carnegie-medals",
     "name": "Andrew Carnegie Medals for Excellence",
+    "awardType": "major_award",
+    "scope": "general",
     "organization": "American Library Association / Reference and User Services Association",
     "geography": "United States",
     "officialUrl": "https://www.ala.org/rusa/awards/carnegie-medals",
@@ -152,6 +160,8 @@
   {
     "id": "kirkus-prize",
     "name": "Kirkus Prize",
+    "awardType": "major_award",
+    "scope": "general",
     "organization": "Kirkus Reviews",
     "geography": "United States",
     "officialUrl": "https://www.kirkusreviews.com/prize/",
@@ -173,6 +183,8 @@
   {
     "id": "baillie-gifford-prize",
     "name": "Baillie Gifford Prize for Non-Fiction",
+    "awardType": "major_award",
+    "scope": "general",
     "organization": "The Baillie Gifford Prize",
     "geography": "United Kingdom",
     "officialUrl": "https://www.thebailliegiffordprize.co.uk/",
@@ -194,6 +206,8 @@
   {
     "id": "cundill-history-prize",
     "name": "Cundill History Prize",
+    "awardType": "major_award",
+    "scope": "subject",
     "organization": "McGill University",
     "geography": "Canada / International",
     "officialUrl": "https://www.cundillprize.com/",
@@ -215,6 +229,7 @@
   {
     "id": "pen-galbraith-award",
     "name": "PEN/John Kenneth Galbraith Award for Nonfiction",
+    "scope": "general",
     "organization": "PEN America",
     "geography": "United States",
     "officialUrl": "https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/",
@@ -236,6 +251,7 @@
   {
     "id": "los-angeles-times-book-prize",
     "name": "Los Angeles Times Book Prize",
+    "scope": "general",
     "organization": "Los Angeles Times",
     "geography": "United States",
     "officialUrl": "https://www.latimes.com/entertainment-arts/books",
@@ -290,6 +306,8 @@
   {
     "id": "prose-awards",
     "name": "PROSE Awards",
+    "awardType": "award",
+    "scope": "discipline",
     "organization": "Association of American Publishers",
     "geography": "United States / International",
     "officialUrl": "https://proseawards.com/",
@@ -299,6 +317,8 @@
   {
     "id": "wolfson-history-prize",
     "name": "Wolfson History Prize",
+    "awardType": "major_award",
+    "scope": "subject",
     "organization": "Wolfson Foundation",
     "geography": "United Kingdom / International",
     "officialUrl": "https://www.wolfsonhistoryprize.org.uk/",
@@ -320,6 +340,8 @@
   {
     "id": "phi-beta-kappa-book-awards",
     "name": "Phi Beta Kappa Book Awards",
+    "awardType": "award",
+    "scope": "general",
     "organization": "The Phi Beta Kappa Society",
     "geography": "United States publication",
     "officialUrl": "https://www.pbk.org/awards/bookawards",
@@ -363,6 +385,8 @@
   {
     "id": "royal-society-science-book-prize",
     "name": "Royal Society Science Book Prize",
+    "awardType": "major_award",
+    "scope": "subject",
     "organization": "The Royal Society",
     "geography": "United Kingdom / International",
     "officialUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/",
@@ -384,6 +408,7 @@
   {
     "id": "orwell-prize",
     "name": "Orwell Prize",
+    "scope": "subject",
     "organization": "The Orwell Foundation",
     "geography": "United Kingdom / International",
     "officialUrl": "https://www.orwellfoundation.com/the-orwell-prizes/",
@@ -399,6 +424,120 @@
         "importStrategy": "mediawiki-wikitable",
         "activeYears": "2019-present",
         "coverageNotes": "Covers winners and shortlisted books in the nonfiction-specific Orwell Prize for Political Writing table from 2019 onward."
+      }
+    ]
+  },
+  {
+    "id": "bancroft-prize",
+    "name": "Bancroft Prize",
+    "awardType": "major_award",
+    "scope": "subject",
+    "organization": "Columbia University Libraries",
+    "geography": "United States",
+    "officialUrl": "https://library.columbia.edu/about/awards/bancroft.html",
+    "notes": "Importer uses the official Columbia University Libraries previous-awards archive for annual Bancroft Prize recipients.",
+    "categories": [
+      {
+        "id": "bancroft-prize",
+        "name": "Bancroft Prize",
+        "officialUrl": "https://library.columbia.edu/about/awards/bancroft.html",
+        "sourceUrl": "https://library.columbia.edu/about/awards/bancroft/previous_awards.html",
+        "sourceLabel": "Columbia University Libraries Bancroft Prize previous-awards archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1948-present",
+        "coverageNotes": "Covers annual winners listed on Columbia University Libraries' official previous-awards archive. The archive does not list finalists or shortlists."
+      }
+    ]
+  },
+  {
+    "id": "mark-lynton-history-prize",
+    "name": "Mark Lynton History Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Columbia Journalism School / Nieman Foundation for Journalism",
+    "geography": "United States",
+    "officialUrl": "https://journalism.columbia.edu/lukas",
+    "notes": "Initial importer uses the Wikipedia Mark Lynton History Prize table as a deterministic secondary source while retaining official Lukas Prize Project URLs for later verification.",
+    "categories": [
+      {
+        "id": "mark-lynton-history",
+        "name": "Mark Lynton History Prize",
+        "officialUrl": "https://journalism.columbia.edu/lukas",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Mark_Lynton_History_Prize",
+        "sourceLabel": "Wikipedia: Mark Lynton History Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1999-present",
+        "coverageNotes": "Covers winners and finalists listed in the Mark Lynton History Prize table."
+      }
+    ]
+  },
+  {
+    "id": "costa-book-awards",
+    "name": "Costa Book Awards",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Costa / Booksellers Association",
+    "geography": "United Kingdom",
+    "officialUrl": "https://www.costabookawards.com/",
+    "notes": "Formerly the Whitbread Book Awards until 2006. The Biography category covers biography, autobiography, and memoir. Shortlist data is available from 1995 onward; before that only winners are recorded.",
+    "categories": [
+      {
+        "id": "costa-biography",
+        "name": "Biography",
+        "officialUrl": "https://www.costabookawards.com/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Costa_Book_Award_for_Biography",
+        "sourceLabel": "Wikipedia: Costa Book Award for Biography",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1971-present",
+        "coverageNotes": "Winners from 1971 onward; shortlists from 1995 onward. Includes the Whitbread Biography Award era (1971-2005)."
+      }
+    ]
+  },
+  {
+    "id": "j-anthony-lukas-book-prize",
+    "name": "J. Anthony Lukas Book Prize",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Columbia Journalism School / Nieman Foundation for Journalism",
+    "geography": "United States",
+    "officialUrl": "https://journalism.columbia.edu/lukas",
+    "notes": "Initial importer uses the Wikipedia J. Anthony Lukas Book Prize table as a deterministic secondary source while retaining official Lukas Prize Project URLs for later verification.",
+    "categories": [
+      {
+        "id": "j-anthony-lukas-book",
+        "name": "J. Anthony Lukas Book Prize",
+        "officialUrl": "https://journalism.columbia.edu/lukas",
+        "sourceUrl": "https://en.wikipedia.org/wiki/J._Anthony_Lukas_Book_Prize",
+        "sourceLabel": "Wikipedia: J. Anthony Lukas Book Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1999-present",
+        "coverageNotes": "Covers winners, finalists, and shortlisted books listed in the J. Anthony Lukas Book Prize table."
+      }
+    ]
+  },
+  {
+    "id": "pen-eo-wilson-award",
+    "name": "PEN/E.O. Wilson Literary Science Writing Award",
+    "awardType": "award",
+    "scope": "science",
+    "organization": "PEN America",
+    "geography": "United States",
+    "officialUrl": "https://pen.org/pen-eo-wilson-prize-literary-science-writing/",
+    "notes": "Founded by E.O. Wilson, Harrison Ford, and the E.O. Wilson Biodiversity Foundation. Awarded for literary excellence in writing about the physical and biological sciences. Shortlists available from 2016 onward; 2011-2012 used 'Runner-up' instead of 'Shortlist'.",
+    "categories": [
+      {
+        "id": "pen-eo-wilson",
+        "name": "Literary Science Writing",
+        "sourceUrl": "https://en.wikipedia.org/wiki/PEN/E._O._Wilson_Literary_Science_Writing_Award",
+        "sourceLabel": "Wikipedia: PEN/E. O. Wilson Literary Science Writing Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2011-present",
+        "coverageNotes": "Winners from 2011 onward. Runner-up data for 2011-2012; shortlist data from 2016 onward. Years 2013-2015 have winners only."
       }
     ]
   }

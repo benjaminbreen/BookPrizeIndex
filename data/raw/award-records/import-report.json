@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-10T22:53:49.370Z",
+  "generatedAt": "2026-05-11T06:00:00.880Z",
   "files": [
     {
       "file": "baillie-gifford.json",
@@ -7,14 +7,24 @@
       "records": 160
     },
     {
+      "file": "bancroft.json",
+      "generatedAt": "2026-05-11T04:04:22.093Z",
+      "records": 189
+    },
+    {
       "file": "carnegie.json",
-      "generatedAt": "2026-05-09T23:04:42.203Z",
-      "records": 44
+      "generatedAt": "2026-05-11T05:15:55.882Z",
+      "records": 327
     },
     {
       "file": "cundill.json",
       "generatedAt": "2026-05-09T23:21:38.394Z",
       "records": 188
+    },
+    {
+      "file": "j-anthony-lukas.json",
+      "generatedAt": "2026-05-11T04:17:21.680Z",
+      "records": 79
     },
     {
       "file": "kirkus.json",
@@ -25,6 +35,11 @@
       "file": "latimes.json",
       "generatedAt": "2026-05-09T23:29:21.795Z",
       "records": 711
+    },
+    {
+      "file": "mark-lynton.json",
+      "generatedAt": "2026-05-11T04:17:21.524Z",
+      "records": 75
     },
     {
       "file": "national-book-awards.json",
@@ -73,9 +88,9 @@
     }
   ],
   "totals": {
-    "records": 5352,
-    "awards": 14,
-    "categories": 84,
+    "records": 5978,
+    "awards": 17,
+    "categories": 87,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
@@ -171,6 +186,16 @@
       "finalists": 0,
       "earliestYear": 1980,
       "latestYear": 1980
+    },
+    {
+      "awardId": "bancroft-prize",
+      "categoryId": "bancroft-prize",
+      "categoryName": "Bancroft Prize",
+      "records": 189,
+      "winners": 189,
+      "finalists": 0,
+      "earliestYear": 1948,
+      "latestYear": 2026
     },
     {
       "awardId": "los-angeles-times-book-prize",
@@ -593,6 +618,16 @@
       "latestYear": 1983
     },
     {
+      "awardId": "j-anthony-lukas-book-prize",
+      "categoryId": "j-anthony-lukas-book",
+      "categoryName": "J. Anthony Lukas Book Prize",
+      "records": 79,
+      "winners": 28,
+      "finalists": 51,
+      "earliestYear": 1999,
+      "latestYear": 2026
+    },
+    {
       "awardId": "prose-awards",
       "categoryId": "prose-law-and-legal-studies",
       "categoryName": "Law and Legal Studies",
@@ -610,6 +645,16 @@
       "winners": 45,
       "finalists": 0,
       "earliestYear": 1991,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "mark-lynton-history-prize",
+      "categoryId": "mark-lynton-history",
+      "categoryName": "Mark Lynton History Prize",
+      "records": 75,
+      "winners": 29,
+      "finalists": 46,
+      "earliestYear": 1999,
       "latestYear": 2026
     },
     {
@@ -686,7 +731,7 @@
       "awardId": "andrew-carnegie-medals",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
-      "records": 44,
+      "records": 327,
       "winners": 14,
       "finalists": 30,
       "earliestYear": 2012,

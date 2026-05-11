@@ -1,108 +1,61 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Filter, Info, Search } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
-import { BookDrawer } from "@/components/book-drawer";
-import { AWARD_REGION_COOKIE, type AwardRegionFilter, matchesAwardRegion, regionLabel } from "@/lib/award-region";
-import {
-  bookSearchText,
-  booksById,
-  getBookStats,
-  imprintsById,
-  publishersById,
-} from "@/lib/data";
-import type { PublicData } from "@/lib/types";
+import { useMemo, useState } from "react";
+import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import type { BrowseData } from "@/lib/browse-types";
 
 type SortKey = "score" | "year" | "title" | "wins" | "lists" | "imprint";
 type TypeFilter = "fiction" | "nonfiction" | "all";
 
-export function ExplorerHome({ data, defaultRegion }: { data: PublicData; defaultRegion: AwardRegionFilter }) {
+export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaultRegion: AwardRegionFilter }) {
+  const router = useRouter();
   const [query, setQuery] = useState("");
   const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
   const [type, setType] = useState<TypeFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("score");
-  const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   const rankedBooks = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const filtered = data.books.filter((book) => !q || bookSearchText(book).includes(q));
-    return filtered.sort((a, b) => {
-      const aStats = getBookStats(a.id);
-      const bStats = getBookStats(b.id);
+    const filtered = data.books.filter((book) => !q || book.searchText.includes(q));
+    return [...filtered].sort((a, b) => {
       if (sortKey === "score") {
         return (
-          bStats.score - aStats.score ||
-          bStats.majorWins - aStats.majorWins ||
-          bStats.wins - aStats.wins ||
-          bStats.majorShortlists - aStats.majorShortlists ||
-          bStats.normalShortlists - aStats.normalShortlists ||
-          bStats.majorLonglists - aStats.majorLonglists ||
-          bStats.normalLonglists - aStats.normalLonglists ||
+          b.score - a.score ||
+          b.majorWins - a.majorWins ||
+          b.wins - a.wins ||
+          b.majorShortlists - a.majorShortlists ||
+          b.normalShortlists - a.normalShortlists ||
+          b.majorLonglists - a.majorLonglists ||
+          b.normalLonglists - a.normalLonglists ||
           (b.publicationYear ?? 0) - (a.publicationYear ?? 0) ||
           a.title.localeCompare(b.title)
         );
       }
-      if (sortKey === "wins") return bStats.wins - aStats.wins || a.title.localeCompare(b.title);
-      if (sortKey === "lists") return bStats.lists - aStats.lists || a.title.localeCompare(b.title);
+      if (sortKey === "wins") return b.wins - a.wins || a.title.localeCompare(b.title);
+      if (sortKey === "lists") return b.lists - a.lists || a.title.localeCompare(b.title);
       if (sortKey === "year") return (b.publicationYear ?? 0) - (a.publicationYear ?? 0) || a.title.localeCompare(b.title);
-      if (sortKey === "imprint") {
-        const aImprint = a.imprintId ? imprintsById.get(a.imprintId)?.name ?? "" : "";
-        const bImprint = b.imprintId ? imprintsById.get(b.imprintId)?.name ?? "" : "";
-        return aImprint.localeCompare(bImprint) || a.title.localeCompare(b.title);
-      }
+      if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "") || a.title.localeCompare(b.title);
       return a.title.localeCompare(b.title);
     });
   }, [data.books, query, sortKey]);
 
   const topBooks = rankedBooks.slice(0, 12);
-  const selectedBook = selectedBookId ? booksById.get(selectedBookId) ?? null : null;
-  const selectedIndex = selectedBookId ? topBooks.findIndex((book) => book.id === selectedBookId) : -1;
-  const goPrevious = selectedIndex > 0 ? () => openBook(topBooks[selectedIndex - 1].id) : undefined;
-  const goNext = selectedIndex >= 0 && selectedIndex < topBooks.length - 1 ? () => openBook(topBooks[selectedIndex + 1].id) : undefined;
   const browseData = useMemo(() => getBrowseData(data, region, type), [data, region, type]);
   const showingLabel = `${regionLabel(region)} · ${type === "all" ? "All" : titleCase(type)}`;
-
-  useEffect(() => {
-    const slug = searchParams.get("book");
-    if (!slug) {
-      setSelectedBookId(null);
-      return;
-    }
-
-    const book = data.books.find((item) => item.slug === slug);
-    setSelectedBookId(book?.id ?? null);
-  }, [data.books, searchParams]);
-
-  function setBookParam(bookSlug: string | null) {
-    const nextParams = new URLSearchParams(searchParams.toString());
-    if (bookSlug) {
-      nextParams.set("book", bookSlug);
-    } else {
-      nextParams.delete("book");
-    }
-    const queryString = nextParams.toString();
-    router.replace(queryString ? `${pathname}?${queryString}#books` : pathname, { scroll: false });
-  }
-
-  function openBook(bookId: string) {
-    const book = data.books.find((item) => item.id === bookId);
-    setSelectedBookId(bookId);
-    setBookParam(book?.slug ?? null);
-  }
-
-  function closeBook() {
-    setSelectedBookId(null);
-    setBookParam(null);
-  }
 
   function setRegion(nextRegion: AwardRegionFilter) {
     setRegionState(nextRegion);
     document.cookie = `${AWARD_REGION_COOKIE}=${nextRegion}; path=/; max-age=31536000; samesite=lax`;
+  }
+
+  function submitSearch(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const q = query.trim();
+    if (!q) return;
+    router.push(`/books?q=${encodeURIComponent(q)}`);
   }
 
   return (
@@ -120,21 +73,34 @@ export function ExplorerHome({ data, defaultRegion }: { data: PublicData; defaul
           </div>
 
           <div className="panel self-end rounded-lg border hairline p-4 shadow-[0_18px_40px_color-mix(in_srgb,var(--ink)_5%,transparent)] sm:p-5">
-            <div className="group flex min-h-14 items-center gap-3 rounded-md border border-[color-mix(in_srgb,var(--line)_82%,var(--paper))] bg-[color-mix(in_srgb,var(--paper)_88%,white)] px-4 transition hover:border-[color-mix(in_srgb,var(--ink)_24%,var(--line))] hover:bg-[color-mix(in_srgb,var(--paper)_78%,white)] focus-within:border-[var(--focus)] focus-within:bg-[var(--panel)] focus-within:shadow-[0_0_0_3px_color-mix(in_srgb,var(--focus)_16%,transparent)]">
+            <form
+              className="group flex min-h-14 items-center gap-3 rounded-md border border-[color-mix(in_srgb,var(--line)_82%,var(--paper))] bg-[color-mix(in_srgb,var(--paper)_88%,white)] px-4 transition hover:border-[color-mix(in_srgb,var(--ink)_24%,var(--line))] hover:bg-[color-mix(in_srgb,var(--paper)_78%,white)] focus-within:border-[var(--focus)] focus-within:bg-[var(--panel)] focus-within:shadow-[0_0_0_3px_color-mix(in_srgb,var(--focus)_16%,transparent)]"
+              onSubmit={submitSearch}
+            >
               <Search size={22} className="muted transition group-focus-within:text-[var(--ink)]" />
               <input
-                className="w-full bg-transparent text-lg outline-none placeholder:text-[color-mix(in_srgb,var(--muted)_78%,transparent)]"
+                aria-label="Search the book catalog"
+                className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-[color-mix(in_srgb,var(--muted)_78%,transparent)]"
                 placeholder="Search books, awards, authors, subjects..."
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
               />
-            </div>
+              {query.trim() ? (
+                <button
+                  className="focus-ring inline-flex shrink-0 items-center gap-2 rounded-md bg-[var(--ink)] px-4 py-2 text-sm font-medium text-[var(--paper)] transition hover:bg-[var(--accent)]"
+                  type="submit"
+                >
+                  Enter
+                  <ArrowRight size={14} />
+                </button>
+              ) : null}
+            </form>
             <div className="mt-5 border-t hairline pt-5">
               <div className="grid gap-4 lg:grid-cols-[auto_auto_auto_auto_minmax(9rem,1fr)] lg:items-end">
                 <FilterGroup label="Region">
-                  {(["us", "world"] as const).map((item) => (
+                  {(["us", "international", "all"] as const).map((item) => (
                     <FilterButton key={item} active={region === item} onClick={() => setRegion(item)}>
-                      {item === "us" ? "US" : "World"}
+                      {regionLabel(item)}
                     </FilterButton>
                   ))}
                 </FilterGroup>
@@ -173,7 +139,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: PublicData; defaul
             items={browseData.subjects.slice(0, 8).map((subject) => ({
               id: subject.id,
               label: subject.name,
-              meta: `${subject.bookCount} books`,
+              meta: `${subject.count} books`,
               href: `/subjects/${subject.slug}`,
             }))}
           />
@@ -184,7 +150,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: PublicData; defaul
             items={browseData.awards.slice(0, 8).map((award) => ({
               id: award.id,
               label: award.name,
-              meta: `${award.recordCount} records`,
+              meta: `${award.count} records`,
               href: `/awards/${award.slug}`,
             }))}
           />
@@ -201,9 +167,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: PublicData; defaul
             {(["score", "wins", "lists", "year", "title", "imprint"] as SortKey[]).map((key) => (
               <button
                 key={key}
-                className={`focus-ring border hairline px-3 py-2 capitalize transition ${
-                  sortKey === key ? "bg-[var(--ink)] text-[var(--paper)]" : "panel muted hover:text-[var(--ink)]"
-                }`}
+                className={`filter-chip focus-ring px-3 py-2 capitalize ${sortKey === key ? "segment-button-active" : ""}`}
                 onClick={() => setSortKey(key)}
               >
                 {key}
@@ -227,44 +191,26 @@ export function ExplorerHome({ data, defaultRegion }: { data: PublicData; defaul
             </thead>
             <tbody>
               {topBooks.map((book, index) => {
-                const stats = getBookStats(book.id);
-                const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name : "";
-                const publisher = book.publisherId ? publishersById.get(book.publisherId)?.name : "";
                 return (
                   <tr
                     key={book.id}
-                    className={`book-table-row fade-up cursor-pointer border-b hairline transition hover:bg-[var(--accent-soft)] ${
-                      selectedBookId === book.id ? "book-table-row-active" : ""
-                    }`}
+                    className="book-table-row fade-up border-b hairline transition hover:bg-[var(--accent-soft)]"
                     style={{ animationDelay: `${Math.min(index * 18, 140)}ms` }}
-                    onClick={() => openBook(book.id)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault();
-                        openBook(book.id);
-                      }
-                    }}
-                    role="button"
-                    tabIndex={0}
                   >
                     <td className="plain-number px-4 py-4 text-sm muted">{book.publicationYear}</td>
                     <td className="px-4 py-4">
-                      <button
+                      <Link
                         className="focus-ring block w-full text-left font-[var(--font-serif)] text-xl font-light transition hover:text-[var(--accent)]"
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          openBook(book.id);
-                        }}
-                        type="button"
+                        href={`/books/${book.slug}`}
                       >
                         {book.title}
-                      </button>
+                      </Link>
                     </td>
-                    <td className="px-4 py-4 text-sm">{book.authors.map((author) => author.name).join(", ")}</td>
-                    <td className="plain-number px-4 py-4 text-sm">{stats.wins}</td>
-                    <td className="plain-number px-4 py-4 text-sm">{stats.lists}</td>
-                    <td className={`px-4 py-4 text-sm ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</td>
-                    <td className={`px-4 py-4 text-sm ${publisher ? "muted" : "book-missing-value"}`}>{publisher || "Not yet sourced"}</td>
+                    <td className="px-4 py-4 text-sm">{book.author}</td>
+                    <td className="plain-number px-4 py-4 text-sm">{book.wins}</td>
+                    <td className="plain-number px-4 py-4 text-sm">{book.lists}</td>
+                    <td className={`px-4 py-4 text-sm ${book.imprint ? "" : "book-missing-value"}`}>{book.imprint || "Unknown"}</td>
+                    <td className={`px-4 py-4 text-sm ${book.publisher ? "muted" : "book-missing-value"}`}>{book.publisher || "Not yet sourced"}</td>
                   </tr>
                 );
               })}
@@ -275,21 +221,12 @@ export function ExplorerHome({ data, defaultRegion }: { data: PublicData; defaul
 
       <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8" id="publishers">
         <div className="grid gap-4 border-t hairline pt-8 font-[var(--font-mono)] text-xs muted sm:grid-cols-4">
-          <Stat label="Books" value={data.books.length} />
-          <Stat label="Award appearances" value={data.appearances.length} />
-          <Stat label="Prizes" value={data.awards.length} />
-          <Stat label="Imprints" value={data.imprints.length} />
+          <Stat label="Books" value={data.stats.books} />
+          <Stat label="Award appearances" value={data.stats.appearances} />
+          <Stat label="Prizes" value={data.stats.prizes} />
+          <Stat label="Imprints" value={data.stats.imprints} />
         </div>
       </section>
-
-      <BookDrawer
-        book={selectedBook}
-        appearances={selectedBook ? data.appearances.filter((appearance) => appearance.bookId === selectedBook.id) : []}
-        currentLabel={selectedIndex >= 0 ? `${selectedIndex + 1} of ${topBooks.length}` : undefined}
-        onClose={closeBook}
-        onNext={goNext}
-        onPrevious={goPrevious}
-      />
     </main>
   );
 }
@@ -324,11 +261,11 @@ function BrowseList({
         ))}
       </div>
       <Link
-        className="focus-ring mx-auto mt-5 flex min-w-40 items-center justify-center gap-2 rounded-md border hairline px-5 py-3 text-sm transition hover:bg-[var(--panel)] hover:text-[var(--ink)]"
+        className="focus-ring group mx-auto mt-5 flex min-w-40 items-center justify-center gap-2 rounded-md border hairline px-5 py-3 text-sm transition hover:border-[color-mix(in_srgb,var(--ink)_36%,var(--line))] hover:bg-[var(--panel)] hover:text-[var(--ink)] hover:shadow-[0_10px_24px_color-mix(in_srgb,var(--ink)_5%,transparent)]"
         href={seeAllHref}
       >
         See all
-        <ArrowRight size={14} />
+        <ArrowRight size={14} className="transition group-hover:translate-x-1" />
       </Link>
     </div>
   );
@@ -337,8 +274,8 @@ function BrowseList({
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <p className="mb-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.22em] muted">{label}</p>
-      <div className="inline-flex overflow-hidden rounded-md border hairline bg-[color-mix(in_srgb,var(--paper)_68%,var(--panel))] text-sm">
+      <p className="filter-label mb-2">{label}</p>
+      <div className="segmented-control">
         {children}
       </div>
     </div>
@@ -356,9 +293,7 @@ function FilterButton({
 }) {
   return (
     <button
-      className={`focus-ring min-w-20 px-4 py-2.5 transition ${
-        active ? "bg-[var(--ink)] text-[var(--paper)]" : "hover:bg-[var(--panel)]"
-      }`}
+      className={`segment-button focus-ring min-w-20 ${active ? "segment-button-active" : ""}`}
       onClick={onClick}
       type="button"
     >
@@ -367,42 +302,8 @@ function FilterButton({
   );
 }
 
-function getBrowseData(data: PublicData, region: AwardRegionFilter, type: TypeFilter) {
-  const programsById = new Map((data.awardPrograms ?? []).map((program) => [program.id, program]));
-  const awards = data.awards.filter((award) => {
-    const matchesRegion = matchesAwardRegion(award, region, programsById);
-    const matchesType =
-      type === "all" ||
-      award.subjectAreas.some((subject) => {
-        const normalized = subject.toLowerCase();
-        if (type === "fiction") return normalized === "fiction" || normalized.includes(" fiction");
-        return normalized === "nonfiction" || normalized.includes("nonfiction");
-      });
-    return matchesRegion && matchesType;
-  });
-  const awardIds = new Set(awards.map((award) => award.id));
-  const appearances = data.appearances.filter((appearance) => awardIds.has(appearance.awardId));
-  const bookIds = new Set(appearances.map((appearance) => appearance.bookId));
-  const subjectCounts = new Map<string, number>();
-
-  for (const book of data.books) {
-    if (!bookIds.has(book.id)) continue;
-    for (const subject of book.subjects) subjectCounts.set(subject, (subjectCounts.get(subject) ?? 0) + 1);
-  }
-
-  return {
-    subjects: data.subjects
-      .map((subject) => ({ ...subject, bookCount: subjectCounts.get(subject.name) ?? 0 }))
-      .filter((subject) => subject.bookCount > 0)
-      .sort((a, b) => b.bookCount - a.bookCount || a.name.localeCompare(b.name)),
-    awards: awards
-      .map((award) => ({
-        ...award,
-        recordCount: appearances.filter((appearance) => appearance.awardId === award.id).length,
-      }))
-      .filter((award) => award.recordCount > 0)
-      .sort((a, b) => b.recordCount - a.recordCount || a.name.localeCompare(b.name)),
-  };
+function getBrowseData(data: BrowseData, region: AwardRegionFilter, type: TypeFilter) {
+  return data.home[`${region}:${type}`];
 }
 
 function titleCase(value: string) {

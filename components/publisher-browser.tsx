@@ -1,44 +1,52 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Search } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { ImprintLogoMark } from "@/components/imprint-logo-mark";
+import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import { imprintSlug, imprintsForPublisher, imprintStats, publisherSlug, publisherStats } from "@/lib/catalog";
 import { data } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
 
 type SortKey = "major_activity" | "all_activity" | "name" | "imprints";
 type AnalysisView = "publishers" | "imprints";
+type TimeWindow = "recent" | "all";
 
-export function PublisherBrowser() {
-  const [query, setQuery] = useState("");
+const RECENT_YEARS = 30;
+
+export function PublisherBrowser({ defaultRegion }: { defaultRegion: AwardRegionFilter }) {
   const [sortKey, setSortKey] = useState<SortKey>("major_activity");
   const [letter, setLetter] = useState<string | null>(null);
   const [analysisView, setAnalysisView] = useState<AnalysisView>("imprints");
+  const [timeWindow, setTimeWindow] = useState<TimeWindow>("recent");
+  const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
+
+  const sinceYear = timeWindow === "recent" ? new Date().getFullYear() - RECENT_YEARS : undefined;
+
+  function setRegion(nextRegion: AwardRegionFilter) {
+    setRegionState(nextRegion);
+    document.cookie = `${AWARD_REGION_COOKIE}=${nextRegion}; path=/; max-age=31536000; samesite=lax`;
+  }
 
   const allRows = useMemo(
     () =>
       data.publishers
         .map((publisher) => ({
           publisher,
-          stats: publisherStats(publisher.id),
+          stats: publisherStats(publisher.id, sinceYear, region),
           imprints: imprintsForPublisher(publisher.id),
         }))
         .filter((row) => row.stats.books > 0),
-    [],
+    [region, sinceYear],
   );
   const publishersById = useMemo(() => new Map(data.publishers.map((publisher) => [publisher.id, publisher])), []);
 
   const publisherRows = useMemo(() => {
-    const q = query.trim().toLowerCase();
     return allRows
       .filter((row) => {
-        const haystack = `${row.publisher.name} ${row.imprints.map((imprint) => imprint.name).join(" ")}`.toLowerCase();
-        const matchesQuery = !q || haystack.includes(q);
         const first = row.publisher.name[0]?.toUpperCase() ?? "#";
-        const matchesLetter = !letter || (letter === "#" ? !/[A-Z]/.test(first) : first === letter);
-        return matchesQuery && matchesLetter;
+        return !letter || (letter === "#" ? !/[A-Z]/.test(first) : first === letter);
       })
       .sort((a, b) => {
         if (sortKey === "name") return a.publisher.name.localeCompare(b.publisher.name);
@@ -46,39 +54,35 @@ export function PublisherBrowser() {
         if (sortKey === "all_activity") return b.stats.score - a.stats.score || b.stats.majorScore - a.stats.majorScore || a.publisher.name.localeCompare(b.publisher.name);
         return b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name);
       });
-  }, [allRows, letter, query, sortKey]);
+  }, [allRows, letter, sortKey]);
 
   const imprintRows = useMemo(() => {
-    const q = query.trim().toLowerCase();
     return data.imprints
       .map((imprint) => ({
         imprint,
         publisher: imprint.publisherId ? publishersById.get(imprint.publisherId) : undefined,
-        stats: imprintStats(imprint.id),
+        stats: imprintStats(imprint.id, sinceYear, region),
       }))
       .filter((row) => row.stats.books > 0)
       .filter((row) => {
-        const haystack = `${row.imprint.name} ${row.imprint.shortName ?? ""} ${row.publisher?.name ?? ""}`.toLowerCase();
-        const matchesQuery = !q || haystack.includes(q);
         const first = (row.imprint.shortName ?? row.imprint.name)[0]?.toUpperCase() ?? "#";
-        const matchesLetter = !letter || (letter === "#" ? !/[A-Z]/.test(first) : first === letter);
-        return matchesQuery && matchesLetter;
+        return !letter || (letter === "#" ? !/[A-Z]/.test(first) : first === letter);
       })
       .sort((a, b) => {
         if (sortKey === "name") return (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
         if (sortKey === "all_activity") return b.stats.score - a.stats.score || b.stats.majorScore - a.stats.majorScore || (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
         return b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
       });
-  }, [letter, publishersById, query, sortKey]);
+  }, [letter, publishersById, region, sinceYear, sortKey]);
 
   const totalAppearances = data.appearances.length;
   const years = data.appearances.map((appearance) => appearance.year);
   const topPublishers = [...allRows].sort((a, b) => b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name)).slice(0, 5);
-  const topImprints = [...data.imprints].sort((a, b) => imprintStats(b.id).majorAppearances - imprintStats(a.id).majorAppearances || imprintStats(b.id).majorScore - imprintStats(a.id).majorScore || imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name)).slice(0, 5);
+  const topImprints = [...data.imprints].sort((a, b) => imprintStats(b.id, sinceYear, region).majorAppearances - imprintStats(a.id, sinceYear, region).majorAppearances || imprintStats(b.id, sinceYear, region).majorScore - imprintStats(a.id, sinceYear, region).majorScore || imprintStats(b.id, sinceYear, region).score - imprintStats(a.id, sinceYear, region).score || a.name.localeCompare(b.name)).slice(0, 5);
 
   return (
     <main>
-      <section className="border-b hairline">
+      <section className="border-b hairline bg-[var(--paper)]">
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:items-end lg:px-8">
           <div>
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Publishers and imprints</p>
@@ -99,50 +103,81 @@ export function PublisherBrowser() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-5 sm:px-6 lg:grid-cols-[1fr_22rem] lg:px-8">
-        <div>
-          <div className="paper-surface mb-4 grid gap-3 border hairline p-3 lg:grid-cols-[auto_1fr_auto_auto]">
-            <div>
-              <p className="mb-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.2em] muted">Analyze by</p>
-              <div className="inline-flex overflow-hidden rounded-md border hairline bg-[color-mix(in_srgb,var(--paper)_68%,var(--panel))] text-sm">
-                {(["publishers", "imprints"] as const).map((view) => (
-                  <button
-                    className={`focus-ring min-w-28 px-4 py-3 capitalize transition ${
-                      analysisView === view ? "bg-[var(--ink)] text-[var(--paper)]" : "hover:bg-[var(--panel)]"
-                    }`}
-                    key={view}
-                    onClick={() => {
-                      setAnalysisView(view);
-                      if (view === "imprints" && sortKey === "imprints") setSortKey("major_activity");
-                    }}
-                    type="button"
-                  >
-                    {view}
-                  </button>
-                ))}
-              </div>
+      <section className="mx-auto max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
+        <div className="filter-toolbar mb-4 grid gap-3 border-y hairline px-1 py-2 xl:grid-cols-[auto_auto_auto_minmax(18rem,1fr)_auto] xl:items-end">
+          <div className="filter-group flex-col items-start gap-2">
+            <span className="filter-label">Analyze by</span>
+            <div className="segmented-control">
+              {(["publishers", "imprints"] as const).map((view) => (
+                <button
+                  className={`segment-button focus-ring min-w-28 capitalize ${analysisView === view ? "segment-button-active" : ""}`}
+                  key={view}
+                  onClick={() => {
+                    setAnalysisView(view);
+                    if (view === "imprints" && sortKey === "imprints") setSortKey("major_activity");
+                  }}
+                  type="button"
+                >
+                  {view}
+                </button>
+              ))}
             </div>
-            <label className="flex items-center gap-3 border hairline px-4 py-3">
-              <Search size={17} className="muted" />
-              <input
-                className="w-full bg-transparent text-sm outline-none placeholder:text-[var(--muted)]"
-                placeholder={analysisView === "publishers" ? "Search publishers or imprints..." : "Search imprints or parent publishers..."}
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-              />
-            </label>
-            <select className="border hairline bg-transparent px-4 py-3 text-sm" value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)}>
+          </div>
+
+          <div className="filter-group flex-col items-start gap-2">
+            <span className="filter-label">Awards</span>
+            <div className="segmented-control">
+              {(["us", "international", "all"] as const).map((item) => (
+                <button
+                  className={`segment-button focus-ring min-w-24 ${region === item ? "segment-button-active" : ""}`}
+                  key={item}
+                  onClick={() => setRegion(item)}
+                  type="button"
+                >
+                  {regionLabel(item)}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="filter-group flex-col items-start gap-2">
+            <span className="filter-label">Period</span>
+            <div className="segmented-control">
+              <button
+                className={`segment-button focus-ring ${timeWindow === "recent" ? "segment-button-active" : ""}`}
+                onClick={() => setTimeWindow("recent")}
+                type="button"
+              >
+                Last {RECENT_YEARS} yrs
+              </button>
+              <button
+                className={`segment-button focus-ring ${timeWindow === "all" ? "segment-button-active" : ""}`}
+                onClick={() => setTimeWindow("all")}
+                type="button"
+              >
+                All time
+              </button>
+            </div>
+          </div>
+
+          <label className="filter-group flex-col items-start gap-2">
+            <span className="filter-label">Sort</span>
+            <select className="filter-select focus-ring min-w-0 flex-1 xl:min-w-[16rem]" value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)}>
               <option value="major_activity">Most-awarded (major awards)</option>
               <option value="all_activity">Most-awarded (all awards)</option>
               <option value="name">{analysisView === "publishers" ? "Publisher A-Z" : "Imprint A-Z"}</option>
               {analysisView === "publishers" ? <option value="imprints">Most imprints</option> : null}
             </select>
-            <Link className="inline-flex items-center justify-center gap-2 border hairline px-4 py-3 text-sm transition hover:bg-[var(--accent-soft)]" href="/imprints">
-              All imprints
-              <ChevronRight size={15} />
-            </Link>
-          </div>
+          </label>
 
+          <Link className="filter-action focus-ring inline-flex items-center justify-center gap-2 px-4 text-sm" href="/imprints">
+            All imprints
+            <ChevronRight size={15} />
+          </Link>
+        </div>
+
+        <div className="grid gap-5 lg:grid-cols-[1fr_22rem]">
+          <div>
           <div className="paper-surface overflow-hidden border hairline">
             {analysisView === "publishers" ? (
               publisherRows.map(({ publisher, stats, imprints }, index) => (
@@ -156,7 +191,7 @@ export function PublisherBrowser() {
                   </Link>
                   <div className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
                     {imprints.slice(0, 6).map((imprint) => {
-                      const itemStats = imprintStats(imprint.id);
+                      const itemStats = imprintStats(imprint.id, sinceYear, region);
                       return (
                         <Link className="group grid grid-cols-[1fr_auto] items-center gap-3 border hairline px-4 py-3 transition hover:bg-[var(--accent-soft)]" href={`/imprints/${imprintSlug(imprint)}`} key={imprint.id}>
                           <span>
@@ -200,9 +235,9 @@ export function PublisherBrowser() {
               ))
             )}
           </div>
-        </div>
+          </div>
 
-        <aside className="grid content-start gap-4">
+          <aside className="grid content-start gap-4">
           <RankingPanel title="Top publishers by major awards" href="/publishers" rows={topPublishers.map((row) => ({
             label: row.publisher.name,
             value: row.stats.majorAppearances,
@@ -210,7 +245,7 @@ export function PublisherBrowser() {
           }))} />
           <RankingPanel title="Top imprints by major awards" href="/imprints" rows={topImprints.map((imprint) => ({
             label: imprint.name,
-            value: imprintStats(imprint.id).majorAppearances,
+            value: imprintStats(imprint.id, sinceYear, region).majorAppearances,
             href: `/imprints/${imprintSlug(imprint)}`,
           }))} />
           <div className="paper-surface border hairline p-5">
@@ -218,9 +253,7 @@ export function PublisherBrowser() {
             <div className="mt-4 grid grid-cols-9 gap-2 font-[var(--font-mono)] text-xs">
               {"ABCDEFGHIJKLMNOPQRSTUVWXYZ#".split("").map((item) => (
                 <button
-                  className={`focus-ring grid h-8 place-items-center border hairline transition hover:bg-[var(--accent-soft)] ${
-                    letter === item ? "bg-[var(--ink)] text-[var(--paper)]" : ""
-                  }`}
+                  className={`filter-chip focus-ring grid h-8 place-items-center ${letter === item ? "segment-button-active" : ""}`}
                   key={item}
                   onClick={() => setLetter((current) => (current === item ? null : item))}
                 >
@@ -229,7 +262,8 @@ export function PublisherBrowser() {
               ))}
             </div>
           </div>
-        </aside>
+          </aside>
+        </div>
       </section>
     </main>
   );

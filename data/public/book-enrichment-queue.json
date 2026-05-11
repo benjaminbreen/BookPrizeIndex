@@ -1,23 +1,29 @@
 {
-  "generatedAt": "2026-05-10T22:49:16.769Z",
+  "generatedAt": "2026-05-11T17:10:19.024Z",
   "limit": 100,
+  "fields": [
+    "isbn13",
+    "publicationYear",
+    "publisherLink",
+    "thumbnailUrl"
+  ],
   "count": 100,
+  "lanes": {
+    "high_value": 100
+  },
   "queue": [
     {
-      "bookId": "book-the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro",
-      "slug": "the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro",
-      "title": "The Passage of Power: The Years of Lyndon Johnson",
-      "author": "Robert A. Caro",
-      "score": 24,
+      "bookId": "book-booker-t-washington-the-wizard-of-tuskegee-1901-1915-louis-r-harlan",
+      "slug": "booker-t-washington-the-wizard-of-tuskegee-1901-1915-louis-r-harlan",
+      "title": "Booker T. Washington: The Wizard of Tuskegee, 1901–1915",
+      "author": "Louis R. Harlan",
+      "score": 30,
+      "priorityScore": 168,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
+        "summary"
       ],
       "deferredFields": [
         "wikipedia"
@@ -25,20 +31,17 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-reconstruction-america-s-unfinished-revolution-1863-1877-eric-foner",
-      "slug": "reconstruction-america-s-unfinished-revolution-1863-1877-eric-foner",
-      "title": "Reconstruction: America's Unfinished Revolution, 1863–1877",
-      "author": "Eric Foner",
-      "score": 22,
+      "bookId": "book-edith-wharton-a-biography-r-w-b-lewis",
+      "slug": "edith-wharton-a-biography-r-w-b-lewis",
+      "title": "Edith Wharton: A Biography",
+      "author": "R. W. B. Lewis",
+      "score": 28,
+      "priorityScore": 141,
+      "lane": "high_value",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
-        "thumbnailUrl",
-        "publisherLink"
+        "thumbnailUrl"
       ],
       "deferredFields": [
         "wikipedia"
@@ -46,100 +49,728 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-the-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf",
-      "slug": "the-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf",
-      "title": "The Invention of Nature: Alexander Von Humboldt's New World",
-      "author": "Andrea Wulf",
-      "score": 22,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-american-prometheus-the-triumph-and-tragedy-of-j-robert-oppenheimer-kai-bird-and-martin-j-sherwi",
-      "slug": "american-prometheus-the-triumph-and-tragedy-of-j-robert-oppenheimer-kai-bird-and-martin-j-sherwi",
-      "title": "American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer",
-      "author": "Kai Bird Martin J. Sherwin",
-      "score": 20,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-invisible-women-exposing-data-bias-in-a-world-designed-for-men-caroline-criado-perez",
-      "slug": "invisible-women-exposing-data-bias-in-a-world-designed-for-men-caroline-criado-perez",
-      "title": "Invisible Women: Exposing Data Bias in a World Designed for Men",
-      "author": "Caroline Criado Perez",
-      "score": 18,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-just-mercy-a-story-of-justice-and-redemption-bryan-stevenson",
-      "slug": "just-mercy-a-story-of-justice-and-redemption-bryan-stevenson",
-      "title": "Just Mercy: A Story of Justice and Redemption",
-      "author": "Bryan Stevenson",
-      "score": 18,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor",
-      "slug": "the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor",
-      "title": "The Internal Enemy: Slavery and War in Virginia, 1772–1832",
+      "bookId": "book-william-cooper-s-town-power-and-persuasion-on-the-frontier-of-the-early-american-republic-alan-t",
+      "slug": "william-cooper-s-town-power-and-persuasion-on-the-frontier-of-the-early-american-republic-alan-t",
+      "title": "William Cooper’s Town: Power and Persuasion on the Frontier of the Early American Republic",
       "author": "Alan Taylor",
+      "score": 22,
+      "priorityScore": 123.5,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-the-haunted-land-facing-europe-s-ghosts-after-communism-tina-rosenberg",
+      "slug": "the-haunted-land-facing-europe-s-ghosts-after-communism-tina-rosenberg",
+      "title": "The Haunted Land: Facing Europe's Ghosts After Communism",
+      "author": "Tina Rosenberg",
+      "score": 20,
+      "priorityScore": 121.5,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-the-armies-of-the-night-history-as-a-novel-the-novel-as-history-norman-mailer",
+      "slug": "the-armies-of-the-night-history-as-a-novel-the-novel-as-history-norman-mailer",
+      "title": "The Armies of the Night: History as a Novel, The Novel as History",
+      "author": "Norman Mailer",
+      "score": 20,
+      "priorityScore": 121,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive",
+      "slug": "thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive",
+      "title": "Thomas Babington Macaulay: The Shaping of the Historian",
+      "author": "John Leonard Clive",
+      "score": 20,
+      "priorityScore": 121,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-gandhi-s-truth-on-the-origins-of-militant-nonviolence-erik-erikson",
+      "slug": "gandhi-s-truth-on-the-origins-of-militant-nonviolence-erik-erikson",
+      "title": "Gandhi's Truth: On the Origins of Militant Nonviolence",
+      "author": "Erik Erikson",
+      "score": 20,
+      "priorityScore": 119,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+      "slug": "w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+      "title": "W. E. B. Du Bois: Biography of a Race, 1868–1919",
+      "author": "David Levering Lewis",
+      "score": 22,
+      "priorityScore": 110.4,
+      "lane": "high_value",
+      "missingFields": [
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-o-strange-new-world-american-culture-the-formative-years-howard-mumford-jones",
+      "slug": "o-strange-new-world-american-culture-the-formative-years-howard-mumford-jones",
+      "title": "O Strange New World: American Culture-The Formative Years",
+      "author": "Howard Mumford Jones",
       "score": 18,
+      "priorityScore": 102,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-master-of-the-senate-the-years-of-lyndon-johnson-vol-3-robert-a-caro",
+      "slug": "master-of-the-senate-the-years-of-lyndon-johnson-vol-3-robert-a-caro",
+      "title": "Master of the Senate: The Years of Lyndon Johnson, Vol. 3",
+      "author": "Robert A. Caro",
+      "score": 18,
+      "priorityScore": 100,
+      "lane": "high_value",
+      "missingFields": [
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-arc-of-justice-a-saga-of-race-civil-rights-and-murder-in-the-jazz-age-kevin-boyle",
+      "slug": "arc-of-justice-a-saga-of-race-civil-rights-and-murder-in-the-jazz-age-kevin-boyle",
+      "title": "Arc of Justice: A Saga of Race, Civil Rights and Murder in the Jazz Age",
+      "author": "Kevin Boyle",
+      "score": 18,
+      "priorityScore": 99.4,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-unworthy-republic-the-dispossession-of-native-americans-and-the-road-to-indian-territory-claudio",
+      "slug": "unworthy-republic-the-dispossession-of-native-americans-and-the-road-to-indian-territory-claudio",
+      "title": "Unworthy Republic: The Dispossession of Native Americans and the Road to Indian Territory",
+      "author": "Claudio Saunt",
+      "score": 18,
+      "priorityScore": 95.1,
+      "lane": "high_value",
+      "missingFields": [
+        "summary",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-munich-the-price-of-peace-telford-taylor",
+      "slug": "munich-the-price-of-peace-telford-taylor",
+      "title": "Munich: The Price of Peace",
+      "author": "Telford Taylor",
+      "score": 18,
+      "priorityScore": 94,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-traveling-black-a-story-of-race-and-resistance-mia-bay",
+      "slug": "traveling-black-a-story-of-race-and-resistance-mia-bay",
+      "title": "Traveling Black: A Story of Race and Resistance",
+      "author": "Mia Bay",
+      "score": 16,
+      "priorityScore": 93.2,
+      "lane": "high_value",
+      "missingFields": [
+        "summary",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
+      "slug": "parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
+      "title": "Parting the Waters: America in the King Years, 1954-1963",
+      "author": "Taylor Branch",
+      "score": 14,
+      "priorityScore": 92,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-the-radicalism-of-the-american-revolution-gordon-s-wood",
+      "slug": "the-radicalism-of-the-american-revolution-gordon-s-wood",
+      "title": "The Radicalism of the American Revolution",
+      "author": "Gordon S. Wood",
+      "score": 14,
+      "priorityScore": 90.2,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-fin-de-siecle-vienna-politics-and-culture-carl-e-schorske",
+      "slug": "fin-de-siecle-vienna-politics-and-culture-carl-e-schorske",
+      "title": "Fin-de-Siècle Vienna: Politics and Culture",
+      "author": "Carl E. Schorske",
+      "score": 14,
+      "priorityScore": 90,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
+        "pageCount",
+        "summary",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-the-five-the-untold-lives-of-the-women-killed-by-jack-the-ripper-hallie-rubenhold",
+      "slug": "the-five-the-untold-lives-of-the-women-killed-by-jack-the-ripper-hallie-rubenhold",
+      "title": "The Five: The Untold Lives of the Women Killed by Jack the Ripper",
+      "author": "Hallie Rubenhold",
+      "score": 14,
+      "priorityScore": 90,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "summary",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-move-your-shadow-south-africa-black-and-white-joseph-lelyveld",
+      "slug": "move-your-shadow-south-africa-black-and-white-joseph-lelyveld",
+      "title": "Move Your Shadow: South Africa, Black and White",
+      "author": "Joseph Lelyveld",
+      "score": 14,
+      "priorityScore": 90,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-embers-of-war-the-fall-of-an-empire-and-the-making-of-america-s-vietnam-fredrik-logevall",
+      "slug": "embers-of-war-the-fall-of-an-empire-and-the-making-of-america-s-vietnam-fredrik-logevall",
+      "title": "Embers of War: The Fall of an Empire and the Making of America's Vietnam",
+      "author": "Fredrik Logevall",
+      "score": 14,
+      "priorityScore": 88.2,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
         "publisherId",
         "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-the-end-of-the-myth-from-the-frontier-to-the-border-wall-in-the-mind-of-america-greg-grandin",
+      "slug": "the-end-of-the-myth-from-the-frontier-to-the-border-wall-in-the-mind-of-america-greg-grandin",
+      "title": "The End of the Myth: From the Frontier to the Border Wall in the Mind of America",
+      "author": "Greg Grandin",
+      "score": 14,
+      "priorityScore": 87,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-time-love-memory-a-great-biologist-and-his-quest-for-the-origins-of-behavior-jonathan-weiner",
+      "slug": "time-love-memory-a-great-biologist-and-his-quest-for-the-origins-of-behavior-jonathan-weiner",
+      "title": "Time, Love, Memory: A Great Biologist and His Quest for the Origins of Behavior",
+      "author": "Jonathan Weiner",
+      "score": 14,
+      "priorityScore": 86.9,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-empires-nations-and-families-a-history-of-the-north-american-west-1800-1860-anne-f-hyde",
+      "slug": "empires-nations-and-families-a-history-of-the-north-american-west-1800-1860-anne-f-hyde",
+      "title": "Empires, Nations & Families: A History of the North American West, 1800-1860",
+      "author": "Anne F. Hyde",
+      "score": 14,
+      "priorityScore": 86.1,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-a-thousand-days-john-f-kennedy-in-the-white-house-arthur-m-schlesinger-jr",
+      "slug": "a-thousand-days-john-f-kennedy-in-the-white-house-arthur-m-schlesinger-jr",
+      "title": "A Thousand Days: John F. Kennedy in the White House",
+      "author": "Arthur M. Schlesinger, Jr.",
+      "score": 14,
+      "priorityScore": 86,
+      "lane": "high_value",
+      "missingFields": [
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-christianity-social-tolerance-and-homosexuality-gay-people-in-western-europe-from-the-beginning-",
+      "slug": "christianity-social-tolerance-and-homosexuality-gay-people-in-western-europe-from-the-beginning-",
+      "title": "Christianity, Social Tolerance, and Homosexuality: Gay People in Western Europe from the Beginning of the Christian Era to the 14th Century",
+      "author": "John Boswell",
+      "score": 14,
+      "priorityScore": 86,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-eleanor-and-franklin-the-story-of-their-relationship-based-on-eleanor-roosevelt-s-private-papers",
+      "slug": "eleanor-and-franklin-the-story-of-their-relationship-based-on-eleanor-roosevelt-s-private-papers",
+      "title": "Eleanor and Franklin: The Story of Their Relationship, Based on Eleanor Roosevelt's Private Papers",
+      "author": "Joseph P. Lash",
+      "score": 14,
+      "priorityScore": 86,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "imprintId",
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-parting-the-waters-america-in-the-king-years-1954-63-taylor-branch",
+      "slug": "parting-the-waters-america-in-the-king-years-1954-63-taylor-branch",
+      "title": "Parting the Waters: America in the King Years, 1954–63",
+      "author": "Taylor Branch",
+      "score": 14,
+      "priorityScore": 86,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-voyagers-to-the-west-a-passage-in-the-peopling-of-america-on-the-eve-of-the-revolution-bernard-b",
+      "slug": "voyagers-to-the-west-a-passage-in-the-peopling-of-america-on-the-eve-of-the-revolution-bernard-b",
+      "title": "Voyagers to the West: A Passage in the Peopling of America on the Eve of the Revolution",
+      "author": "Bernard Bailyn",
+      "score": 14,
+      "priorityScore": 86,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-great-river-the-rio-grande-in-north-american-history-paul-horgan",
+      "slug": "great-river-the-rio-grande-in-north-american-history-paul-horgan",
+      "title": "Great River: The Rio Grande in North American History",
+      "author": "Paul Horgan",
+      "score": 14,
+      "priorityScore": 84.9,
+      "lane": "high_value",
+      "missingFields": [
+        "imprintId",
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-say-nothing-the-true-story-of-murder-and-memory-in-northern-ireland-patrick-radden-keefe",
+      "slug": "say-nothing-the-true-story-of-murder-and-memory-in-northern-ireland-patrick-radden-keefe",
+      "title": "Say Nothing: The True Story of Murder and Memory in Northern Ireland",
+      "author": "Patrick Radden Keefe",
+      "score": 14,
+      "priorityScore": 84.9,
+      "lane": "high_value",
+      "missingFields": [
+        "summary",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-in-the-darkroom-susan-faludi",
+      "slug": "in-the-darkroom-susan-faludi",
+      "title": "In the Darkroom",
+      "author": "Susan Faludi",
+      "score": 14,
+      "priorityScore": 84.6,
+      "lane": "high_value",
+      "missingFields": [
+        "summary",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-neither-black-nor-white-slavery-and-race-relations-in-brazil-and-the-united-states-carl-n-degler",
+      "slug": "neither-black-nor-white-slavery-and-race-relations-in-brazil-and-the-united-states-carl-n-degler",
+      "title": "Neither Black nor White: Slavery and Race Relations in Brazil and the United States",
+      "author": "Carl N. Degler",
+      "score": 14,
+      "priorityScore": 84,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "imprintId",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-mr-clemens-and-mark-twain-a-biography-justin-kaplan",
+      "slug": "mr-clemens-and-mark-twain-a-biography-justin-kaplan",
+      "title": "Mr. Clemens and Mark Twain: A Biography",
+      "author": "Justin Kaplan",
+      "score": 14,
+      "priorityScore": 84,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-the-peacemakers-the-great-powers-and-american-independence-richard-b-morris",
+      "slug": "the-peacemakers-the-great-powers-and-american-independence-richard-b-morris",
+      "title": "The Peacemakers: The Great Powers and American Independence",
+      "author": "Richard B. Morris",
+      "score": 14,
+      "priorityScore": 84,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-the-visible-hand-the-managerial-revolution-in-american-business-alfred-d-chandler-jr",
+      "slug": "the-visible-hand-the-managerial-revolution-in-american-business-alfred-d-chandler-jr",
+      "title": "The Visible Hand: The Managerial Revolution in American Business",
+      "author": "Alfred D. Chandler Jr.",
+      "score": 14,
+      "priorityScore": 84,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-dreamland-the-true-story-of-america-s-opiate-epidemic-sam-quinones",
+      "slug": "dreamland-the-true-story-of-america-s-opiate-epidemic-sam-quinones",
+      "title": "Dreamland: The True Story of America’s Opiate Epidemic",
+      "author": "Sam Quinones",
+      "score": 12,
+      "priorityScore": 82.7,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "summary",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-modern-art-19th-and-20th-centuries-selected-papers-volume-2-meyer-schapiro",
+      "slug": "modern-art-19th-and-20th-centuries-selected-papers-volume-2-meyer-schapiro",
+      "title": "Modern Art: 19th and 20th Centuries (Selected Papers, Volume 2)",
+      "author": "Meyer Schapiro",
+      "score": 14,
+      "priorityScore": 82,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "imprintId",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-and-i-worked-at-the-writer-s-trade-chapters-of-literary-history-1918-1978-malcolm-cowley",
+      "slug": "and-i-worked-at-the-writer-s-trade-chapters-of-literary-history-1918-1978-malcolm-cowley",
+      "title": "And I Worked at the Writer's Trade: Chapters of Literary History 1918–1978",
+      "author": "Malcolm Cowley",
+      "score": 14,
+      "priorityScore": 82,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-walt-whitman-a-life-justin-kaplan",
+      "slug": "walt-whitman-a-life-justin-kaplan",
+      "title": "Walt Whitman: A Life",
+      "author": "Justin Kaplan",
+      "score": 14,
+      "priorityScore": 82,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "summary"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-our-brains-our-selves-what-a-neurologist-s-patients-taught-him-about-the-brain-masud-husain",
+      "slug": "our-brains-our-selves-what-a-neurologist-s-patients-taught-him-about-the-brain-masud-husain",
+      "title": "Our Brains, Our Selves: What a Neurologist's Patients Taught Him About the Brain",
+      "author": "Masud Husain",
+      "score": 10,
+      "priorityScore": 81.5,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-soldiers-and-kings-survival-and-hope-in-the-world-of-human-smuggling-jason-de-leon",
+      "slug": "soldiers-and-kings-survival-and-hope-in-the-world-of-human-smuggling-jason-de-leon",
+      "title": "Soldiers and Kings: Survival and Hope in the World of Human Smuggling",
+      "author": "Jason De León",
+      "score": 10,
+      "priorityScore": 81.4,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -155,268 +786,15 @@
       "slug": "a-city-on-mars-can-we-settle-space-should-we-settle-space-and-have-we-really-thought-this-throug",
       "title": "A City on Mars: Can We Settle Space, Should We Settle Space, and Have We Really Thought This Through?",
       "author": "Zach Weinersmith Kelly Weinersmith",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-a-short-history-of-nearly-everything-bill-bryson",
-      "slug": "a-short-history-of-nearly-everything-bill-bryson",
-      "title": "A Short History of Nearly Everything",
-      "author": "Bill Bryson",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-battle-cry-of-freedom-the-civil-war-era-james-m-mcpherson",
-      "slug": "battle-cry-of-freedom-the-civil-war-era-james-m-mcpherson",
-      "title": "Battle Cry of Freedom: The Civil War Era",
-      "author": "James M. McPherson",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-bury-the-chains-prophets-and-rebels-in-the-fight-to-free-an-empire-s-slaves-adam-hochschild",
-      "slug": "bury-the-chains-prophets-and-rebels-in-the-fight-to-free-an-empire-s-slaves-adam-hochschild",
-      "title": "Bury the Chains: Prophets and Rebels in the Fight to Free an Empire's Slaves",
-      "author": "Adam Hochschild",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-freedom-from-fear-the-american-people-in-depression-and-war-1929-1945-david-m-kennedy",
-      "slug": "freedom-from-fear-the-american-people-in-depression-and-war-1929-1945-david-m-kennedy",
-      "title": "Freedom from Fear: The American People in Depression and War, 1929-1945",
-      "author": "David M. Kennedy",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-in-search-of-memory-the-emergence-of-a-new-science-of-mind-eric-r-kandel",
-      "slug": "in-search-of-memory-the-emergence-of-a-new-science-of-mind-eric-r-kandel",
-      "title": "In Search of Memory: The Emergence of a New Science of Mind",
-      "author": "Eric R. Kandel",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-max-perkins-editor-of-genius-a-scott-berg",
-      "slug": "max-perkins-editor-of-genius-a-scott-berg",
-      "title": "Max Perkins: Editor of Genius",
-      "author": "A. Scott Berg",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-my-fourth-time-we-drowned-seeking-refuge-on-the-world-s-deadliest-migration-route-sally-hayden",
-      "slug": "my-fourth-time-we-drowned-seeking-refuge-on-the-world-s-deadliest-migration-route-sally-hayden",
-      "title": "My Fourth Time, We Drowned: Seeking Refuge on the World's Deadliest Migration Route",
-      "author": "Sally Hayden",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-say-nothing-a-true-story-of-murder-and-memory-in-northern-ireland-patrick-radden-keefe",
-      "slug": "say-nothing-a-true-story-of-murder-and-memory-in-northern-ireland-patrick-radden-keefe",
-      "title": "Say Nothing: A True Story Of Murder and Memory in Northern Ireland",
-      "author": "Patrick Radden Keefe",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-the-unwinding-an-inner-history-of-the-new-america-george-packer",
-      "slug": "the-unwinding-an-inner-history-of-the-new-america-george-packer",
-      "title": "The Unwinding: An Inner History of the New America",
-      "author": "George Packer",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-time-love-memory-a-great-biologist-and-his-quest-for-the-origins-of-behavior-jonathan-weiner",
-      "slug": "time-love-memory-a-great-biologist-and-his-quest-for-the-origins-of-behavior-jonathan-weiner",
-      "title": "Time, Love, Memory: A Great Biologist and His Quest for the Origins of Behavior",
-      "author": "Jonathan Weiner",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-why-americans-hate-politics-the-death-of-the-democratic-process-e-j-dionne-jr",
-      "slug": "why-americans-hate-politics-the-death-of-the-democratic-process-e-j-dionne-jr",
-      "title": "Why Americans Hate Politics: The Death of the Democratic Process",
-      "author": "E. J. Dionne, Jr.",
-      "score": 14,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-fordlandia-the-rise-and-fall-of-henry-ford-s-forgotten-jungle-city-greg-grandin",
-      "slug": "fordlandia-the-rise-and-fall-of-henry-ford-s-forgotten-jungle-city-greg-grandin",
-      "title": "Fordlândia: The Rise and Fall of Henry Ford's Forgotten Jungle City",
-      "author": "Greg Grandin",
       "score": 12,
+      "priorityScore": 81.3,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
-        "publicationYear",
         "publisherId",
         "imprintId",
         "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
+        "summary"
       ],
       "deferredFields": [
         "wikipedia"
@@ -424,20 +802,40 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-genome-the-autobiography-of-a-species-in-23-chapters-matt-ridley",
-      "slug": "genome-the-autobiography-of-a-species-in-23-chapters-matt-ridley",
-      "title": "Genome: The Autobiography of a Species in 23 Chapters",
-      "author": "Matt Ridley",
+      "bookId": "book-super-infinite-the-transformations-of-john-donne-katherine-rundell",
+      "slug": "super-infinite-the-transformations-of-john-donne-katherine-rundell",
+      "title": "Super-Infinite: The Transformations of John Donne",
+      "author": "Katherine Rundell",
+      "score": 10,
+      "priorityScore": 81.3,
+      "lane": "high_value",
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "imprintId",
+        "pageCount",
+        "summary",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "recommendedAction": "catalog_completion"
+    },
+    {
+      "bookId": "book-east-west-street-on-the-origins-of-genocide-and-crimes-against-humanity-philippe-sands",
+      "slug": "east-west-street-on-the-origins-of-genocide-and-crimes-against-humanity-philippe-sands",
+      "title": "East West Street: On the Origins of Genocide and Crimes Against Humanity",
+      "author": "Philippe Sands",
       "score": 12,
+      "priorityScore": 80.6,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
-        "publicationYear",
         "publisherId",
         "imprintId",
         "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
+        "summary"
       ],
       "deferredFields": [
         "wikipedia"
@@ -445,16 +843,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-a-very-short-history-of-life-on-earth-4-6-billion-years-in-12-pithy-chapters-henry-gee",
-      "slug": "a-very-short-history-of-life-on-earth-4-6-billion-years-in-12-pithy-chapters-henry-gee",
-      "title": "A (Very) Short History of Life on Earth: 4.6 Billion Years in 12 Pithy Chapters",
-      "author": "Henry Gee",
+      "bookId": "book-2-volumes-michael-o-brien",
+      "slug": "2-volumes-michael-o-brien",
+      "title": "(2 volumes)",
+      "author": "Michael O’Brien",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -466,16 +864,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-a-nation-under-our-feet-black-political-struggles-in-the-rural-south-from-slavery-to-the-great-m",
-      "slug": "a-nation-under-our-feet-black-political-struggles-in-the-rural-south-from-slavery-to-the-great-m",
-      "title": "A Nation Under Our Feet: Black Political Struggles in the Rural South from Slavery to the Great Migration",
-      "author": "Steven Hahn",
+      "bookId": "book-and-their-children-after-them-dale-maharidge-and-michael-williamson",
+      "slug": "and-their-children-after-them-dale-maharidge-and-michael-williamson",
+      "title": "And Their Children after Them",
+      "author": "Dale Maharidge Michael Williamson",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -487,16 +885,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-a-perfect-turmoil-walter-e-fernald-and-the-struggle-to-care-for-america-s-disabled-alex-green",
-      "slug": "a-perfect-turmoil-walter-e-fernald-and-the-struggle-to-care-for-america-s-disabled-alex-green",
-      "title": "A Perfect Turmoil: Walter E. Fernald and the Struggle to Care for America’s Disabled",
-      "author": "Alex Green",
+      "bookId": "book-charles-francis-adams-1807-1866-martin-b-duberman",
+      "slug": "charles-francis-adams-1807-1866-martin-b-duberman",
+      "title": "Charles Francis Adams, 1807-1866",
+      "author": "Martin B. Duberman",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -508,16 +906,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-a-religious-history-of-the-american-people-s-e-ahlstrom",
-      "slug": "a-religious-history-of-the-american-people-s-e-ahlstrom",
-      "title": "A Religious History of the American People",
-      "author": "S. E. Ahlstrom",
+      "bookId": "book-children-of-crisis-volumes-ii-and-iii-robert-coles",
+      "slug": "children-of-crisis-volumes-ii-and-iii-robert-coles",
+      "title": "Children of Crisis, Volumes II and III",
+      "author": "Robert Coles",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -529,16 +927,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-adventures-in-the-anthropocene-a-journey-to-the-heart-of-the-planet-we-made-gaia-vince",
-      "slug": "adventures-in-the-anthropocene-a-journey-to-the-heart-of-the-planet-we-made-gaia-vince",
-      "title": "Adventures in the Anthropocene: A Journey to the Heart of the Planet We Made",
-      "author": "Gaia Vince",
+      "bookId": "book-conquest-coexistence-and-change-wales-1063-1415-rees-davies",
+      "slug": "conquest-coexistence-and-change-wales-1063-1415-rees-davies",
+      "title": "Conquest, Coexistence, and Change: Wales 1063-1415",
+      "author": "Rees Davies",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -550,16 +948,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-an-american-in-italy-herbert-kubly",
-      "slug": "an-american-in-italy-herbert-kubly",
-      "title": "An American in Italy",
-      "author": "Herbert Kubly",
+      "bookId": "book-culture-and-anarchy-in-ireland-1890-1939-fsl-lyons",
+      "slug": "culture-and-anarchy-in-ireland-1890-1939-fsl-lyons",
+      "title": "Culture and Anarchy in Ireland, 1890-1939",
+      "author": "FSL Lyons",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -571,16 +969,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-an-american-requiem-god-my-father-and-the-war-that-came-between-us-james-p-carroll",
-      "slug": "an-american-requiem-god-my-father-and-the-war-that-came-between-us-james-p-carroll",
-      "title": "An American Requiem: God, My Father, and the War that Came Between Us",
-      "author": "James P. Carroll",
+      "bookId": "book-death-in-hamburg-society-and-politics-in-the-cholera-years-1830-1910-richard-evans",
+      "slug": "death-in-hamburg-society-and-politics-in-the-cholera-years-1830-1910-richard-evans",
+      "title": "Death in Hamburg: Society and Politics in the Cholera Years, 1830-1910",
+      "author": "Richard Evans",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -592,16 +990,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-an-unfinished-woman-a-memoir-bgcolor-ffffdd-lillian-hellman",
-      "slug": "an-unfinished-woman-a-memoir-bgcolor-ffffdd-lillian-hellman",
-      "title": "An Unfinished Woman: A Memoir",
-      "author": "bgcolor=\"ffffdd\" |Lillian Hellman",
+      "bookId": "book-enlightenment-britain-and-the-creation-of-the-modern-world-roy-porter",
+      "slug": "enlightenment-britain-and-the-creation-of-the-modern-world-roy-porter",
+      "title": "Enlightenment: Britain and the Creation of the Modern World",
+      "author": "Roy Porter",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -613,16 +1011,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-between-two-fires-truth-ambition-and-compromise-in-putin-s-russia-joshua-yaffa",
-      "slug": "between-two-fires-truth-ambition-and-compromise-in-putin-s-russia-joshua-yaffa",
-      "title": "Between Two Fires: Truth, Ambition and Compromise in Putin's Russia",
-      "author": "Joshua Yaffa",
+      "bookId": "book-framing-the-early-middle-ages-europe-and-the-mediterranean-400-800-christopher-wickham",
+      "slug": "framing-the-early-middle-ages-europe-and-the-mediterranean-400-800-christopher-wickham",
+      "title": "Framing the Early Middle Ages: Europe and the Mediterranean 400-800",
+      "author": "Christopher Wickham",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -634,16 +1032,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-bones-of-contention-controversies-in-the-search-for-human-origins-roger-lewin",
-      "slug": "bones-of-contention-controversies-in-the-search-for-human-origins-roger-lewin",
-      "title": "Bones of Contention: Controversies in the Search for Human Origins",
-      "author": "Roger Lewin",
+      "bookId": "book-france-1848-1945-ambition-love-and-politics-theodore-zeldin",
+      "slug": "france-1848-1945-ambition-love-and-politics-theodore-zeldin",
+      "title": "France, 1848-1945: Ambition, Love & Politics",
+      "author": "Theodore Zeldin",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -655,16 +1053,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-booker-t-washington-the-wizard-of-tuskegee-1901-1915-louis-r-harlan",
-      "slug": "booker-t-washington-the-wizard-of-tuskegee-1901-1915-louis-r-harlan",
-      "title": "Booker T. Washington: The Wizard of Tuskegee, 1901–1915",
-      "author": "Louis R. Harlan",
+      "bookId": "book-gladstone-1875-1898-hcg-matthew",
+      "slug": "gladstone-1875-1898-hcg-matthew",
+      "title": "Gladstone, 1875-1898",
+      "author": "HCG Matthew",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -676,16 +1074,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-chaucer-his-life-his-works-his-world-donald-r-howard",
-      "slug": "chaucer-his-life-his-works-his-world-donald-r-howard",
-      "title": "Chaucer: His Life, His Works, His World",
-      "author": "Donald R. Howard",
+      "bookId": "book-grand-strategy-vol-iv-august-1942-september-1943-michael-howard",
+      "slug": "grand-strategy-vol-iv-august-1942-september-1943-michael-howard",
+      "title": "Grand Strategy, vol. IV: August 1942 - September 1943",
+      "author": "Michael Howard",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -697,16 +1095,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-clarence-darrow-attorney-for-the-damned-john-a-farrell",
-      "slug": "clarence-darrow-attorney-for-the-damned-john-a-farrell",
-      "title": "Clarence Darrow: Attorney for the Damned",
-      "author": "John A. Farrell",
+      "bookId": "book-henry-ii-wl-warren",
+      "slug": "henry-ii-wl-warren",
+      "title": "Henry II",
+      "author": "WL Warren",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -718,16 +1116,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-critical-mass-how-one-thing-leads-to-another-philip-ball",
-      "slug": "critical-mass-how-one-thing-leads-to-another-philip-ball",
-      "title": "Critical Mass: How One Thing Leads to Another",
-      "author": "Philip Ball",
+      "bookId": "book-heretics-and-believers-a-history-of-the-english-reformation-peter-marshall",
+      "slug": "heretics-and-believers-a-history-of-the-english-reformation-peter-marshall",
+      "title": "Heretics and Believers: A History of the English Reformation",
+      "author": "Peter Marshall",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -739,16 +1137,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-david-mccullough-history",
-      "slug": "david-mccullough-history",
-      "title": "David McCullough",
-      "author": "History",
+      "bookId": "book-john-maynard-keynes-vol-2-the-economist-as-saviour-1920-1937-robert-skidelsky",
+      "slug": "john-maynard-keynes-vol-2-the-economist-as-saviour-1920-1937-robert-skidelsky",
+      "title": "John Maynard Keynes, vol. 2: the Economist as Saviour 1920-1937",
+      "author": "Robert Skidelsky",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -760,16 +1158,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-disappearing-through-the-skylight-culture-and-technology-in-the-twentieth-century-o-b-hardison-j",
-      "slug": "disappearing-through-the-skylight-culture-and-technology-in-the-twentieth-century-o-b-hardison-j",
-      "title": "Disappearing through the Skylight: Culture and Technology in the Twentieth Century",
-      "author": "O. B. Hardison, Jr.",
+      "bookId": "book-resistance-the-underground-war-in-europe-1939-45-halik-kochanski",
+      "slug": "resistance-the-underground-war-in-europe-1939-45-halik-kochanski",
+      "title": "Resistance: The Underground War in Europe, 1939-45",
+      "author": "Halik Kochanski",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -781,16 +1179,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-electric-universe-how-electricity-switched-on-the-modern-world-david-bodanis",
-      "slug": "electric-universe-how-electricity-switched-on-the-modern-world-david-bodanis",
-      "title": "Electric Universe: How Electricity Switched on the Modern World",
-      "author": "David Bodanis",
+      "bookId": "book-roots-of-violence-in-black-philadelphia-1860-1900-roger-lane",
+      "slug": "roots-of-violence-in-black-philadelphia-1860-1900-roger-lane",
+      "title": "Roots of Violence in Black Philadelphia, 1860-1900",
+      "author": "Roger Lane",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -802,16 +1200,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-entangled-life-merlin-sheldrake",
-      "slug": "entangled-life-merlin-sheldrake",
-      "title": "Entangled Life",
-      "author": "Merlin Sheldrake",
+      "bookId": "book-russia-against-napoleon-the-battle-for-europe-1807-to-1814-dominic-lieven",
+      "slug": "russia-against-napoleon-the-battle-for-europe-1807-to-1814-dominic-lieven",
+      "title": "Russia against Napoleon: The Battle for Europe 1807 to 1814",
+      "author": "Dominic Lieven",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -823,16 +1221,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-every-living-thing-the-great-and-deadly-race-to-know-all-life-jason-roberts",
-      "slug": "every-living-thing-the-great-and-deadly-race-to-know-all-life-jason-roberts",
-      "title": "Every Living Thing: The Great and Deadly Race to Know All Life",
-      "author": "Jason Roberts",
+      "bookId": "book-salisbury-victorian-titan-andrew-roberts",
+      "slug": "salisbury-victorian-titan-andrew-roberts",
+      "title": "Salisbury: Victorian Titan",
+      "author": "Andrew Roberts",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -844,16 +1242,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-everything-that-rises-a-book-of-convergences-lawrence-weschler",
-      "slug": "everything-that-rises-a-book-of-convergences-lawrence-weschler",
-      "title": "Everything That Rises: A Book of Convergences",
-      "author": "Lawrence Weschler",
+      "bookId": "book-scottsboro-a-tragedy-of-the-american-south-dan-t-carter",
+      "slug": "scottsboro-a-tragedy-of-the-american-south-dan-t-carter",
+      "title": "Scottsboro: A Tragedy of the American South",
+      "author": "Dan T. Carter",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -865,16 +1263,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-explaining-humans-camilla-pang",
-      "slug": "explaining-humans-camilla-pang",
-      "title": "Explaining Humans",
-      "author": "Camilla Pang",
+      "bookId": "book-shopping-in-the-renaissance-consumer-cultures-in-italy-1400-1600-evelyn-welch",
+      "slug": "shopping-in-the-renaissance-consumer-cultures-in-italy-1400-1600-evelyn-welch",
+      "title": "Shopping in the Renaissance: Consumer Cultures in Italy 1400-1600",
+      "author": "Evelyn Welch",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -886,16 +1284,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears",
-      "slug": "fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears",
-      "title": "Fables of Abundance: A Cultural History of Advertising in America",
-      "author": "Jackson Lears",
+      "bookId": "book-slave-population-and-economy-in-jamaica-1807-1834-barry-w-higman",
+      "slug": "slave-population-and-economy-in-jamaica-1807-1834-barry-w-higman",
+      "title": "Slave Population and Economy in Jamaica, 1807-1834",
+      "author": "Barry W. Higman",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -907,16 +1305,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-far-from-the-tree-parents-children-and-the-search-for-identity-andrew-solomon",
-      "slug": "far-from-the-tree-parents-children-and-the-search-for-identity-andrew-solomon",
-      "title": "Far from the Tree: Parents, Children, and the Search for Identity",
-      "author": "Andrew Solomon",
+      "bookId": "book-slavery-by-another-name-the-re-enslavement-of-black-americans-from-the-civil-war-to-world-war-ii",
+      "slug": "slavery-by-another-name-the-re-enslavement-of-black-americans-from-the-civil-war-to-world-war-ii",
+      "title": "Slavery by Another Name: The Re-Enslavement of Black Americans from the Civil War to World War II",
+      "author": "Douglas A. Blackmon",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -928,16 +1326,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-farewell-fred-voodoo-a-letter-from-haiti-amy-wilentz",
-      "slug": "farewell-fred-voodoo-a-letter-from-haiti-amy-wilentz",
-      "title": "Farewell, Fred Voodoo: A Letter From Haiti",
-      "author": "Amy Wilentz",
+      "bookId": "book-southern-cross-the-beginnings-of-the-bible-belt-christine-leigh-heyrman",
+      "slug": "southern-cross-the-beginnings-of-the-bible-belt-christine-leigh-heyrman",
+      "title": "Southern Cross: The Beginnings of the Bible Belt",
+      "author": "Christine Leigh Heyrman",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -949,16 +1347,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-feel-free-essays-zadie-smith",
-      "slug": "feel-free-essays-zadie-smith",
-      "title": "Feel Free: Essays",
-      "author": "Zadie Smith",
+      "bookId": "book-stilwell-and-the-american-experience-in-china-1911-1945-barbara-w-tuchman",
+      "slug": "stilwell-and-the-american-experience-in-china-1911-1945-barbara-w-tuchman",
+      "title": "Stilwell and the American Experience in China, 1911–1945",
+      "author": "Barbara W. Tuchman",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -970,16 +1368,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-finding-a-form-william-h-gass",
-      "slug": "finding-a-form-william-h-gass",
-      "title": "Finding a Form",
-      "author": "William H. Gass",
+      "bookId": "book-survivors-the-lost-stories-of-the-last-captives-of-the-atlantic-slave-trade-hannah-durkin",
+      "slug": "survivors-the-lost-stories-of-the-last-captives-of-the-atlantic-slave-trade-hannah-durkin",
+      "title": "Survivors: The Lost Stories of the Last Captives of the Atlantic Slave Trade",
+      "author": "Hannah Durkin",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -991,16 +1389,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-flash-the-making-of-weegee-the-famous-christopher-bonanos",
-      "slug": "flash-the-making-of-weegee-the-famous-christopher-bonanos",
-      "title": "Flash: The Making of Weegee the Famous",
-      "author": "Christopher Bonanos",
+      "bookId": "book-the-age-of-federalism-the-early-american-republic-1788-1800-stanley-elkins-and-eric-mckitrick",
+      "slug": "the-age-of-federalism-the-early-american-republic-1788-1800-stanley-elkins-and-eric-mckitrick",
+      "title": "The Age of Federalism: The Early American Republic, 1788-1800",
+      "author": "Stanley Elkins Eric McKitrick",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1012,16 +1410,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-fortunate-son-the-autobiography-of-lewis-b-puller-jr-lewis-b-puller",
-      "slug": "fortunate-son-the-autobiography-of-lewis-b-puller-jr-lewis-b-puller",
-      "title": "Fortunate Son: The Autobiography of Lewis B. Puller Jr.",
-      "author": "Lewis B. Puller",
+      "bookId": "book-the-age-of-the-democratic-revolution-political-history-of-europe-and-america-1760-1800-r-r-palme",
+      "slug": "the-age-of-the-democratic-revolution-political-history-of-europe-and-america-1760-1800-r-r-palme",
+      "title": "The Age of the Democratic Revolution: Political History of Europe and America, 1760-1800",
+      "author": "R. R. Palmer",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1033,16 +1431,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-four-hundred-million-customers-the-experiences-some-happy-some-sad-of-an-american-living-in-chin",
-      "slug": "four-hundred-million-customers-the-experiences-some-happy-some-sad-of-an-american-living-in-chin",
-      "title": "Four Hundred Million Customers: The Experiences—Some Happy, Some Sad, of an American Living in China, and What They Taught Him",
-      "author": "Carl Crow",
+      "bookId": "book-the-americans-the-colonial-experience-daniel-j-boorstin",
+      "slug": "the-americans-the-colonial-experience-daniel-j-boorstin",
+      "title": "The Americans: The Colonial Experience",
+      "author": "Daniel J. Boorstin",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1054,16 +1452,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-free-indirect-the-novel-in-a-postfictional-age-timothy-bewes",
-      "slug": "free-indirect-the-novel-in-a-postfictional-age-timothy-bewes",
-      "title": "Free Indirect: The Novel in a Postfictional Age",
-      "author": "Timothy Bewes",
+      "bookId": "book-the-ancient-economy-moses-finley",
+      "slug": "the-ancient-economy-moses-finley",
+      "title": "The Ancient Economy",
+      "author": "Moses Finley",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1075,16 +1473,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-freedom-vol-1-freedom-in-the-making-of-western-culture-orlando-patterson",
-      "slug": "freedom-vol-1-freedom-in-the-making-of-western-culture-orlando-patterson",
-      "title": "Freedom, Vol. 1: Freedom in the Making of Western Culture",
-      "author": "Orlando Patterson",
+      "bookId": "book-the-ants-bert-holldobler-and-edward-o-wilson",
+      "slug": "the-ants-bert-holldobler-and-edward-o-wilson",
+      "title": "The Ants",
+      "author": "Bert Hölldobler Edward O. Wilson",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1096,16 +1494,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-from-beirut-to-jerusalem-thomas-l-friedman",
-      "slug": "from-beirut-to-jerusalem-thomas-l-friedman",
-      "title": "From Beirut to Jerusalem",
-      "author": "Thomas L. Friedman",
+      "bookId": "book-the-architecture-of-medieval-britain-a-social-history-colin-platt",
+      "slug": "the-architecture-of-medieval-britain-a-social-history-colin-platt",
+      "title": "The Architecture of Medieval Britain: A Social History",
+      "author": "Colin Platt",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1117,436 +1515,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-fuzzy-logic-the-discovery-of-a-revolutionary-computer-technology-and-how-it-is-changing-our-worl",
-      "slug": "fuzzy-logic-the-discovery-of-a-revolutionary-computer-technology-and-how-it-is-changing-our-worl",
-      "title": "Fuzzy Logic: The Discovery of a Revolutionary Computer Technology -- and How It Is Changing Our World",
-      "author": "Daniel McNeill Paul Freiberger",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-gay-bar-why-we-went-out-jeremy-atherton-lin",
-      "slug": "gay-bar-why-we-went-out-jeremy-atherton-lin",
-      "title": "Gay Bar: Why We Went Out",
-      "author": "Jeremy Atherton Lin",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-gay-new-york-gender-urban-culture-and-the-making-of-the-gay-male-world-1890-1940-george-chauncey",
-      "slug": "gay-new-york-gender-urban-culture-and-the-making-of-the-gay-male-world-1890-1940-george-chauncey",
-      "title": "Gay New York: Gender, Urban Culture, and the Making of the Gay Male World, 1890–1940",
-      "author": "George Chauncey",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-generation-kill-devil-dogs-iceman-captain-america-and-the-new-face-of-american-war-evan-wright",
-      "slug": "generation-kill-devil-dogs-iceman-captain-america-and-the-new-face-of-american-war-evan-wright",
-      "title": "Generation Kill: Devil Dogs, Iceman, Captain America and the New Face of American War",
-      "author": "Evan Wright",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-george-washington-anguish-and-farewell-1793-1799-james-thomas-flexner",
-      "slug": "george-washington-anguish-and-farewell-1793-1799-james-thomas-flexner",
-      "title": "George Washington: Anguish and Farewell, 1793–1799",
-      "author": "James Thomas Flexner",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-girlhood-melissa-febos",
-      "slug": "girlhood-melissa-febos",
-      "title": "Girlhood",
-      "author": "Melissa Febos",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-god-and-golem-inc-a-comment-on-certain-points-where-cybernetics-impinges-on-religion-norbert-wie",
-      "slug": "god-and-golem-inc-a-comment-on-certain-points-where-cybernetics-impinges-on-religion-norbert-wie",
-      "title": "God & Golem, Inc.: A Comment on Certain Points Where Cybernetics Impinges on Religion",
-      "author": "Norbert Wiener",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-god-a-biography-jack-miles",
-      "slug": "god-a-biography-jack-miles",
-      "title": "God: A Biography",
-      "author": "Jack Miles",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-going-dutch-how-england-plundered-holland-s-glory-lisa-jardine",
-      "slug": "going-dutch-how-england-plundered-holland-s-glory-lisa-jardine",
-      "title": "Going Dutch: How England Plundered Holland's Glory",
-      "author": "Lisa Jardine",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-golden-dreams-california-in-an-age-of-abundance-1950-1963-kevin-starr",
-      "slug": "golden-dreams-california-in-an-age-of-abundance-1950-1963-kevin-starr",
-      "title": "Golden Dreams: California in an Age of Abundance 1950–1963",
-      "author": "Kevin Starr",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-gotham-a-history-of-new-york-city-to-1898-edwin-g-burrows-and-mike-wallace",
-      "slug": "gotham-a-history-of-new-york-city-to-1898-edwin-g-burrows-and-mike-wallace",
-      "title": "Gotham: A History of New York City to 1898",
-      "author": "Edwin G. Burrows Mike Wallace",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-grand-pursuit-the-story-of-economic-genius-sylvia-nasar",
-      "slug": "grand-pursuit-the-story-of-economic-genius-sylvia-nasar",
-      "title": "Grand Pursuit: The Story of Economic Genius",
-      "author": "Sylvia Nasar",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-habitations-of-the-word-essays-william-h-gass",
-      "slug": "habitations-of-the-word-essays-william-h-gass",
-      "title": "Habitations of the Word: Essays",
-      "author": "William H. Gass",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-habits-of-the-heart-individualism-and-commitment-in-american-life-robert-n-bellah-richard-madsen",
-      "slug": "habits-of-the-heart-individualism-and-commitment-in-american-life-robert-n-bellah-richard-madsen",
-      "title": "Habits of the Heart: Individualism and Commitment in American Life",
-      "author": "Robert N. Bellah, Richard Madsen, William M. Sullivan, Ann Swidler, Steven M. Tipton",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-half-a-life-darin-strauss",
-      "slug": "half-a-life-darin-strauss",
-      "title": "Half a Life",
-      "author": "Darin Strauss",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-harmful-to-minors-the-perils-of-protecting-children-from-sex-judith-levine",
-      "slug": "harmful-to-minors-the-perils-of-protecting-children-from-sex-judith-levine",
-      "title": "Harmful to Minors: The Perils of Protecting Children from Sex",
-      "author": "Judith Levine",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-hayek-s-bastards-race-gold-iq-and-the-capitalism-of-the-far-right-quinn-slobodian",
-      "slug": "hayek-s-bastards-race-gold-iq-and-the-capitalism-of-the-far-right-quinn-slobodian",
-      "title": "Hayek’s Bastards: Race, Gold, IQ, and the Capitalism of the Far Right",
-      "author": "Quinn Slobodian",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-henry-james-a-life-leon-edel",
-      "slug": "henry-james-a-life-leon-edel",
-      "title": "Henry James: A Life",
-      "author": "Leon Edel",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-herman-melville-newton-arvin",
-      "slug": "herman-melville-newton-arvin",
-      "title": "Herman Melville",
-      "author": "Newton Arvin",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-hitler-ascent-1889-1939-volker-ullrich-with-jefferson-chase-trans",
-      "slug": "hitler-ascent-1889-1939-volker-ullrich-with-jefferson-chase-trans",
-      "title": "Hitler: Ascent, 1889–1939",
-      "author": "Volker Ullrich with Jefferson Chase (trans.)",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-hitler-s-empire-how-the-nazis-ruled-europe-mark-mazower",
-      "slug": "hitler-s-empire-how-the-nazis-ruled-europe-mark-mazower",
-      "title": "Hitler's Empire: How the Nazis Ruled Europe",
+      "bookId": "book-the-balkans-from-the-end-of-byzantium-to-the-present-day-mark-mazower",
+      "slug": "the-balkans-from-the-end-of-byzantium-to-the-present-day-mark-mazower",
+      "title": "The Balkans: From the End of Byzantium to the Present Day",
       "author": "Mark Mazower",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1558,16 +1536,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-holocaust-testimonies-the-ruins-of-memory-lawrence-l-langer",
-      "slug": "holocaust-testimonies-the-ruins-of-memory-lawrence-l-langer",
-      "title": "Holocaust Testimonies: The Ruins of Memory",
-      "author": "Lawrence L. Langer",
+      "bookId": "book-the-brains-trust-rexford-guy-tugwell",
+      "slug": "the-brains-trust-rexford-guy-tugwell",
+      "title": "The Brains Trust",
+      "author": "Rexford Guy Tugwell",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1579,16 +1557,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-how-far-the-light-reaches-a-life-in-ten-sea-creatures-sabrina-imbler",
-      "slug": "how-far-the-light-reaches-a-life-in-ten-sea-creatures-sabrina-imbler",
-      "title": "How Far the Light Reaches: A Life in Ten Sea Creatures",
-      "author": "Sabrina Imbler",
+      "bookId": "book-the-cigarette-century-the-rise-fall-and-deadly-persistence-of-the-product-that-defined-america-a",
+      "slug": "the-cigarette-century-the-rise-fall-and-deadly-persistence-of-the-product-that-defined-america-a",
+      "title": "The Cigarette Century: The Rise, Fall, and Deadly Persistence of the Product That Defined America",
+      "author": "Allan M. Brandt",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1600,16 +1578,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-how-to-end-a-story-collected-diaries-helen-garner",
-      "slug": "how-to-end-a-story-collected-diaries-helen-garner",
-      "title": "How to End a Story: Collected Diaries",
-      "author": "Helen Garner",
+      "bookId": "book-the-clash-a-history-of-u-s-japan-relations-walter-lafeber",
+      "slug": "the-clash-a-history-of-u-s-japan-relations-walter-lafeber",
+      "title": "The Clash: A History of U.S.-Japan Relations",
+      "author": "Walter LaFeber",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1621,16 +1599,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-how-to-live-or-a-life-of-montaigne-sarah-bakewell",
-      "slug": "how-to-live-or-a-life-of-montaigne-sarah-bakewell",
-      "title": "How To Live, Or A Life Of Montaigne",
-      "author": "Sarah Bakewell",
+      "bookId": "book-the-count-duke-of-olivares-the-statesman-in-an-age-of-decline-john-elliott",
+      "slug": "the-count-duke-of-olivares-the-statesman-in-an-age-of-decline-john-elliott",
+      "title": "The Count-Duke of Olivares: The Statesman in an Age of Decline",
+      "author": "John Elliott",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1642,16 +1620,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-how-to-survive-a-plague-the-inside-story-of-how-citizens-and-science-tamed-aids-david-france",
-      "slug": "how-to-survive-a-plague-the-inside-story-of-how-citizens-and-science-tamed-aids-david-france",
-      "title": "How to Survive a Plague: The Inside Story of How Citizens and Science Tamed AIDS",
-      "author": "David France",
+      "bookId": "book-the-crisis-of-the-old-order-arthur-m-schlesinger-jr",
+      "slug": "the-crisis-of-the-old-order-arthur-m-schlesinger-jr",
+      "title": "The Crisis of the Old Order",
+      "author": "Arthur M. Schlesinger Jr.",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1663,16 +1641,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-huey-long-t-harry-william",
-      "slug": "huey-long-t-harry-william",
-      "title": "Huey Long",
-      "author": "T. Harry William",
+      "bookId": "book-the-dead-hand-the-untold-story-of-the-cold-war-arms-race-and-its-dangerous-legacy-david-e-hoffma",
+      "slug": "the-dead-hand-the-untold-story-of-the-cold-war-arms-race-and-its-dangerous-legacy-david-e-hoffma",
+      "title": "The Dead Hand: The Untold Story of the Cold War Arms Race and Its Dangerous Legacy",
+      "author": "David E. Hoffman",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1684,16 +1662,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-hugging-the-shore-essays-and-criticism-john-updike",
-      "slug": "hugging-the-shore-essays-and-criticism-john-updike",
-      "title": "Hugging the Shore: Essays and Criticism",
-      "author": "John Updike",
+      "bookId": "book-the-denial-of-death-ernest-becker",
+      "slug": "the-denial-of-death-ernest-becker",
+      "title": "The Denial of Death",
+      "author": "Ernest Becker",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1705,16 +1683,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-i-am-a-strange-loop-douglas-hofstadter",
-      "slug": "i-am-a-strange-loop-douglas-hofstadter",
-      "title": "I Am a Strange Loop",
-      "author": "Douglas Hofstadter",
+      "bookId": "book-the-destructive-war-william-tecumseh-sherman-stonewall-jackson-and-the-americans-charles-royster",
+      "slug": "the-destructive-war-william-tecumseh-sherman-stonewall-jackson-and-the-americans-charles-royster",
+      "title": "The Destructive War: William Tecumseh Sherman, Stonewall Jackson, and the Americans",
+      "author": "Charles Royster",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1726,16 +1704,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-ida-a-sword-among-lions-ida-b-wells-and-the-campaign-against-lynching-paula-j-giddings",
-      "slug": "ida-a-sword-among-lions-ida-b-wells-and-the-campaign-against-lynching-paula-j-giddings",
-      "title": "Ida: A Sword Among Lions: Ida B. Wells and the Campaign Against Lynching",
-      "author": "Paula J. Giddings",
+      "bookId": "book-the-dictators-hitler-s-germany-and-stalin-s-russia-richard-overy",
+      "slug": "the-dictators-hitler-s-germany-and-stalin-s-russia-richard-overy",
+      "title": "The Dictators: Hitler's Germany and Stalin's Russia",
+      "author": "Richard Overy",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1747,16 +1725,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-in-our-image-america-s-empire-in-the-philippines-stanley-karnow",
-      "slug": "in-our-image-america-s-empire-in-the-philippines-stanley-karnow",
-      "title": "In Our Image: America's Empire in the Philippines",
-      "author": "Stanley Karnow",
+      "bookId": "book-the-eastern-front-1914-17-norman-stone",
+      "slug": "the-eastern-front-1914-17-norman-stone",
+      "title": "The Eastern Front 1914-17",
+      "author": "Norman Stone",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1768,16 +1746,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-infinite-powers-steven-strogatz",
-      "slug": "infinite-powers-steven-strogatz",
-      "title": "Infinite Powers",
-      "author": "Steven Strogatz",
+      "bookId": "book-the-european-discovery-of-america-the-northern-voyages-samuel-eliot-morison",
+      "slug": "the-european-discovery-of-america-the-northern-voyages-samuel-eliot-morison",
+      "title": "The European Discovery of America: The Northern Voyages",
+      "author": "Samuel Eliot Morison",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1789,16 +1767,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-interpretation-of-schizophrenia-silvano-arieti",
-      "slug": "interpretation-of-schizophrenia-silvano-arieti",
-      "title": "Interpretation of Schizophrenia",
-      "author": "Silvano Arieti",
+      "bookId": "book-the-fall-of-france-the-nazi-invasion-of-1940-julian-jackson",
+      "slug": "the-fall-of-france-the-nazi-invasion-of-1940-julian-jackson",
+      "title": "The Fall of France: The Nazi Invasion of 1940",
+      "author": "Julian Jackson",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1810,16 +1788,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-into-the-silence-the-great-war-mallory-and-the-conquest-of-everest-wade-davis",
-      "slug": "into-the-silence-the-great-war-mallory-and-the-conquest-of-everest-wade-davis",
-      "title": "Into the Silence: The Great War, Mallory and the Conquest of Everest",
-      "author": "Wade Davis",
+      "bookId": "book-the-foundations-of-modern-political-thought-vol-1-the-renaissance-quentin-skinner",
+      "slug": "the-foundations-of-modern-political-thought-vol-1-the-renaissance-quentin-skinner",
+      "title": "The Foundations of Modern Political Thought, vol. 1: The Renaissance",
+      "author": "Quentin Skinner",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1831,16 +1809,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-inventing-ourselves-the-secret-life-of-the-teenage-brain-sarah-jayne-blakemore",
-      "slug": "inventing-ourselves-the-secret-life-of-the-teenage-brain-sarah-jayne-blakemore",
-      "title": "Inventing Ourselves: The Secret Life of the Teenage Brain",
-      "author": "Sarah-Jayne Blakemore",
+      "bookId": "book-the-gentleman-s-daughter-women-s-lives-in-georgian-england-amanda-vickery",
+      "slug": "the-gentleman-s-daughter-women-s-lives-in-georgian-england-amanda-vickery",
+      "title": "The Gentleman's Daughter: Women's Lives in Georgian England",
+      "author": "Amanda Vickery",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1852,16 +1830,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-irving-howe-history",
-      "slug": "irving-howe-history",
-      "title": "Irving Howe",
-      "author": "History",
+      "bookId": "book-the-global-cold-war-third-world-interventions-and-the-making-of-our-times-odd-arne-westad",
+      "slug": "the-global-cold-war-third-world-interventions-and-the-making-of-our-times-odd-arne-westad",
+      "title": "The Global Cold War: Third World Interventions and the Making of Our Times",
+      "author": "Odd Arne Westad",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1873,16 +1851,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-is-math-real-how-simple-questions-lead-us-to-mathematics-deepest-truths-eugenia-cheng",
-      "slug": "is-math-real-how-simple-questions-lead-us-to-mathematics-deepest-truths-eugenia-cheng",
-      "title": "Is Math Real? How Simple Questions Lead Us to Mathematics’ Deepest Truths",
-      "author": "Eugenia Cheng",
+      "bookId": "book-the-great-arizona-orphan-abduction-linda-gordon",
+      "slug": "the-great-arizona-orphan-abduction-linda-gordon",
+      "title": "The Great Arizona Orphan Abduction",
+      "author": "Linda Gordon",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1894,16 +1872,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-isak-dinesen-the-life-of-a-storyteller-judith-thurman",
-      "slug": "isak-dinesen-the-life-of-a-storyteller-judith-thurman",
-      "title": "Isak Dinesen: The Life of a Storyteller",
-      "author": "Judith Thurman",
+      "bookId": "book-the-great-war-for-the-empire-lawrence-h-gipson",
+      "slug": "the-great-war-for-the-empire-lawrence-h-gipson",
+      "title": "The Great War for the Empire",
+      "author": "Lawrence H. Gipson",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1915,16 +1893,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-james-joyce-richard-ellmann",
-      "slug": "james-joyce-richard-ellmann",
-      "title": "James Joyce",
-      "author": "Richard Ellmann",
+      "bookId": "book-the-guns-of-august-barbara-w-tuchman",
+      "slug": "the-guns-of-august-barbara-w-tuchman",
+      "title": "The Guns of August",
+      "author": "Barbara W. Tuchman",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1936,16 +1914,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-james-tiptree-jr-the-double-life-of-alice-b-sheldon-julie-phillips",
-      "slug": "james-tiptree-jr-the-double-life-of-alice-b-sheldon-julie-phillips",
-      "title": "James Tiptree, Jr.: The Double Life of Alice B. Sheldon",
-      "author": "Julie Phillips",
+      "bookId": "book-the-hundred-years-war-vol-iii-divided-houses-jonathan-sumption",
+      "slug": "the-hundred-years-war-vol-iii-divided-houses-jonathan-sumption",
+      "title": "The Hundred Years War, vol. III: Divided Houses",
+      "author": "Jonathan Sumption",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1957,16 +1935,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-jane-austen-s-cults-and-cultures-claudia-l-johnson",
-      "slug": "jane-austen-s-cults-and-cultures-claudia-l-johnson",
-      "title": "Jane Austen's Cults and Cultures",
-      "author": "Claudia L. Johnson (",
+      "bookId": "book-the-image-empire-a-history-of-broadcasting-in-the-united-states-volume-iii-from-1953-erik-barnou",
+      "slug": "the-image-empire-a-history-of-broadcasting-in-the-united-states-volume-iii-from-1953-erik-barnou",
+      "title": "The Image Empire: A History of Broadcasting in the United States, Volume III—From 1953",
+      "author": "Erik Barnouw",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1978,16 +1956,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-jefferson-davis-american-william-j-cooper-jr",
-      "slug": "jefferson-davis-american-william-j-cooper-jr",
-      "title": "Jefferson Davis, American",
-      "author": "William J. Cooper, Jr.",
+      "bookId": "book-the-indian-slave-trade-the-rise-of-the-english-empire-in-the-american-south-1670-1717-alan-galla",
+      "slug": "the-indian-slave-trade-the-rise-of-the-english-empire-in-the-american-south-1670-1717-alan-galla",
+      "title": "The Indian Slave Trade: The Rise of the English Empire in the American South, 1670-1717",
+      "author": "Alan Gallay",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -1999,16 +1977,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-john-keats-the-making-of-a-poet-aileen-ward",
-      "slug": "john-keats-the-making-of-a-poet-aileen-ward",
-      "title": "John Keats: The Making of a Poet",
-      "author": "Aileen Ward",
+      "bookId": "book-the-jefferson-image-in-the-american-mind-merrill-d-peterson",
+      "slug": "the-jefferson-image-in-the-american-mind-merrill-d-peterson",
+      "title": "The Jefferson Image in the American Mind",
+      "author": "Merrill D. Peterson",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -2020,79 +1998,16 @@
       "recommendedAction": "catalog_completion"
     },
     {
-      "bookId": "book-judenrat-the-jewish-councils-in-eastern-europe-under-nazi-occupation-isaiah-trunk",
-      "slug": "judenrat-the-jewish-councils-in-eastern-europe-under-nazi-occupation-isaiah-trunk",
-      "title": "Judenrat: The Jewish Councils in Eastern Europe under Nazi Occupation",
-      "author": "Isaiah Trunk",
+      "bookId": "book-the-kaiser-and-his-court-wilhelm-ii-and-the-government-of-germany-john-rohl",
+      "slug": "the-kaiser-and-his-court-wilhelm-ii-and-the-government-of-germany-john-rohl",
+      "title": "The Kaiser and his Court: Wilhelm II and the Government of Germany",
+      "author": "John Röhl",
       "score": 10,
+      "priorityScore": 80,
+      "lane": "high_value",
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-julia-child-and-more-company-julia-child",
-      "slug": "julia-child-and-more-company-julia-child",
-      "title": "Julia Child and More Company",
-      "author": "Julia Child",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-killing-a-king-the-assassination-of-yitzhak-rabin-and-the-remaking-of-israel-dan-ephron",
-      "slug": "killing-a-king-the-assassination-of-yitzhak-rabin-and-the-remaking-of-israel-dan-ephron",
-      "title": "Killing a King: The Assassination of Yitzhak Rabin and the Remaking of Israel",
-      "author": "Dan Ephron",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "recommendedAction": "catalog_completion"
-    },
-    {
-      "bookId": "book-know-my-name-a-memoir-chanel-miller",
-      "slug": "know-my-name-a-memoir-chanel-miller",
-      "title": "Know My Name: A Memoir",
-      "author": "Chanel Miller",
-      "score": 10,
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",

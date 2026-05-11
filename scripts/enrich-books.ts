@@ -3,6 +3,21 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { data, getBookStats } from "../lib/data";
 import type { Book, SourceRef } from "../lib/types";
+import {
+  catalogMissingFieldsForBook,
+  compareEnrichmentPriority,
+  deferredMissingFieldsForBook,
+  enrichmentLaneForBook,
+  enrichmentPriorityScore,
+  isUnproductiveAttempt,
+  missingFieldsForSelection,
+  parseLane,
+  parseMissingFieldSet,
+  sameMissingFields,
+  type CatalogMissingBookField,
+  type DeferredMissingBookField,
+  type EnrichmentLane,
+} from "./book-enrichment-priority";
 
 type EnrichmentPatch = {
   generatedAt: string;
@@ -26,6 +41,13 @@ type ReportRow = {
   notes?: string;
 };
 
+type BookCompletionResult = {
+  report: ReportRow;
+  bookPatch?: Partial<Book>;
+  publishers?: EnrichmentPatch["publishers"];
+  sources?: EnrichmentPatch["sources"];
+};
+
 type AttemptRow = {
   bookId: string;
   slug: string;
@@ -37,9 +59,6 @@ type AttemptRow = {
   matches?: MatchReport[];
   notes?: string;
 };
-
-type CatalogMissingBookField = "isbn13" | "publicationYear" | "publisherId" | "imprintId" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink";
-type DeferredMissingBookField = "wikipedia";
 
 type MatchReport = {
   provider: "google_books" | "open_library";
@@ -103,8 +122,11 @@ const attemptsPath = path.join(publicDataDir, "book-enrichment-attempts.json");
 const limit = Number(process.env.BOOK_COMPLETION_LIMIT ?? process.env.ENRICH_LIMIT ?? readArg("--limit") ?? "25");
 const minimumScore = Number(process.env.BOOK_COMPLETION_MIN_SCORE ?? process.env.ENRICH_MIN_SCORE ?? readArg("--min-score") ?? "0.58");
 const provider = process.env.BOOK_COMPLETION_PROVIDER ?? process.env.ENRICH_PROVIDER ?? "all";
-const useOpenLibrary = provider !== "google_books" && provider !== "google";
-const useGoogleBooks = provider !== "open_library" && provider !== "openlibrary" && process.env.BOOK_COMPLETION_GOOGLE !== "0" && process.env.ENRICH_GOOGLE !== "0" && !hasArg("--no-google");
+const requestedLane = parseLane(readArg("--lane") ?? process.env.BOOK_COMPLETION_LANE ?? process.env.ENRICH_LANE);
+const requestedFields = parseMissingFieldSet(readArg("--fields") ?? process.env.BOOK_COMPLETION_FIELDS ?? process.env.ENRICH_FIELDS);
+const concurrency = positiveNumber(process.env.BOOK_COMPLETION_CONCURRENCY ?? process.env.ENRICH_CONCURRENCY ?? readArg("--concurrency"), 3);
+const fastMode = hasArg("--fast") || process.env.BOOK_COMPLETION_FAST === "1" || process.env.ENRICH_FAST === "1";
+const providerPlan = selectProviderPlan(provider, requestedFields);
 
 async function main() {
   const generatedAt = new Date().toISOString();
@@ -112,107 +134,41 @@ async function main() {
   const retryFailures = hasArg("--retry-failures") || process.env.BOOK_COMPLETION_RETRY_FAILURES === "1" || process.env.ENRICH_RETRY_FAILURES === "1";
   const attempts = await readAttempts();
   const selected = (requestedBookIds.size ? data.books.filter((book) => requestedBookIds.has(book.id) || requestedBookIds.has(book.slug)) : [...data.books])
-    .filter((book) => catalogMissingFieldsForBook(book).length > 0)
-    .filter((book) => requestedBookIds.size || retryFailures || !isRecentUnproductiveAttempt(attempts[book.id], book))
-    .sort(
-      (a, b) =>
-        catalogMissingFieldsForBook(b).length - catalogMissingFieldsForBook(a).length ||
-        getBookStats(b.id).score - getBookStats(a.id).score ||
-        a.title.localeCompare(b.title),
-    )
+    .map((book) => selectionRow(book, attempts[book.id]))
+    .filter((row) => row.selectedMissingFields.length > 0)
+    .filter((row) => !requestedLane || row.lane === requestedLane)
+    .filter((row) => requestedBookIds.size || retryFailures || !isRecentUnproductiveAttempt(attempts[row.book.id], row.book))
+    .sort(compareEnrichmentPriority)
     .slice(0, limit);
 
   const patch = await readExistingPatch(generatedAt);
+  const results = await mapConcurrent(selected, concurrency, (row, index) => completeBook(row, index + 1, selected.length, generatedAt));
   const report: ReportRow[] = [];
 
-  for (const book of selected) {
-    const index = report.length + 1;
-    const author = book.authors.map((item) => item.name).join(" ");
-    const missingFields = catalogMissingFieldsForBook(book);
-    const deferredFields = deferredMissingFieldsForBook(book);
-    if (!missingFields.length) {
-      report.push({ bookId: book.id, slug: book.slug, title: book.title, author, status: "no_missing_fields", fields: [] });
-      continue;
-    }
-    try {
-      console.log(`[${index}/${selected.length}] Completing ${book.title} — ${author}`);
-      const [openLibraryResult, googleResult] = await Promise.allSettled([
-        useOpenLibrary ? fetchOpenLibrary(book, author) : Promise.resolve(undefined),
-        useGoogleBooks ? fetchGoogleBooks(book, author) : Promise.resolve(undefined),
-      ]);
-      const openLibrary = openLibraryResult.status === "fulfilled" ? openLibraryResult.value : undefined;
-      const google = googleResult.status === "fulfilled" ? googleResult.value : undefined;
-      const matches = [
-        google ? matchReport("google_books", book, author, google.item.volumeInfo?.title, google.item.volumeInfo?.authors?.join(" "), google.item.volumeInfo?.canonicalVolumeLink ?? google.item.volumeInfo?.infoLink, google.score) : undefined,
-        openLibrary ? matchReport("open_library", book, author, openLibrary.doc.title, openLibrary.doc.author_name?.join(" "), openLibrary.doc.key ? `https://openlibrary.org${openLibrary.doc.key}` : undefined, openLibrary.score) : undefined,
-      ].filter(Boolean) as MatchReport[];
-      const hasAcceptedMatch = matches.some((match) => match.accepted);
-
-      if (!hasAcceptedMatch) {
-        const notes = [openLibraryResult, googleResult]
-          .filter((result) => result.status === "rejected")
-          .map((result) => result.reason instanceof Error ? result.reason.message : String(result.reason))
-          .join("; ");
-        report.push({
-          bookId: book.id,
-          slug: book.slug,
-          title: book.title,
-          author,
-          status: matches.length ? "low_confidence" : "not_found",
-          fields: [],
-          missingFields,
-          deferredFields,
-          matches,
-          notes,
-        });
-        continue;
-      }
-
-      const enriched = mergeMetadata(
-        book,
-        openLibrary && isAcceptedMatch(book, author, openLibrary.doc.title, openLibrary.doc.author_name?.join(" "), openLibrary.score) ? openLibrary.doc : undefined,
-        google && isAcceptedMatch(book, author, google.item.volumeInfo?.title, google.item.volumeInfo?.authors?.join(" "), google.score) ? google.item : undefined,
-        generatedAt,
-      );
-      if (!Object.keys(enriched.bookPatch).length) {
-        const notes = [openLibraryResult, googleResult]
-          .filter((result) => result.status === "rejected")
-          .map((result) => result.reason instanceof Error ? result.reason.message : String(result.reason))
-          .join("; ");
-        report.push({ bookId: book.id, slug: book.slug, title: book.title, author, status: "no_new_fields", fields: [], missingFields, deferredFields, matches, notes });
-        continue;
-      }
-      patch.books[book.id] = mergePatch(patch.books[book.id] ?? {}, enriched.bookPatch);
-      Object.assign(patch.publishers, enriched.publishers);
-      Object.assign(patch.sources, enriched.sources);
-      report.push({
-        bookId: book.id,
-        slug: book.slug,
-        title: book.title,
-        author,
-        status: "enriched",
-        fields: Object.keys(enriched.bookPatch),
-        skippedFields: missingFields.filter((field) => !Object.keys(enriched.bookPatch).includes(fieldToPatchKey(field))),
-        missingFields,
-        deferredFields,
-        matches,
-      });
-    } catch (error) {
-      report.push({
-        bookId: book.id,
-        slug: book.slug,
-        title: book.title,
-        author,
-        status: "error",
-        fields: [],
-        notes: error instanceof Error ? error.message : String(error),
-      });
-    }
+  for (const result of results) {
+    report.push(result.report);
+    if (result.bookPatch) patch.books[result.report.bookId] = mergePatch(patch.books[result.report.bookId] ?? {}, result.bookPatch);
+    if (result.publishers) Object.assign(patch.publishers, result.publishers);
+    if (result.sources) Object.assign(patch.sources, result.sources);
   }
 
   await fs.mkdir(outputDir, { recursive: true });
   await fs.writeFile(path.join(outputDir, "books.generated.json"), `${JSON.stringify(patch, null, 2)}\n`);
-  const reportPayload = { generatedAt, limit, minimumScore, provider, selectedCount: selected.length, summary: completionSummary(data.books), report };
+  const reportPayload = {
+    generatedAt,
+    limit,
+    minimumScore,
+    provider,
+    providerPlan,
+    concurrency,
+    fastMode,
+    lane: requestedLane,
+    fields: requestedFields ? [...requestedFields] : undefined,
+    selectedCount: selected.length,
+    selectedLanes: summarizeSelectedLanes(selected),
+    summary: completionSummary(data.books),
+    report,
+  };
   await fs.writeFile(path.join(publicDataDir, "book-completion-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataDir, "book-enrichment-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataDir, "enrichment-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
@@ -234,6 +190,130 @@ async function writeAttempts(attempts: Record<string, AttemptRow>) {
   await fs.writeFile(attemptsPath, `${JSON.stringify({ generatedAt: new Date().toISOString(), attempts }, null, 2)}\n`);
 }
 
+async function completeBook(
+  row: ReturnType<typeof selectionRow>,
+  index: number,
+  total: number,
+  generatedAt: string,
+): Promise<BookCompletionResult> {
+  const book = row.book;
+  const author = book.authors.map((item) => item.name).join(" ");
+  const selectedMissingFields = row.selectedMissingFields;
+  const deferredFields = deferredMissingFieldsForBook(book);
+  if (!selectedMissingFields.length) {
+    return { report: { bookId: book.id, slug: book.slug, title: book.title, author, status: "no_missing_fields", fields: [] } };
+  }
+
+  try {
+    console.log(`[${index}/${total}] Completing ${book.title} - ${author}`);
+    const useOpenLibrary = shouldUseOpenLibrary(selectedMissingFields);
+    const useGoogleBooks = shouldUseGoogleBooks(selectedMissingFields);
+    const [openLibraryResult, googleResult] = await Promise.allSettled([
+      useOpenLibrary ? fetchOpenLibrary(book, author, selectedMissingFields) : Promise.resolve(undefined),
+      useGoogleBooks ? fetchGoogleBooks(book, author) : Promise.resolve(undefined),
+    ]);
+    const openLibrary = openLibraryResult.status === "fulfilled" ? openLibraryResult.value : undefined;
+    const google = googleResult.status === "fulfilled" ? googleResult.value : undefined;
+    const matches = [
+      google ? matchReport("google_books", book, author, google.item.volumeInfo?.title, google.item.volumeInfo?.authors?.join(" "), google.item.volumeInfo?.canonicalVolumeLink ?? google.item.volumeInfo?.infoLink, google.score) : undefined,
+      openLibrary ? matchReport("open_library", book, author, openLibrary.doc.title, openLibrary.doc.author_name?.join(" "), openLibrary.doc.key ? `https://openlibrary.org${openLibrary.doc.key}` : undefined, openLibrary.score) : undefined,
+    ].filter(Boolean) as MatchReport[];
+    const hasAcceptedMatch = matches.some((match) => match.accepted);
+
+    if (!hasAcceptedMatch) {
+      return {
+        report: {
+          bookId: book.id,
+          slug: book.slug,
+          title: book.title,
+          author,
+          status: matches.length ? "low_confidence" : "not_found",
+          fields: [],
+          missingFields: selectedMissingFields,
+          deferredFields,
+          matches,
+          notes: rejectionNotes([openLibraryResult, googleResult]),
+        },
+      };
+    }
+
+    const enriched = mergeMetadata(
+      book,
+      openLibrary && isAcceptedMatch(book, author, openLibrary.doc.title, openLibrary.doc.author_name?.join(" "), openLibrary.score) ? openLibrary.doc : undefined,
+      google && isAcceptedMatch(book, author, google.item.volumeInfo?.title, google.item.volumeInfo?.authors?.join(" "), google.score) ? google.item : undefined,
+      generatedAt,
+      requestedFields,
+    );
+    if (!Object.keys(enriched.bookPatch).length) {
+      return {
+        report: {
+          bookId: book.id,
+          slug: book.slug,
+          title: book.title,
+          author,
+          status: "no_new_fields",
+          fields: [],
+          missingFields: selectedMissingFields,
+          deferredFields,
+          matches,
+          notes: rejectionNotes([openLibraryResult, googleResult]),
+        },
+      };
+    }
+
+    return {
+      bookPatch: enriched.bookPatch,
+      publishers: enriched.publishers,
+      sources: enriched.sources,
+      report: {
+        bookId: book.id,
+        slug: book.slug,
+        title: book.title,
+        author,
+        status: "enriched",
+        fields: Object.keys(enriched.bookPatch),
+        skippedFields: selectedMissingFields.filter((field) => !Object.keys(enriched.bookPatch).includes(fieldToPatchKey(field))),
+        missingFields: selectedMissingFields,
+        deferredFields,
+        matches,
+      },
+    };
+  } catch (error) {
+    return {
+      report: {
+        bookId: book.id,
+        slug: book.slug,
+        title: book.title,
+        author,
+        status: "error",
+        fields: [],
+        notes: error instanceof Error ? error.message : String(error),
+      },
+    };
+  }
+}
+
+function selectionRow(book: Book, attempt?: AttemptRow) {
+  const stats = getBookStats(book.id);
+  const lane = enrichmentLaneForBook(book, stats, attempt);
+  const missingFields = catalogMissingFieldsForBook(book);
+  return {
+    book,
+    title: book.title,
+    lane,
+    score: stats.score,
+    priorityScore: enrichmentPriorityScore(book, stats, lane),
+    missingFields,
+    selectedMissingFields: missingFieldsForSelection(book, requestedFields),
+  };
+}
+
+function summarizeSelectedLanes(rows: Array<ReturnType<typeof selectionRow>>) {
+  const summary: Record<string, number> = {};
+  for (const row of rows) summary[row.lane] = (summary[row.lane] ?? 0) + 1;
+  return summary;
+}
+
 function toAttemptRow(row: ReportRow, attemptedAt: string): AttemptRow {
   return {
     bookId: row.bookId,
@@ -249,10 +329,7 @@ function toAttemptRow(row: ReportRow, attemptedAt: string): AttemptRow {
 }
 
 function isRecentUnproductiveAttempt(attempt: AttemptRow | undefined, book: Book) {
-  if (!attempt) return false;
-  if (!["low_confidence", "not_found", "no_new_fields", "error"].includes(attempt.status)) return false;
-  const sameMissingFields = JSON.stringify(attempt.missingFields ?? []) === JSON.stringify(catalogMissingFieldsForBook(book));
-  return sameMissingFields;
+  return isUnproductiveAttempt(attempt) && sameMissingFields(attempt?.missingFields, catalogMissingFieldsForBook(book));
 }
 
 async function readExistingPatch(generatedAt: string): Promise<EnrichmentPatch> {
@@ -276,7 +353,7 @@ async function readExistingPatch(generatedAt: string): Promise<EnrichmentPatch> 
   }
 }
 
-async function fetchOpenLibrary(book: Book, author: string): Promise<{ doc: OpenLibraryDoc; score: number } | undefined> {
+async function fetchOpenLibrary(book: Book, author: string, missingFields: CatalogMissingBookField[]): Promise<{ doc: OpenLibraryDoc; score: number } | undefined> {
   const docs: OpenLibraryDoc[] = [];
   for (const params of openLibraryQueries(book, author)) {
     const json = await fetchJson<{ docs?: OpenLibraryDoc[] }>(`https://openlibrary.org/search.json?${params}`);
@@ -287,9 +364,12 @@ async function fetchOpenLibrary(book: Book, author: string): Promise<{ doc: Open
   }
   const match = bestOpenLibraryMatch(book, author, dedupeOpenLibraryDocs(docs));
   if (!match?.doc.key || match.score < minimumScore) return match;
+  if (fastMode && !needsOpenLibraryDetail(missingFields)) return match;
 
-  const editions = await fetchOpenLibraryEditions(match.doc.key);
-  const work = await fetchOpenLibraryWork(match.doc.key);
+  const [editions, work] = await Promise.all([
+    fetchOpenLibraryEditions(match.doc.key),
+    fetchOpenLibraryWork(match.doc.key),
+  ]);
   const bestEdition = bestOpenLibraryEdition(match.doc, editions);
   if (!bestEdition && !work.subjects?.length) return match;
 
@@ -357,23 +437,25 @@ function bestGoogleMatch(book: Book, author: string, items: GoogleVolume[]) {
 function openLibraryQueries(book: Book, author: string) {
   const mainAuthor = author.split(/\s+(?:and|&)\s+/i)[0]?.trim() || author;
   const shortTitle = titleWithoutSubtitle(book.title);
-  return [
+  const queries = [
     new URLSearchParams({ title: book.title, author, limit: "5" }),
     new URLSearchParams({ q: `${book.title} ${author}`, limit: "5" }),
     ...(shortTitle !== book.title ? [new URLSearchParams({ title: shortTitle, author: mainAuthor, limit: "5" })] : []),
     new URLSearchParams({ q: `${shortTitle} ${mainAuthor}`, limit: "5" }),
   ];
+  return fastMode ? queries.slice(0, 2) : queries;
 }
 
 function googleQueries(book: Book, author: string) {
   const mainAuthor = author.split(/\s+(?:and|&)\s+/i)[0]?.trim() || author;
   const shortTitle = titleWithoutSubtitle(book.title);
-  return [
+  const queries = [
     `intitle:${quote(book.title)} inauthor:${quote(author)}`,
     `${quote(book.title)} ${quote(author)}`,
     ...(shortTitle !== book.title ? [`intitle:${quote(shortTitle)} inauthor:${quote(mainAuthor)}`] : []),
     `${quote(shortTitle)} ${quote(mainAuthor)}`,
   ];
+  return fastMode ? queries.slice(0, 2) : queries;
 }
 
 function dedupeOpenLibraryDocs(docs: OpenLibraryDoc[]) {
@@ -429,7 +511,13 @@ function mergeOpenLibraryEdition(work: OpenLibraryDoc, edition: OpenLibraryEditi
   };
 }
 
-function mergeMetadata(book: Book, openLibrary: OpenLibraryDoc | undefined, google: GoogleVolume | undefined, generatedAt: string) {
+function mergeMetadata(
+  book: Book,
+  openLibrary: OpenLibraryDoc | undefined,
+  google: GoogleVolume | undefined,
+  generatedAt: string,
+  allowedFields: Set<CatalogMissingBookField> | undefined,
+) {
   const sourceIds = new Set(book.sourceIds);
   const sources: Record<string, SourceRef> = {};
   const publishers: EnrichmentPatch["publishers"] = {};
@@ -482,23 +570,23 @@ function mergeMetadata(book: Book, openLibrary: OpenLibraryDoc | undefined, goog
       sourceId: openLibraryUrl ? `source-open-library-${book.slug}` : undefined,
     })),
   ];
-  if (subjectCategories.length) {
+  if (!allowedFields?.size && subjectCategories.length) {
     bookPatch.subjectCategories = mergeSubjectCategories(book.subjectCategories ?? [], subjectCategories);
   }
-  if (!book.isbn13.length && isbn13) bookPatch.isbn13 = [isbn13];
-  if (!book.publicationYear && publicationYear) bookPatch.publicationYear = publicationYear;
-  if (!book.pageCount && (google?.volumeInfo?.pageCount || openLibrary?.number_of_pages_median)) {
+  if (allowsField(allowedFields, "isbn13") && !book.isbn13.length && isbn13) bookPatch.isbn13 = [isbn13];
+  if (allowsField(allowedFields, "publicationYear") && !book.publicationYear && publicationYear) bookPatch.publicationYear = publicationYear;
+  if (allowsField(allowedFields, "pageCount") && !book.pageCount && (google?.volumeInfo?.pageCount || openLibrary?.number_of_pages_median)) {
     bookPatch.pageCount = google?.volumeInfo?.pageCount ?? openLibrary?.number_of_pages_median;
   }
-  if (!book.summary && google?.volumeInfo?.description) bookPatch.summary = trimDescription(google.volumeInfo.description);
+  if (allowsField(allowedFields, "summary") && !book.summary && google?.volumeInfo?.description) bookPatch.summary = trimDescription(google.volumeInfo.description);
   const thumbnail = google?.volumeInfo?.imageLinks?.thumbnail ?? google?.volumeInfo?.imageLinks?.smallThumbnail;
-  if (!book.thumbnailUrl && thumbnail) bookPatch.thumbnailUrl = thumbnail.replace(/^http:/, "https:");
-  if (!book.thumbnailUrl && openLibrary?.cover_i) {
+  if (allowsField(allowedFields, "thumbnailUrl") && !book.thumbnailUrl && thumbnail) bookPatch.thumbnailUrl = thumbnail.replace(/^http:/, "https:");
+  if (allowsField(allowedFields, "thumbnailUrl") && !book.thumbnailUrl && openLibrary?.cover_i) {
     bookPatch.thumbnailUrl = `https://covers.openlibrary.org/b/id/${openLibrary.cover_i}-L.jpg`;
   }
-  if (!book.links.publisher && links.publisher) bookPatch.links = links;
+  if (allowsField(allowedFields, "publisherLink") && !book.links.publisher && links.publisher) bookPatch.links = links;
   if (sourceIds.size > book.sourceIds.length) bookPatch.sourceIds = [...sourceIds];
-  if (!book.publisherId && publisherName) {
+  if (allowsField(allowedFields, "publisherId") && !book.publisherId && publisherName && !isLikelyAudioPublisher(publisherName)) {
     const publisherId = `publisher-${slugify(publisherName)}`;
     const sourceId = `source-publisher-catalog-${slugify(publisherName)}`;
     bookPatch.publisherId = publisherId;
@@ -523,6 +611,10 @@ function mergeMetadata(book: Book, openLibrary: OpenLibraryDoc | undefined, goog
   return { bookPatch, publishers, sources };
 }
 
+function allowsField(fields: Set<CatalogMissingBookField> | undefined, field: CatalogMissingBookField) {
+  return !fields?.size || fields.has(field);
+}
+
 function mergeSubjectCategories(existing: NonNullable<Book["subjectCategories"]>, incoming: NonNullable<Book["subjectCategories"]>) {
   const seen = new Set<string>();
   return [...existing, ...incoming].filter((category) => {
@@ -531,23 +623,6 @@ function mergeSubjectCategories(existing: NonNullable<Book["subjectCategories"]>
     seen.add(key);
     return true;
   });
-}
-
-function catalogMissingFieldsForBook(book: Book): CatalogMissingBookField[] {
-  const fields: CatalogMissingBookField[] = [];
-  if (!book.isbn13.length) fields.push("isbn13");
-  if (!book.publicationYear) fields.push("publicationYear");
-  if (!book.publisherId) fields.push("publisherId");
-  if (!book.imprintId) fields.push("imprintId");
-  if (!book.pageCount) fields.push("pageCount");
-  if (!book.summary) fields.push("summary");
-  if (!book.thumbnailUrl) fields.push("thumbnailUrl");
-  if (!book.links.publisher) fields.push("publisherLink");
-  return fields;
-}
-
-function deferredMissingFieldsForBook(book: Book): DeferredMissingBookField[] {
-  return book.links.wikipedia ? [] : ["wikipedia"];
 }
 
 function mergePatch(current: Partial<Book>, next: Partial<Book>): Partial<Book> {
@@ -677,6 +752,65 @@ function titleWithoutSubtitle(input: string) {
 
 function slugify(input: string) {
   return input.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 96);
+}
+
+function isLikelyAudioPublisher(value: string) {
+  const normalized = value.toLowerCase();
+  return /\b(audio|audiobook|spoken word|recorded books|blackstone|tantor)\b/.test(normalized);
+}
+
+async function mapConcurrent<T, R>(items: T[], width: number, worker: (item: T, index: number) => Promise<R>): Promise<R[]> {
+  const results = new Array<R>(items.length);
+  let nextIndex = 0;
+  const workers = Array.from({ length: Math.min(width, items.length) }, async () => {
+    while (nextIndex < items.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      results[index] = await worker(items[index], index);
+    }
+  });
+  await Promise.all(workers);
+  return results;
+}
+
+function selectProviderPlan(providerName: string, fields: Set<CatalogMissingBookField> | undefined) {
+  const normalized = providerName.toLowerCase().replaceAll("-", "_");
+  const googleDisabled = process.env.BOOK_COMPLETION_GOOGLE === "0" || process.env.ENRICH_GOOGLE === "0" || hasArg("--no-google");
+  const explicitOpenLibrary = normalized === "open_library" || normalized === "openlibrary";
+  const explicitGoogle = normalized === "google_books" || normalized === "google";
+  const fieldList = [...(fields ?? [])];
+  const onlyImprint = fieldList.length > 0 && fieldList.every((field) => field === "imprintId");
+  const googleUseful = !fields?.size || fieldList.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "summary", "thumbnailUrl", "publisherLink"].includes(field));
+  const openLibraryUseful = !fields?.size || fieldList.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "thumbnailUrl"].includes(field));
+
+  return {
+    openLibrary: !onlyImprint && !explicitGoogle && openLibraryUseful,
+    googleBooks: !onlyImprint && !googleDisabled && !explicitOpenLibrary && googleUseful,
+  };
+}
+
+function shouldUseOpenLibrary(missingFields: CatalogMissingBookField[]) {
+  return providerPlan.openLibrary && (!requestedFields?.size || missingFields.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "thumbnailUrl"].includes(field)));
+}
+
+function shouldUseGoogleBooks(missingFields: CatalogMissingBookField[]) {
+  return providerPlan.googleBooks && (!requestedFields?.size || missingFields.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "summary", "thumbnailUrl", "publisherLink"].includes(field)));
+}
+
+function needsOpenLibraryDetail(missingFields: CatalogMissingBookField[]) {
+  return missingFields.some((field) => ["isbn13", "pageCount", "thumbnailUrl"].includes(field));
+}
+
+function rejectionNotes(results: PromiseSettledResult<unknown>[]) {
+  return results
+    .filter((result) => result.status === "rejected")
+    .map((result) => result.reason instanceof Error ? result.reason.message : String(result.reason))
+    .join("; ");
+}
+
+function positiveNumber(value: string | undefined, fallback: number) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
 }
 
 function readArg(name: string) {

@@ -40,10 +40,10 @@ export default async function BookPage({ params }: PageProps) {
 
   return (
     <main>
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[18rem_minmax(0,1fr)_20rem] lg:items-start lg:px-8">
-        <aside className="border-r-0 hairline lg:border-r lg:pr-7">
+      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[16rem_minmax(0,1fr)_20rem] lg:items-start lg:px-8">
+        <aside className="border-r-0 hairline lg:border-r lg:pr-6">
           <BookCover title={book.title} author={book.authors.map((author) => author.name).join(", ")} thumbnailUrl={book.thumbnailUrl} />
-          <dl className="mt-4 grid text-[0.78rem]">
+          <dl className="mt-3 grid text-[0.72rem]">
             <RailMeta label="Author" value={book.authors.map((author) => author.name).join(", ")} />
             <RailMeta label="Publisher" value={publisher?.name ?? "Not yet sourced"} />
             <RailMeta
@@ -57,13 +57,13 @@ export default async function BookPage({ params }: PageProps) {
         </aside>
 
         <section className="min-w-0">
-          <h1 className="font-[var(--font-serif)] text-5xl font-light leading-[1.02] sm:text-6xl">{book.title}</h1>
-          {book.subtitle ? <p className="mt-3 text-2xl">{book.subtitle}</p> : null}
-          <p className="mt-4 text-xl muted">{book.authors.map((author) => author.name).join(", ")}</p>
+          <h1 className="font-[var(--font-serif)] text-4xl font-light leading-[1.06] sm:text-5xl">{book.title}</h1>
+          {book.subtitle ? <p className="mt-2 text-xl">{book.subtitle}</p> : null}
+          <p className="mt-3 text-lg muted">{book.authors.map((author) => author.name).join(", ")}</p>
 
-          <div className="mt-8 max-w-3xl space-y-5 text-base leading-8">
+          <div className="mt-6 max-w-3xl space-y-4 text-base leading-7">
             {detailSummary ? (
-              <p>{detailSummary}</p>
+              <p className="line-clamp-7">{detailSummary}</p>
             ) : (
               <>
                 <p className="muted">
@@ -78,14 +78,17 @@ export default async function BookPage({ params }: PageProps) {
             )}
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            {book.primarySubject ? <SubjectPill index={0} subject={book.primarySubject} /> : null}
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            {book.primarySubject ? (
+              <SubjectEvidenceHint book={book}>
+                <SubjectPill index={0} subject={book.primarySubject} />
+              </SubjectEvidenceHint>
+            ) : null}
             {book.topics.map((topic, index) => <TopicTag isPrimary={topic === book.primaryTopic || index === 0} key={topic} topic={topic} />)}
-            <SubjectEvidenceHint book={book} />
           </div>
         </section>
 
-        <aside className="book-detail-stats mt-8 text-sm lg:mt-28">
+        <aside className="book-detail-stats mt-6 text-sm lg:mt-14">
           <dl>
             <StatLine label="Awards won" value={String(stats.wins)} />
             <StatLine label="Shortlisted" value={String(stats.statuses.finalist + stats.statuses.shortlist)} />
@@ -181,17 +184,14 @@ export default async function BookPage({ params }: PageProps) {
   );
 }
 
-function SubjectEvidenceHint({ book }: { book: Book }) {
+function SubjectEvidenceHint({ book, children }: { book: Book; children: React.ReactNode }) {
   const decision = book.subjectEvidence;
-  if (!decision) return null;
+  if (!decision) return <>{children}</>;
   const topCandidates = decision.candidates.slice(0, 3);
   const topEvidence = decision.evidence.slice(0, 3);
   return (
     <span className="subject-evidence-hint">
-      <button className="subject-evidence-trigger focus-ring" type="button" aria-label={`Subject assignment evidence for ${decision.primarySubject}`}>
-        ?
-      </button>
-      <span className="subject-evidence-label">Subject assignment</span>
+      {children}
       <span className="subject-evidence-tooltip" role="tooltip">
         <span className="subject-evidence-tooltip-title">{decision.primarySubject} · {decision.confidence} confidence</span>
         {decision.confidence === "low" ? (
@@ -247,10 +247,10 @@ function detailPageSummary(book: Book) {
 
 function BookCover({ title, author, thumbnailUrl }: { title: string; author: string; thumbnailUrl?: string }) {
   if (thumbnailUrl) {
-    return <img className="book-detail-cover aspect-[0.72] w-full max-w-[16rem] border hairline object-cover" src={thumbnailUrl} alt={`Cover of ${title}`} />;
+    return <img className="book-detail-cover aspect-[0.72] w-full max-w-[14.5rem] border hairline object-cover" src={thumbnailUrl} alt={`Cover of ${title}`} />;
   }
   return (
-    <div className="book-detail-cover aspect-[0.72] w-full max-w-[16rem] border hairline bg-[color-mix(in_srgb,var(--panel)_84%,var(--line))] p-7">
+    <div className="book-detail-cover aspect-[0.72] w-full max-w-[14.5rem] border hairline bg-[color-mix(in_srgb,var(--panel)_84%,var(--line))] p-6">
       <div className="flex h-full flex-col items-center justify-between border hairline p-5 text-center">
         <p className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.28em]">{title.slice(0, 52)}</p>
         <div className="h-20 w-20 rounded-full border hairline" />
@@ -270,7 +270,7 @@ function AwardLogoMark({ logoAlt, logoUrl, name }: { logoAlt?: string; logoUrl?:
 
 function RailMeta({ label, value }: { label: string; value: React.ReactNode }) {
   return (
-    <div className="grid grid-cols-[6.2rem_1fr] gap-3 border-b hairline py-2">
+    <div className="grid grid-cols-[5.7rem_1fr] gap-3 border-b hairline py-1.5">
       <dt className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.12em] muted">{label}</dt>
       <dd className="plain-number text-right">{value}</dd>
     </div>
@@ -279,7 +279,7 @@ function RailMeta({ label, value }: { label: string; value: React.ReactNode }) {
 
 function StatLine({ label, value }: { label: string; value: string }) {
   return (
-    <div className="grid grid-cols-[1fr_auto] gap-5 border-b hairline py-3">
+    <div className="grid grid-cols-[1fr_auto] gap-5 border-b hairline py-2.5">
       <dt className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.16em] muted">{label}</dt>
       <dd className="text-right">{value}</dd>
     </div>

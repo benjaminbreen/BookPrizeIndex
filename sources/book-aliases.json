@@ -1,0 +1,311 @@
+{
+  "generatedAt": null,
+  "notes": "Reviewed book identity aliases. Build uses these to merge duplicate book records and repoint award appearances. Add aliases only after inspecting data/public/book-duplicate-review.json or source records.",
+  "aliases": [
+    {
+      "canonicalBookId": "book-our-migrant-souls-a-meditation-on-race-and-the-meanings-and-myths-of-latino-hector-tobar",
+      "duplicateBookIds": ["book-our-migrant-souls-a-meditation-on-the-meanings-and-myths-of-latino-hector-tobar"],
+      "reason": "Shared ISBN and similar title."
+    },
+    {
+      "canonicalBookId": "book-embracing-defeat-japan-in-the-wake-of-world-war-ii-john-w-dower",
+      "duplicateBookIds": ["book-embracing-defeat-japan-in-the-wake-of-world-war-ii-john-dower"],
+      "reason": "Shared ISBN and similar title."
+    },
+    {
+      "canonicalBookId": "book-henry-david-thoreau-a-life-laura-dassow-walls",
+      "duplicateBookIds": ["book-henry-david-thoreau-a-life-laura-walls"],
+      "reason": "Shared ISBN and similar title; canonical keeps full author name."
+    },
+    {
+      "canonicalBookId": "book-the-age-of-the-democratic-revolution-political-history-of-europe-and-america-1760-1800-r-r-palme",
+      "duplicateBookIds": ["book-age-of-the-democratic-revolution-a-political-history-of-europe-and-america-1760-1800-r-r-palmer"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-charged-the-new-movement-to-transform-american-prosecution-and-end-mass-incarceration-emily-baze",
+      "duplicateBookIds": ["book-charged-the-movement-to-transform-american-prosecution-and-end-mass-incarceration-emily-bazelon"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-frederick-jackson-turner-historian-scholar-teacher-ray-allen-billington",
+      "duplicateBookIds": ["book-frederick-jackson-turner-historian-teacher-scholar-ray-allen-billington"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-the-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf",
+      "duplicateBookIds": ["book-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-legacy-of-ashes-the-history-of-the-cia-tim-weiner",
+      "duplicateBookIds": ["book-legacy-of-ashes-a-history-of-the-cia-tim-weiner"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-love-and-capital-karl-and-jenny-marx-and-the-birth-of-a-revolution-mary-gabriel",
+      "duplicateBookIds": ["book-love-and-capital-karl-and-jenny-marx-and-the-birth-of-the-revolution-mary-gabriel"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-the-man-who-could-move-clouds-a-memoir-ingrid-rojas-contreras",
+      "duplicateBookIds": ["book-man-who-could-move-clouds-a-memoir-ingrid-rojas-contreras"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-say-nothing-a-true-story-of-murder-and-memory-in-northern-ireland-patrick-radden-keefe",
+      "duplicateBookIds": ["book-say-nothing-the-true-story-of-murder-and-memory-in-northern-ireland-patrick-radden-keefe"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-solitary-albert-woodfox-with-leslie-george",
+      "duplicateBookIds": ["book-solitary-leslie-george-and-albert-woodfox"],
+      "reason": "Very similar title and author strings with reversed contributor order."
+    },
+    {
+      "canonicalBookId": "book-the-bin-ladens-an-arabian-family-in-the-american-century-steve-coll",
+      "duplicateBookIds": ["book-the-bin-ladens-an-arabian-family-in-an-american-century-steve-coll"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-the-diligent-a-voyage-through-the-worlds-of-the-slave-trade-robert-w-harms",
+      "duplicateBookIds": ["book-the-diligent-a-voyage-through-the-worlds-of-slave-trade-robert-w-harms"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-the-disordered-cosmos-a-journey-into-dark-matter-spacetime-and-dreams-deferred-chanda-prescod-we",
+      "duplicateBookIds": ["book-the-disordered-cosmos-a-journey-into-dark-matter-spacetime-and-dreams-deferred-dr-chanda-prescod"],
+      "reason": "Very similar title and author strings; canonical removes honorific from author."
+    },
+    {
+      "canonicalBookId": "book-venice-a-maritime-republic-frederic-c-lane",
+      "duplicateBookIds": ["book-venice-maritime-republic-frederic-c-lane"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+      "duplicateBookIds": ["book-w-e-b-du-bois-1868-1919-biography-of-a-race-david-levering-lewis"],
+      "reason": "Very similar title and author strings."
+    },
+    {
+      "canonicalBookId": "book-coleridge-darker-reflections-richard-holmes",
+      "duplicateBookIds": ["book-coleridge-vol-ii-darker-reflections-richard-holmes"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-herman-melville-a-biography-volume-i-1819-1851-hershel-parker",
+      "duplicateBookIds": ["book-herman-melville-a-biography-volume-1-1819-1851-hershel-parker"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-hitler-1936-1945-nemesis-ian-kershaw",
+      "duplicateBookIds": ["book-hitler-volume-2-1936-1945-nemesis-ian-kershaw"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-means-of-ascent-volume-2-of-the-years-of-lyndon-johnson-robert-a-caro",
+      "duplicateBookIds": ["book-means-of-ascent-the-years-of-lyndon-johnson-vol-ii-robert-a-caro"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-o-neill-volume-ii-son-and-artist-louis-sheaffer",
+      "duplicateBookIds": ["book-o-neill-son-and-artist-louis-sheaffer"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-book-of-eels-our-enduring-fascination-with-the-most-mysterious-creatures-in-the-natural-worl",
+      "duplicateBookIds": ["book-the-book-of-eels-our-enduring-fascination-with-the-most-mysterious-creature-in-the-natural-world"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-least-of-us-true-tales-of-america-and-hope-in-the-time-of-fentanyl-and-meth-sam-quinones",
+      "duplicateBookIds": ["book-the-least-of-us-true-tales-of-america-and-hope-in-the-age-of-fentanyl-and-meth-sam-quinones"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-at-canaan-s-edge-america-in-the-king-years-1965-1968-taylor-branch",
+      "duplicateBookIds": ["book-at-canaan-s-edge-volume-3-of-america-in-the-king-years-1965-68-taylor-branch"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-behind-the-beautiful-forevers-life-death-and-hope-in-a-mumbai-undercity-katherine-boo",
+      "duplicateBookIds": ["book-behind-the-beautiful-forevers-life-death-and-hope-in-a-mumbai-slum-katherine-boo"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-disappearing-through-the-skylight-culture-and-technology-in-the-twentieth-century-o-b-hardison-j",
+      "duplicateBookIds": ["book-disappearing-through-the-skylight-culture-and-technology-in-the-20th-century-o-b-hardison"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-into-thin-air-a-personal-account-of-the-mount-everest-disaster-jon-krakauer",
+      "duplicateBookIds": ["book-into-thin-air-a-personal-account-of-the-mt-everest-disaster-jon-krakauer"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-iron-curtain-the-crushing-of-eastern-europe-1944-1956-anne-applebaum",
+      "duplicateBookIds": ["book-iron-curtain-the-crushing-of-eastern-europe-1945-1956-anne-applebaum"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
+      "duplicateBookIds": ["book-parting-the-waters-america-in-the-king-years-1954-63-taylor-branch"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-righteous-pilgrim-the-life-and-times-of-harold-l-ickes-1847-1952-t-h-watkins",
+      "duplicateBookIds": ["book-righteous-pilgrim-the-life-and-times-of-harold-l-ickes-1874-1952-t-h-watkins"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-chinese-question-the-gold-rushes-chinese-migration-and-global-politics-mae-ngai",
+      "duplicateBookIds": ["book-the-chinese-question-the-gold-rushes-and-global-politics-mae-ngai"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-why-we-die-the-new-science-of-ageing-and-the-quest-for-immortality-venki-ramakrishnan",
+      "duplicateBookIds": ["book-why-we-die-the-new-science-of-aging-and-the-quest-for-immortality-venki-ramakrishnan"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-godel-escher-bach-an-eternal-golden-braid-douglas-hofstadter",
+      "duplicateBookIds": ["book-godel-escher-bach-an-eternal-golden-brain-douglas-hofstadter"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-jefferson-and-his-time-the-sage-of-monticello-dumas-malone",
+      "duplicateBookIds": ["book-the-sage-of-monticello-jefferson-and-his-time-volume-six-dumas-malone"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-rediscovery-of-america-native-peoples-and-the-unmaking-of-u-s-history-ned-blackhawk",
+      "duplicateBookIds": ["book-the-rediscovery-of-america-native-peoples-and-the-unmaking-of-us-history-ned-blackhawk"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-american-sphinx-the-character-of-thomas-jefferson-joseph-j-ellis",
+      "duplicateBookIds": ["book-american-sphinx-the-character-of-thomas-jefferson-joseph-ellis"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-anne-sexton-a-biography-diane-wood-middlebrook",
+      "duplicateBookIds": ["book-anne-sexton-a-biography-diane-middlebrook"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-bearing-the-cross-martin-luther-king-jr-and-the-southern-christian-leadership-conference-david-j",
+      "duplicateBookIds": ["book-bearing-the-cross-martin-luther-king-jr-and-the-southern-christian-leadership-conference-david-g"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-black-apollo-of-science-the-life-of-ernest-everett-just-kenneth-r-manning",
+      "duplicateBookIds": ["book-black-apollo-of-science-the-life-of-ernest-everett-just-kenneth-manning"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-collapse-the-fall-of-the-soviet-union-vladislav-m-zubok",
+      "duplicateBookIds": ["book-collapse-the-fall-of-the-soviet-union-vladislav-zubok"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-feeding-ghosts-a-graphic-memoir-tessa-hulls",
+      "duplicateBookIds": ["book-feeding-ghosts-a-graphic-memoir-tessa-illustrated-by-the-author-hulls"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-gulf-the-making-of-an-american-sea-jack-e-davis",
+      "duplicateBookIds": ["book-gulf-the-making-of-an-american-sea-jack-davis"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-how-we-die-reflections-on-life-s-final-chapter-sherwin-b-nuland",
+      "duplicateBookIds": ["book-how-we-die-reflections-on-life-s-final-chapter-sherwin-nuland"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-ida-a-sword-among-lions-ida-b-wells-and-the-campaign-against-lynching-paula-j-giddings",
+      "duplicateBookIds": ["book-ida-a-sword-among-lions-ida-b-wells-and-the-campaign-against-lynching-paul-j-giddings"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-jonathan-edwards-a-life-george-m-marsden",
+      "duplicateBookIds": ["book-jonathan-edwards-a-life-george-marsden"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-master-of-the-senate-the-years-of-lyndon-johnson-vol-3-robert-a-caro",
+      "duplicateBookIds": ["book-master-of-the-senate-the-years-of-lyndon-johnson-robert-caro"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-robert-kennedy-and-his-times-arthur-m-schlesinger-jr",
+      "duplicateBookIds": ["book-robert-kennedy-and-his-times-arthur-schlesinger"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-samuel-johnson-walter-jackson-bate",
+      "duplicateBookIds": ["book-samuel-johnson-w-jackson-bate"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-south-to-freedom-runaway-slaves-to-mexico-and-the-road-to-the-civil-war-alice-baumgartner",
+      "duplicateBookIds": ["book-south-to-freedom-runaway-slaves-to-mexico-and-the-road-to-the-civil-war-alice-l-baumgartner"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro",
+      "duplicateBookIds": ["book-the-passage-of-power-the-years-of-lyndon-johnson-robert-caro"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-years-of-lyndon-johnson-the-path-to-power-robert-a-caro",
+      "duplicateBookIds": ["book-the-path-to-power-the-years-of-lyndon-johnson-robert-caro"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-price-of-power-kissinger-in-the-nixon-white-house-seymour-m-hersh",
+      "duplicateBookIds": ["book-the-price-of-power-kissinger-in-the-nixon-white-house-seymour-hersh"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-unredeemed-captive-a-family-story-from-early-america-john-putnam-demos",
+      "duplicateBookIds": ["book-the-unredeemed-captive-a-family-story-from-early-america-john-demos"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-walt-whitman-a-life-justin-kaplan",
+      "duplicateBookIds": ["book-walt-whitman-a-life-justin-d-kaplan"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-white-over-black-american-attitudes-toward-the-negro-1550-1812-winthrop-d-jordan",
+      "duplicateBookIds": ["book-white-over-black-american-attitudes-toward-the-negro-1550-1812-winthrop-jordan"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-the-achilles-trap-saddam-hussein-the-c-i-a-and-the-origins-of-america-s-invasion-of-iraq-steve-c",
+      "duplicateBookIds": ["book-the-achilles-trap-saddam-hussein-the-cia-and-the-origins-of-america-s-invasion-of-iraq-steve-col"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-chain-reaction-the-impact-of-race-rights-and-taxes-on-american-politics-thomas-byrne-edsall-and-",
+      "duplicateBookIds": ["book-chain-reaction-the-impact-of-race-rights-and-taxes-on-american-politics-mary-edsall-and-thomas-b"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-animal-wise-the-thoughts-and-emotions-of-our-fel-low-creatures-virginia-morell",
+      "duplicateBookIds": ["book-animal-wise-the-thoughts-and-emotions-of-our-fellow-creatures-virginia-morell"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-beasts-of-the-field-a-narrative-history-of-california-farm-workers-1769-1913-richard-steven-stre",
+      "duplicateBookIds": ["book-beasts-of-the-field-a-narrative-history-of-california-farmworkers-1769-1913-richard-steven-stree"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-kill-em-and-leave-searching-for-james-brown-and-the-american-soul-james-mcbride",
+      "duplicateBookIds": ["book-kill-em-and-leave-searching-for-the-real-james-brown-james-mcbride"],
+      "reason": "User-reviewed duplicate from duplicate report."
+    }
+  ]
+}

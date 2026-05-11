@@ -3,11 +3,13 @@
 import Link from "next/link";
 import type React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { AlignJustify, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Search, SlidersHorizontal, X } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { BookDrawer } from "@/components/book-drawer";
-import { filterBooksByQuery, sortBooks, type BookSortKey } from "@/lib/catalog";
-import { data, getBookStats, imprintsById, subjectsByName } from "@/lib/data";
+import { SearchModeSelect } from "@/components/ui/design-primitives";
+import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import { filterBooksByQuery, getBookStatsForRegion, sortBooks, type BookSortKey } from "@/lib/catalog";
+import { data, imprintsById, publishersById, subjectsByName } from "@/lib/data";
 import type { Book } from "@/lib/types";
 
 type MetadataFilter = "all" | "complete" | "missing" | "has_cover" | "missing_cover" | "missing_publisher";
@@ -21,6 +23,18 @@ const metadataFilterLabels: Record<MetadataFilter, string> = {
   missing_publisher: "Missing publisher",
 };
 
+const bookSortLabels: Record<BookSortKey, string> = {
+  score: "Recognition score",
+  wins: "Most wins",
+  lists: "Most lists",
+  year: "Newest year",
+  title: "Title A-Z",
+  author: "Author A-Z",
+  publisher: "Publisher A-Z",
+  imprint: "Imprint A-Z",
+  subject: "Subject A-Z",
+};
+
 export function BookCatalog({
   books,
   title = "Books",
@@ -28,6 +42,8 @@ export function BookCatalog({
   secondaryDeck,
   limit,
   compactHeader = false,
+  wideLayout = false,
+  defaultRegion = "us",
 }: {
   books: Book[];
   title?: string | null;
@@ -35,9 +51,11 @@ export function BookCatalog({
   secondaryDeck?: React.ReactNode;
   limit?: number;
   compactHeader?: boolean;
+  wideLayout?: boolean;
+  defaultRegion?: AwardRegionFilter;
 }) {
-  const [query, setQuery] = useState("");
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
+  const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
   const [mode, setMode] = useState<"keyword" | "semantic">("keyword");
   const [subjectFilter, setSubjectFilter] = useState("");
   const [awardFilter, setAwardFilter] = useState("");
@@ -51,6 +69,8 @@ export function BookCatalog({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const topicFilter = searchParams.get("topic");
+  const urlQuery = searchParams.get("q") ?? "";
+  const [query, setQuery] = useState(urlQuery);
   const pageSize = 100;
   const awardBookIds = useMemo(() => {
     if (!awardFilter) return null;
@@ -74,8 +94,8 @@ export function BookCatalog({
       return true;
     });
     const filtered = filterBooksByQuery(structuredFiltered, query);
-    return sortBooks(filtered, sortKey);
-  }, [awardBookIds, books, metadataFilter, publisherFilter, query, sortKey, subjectFilter, topicFilter]);
+    return sortBooks(filtered, sortKey, region);
+  }, [awardBookIds, books, metadataFilter, publisherFilter, query, region, sortKey, subjectFilter, topicFilter]);
 
   const totalRows = limit ? Math.min(filteredRows.length, limit) : filteredRows.length;
   const totalPages = Math.max(1, Math.ceil(totalRows / pageSize));
@@ -86,7 +106,16 @@ export function BookCatalog({
   const selectedIndex = selectedBookId ? filteredRows.findIndex((book) => book.id === selectedBookId) : -1;
   const goPrevious = selectedIndex > 0 ? () => openBook(filteredRows[selectedIndex - 1]) : undefined;
   const goNext = selectedIndex >= 0 && selectedIndex < totalRows - 1 ? () => openBook(filteredRows[selectedIndex + 1]) : undefined;
-  const rowPadding = density === "compact" ? "py-2" : density === "roomy" ? "py-5" : "py-3.5";
+  const rowPadding = density === "compact" ? "py-1.5" : density === "roomy" ? "py-4" : "py-2.5";
+  const coverSize = density === "roomy" ? "large" : "standard";
+  const showRowCovers = density !== "compact";
+  const tableMinWidth = wideLayout ? "min-w-[1320px]" : "min-w-[1180px]";
+  const showDenseCatalogControls = wideLayout && !compactHeader;
+  useEffect(() => {
+    setQuery(urlQuery);
+    setPage(1);
+  }, [urlQuery]);
+
   useEffect(() => {
     const slug = searchParams.get("book");
     if (!slug) {
@@ -126,7 +155,24 @@ export function BookCatalog({
     setPublisherFilter("");
     setMetadataFilter("all");
     setPage(1);
-    if (topicFilter) router.replace(pathname, { scroll: false });
+    if (topicFilter || urlQuery) router.replace(pathname, { scroll: false });
+  }
+
+  function setRegion(nextRegion: AwardRegionFilter) {
+    setRegionState(nextRegion);
+    setPage(1);
+    document.cookie = `${AWARD_REGION_COOKIE}=${nextRegion}; path=/; max-age=31536000; samesite=lax`;
+  }
+
+  function clearQuery() {
+    setQuery("");
+    setPage(1);
+    if (!urlQuery) return;
+    const nextParams = new URLSearchParams(searchParams.toString());
+    nextParams.delete("q");
+    nextParams.delete("book");
+    const queryString = nextParams.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
   }
 
   function clearTopicFilter() {
@@ -143,10 +189,7 @@ export function BookCatalog({
       ? {
           id: "query",
           label: `Search: ${query.trim()}`,
-          onRemove: () => {
-            setQuery("");
-            setPage(1);
-          },
+          onRemove: clearQuery,
         }
       : null,
     topicFilter
@@ -197,18 +240,18 @@ export function BookCatalog({
         }
       : null,
   ].filter(Boolean) as Array<{ id: string; label: string; onRemove: () => void }>;
+  const resultContext = `${regionLabel(region)} awards · ${topicFilter ? `Topic: ${titleCaseLabel(topicFilter)} · ` : ""}Sorted by ${bookSortLabels[sortKey].toLowerCase()} · ${totalRows.toLocaleString()} books${hasActiveFilters ? " · filtered" : ""}`;
 
   return (
-    <section className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${compactHeader ? "pb-10" : "py-10"}`}>
-      <div className={`mb-6 grid gap-5 lg:items-end ${compactHeader ? "lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.9fr)]" : "lg:grid-cols-[0.75fr_1.25fr]"}`}>
+    <section className={`mx-auto ${wideLayout ? "max-w-[90rem]" : "max-w-7xl"} px-4 sm:px-6 lg:px-8 ${compactHeader ? "pb-10" : wideLayout ? "py-4" : "py-10"}`}>
+      <div className={`mx-auto mb-6 grid max-w-7xl gap-8 lg:items-center ${wideLayout ? "min-[1345px]:px-8" : ""} ${compactHeader ? "lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.9fr)]" : "lg:grid-cols-[0.86fr_1fr]"}`}>
         <div>
           {title === null ? null : (
             <>
-              <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Catalog</p>
-              <h1 className="mt-2 text-4xl leading-tight">{title}</h1>
+              <h1 className="font-[var(--font-serif)] text-5xl font-light leading-tight">{title}</h1>
             </>
           )}
-          {deck ? <p className={`${title === null ? "" : "mt-3"} max-w-2xl text-lg leading-7 muted`}>{deck}</p> : null}
+          {deck ? <p className={`${title === null ? "" : "mt-5"} max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted`}>{deck}</p> : null}
           {secondaryDeck ? <p className="mt-3 max-w-2xl text-sm leading-6 muted">{secondaryDeck}</p> : null}
         </div>
         <div className={`grid gap-3 ${compactHeader ? "lg:justify-self-end lg:w-full lg:max-w-3xl" : ""}`}>
@@ -227,44 +270,28 @@ export function BookCatalog({
               <button
                 aria-label="Clear search"
                 className="focus-ring grid h-8 w-8 shrink-0 place-items-center rounded-full text-[var(--muted)] transition hover:bg-[var(--panel)] hover:text-[var(--ink)]"
-                onClick={() => {
-                  setQuery("");
-                  setPage(1);
-                }}
+                onClick={clearQuery}
                 type="button"
               >
                 <X size={14} />
               </button>
             ) : null}
-            <div className="ml-auto hidden shrink-0 overflow-hidden rounded-md border hairline bg-[color-mix(in_srgb,var(--paper)_68%,var(--panel))] p-1 font-[var(--font-mono)] text-xs sm:flex">
-              {(["keyword", "semantic"] as const).map((item) => (
-                <button
-                  key={item}
-                  className={`focus-ring px-4 py-2 capitalize transition ${
-                    mode === item ? "bg-[var(--ink)] text-[var(--paper)]" : "muted hover:text-[var(--ink)]"
-                  }`}
-                  onClick={() => setMode(item)}
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
+            <SearchModeSelect onChange={setMode} value={mode} />
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3 px-1 font-[var(--font-mono)] text-xs">
             <span className="muted">
-              <span className="plain-number text-[var(--ink)]">{totalRows.toLocaleString()}</span> books
-              {hasActiveFilters ? <span className="ml-2 text-[var(--ink)]">filtered</span> : null}
+              {resultContext}
             </span>
-            <div className="flex items-center gap-2">
+            <div className={`items-center gap-2 ${showDenseCatalogControls ? "hidden" : "flex"}`}>
               {hasActiveFilters ? (
-                <button className="focus-ring inline-flex items-center gap-2 px-2 py-1 text-[var(--ink)] transition hover:text-[var(--accent)]" onClick={resetFilters} type="button">
+                <button className="filter-chip focus-ring inline-flex items-center gap-2 px-3 py-1.5 text-[var(--ink)]" onClick={resetFilters} type="button">
                   Clear
                   <X size={12} />
                 </button>
               ) : null}
               <button
                 aria-expanded={showOptions}
-                className="focus-ring inline-flex items-center gap-2 rounded-md border hairline bg-[color-mix(in_srgb,var(--paper)_76%,var(--panel))] px-3 py-2 text-[var(--ink)] transition hover:bg-[var(--panel)]"
+                className="filter-action focus-ring inline-flex items-center gap-2 px-3 py-2"
                 onClick={() => setShowOptions((value) => !value)}
                 type="button"
               >
@@ -274,23 +301,34 @@ export function BookCatalog({
               </button>
             </div>
           </div>
-          {showOptions ? (
-            <div className="panel rounded-lg border hairline p-4 shadow-[0_14px_32px_color-mix(in_srgb,var(--ink)_4%,transparent)]">
-              <div className="flex flex-wrap items-center gap-2 border-b hairline pb-3 font-[var(--font-mono)] text-xs">
-                <span className="mr-1 uppercase tracking-[0.16em] muted">Sort</span>
+          {showOptions && !showDenseCatalogControls ? (
+            <div className="panel rounded-[2px] border hairline p-4 shadow-[0_14px_32px_color-mix(in_srgb,var(--ink)_4%,transparent)]">
+              <div className="filter-group border-b hairline pb-3 font-[var(--font-mono)] text-xs">
+                <span className="filter-label mr-1">Awards</span>
+                {(["us", "international", "all"] as const).map((item) => (
+                  <button
+                    key={item}
+                    className={`filter-chip focus-ring inline-flex items-center gap-1 px-3 py-2 ${region === item ? "segment-button-active" : ""}`}
+                    onClick={() => setRegion(item)}
+                    type="button"
+                  >
+                    {regionLabel(item)}
+                  </button>
+                ))}
+              </div>
+              <div className="filter-group border-b hairline py-3 font-[var(--font-mono)] text-xs">
+                <span className="filter-label mr-1">Sort</span>
                 {(["score", "wins", "lists", "year", "title", "author", "imprint", "publisher"] as BookSortKey[]).map((key) => (
                   <button
                     key={key}
-                    className={`focus-ring inline-flex items-center gap-1 rounded-md border hairline px-3 py-2 capitalize transition ${
-                      sortKey === key ? "bg-[var(--ink)] text-[var(--paper)]" : "muted hover:bg-[var(--panel)] hover:text-[var(--ink)]"
-                    }`}
+                    className={`filter-chip focus-ring inline-flex items-center gap-1 px-3 py-2 capitalize ${sortKey === key ? "segment-button-active" : ""}`}
                     onClick={() => {
                       setSortKey(key);
                       setPage(1);
                     }}
                     type="button"
                   >
-                    {key}
+                    {bookSortLabels[key]}
                     {sortKey === key ? <ChevronDown size={12} /> : null}
                   </button>
                 ))}
@@ -344,15 +382,117 @@ export function BookCatalog({
         </div>
       </div>
 
-      <div className="overflow-x-auto border hairline panel">
-        <div className="flex min-w-[1180px] items-center justify-between border-b hairline px-4 py-3 font-[var(--font-mono)] text-xs">
-          <div className="flex items-center gap-3 muted">
+      {showDenseCatalogControls ? (
+        <div className="filter-toolbar mx-auto mb-3 grid max-w-7xl gap-2 border-y hairline px-1 py-2 font-[var(--font-mono)] text-xs min-[1345px]:px-2 lg:grid-cols-[auto_minmax(13rem,1fr)_minmax(12rem,0.7fr)_auto] lg:items-center">
+          <div className="filter-group">
+            <span className="filter-label">Award geography</span>
+            <div className="segmented-control">
+              {(["us", "international", "all"] as const).map((item) => (
+                <button
+                  className={`segment-button focus-ring min-w-20 ${region === item ? "segment-button-active" : ""}`}
+                  key={item}
+                  onClick={() => setRegion(item)}
+                  type="button"
+                >
+                  {regionLabel(item)}
+                </button>
+              ))}
+            </div>
+          </div>
+          <InlineFilterSelect
+            label="Subject"
+            value={subjectFilter}
+            onChange={(value) => {
+              setSubjectFilter(value);
+              setPage(1);
+            }}
+            options={data.subjects.map((subject) => ({ value: subject.name, label: subject.name }))}
+          />
+          <label className="filter-group flex-nowrap">
+            <span className="filter-label">Sort</span>
+            <select
+              className="filter-select focus-ring font-sans normal-case tracking-normal"
+              onChange={(event) => {
+                setSortKey(event.target.value as BookSortKey);
+                setPage(1);
+              }}
+              value={sortKey}
+            >
+              {Object.entries(bookSortLabels).map(([value, label]) => (
+                <option key={value} value={value}>{label}</option>
+              ))}
+            </select>
+          </label>
+          <div className="flex items-center justify-between gap-2 lg:justify-end">
+            {hasActiveFilters ? (
+              <button className="filter-chip focus-ring inline-flex items-center gap-2 px-3 py-1.5 text-[var(--ink)]" onClick={resetFilters} type="button">
+                Clear
+                <X size={12} />
+              </button>
+            ) : null}
+            <button
+              aria-expanded={showOptions}
+              className="filter-action focus-ring inline-flex items-center gap-2 px-3 py-1.5"
+              onClick={() => setShowOptions((value) => !value)}
+              type="button"
+            >
+              <SlidersHorizontal size={14} />
+              {showOptions ? "Hide filters" : "More filters"}
+              <ChevronDown className={`transition ${showOptions ? "rotate-180" : ""}`} size={13} />
+            </button>
+          </div>
+        </div>
+      ) : null}
+
+      {showOptions && showDenseCatalogControls ? (
+        <div className="panel mx-auto mb-4 max-w-7xl border hairline p-4 shadow-[0_14px_32px_color-mix(in_srgb,var(--ink)_4%,transparent)] min-[1345px]:px-5">
+          <div className="grid gap-3 font-[var(--font-mono)] text-xs sm:grid-cols-2 xl:grid-cols-3">
+            <FilterSelect
+              label="Award"
+              value={awardFilter}
+              onChange={(value) => {
+                setAwardFilter(value);
+                setPage(1);
+              }}
+              options={data.awards.map((award) => ({ value: award.id, label: award.shortName ?? award.name }))}
+            />
+            <FilterSelect
+              label="Publisher"
+              value={publisherFilter}
+              onChange={(value) => {
+                setPublisherFilter(value);
+                setPage(1);
+              }}
+              options={publisherOptions.map((publisher) => ({ value: publisher.id, label: publisher.name }))}
+            />
+            <FilterSelect
+              label="Metadata"
+              value={metadataFilter}
+              onChange={(value) => {
+                setMetadataFilter(value as MetadataFilter);
+                setPage(1);
+              }}
+              options={[
+                { value: "complete", label: "Complete basics" },
+                { value: "missing", label: "Missing basics" },
+                { value: "has_cover", label: "Has cover" },
+                { value: "missing_cover", label: "Missing cover" },
+                { value: "missing_publisher", label: "Missing publisher" },
+              ]}
+            />
+          </div>
+        </div>
+      ) : null}
+
+      <div className="border hairline panel">
+        <div className={`flex flex-col gap-2 border-b hairline px-3 py-1.5 font-[var(--font-mono)] text-xs md:flex-row md:items-center md:justify-between`}>
+          <div className="flex items-center gap-2 muted">
             <span>
-              Showing <span className="plain-number text-[var(--ink)]">{pageSize}</span> per page
+              <span className="plain-number text-[var(--ink)]">{pageSize}</span> per page
             </span>
             {topicFilter ? (
               <button
-                className="focus-ring inline-flex items-center gap-2 border hairline px-3 py-2 text-[var(--ink)] transition hover:bg-[var(--accent-soft)]"
+                className="filter-chip focus-ring inline-flex items-center gap-2 px-3 py-2"
                 onClick={clearTopicFilter}
                 type="button"
               >
@@ -361,37 +501,42 @@ export function BookCatalog({
               </button>
             ) : null}
             {hasActiveFilters ? (
-              <button className="focus-ring inline-flex items-center gap-2 border hairline px-3 py-2 text-[var(--ink)] transition hover:bg-[var(--accent-soft)]" onClick={resetFilters}>
+              <button className="filter-action focus-ring inline-flex items-center gap-2 px-3 py-2" onClick={resetFilters}>
                 Clear filters
                 <X size={12} />
               </button>
             ) : null}
           </div>
-          <div className="flex items-center gap-5 muted">
+          <div className="hidden items-center gap-3 muted md:flex">
             <div className="flex items-center gap-2">
               <span>Density</span>
-              {(["compact", "normal", "roomy"] as const).map((value) => (
-                <button
-                  aria-label={`${value} row density`}
-                  className={`focus-ring grid h-8 w-8 place-items-center border hairline transition ${
-                    density === value ? "bg-[var(--ink)] text-[var(--paper)]" : "text-[var(--ink)] hover:bg-[var(--panel)]"
-                  }`}
-                  key={value}
-                  onClick={() => setDensity(value)}
-                  title={`${value[0].toUpperCase()}${value.slice(1)} density`}
-                >
-                  <DensityIcon density={value} />
-                </button>
-              ))}
+              <div className="density-control" role="group" aria-label="Row density">
+                {([
+                  { value: "compact", label: "High density" },
+                  { value: "normal", label: "Standard density" },
+                  { value: "roomy", label: "Roomy density" },
+                ] as const).map(({ value, label }) => (
+                  <button
+                    aria-label={label}
+                    className={`density-button focus-ring ${density === value ? "density-button-active" : ""}`}
+                    key={value}
+                    onClick={() => setDensity(value)}
+                    title={label}
+                    type="button"
+                  >
+                    <DensityIcon density={value} />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
         {activeFilterChips.length ? (
-          <div className="flex min-w-[1180px] flex-wrap items-center gap-2 border-b hairline px-4 py-3 font-[var(--font-mono)] text-xs">
+          <div className={`flex flex-wrap items-center gap-2 border-b hairline px-4 py-3 font-[var(--font-mono)] text-xs`}>
             <span className="mr-1 uppercase tracking-[0.16em] muted">Filters</span>
             {activeFilterChips.map((chip) => (
               <button
-                className="focus-ring inline-flex max-w-[24rem] items-center gap-2 rounded-full border hairline bg-[color-mix(in_srgb,var(--paper)_78%,var(--panel))] px-3 py-1.5 text-[var(--ink)] transition hover:bg-[var(--accent-soft)]"
+                className="filter-chip focus-ring inline-flex max-w-[24rem] items-center gap-2 px-3 py-1.5"
                 key={chip.id}
                 onClick={chip.onRemove}
                 title={chip.label}
@@ -403,133 +548,139 @@ export function BookCatalog({
             ))}
           </div>
         ) : null}
-        <table className="w-full min-w-[1180px] table-fixed border-collapse text-left">
-          <colgroup>
-            <col className="w-[6%]" />
-            <col className="w-[27%]" />
-            <col className="w-[14%]" />
-            <col className="w-[6%]" />
-            <col className="w-[6%]" />
-            <col className="w-[13%]" />
-            <col className="w-[28%]" />
-          </colgroup>
-          <thead className="bg-[var(--panel)] font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.11em] muted">
-            <tr className="border-b hairline">
-              {([
-                ["Year", "year"],
-                ["Title", "title"],
-                ["Author", "author"],
-                ["Wins", "wins"],
-                ["Lists", "lists"],
-                ["Imprint", "imprint"],
-                ["Subjects", "subject"],
-              ] as [string, BookSortKey][]).map(([heading, key]) => (
-                <th className="px-3 py-3 align-bottom font-normal" key={heading}>
-                  <button
-                    className={`focus-ring inline-flex items-center gap-1 transition hover:text-[var(--ink)] ${
-                      sortKey === key ? "text-[var(--ink)]" : ""
-                    }`}
-                    onClick={() => {
-                      setSortKey(key);
-                      setPage(1);
-                    }}
-                    type="button"
-                  >
-                    {heading}
-                    {sortKey === key ? <ChevronDown size={10} /> : <ChevronsUpDown size={10} />}
-                  </button>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {rows.length === 0 ? (
-              <tr>
-                <td className="px-4 py-16 text-center" colSpan={7}>
-                  <p className="text-lg">No books match the current view.</p>
-                  <p className="mt-2 text-sm muted">Try clearing a filter or broadening the search.</p>
-                  {hasActiveFilters ? (
-                    <button className="focus-ring mt-5 inline-flex items-center gap-2 border hairline px-4 py-3 text-sm transition hover:bg-[var(--accent-soft)]" onClick={resetFilters} type="button">
-                      Clear filters
-                      <X size={14} />
-                    </button>
-                  ) : null}
-                </td>
-              </tr>
-            ) : rows.map((book, index) => {
-              const stats = getBookStats(book.id);
-              const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name : "";
-              const firstRecognitionYear = Math.min(...data.appearances.filter((appearance) => appearance.bookId === book.id).map((appearance) => appearance.year));
-              const displayYear = book.publicationYear ?? (Number.isFinite(firstRecognitionYear) ? firstRecognitionYear : undefined);
-              return (
-                <tr
-                  key={book.id}
-                  className={`book-table-row fade-up cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)] ${
-                    selectedBookId === book.id ? "book-table-row-active" : ""
-                  }`}
-                  style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
-                  onClick={() => openBook(book)}
-                  onKeyDown={(event) => {
-                    if (event.key === "Enter" || event.key === " ") {
-                      event.preventDefault();
-                      openBook(book);
-                    }
-                  }}
-                  role="button"
-                  tabIndex={0}
-                >
-                  <td className={`plain-number px-3 ${rowPadding} text-xs`}>{displayYear ?? "—"}</td>
-                  <td className={`px-3 ${rowPadding}`}>
-                    <button
-                      className="book-catalog-title focus-ring block w-full text-left text-base transition hover:text-[var(--accent)]"
-                      onClick={(event) => {
-                        event.stopPropagation();
-                        openBook(book);
-                      }}
-                      type="button"
-                    >
-                      {book.title}
-                    </button>
-                  </td>
-                  <td className={`px-3 ${rowPadding}`}>
-                    <span className="line-clamp-2">{book.authors.map((author) => author.name).join(", ")}</span>
-                  </td>
-                  <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.wins}</td>
-                  <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.lists}</td>
-                  <td className={`px-3 ${rowPadding}`}>
-                    <span className={`line-clamp-2 ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</span>
-                  </td>
-                  <td className={`px-3 ${rowPadding}`}>
-                    <div className="grid max-w-full gap-2">
-                      {book.primarySubject ? (
-                        <div>
-                          <CatalogSubjectPill
-                            onClick={(event) => event.stopPropagation()}
-                            subject={book.primarySubject}
-                          />
-                        </div>
-                      ) : null}
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                        {book.topics.slice(0, 3).map((topic) => (
-                          <CatalogTopicTag
-                            isPrimary={topic === book.primaryTopic}
-                            key={topic}
-                            onClick={(event) => event.stopPropagation()}
-                            topic={topic}
-                          />
-                        ))}
-                        {book.topics.length > 3 ? (
-                          <span className="plain-number text-[0.58rem] text-[var(--muted)]">+{book.topics.length - 3}</span>
-                        ) : null}
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        <div className="flex min-w-[1180px] items-center justify-between border-t hairline px-4 py-3 font-[var(--font-mono)] text-xs muted">
+        {rows.length === 0 ? (
+          <div className="px-4 py-16 text-center">
+            <p className="text-lg">No books match the current view.</p>
+            <p className="mt-2 text-sm muted">Try clearing a filter or broadening the search.</p>
+            {hasActiveFilters ? (
+              <button className="filter-action focus-ring mt-5 inline-flex items-center gap-2 px-4 py-3 text-sm" onClick={resetFilters} type="button">
+                Clear filters
+                <X size={14} />
+              </button>
+            ) : null}
+          </div>
+        ) : (
+          <>
+            <div className="grid md:hidden">
+                  {rows.map((book, index) => (
+                    <BookMobileCard
+                      book={book}
+                      isSelected={selectedBookId === book.id}
+                      key={book.id}
+                      onOpen={() => openBook(book)}
+                      region={region}
+                      style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
+                    />
+                  ))}
+            </div>
+            <div className="hidden overflow-x-auto md:block">
+              <table className={`w-full ${tableMinWidth} table-fixed border-collapse text-left`}>
+                <colgroup>
+                  <col className="w-[5%]" />
+                  <col className="w-[26%]" />
+                  <col className="w-[12%]" />
+                  <col className="w-[12%]" />
+                  <col className="w-[5%]" />
+                  <col className="w-[5%]" />
+                  <col className="w-[5%]" />
+                  <col className="w-[12%]" />
+                  <col className="w-[18%]" />
+                </colgroup>
+                <thead className="bg-[var(--panel)] font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.11em] muted">
+                  <tr className="border-b hairline">
+                    {([
+                      ["Year", "year"],
+                      ["Title", "title"],
+                      ["Author", "author"],
+                      ["Subject", "subject"],
+                      ["Score", "score"],
+                      ["Wins", "wins"],
+                      ["Lists", "lists"],
+                      ["Imprint", "imprint"],
+                      ["Publisher", "publisher"],
+                    ] as [string, BookSortKey][]).map(([heading, key]) => (
+                      <th className="px-3 py-3 align-bottom font-normal" key={heading}>
+                        <button
+                          className={`focus-ring inline-flex items-center gap-1 transition hover:text-[var(--ink)] ${
+                            sortKey === key ? "text-[var(--ink)]" : ""
+                          }`}
+                          onClick={() => {
+                            setSortKey(key);
+                            setPage(1);
+                          }}
+                          type="button"
+                        >
+                          {heading}
+                          {sortKey === key ? <ChevronDown size={10} /> : <ChevronsUpDown size={10} />}
+                        </button>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {rows.map((book, index) => {
+                    const stats = getBookStatsForRegion(book.id, region);
+                    const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name : "";
+                    const publisher = book.publisherId ? publishersById.get(book.publisherId)?.name : "";
+                    const firstRecognitionYear = Math.min(...data.appearances.filter((appearance) => appearance.bookId === book.id).map((appearance) => appearance.year));
+                    const displayYear = book.publicationYear ?? (Number.isFinite(firstRecognitionYear) ? firstRecognitionYear : undefined);
+                    return (
+                      <tr
+                        key={book.id}
+                        className={`book-table-row fade-up cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)] ${
+                          selectedBookId === book.id ? "book-table-row-active" : ""
+                        }`}
+                        style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
+                        onClick={() => openBook(book)}
+                        onKeyDown={(event) => {
+                          if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            openBook(book);
+                          }
+                        }}
+                        role="button"
+                        tabIndex={0}
+                      >
+                        <td className={`plain-number px-3 ${rowPadding} text-xs`}>{displayYear ?? "-"}</td>
+                        <td className={`px-3 ${rowPadding}`}>
+                          <button
+                            className={`focus-ring w-full items-center text-left transition hover:text-[var(--accent)] ${
+                              showRowCovers ? (density === "roomy" ? "grid grid-cols-[3rem_1fr] gap-3.5" : "grid grid-cols-[2.35rem_1fr] gap-3") : "block"
+                            }`}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              openBook(book);
+                            }}
+                            type="button"
+                          >
+                            {showRowCovers ? <BookRowCover book={book} size={coverSize} /> : null}
+                            <span className="book-catalog-title text-base">{book.title}</span>
+                          </button>
+                        </td>
+                        <td className={`px-3 ${rowPadding}`}>
+                          <span className="line-clamp-2">{book.authors.map((author) => author.name).join(", ")}</span>
+                        </td>
+                        <td className={`px-3 ${rowPadding}`}>
+                          <BookPrimarySubject book={book} />
+                        </td>
+                        <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.score}</td>
+                        <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.wins}</td>
+                        <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.lists}</td>
+                        <td className={`px-3 ${rowPadding}`}>
+                          <span className={`line-clamp-2 ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</span>
+                        </td>
+                        <td className={`px-3 ${rowPadding}`}>
+                          <span className={`line-clamp-2 ${publisher ? "" : "book-missing-value"}`}>{publisher || "Not yet sourced"}</span>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+        <div className={`flex flex-col gap-3 border-t hairline px-4 py-3 font-[var(--font-mono)] text-xs muted md:flex-row md:items-center md:justify-between`}>
           <p>
             {totalRows > 0 ? (
               <>
@@ -539,8 +690,8 @@ export function BookCatalog({
               "No matching books"
             )}
           </p>
-          <p>{topicFilter ? `Filtered by ${titleCaseLabel(topicFilter)}` : `Sorted by ${sortKey === "score" ? "award activity" : sortKey}`}</p>
-          <div className="flex items-center gap-2">
+          <p className="hidden md:block">{resultContext}</p>
+          <div className="flex flex-wrap items-center gap-2">
             <button
               className="focus-ring grid h-8 w-8 place-items-center border hairline transition hover:bg-[var(--panel)] disabled:opacity-40"
               disabled={safePage === 1}
@@ -617,6 +768,140 @@ function CatalogSubjectPill({
   );
 }
 
+function BookRowCover({ book, size = "standard" }: { book: Book; size?: "standard" | "large" }) {
+  const className = `book-row-cover ${size === "large" ? "book-row-cover-large" : ""}`;
+  if (book.thumbnailUrl) {
+    return (
+      <span className={className} aria-hidden="true">
+        <img src={book.thumbnailUrl} alt="" />
+      </span>
+    );
+  }
+  return (
+    <span className={`${className} book-row-cover-placeholder`} aria-hidden="true">
+      {book.title.charAt(0)}
+    </span>
+  );
+}
+
+function BookPrimarySubject({ book }: { book: Book }) {
+  if (!book.primarySubject) {
+    return <span className="book-missing-value">Unknown</span>;
+  }
+  return (
+    <CatalogSubjectPill
+      onClick={(event) => event.stopPropagation()}
+      subject={book.primarySubject}
+    />
+  );
+}
+
+function BookMobileCard({
+  book,
+  isSelected,
+  onOpen,
+  region,
+  style,
+}: {
+  book: Book;
+  isSelected: boolean;
+  onOpen: () => void;
+  region: AwardRegionFilter;
+  style?: React.CSSProperties;
+}) {
+  const stats = getBookStatsForRegion(book.id, region);
+  const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name : "";
+  const firstRecognitionYear = Math.min(...data.appearances.filter((appearance) => appearance.bookId === book.id).map((appearance) => appearance.year));
+  const displayYear = book.publicationYear ?? (Number.isFinite(firstRecognitionYear) ? firstRecognitionYear : undefined);
+
+  return (
+    <div
+      className={`book-mobile-card fade-up border-b hairline p-4 text-left transition last:border-b-0 hover:bg-[var(--accent-soft)] ${
+        isSelected ? "book-table-row-active" : ""
+      }`}
+      onClick={onOpen}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          onOpen();
+        }
+      }}
+      role="button"
+      style={style}
+      tabIndex={0}
+    >
+      <span className="grid grid-cols-[3rem_minmax(0,1fr)] gap-3">
+        <BookRowCover book={book} />
+        <span className="min-w-0">
+          <span className="book-catalog-title text-lg leading-snug">{book.title}</span>
+          <span className="mt-1 block text-sm leading-5 muted">{book.authors.map((author) => author.name).join(", ")}</span>
+        </span>
+      </span>
+      <span className="mt-4 grid grid-cols-3 border-y hairline py-3 font-[var(--font-mono)] text-xs">
+        <span>
+          <span className="block uppercase tracking-[0.14em] muted">Year</span>
+          <span className="plain-number mt-1 block text-[var(--ink)]">{displayYear ?? "-"}</span>
+        </span>
+        <span>
+          <span className="block uppercase tracking-[0.14em] muted">Wins</span>
+          <span className="plain-number mt-1 block text-[var(--ink)]">{stats.wins}</span>
+        </span>
+        <span>
+          <span className="block uppercase tracking-[0.14em] muted">Lists</span>
+          <span className="plain-number mt-1 block text-[var(--ink)]">{stats.lists}</span>
+        </span>
+      </span>
+      <span className="mt-3 block text-sm">
+        <span className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Imprint</span>
+        <span className={`mt-1 block ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</span>
+      </span>
+      <span className="mt-3 block">
+        <BookSubjectTags book={book} interactive={false} />
+      </span>
+    </div>
+  );
+}
+
+function BookSubjectTags({ book, interactive = true }: { book: Book; interactive?: boolean }) {
+  return (
+    <span className="grid max-w-full gap-2">
+      {book.primarySubject ? (
+        <span>
+          {interactive ? (
+            <CatalogSubjectPill
+              onClick={(event) => event.stopPropagation()}
+              subject={book.primarySubject}
+            />
+          ) : (
+            <span className={`subject-chip ${subjectChipClass(book.primarySubject)} rounded-full border hairline px-2.5 py-[0.22rem] text-[0.72rem]`}>
+              {book.primarySubject}
+            </span>
+          )}
+        </span>
+      ) : null}
+      <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+        {book.topics.slice(0, 3).map((topic) =>
+          interactive ? (
+            <CatalogTopicTag
+              isPrimary={topic === book.primaryTopic}
+              key={topic}
+              onClick={(event) => event.stopPropagation()}
+              topic={topic}
+            />
+          ) : (
+            <span className={`topic-tag topic-tag-compact ${topic === book.primaryTopic ? "topic-tag-primary" : ""}`} key={topic}>
+              {titleCaseLabel(topic)}
+            </span>
+          ),
+        )}
+        {book.topics.length > 3 ? (
+          <span className="plain-number text-[0.58rem] text-[var(--muted)]">+{book.topics.length - 3}</span>
+        ) : null}
+      </span>
+    </span>
+  );
+}
+
 function FilterSelect({
   label,
   value,
@@ -632,7 +917,37 @@ function FilterSelect({
     <label className="grid gap-1.5">
       <span className="uppercase tracking-[0.16em] muted">{label}</span>
       <select
-        className="focus-ring min-w-0 border hairline bg-[var(--paper)] px-3 py-2 font-sans text-sm normal-case tracking-normal text-[var(--ink)] transition hover:bg-[var(--panel)]"
+        className="filter-select focus-ring font-sans normal-case tracking-normal"
+        onChange={(event) => onChange(event.target.value)}
+        value={value}
+      >
+        <option value="">All {label.toLowerCase()}</option>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
+function InlineFilterSelect({
+  label,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  options: Array<{ value: string; label: string }>;
+}) {
+  return (
+    <label className="filter-group flex-nowrap">
+      <span className="filter-label">{label}</span>
+      <select
+        className="filter-select focus-ring min-w-0 flex-1 font-sans normal-case tracking-normal"
         onChange={(event) => onChange(event.target.value)}
         value={value}
       >
@@ -705,23 +1020,7 @@ function titleCaseLabel(value: string) {
 }
 
 function DensityIcon({ density }: { density: "compact" | "normal" | "roomy" }) {
-  if (density === "compact") {
-    return <AlignJustify size={15} strokeWidth={2.5} />;
-  }
-  if (density === "roomy") {
-    return (
-      <span className="grid gap-1">
-        <span className="block h-px w-4 bg-current" />
-        <span className="block h-px w-4 bg-current" />
-        <span className="block h-px w-4 bg-current" />
-      </span>
-    );
-  }
-  return (
-    <span className="grid gap-0.5">
-      <span className="block h-px w-4 bg-current" />
-      <span className="block h-px w-4 bg-current" />
-      <span className="block h-px w-4 bg-current" />
-    </span>
-  );
+  if (density === "compact") return <Rows2 size={16} strokeWidth={1.8} />;
+  if (density === "roomy") return <Rows4 size={16} strokeWidth={1.8} />;
+  return <Rows3 size={16} strokeWidth={1.8} />;
 }

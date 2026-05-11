@@ -11,6 +11,7 @@ type NormalizationMapping = {
   imprint: string;
   publisher: string;
   confidence: MappingConfidence;
+  sourceUrl?: string;
   note?: string;
 };
 
@@ -29,12 +30,25 @@ type NormalizedPatch = {
   sources: Record<string, SourceRef>;
 };
 
+type BookMetadataPatch = {
+  books?: Record<string, Partial<Book>>;
+  publishers?: Record<string, Partial<Publisher>>;
+};
+
 type ReviewRow = {
   publisherId: string;
   publisherName: string;
   bookCount: number;
   sampleBooks: Array<{ bookId: string; title: string; author: string; year?: number }>;
-  recommendedAction: "add_mapping" | "review_parent_publisher" | "ignore";
+  recommendedAction: "add_imprint_mapping" | "parent_only" | "institutional_publisher" | "manual_book_review" | "ignore";
+  reason: string;
+};
+
+type ValidationReport = {
+  duplicateNormalizedRawNames: Array<{ normalizedRaw: string; mappings: NormalizationMapping[] }>;
+  nonHighMappingsApplied: Array<NormalizationMapping & { matchedBookCount: number }>;
+  zeroMatchMappings: NormalizationMapping[];
+  parentPublisherMappings: Array<NormalizationMapping & { matchedBookCount: number }>;
 };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -42,21 +56,32 @@ const root = path.resolve(__dirname, "..");
 const mappingPath = path.join(root, "sources", "imprint-normalization.json");
 const outputPath = path.join(root, "sources", "enrichment", "imprints.normalized.json");
 const reviewPath = path.join(root, "data", "public", "imprint-review-queue.json");
+const bookMetadataPath = path.join(root, "sources", "enrichment", "books.generated.json");
 const sourceId = "source-imprint-normalization";
 
 async function main() {
   const generatedAt = new Date().toISOString();
   const mappingFile = JSON.parse(await fs.readFile(mappingPath, "utf8")) as MappingFile;
-  const mappingsByRawName = new Map(mappingFile.mappings.map((mapping) => [normalizeName(mapping.raw), mapping]));
-  const publishersById = new Map(data.publishers.map((publisher) => [publisher.id, publisher]));
+  const bookMetadata = await readBookMetadataPatch();
+  const { mappingsByRawName, validation } = validateMappings(mappingFile.mappings);
+  const publishersById = new Map<string, Partial<Publisher>>([
+    ...data.publishers.map((publisher) => [publisher.id, publisher] as const),
+    ...Object.entries(bookMetadata.publishers ?? {}),
+  ]);
   const imprintsById = new Map(data.imprints.map((imprint) => [imprint.id, imprint]));
-  const booksByPublisher = new Map<string, Book[]>();
+  const booksByRawString = new Map<string, { rawName: string; books: Book[] }>();
 
   for (const book of data.books) {
-    if (!book.publisherId || book.imprintId) continue;
-    const values = booksByPublisher.get(book.publisherId) ?? [];
-    values.push(book);
-    booksByPublisher.set(book.publisherId, values);
+    const currentImprintName = book.imprintId ? imprintsById.get(book.imprintId)?.name : undefined;
+    if (currentImprintName && mappingsByRawName.has(normalizeName(currentImprintName))) {
+      addRawStringBook(booksByRawString, `imprint:${book.imprintId}`, currentImprintName, book);
+      continue;
+    }
+    if (book.imprintId && !book.sourceIds.includes(sourceId)) continue;
+    const rawPublisherId = bookMetadata.books?.[book.id]?.publisherId ?? book.publisherId;
+    const rawPublisherName = rawPublisherId ? publishersById.get(rawPublisherId)?.name : undefined;
+    if (!rawPublisherId || !rawPublisherName) continue;
+    addRawStringBook(booksByRawString, rawPublisherId, rawPublisherName, book);
   }
 
   const patch: NormalizedPatch = {
@@ -78,41 +103,17 @@ async function main() {
     },
   };
   const reviewRows: ReviewRow[] = [];
+  const matchedRawNames = new Set<string>();
+  const appliedMappings = new Map<string, { mapping: NormalizationMapping; bookCount: number }>();
 
-  for (const book of data.books) {
-    if (!book.imprintId || !book.sourceIds.includes(sourceId)) continue;
-    const imprint = imprintsById.get(book.imprintId);
-    const publisher = book.publisherId ? publishersById.get(book.publisherId) : undefined;
-    patch.books[book.id] = {
-      publisherId: book.publisherId,
-      imprintId: book.imprintId,
-      sourceIds: [...new Set([...book.sourceIds, sourceId])],
-    };
-    if (publisher) {
-      patch.publishers[publisher.id] = {
-        id: publisher.id,
-        name: publisher.name,
-        sourceIds: [...new Set([...publisher.sourceIds, sourceId])],
-      };
-    }
-    if (imprint) {
-      patch.imprints[imprint.id] = {
-        id: imprint.id,
-        name: imprint.name,
-        publisherId: imprint.publisherId ?? book.publisherId,
-        sourceIds: [...new Set([...imprint.sourceIds, sourceId])],
-      };
-    }
-  }
-
-  for (const [publisherId, books] of booksByPublisher) {
-    const publisher = publishersById.get(publisherId);
-    if (!publisher) continue;
-    const mapping = mappingsByRawName.get(normalizeName(publisher.name));
+  for (const [rawId, { rawName, books }] of booksByRawString) {
+    const mapping = mappingsByRawName.get(normalizeName(rawName));
     if (!mapping) {
-      reviewRows.push(toReviewRow(publisherId, publisher.name, books));
+      reviewRows.push(toReviewRow(rawId, rawName, books));
       continue;
     }
+    matchedRawNames.add(normalizeName(mapping.raw));
+    appliedMappings.set(normalizeName(mapping.raw), { mapping, bookCount: books.length });
 
     const normalizedPublisherId = `publisher-${slugify(mapping.publisher)}`;
     const normalizedImprintId = `imprint-${slugify(mapping.imprint)}`;
@@ -136,6 +137,14 @@ async function main() {
     }
   }
 
+  validation.zeroMatchMappings = mappingFile.mappings.filter((mapping) => !matchedRawNames.has(normalizeName(mapping.raw)));
+  validation.nonHighMappingsApplied = [...appliedMappings.values()]
+    .filter(({ mapping }) => mapping.confidence !== "high")
+    .map(({ mapping, bookCount }) => ({ ...mapping, matchedBookCount: bookCount }));
+  validation.parentPublisherMappings = [...appliedMappings.values()]
+    .filter(({ mapping }) => normalizeName(mapping.imprint) === normalizeName(mapping.publisher))
+    .map(({ mapping, bookCount }) => ({ ...mapping, matchedBookCount: bookCount }));
+
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
   await fs.mkdir(path.dirname(reviewPath), { recursive: true });
   await fs.writeFile(outputPath, `${JSON.stringify(sortPatch(patch), null, 2)}\n`);
@@ -146,6 +155,7 @@ async function main() {
       mappedBooks: Object.keys(patch.books).length,
       mappedImprints: Object.keys(patch.imprints).length,
       unresolvedPublisherStrings: reviewRows.length,
+      validation,
       review: reviewRows.sort((a, b) => b.bookCount - a.bookCount || a.publisherName.localeCompare(b.publisherName)).slice(0, 250),
     }, null, 2)}\n`,
   );
@@ -153,7 +163,22 @@ async function main() {
   console.log(`Normalized imprints for ${Object.keys(patch.books).length} books. Review queue has ${reviewRows.length} unresolved publisher strings.`);
 }
 
+function addRawStringBook(target: Map<string, { rawName: string; books: Book[] }>, rawId: string, rawName: string, book: Book) {
+  const current = target.get(rawId) ?? { rawName, books: [] };
+  current.books.push(book);
+  target.set(rawId, current);
+}
+
+async function readBookMetadataPatch(): Promise<BookMetadataPatch> {
+  try {
+    return JSON.parse(await fs.readFile(bookMetadataPath, "utf8")) as BookMetadataPatch;
+  } catch {
+    return {};
+  }
+}
+
 function toReviewRow(publisherId: string, publisherName: string, books: Book[]): ReviewRow {
+  const action = recommendedAction(publisherName, books);
   return {
     publisherId,
     publisherName,
@@ -164,7 +189,38 @@ function toReviewRow(publisherId: string, publisherName: string, books: Book[]):
       author: book.authors.map((author) => author.name).join(", "),
       year: book.publicationYear,
     })),
-    recommendedAction: books.length >= 2 ? "add_mapping" : "review_parent_publisher",
+    recommendedAction: action.recommendedAction,
+    reason: action.reason,
+  };
+}
+
+function recommendedAction(publisherName: string, books: Book[]): Pick<ReviewRow, "recommendedAction" | "reason"> {
+  const normalized = normalizeName(publisherName);
+  if (books.length < 2) return { recommendedAction: "manual_book_review", reason: "Only one book currently uses this publisher string." };
+  if (isLikelyAudioPublisher(normalized)) return { recommendedAction: "ignore", reason: "Publisher string appears to be an audiobook edition; do not use it as the canonical print imprint." };
+  if (isLikelyInstitutionalPublisher(normalized)) return { recommendedAction: "institutional_publisher", reason: "Publisher appears to be an institutional or university press; imprint may equal publisher after review." };
+  if (isLikelyParentPublisher(normalized)) return { recommendedAction: "parent_only", reason: "Publisher string is a broad parent or group; do not assign one imprint without book-level evidence." };
+  return { recommendedAction: "add_imprint_mapping", reason: "Repeated specific publisher/imprint string." };
+}
+
+function validateMappings(mappings: NormalizationMapping[]) {
+  const grouped = new Map<string, NormalizationMapping[]>();
+  for (const mapping of mappings) {
+    const key = normalizeName(mapping.raw);
+    grouped.set(key, [...(grouped.get(key) ?? []), mapping]);
+  }
+  const duplicateNormalizedRawNames = [...grouped.entries()]
+    .filter(([, values]) => values.length > 1)
+    .map(([normalizedRaw, values]) => ({ normalizedRaw, mappings: values }));
+  const validation: ValidationReport = {
+    duplicateNormalizedRawNames,
+    nonHighMappingsApplied: [],
+    zeroMatchMappings: [],
+    parentPublisherMappings: [],
+  };
+  return {
+    mappingsByRawName: new Map([...grouped.entries()].map(([key, values]) => [key, values.at(-1)!])),
+    validation,
   };
 }
 
@@ -184,6 +240,18 @@ function sortObject<T>(value: Record<string, T>) {
 
 function normalizeName(value: string) {
   return value.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/&/g, " and ").replace(/\bthe\b/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function isLikelyParentPublisher(normalized: string) {
+  return /\b(group|publishing group|random house|penguin random house|macmillan|hachette|harpercollins|simon and schuster|springer|wiley)\b/.test(normalized);
+}
+
+function isLikelyInstitutionalPublisher(normalized: string) {
+  return /\b(university press|museum|institute|association|society|college press|academy|foundation)\b/.test(normalized);
+}
+
+function isLikelyAudioPublisher(normalized: string) {
+  return /\b(audio|audiobook|spoken word|recorded books|blackstone|tantor)\b/.test(normalized);
 }
 
 function slugify(input: string) {

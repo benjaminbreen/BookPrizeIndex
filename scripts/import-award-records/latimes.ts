@@ -108,7 +108,28 @@ export function parseLosAngelesTimesCategory(prize: PrizeRegistryEntry, category
     });
   }
 
-  return normalizeCoWinners(partials);
+  return normalizeCoWinners(partials.map(applyKnownSourceCorrections));
+}
+
+function applyKnownSourceCorrections(record: PartialRecord): PartialRecord {
+  if (
+    record.categoryId === "latimes-history" &&
+    record.year === 2020 &&
+    [
+      "cuba-an-american-history",
+      "traveling-black-a-story-of-race-and-resistance",
+      "the-chinese-question-the-gold-rushes-chinese-migration-and-global-politics",
+      "african-europeans-an-untold-history",
+      "ive-been-here-all-the-while-black-freedom-on-native-land",
+    ].includes(slugify(record.title))
+  ) {
+    return {
+      ...record,
+      year: 2021,
+      notes: [record.notes, "Corrected importer year: the secondary table currently labels the 2021 History group as 2020."].filter(Boolean).join(" "),
+    };
+  }
+  return record;
 }
 
 function extractWikitables(wikitext: string) {

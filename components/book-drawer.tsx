@@ -34,13 +34,17 @@ export function BookDrawer({
   const [hasEntered, setHasEntered] = useState(Boolean(book));
   const [citationCopied, setCitationCopied] = useState(false);
   const panelRef = useRef<HTMLElement | null>(null);
+  const animatedBookIdRef = useRef<string | null>(book?.id ?? null);
 
   useEffect(() => {
     if (book) {
+      const shouldAnimate = animatedBookIdRef.current !== book.id;
+      animatedBookIdRef.current = book.id;
       setSnapshot({ book, appearances, currentLabel });
       setIsClosing(false);
-      setHasEntered(false);
       setCitationCopied(false);
+      if (!shouldAnimate) return;
+      setHasEntered(false);
       let secondFrame = 0;
       const firstFrame = window.requestAnimationFrame(() => {
         secondFrame = window.requestAnimationFrame(() => setHasEntered(true));
@@ -56,6 +60,7 @@ export function BookDrawer({
       return;
     }
 
+    animatedBookIdRef.current = null;
     setIsClosing(true);
     setHasEntered(false);
     const timeout = window.setTimeout(() => {

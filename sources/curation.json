@@ -911,18 +911,18 @@
       "sourceIds": ["source-publisher-cleanup-curation"]
     },
     "book-imperial-life-in-the-emerald-city-inside-iraq-s-green-zone-rajiv-chandrasekaran": {
-      "publisherId": "publisher-blackstone-publishing",
-      "imprintId": "imprint-blackstone-audio",
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-knopf",
       "sourceIds": ["source-publisher-cleanup-curation"]
     },
     "book-we-wish-to-inform-you-that-tomorrow-we-will-be-killed-with-our-families-stories-from-rwanda-phil": {
-      "publisherId": "publisher-blackstone-publishing",
-      "imprintId": "imprint-blackstone-audio",
+      "publisherId": "publisher-macmillan",
+      "imprintId": "imprint-farrar-straus-and-giroux",
       "sourceIds": ["source-publisher-cleanup-curation"]
     },
     "book-the-age-of-wonder-how-the-romantic-generation-discovered-the-beauty-and-terror-of-science-richar": {
-      "publisherId": "publisher-blackstone-publishing",
-      "imprintId": "imprint-blackstone-audio",
+      "publisherId": "publisher-harpercollins",
+      "imprintId": "imprint-harpercollins",
       "sourceIds": ["source-publisher-cleanup-curation"]
     },
     "book-master-of-the-senate-the-years-of-lyndon-johnson-vol-3-robert-a-caro": {
@@ -2104,13 +2104,6 @@
         "source-publisher-cleanup-curation"
       ]
     },
-    "imprint-blackstone-audio": {
-      "name": "Blackstone Audio",
-      "publisherId": "publisher-blackstone-publishing",
-      "sourceIds": [
-        "source-publisher-cleanup-curation"
-      ]
-    },
     "imprint-touchstone": {
       "name": "Touchstone",
       "publisherId": "publisher-simon-and-schuster",
@@ -2147,6 +2140,7 @@
     },
     "publisher-bloomsbury-publishing": {
       "name": "Bloomsbury Publishing",
+      "region": "gb",
       "sourceIds": [
         "source-publisher-parent-curation"
       ]
@@ -2249,6 +2243,7 @@
     },
     "publisher-oneworld-publications": {
       "name": "Oneworld Publications",
+      "region": "gb",
       "sourceIds": [
         "source-publisher-parent-curation"
       ]
@@ -2325,6 +2320,156 @@
         "source-publisher-parent-curation"
       ]
     },
+    "publisher-allen-lane": {
+      "name": "Allen Lane",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-allen-lane-penguin": {
+      "name": "Allen Lane - Penguin",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-allen-lane-penguin-random-house-uk": {
+      "name": "Allen Lane Penguin Random House UK",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-atlantic-books": {
+      "name": "Atlantic Books",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-birlinn": {
+      "name": "Birlinn",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-bloomsbury-publishing-plc": {
+      "name": "Bloomsbury Publishing Plc",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-chatto-and-windus": {
+      "name": "Chatto & Windus",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-duckworth-books": {
+      "name": "Duckworth Books",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-eyre-and-spottiswoode": {
+      "name": "Eyre & Spottiswoode",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-fourth-estate-ltd": {
+      "name": "Fourth Estate Ltd",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-granta": {
+      "name": "GRANTA",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-granta-books": {
+      "name": "Granta Books",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-hachette-uk": {
+      "name": "Hachette UK",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-hmso": {
+      "name": "HMSO",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-hurst-publishers": {
+      "name": "Hurst Publishers",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-methuen-publishing": {
+      "name": "Methuen Publishing",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-pan-books": {
+      "name": "Pan Books",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-penguin-books-ltd": {
+      "name": "Penguin Books Ltd",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-penguin-books-limited": {
+      "name": "Penguin Books, Limited",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-profile-books": {
+      "name": "Profile Books",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-secker-and-warburg": {
+      "name": "Secker & Warburg",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-the-bodley-head": {
+      "name": "The Bodley Head",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-thames-and-hudson": {
+      "name": "Thames & Hudson",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-transworld-pub": {
+      "name": "Transworld Pub",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-unwin-hyman": {
+      "name": "Unwin Hyman",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-viking-uk": {
+      "name": "Viking UK",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-weidenfeld-and-nicholson-history": {
+      "name": "Weidenfeld & Nicholson history",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-weidenfeld-and-nicolson": {
+      "name": "Weidenfeld & Nicolson",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-william-collins": {
+      "name": "William Collins",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
+    "publisher-william-heinemann": {
+      "name": "William Heinemann",
+      "region": "gb",
+      "sourceIds": ["source-publisher-region-curation"]
+    },
     "publisher-penguin-random-house": {
       "name": "Penguin Random House",
       "sourceIds": [
@@ -2355,16 +2500,12 @@
         "source-publisher-parent-curation"
       ]
     },
-    "publisher-blackstone-publishing": {
-      "name": "Blackstone Publishing",
-      "sourceIds": [
-        "source-publisher-cleanup-curation"
-      ]
-    },
     "publisher-faber-and-faber": {
       "name": "Faber & Faber",
+      "region": "gb",
       "sourceIds": [
-        "source-publisher-cleanup-curation"
+        "source-publisher-cleanup-curation",
+        "source-publisher-region-curation"
       ]
     },
     "publisher-w-w-norton-and-company": {
@@ -2394,6 +2535,13 @@
       "url": "",
       "confidence": "manual",
       "note": "Maps catalog-provider publisher strings that are actually imprints or aliases onto curated parent publishers and imprint records."
+    },
+    "source-publisher-region-curation": {
+      "id": "source-publisher-region-curation",
+      "label": "Manual publisher region tagging for award credit filtering",
+      "url": "",
+      "confidence": "manual",
+      "note": "Tags publishers with ISO country codes so that award credit is only assigned when the award's required publication region matches the publisher's home region."
     }
   }
 }

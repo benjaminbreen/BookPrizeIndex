@@ -24,6 +24,7 @@ export type SourceRef = {
 export type Publisher = {
   id: string;
   name: string;
+  region?: string; // ISO 2-letter country code: "us", "gb", "ca", "au"
   websiteUrl?: string;
   sourceIds: string[];
 };
@@ -125,6 +126,7 @@ export type Award = {
   categoryYears?: string;
   shortName?: string;
   awardType?: "major_award" | "award";
+  scope?: "general" | "subject" | "discipline";
   organization?: string;
   description?: string;
   geography?: string;

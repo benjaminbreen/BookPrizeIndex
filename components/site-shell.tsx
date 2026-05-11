@@ -8,10 +8,10 @@ import { awardsById, data } from "@/lib/data";
 import { topicNameForSlug } from "@/lib/topics";
 
 const navItems = [
-  { href: "/books", label: "Books" },
-  { href: "/awards", label: "Awards" },
-  { href: "/subjects", label: "Subjects" },
-  { href: "/publishers", label: "Publishers" },
+  { href: "/books", label: "Books", match: ["/books"] },
+  { href: "/awards", label: "Awards", match: ["/awards"] },
+  { href: "/subjects", label: "Subjects", match: ["/subjects", "/topics"] },
+  { href: "/publishers", label: "Publishers", match: ["/publishers", "/imprints", "/imprint-logos"] },
 ];
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -42,9 +42,9 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           </Link>
           <nav className="hidden items-center justify-end gap-7 text-sm md:flex">
             {navItems.map((item) => {
-              const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+              const active = item.match.some((href) => pathname === href || pathname.startsWith(`${href}/`));
               return (
-                <Link className={`nav-link ${active ? "nav-link-active" : ""}`} href={item.href} key={item.href}>
+                <Link aria-current={active ? "page" : undefined} className={`nav-link ${active ? "nav-link-active" : ""}`} href={item.href} key={item.href}>
                   {item.label}
                 </Link>
               );

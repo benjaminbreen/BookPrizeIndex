@@ -9,6 +9,8 @@ export type RawAwardRecordStatus =
   | "unknown";
 
 export type RawAwardRecordSourceConfidence = "official" | "secondary" | "manual" | "unknown";
+export type AwardRegistryType = "major_award" | "award";
+export type PrizeScope = "general" | "subject" | "discipline";
 
 export type RawAwardRecord = {
   awardId: string;
@@ -30,6 +32,7 @@ export type RawAwardRecord = {
 export type PrizeCategoryRegistryEntry = {
   id: string;
   name: string;
+  awardType?: AwardRegistryType;
   officialUrl?: string;
   sourceUrl: string;
   sourceLabel: string;
@@ -42,6 +45,8 @@ export type PrizeCategoryRegistryEntry = {
 export type PrizeRegistryEntry = {
   id: string;
   name: string;
+  awardType?: AwardRegistryType;
+  scope?: PrizeScope;
   organization: string;
   geography: string;
   officialUrl?: string;

@@ -68,7 +68,9 @@ export function mergeObject<T>(current: T, patch: Partial<T>): T {
   const output = { ...current } as Record<string, unknown>;
   for (const [key, value] of Object.entries(patch)) {
     if (Array.isArray(value)) {
-      output[key] = value;
+      output[key] = key === "sourceIds"
+        ? [...new Set([...(Array.isArray(output[key]) ? output[key] as unknown[] : []), ...value])]
+        : value;
     } else if (value && typeof value === "object" && !Array.isArray(value)) {
       output[key] = { ...((output[key] as object | undefined) ?? {}), ...value };
     } else if (value !== undefined) {

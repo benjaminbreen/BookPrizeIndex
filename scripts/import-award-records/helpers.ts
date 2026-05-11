@@ -89,6 +89,10 @@ export function wikiToPlainText(input: string) {
       if (eq > 0) params.set(part.slice(0, eq).trim(), part.slice(eq + 1).trim());
       else positional.push(part);
     }
+    // Numeric-param sortname used for titles: {{sortname|1=The|2=Rest of Title|nolink=1}}
+    if (params.has("1") && params.has("2")) {
+      return cleanText(`${params.get("1")} ${params.get("2")}`);
+    }
     const first = params.get("first") ?? positional[0] ?? "";
     const last = params.get("last") ?? positional[1] ?? "";
     return cleanText(`${first} ${last}`);

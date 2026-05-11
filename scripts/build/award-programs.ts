@@ -1,9 +1,13 @@
 import type { Award, AwardAppearance, AwardEdition, AwardProgram } from "../../lib/types";
 import { clean, slugify } from "./text";
 
+export type PrizeScope = "general" | "subject" | "discipline";
+
 export type PrizeRegistryFileEntry = {
   id: string;
   name: string;
+  awardType?: "major_award" | "award";
+  scope?: PrizeScope;
   organization?: string;
   geography?: string;
   officialUrl?: string;
@@ -11,13 +15,18 @@ export type PrizeRegistryFileEntry = {
   categories?: Array<{
     id: string;
     name: string;
+    awardType?: "major_award" | "award";
     activeYears?: string;
     coverageNotes?: string;
   }>;
 };
 
+export function findPrizeRegistryEntry(prizeRegistry: PrizeRegistryFileEntry[], prizeId: string) {
+  return prizeRegistry.find((prize) => prize.id === prizeId);
+}
+
 export function findPrizeRegistryCategory(prizeRegistry: PrizeRegistryFileEntry[], prizeId: string, categoryId: string) {
-  return prizeRegistry.find((prize) => prize.id === prizeId)?.categories?.find((category) => category.id === categoryId);
+  return findPrizeRegistryEntry(prizeRegistry, prizeId)?.categories?.find((category) => category.id === categoryId);
 }
 
 export function buildAwardPrograms(
@@ -64,8 +73,10 @@ export function applyAwardProgramMetadata(awards: Map<string, Award>, prizeRegis
     award.programId = award.programId ?? match.prize.id;
     award.categoryName = award.categoryName ?? displayCategoryName(match.category.name);
     award.categoryYears = award.categoryYears ?? match.category.activeYears;
+    award.awardType = award.awardType ?? match.category.awardType ?? match.prize.awardType;
     award.organization = award.organization ?? match.prize.organization;
     award.geography = award.geography ?? match.prize.geography;
+    award.scope = award.scope ?? match.prize.scope;
     award.links = {
       ...award.links,
       official: award.links.official ?? match.prize.officialUrl,
@@ -195,23 +206,43 @@ function dedupeAppearances(appearances: Map<string, AwardAppearance>) {
       appearance.bookId,
       appearance.awardId,
       appearance.year,
-      appearance.status,
-      normalizeStatusLabelForDedupe(appearance.originalStatus),
     ].join("::");
     const existing = deduped.get(key);
     if (!existing) {
       deduped.set(key, appearance);
       continue;
     }
-    existing.sourceIds = [...new Set([...existing.sourceIds, ...appearance.sourceIds])].sort();
-    existing.sourceUrl = existing.sourceUrl ?? appearance.sourceUrl;
+    const preferred = preferredAppearance(existing, appearance);
+    const secondary = preferred === existing ? appearance : existing;
+    preferred.sourceIds = [...new Set([...preferred.sourceIds, ...secondary.sourceIds])].sort();
+    preferred.sourceUrl = preferred.sourceUrl ?? secondary.sourceUrl;
+    deduped.set(key, preferred);
   }
   appearances.clear();
   for (const [id, appearance] of deduped) appearances.set(id, appearance);
 }
 
-function normalizeStatusLabelForDedupe(input?: string) {
-  return clean(input).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+function preferredAppearance(a: AwardAppearance, b: AwardAppearance) {
+  return appearanceDedupeScore(b) > appearanceDedupeScore(a) ? b : a;
+}
+
+function appearanceDedupeScore(appearance: AwardAppearance) {
+  const statusScore: Record<AwardAppearance["status"], number> = {
+    co_winner: 700,
+    winner: 650,
+    finalist: 500,
+    shortlist: 450,
+    longlist: 300,
+    honorable_mention: 200,
+    commended: 150,
+    notable: 100,
+    unknown: 0,
+  };
+  return (
+    statusScore[appearance.status] +
+    (appearance.sourceUrl ? 20 : 0) +
+    (appearance.sourceIds.some((sourceId) => !sourceId.includes("nonfiction-history-awards-by-imprint")) ? 10 : 0)
+  );
 }
 
 function sourceIdsForProgram(

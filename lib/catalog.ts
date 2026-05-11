@@ -1,8 +1,10 @@
 import MiniSearch from "minisearch";
-import { data, awardsById, getBookStats, imprintsById, publishersById } from "@/lib/data";
-import type { Book, Imprint, Publisher } from "@/lib/types";
+import { data, awardProgramsById, awardsById, getBookStats, imprintsById, publishersById } from "@/lib/data";
+import { matchesAwardRegion, awardRequiredPublicationRegion, type AwardRegionFilter } from "@/lib/award-region";
+import type { AwardStatus, Book, BookStats, Imprint, Publisher } from "@/lib/types";
 
 export type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
+const regionStatsCache = new Map<AwardRegionFilter, Map<string, BookStats>>();
 
 export type BookSearchDocument = {
   id: string;
@@ -51,10 +53,10 @@ export function bookToSearchDocument(book: Book): BookSearchDocument {
   };
 }
 
-export function sortBooks(books: Book[], sortKey: BookSortKey) {
+export function sortBooks(books: Book[], sortKey: BookSortKey, region: AwardRegionFilter = "all") {
   return [...books].sort((a, b) => {
-    const aStats = getBookStats(a.id);
-    const bStats = getBookStats(b.id);
+    const aStats = getBookStatsForRegion(a.id, region);
+    const bStats = getBookStatsForRegion(b.id, region);
     if (sortKey === "score") {
       return (
         bStats.score - aStats.score ||
@@ -93,6 +95,79 @@ export function sortBooks(books: Book[], sortKey: BookSortKey) {
   });
 }
 
+export function getBookStatsForRegion(bookId: string, region: AwardRegionFilter = "all"): BookStats {
+  if (region === "all") return getBookStats(bookId);
+  const statsByBookId = getRegionStats(region);
+  return statsByBookId.get(bookId) ?? emptyBookStats(bookId);
+}
+
+function getRegionStats(region: AwardRegionFilter) {
+  const cached = regionStatsCache.get(region);
+  if (cached) return cached;
+
+  const statsByBookId = new Map<string, BookStats>();
+  for (const appearance of data.appearances) {
+    const award = awardsById.get(appearance.awardId);
+    if (!award || !matchesAwardRegion(award, region, awardProgramsById)) continue;
+
+    const stats = statsByBookId.get(appearance.bookId) ?? emptyBookStats(appearance.bookId);
+    statsByBookId.set(appearance.bookId, stats);
+
+    const isMajorAward = award.awardType === "major_award";
+    stats.lists += 1;
+    stats.score += awardRecognitionWeight(appearance.status, isMajorAward);
+    stats.statuses[appearance.status] = (stats.statuses[appearance.status] ?? 0) + 1;
+
+    if (appearance.status === "winner" || appearance.status === "co_winner") {
+      stats.wins += 1;
+      if (isMajorAward) stats.majorWins += 1;
+      else stats.normalWins += 1;
+    } else if (appearance.status === "finalist" || appearance.status === "shortlist") {
+      if (isMajorAward) stats.majorShortlists += 1;
+      else stats.normalShortlists += 1;
+    } else if (appearance.status === "longlist") {
+      if (isMajorAward) stats.majorLonglists += 1;
+      else stats.normalLonglists += 1;
+    }
+  }
+
+  regionStatsCache.set(region, statsByBookId);
+  return statsByBookId;
+}
+
+function emptyBookStats(bookId: string): BookStats {
+  return {
+    bookId,
+    wins: 0,
+    lists: 0,
+    score: 0,
+    majorWins: 0,
+    normalWins: 0,
+    majorShortlists: 0,
+    normalShortlists: 0,
+    majorLonglists: 0,
+    normalLonglists: 0,
+    statuses: {
+      winner: 0,
+      co_winner: 0,
+      finalist: 0,
+      shortlist: 0,
+      longlist: 0,
+      honorable_mention: 0,
+      commended: 0,
+      notable: 0,
+      unknown: 0,
+    },
+  };
+}
+
+function awardRecognitionWeight(status: AwardStatus, isMajorAward: boolean) {
+  if (status === "winner" || status === "co_winner") return isMajorAward ? 10 : 4;
+  if (status === "finalist" || status === "shortlist") return isMajorAward ? 4 : 2;
+  if (status === "longlist") return isMajorAward ? 2 : 1;
+  return 0;
+}
+
 export function filterBooksByQuery(books: Book[], query: string) {
   const q = query.trim();
   if (!q) return books;
@@ -115,52 +190,67 @@ export function booksForPublisher(publisherId: string) {
   return data.books.filter((book) => book.publisherId === publisherId);
 }
 
-function isGlobalMajorAward(awardId: string) {
+function isGlobalMajorAward(awardId: string, region: AwardRegionFilter = "all") {
   const award = awardsById.get(awardId);
-  return award?.awardType === "major_award" && award.programId !== "prose-awards" && !award.id.startsWith("award-prose-award-");
+  return Boolean(award?.awardType === "major_award" && award.programId !== "prose-awards" && !award.id.startsWith("award-prose-award-") && matchesAwardRegion(award, region));
 }
 
-function majorBookScore(bookId: string) {
-  return data.appearances
-    .filter((appearance) => appearance.bookId === bookId && isGlobalMajorAward(appearance.awardId))
-    .reduce((sum, appearance) => {
-      if (appearance.status === "winner" || appearance.status === "co_winner") return sum + 6;
-      if (appearance.status === "finalist" || appearance.status === "shortlist") return sum + 3;
-      if (appearance.status === "longlist") return sum + 1;
-      return sum + 1;
-    }, 0);
+function majorAppearanceWeight(status: string): number {
+  if (status === "winner" || status === "co_winner") return 10;
+  if (status === "finalist" || status === "shortlist") return 4;
+  if (status === "longlist") return 2;
+  return 0;
 }
 
-export function publisherStats(publisherId: string) {
+export function publisherStats(publisherId: string, sinceYear?: number, region: AwardRegionFilter = "all") {
+  const publisherRegion = publishersById.get(publisherId)?.region;
   const books = booksForPublisher(publisherId);
   const bookIds = new Set(books.map((book) => book.id));
-  const appearances = data.appearances.filter((appearance) => bookIds.has(appearance.bookId));
-  const majorAppearances = appearances.filter((appearance) => isGlobalMajorAward(appearance.awardId));
+  const allAppearances = data.appearances.filter((appearance) => {
+    if (!bookIds.has(appearance.bookId)) return false;
+    if (publisherRegion) {
+      const required = awardRequiredPublicationRegion(awardsById.get(appearance.awardId)?.geography);
+      if (required && required !== publisherRegion) return false;
+    }
+    return true;
+  });
+  const appearances = sinceYear ? allAppearances.filter((a) => a.year >= sinceYear) : allAppearances;
+  const majorAppearances = appearances.filter((appearance) => isGlobalMajorAward(appearance.awardId, region));
   return {
     books: books.length,
     imprints: imprintsForPublisher(publisherId).length,
     appearances: appearances.length,
     majorAppearances: majorAppearances.length,
     score: books.reduce((sum, book) => sum + getBookStats(book.id).score, 0),
-    majorScore: books.reduce((sum, book) => sum + majorBookScore(book.id), 0),
+    majorScore: majorAppearances.reduce((sum, a) => sum + majorAppearanceWeight(a.status), 0),
     wins: books.reduce((sum, book) => sum + getBookStats(book.id).wins, 0),
-    majorWins: majorAppearances.filter((appearance) => appearance.status === "winner" || appearance.status === "co_winner").length,
+    majorWins: majorAppearances.filter((a) => a.status === "winner" || a.status === "co_winner").length,
   };
 }
 
-export function imprintStats(imprintId: string) {
+export function imprintStats(imprintId: string, sinceYear?: number, region: AwardRegionFilter = "all") {
+  const imprint = imprintsById.get(imprintId);
+  const publisherRegion = imprint?.publisherId ? publishersById.get(imprint.publisherId)?.region : undefined;
   const books = booksForImprint(imprintId);
   const bookIds = new Set(books.map((book) => book.id));
-  const appearances = data.appearances.filter((appearance) => bookIds.has(appearance.bookId));
-  const majorAppearances = appearances.filter((appearance) => isGlobalMajorAward(appearance.awardId));
+  const allAppearances = data.appearances.filter((appearance) => {
+    if (!bookIds.has(appearance.bookId)) return false;
+    if (publisherRegion) {
+      const required = awardRequiredPublicationRegion(awardsById.get(appearance.awardId)?.geography);
+      if (required && required !== publisherRegion) return false;
+    }
+    return true;
+  });
+  const appearances = sinceYear ? allAppearances.filter((a) => a.year >= sinceYear) : allAppearances;
+  const majorAppearances = appearances.filter((appearance) => isGlobalMajorAward(appearance.awardId, region));
   return {
     books: books.length,
     appearances: appearances.length,
     majorAppearances: majorAppearances.length,
     score: books.reduce((sum, book) => sum + getBookStats(book.id).score, 0),
-    majorScore: books.reduce((sum, book) => sum + majorBookScore(book.id), 0),
+    majorScore: majorAppearances.reduce((sum, a) => sum + majorAppearanceWeight(a.status), 0),
     wins: books.reduce((sum, book) => sum + getBookStats(book.id).wins, 0),
-    majorWins: majorAppearances.filter((appearance) => appearance.status === "winner" || appearance.status === "co_winner").length,
+    majorWins: majorAppearances.filter((a) => a.status === "winner" || a.status === "co_winner").length,
   };
 }
 

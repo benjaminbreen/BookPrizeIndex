@@ -1,5 +1,7 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BookCatalog } from "@/components/book-catalog";
 import { ImprintKeyboardNav } from "@/components/imprint-keyboard-nav";
 import { booksForImprint, imprintSlug, imprintStats } from "@/lib/catalog";
@@ -29,22 +31,41 @@ export default async function ImprintPage({ params }: PageProps) {
   const stats = imprintStats(imprint.id);
   const logo = getImprintLogo(imprint.id);
   const summary = imprintSummary(imprint.name, books);
-  const imprintRoutes = [...data.imprints]
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .map((item) => `/imprints/${imprintSlug(item)}`);
+  const sortedImprints = [...data.imprints].sort((a, b) => imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name));
+  const imprintRoutes = sortedImprints.map((item) => `/imprints/${imprintSlug(item)}`);
   const currentRoute = `/imprints/${imprintSlug(imprint)}`;
   const currentIndex = imprintRoutes.indexOf(currentRoute);
-  const previousHref = currentIndex > 0 ? imprintRoutes[currentIndex - 1] : undefined;
-  const nextHref = currentIndex >= 0 && currentIndex < imprintRoutes.length - 1 ? imprintRoutes[currentIndex + 1] : undefined;
+  const previousIndex = currentIndex > 0 ? currentIndex - 1 : sortedImprints.length - 1;
+  const nextIndex = currentIndex >= 0 && currentIndex < sortedImprints.length - 1 ? currentIndex + 1 : 0;
+  const previousImprint = sortedImprints[previousIndex];
+  const nextImprint = sortedImprints[nextIndex];
+  const previousHref = previousImprint ? `/imprints/${imprintSlug(previousImprint)}` : undefined;
+  const nextHref = nextImprint ? `/imprints/${imprintSlug(nextImprint)}` : undefined;
 
   return (
     <main>
       <ImprintKeyboardNav previousHref={previousHref} nextHref={nextHref} />
       <section className="mx-auto max-w-7xl px-4 pb-6 pt-12 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[10rem_minmax(0,1fr)_24rem] lg:items-center">
+        <div className="mb-5 flex items-center justify-between gap-3 font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.12em]">
+          {previousHref && previousImprint ? (
+            <Link className="focus-ring inline-flex min-w-0 max-w-[46%] items-center gap-1.5 border hairline px-2.5 py-1.5 transition hover:bg-[var(--accent-soft)]" href={previousHref}>
+              <ChevronLeft size={13} />
+              <span className="hidden truncate sm:inline">{previousImprint.name}</span>
+              <span className="sm:hidden">Prev</span>
+            </Link>
+          ) : <span />}
+          {nextHref && nextImprint ? (
+            <Link className="focus-ring inline-flex min-w-0 max-w-[46%] items-center gap-1.5 border hairline px-2.5 py-1.5 transition hover:bg-[var(--accent-soft)]" href={nextHref}>
+              <span className="hidden truncate sm:inline">{nextImprint.name}</span>
+              <span className="sm:hidden">Next</span>
+              <ChevronRight size={13} />
+            </Link>
+          ) : <span />}
+        </div>
+        <div className="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)_24rem] lg:items-center xl:grid-cols-[22rem_minmax(0,1fr)_24rem]">
           <ImprintLogo logoPath={logo?.logoPath} name={imprint.name} sourceTitle={logo?.sourceTitle} />
 
-          <div>
+          <div className="min-w-0">
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Imprint</p>
             <h1 className="mt-6 max-w-2xl text-5xl font-semibold leading-tight tracking-normal">{imprint.name}</h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 muted">
@@ -84,10 +105,10 @@ function ImprintLogo({ logoPath, name, sourceTitle }: { logoPath?: string; name:
   }
 
   return (
-    <figure className="grid h-32 place-items-center overflow-hidden px-2 py-4 sm:h-44 sm:overflow-visible" title={sourceTitle}>
+    <figure className="grid h-32 place-items-center overflow-hidden px-2 py-4 sm:h-44 lg:h-56 lg:justify-items-start lg:overflow-visible xl:h-64" title={sourceTitle}>
       <img
         alt={`${name} logo`}
-        className="max-h-28 max-w-full object-contain grayscale sm:max-h-44 sm:scale-[2.4]"
+        className="max-h-28 max-w-full object-contain grayscale sm:max-h-44 lg:max-h-56 lg:max-w-[18rem] xl:max-h-64 xl:max-w-[22rem]"
         src={logoPath}
       />
     </figure>

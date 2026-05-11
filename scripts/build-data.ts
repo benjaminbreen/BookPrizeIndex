@@ -5,10 +5,12 @@ import type { RawAwardRecord, RawAwardRecordSourceConfidence, RawAwardRecordStat
 import {
   applyAwardProgramMetadata,
   buildAwardPrograms,
+  findPrizeRegistryEntry,
   findPrizeRegistryCategory,
   mergeDuplicateAwardCategories,
   type PrizeRegistryFileEntry,
 } from "./build/award-programs";
+import { buildBrowseData } from "./build/browse-data";
 import { applyCuration, applySourcePatches, mergeObject, readCuration, readEnrichment, type CurationFile } from "./build/curation";
 import { publicDataDir, rawAwardRecordsDir, sourcesDir } from "./build/paths";
 import { buildCanonicalTitleResolver, type CanonicalTitleResolver, type TitleCandidate } from "./build/title-resolver";
@@ -98,6 +100,16 @@ type GeneratedTopicsFile = {
   generatedAt?: string;
   notes?: string;
   books?: Record<string, GeneratedTopicClassification>;
+};
+
+type BookAliasFile = {
+  generatedAt?: string | null;
+  notes?: string;
+  aliases?: Array<{
+    canonicalBookId: string;
+    duplicateBookIds: string[];
+    reason?: string;
+  }>;
 };
 
 type TaxonomyValidationReport = {
@@ -193,7 +205,7 @@ function normalizeRawStatus(status: RawAwardRecordStatus): { status: AwardStatus
 }
 
 function awardRecognitionWeight(status: AwardStatus, isMajorAward: boolean) {
-  if (status === "winner" || status === "co_winner") return isMajorAward ? 10 : 6;
+  if (status === "winner" || status === "co_winner") return isMajorAward ? 10 : 4;
   if (status === "finalist" || status === "shortlist") return isMajorAward ? 4 : 2;
   if (status === "longlist") return isMajorAward ? 2 : 1;
   return 0;
@@ -442,6 +454,7 @@ async function importRawAwardRecords({
 
       if (!awards.has(awardId)) {
         const subjectAreas = inferSubjects(awardName, "").filter((subject) => subject !== "Nonfiction");
+        const registryPrize = findPrizeRegistryEntry(prizeRegistry, record.awardId);
         const registryCategory = findPrizeRegistryCategory(prizeRegistry, record.awardId, record.categoryId);
         awards.set(awardId, {
           id: awardId,
@@ -452,7 +465,7 @@ async function importRawAwardRecords({
           categoryYears: registryCategory?.activeYears,
           shortName: shortAwardName(record),
           organization: organizationForRawAward(record),
-          awardType: "major_award",
+          awardType: registryCategory?.awardType ?? registryPrize?.awardType ?? "award",
           subjectAreas: subjectAreas.length ? subjectAreas : ["Nonfiction"],
           links: {
             official: record.notes?.match(/https?:\/\/\S+/)?.[0],
@@ -587,6 +600,7 @@ async function main() {
   const subjectMapRules = await readSubjectMapRules(subjectDefinitions);
   const curation = await readCuration();
   const enrichment = await readEnrichment();
+  const bookAliases = await readBookAliases();
   const generatedTopics = await readGeneratedTopics();
   const prizeRegistry = await readPrizeRegistry();
   const curatedBookSubjectIds = new Set(
@@ -747,6 +761,7 @@ async function main() {
   applyCuration(awards, curation.awards);
   applyCuration(imprints, curation.imprints);
   applyCuration(publishers, curation.publishers);
+  applyBookAliases(books, appearances, bookAliases);
   if (process.env.DEBUG_AWARD_MERGE === "1") console.log(`Awards before program metadata: ${awards.size}`);
   applyAwardProgramMetadata(awards, prizeRegistry);
   if (process.env.DEBUG_AWARD_MERGE === "1") console.log(`Awards before duplicate merge: ${awards.size}; appearances: ${appearances.size}`);
@@ -833,7 +848,7 @@ async function main() {
     const stat = stats.get(appearance.bookId);
     if (!stat) continue;
     const award = awards.get(appearance.awardId);
-    const isMajorAward = award?.awardType !== "award";
+    const isMajorAward = award?.awardType === "major_award";
     stat.lists += 1;
     stat.statuses[appearance.status] += 1;
     stat.score += awardRecognitionWeight(appearance.status, isMajorAward);
@@ -901,6 +916,7 @@ async function main() {
 
   await fs.mkdir(publicDataDir, { recursive: true });
   await fs.writeFile(path.join(publicDataDir, "catalog.json"), `${JSON.stringify(publicData, null, 2)}\n`);
+  await fs.writeFile(path.join(publicDataDir, "browse.json"), `${JSON.stringify(buildBrowseData(publicData))}\n`);
   await fs.writeFile(
     path.join(publicDataDir, "taxonomy-validation-report.json"),
     `${JSON.stringify(taxonomyValidationReport, null, 2)}\n`,
@@ -2338,6 +2354,14 @@ async function readGeneratedTopics(): Promise<GeneratedTopicsFile> {
   }
 }
 
+async function readBookAliases(): Promise<BookAliasFile> {
+  try {
+    return JSON.parse(await fs.readFile(path.join(sourcesDir, "book-aliases.json"), "utf8")) as BookAliasFile;
+  } catch {
+    return { aliases: [] };
+  }
+}
+
 async function readPrizeRegistry(): Promise<PrizeRegistryFileEntry[]> {
   try {
     return JSON.parse(await fs.readFile(path.join(sourcesDir, "prizes.json"), "utf8")) as PrizeRegistryFileEntry[];
@@ -2357,6 +2381,73 @@ function applyBookCuration(books: Map<string, Book>, patches: Record<string, Par
     }
     books.set(targetId, mergeObject(current, patch));
   }
+}
+
+function applyBookAliases(books: Map<string, Book>, appearances: Map<string, AwardAppearance>, aliasFile: BookAliasFile) {
+  const aliasMap = new Map<string, string>();
+  for (const group of aliasFile.aliases ?? []) {
+    for (const duplicateId of group.duplicateBookIds) {
+      if (duplicateId !== group.canonicalBookId) aliasMap.set(duplicateId, group.canonicalBookId);
+    }
+  }
+  const resolveAlias = (id: string): string => {
+    const seen = new Set<string>();
+    let current = id;
+    while (aliasMap.has(current) && !seen.has(current)) {
+      seen.add(current);
+      current = aliasMap.get(current)!;
+    }
+    return current;
+  };
+
+  for (const [duplicateId] of aliasMap) {
+    const canonicalId = resolveAlias(duplicateId);
+    if (duplicateId === canonicalId) continue;
+    const duplicate = books.get(duplicateId);
+    if (!duplicate) continue;
+    const canonical = books.get(canonicalId);
+    if (!canonical) {
+      books.set(canonicalId, { ...duplicate, id: canonicalId, slug: canonicalId.replace(/^book-/, "") });
+    } else {
+      books.set(canonicalId, mergeBooks(canonical, duplicate));
+    }
+    books.delete(duplicateId);
+  }
+
+  for (const appearance of appearances.values()) {
+    appearance.bookId = resolveAlias(appearance.bookId);
+  }
+}
+
+function mergeBooks(canonical: Book, duplicate: Book): Book {
+  return {
+    ...canonical,
+    publicationYear: canonical.publicationYear ?? duplicate.publicationYear,
+    publisherId: canonical.publisherId ?? duplicate.publisherId,
+    imprintId: canonical.imprintId ?? duplicate.imprintId,
+    pageCount: canonical.pageCount ?? duplicate.pageCount,
+    summary: canonical.summary ?? duplicate.summary,
+    displaySummary: canonical.displaySummary ?? duplicate.displaySummary,
+    thumbnailUrl: canonical.thumbnailUrl ?? duplicate.thumbnailUrl,
+    isbn13: [...new Set([...canonical.isbn13, ...duplicate.isbn13])],
+    subjects: [...new Set([...canonical.subjects, ...duplicate.subjects])],
+    topics: [...new Set([...canonical.topics, ...duplicate.topics])],
+    centralFigures: [...new Set([...canonical.centralFigures, ...duplicate.centralFigures])],
+    subjectCategories: mergeSubjectCategoryArrays(canonical.subjectCategories, duplicate.subjectCategories),
+    links: { ...duplicate.links, ...canonical.links },
+    sourceIds: [...new Set([...canonical.sourceIds, ...duplicate.sourceIds])],
+  };
+}
+
+function mergeSubjectCategoryArrays(a: Book["subjectCategories"], b: Book["subjectCategories"]) {
+  const categories = [...(a ?? []), ...(b ?? [])];
+  const seen = new Set<string>();
+  return categories.filter((category) => {
+    const key = `${category.source}\0${category.scheme ?? ""}\0${category.label.toLowerCase()}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }
 
 main().catch((error) => {

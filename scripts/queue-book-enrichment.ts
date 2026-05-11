@@ -3,9 +3,19 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { data, getBookStats } from "../lib/data";
 import type { Book } from "../lib/types";
-
-type CatalogMissingBookField = "isbn13" | "publicationYear" | "publisherId" | "imprintId" | "pageCount" | "summary" | "thumbnailUrl" | "publisherLink";
-type DeferredMissingBookField = "wikipedia";
+import {
+  catalogMissingFieldsForBook,
+  compareEnrichmentPriority,
+  deferredMissingFieldsForBook,
+  enrichmentLaneForBook,
+  enrichmentPriorityScore,
+  parseLane,
+  parseMissingFieldSet,
+  type CatalogMissingBookField,
+  type DeferredMissingBookField,
+  type EnrichmentAttemptLike,
+  type EnrichmentLane,
+} from "./book-enrichment-priority";
 
 type QueueRow = {
   bookId: string;
@@ -13,56 +23,79 @@ type QueueRow = {
   title: string;
   author: string;
   score: number;
+  priorityScore: number;
+  lane: EnrichmentLane;
   missingFields: CatalogMissingBookField[];
   deferredFields: DeferredMissingBookField[];
-  recommendedAction: "catalog_completion" | "imprint_review";
+  recommendedAction: "catalog_completion" | "imprint_review" | "focused_completion" | "manual_review";
 };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const publicDataDir = path.join(root, "data", "public");
+const attemptsPath = path.join(publicDataDir, "book-enrichment-attempts.json");
 const limit = Number(process.env.ENRICH_LIMIT ?? readArg("--limit") ?? "100");
+const requestedLane = parseLane(readArg("--lane") ?? process.env.ENRICH_LANE);
+const requestedFields = parseMissingFieldSet(readArg("--fields") ?? process.env.ENRICH_FIELDS);
 
 async function main() {
   const generatedAt = new Date().toISOString();
+  const attempts = await readAttempts();
   const queue = data.books
-    .map((book) => toQueueRow(book))
+    .map((book) => toQueueRow(book, attempts[book.id]))
     .filter((row) => row.missingFields.length > 0)
-    .sort((a, b) => b.missingFields.length - a.missingFields.length || b.score - a.score || a.title.localeCompare(b.title))
+    .filter((row) => !requestedLane || row.lane === requestedLane)
+    .filter((row) => !requestedFields?.size || row.missingFields.some((field) => requestedFields.has(field)))
+    .sort(compareEnrichmentPriority)
     .slice(0, limit);
 
   await fs.mkdir(publicDataDir, { recursive: true });
   await fs.writeFile(
     path.join(publicDataDir, "book-enrichment-queue.json"),
-    `${JSON.stringify({ generatedAt, limit, count: queue.length, queue }, null, 2)}\n`,
+    `${JSON.stringify({ generatedAt, limit, lane: requestedLane, fields: requestedFields ? [...requestedFields] : undefined, count: queue.length, lanes: summarizeLanes(queue), queue }, null, 2)}\n`,
   );
 
   console.log(`Queued ${queue.length} books for enrichment. Report written to data/public/book-enrichment-queue.json.`);
 }
 
-function toQueueRow(book: Book): QueueRow {
-  const missingFields: CatalogMissingBookField[] = [];
-  const deferredFields: DeferredMissingBookField[] = [];
-  if (!book.isbn13.length) missingFields.push("isbn13");
-  if (!book.publicationYear) missingFields.push("publicationYear");
-  if (!book.publisherId) missingFields.push("publisherId");
-  if (!book.imprintId) missingFields.push("imprintId");
-  if (!book.pageCount) missingFields.push("pageCount");
-  if (!book.summary) missingFields.push("summary");
-  if (!book.thumbnailUrl) missingFields.push("thumbnailUrl");
-  if (!book.links.publisher) missingFields.push("publisherLink");
-  if (!book.links.wikipedia) deferredFields.push("wikipedia");
+async function readAttempts(): Promise<Record<string, EnrichmentAttemptLike>> {
+  try {
+    const parsed = JSON.parse(await fs.readFile(attemptsPath, "utf8")) as { attempts?: Record<string, EnrichmentAttemptLike> };
+    return parsed.attempts ?? {};
+  } catch {
+    return {};
+  }
+}
 
+function toQueueRow(book: Book, attempt?: EnrichmentAttemptLike): QueueRow {
+  const stats = getBookStats(book.id);
+  const missingFields = catalogMissingFieldsForBook(book);
+  const lane = enrichmentLaneForBook(book, stats, attempt);
   return {
     bookId: book.id,
     slug: book.slug,
     title: book.title,
     author: book.authors.map((item) => item.name).join(" "),
-    score: getBookStats(book.id).score,
+    score: stats.score,
+    priorityScore: enrichmentPriorityScore(book, stats, lane),
+    lane,
     missingFields,
-    deferredFields,
-    recommendedAction: missingFields.some((field) => field !== "imprintId") ? "catalog_completion" : "imprint_review",
+    deferredFields: deferredMissingFieldsForBook(book),
+    recommendedAction: recommendedAction(lane, missingFields),
   };
+}
+
+function recommendedAction(lane: EnrichmentLane, missingFields: CatalogMissingBookField[]): QueueRow["recommendedAction"] {
+  if (lane === "low_confidence_review") return "manual_review";
+  if (missingFields.every((field) => field === "imprintId")) return "imprint_review";
+  if (lane === "cover_needed" || lane === "summary_needed" || lane === "identity_needed") return "focused_completion";
+  return "catalog_completion";
+}
+
+function summarizeLanes(queue: QueueRow[]) {
+  const summary: Record<string, number> = {};
+  for (const row of queue) summary[row.lane] = (summary[row.lane] ?? 0) + 1;
+  return summary;
 }
 
 function readArg(name: string) {

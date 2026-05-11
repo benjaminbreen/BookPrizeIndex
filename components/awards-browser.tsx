@@ -2,64 +2,50 @@
 
 import Link from "next/link";
 import { ArrowRight, ArrowUpDown, Search } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { AWARD_REGION_COOKIE, type AwardRegionFilter, matchesAwardRegion } from "@/lib/award-region";
-import type { Award, AwardProgram, PublicData } from "@/lib/types";
+import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import type { BrowseData } from "@/lib/browse-types";
 
 type AwardSort = "name" | "records" | "subject" | "deadline";
 type BookTypeFilter = "all" | "fiction" | "nonfiction";
 
-export function AwardsBrowser({ data, defaultRegion }: { data: PublicData; defaultRegion: AwardRegionFilter }) {
+export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defaultRegion: AwardRegionFilter }) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<AwardSort>("name");
   const [geography, setGeographyState] = useState<AwardRegionFilter>(defaultRegion);
   const [bookType, setBookType] = useState<BookTypeFilter>("all");
+  const router = useRouter();
 
   const rows = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const programRows = (data.awardPrograms ?? [])
-      .map((program) => {
-        const awards = data.awards.filter((award) => award.programId === program.id);
-        if (awards.length < 2) return null;
-        return buildProgramRow(program, awards, data);
-      })
-      .filter((row): row is AwardBrowserRow => Boolean(row));
-    const groupedAwardIds = new Set(programRows.flatMap((row) => row.awards.map((award) => award.id)));
-    const awardRows = data.awards
-      .filter((award) => !groupedAwardIds.has(award.id))
-      .map((award) => buildAwardRow(award, data));
-
-    return [...programRows, ...awardRows]
+    return data.awards
       .filter((row) => row.records > 0)
-      .filter((row) => matchesAwardRegion(row, geography))
+      .filter((row) => matchesRegion(row.geography, geography))
       .filter((row) => matchesBookType(row.subjects, bookType))
-      .filter((row) =>
-        [row.name, row.shortName, row.typeLabel, row.description, row.subjects.join(" "), row.matchedCategories]
-          .filter(Boolean)
-          .join(" ")
-          .toLowerCase()
-          .includes(q),
-      )
+      .filter((row) => row.searchText.includes(q))
       .sort((a, b) => {
         if (sort === "records") return b.records - a.records || a.name.localeCompare(b.name);
         if (sort === "subject") return a.subjects.join(", ").localeCompare(b.subjects.join(", "));
         if (sort === "deadline") return (a.deadline ?? "zzz").localeCompare(b.deadline ?? "zzz");
         return a.name.localeCompare(b.name);
       });
-  }, [bookType, data.appearances, data.awards, geography, query, sort]);
+  }, [bookType, data.awards, geography, query, sort]);
 
   function setGeography(nextGeography: AwardRegionFilter) {
     setGeographyState(nextGeography);
     document.cookie = `${AWARD_REGION_COOKIE}=${nextGeography}; path=/; max-age=31536000; samesite=lax`;
   }
 
+  const contextLine = `${regionLabel(geography)} · ${bookType === "all" ? "All books" : titleCase(bookType)} · Sorted by ${awardSortLabels[sort].toLowerCase()} · ${rows.length.toLocaleString()} awards`;
+
   return (
-    <main className="subjects-page mx-auto max-w-[96rem] px-4 py-4 sm:px-6 lg:px-8">
-      <section className="subjects-hero grid gap-8 lg:grid-cols-[0.86fr_1fr] lg:items-center">
+    <main className="subjects-page py-4">
+      <section className="subjects-hero mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.86fr_1fr] lg:items-center lg:px-8">
         <div>
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Awards</p>
-          <h1 className="mt-5 text-4xl font-semibold leading-tight tracking-normal">Browse awards.</h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 muted">
+          <h1 className="mt-3 font-[var(--font-serif)] text-5xl font-light leading-tight">Browse awards.</h1>
+          <p className="mt-5 max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted">
             Explore nonfiction prizes by subject, eligibility, deadline, and source.
             <br />
             Click an award to view related books and records.
@@ -77,12 +63,13 @@ export function AwardsBrowser({ data, defaultRegion }: { data: PublicData; defau
         </div>
       </section>
 
-      <section className="subjects-table-panel mt-6 border hairline">
-        <div className="subjects-filterbar flex flex-col gap-5 border-b hairline px-6 py-6 lg:flex-row lg:items-center lg:justify-between">
+      <section className="subjects-table-panel mx-auto mt-6 max-w-[96rem] border hairline">
+        <div className="filter-toolbar mx-auto flex max-w-7xl flex-col gap-5 border-b hairline px-6 py-6 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col gap-5 md:flex-row md:items-center">
             <FilterGroup label="Award Geography">
-              <SegmentButton active={geography === "us"} onClick={() => setGeography("us")}>US</SegmentButton>
-              <SegmentButton active={geography === "world"} onClick={() => setGeography("world")}>World</SegmentButton>
+              {(["us", "international", "all"] as const).map((item) => (
+                <SegmentButton active={geography === item} key={item} onClick={() => setGeography(item)}>{regionLabel(item)}</SegmentButton>
+              ))}
             </FilterGroup>
 
             <FilterGroup label="Book Type">
@@ -97,14 +84,54 @@ export function AwardsBrowser({ data, defaultRegion }: { data: PublicData; defau
               <SegmentButton key={item} active={sort === item} onClick={() => setSort(item)}>
                 <span className="inline-flex items-center gap-2 capitalize">
                   <ArrowUpDown size={12} />
-                  {item}
+                  {awardSortLabels[item]}
                 </span>
               </SegmentButton>
             ))}
           </FilterGroup>
         </div>
+        <div className="mx-auto max-w-7xl border-b hairline px-6 py-3 font-[var(--font-mono)] text-xs muted">
+          {contextLine}
+          {query.trim() ? <span className="ml-2 text-[var(--ink)]">Search: {query.trim()}</span> : null}
+        </div>
 
-        <div className="overflow-x-auto">
+        <div className="grid md:hidden">
+          {rows.map((row, index) => (
+            <Link
+              className="subjects-row block border-b hairline p-4 transition last:border-b-0 hover:bg-[var(--accent-soft)]"
+              href={`/awards/${row.slug}`}
+              key={row.id}
+              style={{ animationDelay: `${Math.min(index * 28, 420)}ms` }}
+            >
+              <span className="block text-xl font-medium leading-tight">{row.name}</span>
+              <span className="mt-2 block text-sm leading-6 muted">{row.description}</span>
+              <span className="mt-4 grid grid-cols-2 gap-3 border-y hairline py-3 text-sm">
+                <span>
+                  <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Type</span>
+                  <span className="mt-1 block">{row.typeLabel}</span>
+                </span>
+                <span>
+                  <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Region</span>
+                  <span className="mt-1 block">{formatGeography(row.geography)}</span>
+                </span>
+                <span>
+                  <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Years</span>
+                  <span className="plain-number mt-1 block">{row.yearRange}</span>
+                </span>
+                <span>
+                  <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Records</span>
+                  <span className="plain-number mt-1 block text-lg text-[var(--ink)]">{row.records.toLocaleString()}</span>
+                </span>
+              </span>
+              <span className="mt-3 block text-sm leading-6">{row.subjects.slice(0, 3).join(", ")}{row.subjects.length > 3 ? ` +${row.subjects.length - 3}` : ""}</span>
+              <span className="mt-3 inline-flex items-center gap-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.14em]">
+                View award <ArrowRight size={14} />
+              </span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="hidden overflow-x-auto md:block">
           <table className="subjects-table w-full min-w-[1180px] border-collapse text-left">
             <thead>
               <tr className="border-b hairline">
@@ -120,9 +147,22 @@ export function AwardsBrowser({ data, defaultRegion }: { data: PublicData; defau
             </thead>
             <tbody>
               {rows.map((row, index) => (
-                <tr className="subjects-row border-b hairline" key={row.id} style={{ animationDelay: `${Math.min(index * 28, 420)}ms` }}>
+                <tr
+                  className="subjects-row cursor-pointer border-b hairline"
+                  key={row.id}
+                  onClick={() => router.push(`/awards/${row.slug}`)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      router.push(`/awards/${row.slug}`);
+                    }
+                  }}
+                  role="link"
+                  style={{ animationDelay: `${Math.min(index * 28, 420)}ms` }}
+                  tabIndex={0}
+                >
                   <td className="px-6 py-4">
-                    <Link className="subjects-title-link block" href={`/awards/${row.slug}`}>
+                    <Link className="subjects-title-link block" href={`/awards/${row.slug}`} onClick={(event) => event.stopPropagation()}>
                       <span className="block text-xl font-medium leading-tight">{row.name}</span>
                       <span className="mt-1 block text-sm leading-5 muted">{row.description}</span>
                     </Link>
@@ -136,7 +176,7 @@ export function AwardsBrowser({ data, defaultRegion }: { data: PublicData; defau
                   <td className="px-4 py-4 text-sm leading-6 muted">{row.deadline ?? row.typeLabel}</td>
                   <td className="plain-number px-4 py-4 text-right text-lg">{row.records.toLocaleString()}</td>
                   <td className="px-6 py-4 text-right">
-                    <Link aria-label={`View ${row.name}`} className="subjects-row-icon focus-ring ml-auto" href={`/awards/${row.slug}`}>
+                    <Link aria-label={`View ${row.name}`} className="subjects-row-icon focus-ring ml-auto" href={`/awards/${row.slug}`} onClick={(event) => event.stopPropagation()}>
                       <ArrowRight size={22} strokeWidth={1.7} />
                     </Link>
                   </td>
@@ -150,82 +190,37 @@ export function AwardsBrowser({ data, defaultRegion }: { data: PublicData; defau
   );
 }
 
-type AwardBrowserRow = {
-  id: string;
-  slug: string;
-  name: string;
-  shortName?: string;
-  description: string;
-  geography?: string;
-  programId?: string;
-  subjects: string[];
-  deadline?: string;
-  typeLabel: string;
-  yearRange: string;
-  records: number;
-  awards: Award[];
-  matchedCategories?: string;
-};
-
-function buildAwardRow(award: Award, data: PublicData): AwardBrowserRow {
-  const program = award.programId ? (data.awardPrograms ?? []).find((item) => item.id === award.programId) : undefined;
-  const appearances = data.appearances.filter((appearance) => appearance.awardId === award.id);
-  const years = appearances.map((appearance) => appearance.year);
-  return {
-    id: award.id,
-    slug: award.slug,
-    name: award.name,
-    shortName: award.shortName,
-    description: award.criteria ?? "Pending official criteria import",
-    geography: award.geography ?? program?.geography,
-    programId: award.programId,
-    subjects: award.subjectAreas,
-    deadline: award.deadline,
-    typeLabel: award.awardType === "award" ? "Award" : "Major award",
-    yearRange: years.length ? `${Math.min(...years)}-${Math.max(...years)}` : "Unknown",
-    records: appearances.length,
-    awards: [award],
-  };
-}
-
-function buildProgramRow(program: AwardProgram, awards: Award[], data: PublicData): AwardBrowserRow {
-  const awardIds = new Set(awards.map((award) => award.id));
-  const appearances = data.appearances.filter((appearance) => awardIds.has(appearance.awardId));
-  const years = appearances.map((appearance) => appearance.year);
-  const subjects = unique(awards.flatMap((award) => award.subjectAreas));
-  const categories = awards.map((award) => award.categoryName ?? award.name).sort((a, b) => a.localeCompare(b));
-  return {
-    id: `program-${program.id}`,
-    slug: program.slug,
-    name: program.name,
-    description: `${awards.length} categories represented: ${categories.slice(0, 3).join(", ")}${categories.length > 3 ? ", ..." : ""}`,
-    geography: program.geography,
-    subjects,
-    typeLabel: `${awards.length} categories`,
-    yearRange: years.length ? `${Math.min(...years)}-${Math.max(...years)}` : "Unknown",
-    records: appearances.length,
-    awards,
-    matchedCategories: categories.join(" "),
-  };
-}
-
 function formatGeography(geography?: string) {
   if (!geography) return "Unknown";
   const normalized = geography.toLowerCase();
+  if (normalized === "world") return "World";
   if (normalized === "us" || normalized === "usa" || normalized === "united states") return "US";
   if (normalized === "uk" || normalized === "united kingdom") return "UK";
   return geography;
 }
 
-function unique(values: string[]) {
-  return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+function matchesRegion(geography: string | undefined, filter: AwardRegionFilter) {
+  if (filter === "all") return true;
+  const isUs = isUsGeography(geography);
+  return filter === "us" ? isUs : !isUs;
+}
+
+const awardSortLabels: Record<AwardSort, string> = {
+  name: "Name A-Z",
+  records: "Most records",
+  subject: "Subject A-Z",
+  deadline: "Deadline",
+};
+
+function titleCase(value: string) {
+  return value.charAt(0).toUpperCase() + value.slice(1);
 }
 
 function FilterGroup({ children, label, wrap = false }: { children: React.ReactNode; label: string; wrap?: boolean }) {
   return (
-    <div className="flex min-w-0 flex-wrap items-center gap-4">
-      <span className="text-sm muted">{label}</span>
-      <div className={`subjects-segments flex max-w-full overflow-hidden border hairline ${wrap ? "flex-wrap xl:flex-nowrap" : "inline-flex"}`}>{children}</div>
+    <div className="filter-group">
+      <span className="filter-label">{label}</span>
+      <div className={`segmented-control ${wrap ? "flex-wrap xl:flex-nowrap" : ""}`}>{children}</div>
     </div>
   );
 }
@@ -233,9 +228,7 @@ function FilterGroup({ children, label, wrap = false }: { children: React.ReactN
 function SegmentButton({ active, children, onClick }: { active: boolean; children: React.ReactNode; onClick: () => void }) {
   return (
     <button
-      className={`focus-ring min-w-16 border-r hairline px-4 py-2.5 text-sm transition last:border-r-0 sm:min-w-20 sm:px-5 ${
-        active ? "bg-[var(--ink)] text-[var(--paper)] shadow-sm" : "hover:bg-[var(--panel)]"
-      }`}
+      className={`segment-button focus-ring min-w-16 sm:min-w-20 ${active ? "segment-button-active" : ""}`}
       onClick={onClick}
       type="button"
     >
@@ -247,5 +240,10 @@ function SegmentButton({ active, children, onClick }: { active: boolean; childre
 function matchesBookType(subjects: string[], filter: BookTypeFilter) {
   if (filter === "all") return true;
   const normalized = subjects.map((subject) => subject.toLowerCase());
-  return normalized.some((subject) => subject.includes(filter));
+  if (filter === "fiction") return normalized.some((subject) => subject === "fiction" || subject.includes(" fiction"));
+  return normalized.some((subject) => subject === "nonfiction" || subject.includes("nonfiction"));
+}
+
+function isUsGeography(geography?: string) {
+  return Boolean(geography && /united states|u\.s\.|us publication|united states publication/i.test(geography));
 }
