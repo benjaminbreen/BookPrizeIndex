@@ -145,7 +145,7 @@ function SiteFooter() {
         <FooterColumn
           title="Resources"
           links={[
-            { href: "#", label: "About" },
+            { href: "/about", label: "About" },
             { href: "#", label: "Methodology" },
             { href: "#", label: "Data Sources" },
             { href: "#", label: "FAQ" },
