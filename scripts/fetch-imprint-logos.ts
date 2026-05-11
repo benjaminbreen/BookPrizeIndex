@@ -80,8 +80,15 @@ const approvedCommonsTitles: Record<string, string> = {
   "imprint-schocken": "File:Schocken Books logo.svg",
   "imprint-scribner": "File:Charles Scribner's Sons logo.png",
   "imprint-simon-and-schuster": "File:Simon & Schuster logo.svg",
+  "imprint-cambridge-university-press": "File:Cambridge University Press logo.png",
+  "imprint-cornell-university-press": "File:Cornell University Press logo 2019.svg",
+  "imprint-faber-and-faber": "File:Faber and Faber logo.svg",
+  "imprint-macmillan": "File:Macmillan Publishers logo.svg",
+  "imprint-picador": "File:Picador logo.jpg",
+  "imprint-university-of-california-press": "File:University of California Press logo.svg",
   "imprint-university-of-chicago-press": "File:University of Chicago Press logo.jpg",
   "imprint-university-of-north-carolina-press": "File:Unc press.png",
+  "imprint-university-of-texas-press": "File:UT Press 75th Logo.jpg",
   "imprint-yale-university-press": "File:Yale University Press logo 1985-2010.svg",
 };
 
@@ -124,11 +131,26 @@ const approvedDirectLogoTitles: Record<string, string> = {
 
 const curatedWordmarkLogos: Record<string, string> = {
   "imprint-allen-lane": "Allen Lane",
+  "imprint-avid-reader-press": "Avid Reader",
+  "imprint-chatto-and-windus": "Chatto & Windus",
+  "imprint-ecco": "Ecco",
+  "imprint-fourth-estate": "Fourth Estate",
   "imprint-graywolf-press": "Graywolf",
+  "imprint-grove-press": "Grove Press",
+  "imprint-hodder-and-stoughton": "Hodder & Stoughton",
   "imprint-houghton-mifflin": "Houghton Mifflin",
+  "imprint-johns-hopkins-university-press": "Johns Hopkins UP",
   "imprint-mariner-books": "Mariner Books",
+  "imprint-new-york-university-press": "NYU Press",
+  "imprint-jonathan-cape": "Jonathan Cape",
+  "imprint-penguin-books": "Penguin Books",
+  "imprint-penguin-publishing-group": "Penguin",
+  "imprint-profile-books": "Profile Books",
+  "imprint-publicaffairs": "PublicAffairs",
   "imprint-spiegel-and-grau": "Spiegel & Grau",
+  "imprint-the-new-press": "The New Press",
   "imprint-touchstone": "Touchstone",
+  "imprint-weidenfeld-and-nicolson": "Weidenfeld & Nicolson",
 };
 
 async function main() {
