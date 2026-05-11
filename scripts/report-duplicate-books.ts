@@ -29,6 +29,7 @@ type DuplicateGroup = {
     titleSimilarity: number;
     authorSimilarity: number;
     sharedIsbn: boolean;
+    sharedTitlePrefix: boolean;
     yearDelta?: number;
   }>;
 };
@@ -104,11 +105,14 @@ function buildBuckets(books: Book[]) {
   for (const book of books) {
     const title = titleTokens(book.title);
     const authorLasts = authorLastNames(book);
+    const prefix = titlePrefixTokens(book.title);
     const keys = [
       `${authorLasts.join("|")}::${title.slice(0, 6).sort().join(" ")}`,
       `${authorLasts[0] ?? ""}::${title.slice(0, 5).sort().join(" ")}`,
       `${authorLasts.join("|")}::${title.slice(0, 4).join(" ")}`,
-    ].filter((key) => !key.startsWith("::") && !key.endsWith("::"));
+      // Prefix key: catches different-subtitle editions of the same book
+      prefix.length >= 2 ? `prefix::${authorLasts[0] ?? ""}::${prefix.join(" ")}` : "",
+    ].filter((key) => key && !key.startsWith("::") && !key.endsWith("::"));
     for (const key of new Set(keys)) buckets.set(key, [...(buckets.get(key) ?? []), book]);
   }
   return buckets;
@@ -118,8 +122,9 @@ function pairSignals(a: Book, b: Book) {
   const titleSimilarity = tokenSimilarity(titleTokens(a.title), titleTokens(b.title));
   const authorSimilarity = tokenSimilarity(authorTokens(a), authorTokens(b));
   const sharedIsbn = Boolean(a.isbn13.length && b.isbn13.length && a.isbn13.some((isbn) => b.isbn13.includes(isbn)));
+  const sharedTitlePrefix = sharedPrefix(a.title, b.title);
   const yearDelta = a.publicationYear && b.publicationYear ? Math.abs(a.publicationYear - b.publicationYear) : undefined;
-  return { titleSimilarity, authorSimilarity, sharedIsbn, yearDelta };
+  return { titleSimilarity, authorSimilarity, sharedIsbn, sharedTitlePrefix, yearDelta };
 }
 
 function isCandidate(signals: ReturnType<typeof pairSignals>) {
@@ -127,11 +132,13 @@ function isCandidate(signals: ReturnType<typeof pairSignals>) {
   if (signals.titleSimilarity >= 0.92 && signals.authorSimilarity >= 0.55) return true;
   if (signals.titleSimilarity >= 0.78 && signals.authorSimilarity >= 0.78) return true;
   if (signals.titleSimilarity >= 0.72 && signals.authorSimilarity >= 0.9) return true;
+  // Different-subtitle editions: same prefix before colon + same author
+  if (signals.sharedTitlePrefix && signals.authorSimilarity >= 0.8) return true;
   return false;
 }
 
 function pairScore(signals: ReturnType<typeof pairSignals>) {
-  return Number(((signals.titleSimilarity * 0.6) + (signals.authorSimilarity * 0.35) + (signals.sharedIsbn ? 0.15 : 0)).toFixed(3));
+  return Number(((signals.titleSimilarity * 0.6) + (signals.authorSimilarity * 0.35) + (signals.sharedIsbn ? 0.15 : 0) + (signals.sharedTitlePrefix ? 0.1 : 0)).toFixed(3));
 }
 
 function buildGroups(
@@ -173,6 +180,7 @@ function buildGroups(
         titleSimilarity: Number(pair.titleSimilarity.toFixed(3)),
         authorSimilarity: Number(pair.authorSimilarity.toFixed(3)),
         sharedIsbn: pair.sharedIsbn,
+        sharedTitlePrefix: pair.sharedTitlePrefix,
         yearDelta: pair.yearDelta,
       }));
     const candidateBooks = groupBooks.map((book) => toCandidateBook(book, appearancesByBook, awardsById));
@@ -218,6 +226,7 @@ function toCandidateBook(
 
 function classifyGroup(pairSignals: DuplicateGroup["pairSignals"], books: CandidateBook[]): Pick<DuplicateGroup, "action" | "confidence" | "reason"> {
   const hasSharedIsbn = pairSignals.some((pair) => pair.sharedIsbn);
+  const hasSharedPrefix = pairSignals.some((pair) => pair.sharedTitlePrefix);
   const maxYearDelta = Math.max(0, ...pairSignals.map((pair) => pair.yearDelta ?? 0));
   const strongPairs = pairSignals.filter((pair) => pair.titleSimilarity >= 0.9 && pair.authorSimilarity >= 0.75);
   const suspiciousYear = maxYearDelta > 8 && !hasSharedIsbn;
@@ -231,6 +240,13 @@ function classifyGroup(pairSignals: DuplicateGroup["pairSignals"], books: Candid
       action: "manual_review",
       confidence: suspiciousYear || hasVolumeLanguage ? "medium" : "high",
       reason: suspiciousYear ? "Likely duplicate but publication years differ substantially." : hasVolumeLanguage ? "Likely duplicate or related volume; volume language requires review." : "Likely duplicate with minor title or author variation.",
+    };
+  }
+  if (hasSharedPrefix) {
+    return {
+      action: "manual_review",
+      confidence: "medium",
+      reason: "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
     };
   }
   return { action: "manual_review", confidence: "low", reason: "Loose similarity candidate; inspect before merging." };
@@ -321,6 +337,22 @@ function normalize(input: string) {
     .replace(/[^a-z0-9]+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+function titlePrefixTokens(title: string) {
+  const colonIdx = title.indexOf(":");
+  const prefix = colonIdx > 0 ? title.slice(0, colonIdx) : "";
+  return titleTokens(prefix);
+}
+
+function sharedPrefix(titleA: string, titleB: string) {
+  const a = titlePrefixTokens(titleA);
+  const b = titlePrefixTokens(titleB);
+  if (a.length < 2 || b.length < 2) return false;
+  // All tokens in the shorter prefix must appear in the longer one
+  const [shorter, longer] = a.length <= b.length ? [a, b] : [b, a];
+  const longerSet = new Set(longer);
+  return shorter.every((token) => longerSet.has(token));
 }
 
 function tokenSimilarity(a: string[], b: string[]) {

@@ -33,9 +33,12 @@
       "reason": "Very similar title and author strings."
     },
     {
-      "canonicalBookId": "book-the-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf",
-      "duplicateBookIds": ["book-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf"],
-      "reason": "Very similar title and author strings."
+      "canonicalBookId": "book-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+      "duplicateBookIds": [
+        "book-the-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf",
+        "book-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf"
+      ],
+      "reason": "Same book, US and UK edition subtitles differ. US subtitle (Knopf 2016) has more appearances and is canonical."
     },
     {
       "canonicalBookId": "book-legacy-of-ashes-the-history-of-the-cia-tim-weiner",
@@ -296,6 +299,101 @@
       "canonicalBookId": "book-animal-wise-the-thoughts-and-emotions-of-our-fel-low-creatures-virginia-morell",
       "duplicateBookIds": ["book-animal-wise-the-thoughts-and-emotions-of-our-fellow-creatures-virginia-morell"],
       "reason": "User-reviewed duplicate from duplicate report."
+    },
+    {
+      "canonicalBookId": "book-invisible-women-exposing-data-bias-in-a-world-designed-for-men-caroline-criado-perez",
+      "duplicateBookIds": ["book-invisible-women-data-bias-in-a-world-designed-for-men-caroline-criado-perez"],
+      "reason": "Same book, US subtitle adds 'Exposing'; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-lonely-hearts-of-the-cosmos-the-story-of-the-scientific-quest-for-the-secret-of-the-universe-den",
+      "duplicateBookIds": ["book-lonely-hearts-of-the-cosmos-the-scientific-quest-for-the-secret-of-the-universe-dennis-overbye"],
+      "reason": "Same book, subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-night-flyer-harriet-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles",
+      "duplicateBookIds": ["book-night-flyer-harrier-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles"],
+      "reason": "Same book; one entry has a typo ('Harrier' for 'Harriet')."
+    },
+    {
+      "canonicalBookId": "book-a-little-devil-in-america-notes-in-praise-of-black-performance-hanif-abdurraqib",
+      "duplicateBookIds": ["book-a-little-devil-in-america-in-praise-of-black-performance-hanif-abdurraqib"],
+      "reason": "Same book, US subtitle adds 'Notes in'; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-matisse-the-master-a-life-of-henri-matisse-the-conquest-of-colour-1909-1954-hilary-spurling",
+      "duplicateBookIds": ["book-matisse-the-master-the-conquest-of-colour-1909-1954-hilary-spurling"],
+      "reason": "Same book, UK subtitle omits 'A Life of Henri Matisse'; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-into-the-american-woods-negotiations-on-the-pennsylvania-frontier-james-h-merrell",
+      "duplicateBookIds": ["book-into-the-american-woods-negotiators-on-the-pennsylvania-frontier-james-h-merrell"],
+      "reason": "Same book; one entry has a typo ('Negotiators' for 'Negotiations')."
+    },
+    {
+      "canonicalBookId": "book-ravenna-capital-of-empire-crucible-of-europe-judith-herrin",
+      "duplicateBookIds": ["book-ravenna-capital-of-empire-crucible-of-empire-judith-herrin"],
+      "reason": "Same book, US/UK subtitle variant ('Crucible of Europe' vs 'Crucible of Empire')."
+    },
+    {
+      "canonicalBookId": "book-the-strangest-man-the-hidden-life-of-paul-dirac-mystic-of-the-atom-graham-farmelo",
+      "duplicateBookIds": ["book-the-strangest-man-the-hidden-life-of-paul-dirac-quantum-genius-graham-farmelo"],
+      "reason": "Same book, US/UK subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-a-people-s-tragedy-a-history-of-the-russian-revolution-orlando-figes",
+      "duplicateBookIds": ["book-a-people-s-tragedy-the-russian-revolution-1891-1924-orlando-figes"],
+      "reason": "Same book by Orlando Figes, US/UK subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-the-world-is-what-it-is-the-authorized-biography-of-v-s-naipaul-patrick-french",
+      "duplicateBookIds": ["book-the-world-is-what-it-is-the-authorised-biography-of-vs-naipaul-patrick-french"],
+      "reason": "Same book, US/UK spelling variant ('Authorized'/'Authorised', 'V.S.'/'VS')."
+    },
+    {
+      "canonicalBookId": "book-red-memory-living-remembering-and-forgetting-china-s-cultural-revolution-tania-branigan",
+      "duplicateBookIds": ["book-red-memory-the-afterlives-of-china-s-cultural-revolution-tania-branigan"],
+      "reason": "Same book by Tania Branigan, US/UK subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-the-better-angels-of-our-nature-a-history-of-violence-and-humanity-steven-pinker",
+      "duplicateBookIds": ["book-the-better-angels-of-our-nature-why-violence-has-declined-steven-pinker"],
+      "reason": "Same book by Steven Pinker, US/UK subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin",
+      "duplicateBookIds": ["book-a-peace-to-end-all-peace-the-fall-of-the-ottoman-empire-and-the-creation-of-the-modern-middle-ea"],
+      "reason": "Same book by David Fromkin, subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-a-day-in-the-life-of-abed-salama-anatomy-of-a-jerusalem-tragedy-nathan-thrall",
+      "duplicateBookIds": ["book-a-day-in-the-life-of-abed-salama-a-palestine-story-nathan-thrall"],
+      "reason": "Same book by Nathan Thrall, US/UK subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-mama-s-last-hug-animal-emotions-and-what-they-tell-us-about-ourselves-frans-de-waal",
+      "duplicateBookIds": ["book-mama-s-last-hug-animal-and-human-emotions-frans-de-waal"],
+      "reason": "Same book by Frans de Waal, subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-wayward-lives-beautiful-experiments-intimate-histories-of-riotous-black-girls-troublesome-women-",
+      "duplicateBookIds": ["book-wayward-lives-beautiful-experiments-intimate-stories-of-social-upheaval-saidiya-hartman"],
+      "reason": "Same book by Saidiya Hartman, subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-after-tamerlane-the-rise-and-fall-of-global-empires-1400-2000-john-darwin",
+      "duplicateBookIds": ["book-after-tamerlane-the-global-history-of-empire-since-1405-john-darwin"],
+      "reason": "Same book by John Darwin, US/UK subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-eat-the-buddha-the-story-of-modern-tibet-through-the-people-of-one-town-barbara-demick",
+      "duplicateBookIds": ["book-eat-the-buddha-life-and-death-in-a-tibetan-town-barbara-demick"],
+      "reason": "Same book by Barbara Demick, US/UK subtitle variant; detected by shared title prefix."
+    },
+    {
+      "canonicalBookId": "book-the-firebrand-and-the-first-lady-pauli-murray-eleanor-roosevelt-and-the-struggle-for-social-just",
+      "duplicateBookIds": ["book-the-firebrand-and-the-first-lady-portrait-of-a-friendship-patricia-bell-scott"],
+      "reason": "Same book by Patricia Bell-Scott, US/UK subtitle variant; detected by shared title prefix."
     },
     {
       "canonicalBookId": "book-beasts-of-the-field-a-narrative-history-of-california-farm-workers-1769-1913-richard-steven-stre",

@@ -1,8 +1,2000 @@
 {
-  "generatedAt": "2026-05-11T18:56:12.128Z",
-  "totalBooks": 5188,
-  "candidateGroups": 0,
-  "candidateBooks": 0,
-  "actionSummary": {},
-  "groups": []
+  "generatedAt": "2026-05-11T21:12:13.338Z",
+  "totalBooks": 5396,
+  "candidateGroups": 29,
+  "candidateBooks": 58,
+  "actionSummary": {
+    "manual_review": 29
+  },
+  "groups": [
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-invisible-women-exposing-data-bias-in-a-world-designed-for-men-caroline-criado-perez",
+      "score": 0.875,
+      "books": [
+        {
+          "id": "book-invisible-women-exposing-data-bias-in-a-world-designed-for-men-caroline-criado-perez",
+          "title": "Invisible Women: Exposing Data Bias in a World Designed for Men",
+          "authors": [
+            "Caroline Criado-Perez"
+          ],
+          "publicationYear": 2019,
+          "isbn13": [
+            "9781784706289"
+          ],
+          "sourceCount": 6,
+          "appearanceCount": 4,
+          "awards": [
+            {
+              "awardId": "award-orwell-prize-political-writing",
+              "awardName": "Orwell Prize: Political Writing",
+              "year": 2020,
+              "status": "shortlist"
+            },
+            {
+              "awardId": "award-ft-business-book-of-the-year",
+              "awardName": "FT Business Book of the Year",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-science-and-technology",
+              "awardName": "Los Angeles Times Book Prize for Science and Technology",
+              "year": 2019,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-royal-society-science-book-prize",
+              "awardName": "Royal Society Science Book Prize",
+              "year": 2019,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 4
+        },
+        {
+          "id": "book-invisible-women-data-bias-in-a-world-designed-for-men-caroline-criado-perez",
+          "title": "Invisible Women: Data Bias in a World Designed for Men",
+          "authors": [
+            "Caroline Criado Perez"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2020,
+              "status": "longlist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-invisible-women-data-bias-in-a-world-designed-for-men-caroline-criado-perez",
+            "book-invisible-women-exposing-data-bias-in-a-world-designed-for-men-caroline-criado-perez"
+          ],
+          "titleSimilarity": 0.875,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-lonely-hearts-of-the-cosmos-the-story-of-the-scientific-quest-for-the-secret-of-the-universe-den",
+      "score": 0.875,
+      "books": [
+        {
+          "id": "book-lonely-hearts-of-the-cosmos-the-scientific-quest-for-the-secret-of-the-universe-dennis-overbye",
+          "title": "Lonely Hearts of the Cosmos: The Scientific Quest for the Secret of the Universe",
+          "authors": [
+            "Dennis Overbye"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-nonfiction",
+              "awardName": "National Book Critics Circle Award for Nonfiction",
+              "year": 1991,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-lonely-hearts-of-the-cosmos-the-story-of-the-scientific-quest-for-the-secret-of-the-universe-den",
+          "title": "Lonely Hearts of the Cosmos: The Story of the Scientific Quest for the Secret of the Universe",
+          "authors": [
+            "Dennis Overbye"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-science-and-technology",
+              "awardName": "Los Angeles Times Book Prize for Science and Technology",
+              "year": 1991,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-lonely-hearts-of-the-cosmos-the-scientific-quest-for-the-secret-of-the-universe-dennis-overbye",
+            "book-lonely-hearts-of-the-cosmos-the-story-of-the-scientific-quest-for-the-secret-of-the-universe-den"
+          ],
+          "titleSimilarity": 0.875,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-night-flyer-harriet-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles",
+      "score": 0.875,
+      "books": [
+        {
+          "id": "book-night-flyer-harriet-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles",
+          "title": "Night Flyer: Harriet Tubman and the Faith Dreams of a Free People",
+          "authors": [
+            "Tiya Miles"
+          ],
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2025,
+              "status": "longlist"
+            },
+            {
+              "awardId": "award-national-book-critics-circle-award-for-biography",
+              "awardName": "National Book Critics Circle Award for Biography",
+              "year": 2024,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-night-flyer-harrier-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles",
+          "title": "Night Flyer: Harrier Tubman and the Faith Dreams of a Free People",
+          "authors": [
+            "Tiya Miles"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2025,
+              "status": "longlist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-night-flyer-harrier-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles",
+            "book-night-flyer-harriet-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles"
+          ],
+          "titleSimilarity": 0.875,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-a-little-devil-in-america-notes-in-praise-of-black-performance-hanif-abdurraqib",
+      "score": 0.864,
+      "books": [
+        {
+          "id": "book-a-little-devil-in-america-notes-in-praise-of-black-performance-hanif-abdurraqib",
+          "title": "A Little Devil in America: Notes in Praise of Black Performance",
+          "authors": [
+            "Hanif Abdurraqib"
+          ],
+          "publicationYear": 2022,
+          "isbn13": [
+            "9781984801197"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-random-house",
+          "sourceCount": 6,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2022,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 2021,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-national-book-critics-circle-award-for-memoir-and-autobiography",
+              "awardName": "National Book Critics Circle Award for Memoir and Autobiography",
+              "year": 2021,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-a-little-devil-in-america-in-praise-of-black-performance-hanif-abdurraqib",
+          "title": "A Little Devil in America: In Praise of Black Performance",
+          "authors": [
+            "Hanif Abdurraqib"
+          ],
+          "publicationYear": 2021,
+          "isbn13": [
+            "9780141995793"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-penguin-books",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2022,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 7
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-a-little-devil-in-america-in-praise-of-black-performance-hanif-abdurraqib",
+            "book-a-little-devil-in-america-notes-in-praise-of-black-performance-hanif-abdurraqib"
+          ],
+          "titleSimilarity": 0.857,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 1
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-matisse-the-master-a-life-of-henri-matisse-the-conquest-of-colour-1909-1954-hilary-spurling",
+      "score": 0.864,
+      "books": [
+        {
+          "id": "book-matisse-the-master-a-life-of-henri-matisse-the-conquest-of-colour-1909-1954-hilary-spurling",
+          "title": "Matisse the Master: A Life of Henri Matisse, the Conquest of Colour, 1909–1954",
+          "authors": [
+            "Hilary Spurling"
+          ],
+          "publicationYear": 2007,
+          "isbn13": [
+            "9780375711534"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-knopf",
+          "sourceCount": 4,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-costa-book-awards-biography",
+              "awardName": "Costa Book Awards: Biography",
+              "year": 2005,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-biography",
+              "awardName": "Los Angeles Times Book Prize for Biography",
+              "year": 2005,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-costa-book-awards-biography",
+              "awardName": "Costa Book Awards: Biography",
+              "year": 1999,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-matisse-the-master-the-conquest-of-colour-1909-1954-hilary-spurling",
+          "title": "Matisse the Master: The Conquest of Colour 1909–1954",
+          "authors": [
+            "Hilary Spurling"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2005,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-matisse-the-master-a-life-of-henri-matisse-the-conquest-of-colour-1909-1954-hilary-spurling",
+            "book-matisse-the-master-the-conquest-of-colour-1909-1954-hilary-spurling"
+          ],
+          "titleSimilarity": 0.857,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-into-the-american-woods-negotiations-on-the-pennsylvania-frontier-james-h-merrell",
+      "score": 0.83,
+      "books": [
+        {
+          "id": "book-into-the-american-woods-negotiations-on-the-pennsylvania-frontier-james-h-merrell",
+          "title": "Into the American Woods: Negotiations on the Pennsylvania Frontier",
+          "authors": [
+            "James H. Merrell"
+          ],
+          "publicationYear": 2000,
+          "isbn13": [
+            "9780393319767"
+          ],
+          "publisherId": "publisher-w-w-norton-and-company",
+          "imprintId": "imprint-w-w-norton",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-bancroft-prize",
+              "awardName": "Bancroft Prize",
+              "year": 2000,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 6
+        },
+        {
+          "id": "book-into-the-american-woods-negotiators-on-the-pennsylvania-frontier-james-h-merrell",
+          "title": "Into the American Woods: Negotiators on the Pennsylvania Frontier",
+          "authors": [
+            "James H. Merrell"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-history",
+              "awardName": "Pulitzer Prize in History",
+              "year": 2000,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-into-the-american-woods-negotiations-on-the-pennsylvania-frontier-james-h-merrell",
+            "book-into-the-american-woods-negotiators-on-the-pennsylvania-frontier-james-h-merrell"
+          ],
+          "titleSimilarity": 0.8,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-ravenna-capital-of-empire-crucible-of-europe-judith-herrin",
+      "score": 0.83,
+      "books": [
+        {
+          "id": "book-ravenna-capital-of-empire-crucible-of-europe-judith-herrin",
+          "title": "Ravenna: Capital of Empire, Crucible of Europe",
+          "authors": [
+            "Judith Herrin"
+          ],
+          "publicationYear": 2016,
+          "isbn13": [],
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press",
+          "sourceCount": 5,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-wolfson-history-prize",
+              "awardName": "Wolfson History Prize",
+              "year": 2022,
+              "status": "shortlist"
+            },
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2021,
+              "status": "longlist"
+            },
+            {
+              "awardId": "award-prose-award-for-world-history",
+              "awardName": "PROSE Award for World History",
+              "year": 2021,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 5
+        },
+        {
+          "id": "book-ravenna-capital-of-empire-crucible-of-empire-judith-herrin",
+          "title": "Ravenna: Capital of Empire, Crucible of Empire",
+          "authors": [
+            "Judith Herrin"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-duff-cooper-prize-history-biography-and-political-science",
+              "awardName": "Duff Cooper Prize: History, Biography & Political Science",
+              "year": 2020,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-ravenna-capital-of-empire-crucible-of-empire-judith-herrin",
+            "book-ravenna-capital-of-empire-crucible-of-europe-judith-herrin"
+          ],
+          "titleSimilarity": 0.8,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": false
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-strangest-man-the-hidden-life-of-paul-dirac-mystic-of-the-atom-graham-farmelo",
+      "score": 0.778,
+      "books": [
+        {
+          "id": "book-the-strangest-man-the-hidden-life-of-paul-dirac-mystic-of-the-atom-graham-farmelo",
+          "title": "The Strangest Man: The Hidden Life of Paul Dirac, Mystic of the Atom",
+          "authors": [
+            "Graham Farmelo"
+          ],
+          "publicationYear": 2009,
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-science-and-technology",
+              "awardName": "Los Angeles Times Book Prize for Science and Technology",
+              "year": 2009,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 3
+        },
+        {
+          "id": "book-the-strangest-man-the-hidden-life-of-paul-dirac-quantum-genius-graham-farmelo",
+          "title": "The Strangest Man: The Hidden Life of Paul Dirac, Quantum Genius",
+          "authors": [
+            "Graham Farmelo"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-costa-book-awards-biography",
+              "awardName": "Costa Book Awards: Biography",
+              "year": 2009,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-strangest-man-the-hidden-life-of-paul-dirac-mystic-of-the-atom-graham-farmelo",
+            "book-the-strangest-man-the-hidden-life-of-paul-dirac-quantum-genius-graham-farmelo"
+          ],
+          "titleSimilarity": 0.714,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-a-people-s-tragedy-a-history-of-the-russian-revolution-orlando-figes",
+      "score": 0.75,
+      "books": [
+        {
+          "id": "book-a-people-s-tragedy-the-russian-revolution-1891-1924-orlando-figes",
+          "title": "A People's Tragedy: The Russian Revolution 1891-1924",
+          "authors": [
+            "Orlando Figes"
+          ],
+          "publicationYear": 1996,
+          "isbn13": [],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-jonathan-cape",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-wolfson-history-prize",
+              "awardName": "Wolfson History Prize",
+              "year": 1997,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 5
+        },
+        {
+          "id": "book-a-people-s-tragedy-a-history-of-the-russian-revolution-orlando-figes",
+          "title": "A People's Tragedy: A History of the Russian Revolution",
+          "authors": [
+            "Orlando Figes"
+          ],
+          "publicationYear": 1996,
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-history",
+              "awardName": "Los Angeles Times Book Prize for History",
+              "year": 1997,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 3
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-a-people-s-tragedy-a-history-of-the-russian-revolution-orlando-figes",
+            "book-a-people-s-tragedy-the-russian-revolution-1891-1924-orlando-figes"
+          ],
+          "titleSimilarity": 0.667,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-world-is-what-it-is-the-authorized-biography-of-v-s-naipaul-patrick-french",
+      "score": 0.75,
+      "books": [
+        {
+          "id": "book-the-world-is-what-it-is-the-authorized-biography-of-v-s-naipaul-patrick-french",
+          "title": "The World is What it is: The Authorized Biography of V.S. Naipaul",
+          "authors": [
+            "Patrick French"
+          ],
+          "publicationYear": 2008,
+          "isbn13": [
+            "9781400044054"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-knopf",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-biography",
+              "awardName": "National Book Critics Circle Award for Biography",
+              "year": 2008,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-the-world-is-what-it-is-the-authorised-biography-of-vs-naipaul-patrick-french",
+          "title": "The World Is What It Is: The Authorised Biography of VS Naipaul",
+          "authors": [
+            "Patrick French"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2008,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-world-is-what-it-is-the-authorised-biography-of-vs-naipaul-patrick-french",
+            "book-the-world-is-what-it-is-the-authorized-biography-of-v-s-naipaul-patrick-french"
+          ],
+          "titleSimilarity": 0.667,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-red-memory-living-remembering-and-forgetting-china-s-cultural-revolution-tania-branigan",
+      "score": 0.725,
+      "books": [
+        {
+          "id": "book-red-memory-living-remembering-and-forgetting-china-s-cultural-revolution-tania-branigan",
+          "title": "Red Memory: Living, Remembering and Forgetting China's Cultural Revolution,",
+          "authors": [
+            "Tania Branigan"
+          ],
+          "publicationYear": 2023,
+          "isbn13": [
+            "9781324076285"
+          ],
+          "publisherId": "publisher-w-w-norton-and-company",
+          "imprintId": "imprint-w-w-norton",
+          "sourceCount": 6,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2023,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2023,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-kirkus-prize-for-nonfiction",
+              "awardName": "Kirkus Prize for Nonfiction",
+              "year": 2023,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 6
+        },
+        {
+          "id": "book-red-memory-the-afterlives-of-china-s-cultural-revolution-tania-branigan",
+          "title": "Red Memory: The Afterlives of China's Cultural Revolution",
+          "authors": [
+            "Tania Branigan"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-kirkus-prize-for-nonfiction",
+              "awardName": "Kirkus Prize for Nonfiction",
+              "year": 2023,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-red-memory-living-remembering-and-forgetting-china-s-cultural-revolution-tania-branigan",
+            "book-red-memory-the-afterlives-of-china-s-cultural-revolution-tania-branigan"
+          ],
+          "titleSimilarity": 0.625,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-better-angels-of-our-nature-a-history-of-violence-and-humanity-steven-pinker",
+      "score": 0.725,
+      "books": [
+        {
+          "id": "book-the-better-angels-of-our-nature-a-history-of-violence-and-humanity-steven-pinker",
+          "title": "The Better Angels of our Nature: A History of Violence and Humanity",
+          "authors": [
+            "Steven Pinker"
+          ],
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2012,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-royal-society-science-book-prize",
+              "awardName": "Royal Society Science Book Prize",
+              "year": 2012,
+              "status": "shortlist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-the-better-angels-of-our-nature-why-violence-has-declined-steven-pinker",
+          "title": "The Better Angels of Our Nature: Why Violence Has Declined",
+          "authors": [
+            "Steven Pinker"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2012,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-better-angels-of-our-nature-a-history-of-violence-and-humanity-steven-pinker",
+            "book-the-better-angels-of-our-nature-why-violence-has-declined-steven-pinker"
+          ],
+          "titleSimilarity": 0.625,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin",
+      "score": 0.71,
+      "books": [
+        {
+          "id": "book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin",
+          "title": "A Peace to End All Peace: Creating the Modern Middle East, 1914–1922",
+          "authors": [
+            "David Fromkin"
+          ],
+          "publicationYear": 1989,
+          "isbn13": [],
+          "publisherId": "publisher-macmillan",
+          "imprintId": "imprint-henry-holt",
+          "sourceCount": 4,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-general-nonfiction",
+              "awardName": "Pulitzer Prize in General Nonfiction",
+              "year": 1990,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-national-book-critics-circle-award-for-nonfiction",
+              "awardName": "National Book Critics Circle Award for Nonfiction",
+              "year": 1989,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 5
+        },
+        {
+          "id": "book-a-peace-to-end-all-peace-the-fall-of-the-ottoman-empire-and-the-creation-of-the-modern-middle-ea",
+          "title": "A Peace to End All Peace: The Fall of the Ottoman Empire and the Creation of the Modern Middle East",
+          "authors": [
+            "David Fromkin"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-history",
+              "awardName": "Los Angeles Times Book Prize for History",
+              "year": 1990,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin",
+            "book-a-peace-to-end-all-peace-the-fall-of-the-ottoman-empire-and-the-creation-of-the-modern-middle-ea"
+          ],
+          "titleSimilarity": 0.6,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-a-day-in-the-life-of-abed-salama-anatomy-of-a-jerusalem-tragedy-nathan-thrall",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-a-day-in-the-life-of-abed-salama-anatomy-of-a-jerusalem-tragedy-nathan-thrall",
+          "title": "A Day in the Life of Abed Salama: Anatomy of a Jerusalem Tragedy",
+          "authors": [
+            "Nathan Thrall"
+          ],
+          "publicationYear": 2023,
+          "isbn13": [
+            "9781250854988"
+          ],
+          "publisherId": "publisher-macmillan",
+          "imprintId": "imprint-metropolitan-books",
+          "sourceCount": 5,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-general-nonfiction",
+              "awardName": "Pulitzer Prize in General Nonfiction",
+              "year": 2024,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 6
+        },
+        {
+          "id": "book-a-day-in-the-life-of-abed-salama-a-palestine-story-nathan-thrall",
+          "title": "A Day in the Life of Abed Salama: A Palestine Story",
+          "authors": [
+            "Nathan Thrall"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-orwell-prize-political-writing",
+              "awardName": "Orwell Prize: Political Writing",
+              "year": 2024,
+              "status": "shortlist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-a-day-in-the-life-of-abed-salama-a-palestine-story-nathan-thrall",
+            "book-a-day-in-the-life-of-abed-salama-anatomy-of-a-jerusalem-tragedy-nathan-thrall"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-henry-adams-the-middle-years-ernest-samuels",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-henry-adams-the-middle-years-ernest-samuels",
+          "title": "Henry Adams: The Middle Years",
+          "authors": [
+            "Ernest Samuels"
+          ],
+          "publicationYear": 1965,
+          "isbn13": [],
+          "publisherId": "publisher-harvard-university-press",
+          "imprintId": "imprint-harvard-university-press",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-bancroft-prize",
+              "awardName": "Bancroft Prize",
+              "year": 1959,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 5
+        },
+        {
+          "id": "book-henry-adams-the-major-phase-ernest-samuels",
+          "title": "Henry Adams: The Major Phase",
+          "authors": [
+            "Ernest Samuels"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-history-and-biography",
+              "awardName": "National Book Award for History and Biography",
+              "year": 1965,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-henry-adams-the-major-phase-ernest-samuels",
+            "book-henry-adams-the-middle-years-ernest-samuels"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-herman-melville-a-biography-volume-i-1819-1851-hershel-parker",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-herman-melville-a-biography-volume-i-1819-1851-hershel-parker",
+          "title": "Herman Melville: A Biography, Volume I: 1819-1851",
+          "authors": [
+            "Hershel Parker"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-johns-hopkins-university-press",
+          "imprintId": "imprint-johns-hopkins-university-press",
+          "sourceCount": 3,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1997,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-prose-award-for-literature-language-and-linguistics",
+              "awardName": "PROSE Award for Literature, Language, and Linguistics",
+              "year": 1996,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 2
+        },
+        {
+          "id": "book-herman-melville-a-biography-volume-2-hershel-parker",
+          "title": "Herman Melville: A Biography, Volume 2",
+          "authors": [
+            "Hershel Parker"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-johns-hopkins-university-press",
+          "imprintId": "imprint-johns-hopkins-university-press",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-prose-award-for-biography-and-autobiography",
+              "awardName": "PROSE Award for Biography and Autobiography",
+              "year": 2002,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 2
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-herman-melville-a-biography-volume-2-hershel-parker",
+            "book-herman-melville-a-biography-volume-i-1819-1851-hershel-parker"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-mama-s-last-hug-animal-emotions-and-what-they-tell-us-about-ourselves-frans-de-waal",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-mama-s-last-hug-animal-and-human-emotions-frans-de-waal",
+          "title": "Mama's Last Hug: Animal and Human Emotions",
+          "authors": [
+            "Frans de Waal"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2020,
+              "status": "longlist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-mama-s-last-hug-animal-emotions-and-what-they-tell-us-about-ourselves-frans-de-waal",
+          "title": "Mama's Last Hug: Animal Emotions and What They Tell Us about Ourselves",
+          "authors": [
+            "Frans de Waal"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pen-e-o-wilson-literary-science-writing-award",
+              "awardName": "PEN/E.O. Wilson Literary Science Writing Award",
+              "year": 2020,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-mama-s-last-hug-animal-and-human-emotions-frans-de-waal",
+            "book-mama-s-last-hug-animal-emotions-and-what-they-tell-us-about-ourselves-frans-de-waal"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-robert-frost-the-years-of-triumph-1915-1938-lawrance-thompson",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-robert-frost-the-early-years-lawrance-thompson",
+          "title": "Robert Frost: The Early Years",
+          "authors": [
+            "Lawrance Thompson"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1967,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-robert-frost-the-years-of-triumph-1915-1938-lawrance-thompson",
+          "title": "Robert Frost: The Years of Triumph, 1915–1938,",
+          "authors": [
+            "Lawrance Thompson"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1971,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-robert-frost-the-early-years-lawrance-thompson",
+            "book-robert-frost-the-years-of-triumph-1915-1938-lawrance-thompson"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-roy-jenkins-a-well-rounded-life-john-campbell",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-roy-jenkins-a-biography-john-campbell",
+          "title": "Roy Jenkins: A Biography",
+          "authors": [
+            "John Campbell"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2014,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-roy-jenkins-a-well-rounded-life-john-campbell",
+          "title": "Roy Jenkins: a Well-Rounded Life",
+          "authors": [
+            "John Campbell"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-costa-book-awards-biography",
+              "awardName": "Costa Book Awards: Biography",
+              "year": 2014,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-roy-jenkins-a-biography-john-campbell",
+            "book-roy-jenkins-a-well-rounded-life-john-campbell"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-life-of-langston-hughes-volume-ii-1941-1967-i-dream-a-world-arnold-rampersad",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-the-life-of-langston-hughes-vol-i-1902-1941-arnold-rampersad",
+          "title": "The Life of Langston Hughes, Vol. I: 1902-1941",
+          "authors": [
+            "Arnold Rampersad"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-biography",
+              "awardName": "National Book Critics Circle Award for Biography",
+              "year": 1986,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-the-life-of-langston-hughes-volume-ii-1941-1967-i-dream-a-world-arnold-rampersad",
+          "title": "The Life of Langston Hughes: Volume II, 1941–1967: I Dream a World",
+          "authors": [
+            "Arnold Rampersad"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1989,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-life-of-langston-hughes-vol-i-1902-1941-arnold-rampersad",
+            "book-the-life-of-langston-hughes-volume-ii-1941-1967-i-dream-a-world-arnold-rampersad"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+      "score": 0.616,
+      "books": [
+        {
+          "id": "book-the-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf",
+          "title": "The Invention of Nature: Alexander Von Humboldt's New World",
+          "authors": [
+            "Andrea Wulf"
+          ],
+          "publicationYear": 2015,
+          "isbn13": [
+            "9783328102113"
+          ],
+          "publisherId": "publisher-penguin-verlag",
+          "sourceCount": 6,
+          "appearanceCount": 4,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2016,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2016,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-kirkus-prize-for-nonfiction",
+              "awardName": "Kirkus Prize for Nonfiction",
+              "year": 2015,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-science-and-technology",
+              "awardName": "Los Angeles Times Book Prize for Science and Technology",
+              "year": 2015,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 6
+        },
+        {
+          "id": "book-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+          "title": "The Invention of Nature: The Adventures of Alexander von Humboldt, the Lost Hero of Science",
+          "authors": [
+            "Andrea Wulf"
+          ],
+          "publicationYear": 2016,
+          "isbn13": [
+            "9781848548985"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-knopf",
+          "sourceCount": 6,
+          "appearanceCount": 4,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2016,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2016,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-royal-society-science-book-prize",
+              "awardName": "Royal Society Science Book Prize",
+              "year": 2016,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-costa-book-awards-biography",
+              "awardName": "Costa Book Awards: Biography",
+              "year": 2015,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 6
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf",
+            "book-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea"
+          ],
+          "titleSimilarity": 0.444,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 1
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-henry-james-the-master-1901-1916-leon-edel",
+      "score": 0.59,
+      "books": [
+        {
+          "id": "book-henry-james-the-master-1901-1916-leon-edel",
+          "title": "Henry James: The Master, 1901–1916",
+          "authors": [
+            "Leon Edel"
+          ],
+          "publicationYear": 1972,
+          "isbn13": [
+            "9780380396511"
+          ],
+          "publisherId": "publisher-harpercollins",
+          "imprintId": "imprint-avon-books",
+          "sourceCount": 7,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-biography",
+              "awardName": "National Book Award for Biography",
+              "year": 1973,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1963,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1963,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-henry-james-a-life-leon-edel",
+          "title": "Henry James: A Life",
+          "authors": [
+            "Leon Edel"
+          ],
+          "publicationYear": 1985,
+          "isbn13": [],
+          "publisherId": "publisher-harpercollins",
+          "imprintId": "imprint-harper-and-row",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-biography",
+              "awardName": "National Book Critics Circle Award for Biography",
+              "year": 1985,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 6
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-henry-james-a-life-leon-edel",
+            "book-henry-james-the-master-1901-1916-leon-edel"
+          ],
+          "titleSimilarity": 0.4,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 13
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-myth-of-the-machine-technics-and-human-development-lewis-mumford",
+      "score": 0.59,
+      "books": [
+        {
+          "id": "book-the-myth-of-the-machine-technics-and-human-development-lewis-mumford",
+          "title": "The Myth of the Machine: Technics and Human Development",
+          "authors": [
+            "Lewis Mumford"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1968,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-the-myth-of-the-machine-the-pentagon-of-power-lewis-mumford",
+          "title": "The Myth of the Machine: The Pentagon of Power",
+          "authors": [
+            "Lewis Mumford"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1971,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-myth-of-the-machine-technics-and-human-development-lewis-mumford",
+            "book-the-myth-of-the-machine-the-pentagon-of-power-lewis-mumford"
+          ],
+          "titleSimilarity": 0.4,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-wayward-lives-beautiful-experiments-intimate-histories-of-riotous-black-girls-troublesome-women-",
+      "score": 0.581,
+      "books": [
+        {
+          "id": "book-wayward-lives-beautiful-experiments-intimate-stories-of-social-upheaval-saidiya-hartman",
+          "title": "Wayward Lives, Beautiful Experiments: Intimate Stories of Social Upheaval",
+          "authors": [
+            "Saidiya Hartman"
+          ],
+          "publicationYear": 2019,
+          "isbn13": [
+            "9780393285680"
+          ],
+          "publisherId": "publisher-norton-and-company-incorporated-w-w",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-criticism",
+              "awardName": "National Book Critics Circle Award for Criticism",
+              "year": 2019,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 6
+        },
+        {
+          "id": "book-wayward-lives-beautiful-experiments-intimate-histories-of-riotous-black-girls-troublesome-women-",
+          "title": "Wayward Lives, Beautiful Experiments: Intimate Histories of Riotous Black Girls, Troublesome Women, and Queer Radicals",
+          "authors": [
+            "Saidiya Hartman"
+          ],
+          "publicationYear": 2021,
+          "isbn13": [],
+          "publisherId": "publisher-w-w-norton-and-company",
+          "imprintId": "imprint-w-w-norton",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pen-john-kenneth-galbraith-award-for-nonfiction",
+              "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+              "year": 2021,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 3
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-wayward-lives-beautiful-experiments-intimate-histories-of-riotous-black-girls-troublesome-women-",
+            "book-wayward-lives-beautiful-experiments-intimate-stories-of-social-upheaval-saidiya-hartman"
+          ],
+          "titleSimilarity": 0.385,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 2
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-after-tamerlane-the-rise-and-fall-of-global-empires-1400-2000-john-darwin",
+      "score": 0.575,
+      "books": [
+        {
+          "id": "book-after-tamerlane-the-global-history-of-empire-since-1405-john-darwin",
+          "title": "After Tamerlane: The Global History of Empire since 1405",
+          "authors": [
+            "John Darwin"
+          ],
+          "publicationYear": 2008,
+          "isbn13": [],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-allen-lane",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-wolfson-history-prize",
+              "awardName": "Wolfson History Prize",
+              "year": 2008,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 5
+        },
+        {
+          "id": "book-after-tamerlane-the-rise-and-fall-of-global-empires-1400-2000-john-darwin",
+          "title": "After Tamerlane: The Rise and Fall of Global Empires, 1400–2000",
+          "authors": [
+            "John Darwin"
+          ],
+          "publicationYear": 2007,
+          "isbn13": [
+            "9780713996678"
+          ],
+          "publisherId": "publisher-allen-lane-penguin",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2008,
+              "status": "longlist"
+            }
+          ],
+          "completenessScore": 4
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-after-tamerlane-the-global-history-of-empire-since-1405-john-darwin",
+            "book-after-tamerlane-the-rise-and-fall-of-global-empires-1400-2000-john-darwin"
+          ],
+          "titleSimilarity": 0.375,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 1
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+      "score": 0.575,
+      "books": [
+        {
+          "id": "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+          "title": "W. E. B. Du Bois: Biography of a Race, 1868–1919",
+          "authors": [
+            "David Levering Lewis"
+          ],
+          "publicationYear": 1994,
+          "isbn13": [
+            "9781466841512",
+            "9780805035681"
+          ],
+          "publisherId": "publisher-macmillan",
+          "imprintId": "imprint-henry-holt",
+          "sourceCount": 9,
+          "appearanceCount": 5,
+          "awards": [
+            {
+              "awardId": "award-bancroft-prize",
+              "awardName": "Bancroft Prize",
+              "year": 1994,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-phi-beta-kappa-book-awards-ralph-waldo-emerson-award",
+              "awardName": "Phi Beta Kappa Book Awards: Ralph Waldo Emerson Award",
+              "year": 1994,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1994,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1993,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-national-book-critics-circle-award-for-biography",
+              "awardName": "National Book Critics Circle Award for Biography",
+              "year": 1993,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 6
+        },
+        {
+          "id": "book-w-e-b-du-bois-the-fight-for-equality-and-the-american-century-1919-1963-david-levering-lewis",
+          "title": "W.E.B. Du Bois: The Fight for Equality and the American Century, 1919–1963",
+          "authors": [
+            "David Levering Lewis"
+          ],
+          "publicationYear": 2000,
+          "isbn13": [
+            "9780805025347"
+          ],
+          "publisherId": "publisher-h-holt",
+          "sourceCount": 3,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 2001,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 2000,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 6
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+            "book-w-e-b-du-bois-the-fight-for-equality-and-the-american-century-1919-1963-david-levering-lewis"
+          ],
+          "titleSimilarity": 0.375,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 6
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-eat-the-buddha-the-story-of-modern-tibet-through-the-people-of-one-town-barbara-demick",
+      "score": 0.55,
+      "books": [
+        {
+          "id": "book-eat-the-buddha-life-and-death-in-a-tibetan-town-barbara-demick",
+          "title": "Eat the Buddha: Life and Death in a Tibetan Town",
+          "authors": [
+            "Barbara Demick"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2021,
+              "status": "longlist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-eat-the-buddha-the-story-of-modern-tibet-through-the-people-of-one-town-barbara-demick",
+          "title": "Eat the Buddha: The Story of Modern Tibet through the People of One Town",
+          "authors": [
+            "Barbara Demick"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-orwell-prize-political-writing",
+              "awardName": "Orwell Prize: Political Writing",
+              "year": 2021,
+              "status": "shortlist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-eat-the-buddha-life-and-death-in-a-tibetan-town-barbara-demick",
+            "book-eat-the-buddha-the-story-of-modern-tibet-through-the-people-of-one-town-barbara-demick"
+          ],
+          "titleSimilarity": 0.333,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+      "score": 0.55,
+      "books": [
+        {
+          "id": "book-lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+          "title": "Lloyd George: From Peace to War, 1912-1916",
+          "authors": [
+            "John Grigg"
+          ],
+          "publicationYear": 2002,
+          "isbn13": [],
+          "publisherId": "publisher-methuen-publishing",
+          "imprintId": "imprint-methuen",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-wolfson-history-prize",
+              "awardName": "Wolfson History Prize",
+              "year": 1985,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 5
+        },
+        {
+          "id": "book-lloyd-george-the-people-s-champion-john-grigg",
+          "title": "Lloyd George: The People's Champion",
+          "authors": [
+            "John Grigg"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-costa-book-awards-biography",
+              "awardName": "Costa Book Awards: Biography",
+              "year": 1978,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+            "book-lloyd-george-the-people-s-champion-john-grigg"
+          ],
+          "titleSimilarity": 0.333,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-firebrand-and-the-first-lady-pauli-murray-eleanor-roosevelt-and-the-struggle-for-social-just",
+      "score": 0.53,
+      "books": [
+        {
+          "id": "book-the-firebrand-and-the-first-lady-pauli-murray-eleanor-roosevelt-and-the-struggle-for-social-just",
+          "title": "The Firebrand and the First Lady: Pauli Murray, Eleanor Roosevelt, and the Struggle for Social Justice",
+          "authors": [
+            "Patricia Bell-Scott"
+          ],
+          "publicationYear": 2017,
+          "isbn13": [],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-knopf",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2017,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 3
+        },
+        {
+          "id": "book-the-firebrand-and-the-first-lady-portrait-of-a-friendship-patricia-bell-scott",
+          "title": "The Firebrand and the First Lady: Portrait of a Friendship",
+          "authors": [
+            "Patricia Bell-Scott"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-andrew-carnegie-medal-for-excellence-in-nonfiction",
+              "awardName": "Andrew Carnegie Medal for Excellence in Nonfiction",
+              "year": 2017,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-firebrand-and-the-first-lady-pauli-murray-eleanor-roosevelt-and-the-struggle-for-social-just",
+            "book-the-firebrand-and-the-first-lady-portrait-of-a-friendship-patricia-bell-scott"
+          ],
+          "titleSimilarity": 0.3,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    }
+  ]
 }
