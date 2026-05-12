@@ -13,11 +13,15 @@ The current app is a polished prototype with an expanded but still incomplete co
 - `lib/types.ts`: Public data model types.
 - `lib/data.ts`: Loads `data/public/catalog.json` and exposes lookup maps/helpers.
 - `lib/catalog.ts`: Book sorting and keyword search helpers.
+- `lib/semantic-search.ts`: Shared semantic-search text construction, vector scoring, query normalization, and generic hybrid ranking helpers.
 - `lib/browse-data.ts` and `lib/browse-types.ts`: Typed access to `data/public/browse.json` for precomputed browse/search rows.
 - `lib/award-region.ts`: Region/country classification helpers for award programs.
 - `lib/imprint-logos.ts`: Imprint logo asset resolution helpers.
 - `lib/topics.ts`: Topic lookup and typing helpers.
+- `app/api/search/semantic/route.ts`: Server-side OpenAI-backed semantic search endpoint used by the catalog UI.
+- `components/use-semantic-book-search.ts`: Client hook for debounced semantic book search requests.
 - `scripts/build-data.ts`: Builds `data/public/catalog.json` from source inputs and enrichment/curation patches.
+- `scripts/build-semantic-index.ts`: Builds `data/public/book-semantic-index.json` from the public catalog using OpenAI embeddings.
 - `scripts/build/`: Shared build helpers for award programs, curation, paths, text normalization, title resolution, and browse-data generation.
 - `scripts/enrich-books.ts`: Book metadata completion from Open Library and Google Books, with persistent attempt tracking.
 - `scripts/book-enrichment-priority.ts`: Shared lane and priority scoring for book enrichment queues and runners.
@@ -43,9 +47,10 @@ The durable data flow is:
 4. Enrich book metadata after award records are stable.
 5. Normalize raw catalog publisher strings into explicit imprint and parent-publisher records.
 6. Build browse artifacts for the home, awards, subjects, books, imprints, publishers, and topics routes.
-7. Rebuild public data and inspect reports/queues for unresolved cases.
+7. Build semantic search artifacts when catalog text materially changes.
+8. Rebuild public data and inspect reports/queues for unresolved cases.
 
-Treat `data/public/catalog.json` and `data/public/*-report.json` as generated artifacts. The durable source of truth is the seed/source files, raw award records, enrichment patches, and manual curation files.
+Treat `data/public/catalog.json`, `data/public/book-semantic-index.json`, and `data/public/*-report.json` as generated artifacts. The durable source of truth is the seed/source files, raw award records, enrichment patches, and manual curation files.
 
 ## Parallel Data Workflows
 
@@ -76,6 +81,8 @@ Current workflow:
 - `npm run data:enrich` rebuilds the catalog, runs `scripts/enrich-books.ts`, writes `sources/enrichment/books.generated.json`, then rebuilds the catalog again.
 - `scripts/enrich-books.ts` queries Open Library and Google Books for top-scoring books with missing fields, selected by `getBookStats`.
 - It writes ISBN, page count, summary, external thumbnail URL, Google Books publisher-style link, source IDs, and publisher patches where available.
+- `npm run isbn:discover` runs the ISBN-first discovery workflow. It matches books to Open Library works, fetches editions, and writes high-confidence ISBN patches to `sources/enrichment/isbn.generated.json`, plus `data/public/isbn-discovery-report.json`, `data/public/isbn-review-queue.json`, and a provider cache. Prefer the earliest plausible English trade edition with ISBN13; do not use award year as the primary selector because awards can lag publication.
+- ISBN discovery should filter out obvious ebooks, audiobooks, large-print editions, translations, excerpts, and school/library bindings before choosing the earliest publication date. If several plausible earliest editions conflict, leave the row in review instead of guessing.
 - It now writes `data/public/book-enrichment-attempts.json` so low-confidence, not-found, no-new-field, and error results are skipped on later batches when the missing-field state has not changed. Use `--retry-failures` only when intentionally retesting those rows.
 - It treats Wikipedia as deferred enrichment; Open Library / Google Books queues do not select books only missing Wikipedia links.
 - It merges into `sources/enrichment/books.generated.json` rather than replacing the whole file.
@@ -93,6 +100,15 @@ Subjects and topics are separate:
 - `npm run topics:classify` uses cached OpenAI embeddings plus optional LLM selection to write `sources/enrichment/topics.generated.json`, `data/public/topic-enrichment-report.json`, `data/public/topic-quality-report.json`, and `data/public/topic-embedding-cache.json`.
 - Manual topic/subject corrections belong in `sources/curation.json`; generated topic rows can also be rejected with `reviewStatus: "rejected"` in generated enrichment when needed.
 
+Semantic search is separate from topic classification:
+
+- Semantic book search is exposed in the UI through `SearchModeSelect` as `Keyword` vs. `Meaning`. The home page routes meaning searches to `/books?mode=semantic`, and `/books` plus subject detail pages call `/api/search/semantic`.
+- The semantic index lives at `data/public/book-semantic-index.json` and is generated by `npm run semantic:index`. It embeds catalog-derived book text with OpenAI embeddings and writes `data/public/book-semantic-index-report.json`.
+- `OPENAI_API_KEY` must be available server-side for both index building and live query embedding. The API route returns a 503 if the key or semantic index is missing.
+- Query interpretation may use the OpenAI Responses API for natural-language searches, then falls back to local generic term/period extraction if unavailable.
+- Ranking should remain generic: combine embedding similarity with corpus-aware exact-term, subject/topic, period, and recognition signals. Do not hard-code specific demo queries, phrases, titles, subjects, or eras into semantic ranking.
+- Rebuild the semantic index after catalog text, summaries, subjects, topics, central figures, imprints, publishers, or award recognition changes enough to affect discovery.
+
 Imprints are intentionally separate from generic catalog enrichment:
 
 - Catalog APIs often return raw publisher strings that may be imprints, parent publishers, publisher groups, or ambiguous edition labels.
@@ -100,6 +116,11 @@ Imprints are intentionally separate from generic catalog enrichment:
 - `sources/imprint-normalization.json` is the curated mapping from raw catalog strings to `{ imprint, publisher, confidence }`.
 - `sources/enrichment/imprints.normalized.json` is generated. Do not hand-edit it; edit `sources/imprint-normalization.json` and rerun `npm run data:imprints`.
 - `data/public/imprint-review-queue.json` lists unresolved raw publisher strings, counts, and sample books. Use it to add high-confidence mappings.
+- When a book only has a broad parent publisher such as Penguin Random House, Macmillan, Hachette, HarperCollins, Simon & Schuster, Wiley, or Springer, the project policy is to prefer the first US/UK trade edition imprint where it can be established from catalog evidence. Do not flatten broad parent publishers into same-name imprints just to fill the field.
+- Exception: Wiley technical/reference records may use `Wiley` as both imprint and publisher when catalog evidence only names Wiley, John Wiley & Sons, or equivalent corporate variants and no more specific imprint such as Wiley-Blackwell, Wiley-Liss, Wiley-IEEE Press, Current Protocols, or Jossey-Bass is present.
+- Use `npm run imprints:resolve` to investigate broad-parent publisher rows. The resolver writes `data/public/imprint-resolution-queue.json`, `data/public/imprint-resolution-report.json`, and high-confidence generated patches to `sources/enrichment/imprints.resolved.generated.json`.
+- The resolver may auto-apply an imprint only when title/author matching is strong, any candidate year is compatible with the catalog publication year, exactly one known imprint candidate maps through `sources/imprint-normalization.json`, and that imprint belongs to the current broad parent publisher. Multiple candidates, weak title/author matches, edition/reprint conflicts, unmapped publisher strings, and parent-only results must remain in the report for manual review.
+- If manual review establishes a reusable raw string to imprint relationship, add it to `sources/imprint-normalization.json` and rerun `npm run data:imprints`; if it establishes a one-off book correction, put it in `sources/curation.json` or a clearly named curated enrichment file.
 
 Important limitations:
 
@@ -115,16 +136,18 @@ Preferred workflow:
 
 1. Run `npm run data:build` first so the latest award imports are reflected in book IDs.
 2. Run `npm run books:queue -- --limit 100` to generate a lane-prioritized missing-field queue for books lacking catalog metadata: ISBN, page count, summary, thumbnail, or publisher URL. Wikipedia appears as a deferred field for a separate pass.
-3. Prefer focused passes over one large mixed pass, for example `npm run books:queue -- --lane high_value --limit 100`, `npm run books:enrich -- --lane identity_needed --fields isbn13,publicationYear,publisherId,publisherLink --limit 50`, or `npm run books:enrich -- --lane cover_needed --fields thumbnailUrl --limit 50`.
-4. Inspect `data/public/book-enrichment-report.json`.
-5. Run `npm run data:build` so generated book patches are reflected in the catalog.
-6. Run `npm run subjects:enrich` or `npm run data:subjects` when raw catalog/library subject labels need refreshing.
-7. Run `npm run topics:classify` or `npm run data:topics` when topic definitions or book text have changed enough to justify reclassification.
-8. Run `npm run imprints:normalize` or `npm run data:imprints` to promote known raw publisher strings into `imprintId` and parent `publisherId`.
-9. Inspect `data/public/imprint-review-queue.json` and add clear mappings to `sources/imprint-normalization.json`.
-10. Download usable cover thumbnails into `public/book-covers/` when license/source policy allows it, and point `thumbnailUrl` at the local asset.
-11. Keep provenance: each ISBN, summary, cover, publisher link, or Wikipedia link should have a source entry when practical.
-12. Rebuild with `npm run data:build` and inspect `data/public/enrichment-report.json`, `data/public/book-completion-report.json`, taxonomy reports, and `data/public/imprint-review-queue.json`.
+3. Run `npm run isbn:discover -- --lane high_value --limit 100` before broad metadata enrichment when ISBN coverage is low. Rebuild with `npm run data:build`, then use ISBNs for more reliable Open Library / Google Books metadata lookup.
+4. Prefer focused passes over one large mixed pass, for example `npm run books:queue -- --lane high_value --limit 100`, `npm run books:enrich -- --lane identity_needed --fields isbn13,publicationYear,publisherId,publisherLink --limit 50`, or `npm run books:enrich -- --lane cover_needed --fields thumbnailUrl --limit 50`.
+5. Inspect `data/public/book-enrichment-report.json`.
+6. Run `npm run data:build` so generated book patches are reflected in the catalog.
+7. Run `npm run subjects:enrich` or `npm run data:subjects` when raw catalog/library subject labels need refreshing.
+8. Run `npm run topics:classify` or `npm run data:topics` when topic definitions or book text have changed enough to justify reclassification.
+9. Run `npm run imprints:normalize` or `npm run data:imprints` to promote known raw publisher strings into `imprintId` and parent `publisherId`.
+10. Run `npm run imprints:resolve` when broad parent publishers need imprint drill-down, then inspect `data/public/imprint-resolution-report.json` before trusting new generated imprint patches.
+11. Inspect `data/public/imprint-review-queue.json` and add clear mappings to `sources/imprint-normalization.json`.
+12. Download usable cover thumbnails into `public/book-covers/` when license/source policy allows it, and point `thumbnailUrl` at the local asset.
+13. Keep provenance: each ISBN, summary, cover, publisher link, or Wikipedia link should have a source entry when practical.
+14. Rebuild with `npm run data:build` and inspect `data/public/enrichment-report.json`, `data/public/book-completion-report.json`, taxonomy reports, and `data/public/imprint-review-queue.json`.
 
 If an enrichment pass discovers that a book record is actually a duplicate, wrong edition, wrong author, or wrong publication year, stop and add a curation note rather than silently overwriting the generated record.
 
@@ -151,6 +174,7 @@ Historical winners-only coverage is acceptable where finalist/shortlist records 
 - Keep generated enrichment separate from manual curation.
 - New award programs should default to `award`; use `major_award` only for the established site-level major nonfiction prizes.
 - Do not hide uncertainty; encode it as source confidence, notes, and coverage reports.
+- Keep semantic search explainable and corpus-driven. If tuning ranking, use broad signals and evaluation queries rather than example-specific boosts.
 - Preserve the app's restrained editorial design. Avoid large decorative UI additions unless they serve the data.
 - Follow `DESIGN.md` for UI work. Current reference patterns are `/subjects` for simple browse tables, `/books` for dense catalog tables, and `/subjects/[slug]` for entity detail/insight pages.
 - For new or polished UI, prefer the existing design primitives and shared classes (`SearchModeSelect`, `EntityMetricGrid`, `subjects-search`, `filter-toolbar`, `segmented-control`, `filter-select`, `filter-action`) over one-off controls.
@@ -161,6 +185,8 @@ Historical winners-only coverage is acceptable where finalist/shortlist records 
 - `npm run dev`: run the Next dev server.
 - `npm run build`: rebuild data and produce a production build.
 - `npm run data:build`: rebuild `data/public/catalog.json`.
+- `npm run semantic:index`: rebuild `data/public/book-semantic-index.json` using OpenAI embeddings.
+- `npm run data:semantic`: rebuild public catalog data and then rebuild the semantic index.
 - `npm run books:queue -- --limit 100`: write `data/public/book-enrichment-queue.json` for books missing enrichment fields.
 - `npm run books:enrich -- --limit 25`: run targeted Open Library / Google Books book metadata enrichment.
 - `npm run books:queue -- --lane high_value --limit 100`: inspect a high-value queue before running an expensive pass.

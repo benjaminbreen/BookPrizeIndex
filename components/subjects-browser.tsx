@@ -31,8 +31,8 @@ export function SubjectsBrowser({ data, defaultRegion }: { data: BrowseData; def
       <section className="subjects-hero grid gap-8 lg:grid-cols-[0.86fr_1fr] lg:items-center">
         <div>
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Subjects</p>
-          <h1 className="mt-3 font-[var(--font-serif)] text-5xl font-light leading-tight">Browse subjects.</h1>
-          <p className="mt-5 max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted">
+          <h1 className="mt-3 font-[var(--font-serif)] text-4xl font-light leading-tight sm:text-5xl">Browse subjects.</h1>
+          <p className="mt-4 max-w-2xl font-[var(--font-serif)] text-lg font-light leading-7 muted sm:mt-5 sm:text-xl sm:leading-8">
             Explore books organized by subject.
             <br />
             Click a subject to view related books and awards.
@@ -47,14 +47,6 @@ export function SubjectsBrowser({ data, defaultRegion }: { data: BrowseData; def
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />
-          <select
-            aria-label="Search mode"
-            className="filter-select focus-ring"
-            defaultValue="semantic"
-          >
-            <option value="semantic">Semantic</option>
-            <option value="keyword">Keyword</option>
-          </select>
         </div>
       </section>
 
@@ -198,30 +190,32 @@ function SubjectMobileCard({ index, subject }: { index: number; subject: BrowseS
   const topBook = subject.topBook;
   return (
     <Link
-      className="subjects-row block border-b hairline p-4 transition last:border-b-0 hover:bg-[var(--accent-soft)]"
+      className="subjects-row mobile-browse-row block border-b hairline px-3 py-3 transition last:border-b-0 hover:bg-[var(--accent-soft)]"
       href={`/subjects/${subject.slug}`}
       style={{ animationDelay: `${Math.min(index * 28, 420)}ms` }}
     >
-      <span className="flex items-start justify-between gap-4">
-        <span>
-          <span className="block text-xl font-medium leading-tight">{subject.name}</span>
-          <span className="mt-1 block text-sm leading-5 muted">{subjectDeck(subject.name)}</span>
+      <span className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+        <span className="min-w-0">
+          <span className="block text-lg font-medium leading-tight">{subject.name}</span>
+          <span className="mt-0.5 block line-clamp-2 text-sm leading-5 muted">{subjectDeck(subject.name)}</span>
         </span>
-        <span className="plain-number shrink-0 text-lg">{subject.bookCount.toLocaleString()}</span>
+        <span className="grid justify-items-end gap-1">
+          <span className="plain-number shrink-0 text-base">{subject.bookCount.toLocaleString()}</span>
+          <ChevronRight size={15} className="muted" />
+        </span>
       </span>
-      <span className="mt-4 block border-t hairline pt-3">
-        <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Top-recognized book</span>
+      <span className="mt-2 block min-w-0 border-t hairline pt-2 text-sm">
         {topBook ? (
-          <span className="mt-2 block">
-            <span className="block text-base font-medium leading-tight">{topBook.title}</span>
-            <span className="mt-1 block text-sm muted">{topBook.author} <span className="px-1">·</span> {topBook.publicationYear ?? "Unknown"}</span>
+          <span className="grid grid-cols-[auto_minmax(0,1fr)] gap-2">
+            <span className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Top</span>
+            <span className="min-w-0 truncate">
+              <span className="font-medium">{topBook.title}</span>
+              <span className="muted"> / {topBook.author} / {topBook.publicationYear ?? "Unknown"}</span>
+            </span>
           </span>
         ) : (
-          <span className="mt-2 block text-sm muted">Not yet ranked</span>
+          <span className="muted">Not yet ranked</span>
         )}
-      </span>
-      <span className="mt-3 inline-flex items-center gap-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.14em]">
-        View subject <ChevronRight size={14} />
       </span>
     </Link>
   );

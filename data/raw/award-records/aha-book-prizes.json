@@ -1,0 +1,3930 @@
+{
+  "generatedAt": "2026-05-12T22:46:12.867Z",
+  "metadata": {
+    "importer": "scripts/import-award-records/aha-book-prizes.ts",
+    "source": "Official American Historical Association award pages",
+    "notes": "Imports Past Recipients from selected AHA publication-prize pages as winners. AHA pages do not publish finalist or shortlist slates for these prizes.",
+    "categories": [
+      {
+        "categoryId": "aha-beveridge-family",
+        "categoryName": "Beveridge Family Prize in American History",
+        "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+        "records": 82,
+        "winners": 82,
+        "yearRange": "1939-2025"
+      },
+      {
+        "categoryId": "aha-jerry-bentley",
+        "categoryName": "Jerry Bentley Prize in World History",
+        "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+        "records": 12,
+        "winners": 12,
+        "yearRange": "2014-2025"
+      },
+      {
+        "categoryId": "aha-european-international-history",
+        "categoryName": "AHA Prize in European International History",
+        "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+        "records": 81,
+        "winners": 81,
+        "yearRange": "1923-2025"
+      },
+      {
+        "categoryId": "aha-george-l-mosse",
+        "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+        "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+        "records": 26,
+        "winners": 26,
+        "yearRange": "2000-2025"
+      },
+      {
+        "categoryId": "aha-james-a-rawley",
+        "categoryName": "James A. Rawley Prize in Atlantic History",
+        "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+        "records": 27,
+        "winners": 27,
+        "yearRange": "1999-2025"
+      }
+    ]
+  },
+  "records": [
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2025,
+      "status": "winner",
+      "title": "Against the Liberal Order: The Soviet Union, Turkey, and Statist Internationalism, 1919–1939",
+      "authors": [
+        "Samuel J. Hirst"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2025,
+      "status": "winner",
+      "title": "Plantation Goods: A Material History of American Slavery",
+      "authors": [
+        "Seth Rockman"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2025,
+      "status": "winner",
+      "title": "The Mistral: A Windswept History of Modern France",
+      "authors": [
+        "Catherine Tatiana Dunlop"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2025,
+      "status": "winner",
+      "title": "After Palmares: Diaspora, Inheritance, and the Afterlives of Zumbi",
+      "authors": [
+        "Marc A. Hertzman"
+      ],
+      "publisher": "Duke Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2025,
+      "status": "winner",
+      "title": "The First Asians in the Americas: A Transpacific History",
+      "authors": [
+        "Diego Javier Luis"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2024,
+      "status": "winner",
+      "title": "Offshore Attachments: Oil and Intimacy in the Caribbean",
+      "authors": [
+        "Chelsea Schields"
+      ],
+      "publisher": "Univ. of California Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2024,
+      "status": "winner",
+      "title": "Before the Movement: The Hidden History of Black Civil Rights",
+      "authors": [
+        "Dylan C. Penningroth"
+      ],
+      "publisher": "Liveright",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2024,
+      "status": "winner",
+      "title": "Rain of Ash: Roma, Jews, and the Holocaust",
+      "authors": [
+        "Ari Joskowicz"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2024,
+      "status": "winner",
+      "title": "Traders in Men: Merchants and the Transformation of the Transatlantic Slave Trade",
+      "authors": [
+        "Nicholas Radburn"
+      ],
+      "publisher": "Yale Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2024,
+      "status": "winner",
+      "title": "The Tropical Turn: Agricultural Innovation in the Ancient Middle East and the Mediterranean",
+      "authors": [
+        "Sureshkumar Muthukumaran"
+      ],
+      "publisher": "Univ. of California Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2023,
+      "status": "winner",
+      "title": "Black France, White Europe: Youth, Race, and Belonging in the Postwar Era",
+      "authors": [
+        "Emily Marker"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2023,
+      "status": "winner",
+      "title": "Cotton Mather’s Spanish Lessons: A Study of Language, Race, and Belonging in the Early Americas",
+      "authors": [
+        "Kirsten Silva Gruesz"
+      ],
+      "publisher": "Belknap Press of Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2023,
+      "status": "winner",
+      "title": "From Lived Experience to the Written Word: Reconstructing Practical Knowledge in the Early Modern World",
+      "authors": [
+        "Pamela H. Smith"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2023,
+      "status": "winner",
+      "title": "Patchwork Freedoms: Law, Slavery, and Race beyond Cuba’s Plantations",
+      "authors": [
+        "Adriana Chira"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2023,
+      "status": "winner",
+      "title": "Horizons: A Global History of Science",
+      "authors": [
+        "James Poskett"
+      ],
+      "publisher": "Viking",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2022,
+      "status": "winner",
+      "title": "Muslims and the Making of Modern Europe",
+      "authors": [
+        "Emily Greble"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2022,
+      "status": "winner",
+      "title": "American Mirror: The United States and Brazil in the Age of Emancipation",
+      "authors": [
+        "Roberto Saba"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2022,
+      "status": "winner",
+      "title": "Singing Like Germans: Black Musicians in the Land of Bach, Beethoven, and Brahms",
+      "authors": [
+        "Kira L. Thurman"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2022,
+      "status": "winner",
+      "title": "The Creole Archipelago: Race and Borders in the Colonial Caribbean",
+      "authors": [
+        "Tessa Murphy"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2022,
+      "status": "winner",
+      "title": "Oil Palm: A Global History",
+      "authors": [
+        "Jonathan E. Robins"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2021,
+      "status": "winner",
+      "title": "Soviet Judgment at Nuremberg: A New History of the International Military Tribunal after World War II",
+      "authors": [
+        "Francine Hirsch"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2021,
+      "status": "winner",
+      "title": "The Women’s Fight: The Civil War’s Battles for Home, Freedom, and Nation",
+      "authors": [
+        "Thavolia Glymph"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2021,
+      "status": "winner",
+      "title": "Blood Libel: On the Trail of an Antisemitic Myth",
+      "authors": [
+        "Magda Teter"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2021,
+      "status": "winner",
+      "title": "Mining Language: Racial Thinking, Indigenous Knowledge, and Colonial Metallurgy in the Early Modern Iberian World",
+      "authors": [
+        "Allison Margaret Bigelow"
+      ],
+      "publisher": "Omohundro Inst. of Early American History and Culture and Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2021,
+      "status": "winner",
+      "title": "Diet for a Large Planet: Industrial Britain, Food Systems, and World Ecology",
+      "authors": [
+        "Chris Otter"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2020,
+      "status": "winner",
+      "title": "Political Survivors: The Resistance, the Cold War, and the Fight against Concentration Camps after 1945",
+      "authors": [
+        "Emma Kuby"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2020,
+      "status": "winner",
+      "title": "American Lucifers: The Dark History of Artificial Light, 1750–1865",
+      "authors": [
+        "Jeremy Zallen"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2020,
+      "status": "winner",
+      "title": "This Thing of Darkness: Eisenstein’s Ivan the Terrible in Stalin’s Russia",
+      "authors": [
+        "Joan Neuberger"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2020,
+      "status": "winner",
+      "title": "Voices of the Enslaved: Love, Labor, and Longing in French Louisiana",
+      "authors": [
+        "Sophie White"
+      ],
+      "publisher": "Omohundro Inst. of Early American History and Culture and the Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2020,
+      "status": "winner",
+      "title": "A Fistful of Shells: West Africa from the Rise of the Slave Trade to the Age of Revolution",
+      "authors": [
+        "Toby Green"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2019,
+      "status": "winner",
+      "title": "Globalists: The End of Empire and the Birth of Neoliberalism",
+      "authors": [
+        "Quinn E. Slobodian"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2019,
+      "status": "winner",
+      "title": "Cigarettes, Inc.: An Intimate History of Corporate Imperialism",
+      "authors": [
+        "Nan C. Enstad"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2019,
+      "status": "winner",
+      "title": "Forgetful Remembrance: Social Forgetting and Vernacular Historiography of a Rebellion in Ulster",
+      "authors": [
+        "Guy Beiner"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2019,
+      "status": "winner",
+      "title": "The Occupation of Havana: War, Trade, and Slavery in the Atlantic World",
+      "authors": [
+        "Elena A. Schneider"
+      ],
+      "publisher": "Omohundro Institute of Early American History and Culture and Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2019,
+      "status": "winner",
+      "title": "Empire of Guns: The Violent Making of the Industrial Revolution",
+      "authors": [
+        "Priya Satia"
+      ],
+      "publisher": "Penguin Press and Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2018,
+      "status": "winner",
+      "title": "Ecology and Power in the Age of Empire: Europe and the Transformation of the Tropical World",
+      "authors": [
+        "Corey Ross"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2018,
+      "status": "winner",
+      "title": "Annals of Native America: How the Nahuas of Colonial Mexico Kept Their History Alive",
+      "authors": [
+        "Camilla Townsend"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2018,
+      "status": "winner",
+      "title": "The House of Government: A Saga of the Russian Revolution",
+      "authors": [
+        "Yuri Slezkine"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2018,
+      "status": "winner",
+      "title": "Freedom’s Debtors: British Antislavery in Sierra Leone in the Age of Revolution",
+      "authors": [
+        "Padraic Scanlan"
+      ],
+      "publisher": "Yale Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2018,
+      "status": "winner",
+      "title": "A Thirst for Empire: How Tea Shaped the Modern World",
+      "authors": [
+        "Erika Rappaport"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2017,
+      "status": "winner",
+      "title": "Ruling Minds: Psychology in the British Empire",
+      "authors": [
+        "Erik Linstrum"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2017,
+      "status": "winner",
+      "title": "The World and All the Things upon It: Native Hawaiian Geographies of Exploration",
+      "authors": [
+        "David Chang"
+      ],
+      "publisher": "Univ. of Minnesota Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2017,
+      "status": "winner",
+      "title": "Toward Democracy: The Struggle for Self-Rule in European and American Thought",
+      "authors": [
+        "James Kloppenberg"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2017,
+      "status": "winner",
+      "title": "Atlantic Africa and the Spanish Caribbean, 1570-1640",
+      "authors": [
+        "David Wheat"
+      ],
+      "publisher": "Omohundro Institute of Early American History and Culture and the Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2017,
+      "status": "winner",
+      "title": "Mecca of Revolution: Algeria, Decolonization, and the Third World Order",
+      "authors": [
+        "Jeffrey Byrne"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2016,
+      "status": "winner",
+      "title": "The Global Transformation of Time: 1870-1950",
+      "authors": [
+        "Vanessa Ogle"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2016,
+      "status": "winner",
+      "title": "Purchasing Whiteness: Pardos, Mulattos, and the Quest for Social Mobility in the Spanish Indies",
+      "authors": [
+        "Ann Twinam"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2016,
+      "status": "winner",
+      "title": "The Work of the Dead: A Cultural History of Mortal Remains",
+      "authors": [
+        "Thomas Laqueur"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2016,
+      "status": "winner",
+      "title": "Frontiers of Possession: Spain and Portugal in Europe and the Americas",
+      "authors": [
+        "Tamar Herzog"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2016,
+      "status": "winner",
+      "title": "Anti-Imperial Metropolis: Interwar Paris and the Seeds of Third World Nationalism",
+      "authors": [
+        "Michael Goebel"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2015,
+      "status": "winner",
+      "title": "Citizenship between Empire and Nation: Remaking France and French Africa, 1945-60",
+      "authors": [
+        "Frederick Cooper"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2015,
+      "status": "winner",
+      "title": "Encounters at the Heart of the World: A History of the Mandan People (Hill & Wang) Greg Grandin , The Empire of Necessity: Slavery, Freedom, and Deception in the New World",
+      "authors": [
+        "Elizabeth Fenn"
+      ],
+      "publisher": "Metropolitan Books",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2015,
+      "status": "winner",
+      "title": "A Public Empire: Property and the Quest for the Common Good in Imperial Russia",
+      "authors": [
+        "Ekaterina Pravilova"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2015,
+      "status": "winner",
+      "title": "Freedom’s Mirror: Cuba and Haiti in the Age of Revolution (Cambridge Univ. Press) Gregory O’Malley , Final Passages: The Intercolonial Slave Trade of British America, 1619-1807",
+      "authors": [
+        "Ada Ferrer"
+      ],
+      "publisher": "Univ. of North Carolina Press for the Omohundro Inst. of Early American History and Culture",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2015,
+      "status": "winner",
+      "title": "The Company and the Shogun: The Dutch Encounter with Tokugawa Japan",
+      "authors": [
+        "Adam Clulow"
+      ],
+      "publisher": "Columbia Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2014,
+      "status": "winner",
+      "title": "What Soldiers Do: Sex and the American GI in World War II France",
+      "authors": [
+        "Mary Louise Roberts"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2014,
+      "status": "winner",
+      "title": "Plutopia: Nuclear Families, Atomic Cities, and the Great Soviet and American Plutonium Disasters",
+      "authors": [
+        "Kate Brown"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2014,
+      "status": "winner",
+      "title": "Prague, Capital of the Twentieth Century: A Surrealist History",
+      "authors": [
+        "Derek Sayer"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2014,
+      "status": "winner",
+      "title": "Two Troubled Souls: An Eighteenth-Century Couple’s Spiritual Journey in the Atlantic World",
+      "authors": [
+        "Aaron Spencer Fogleman"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "year": 2014,
+      "status": "winner",
+      "title": "Guano and the Opening of the Pacific World: A Global Ecological History",
+      "authors": [
+        "Gregory Cushman"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+      "sourceLabel": "AHA Jerry Bentley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/jerry-bentley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2013,
+      "status": "winner",
+      "title": "Orderly and Humane: The Expulsion of the Germans after the Second World War",
+      "authors": [
+        "R.M. Douglas"
+      ],
+      "publisher": "Yale Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2013,
+      "status": "winner",
+      "title": "The Mortal Sea: Fishing the Atlantic in the Age of Sail",
+      "authors": [
+        "W. Jeffrey Bolster"
+      ],
+      "publisher": "Belknap Press of Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2013,
+      "status": "winner",
+      "title": "Empire and Underworld: Captivity in French Guiana",
+      "authors": [
+        "Miranda Spieler"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2013,
+      "status": "winner",
+      "title": "The Mortal Sea: Fishing the Atlantic in the Age of Sail",
+      "authors": [
+        "W. Jeffrey Bolster"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2012,
+      "status": "winner",
+      "title": "The Lost Children: Reconstructing Europe’s Families after World War II",
+      "authors": [
+        "Tara Zahra"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2012,
+      "status": "winner",
+      "title": "Freedom Papers: An Atlantic Odyssey in the Age of Emancipation",
+      "authors": [
+        "Jean M. Hébrard",
+        "Rebecca J. Scott"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2012,
+      "status": "winner",
+      "title": "Translating Empire: Emulation and the Origins of Political Economy",
+      "authors": [
+        "Sophus A. Reinert"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2012,
+      "status": "winner",
+      "title": "Freedom Papers: An Atlantic Odyssey in the Age of Emancipation",
+      "authors": [
+        "Rebecca Scott",
+        "Jean Hebrard"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2011,
+      "status": "winner",
+      "title": "Advertising Empire: Race and Visual Culture in Imperial Germany (Harvard Univ. Press) Michael Reynolds , Shattering Empires: The Clash and Collapse of the Ottoman and Russian Empires, 1908-18",
+      "authors": [
+        "David Ciarlo"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2011,
+      "status": "winner",
+      "title": "Last Call: The Rise and Fall of Prohibition",
+      "authors": [
+        "Daniel Okrent"
+      ],
+      "publisher": "Scribner",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2011,
+      "status": "winner",
+      "title": "Venice Incognito: Masks in the Serene Republic",
+      "authors": [
+        "James Johnson"
+      ],
+      "publisher": "Univ. of California Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2011,
+      "status": "winner",
+      "title": "Domingos Álvares, African Healing, and the Intellectual History of the Atlantic World",
+      "authors": [
+        "David Eltis",
+        "David Richardson, Atlas of the Transatlantic Slave Trade (Yale Univ. Press) James Sweet"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2010,
+      "status": "winner",
+      "title": "Between States: The Transylvanian Question and the European Idea during World War II",
+      "authors": [
+        "Holly Case"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2010,
+      "status": "winner",
+      "title": "Mosquito Empires: Ecology and War in the Greater Caribbean, 1620-1914",
+      "authors": [
+        "John McNeill"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2010,
+      "status": "winner",
+      "title": "German Orientalism in the Age of Empire",
+      "authors": [
+        "Suzanne Marchand"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2010,
+      "status": "winner",
+      "title": "In the Eye of All Trade: Bermuda, Bermudians, and the Maritime Atlantic World, 1680-1683",
+      "authors": [
+        "Michael Jarvis"
+      ],
+      "publisher": "Univ. of North Carolina Press for the Omohundro Inst. of Early American History and Culture",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2009,
+      "status": "winner",
+      "title": "The Bitter Road to Freedom: A New History of the Liberation of Europe",
+      "authors": [
+        "William Hitchcock"
+      ],
+      "publisher": "Free Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2009,
+      "status": "winner",
+      "title": "Shadows at Dawn: A Borderlands Massacre and the Violence of History",
+      "authors": [
+        "Karl Jacoby"
+      ],
+      "publisher": "Penguin Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2009,
+      "status": "winner",
+      "title": "All Can Be Saved: Religious Tolerance and Salvation in the Iberian Atlantic World",
+      "authors": [
+        "Stuart Schwartz"
+      ],
+      "publisher": "Yale Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2009,
+      "status": "winner",
+      "title": "Genealogical Fictions: Limpieza de Sangre, Religion, and Gender in Colonial Mexico",
+      "authors": [
+        "Maria-Elena Martinez"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2008,
+      "status": "winner",
+      "title": "For the Soul of Mankind: The United States, the Soviet Union, and the Cold War",
+      "authors": [
+        "Melvyn Leffler"
+      ],
+      "publisher": "Hill and Wang",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2008,
+      "status": "winner",
+      "title": "The Shifting Grounds of Race: Black and Japanese Americans in the Making of Multiethnic Los Angeles",
+      "authors": [
+        "Scott Kurashige"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2008,
+      "status": "winner",
+      "title": "Jews, Germans, and Allies: Close Encounters in Occupied Germany",
+      "authors": [
+        "Atina Grossmann"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2008,
+      "status": "winner",
+      "title": "The Slave Ship: A Human History",
+      "authors": [
+        "Marcus Rediker"
+      ],
+      "publisher": "Viking Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2007,
+      "status": "winner",
+      "title": "An Empire Divided: Religion, Republicanism, and the Making of French Colonialism, 1880-1914",
+      "authors": [
+        "J. P. Daughton"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2007,
+      "status": "winner",
+      "title": "The Cigarette Century: The Rise, Fall, and Deadly Persistence of the Product that Defined America",
+      "authors": [
+        "Allan Brandt"
+      ],
+      "publisher": "Basic Books",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2007,
+      "status": "winner",
+      "title": "The Conquest of Nature: Water, Landscape, and the Making of Modern Germany",
+      "authors": [
+        "David Blackbourn"
+      ],
+      "publisher": "W.W. Norton",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2007,
+      "status": "winner",
+      "title": "On the Wings of Time: Rome, the Incas, Spain, and Peru",
+      "authors": [
+        "Sabine MacCormack"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2006,
+      "status": "winner",
+      "title": "Assuming the Burden: Europe and the American Commitment to War in Vietnam",
+      "authors": [
+        "Mark Lawrence"
+      ],
+      "publisher": "Univ. of California Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2006,
+      "status": "winner",
+      "title": "Buffalo Bill’s America: William Cody and the Wild West Show",
+      "authors": [
+        "Louis Warren"
+      ],
+      "publisher": "Knopf",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2006,
+      "status": "winner",
+      "title": "Charles Darwin, Geologist",
+      "authors": [
+        "Sandra Herbert"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2006,
+      "status": "winner",
+      "title": "Moral Capital: Foundations of British Abolitionism",
+      "authors": [
+        "Christopher Brown"
+      ],
+      "publisher": "Univ. of North Carolina Press for the Omohundro Inst. of Early American History and Culture",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2005,
+      "status": "winner",
+      "title": "Defending the Rights of Others: The Great Powers, the Jews, and International Minority Protection, 1878-1938",
+      "authors": [
+        "Carole Fink"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2005,
+      "status": "winner",
+      "title": "Israel on the Appomattox: A Southern Experiment in Black Freedom from the 1790s through the Civil War",
+      "authors": [
+        "Melvin Ely"
+      ],
+      "publisher": "Knopf",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2005,
+      "status": "winner",
+      "title": "The Enlightenment Bible: Translation, Scholarship, Culture",
+      "authors": [
+        "Jonathan Sheehan"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2005,
+      "status": "winner",
+      "title": "Plants and Empire: Colonial Bioprospecting in the Atlantic World",
+      "authors": [
+        "Londa Schiebinger"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2004,
+      "status": "winner",
+      "title": "A Biography of No Place: From Ethnic Borderland to Soviet Heartland",
+      "authors": [
+        "Kate Brown"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2004,
+      "status": "winner",
+      "title": "In the Presence of Mine Enemies: War in the Heart of America, 1859-63",
+      "authors": [
+        "Edward Ayers"
+      ],
+      "publisher": "W.W. Norton",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2004,
+      "status": "winner",
+      "title": "Francois Poulain de la Barre and the Invention of Modern Equality",
+      "authors": [
+        "Siep Stuurman"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2004,
+      "status": "winner",
+      "title": "A Colony of Citizens: Revolution and Slave Emancipation in the French Caribbean, 1787-1804",
+      "authors": [
+        "Laurent Dubois"
+      ],
+      "publisher": "Univ. of North Carolina Press for the Omohundro Inst. of Early American History and Culture",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2003,
+      "status": "winner",
+      "title": "The Reconstruction of Nations: Poland, Ukraine, Lituania, Belarus 1569-1999 (Yale Univ. Press",
+      "authors": [
+        "Timothy Snyder"
+      ],
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2003,
+      "status": "winner",
+      "title": "Generations of Captivity: A History of African-American Slaves.",
+      "authors": [
+        "Ira Berlin"
+      ],
+      "publisher": "Belknap Press of Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2003,
+      "status": "winner",
+      "title": "The Myth of the French Bourgeoises: An Essay on the Social Imaginary, 1750-1850",
+      "authors": [
+        "Sarah Maza"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2003,
+      "status": "winner",
+      "title": "Anne Othwood’s Bastard: Sex and Law in Early Virginia",
+      "authors": [
+        "John Pagan"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2002,
+      "status": "winner",
+      "title": "A Diplomatic Revolution: Algeria’s Fight for Independence and the Origins of the Post-Cold War Era",
+      "authors": [
+        "Matthew Connelly"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2002,
+      "status": "winner",
+      "title": "Taking Haiti: Military Occupation and the Culture of US Imperialism, 1915-40",
+      "authors": [
+        "Mary Renda"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2002,
+      "status": "winner",
+      "title": "Fichte: The Self and the Calling of Philosophy, 1762-99",
+      "authors": [
+        "Anthony LaVopa"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2002,
+      "status": "winner",
+      "title": "American Pentimento: The Invention of Indians and the Pursuit of Riches",
+      "authors": [
+        "Patricia Seed"
+      ],
+      "publisher": "Univ. of Minnesota Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2001,
+      "status": "winner",
+      "title": "Captive University: The Sovietization of East German, Czech, and Polish Higher Education, 1945-56",
+      "authors": [
+        "John Connelly"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2001,
+      "status": "winner",
+      "title": "The Right to Vote: The Contested History of Democracy in the United States.",
+      "authors": [
+        "Alexander Keyssar"
+      ],
+      "publisher": "Basic Books",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2001,
+      "status": "winner",
+      "title": "Basel in the Age of Burckhardt: A Study in Unseasonable Ideas",
+      "authors": [
+        "Lionel Gossman"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2001,
+      "status": "winner",
+      "title": "How to Write the History of the New World: Histories, Epistemologies, and Identities in the Eighteenth-Century Atlantic World",
+      "authors": [
+        "Jorge Canizares-Esguerra"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 2000,
+      "status": "winner",
+      "title": "A Constructed Peace: The Making of the European Settlement, 1945-63",
+      "authors": [
+        "Marc Trachtenberg"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 2000,
+      "status": "winner",
+      "title": "The Great Arizona Orphan Abduction",
+      "authors": [
+        "Linda Gordon"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "year": 2000,
+      "status": "winner",
+      "title": "Scenarios of Power: Myth and Ceremony in Russian Monarchy: From Alexander II to the Abdication of Nicholas II, vol. 2",
+      "authors": [
+        "Richard Wortman"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+      "sourceLabel": "AHA George L. Mosse Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/george-l-mosse-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 2000,
+      "status": "winner",
+      "title": "Indians and English: Facing Off in Early America",
+      "authors": [
+        "Karen Kupperman"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1999,
+      "status": "winner",
+      "title": "Atlantic Crossings: Social Politics in a Progressive Age",
+      "authors": [
+        "Daniel Rodgers"
+      ],
+      "publisher": "Belknap Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1999,
+      "status": "winner",
+      "title": "The Life and Times of Pancho Villa",
+      "authors": [
+        "Friedrich Katz"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "year": 1999,
+      "status": "winner",
+      "title": "Republic of Capital: Buenos Aires and the Legal Transformation of Atlantic World",
+      "authors": [
+        "Jeremy Adelman"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+      "sourceLabel": "AHA James A. Rawley Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/james-a-rawley-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1998,
+      "status": "winner",
+      "title": "Divided Memory: The Nazi Past in the Two Germanys",
+      "authors": [
+        "Jeffrey Herf"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1998,
+      "status": "winner",
+      "title": "Slave Counterpoint: Black Culture in the 18th-Century Chesapeake and Lowcountry",
+      "authors": [
+        "Philip Morgan"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1997,
+      "status": "winner",
+      "title": "The Cold War and Soviet Insecurity: The Stalin Years",
+      "authors": [
+        "Vojtech Mastny"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1997,
+      "status": "winner",
+      "title": "Magistrates of the Sacred: Priests and Parishioners in 18th-Century Mexico",
+      "authors": [
+        "William Taylor"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1996,
+      "status": "winner",
+      "title": "William Cooper’s Town: Power and Persuasion on the Frontier of the Early American Republic",
+      "authors": [
+        "Alan Taylor"
+      ],
+      "publisher": "Knopf",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1995,
+      "status": "winner",
+      "title": "Visions of Modernity: American Business and the Modernization of Germany",
+      "authors": [
+        "Mary Nolan"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1995,
+      "status": "winner",
+      "title": "Terrible Honesty: Mongrel Manhattan in the 1920s (Farrar, Strauss & Giroux) Stephen Innes , Creating the Commonwealth: The Economic Culture of Puritan New England",
+      "authors": [
+        "Ann Douglas"
+      ],
+      "publisher": "W.W. Norton",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1994,
+      "status": "winner",
+      "title": "A World at Arms: A Global History of World War II",
+      "authors": [
+        "Gerhard Weinberg"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1994,
+      "status": "winner",
+      "title": "Providence Island, 1630-41: The Other Purian Colony",
+      "authors": [
+        "Karen Kupperman"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1993,
+      "status": "winner",
+      "title": "British and American Commercial Relations with Soviet Russia, 1918-24",
+      "authors": [
+        "Christine White"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1993,
+      "status": "winner",
+      "title": "The Nahuas after the Conquest: A Social and Cultural History of the Indians of Central Mexico, 16th through 18th Centuries",
+      "authors": [
+        "James Lockhart"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1992,
+      "status": "winner",
+      "title": "The Popular Front and Central Europe: The Dilemmas of French Impotence, 1918-40",
+      "authors": [
+        "Nicole Jordan"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1992,
+      "status": "winner",
+      "title": "The Middle Ground: Indians, Empires, and Republics in the Great Lakes Region, 1650-1815",
+      "authors": [
+        "Richard White"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1991,
+      "status": "winner",
+      "title": "Coal, Steel, and the Rebirth of Europe, 1945-55",
+      "authors": [
+        "John Gillingham"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1991,
+      "status": "winner",
+      "title": "Alabi’s World",
+      "authors": [
+        "Richard Price"
+      ],
+      "publisher": "Johns Hopkins Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1990,
+      "status": "winner",
+      "title": "Between Churchill and Stalin. The Soviet Union, Great Britain, and the Origins of the Grand Alliance",
+      "authors": [
+        "Steven Miner"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1990,
+      "status": "winner",
+      "title": "Awash in a Sea of Faith: Christianizing the American People",
+      "authors": [
+        "Jon Butler"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1989,
+      "status": "winner",
+      "title": "The Twilight of the French Eastern Alliances, 1926-36: French-Czechoslovak-Polish Relations from Locarno to the Remilitarization of the Rhineland",
+      "authors": [
+        "Piotr Wandycz"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1989,
+      "status": "winner",
+      "title": "That Noble Dream: The ‘Objectivity Question’ and the American Historical Profession",
+      "authors": [
+        "Peter Novick"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1988,
+      "status": "winner",
+      "title": "The Marshall Plan: America, Great Britain, and the Reconstruction of Western Europe, 1947-52",
+      "authors": [
+        "Michael Hogan"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1988,
+      "status": "winner",
+      "title": "James Leloudis , Robert Korstad , Lu Ann Jones , Christopher Daly , and Mary Murphy , Like a Family: The Making of a Southern Cotton Mill World",
+      "authors": [
+        "Jacquelyn Hall"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1987,
+      "status": "winner",
+      "title": "Syria and the French Mandate: The Politics of Arab Nationalism",
+      "authors": [
+        "Philip Khoury"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1987,
+      "status": "winner",
+      "title": "Slave Life in Rio de Janeiro, 1808-50",
+      "authors": [
+        "Mary Karasch"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1986,
+      "status": "winner",
+      "title": "The Mexican Revolution, 2 vols",
+      "authors": [
+        "Alan Knight"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1985,
+      "status": "winner",
+      "title": "The Genoa Conference: European Diplomacy, 1921-22",
+      "authors": [
+        "Carole Fink"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1985,
+      "status": "winner",
+      "title": "Maya Society under Colonial Rule: The Collective Enterprise of Survival",
+      "authors": [
+        "Nancy Farriss"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1984,
+      "status": "winner",
+      "title": "The British Empire in the Middle East, 1945-51: Arab Nationalism, the United States, and Postwar Imperialism",
+      "authors": [
+        "Wm. Roger Louis"
+      ],
+      "publisher": "Clarendon Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1984,
+      "status": "winner",
+      "title": "Chants Democratic: New York City and the Rise of the American Working Class, 1788-1850",
+      "authors": [
+        "Sean Wilentz"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1983,
+      "status": "winner",
+      "title": "Poland’s Place in Europe: General Sikorski and the Origin of the Oder-Neisse Line, 1939-43",
+      "authors": [
+        "Sarah Terry"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1983,
+      "status": "winner",
+      "title": "Booker T. Washington: The Wizard of Tuskegee, 1901-15",
+      "authors": [
+        "Louis Harlan"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1982,
+      "status": "winner",
+      "title": "Mussolini Unleashed, 1939-41: Politics and Strategy in Fascist Italy’s Last War",
+      "authors": [
+        "MacGregor Knox"
+      ],
+      "publisher": "Cambridge Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1982,
+      "status": "winner",
+      "title": "History of the Guyanese Working People, 1881-1905",
+      "authors": [
+        "Walter Rodney"
+      ],
+      "publisher": "Johns Hopkins Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1981,
+      "status": "winner",
+      "title": "Innocent Abroad: Belgium at the Paris Peace Conference of 1919",
+      "authors": [
+        "Sally Marks"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1981,
+      "status": "winner",
+      "title": "The Atlantic Economy and Colonial Maryland’s Eastern Shore: From Tobacco to Grain",
+      "authors": [
+        "Paul Clemens"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1980,
+      "status": "winner",
+      "title": "Cities of the American West: A History of Frontier Urban Planning",
+      "authors": [
+        "John Reps"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1979,
+      "status": "winner",
+      "title": "German Rearmament and the West, 1932-33",
+      "authors": [
+        "Edward Bennett"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1979,
+      "status": "winner",
+      "title": "Keepers of the Game: Indian-Animal Relationships and the Fur Trade",
+      "authors": [
+        "Calvin Martin"
+      ],
+      "publisher": "Univ. of California Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1978,
+      "status": "winner",
+      "title": "The People and the King: The Comunero Revolution in Columbia, 1781",
+      "authors": [
+        "John Phelan"
+      ],
+      "publisher": "Univ. of Wisconsin Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1977,
+      "status": "winner",
+      "title": "The End of French Predominance in Europe: The Financial Crisis of 1924 and the Adoption of the Dawes Plan.",
+      "authors": [
+        "Stephen Schuker"
+      ],
+      "publisher": "Univ. of North Carolina Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1977,
+      "status": "winner",
+      "title": "The Enlightenment in America",
+      "authors": [
+        "Henry May"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1976,
+      "status": "winner",
+      "title": "Recasting Bourgeois Europe: Stabilization in France, Germany and Italy in the Decade After World War I",
+      "authors": [
+        "Charles Maier"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1976,
+      "status": "winner",
+      "title": "American Slavery–American Freedom: The Ordeal of Colonial Virginia",
+      "authors": [
+        "Edmund Morgan"
+      ],
+      "publisher": "W.W. Norton",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1975,
+      "status": "winner",
+      "title": "The Problem of Slavery in the Age of Revolution, 1700-1823",
+      "authors": [
+        "David Davis"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1974,
+      "status": "winner",
+      "title": "Black Majority",
+      "authors": [
+        "Peter Wood"
+      ],
+      "publisher": "Knopf",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1973,
+      "status": "winner",
+      "title": "Regeneration through Violence: The Mythology of the American Frontier, 1600-1850",
+      "authors": [
+        "Richard Slotkin"
+      ],
+      "publisher": "Wesleyan Unv. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1972,
+      "status": "winner",
+      "title": "Locarno Diplomacy: Germany and the West",
+      "authors": [
+        "Jon Jacobson"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1972,
+      "status": "winner",
+      "title": "The Best Poor Man’s Country",
+      "authors": [
+        "James Lemon"
+      ],
+      "publisher": "Johns Hopkins Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1971,
+      "status": "winner",
+      "title": "The Foreign Policy of Hitler’s Germany, Diplomatic Revolution in Europe, 1933-36",
+      "authors": [
+        "Gerhard Weinberg"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1971,
+      "status": "winner",
+      "title": "Neither Black nor White: Slavery and Race Relations in Brazil and the United States (Macmillan) David Rothman , The Discovery of the Asylum: Social Order and Disorder in the New Republic",
+      "authors": [
+        "Carl Degler"
+      ],
+      "publisher": "Little",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1970,
+      "status": "winner",
+      "title": "The Politics of Grand Strategy: Britain and France Prepare for War, 1904-14",
+      "authors": [
+        "Samuel Williamson, Jr."
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1970,
+      "status": "winner",
+      "title": "Populism to Progressivism in Alabama (Princeton Univ. Press) Leonard Richards , ‘Gentlemen of Property and Standing’: Anti-Abolition Mobs in Jacksonian America",
+      "authors": [
+        "Sheldon Hackney"
+      ],
+      "publisher": "Oxford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1969,
+      "status": "winner",
+      "title": "Britain and the Russian Civil War, November 1918-February 1920",
+      "authors": [
+        "Richard Ullman"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1969,
+      "status": "winner",
+      "title": "The Private City: Philadelphia in Three Periods of Its Growth",
+      "authors": [
+        "Sam Warner, Jr."
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1968,
+      "status": "winner",
+      "title": "The Intellectuals and McCarthy: The Radical Specter",
+      "authors": [
+        "Michael Rogin"
+      ],
+      "publisher": "MIT Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1967,
+      "status": "winner",
+      "title": "The Volunteer Army and the Revolution in South Russia (Univ. of Notre Dame Press) Robert Wohl , French Communism in the Making",
+      "authors": [
+        "George Brinkley"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1966,
+      "status": "winner",
+      "title": "Reconstructing the Union: Conflict of Theory and Policy during the Civil War",
+      "authors": [
+        "Herman Belz"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1965,
+      "status": "winner",
+      "title": "British Strategy and Politics, 1914-18",
+      "authors": [
+        "Paul Guinn, Jr."
+      ],
+      "publisher": "Oxford Univ. Press/Clarendon",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1965,
+      "status": "winner",
+      "title": "The Discovery of Abundance",
+      "authors": [
+        "Daniel Fox"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1964,
+      "status": "winner",
+      "title": "Yugoslavia at the Paris Peace Conference (Yale Univ. Press) Harold Nelson , Land and Power: British and Allied Policy on Germany’s Frontiers, 1916-19",
+      "authors": [
+        "Ivo Lederer"
+      ],
+      "publisher": "Univ. of Toronto Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1964,
+      "status": "winner",
+      "title": "The Eleventh Pillar: New York State and the Federal Constitution",
+      "authors": [
+        "Linda DePauw"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1963,
+      "status": "winner",
+      "title": "Germany and the Diplomacy of the Financial Crisis, 1931 (Harvard Univ. Press) Hans Schmitt , The Path to European Union",
+      "authors": [
+        "Edward Bennett"
+      ],
+      "publisher": "Louisiana State Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1962,
+      "status": "winner",
+      "title": "France and Her Eastern Allies, 1919-25",
+      "authors": [
+        "Piotr Wandycz"
+      ],
+      "publisher": "Univ. of Minnesota Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1962,
+      "status": "winner",
+      "title": "The New Empire: An Interpretation of American Expansion, 1860-98",
+      "authors": [
+        "Walter LaFeber"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1961,
+      "status": "winner",
+      "title": "Mussolini’s Enemies: The Italian Anti-Fascist Resistance",
+      "authors": [
+        "Charles Delzell"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1961,
+      "status": "winner",
+      "title": "The United States and the First Hague Peace Conference",
+      "authors": [
+        "Calvin Davis"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1960,
+      "status": "winner",
+      "title": "Defeated Leaders: The Political Fate of Cailleux, Jouvenel, and Tardieu",
+      "authors": [
+        "Rudolph Binion"
+      ],
+      "publisher": "Columbia Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1960,
+      "status": "winner",
+      "title": "The United States and Pancho Villa (Cornell Univ. Press) Nathan Miller , The Enterprise of a Free People: Canals and the Canal Fund in the New York Economy, 1792-1838",
+      "authors": [
+        "C. Clarence Clendenen"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1959,
+      "status": "winner",
+      "title": "The World War and American Isolation, 1914-17",
+      "authors": [
+        "Ernest May"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1959,
+      "status": "winner",
+      "title": "Free Conservative Crisis and the Rule of Law: Attitudes of Bar and Bench, 1887-95",
+      "authors": [
+        "Arnold Paul"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1958,
+      "status": "winner",
+      "title": "The United States and East Central Europe",
+      "authors": [
+        "Victor Mamatey"
+      ],
+      "publisher": "Princeton Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1958,
+      "status": "winner",
+      "title": "Tomorrow a New World: The New Deal Community Program",
+      "authors": [
+        "Paul Conkin"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1957,
+      "status": "winner",
+      "title": "German Rule in Russia, 1941-45",
+      "authors": [
+        "Alexander Dallin"
+      ],
+      "publisher": "St. Martin’s Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1957,
+      "status": "winner",
+      "title": "Rails, Mines, and Progress: Seven American Promoters in Mexico",
+      "authors": [
+        "David Pletcher"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1956,
+      "status": "winner",
+      "title": "Mitteleuropa in German Thought and Action, 1815-1945",
+      "authors": [
+        "Henry Meyer"
+      ],
+      "publisher": "Batsford",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1956,
+      "status": "winner",
+      "title": "The Axis Alliance and Japanese-American Relations, 1941",
+      "authors": [
+        "Paul Schroeder"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1955,
+      "status": "winner",
+      "title": "The Formation of the Soviet Union",
+      "authors": [
+        "Richard Pipes"
+      ],
+      "publisher": "Harvard Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1955,
+      "status": "winner",
+      "title": "Colonists from Scotland: Emigration to North America, 1707-83",
+      "authors": [
+        "Ian Graham"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1954,
+      "status": "winner",
+      "title": "Serbia Between East and West: The Events of 1903-08",
+      "authors": [
+        "Wayne Vucinich"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1954,
+      "status": "winner",
+      "title": "The Development of American Petroleum Pipelines: A Study in Enterprise and Public Policy",
+      "authors": [
+        "Arthur Johnson"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1953,
+      "status": "winner",
+      "title": "Woodrow Wilson and the Far East",
+      "authors": [
+        "Russell Fifield"
+      ],
+      "publisher": "Cornell Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1953,
+      "status": "winner",
+      "title": "A History of the Freedman’s Bureau",
+      "authors": [
+        "George Bentley"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1952,
+      "status": "winner",
+      "title": "Peace in Their Time: The Origins of the Kellogg-Briand Pact",
+      "authors": [
+        "Robert Ferrell"
+      ],
+      "publisher": "Yale Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1952,
+      "status": "winner",
+      "title": "Robert Morris, Revolutionary Financier",
+      "authors": [
+        "Clarence Ver Steeg"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1951,
+      "status": "winner",
+      "title": "History of Marshall Field and Co., 1852-1906",
+      "authors": [
+        "Robert Twyman"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1950,
+      "status": "winner",
+      "title": "Horace Greeley: Nineteenth Century Crusader",
+      "authors": [
+        "Glyndon Van Deusen"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1949,
+      "status": "winner",
+      "title": "Steam Power on the American Farm: A Chapter in Agricultural History, 1850-1920",
+      "authors": [
+        "Reynold Wik"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1948,
+      "status": "winner",
+      "title": "John William Draper and the Religion of Science",
+      "authors": [
+        "Donald Fleming"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1947,
+      "status": "winner",
+      "title": "The Struggle for Justice in the Spanish Conquest of America",
+      "authors": [
+        "Lewis Hanke"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1946,
+      "status": "winner",
+      "title": "Backwoods Utopias: The Sectarian and Owenite Phases of Communitarian Socialism in America, 1663-1829",
+      "authors": [
+        "Arthur Bestor"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1945,
+      "status": "winner",
+      "title": "John Stuart and the Southern Colonial Frontier",
+      "authors": [
+        "John Alden"
+      ],
+      "publisher": "Univ. of Michigan Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1943,
+      "status": "winner",
+      "title": "British Enterprise in Nigeria",
+      "authors": [
+        "Arthur Cook"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1943,
+      "status": "winner",
+      "title": "The American Frontier in Hawaii: The Pioneers, 1789-1843",
+      "authors": [
+        "Harold Bradley"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1941,
+      "status": "winner",
+      "title": "The Anatomy of British Sea Power",
+      "authors": [
+        "Arthur Marder"
+      ],
+      "publisher": "Knopf",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1941,
+      "status": "winner",
+      "title": "The Background of the Revolution in Maryland",
+      "authors": [
+        "Charles Barker"
+      ],
+      "publisher": "Yale Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1940,
+      "status": "winner",
+      "title": "The American Impact on Great Britain, 1898-1914",
+      "authors": [
+        "Richard Heindel"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1939,
+      "status": "winner",
+      "title": "Background of Anti-English Feeling in Germany, 1890-1902",
+      "authors": [
+        "Pauline Anderson"
+      ],
+      "publisher": "American Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "year": 1939,
+      "status": "winner",
+      "title": "James Kent: A Study in Conservatism",
+      "authors": [
+        "John Horton"
+      ],
+      "publisher": "Appleton",
+      "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+      "sourceLabel": "AHA Beveridge Family Prize official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/beveridge-family-prize/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1938,
+      "status": "winner",
+      "title": "Italy at the Paris Peace Conference",
+      "authors": [
+        "Rene Albrecht-Carrie"
+      ],
+      "publisher": "Columbia Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1937,
+      "status": "winner",
+      "title": "The Career of Théophile Delcassé",
+      "authors": [
+        "Charles Porter"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1934,
+      "status": "winner",
+      "title": "Great Britain and the German Trade Rivalry, 1875-1914",
+      "authors": [
+        "Ross Hoffman"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1933,
+      "status": "winner",
+      "title": "China’s Foreign Relations, 1917-31",
+      "authors": [
+        "Robert Pollard"
+      ],
+      "publisher": "Macmillan",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1932,
+      "status": "winner",
+      "title": "Austro-German Diplomatic Relations, 1908-14",
+      "authors": [
+        "Oswald Wedel"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1931,
+      "status": "winner",
+      "title": "Germany and the Diplomatic Revolution: A Study in Diplomacy and the Press, 1904-06",
+      "authors": [
+        "Oron Hale"
+      ],
+      "publisher": "Univ. of Pennsylvania Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1930,
+      "status": "winner",
+      "title": "The Coming of the War, 2 vols.",
+      "authors": [
+        "Bernadotte Schmitt"
+      ],
+      "publisher": "Scribner",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1929,
+      "status": "winner",
+      "title": "Fashoda: The Incident and Its Diplomatic Setting",
+      "authors": [
+        "Morrison Giffen"
+      ],
+      "publisher": "Univ. of Chicago Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1928,
+      "status": "winner",
+      "title": "The Origins of the World War, 2 vols.",
+      "authors": [
+        "Sidney Fay"
+      ],
+      "publisher": "Macmillan",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1925,
+      "status": "winner",
+      "title": "Southern Albania or Northern Epirus in European International Affairs, 1912-23",
+      "authors": [
+        "Edith Stickney"
+      ],
+      "publisher": "Stanford Univ. Press",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1924,
+      "status": "winner",
+      "title": "The Foreign Policies of Soviet Russia",
+      "authors": [
+        "Alfred Dennis"
+      ],
+      "publisher": "Dutton",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "awardName": "American Historical Association Book Prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "year": 1923,
+      "status": "winner",
+      "title": "The Mandatory System: Its Historical Background and Relation to the New Imperialism Edward Earle , Turkey, the Great Powers, and the Bagdad Railway",
+      "authors": [
+        "Walter Batsell"
+      ],
+      "publisher": "Macmillan",
+      "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+      "sourceLabel": "AHA Prize in European International History official page",
+      "sourceConfidence": "official",
+      "notes": "Official awards URL: https://www.historians.org/award-grant/aha-prize-in-european-international-history/"
+    }
+  ]
+}

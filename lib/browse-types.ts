@@ -8,6 +8,9 @@ export type BrowseBookRow = {
   publicationYear?: number;
   publisher?: string;
   imprint?: string;
+  thumbnailUrl?: string;
+  primarySubject?: string;
+  subjects: string[];
   wins: number;
   lists: number;
   score: number;

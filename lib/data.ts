@@ -28,6 +28,7 @@ export const imprintsById = byId(data.imprints);
 export const sourcesById = byId(data.sources);
 export const subjectsByName = new Map(data.subjects.map((item) => [item.name.toLowerCase(), item]));
 export const statsByBookId = new Map(data.stats.map((item) => [item.bookId, item]));
+export const wikipediaEvidenceByBook = new Map((data.wikipediaEvidence ?? []).map((item) => [item.bookId, item]));
 
 export function getBookStats(bookId: string): BookStats {
   return statsByBookId.get(bookId) ?? {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible_Mono, Atkinson_Hyperlegible_Next, Newsreader, Public_Sans } from "next/font/google";
+import { Atkinson_Hyperlegible_Mono, Atkinson_Hyperlegible_Next, IM_Fell_English, IM_Fell_English_SC, Newsreader, Public_Sans } from "next/font/google";
 import { SiteShell } from "@/components/site-shell";
 import "./globals.css";
 
@@ -31,6 +31,20 @@ const number = Public_Sans({
   adjustFontFallback: false,
 });
 
+const fell = IM_Fell_English({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-fell",
+  adjustFontFallback: false,
+});
+
+const fellSc = IM_Fell_English_SC({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-fell-sc",
+  adjustFontFallback: false,
+});
+
 export const metadata: Metadata = {
   title: "The Book Prize Index",
   description: "A sourced index of nonfiction book awards, publishers, imprints, subjects, and prize records.",
@@ -38,7 +52,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable} ${number.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable} ${number.variable} ${fell.variable} ${fellSc.variable}`}>
       <body className="font-[var(--font-sans)]">
         <SiteShell>{children}</SiteShell>
       </body>

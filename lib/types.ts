@@ -221,6 +221,55 @@ export type BookStats = {
   statuses: Record<AwardStatus, number>;
 };
 
+export type PublisherEvidenceSource =
+  | "wikipedia_infobox"
+  | "award_record"
+  | "catalog_metadata"
+  | "manual";
+
+export type PublisherEvidence = {
+  id: string;
+  bookId: string;
+  rawName: string;
+  source: PublisherEvidenceSource;
+  confidence: "high" | "medium" | "low";
+  sourceUrl?: string;
+  sourceId?: string;
+  note?: string;
+};
+
+export type WikipediaBookEvidence = {
+  bookId: string;
+  pageTitle: string;
+  pageId?: number;
+  wikidataId?: string;
+  url: string;
+  revisionId?: number;
+  accessedAt?: string;
+  extract?: string;
+  matchedBy: string;
+  confidence: "high" | "medium" | "low";
+  attribution: {
+    label: string;
+    url: string;
+    license: string;
+    licenseUrl: string;
+  };
+  infobox?: {
+    title?: string;
+    author?: string;
+    publisher?: string;
+    publicationDate?: string;
+    publicationPlace?: string;
+    pages?: string;
+    isbn?: string;
+    language?: string;
+    subject?: string;
+    genre?: string;
+  };
+  publisherEvidenceId?: string;
+};
+
 export type PublicData = {
   generatedAt: string;
   books: Book[];
@@ -233,4 +282,5 @@ export type PublicData = {
   subjects: SubjectSummary[];
   sources: SourceRef[];
   stats: BookStats[];
+  wikipediaEvidence?: WikipediaBookEvidence[];
 };

@@ -19,7 +19,7 @@ export function SearchModeSelect({
       value={value}
     >
       <option value="keyword">Keyword</option>
-      <option value="semantic">Semantic</option>
+      <option value="semantic">Meaning</option>
     </select>
   );
 }

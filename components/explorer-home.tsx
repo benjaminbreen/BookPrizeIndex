@@ -2,45 +2,50 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { ArrowRight, Filter, Info, Search } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronUp, ChevronsUpDown, CornerDownLeft, Filter, Search } from "lucide-react";
 import { useMemo, useState } from "react";
+import type { SearchMode } from "@/components/ui/design-primitives";
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import type { BrowseData } from "@/lib/browse-types";
 
-type SortKey = "score" | "year" | "title" | "wins" | "lists" | "imprint";
+type SortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher";
+type SortDirection = "asc" | "desc";
 type TypeFilter = "fiction" | "nonfiction" | "all";
+type RankedSubjectFilter = "all" | "biography" | "history" | "science" | "politics";
+
+const rankedSubjectFilters: Array<{ key: RankedSubjectFilter; label: string; subjects: string[] }> = [
+  { key: "all", label: "All", subjects: [] },
+  { key: "biography", label: "Biography", subjects: ["Biography"] },
+  { key: "history", label: "History", subjects: ["History", "American History", "World History"] },
+  { key: "science", label: "Science", subjects: ["Science"] },
+  { key: "politics", label: "Politics", subjects: ["Politics & Government"] },
+];
 
 export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaultRegion: AwardRegionFilter }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
+  const [searchMode, setSearchMode] = useState<SearchMode>("keyword");
   const [type, setType] = useState<TypeFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("score");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
+  const [rankedSubject, setRankedSubject] = useState<RankedSubjectFilter>("all");
 
   const rankedBooks = useMemo(() => {
     const q = query.trim().toLowerCase();
-    const filtered = data.books.filter((book) => !q || book.searchText.includes(q));
-    return [...filtered].sort((a, b) => {
-      if (sortKey === "score") {
-        return (
-          b.score - a.score ||
-          b.majorWins - a.majorWins ||
-          b.wins - a.wins ||
-          b.majorShortlists - a.majorShortlists ||
-          b.normalShortlists - a.normalShortlists ||
-          b.majorLonglists - a.majorLonglists ||
-          b.normalLonglists - a.normalLonglists ||
-          (b.publicationYear ?? 0) - (a.publicationYear ?? 0) ||
-          a.title.localeCompare(b.title)
-        );
-      }
-      if (sortKey === "wins") return b.wins - a.wins || a.title.localeCompare(b.title);
-      if (sortKey === "lists") return b.lists - a.lists || a.title.localeCompare(b.title);
-      if (sortKey === "year") return (b.publicationYear ?? 0) - (a.publicationYear ?? 0) || a.title.localeCompare(b.title);
-      if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "") || a.title.localeCompare(b.title);
-      return a.title.localeCompare(b.title);
+    const subjectFilter = rankedSubjectFilters.find((filter) => filter.key === rankedSubject);
+    const subjectSet = new Set(subjectFilter?.subjects ?? []);
+    const filtered = data.books.filter((book) => {
+      if (q && !book.searchText.includes(q)) return false;
+      if (subjectSet.size && !book.subjects.some((subject) => subjectSet.has(subject))) return false;
+      return true;
     });
-  }, [data.books, query, sortKey]);
+    return [...filtered].sort((a, b) => {
+      const primary = compareHomeBooks(a, b, sortKey);
+      if (primary) return sortDirection === "asc" ? primary : -primary;
+      return b.score - a.score || b.wins - a.wins || a.title.localeCompare(b.title);
+    });
+  }, [data.books, query, rankedSubject, sortDirection, sortKey]);
 
   const topBooks = rankedBooks.slice(0, 12);
   const browseData = useMemo(() => getBrowseData(data, region, type), [data, region, type]);
@@ -55,7 +60,17 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
     event.preventDefault();
     const q = query.trim();
     if (!q) return;
-    router.push(`/books?q=${encodeURIComponent(q)}`);
+    const mode = searchMode === "semantic" ? "&mode=semantic" : "";
+    router.push(`/books?q=${encodeURIComponent(q)}${mode}`);
+  }
+
+  function sortByColumn(nextSortKey: SortKey) {
+    if (sortKey === nextSortKey) {
+      setSortDirection((direction) => (direction === "asc" ? "desc" : "asc"));
+      return;
+    }
+    setSortKey(nextSortKey);
+    setSortDirection(defaultSortDirection(nextSortKey));
   }
 
   return (
@@ -72,30 +87,60 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
             </p>
           </div>
 
-          <div className="panel self-end rounded-lg border hairline p-4 shadow-[0_18px_40px_color-mix(in_srgb,var(--ink)_5%,transparent)] sm:p-5">
+          <div className="home-search-panel self-end">
             <form
-              className="group flex min-h-14 items-center gap-3 rounded-md border border-[color-mix(in_srgb,var(--line)_82%,var(--paper))] bg-[color-mix(in_srgb,var(--paper)_88%,white)] px-4 transition hover:border-[color-mix(in_srgb,var(--ink)_24%,var(--line))] hover:bg-[color-mix(in_srgb,var(--paper)_78%,white)] focus-within:border-[var(--focus)] focus-within:bg-[var(--panel)] focus-within:shadow-[0_0_0_3px_color-mix(in_srgb,var(--focus)_16%,transparent)]"
+              className="subjects-search home-search-capsule"
               onSubmit={submitSearch}
             >
-              <Search size={22} className="muted transition group-focus-within:text-[var(--ink)]" />
+              <Search size={20} className="muted transition group-focus-within:text-[var(--ink)]" />
               <input
                 aria-label="Search the book catalog"
                 className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-[color-mix(in_srgb,var(--muted)_78%,transparent)]"
-                placeholder="Search books, awards, authors, subjects..."
+                maxLength={600}
+                placeholder={searchMode === "semantic" ? "Describe a theme, project, era, or mood..." : "Search books, authors, subjects..."}
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
               />
               {query.trim() ? (
                 <button
-                  className="focus-ring inline-flex shrink-0 items-center gap-2 rounded-md bg-[var(--ink)] px-4 py-2 text-sm font-medium text-[var(--paper)] transition hover:bg-[var(--accent)]"
+                  className="semantic-submit semantic-submit-ready focus-ring inline-flex h-9 shrink-0 items-center gap-2 rounded-full px-3 text-xs"
                   type="submit"
                 >
                   Enter
-                  <ArrowRight size={14} />
+                  <CornerDownLeft size={13} />
                 </button>
               ) : null}
+              <div className="home-search-mode-toggle" aria-label="Search mode">
+                <button
+                  aria-describedby="home-keyword-help"
+                  aria-label="Keyword search"
+                  className={`home-search-mode-button focus-ring ${searchMode === "keyword" ? "home-search-mode-button-active" : ""}`}
+                  onClick={() => setSearchMode("keyword")}
+                  type="button"
+                >
+                  Keyword
+                </button>
+                <button
+                  aria-describedby="home-semantic-help"
+                  aria-label="Semantic search"
+                  className={`home-search-mode-button focus-ring ${searchMode === "semantic" ? "home-search-mode-button-active" : ""}`}
+                  onClick={() => setSearchMode("semantic")}
+                  type="button"
+                >
+                  Semantic
+                </button>
+                <span className="home-mode-tooltip home-mode-tooltip-keyword" id="home-keyword-help" role="tooltip">
+                  <span className="home-mode-tooltip-label">Keyword</span>
+                  <span>Looks for the exact words you type in titles, authors, awards, subjects, publishers, and catalog text.</span>
+                </span>
+                <span className="home-mode-tooltip home-mode-tooltip-semantic" id="home-semantic-help" role="tooltip">
+                  <span className="home-mode-tooltip-label">Semantic</span>
+                  <span>Uses machine learning to find books, awards, and subjects related to what you describe, even when the exact words do not appear.</span>
+                  <span className="home-mode-tooltip-note">Best for themes, eras, moods, comparisons, and open-ended ideas.</span>
+                </span>
+              </div>
             </form>
-            <div className="mt-5 border-t hairline pt-5">
+            <div className="home-search-controls">
               <div className="grid gap-4 lg:grid-cols-[auto_auto_auto_auto_minmax(9rem,1fr)] lg:items-end">
                 <FilterGroup label="Region">
                   {(["us", "international", "all"] as const).map((item) => (
@@ -113,8 +158,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                   ))}
                 </FilterGroup>
                 <div className="hidden h-10 w-px bg-[var(--line)] lg:block" />
-                <p className="flex items-start gap-2 text-xs leading-5 muted">
-                  <Info size={15} className="mt-0.5 shrink-0" />
+                <p className="home-search-note text-xs leading-5 muted">
                   Lists update based on your selections.
                 </p>
               </div>
@@ -163,16 +207,19 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Ranked catalog</p>
             <h2 className="mt-2 font-[var(--font-serif)] text-3xl font-light">Most awarded books</h2>
           </div>
-          <div className="flex flex-wrap gap-2 font-[var(--font-mono)] text-xs">
-            {(["score", "wins", "lists", "year", "title", "imprint"] as SortKey[]).map((key) => (
-              <button
-                key={key}
-                className={`filter-chip focus-ring px-3 py-2 capitalize ${sortKey === key ? "segment-button-active" : ""}`}
-                onClick={() => setSortKey(key)}
-              >
-                {key}
-              </button>
-            ))}
+          <div className="grid justify-items-start gap-2 font-[var(--font-mono)] text-xs sm:justify-items-end">
+            <div className="flex flex-wrap gap-2">
+              {rankedSubjectFilters.map((filter) => (
+                <button
+                  key={filter.key}
+                  className={`home-subject-pill home-subject-pill-${filter.key} focus-ring ${rankedSubject === filter.key ? "home-subject-pill-active" : ""}`}
+                  onClick={() => setRankedSubject(filter.key)}
+                  type="button"
+                >
+                  {filter.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -180,13 +227,13 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
           <table className="w-full min-w-[860px] border-collapse text-left">
             <thead className="font-[var(--font-mono)] text-xs uppercase tracking-[0.08em] muted">
               <tr className="border-b hairline">
-                <th className="px-4 py-3 font-normal">Year</th>
-                <th className="px-4 py-3 font-normal">Title</th>
-                <th className="px-4 py-3 font-normal">Author</th>
-                <th className="px-4 py-3 font-normal">Wins</th>
-                <th className="px-4 py-3 font-normal">Lists</th>
-                <th className="px-4 py-3 font-normal">Imprint</th>
-                <th className="px-4 py-3 font-normal">Publisher</th>
+                <HomeSortHeader active={sortKey === "year"} direction={sortDirection} label="Year" onClick={() => sortByColumn("year")} />
+                <HomeSortHeader active={sortKey === "title"} direction={sortDirection} label="Title" onClick={() => sortByColumn("title")} />
+                <HomeSortHeader active={sortKey === "author"} direction={sortDirection} label="Author" onClick={() => sortByColumn("author")} />
+                <HomeSortHeader active={sortKey === "wins"} direction={sortDirection} label="Wins" onClick={() => sortByColumn("wins")} />
+                <HomeSortHeader active={sortKey === "lists"} direction={sortDirection} label="Lists" onClick={() => sortByColumn("lists")} />
+                <HomeSortHeader active={sortKey === "imprint"} direction={sortDirection} label="Imprint" onClick={() => sortByColumn("imprint")} />
+                <HomeSortHeader active={sortKey === "publisher"} direction={sortDirection} label="Publisher" onClick={() => sortByColumn("publisher")} />
               </tr>
             </thead>
             <tbody>
@@ -200,10 +247,11 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                     <td className="plain-number px-4 py-4 text-sm muted">{book.publicationYear}</td>
                     <td className="px-4 py-4">
                       <Link
-                        className="focus-ring block w-full text-left font-[var(--font-serif)] text-xl font-light transition hover:text-[var(--accent)]"
+                        className="focus-ring grid w-full grid-cols-[2.15rem_minmax(0,1fr)] items-center gap-3 text-left font-[var(--font-serif)] text-xl font-light transition hover:text-[var(--accent)]"
                         href={`/books/${book.slug}`}
                       >
-                        {book.title}
+                        <HomeBookCover book={book} />
+                        <span className="line-clamp-2">{book.title}</span>
                       </Link>
                     </td>
                     <td className="px-4 py-4 text-sm">{book.author}</td>
@@ -271,9 +319,35 @@ function BrowseList({
   );
 }
 
+function HomeSortHeader({
+  active,
+  direction,
+  label,
+  onClick,
+}: {
+  active: boolean;
+  direction: SortDirection;
+  label: string;
+  onClick: () => void;
+}) {
+  return (
+    <th className="px-4 py-3 font-normal">
+      <button
+        aria-sort={active ? (direction === "asc" ? "ascending" : "descending") : undefined}
+        className={`home-sort-header focus-ring inline-flex items-center gap-1.5 ${active ? "home-sort-header-active" : ""}`}
+        onClick={onClick}
+        type="button"
+      >
+        {label}
+        {active ? (direction === "asc" ? <ChevronUp size={12} /> : <ChevronDown size={12} />) : <ChevronsUpDown size={12} />}
+      </button>
+    </th>
+  );
+}
+
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div>
+    <div className="home-filter-group">
       <p className="filter-label mb-2">{label}</p>
       <div className="segmented-control">
         {children}
@@ -300,6 +374,36 @@ function FilterButton({
       {children}
     </button>
   );
+}
+
+function HomeBookCover({ book }: { book: BrowseData["books"][number] }) {
+  if (book.thumbnailUrl) {
+    return (
+      <span className="home-book-cover" aria-hidden="true">
+        <img src={book.thumbnailUrl} alt="" />
+      </span>
+    );
+  }
+  return (
+    <span className="home-book-cover home-book-cover-placeholder" aria-hidden="true">
+      {book.title.charAt(0)}
+    </span>
+  );
+}
+
+function compareHomeBooks(a: BrowseData["books"][number], b: BrowseData["books"][number], sortKey: SortKey) {
+  if (sortKey === "score") return a.score - b.score;
+  if (sortKey === "wins") return a.wins - b.wins;
+  if (sortKey === "lists") return a.lists - b.lists;
+  if (sortKey === "year") return (a.publicationYear ?? 0) - (b.publicationYear ?? 0);
+  if (sortKey === "author") return a.author.localeCompare(b.author);
+  if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "");
+  if (sortKey === "publisher") return (a.publisher ?? "").localeCompare(b.publisher ?? "");
+  return a.title.localeCompare(b.title);
+}
+
+function defaultSortDirection(sortKey: SortKey): SortDirection {
+  return sortKey === "year" || sortKey === "wins" || sortKey === "lists" || sortKey === "score" ? "desc" : "asc";
 }
 
 function getBrowseData(data: BrowseData, region: AwardRegionFilter, type: TypeFilter) {

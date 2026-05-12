@@ -89,7 +89,7 @@ const qualityReportPath = path.join(root, "data", "public", "topic-quality-repor
 const EMBEDDING_PRICE_PER_MILLION = 0.02;
 const MINI_INPUT_PRICE_PER_MILLION = 0.15;
 const MINI_OUTPUT_PRICE_PER_MILLION = 0.60;
-const GENERIC_TOPICS = new Set(["Biography & Public Lives", "Regional & Local History", "Empire & Colonialism", "Essays & Cultural Criticism"]);
+const GENERIC_TOPICS = new Set(["Biography & Public Lives", "Regional & Local History", "Empire & Colonialism", "Essays & Cultural Criticism", "Science & Discovery"]);
 const BIOGRAPHY_MODE_TOPICS = new Set([
   "Political Biography",
   "Presidential Biography",
@@ -141,6 +141,7 @@ const SUBJECT_TOPIC_ALLOWLIST: Record<string, Set<string>> = {
     "Crime, Policing & Violence",
     "Prisons & Incarceration",
     "American Civil War",
+    "World War I",
     "World War II",
     "Vietnam War",
     "Cold War & Nuclear Politics",
@@ -148,12 +149,31 @@ const SUBJECT_TOPIC_ALLOWLIST: Record<string, Set<string>> = {
     "Slavery & Emancipation",
     "Reconstruction",
     "Indigenous History",
+    "Settler Colonialism",
     "Civil Rights & Racial Justice",
     "Black History & Culture",
     "Immigration, Refugees & Borderlands",
+    "Migration & Diaspora",
     "Religion & Religious Movements",
+    "Evangelicalism & Christian Nationalism",
     "Gender & Feminism",
+    "LGBTQ History & Life",
     "Family, Childhood & Adoption",
+    "Social Movements & Activism",
+    "Labor, Work & Organizing",
+    "Class, Poverty & Inequality",
+    "Housing, Cities & Urban Life",
+    "Business, Capitalism & Corporations",
+    "Money, Markets & Economic Policy",
+    "Food, Agriculture & Land",
+    "Media, Journalism & Public Opinion",
+    "Intellectual History & Ideas",
+    "Art, Music & Performance",
+    "Literature & Writers",
+    "Education & Universities",
+    "Sports & Athletes",
+    "Travel, Exploration & Place",
+    "Environment, Conservation & Pollution",
     "Regional & Local History",
   ]),
   "World History": new Set([
@@ -175,22 +195,60 @@ const SUBJECT_TOPIC_ALLOWLIST: Record<string, Set<string>> = {
     "Human Rights & International Law",
   ]),
   History: new Set([
+    "American Politics",
+    "Democracy & Elections",
+    "Presidency & Executive Power",
     "Constitutional History",
     "Law & Legal Change",
+    "Courts & Trials",
+    "Crime, Policing & Violence",
     "War & Military Strategy",
+    "Soldiers, Veterans & Combat Experience",
     "American Civil War",
     "World War I",
     "World War II",
     "Vietnam War",
     "Cold War & Nuclear Politics",
+    "Intelligence, Secrecy & Surveillance",
     "Holocaust",
+    "Genocide, Atrocity & Political Violence",
     "Empire & Colonialism",
     "Slavery & Emancipation",
     "Reconstruction",
     "Indigenous History",
+    "Settler Colonialism",
+    "Civil Rights & Racial Justice",
+    "Black History & Culture",
+    "Immigration, Refugees & Borderlands",
+    "Migration & Diaspora",
+    "Latin America & the Caribbean",
+    "Europe & Russia",
+    "Asia & the Pacific",
+    "Middle East & North Africa",
+    "Africa & the African Diaspora",
+    "Religion & Religious Movements",
+    "Evangelicalism & Christian Nationalism",
+    "Gender & Feminism",
+    "LGBTQ History & Life",
+    "Family, Childhood & Adoption",
+    "Social Movements & Activism",
+    "Labor, Work & Organizing",
+    "Class, Poverty & Inequality",
+    "Housing, Cities & Urban Life",
+    "Business, Capitalism & Corporations",
+    "Money, Markets & Economic Policy",
+    "Food, Agriculture & Land",
+    "Media, Journalism & Public Opinion",
     "Intellectual History & Ideas",
-    "Regional & Local History",
+    "Literature & Writers",
+    "Art, Music & Performance",
+    "Education & Universities",
+    "Nationalism & Authoritarianism",
+    "Human Rights & International Law",
+    "Travel, Exploration & Place",
+    "Death, Memory & Commemoration",
     "Archives, Museums & Historical Method",
+    "Regional & Local History",
   ]),
   "Politics & Government": new Set([
     "American Politics",
@@ -227,11 +285,21 @@ const SUBJECT_TOPIC_ALLOWLIST: Record<string, Set<string>> = {
   Science: new Set([
     "Science & Discovery",
     "Technology, Computing & AI",
+    "Infrastructure, Engineering & Built Environment",
     "Medicine, Health & the Body",
+    "Disease, Epidemics & Drugs",
     "Mental Health & Psychology",
+    "Disability & Difference",
     "Public Health Systems",
     "Climate, Weather & Disaster",
     "Environment, Conservation & Pollution",
+    "Natural History & Animals",
+    "Oceans, Rivers & Water",
+    "Energy, Extraction & Resources",
+    "Food, Agriculture & Land",
+    "Intellectual History & Ideas",
+    "Archives, Museums & Historical Method",
+    "Travel, Exploration & Place",
   ]),
   "Medicine & Public Health": new Set([
     "Medicine, Health & the Body",
@@ -374,7 +442,14 @@ async function main() {
   const reportRows: BookReport[] = [];
   const patches: Record<string, TopicPatch> = { ...generated.books };
 
+  const totalBooks = bookInputs.length;
+  console.log(`Classifying ${totalBooks} books (llm-limit=${args.llmLimit}, budget=$${args.budgetUsd}).`);
+  let processed = 0;
   for (const { book, text, inputHash, tokenEstimate } of bookInputs) {
+    processed += 1;
+    if (processed % 25 === 0 || processed === totalBooks) {
+      console.log(`  [${processed}/${totalBooks}] llmCalls=${llmCalls} spend=$${estimatedSpendUsd.toFixed(3)}`);
+    }
     if (!text.trim()) {
       skippedNoText += 1;
       continue;
@@ -656,13 +731,16 @@ async function selectTopicsWithLlm({
 async function fetchWithRetry(url: string, init: RequestInit, attempts = 4) {
   let lastResponse: Response | undefined;
   let lastError: unknown;
+  const timeoutMs = Number(process.env.CLASSIFY_FETCH_TIMEOUT_MS ?? 60000);
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await fetch(url, init);
+      const response = await fetch(url, { ...init, signal: AbortSignal.timeout(timeoutMs) });
       if (response.ok || response.status < 500 || attempt === attempts) return response;
       lastResponse = response;
     } catch (error) {
       lastError = error;
+      const isTimeout = error instanceof Error && (error.name === "TimeoutError" || error.name === "AbortError");
+      if (isTimeout) console.warn(`  [fetch timeout after ${timeoutMs}ms on attempt ${attempt}/${attempts}]`);
       if (attempt === attempts) throw error;
     }
     await new Promise((resolve) => setTimeout(resolve, 750 * attempt));

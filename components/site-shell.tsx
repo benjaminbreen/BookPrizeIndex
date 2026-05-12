@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { awardsById, data } from "@/lib/data";
 import { topicNameForSlug } from "@/lib/topics";
@@ -17,6 +17,7 @@ const navItems = [
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [dark, setDark] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const breadcrumbs = useMemo(() => getBreadcrumbs(pathname), [pathname]);
 
   useEffect(() => {
@@ -25,6 +26,19 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     document.documentElement.classList.toggle("dark", shouldDark);
     setDark(shouldDark);
   }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [menuOpen]);
 
   function toggleTheme() {
     const next = !dark;
@@ -35,7 +49,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="min-h-screen">
-      <header className="sticky top-0 z-20 border-b hairline bg-[color-mix(in_srgb,var(--paper)_90%,transparent)] backdrop-blur">
+      <header className="site-header sticky top-0 z-20 border-b hairline backdrop-blur">
         <div className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_auto] items-center gap-8 px-4 sm:px-6 lg:px-8">
           <Link className="nav-mark font-[var(--font-mono)] text-md font-medium uppercase tracking-[0.2em]" href="/">
             The Book Prize Index
@@ -54,12 +68,24 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             className="focus-ring ml-auto grid h-10 w-10 place-items-center border hairline transition hover:bg-[var(--panel)]"
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
+            type="button"
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
           </button>
+          <button
+            aria-controls="mobile-site-menu"
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            className={`mobile-menu-button focus-ring grid h-10 w-10 place-items-center border hairline md:hidden ${menuOpen ? "mobile-menu-button-open" : ""}`}
+            onClick={() => setMenuOpen((open) => !open)}
+            type="button"
+          >
+            <Menu className="mobile-menu-icon mobile-menu-icon-menu" size={18} />
+            <X className="mobile-menu-icon mobile-menu-icon-close" size={18} />
+          </button>
         </div>
         {breadcrumbs.length > 1 ? (
-          <div className="border-t hairline bg-[color-mix(in_srgb,var(--paper)_96%,var(--panel))]">
+          <div className="breadcrumb-bar border-t hairline">
             <nav className="mx-auto flex h-12 max-w-7xl items-center gap-4 overflow-x-auto px-4 text-sm muted sm:px-6 lg:px-8">
               {breadcrumbs.map((crumb, index) => (
                 <span className="flex shrink-0 items-center gap-4" key={crumb.href}>
@@ -76,6 +102,32 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             </nav>
           </div>
         ) : null}
+        <div aria-hidden={!menuOpen} className={`mobile-menu-shell md:hidden ${menuOpen ? "mobile-menu-shell-open" : ""}`} id="mobile-site-menu">
+          <div className="mobile-menu-panel border-t hairline bg-[color-mix(in_srgb,var(--paper)_96%,var(--panel))] shadow-[0_24px_60px_color-mix(in_srgb,var(--ink)_13%,transparent)]">
+            <nav aria-label="Mobile navigation" className="mx-auto grid max-w-7xl px-4 py-3">
+              {navItems.map((item) => {
+                const active = item.match.some((href) => pathname === href || pathname.startsWith(`${href}/`));
+                return (
+                  <Link
+                    aria-current={active ? "page" : undefined}
+                    className={`mobile-nav-link focus-ring ${active ? "mobile-nav-link-active" : ""}`}
+                    href={item.href}
+                    key={item.href}
+                    tabIndex={menuOpen ? undefined : -1}
+                  >
+                    <span>{item.label}</span>
+                    <span aria-hidden="true">{String(navItems.indexOf(item) + 1).padStart(2, "0")}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+            <div className="mx-auto flex max-w-7xl flex-wrap gap-2 border-t hairline px-4 py-3 font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">
+              <Link className="mobile-menu-secondary focus-ring" href="/topics" tabIndex={menuOpen ? undefined : -1}>Topics</Link>
+              <Link className="mobile-menu-secondary focus-ring" href="/imprints" tabIndex={menuOpen ? undefined : -1}>Imprints</Link>
+              <Link className="mobile-menu-secondary focus-ring" href="/about" tabIndex={menuOpen ? undefined : -1}>About</Link>
+            </div>
+          </div>
+        </div>
       </header>
       {children}
       <SiteFooter />
@@ -103,6 +155,11 @@ function labelForPart(part: string, href: string) {
   if (part === "topics") return "Topics";
   if (part === "publishers") return "Publishers";
   if (part === "imprints") return "Imprints";
+  if (part === "methodology") return "Methodology";
+  if (part === "colophon") return "Colophon";
+  if (part === "privacy") return "Privacy";
+  if (part === "terms") return "Terms";
+  if (part === "accessibility") return "Accessibility";
   const award = data.awards.find((item) => href === `/awards/${item.slug}`);
   if (award) return award.shortName ?? award.name;
   const awardProgram = (data.awardPrograms ?? []).find((item) => href === `/awards/${item.slug}`);
@@ -146,7 +203,7 @@ function SiteFooter() {
           title="Resources"
           links={[
             { href: "/about", label: "About" },
-            { href: "#", label: "Methodology" },
+            { href: "/methodology", label: "Methodology" },
             { href: "#", label: "Data Sources" },
             { href: "#", label: "FAQ" },
             { href: "#", label: "Contact" },
@@ -174,13 +231,13 @@ function SiteFooter() {
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 font-[var(--font-mono)] text-xs sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>© 2026 The Book Prize Index</p>
           <nav className="flex flex-wrap items-center gap-4 text-[#c9c1b3]">
-            <Link className="transition hover:text-[#f4f1ea]" href="#">Privacy</Link>
+            <Link className="transition hover:text-[#f4f1ea]" href="/privacy">Privacy</Link>
             <span>|</span>
-            <Link className="transition hover:text-[#f4f1ea]" href="#">Terms</Link>
+            <Link className="transition hover:text-[#f4f1ea]" href="/terms">Terms</Link>
             <span>|</span>
-            <Link className="transition hover:text-[#f4f1ea]" href="#">Accessibility</Link>
+            <Link className="transition hover:text-[#f4f1ea]" href="/accessibility">Accessibility</Link>
             <span>|</span>
-            <Link className="transition hover:text-[#f4f1ea]" href="#">Colophon</Link>
+            <Link className="transition hover:text-[#f4f1ea]" href="/colophon">Colophon</Link>
           </nav>
         </div>
       </div>

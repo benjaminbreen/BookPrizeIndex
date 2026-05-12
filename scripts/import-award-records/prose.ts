@@ -10,7 +10,15 @@ import {
 const winnersUrl = "https://proseawards.com/winners/";
 const skippedCategoryNames = new Set([
   "Accounting Practice",
+  "Architecture and Urban Planning",
+  "Biological Sciences",
+  "Biomedicine and Neuroscience",
+  "Chemistry, Physics, Astronomy, and Cosmology",
+  "Clinical Medicine",
   "Clinical Medicine Practice",
+  "Computing and Information Sciences",
+  "Education",
+  "Engineering and Technology",
   "Environmental ScienceGetty Publications",
   "Excellence in D & P - Books",
   "Hard Media, Mathematics/Science",
@@ -18,7 +26,13 @@ const skippedCategoryNames = new Set([
   "Johns Hopkins University Press",
   "Legal & Accounting Practice",
   "Legal and Accounting Practice",
+  "Literature, Language, and Linguistics",
+  "Mathematics and Statistics",
+  "Nonfiction Graphic Novels",
+  "Nursing, Allied Health, and Social Work",
   "Palgrave Macmillan",
+  "Philosophy and Religion",
+  "Theology and Religious Studies",
 ]);
 const skippedCategoryPatterns = [
   /\bjournals?\b/i,

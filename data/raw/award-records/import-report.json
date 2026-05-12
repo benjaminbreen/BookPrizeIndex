@@ -1,6 +1,11 @@
 {
-  "generatedAt": "2026-05-11T06:00:00.880Z",
+  "generatedAt": "2026-05-12T22:46:20.321Z",
   "files": [
+    {
+      "file": "aha-book-prizes.json",
+      "generatedAt": "2026-05-12T22:46:12.867Z",
+      "records": 228
+    },
     {
       "file": "baillie-gifford.json",
       "generatedAt": "2026-05-09T23:16:19.736Z",
@@ -12,14 +17,44 @@
       "records": 189
     },
     {
+      "file": "british-academy-book-prize.json",
+      "generatedAt": "2026-05-11T21:54:00.760Z",
+      "records": 44
+    },
+    {
       "file": "carnegie.json",
       "generatedAt": "2026-05-11T05:15:55.882Z",
       "records": 327
     },
     {
+      "file": "costa.json",
+      "generatedAt": "2026-05-11T18:11:00.758Z",
+      "records": 125
+    },
+    {
       "file": "cundill.json",
       "generatedAt": "2026-05-09T23:21:38.394Z",
       "records": 188
+    },
+    {
+      "file": "duff-cooper.json",
+      "generatedAt": "2026-05-11T20:26:02.210Z",
+      "records": 69
+    },
+    {
+      "file": "ft-business-book.json",
+      "generatedAt": "2026-05-11T21:06:49.513Z",
+      "records": 119
+    },
+    {
+      "file": "helen-bernstein.json",
+      "generatedAt": "2026-05-12T20:32:55.523Z",
+      "records": 65
+    },
+    {
+      "file": "hillman-book-journalism.json",
+      "generatedAt": "2026-05-12T19:36:47.111Z",
+      "records": 85
     },
     {
       "file": "j-anthony-lukas.json",
@@ -37,6 +72,11 @@
       "records": 711
     },
     {
+      "file": "lionel-gelber.json",
+      "generatedAt": "2026-05-11T20:15:04.661Z",
+      "records": 83
+    },
+    {
       "file": "mark-lynton.json",
       "generatedAt": "2026-05-11T04:17:21.524Z",
       "records": 75
@@ -52,9 +92,24 @@
       "records": 736
     },
     {
+      "file": "ny-history-book-prize.json",
+      "generatedAt": "2026-05-12T20:43:21.765Z",
+      "records": 20
+    },
+    {
       "file": "orwell.json",
       "generatedAt": "2026-05-10T22:43:52.550Z",
       "records": 56
+    },
+    {
+      "file": "pen-diamonstein-essay.json",
+      "generatedAt": "2026-05-12T18:30:04.157Z",
+      "records": 53
+    },
+    {
+      "file": "pen-eo-wilson.json",
+      "generatedAt": "2026-05-11T18:55:26.634Z",
+      "records": 57
     },
     {
       "file": "pen-galbraith.json",
@@ -62,19 +117,39 @@
       "records": 45
     },
     {
+      "file": "pen-weld-biography.json",
+      "generatedAt": "2026-05-12T18:30:08.792Z",
+      "records": 23
+    },
+    {
       "file": "phi-beta-kappa.json",
       "generatedAt": "2026-05-10T21:39:19.975Z",
       "records": 202
     },
     {
+      "file": "plutarch.json",
+      "generatedAt": "2026-05-12T20:32:53.863Z",
+      "records": 83
+    },
+    {
       "file": "prose.json",
-      "generatedAt": "2026-05-10T21:03:06.465Z",
-      "records": 1397
+      "generatedAt": "2026-05-12T20:51:28.494Z",
+      "records": 765
     },
     {
       "file": "pulitzer.json",
       "generatedAt": "2026-05-09T00:32:17.513Z",
       "records": 594
+    },
+    {
+      "file": "rachel-carson.json",
+      "generatedAt": "2026-05-12T19:31:49.473Z",
+      "records": 17
+    },
+    {
+      "file": "ridenhour.json",
+      "generatedAt": "2026-05-12T20:42:46.416Z",
+      "records": 20
     },
     {
       "file": "royal-society.json",
@@ -88,15 +163,35 @@
     }
   ],
   "totals": {
-    "records": 5978,
-    "awards": 17,
-    "categories": 87,
+    "records": 6437,
+    "awards": 32,
+    "categories": 92,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
     "duplicateCanonicalKeys": 0
   },
   "byCategory": [
+    {
+      "awardId": "aha-book-prizes",
+      "categoryId": "aha-european-international-history",
+      "categoryName": "AHA Prize in European International History",
+      "records": 81,
+      "winners": 81,
+      "finalists": 0,
+      "earliestYear": 1923,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "new-york-historical-american-history-book-prize",
+      "categoryId": "ny-history-american-history",
+      "categoryName": "American History",
+      "records": 20,
+      "winners": 20,
+      "finalists": 0,
+      "earliestYear": 2005,
+      "latestYear": 2024
+    },
     {
       "awardId": "prose-awards",
       "categoryId": "prose-anthropology-and-sociology",
@@ -112,20 +207,10 @@
       "categoryId": "prose-archaeology-and-ancient-history",
       "categoryName": "Archaeology and Ancient History",
       "records": 22,
-      "winners": 12,
+      "winners": 11,
       "finalists": 0,
       "earliestYear": 2005,
       "latestYear": 2020
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-architecture-and-urban-planning",
-      "categoryName": "Architecture and Urban Planning",
-      "records": 51,
-      "winners": 28,
-      "finalists": 0,
-      "earliestYear": 1991,
-      "latestYear": 2026
     },
     {
       "awardId": "prose-awards",
@@ -136,6 +221,16 @@
       "finalists": 0,
       "earliestYear": 2005,
       "latestYear": 2026
+    },
+    {
+      "awardId": "pen-diamonstein-spielvogel-award",
+      "categoryId": "pen-diamonstein-essay",
+      "categoryName": "Art of the Essay",
+      "records": 53,
+      "winners": 28,
+      "finalists": 25,
+      "earliestYear": 1990,
+      "latestYear": 2023
     },
     {
       "awardId": "prose-awards",
@@ -198,6 +293,26 @@
       "latestYear": 2026
     },
     {
+      "awardId": "aha-book-prizes",
+      "categoryId": "aha-beveridge-family",
+      "categoryName": "Beveridge Family Prize in American History",
+      "records": 82,
+      "winners": 82,
+      "finalists": 0,
+      "earliestYear": 1939,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "costa-book-awards",
+      "categoryId": "costa-biography",
+      "categoryName": "Biography",
+      "records": 125,
+      "winners": 58,
+      "finalists": 67,
+      "earliestYear": 1971,
+      "latestYear": 2021
+    },
+    {
       "awardId": "los-angeles-times-book-prize",
       "categoryId": "latimes-biography",
       "categoryName": "Biography",
@@ -228,6 +343,26 @@
       "latestYear": 2025
     },
     {
+      "awardId": "pen-weld-biography-award",
+      "categoryId": "pen-weld-biography",
+      "categoryName": "Biography",
+      "records": 23,
+      "winners": 19,
+      "finalists": 4,
+      "earliestYear": 2008,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "plutarch-award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "records": 83,
+      "winners": 14,
+      "finalists": 69,
+      "earliestYear": 2013,
+      "latestYear": 2025
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-biography-and-autobiography",
       "categoryName": "Biography and Autobiography",
@@ -241,8 +376,8 @@
       "awardId": "prose-awards",
       "categoryId": "prose-biography-and-autobiography",
       "categoryName": "Biography and Autobiography",
-      "records": 35,
-      "winners": 20,
+      "records": 36,
+      "winners": 19,
       "finalists": 0,
       "earliestYear": 2002,
       "latestYear": 2026
@@ -288,24 +423,24 @@
       "latestYear": 2026
     },
     {
-      "awardId": "prose-awards",
-      "categoryId": "prose-biological-sciences",
-      "categoryName": "Biological Sciences",
-      "records": 51,
-      "winners": 29,
+      "awardId": "hillman-prize-book-journalism",
+      "categoryId": "hillman-book-journalism",
+      "categoryName": "Book Journalism",
+      "records": 85,
+      "winners": 85,
       "finalists": 0,
-      "earliestYear": 1992,
+      "earliestYear": 1950,
       "latestYear": 2026
     },
     {
-      "awardId": "prose-awards",
-      "categoryId": "prose-biomedicine-and-neuroscience",
-      "categoryName": "Biomedicine and Neuroscience",
-      "records": 49,
-      "winners": 29,
+      "awardId": "ridenhour-book-prize",
+      "categoryId": "ridenhour-book",
+      "categoryName": "Book Prize",
+      "records": 20,
+      "winners": 20,
       "finalists": 0,
-      "earliestYear": 1991,
-      "latestYear": 2026
+      "earliestYear": 2004,
+      "latestYear": 2024
     },
     {
       "awardId": "national-book-awards",
@@ -318,21 +453,31 @@
       "latestYear": 1940
     },
     {
+      "awardId": "british-academy-book-prize",
+      "categoryId": "british-academy-book-prize",
+      "categoryName": "British Academy Book Prize",
+      "records": 44,
+      "winners": 8,
+      "finalists": 0,
+      "earliestYear": 2018,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "ft-business-book-of-the-year",
+      "categoryId": "ft-business-book",
+      "categoryName": "Business Book of the Year",
+      "records": 119,
+      "winners": 20,
+      "finalists": 0,
+      "earliestYear": 2005,
+      "latestYear": 2025
+    },
+    {
       "awardId": "prose-awards",
       "categoryId": "prose-business-finance-and-management",
       "categoryName": "Business, Finance, and Management",
       "records": 51,
       "winners": 31,
-      "finalists": 0,
-      "earliestYear": 1991,
-      "latestYear": 2026
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-chemistry-physics-astronomy-and-cosmology",
-      "categoryName": "Chemistry, Physics, Astronomy, and Cosmology",
-      "records": 61,
-      "winners": 46,
       "finalists": 0,
       "earliestYear": 1991,
       "latestYear": 2026
@@ -355,26 +500,6 @@
       "winners": 19,
       "finalists": 0,
       "earliestYear": 2004,
-      "latestYear": 2026
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-clinical-medicine",
-      "categoryName": "Clinical Medicine",
-      "records": 52,
-      "winners": 29,
-      "finalists": 0,
-      "earliestYear": 1991,
-      "latestYear": 2026
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-computing-and-information-sciences",
-      "categoryName": "Computing and Information Sciences",
-      "records": 40,
-      "winners": 28,
-      "finalists": 0,
-      "earliestYear": 1991,
       "latestYear": 2026
     },
     {
@@ -431,31 +556,21 @@
       "awardId": "prose-awards",
       "categoryId": "prose-economics",
       "categoryName": "Economics",
-      "records": 48,
-      "winners": 29,
+      "records": 50,
+      "winners": 28,
       "finalists": 0,
       "earliestYear": 1992,
       "latestYear": 2026
     },
     {
-      "awardId": "prose-awards",
-      "categoryId": "prose-education",
-      "categoryName": "Education",
-      "records": 43,
-      "winners": 25,
+      "awardId": "rachel-carson-environment-book-award",
+      "categoryId": "rachel-carson-environment-book",
+      "categoryName": "Environment Book",
+      "records": 17,
+      "winners": 17,
       "finalists": 0,
-      "earliestYear": 2006,
-      "latestYear": 2026
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-engineering-and-technology",
-      "categoryName": "Engineering and Technology",
-      "records": 43,
-      "winners": 29,
-      "finalists": 0,
-      "earliestYear": 1991,
-      "latestYear": 2026
+      "earliestYear": 2008,
+      "latestYear": 2024
     },
     {
       "awardId": "pulitzer-prize",
@@ -506,6 +621,16 @@
       "finalists": 4,
       "earliestYear": 1980,
       "latestYear": 1980
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "categoryId": "aha-george-l-mosse",
+      "categoryName": "George L. Mosse Prize in European Intellectual and Cultural History",
+      "records": 26,
+      "winners": 26,
+      "finalists": 0,
+      "earliestYear": 2000,
+      "latestYear": 2025
     },
     {
       "awardId": "prose-awards",
@@ -618,6 +743,26 @@
       "latestYear": 1983
     },
     {
+      "awardId": "duff-cooper-prize",
+      "categoryId": "duff-cooper",
+      "categoryName": "History, Biography & Political Science",
+      "records": 69,
+      "winners": 69,
+      "finalists": 0,
+      "earliestYear": 1956,
+      "latestYear": 2024
+    },
+    {
+      "awardId": "lionel-gelber-prize",
+      "categoryId": "lionel-gelber",
+      "categoryName": "International Affairs",
+      "records": 83,
+      "winners": 35,
+      "finalists": 0,
+      "earliestYear": 1990,
+      "latestYear": 2025
+    },
+    {
       "awardId": "j-anthony-lukas-book-prize",
       "categoryId": "j-anthony-lukas-book",
       "categoryName": "J. Anthony Lukas Book Prize",
@@ -628,24 +773,54 @@
       "latestYear": 2026
     },
     {
+      "awardId": "aha-book-prizes",
+      "categoryId": "aha-james-a-rawley",
+      "categoryName": "James A. Rawley Prize in Atlantic History",
+      "records": 27,
+      "winners": 27,
+      "finalists": 0,
+      "earliestYear": 1999,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "aha-book-prizes",
+      "categoryId": "aha-jerry-bentley",
+      "categoryName": "Jerry Bentley Prize in World History",
+      "records": 12,
+      "winners": 12,
+      "finalists": 0,
+      "earliestYear": 2014,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "helen-bernstein-book-award",
+      "categoryId": "helen-bernstein-journalism",
+      "categoryName": "Journalism",
+      "records": 65,
+      "winners": 37,
+      "finalists": 28,
+      "earliestYear": 1990,
+      "latestYear": 2026
+    },
+    {
       "awardId": "prose-awards",
       "categoryId": "prose-law-and-legal-studies",
       "categoryName": "Law and Legal Studies",
       "records": 45,
-      "winners": 27,
+      "winners": 26,
       "finalists": 0,
       "earliestYear": 1993,
       "latestYear": 2026
     },
     {
-      "awardId": "prose-awards",
-      "categoryId": "prose-literature-language-and-linguistics",
-      "categoryName": "Literature, Language, and Linguistics",
-      "records": 71,
-      "winners": 45,
-      "finalists": 0,
-      "earliestYear": 1991,
-      "latestYear": 2026
+      "awardId": "pen-eo-wilson-award",
+      "categoryId": "pen-eo-wilson",
+      "categoryName": "Literary Science Writing",
+      "records": 57,
+      "winners": 15,
+      "finalists": 42,
+      "earliestYear": 2011,
+      "latestYear": 2025
     },
     {
       "awardId": "mark-lynton-history-prize",
@@ -655,16 +830,6 @@
       "winners": 29,
       "finalists": 46,
       "earliestYear": 1999,
-      "latestYear": 2026
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-mathematics-and-statistics",
-      "categoryName": "Mathematics and Statistics",
-      "records": 46,
-      "winners": 28,
-      "finalists": 0,
-      "earliestYear": 1992,
       "latestYear": 2026
     },
     {
@@ -779,26 +944,6 @@
     },
     {
       "awardId": "prose-awards",
-      "categoryId": "prose-nonfiction-graphic-novels",
-      "categoryName": "Nonfiction Graphic Novels",
-      "records": 5,
-      "winners": 5,
-      "finalists": 0,
-      "earliestYear": 2021,
-      "latestYear": 2025
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-nursing-allied-health-and-social-work",
-      "categoryName": "Nursing, Allied Health, and Social Work",
-      "records": 37,
-      "winners": 25,
-      "finalists": 0,
-      "earliestYear": 1993,
-      "latestYear": 2026
-    },
-    {
-      "awardId": "prose-awards",
       "categoryId": "prose-outstanding-work-by-a-trade-publisher",
       "categoryName": "Outstanding Work by a Trade Publisher",
       "records": 18,
@@ -816,16 +961,6 @@
       "finalists": 0,
       "earliestYear": 1961,
       "latestYear": 2025
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-philosophy-and-religion",
-      "categoryName": "Philosophy and Religion",
-      "records": 44,
-      "winners": 28,
-      "finalists": 0,
-      "earliestYear": 1991,
-      "latestYear": 2026
     },
     {
       "awardId": "orwell-prize",
@@ -936,16 +1071,6 @@
       "finalists": 0,
       "earliestYear": 1991,
       "latestYear": 1998
-    },
-    {
-      "awardId": "prose-awards",
-      "categoryId": "prose-theology-and-religious-studies",
-      "categoryName": "Theology and Religious Studies",
-      "records": 42,
-      "winners": 23,
-      "finalists": 0,
-      "earliestYear": 2002,
-      "latestYear": 2026
     },
     {
       "awardId": "prose-awards",

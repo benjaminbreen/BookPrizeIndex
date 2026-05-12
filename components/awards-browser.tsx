@@ -44,8 +44,8 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
       <section className="subjects-hero mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.86fr_1fr] lg:items-center lg:px-8">
         <div>
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Awards</p>
-          <h1 className="mt-3 font-[var(--font-serif)] text-5xl font-light leading-tight">Browse awards.</h1>
-          <p className="mt-5 max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted">
+          <h1 className="mt-3 font-[var(--font-serif)] text-4xl font-light leading-tight sm:text-5xl">Browse awards.</h1>
+          <p className="mt-4 max-w-2xl font-[var(--font-serif)] text-lg font-light leading-7 muted sm:mt-5 sm:text-xl sm:leading-8">
             Explore nonfiction prizes by subject, eligibility, deadline, and source.
             <br />
             Click an award to view related books and records.
@@ -98,34 +98,28 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
         <div className="grid md:hidden">
           {rows.map((row, index) => (
             <Link
-              className="subjects-row block border-b hairline p-4 transition last:border-b-0 hover:bg-[var(--accent-soft)]"
+              className="subjects-row mobile-browse-row block border-b hairline px-3 py-3 transition last:border-b-0 hover:bg-[var(--accent-soft)]"
               href={`/awards/${row.slug}`}
               key={row.id}
               style={{ animationDelay: `${Math.min(index * 28, 420)}ms` }}
             >
-              <span className="block text-xl font-medium leading-tight">{row.name}</span>
-              <span className="mt-2 block text-sm leading-6 muted">{row.description}</span>
-              <span className="mt-4 grid grid-cols-2 gap-3 border-y hairline py-3 text-sm">
-                <span>
-                  <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Type</span>
-                  <span className="mt-1 block">{row.typeLabel}</span>
+              <span className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+                <span className="min-w-0">
+                  <span className="block text-lg font-medium leading-tight">{row.name}</span>
+                  <span className="mt-1 block line-clamp-2 text-sm leading-5 muted">{row.description}</span>
                 </span>
-                <span>
-                  <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Region</span>
-                  <span className="mt-1 block">{formatGeography(row.geography)}</span>
-                </span>
-                <span>
-                  <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Years</span>
-                  <span className="plain-number mt-1 block">{row.yearRange}</span>
-                </span>
-                <span>
-                  <span className="block font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Records</span>
-                  <span className="plain-number mt-1 block text-lg text-[var(--ink)]">{row.records.toLocaleString()}</span>
+                <span className="grid justify-items-end gap-1">
+                  <span className="plain-number text-base">{row.records.toLocaleString()}</span>
+                  <ArrowRight size={15} className="muted" />
                 </span>
               </span>
-              <span className="mt-3 block text-sm leading-6">{row.subjects.slice(0, 3).join(", ")}{row.subjects.length > 3 ? ` +${row.subjects.length - 3}` : ""}</span>
-              <span className="mt-3 inline-flex items-center gap-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.14em]">
-                View award <ArrowRight size={14} />
+              <span className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 border-t hairline pt-2 text-sm">
+                <span>{row.typeLabel}</span>
+                <span className="muted">{formatGeography(row.geography)}</span>
+                <span className="plain-number muted">{row.yearRange}</span>
+              </span>
+              <span className="mt-1 block truncate text-sm muted">
+                {row.subjects.slice(0, 3).join(", ")}{row.subjects.length > 3 ? ` +${row.subjects.length - 3}` : ""}
               </span>
             </Link>
           ))}

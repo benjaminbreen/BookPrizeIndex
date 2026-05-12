@@ -86,8 +86,8 @@ export function PublisherBrowser({ defaultRegion }: { defaultRegion: AwardRegion
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1fr_0.8fr] lg:items-end lg:px-8">
           <div>
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Publishers and imprints</p>
-            <h1 className="mt-3 font-[var(--font-serif)] text-5xl font-light leading-tight">Browse imprints by publisher.</h1>
-            <p className="mt-5 max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted">
+            <h1 className="mt-3 font-[var(--font-serif)] text-4xl font-light leading-tight sm:text-5xl">Browse imprints by publisher.</h1>
+            <p className="mt-4 max-w-2xl font-[var(--font-serif)] text-lg font-light leading-7 muted sm:mt-5 sm:text-xl sm:leading-8">
               Publishers are parent organizations. Imprints are publishing labels grouped beneath each publisher and ordered by award activity.
             </p>
             <p className="mt-3 max-w-2xl text-sm leading-6 muted">

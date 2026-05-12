@@ -3,13 +3,15 @@
 import Link from "next/link";
 import type React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
+import { CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Info, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { BookDrawer } from "@/components/book-drawer";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
+import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import { filterBooksByQuery, getBookStatsForRegion, sortBooks, type BookSortKey } from "@/lib/catalog";
 import { data, imprintsById, publishersById, subjectsByName } from "@/lib/data";
+import type { SemanticQueryInterpretation } from "@/lib/semantic-search";
 import type { Book } from "@/lib/types";
 
 type MetadataFilter = "all" | "complete" | "missing" | "has_cover" | "missing_cover" | "missing_publisher";
@@ -54,9 +56,13 @@ export function BookCatalog({
   wideLayout?: boolean;
   defaultRegion?: AwardRegionFilter;
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const routeMode = searchParamsMode(searchParams.get("mode"));
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
   const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
-  const [mode, setMode] = useState<"keyword" | "semantic">("keyword");
+  const [mode, setModeState] = useState<"keyword" | "semantic">(() => routeMode);
   const [subjectFilter, setSubjectFilter] = useState("");
   const [awardFilter, setAwardFilter] = useState("");
   const [publisherFilter, setPublisherFilter] = useState("");
@@ -65,12 +71,12 @@ export function BookCatalog({
   const [page, setPage] = useState(1);
   const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
   const [density, setDensity] = useState<"compact" | "normal" | "roomy">("normal");
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+  const [showSemanticDetails, setShowSemanticDetails] = useState(false);
   const topicFilter = searchParams.get("topic");
   const urlQuery = searchParams.get("q") ?? "";
   const [query, setQuery] = useState(urlQuery);
+  const [semanticQuery, setSemanticQuery] = useState(urlQuery);
+  const activeQuery = mode === "semantic" ? semanticQuery : query;
   const pageSize = 100;
   const awardBookIds = useMemo(() => {
     if (!awardFilter) return null;
@@ -84,8 +90,8 @@ export function BookCatalog({
     [books],
   );
   const hasActiveFilters = Boolean(query || topicFilter || subjectFilter || awardFilter || publisherFilter || metadataFilter !== "all");
-  const filteredRows = useMemo(() => {
-    const structuredFiltered = books.filter((book) => {
+  const structuredRows = useMemo(() => {
+    return books.filter((book) => {
       if (topicFilter && !book.topics.includes(topicFilter)) return false;
       if (subjectFilter && !book.subjects.includes(subjectFilter)) return false;
       if (awardBookIds && !awardBookIds.has(book.id)) return false;
@@ -93,9 +99,28 @@ export function BookCatalog({
       if (!matchesMetadataFilter(book, metadataFilter)) return false;
       return true;
     });
-    const filtered = filterBooksByQuery(structuredFiltered, query);
+  }, [awardBookIds, books, metadataFilter, publisherFilter, subjectFilter, topicFilter]);
+  const semanticCandidateBookIds = useMemo(() => structuredRows.map((book) => book.id), [structuredRows]);
+  const semanticSearch = useSemanticBookSearch({
+    candidateBookIds: semanticCandidateBookIds,
+    enabled: mode === "semantic",
+    limit: 500,
+    query: semanticQuery,
+  });
+  const semanticResultByBookId = useMemo(() => new Map(semanticSearch.results.map((result, index) => [result.bookId, { ...result, index }])), [semanticSearch.results]);
+  const filteredRows = useMemo(() => {
+    const trimmedQuery = activeQuery.trim();
+    if (mode === "semantic" && trimmedQuery.length >= 3 && semanticSearch.results.length) {
+      return structuredRows
+        .filter((book) => semanticResultByBookId.has(book.id))
+        .sort((a, b) => (semanticResultByBookId.get(a.id)?.index ?? 0) - (semanticResultByBookId.get(b.id)?.index ?? 0));
+    }
+    if (mode === "semantic" && trimmedQuery.length >= 3 && !semanticSearch.loading && !semanticSearch.error) {
+      return [];
+    }
+    const filtered = filterBooksByQuery(structuredRows, activeQuery);
     return sortBooks(filtered, sortKey, region);
-  }, [awardBookIds, books, metadataFilter, publisherFilter, query, region, sortKey, subjectFilter, topicFilter]);
+  }, [activeQuery, mode, region, semanticResultByBookId, semanticSearch.error, semanticSearch.loading, semanticSearch.results.length, sortKey, structuredRows]);
 
   const totalRows = limit ? Math.min(filteredRows.length, limit) : filteredRows.length;
   const totalPages = Math.max(1, Math.ceil(totalRows / pageSize));
@@ -113,8 +138,13 @@ export function BookCatalog({
   const showDenseCatalogControls = wideLayout && !compactHeader;
   useEffect(() => {
     setQuery(urlQuery);
+    setSemanticQuery(routeMode === "semantic" ? urlQuery : "");
     setPage(1);
-  }, [urlQuery]);
+  }, [routeMode, urlQuery]);
+
+  useEffect(() => {
+    setModeState(routeMode);
+  }, [routeMode]);
 
   useEffect(() => {
     const slug = searchParams.get("book");
@@ -150,12 +180,24 @@ export function BookCatalog({
 
   function resetFilters() {
     setQuery("");
+    setSemanticQuery("");
     setSubjectFilter("");
     setAwardFilter("");
     setPublisherFilter("");
     setMetadataFilter("all");
     setPage(1);
     if (topicFilter || urlQuery) router.replace(pathname, { scroll: false });
+  }
+
+  function setMode(nextMode: "keyword" | "semantic") {
+    setModeState(nextMode);
+    if (nextMode === "semantic") setSemanticQuery("");
+    setPage(1);
+    const nextParams = new URLSearchParams(searchParams.toString());
+    if (nextMode === "semantic") nextParams.set("mode", "semantic");
+    else nextParams.delete("mode");
+    const queryString = nextParams.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
   }
 
   function setRegion(nextRegion: AwardRegionFilter) {
@@ -166,6 +208,7 @@ export function BookCatalog({
 
   function clearQuery() {
     setQuery("");
+    setSemanticQuery("");
     setPage(1);
     if (!urlQuery) return;
     const nextParams = new URLSearchParams(searchParams.toString());
@@ -173,6 +216,12 @@ export function BookCatalog({
     nextParams.delete("book");
     const queryString = nextParams.toString();
     router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+  }
+
+  function submitSemanticQuery() {
+    if (mode !== "semantic") return;
+    setSemanticQuery(query.trim());
+    setPage(1);
   }
 
   function clearTopicFilter() {
@@ -185,10 +234,10 @@ export function BookCatalog({
   }
 
   const activeFilterChips = [
-    query.trim()
+    activeQuery.trim()
       ? {
           id: "query",
-          label: `Search: ${query.trim()}`,
+          label: `Search: ${activeQuery.trim()}`,
           onRemove: clearQuery,
         }
       : null,
@@ -240,7 +289,19 @@ export function BookCatalog({
         }
       : null,
   ].filter(Boolean) as Array<{ id: string; label: string; onRemove: () => void }>;
-  const resultContext = `${regionLabel(region)} awards · ${topicFilter ? `Topic: ${titleCaseLabel(topicFilter)} · ` : ""}Sorted by ${bookSortLabels[sortKey].toLowerCase()} · ${totalRows.toLocaleString()} books${hasActiveFilters ? " · filtered" : ""}`;
+  const semanticActive = mode === "semantic" && semanticQuery.trim().length >= 3;
+  const hasPendingSemanticQuery = mode === "semantic" && query.trim() !== semanticQuery.trim();
+  const semanticSearchPending = semanticActive && (semanticSearch.loading || semanticSearch.query !== semanticQuery.trim() || (!semanticSearch.diagnostics && !semanticSearch.error));
+  const resultContext = semanticSearchPending
+    ? `${regionLabel(region)} awards · Searching ${structuredRows.length.toLocaleString()} candidate books by meaning`
+    : `${regionLabel(region)} awards · ${topicFilter ? `Topic: ${titleCaseLabel(topicFilter)} · ` : ""}${semanticActive ? "Sorted by meaning match" : `Sorted by ${bookSortLabels[sortKey].toLowerCase()}`} · ${totalRows.toLocaleString()} books${hasActiveFilters ? " · filtered" : ""}`;
+  const semanticConceptLine = semanticActive && semanticSearch.interpretation
+    ? [
+        semanticSearch.interpretation.concepts.slice(0, 4).join(", "),
+        semanticSearch.interpretation.eras.slice(0, 2).join(", "),
+        semanticSearch.interpretation.subjects.slice(0, 3).join(", "),
+      ].filter(Boolean).join(" · ")
+    : "";
 
   return (
     <section className={`mx-auto ${wideLayout ? "max-w-[90rem]" : "max-w-7xl"} px-4 sm:px-6 lg:px-8 ${compactHeader ? "pb-10" : wideLayout ? "py-4" : "py-10"}`}>
@@ -248,10 +309,10 @@ export function BookCatalog({
         <div>
           {title === null ? null : (
             <>
-              <h1 className="font-[var(--font-serif)] text-5xl font-light leading-tight">{title}</h1>
+              <h1 className="font-[var(--font-serif)] text-4xl font-light leading-tight sm:text-5xl">{title}</h1>
             </>
           )}
-          {deck ? <p className={`${title === null ? "" : "mt-5"} max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted`}>{deck}</p> : null}
+          {deck ? <p className={`${title === null ? "" : "mt-4 sm:mt-5"} max-w-2xl font-[var(--font-serif)] text-lg font-light leading-7 muted sm:text-xl sm:leading-8`}>{deck}</p> : null}
           {secondaryDeck ? <p className="mt-3 max-w-2xl text-sm leading-6 muted">{secondaryDeck}</p> : null}
         </div>
         <div className={`grid gap-3 ${compactHeader ? "lg:justify-self-end lg:w-full lg:max-w-3xl" : ""}`}>
@@ -259,14 +320,23 @@ export function BookCatalog({
             <Search size={18} className="muted" />
             <input
               className="min-w-0 flex-1 bg-transparent px-1 text-base outline-none placeholder:text-[var(--muted)]"
-              placeholder="Search title, author, award, subject, imprint..."
+              maxLength={600}
+              placeholder={mode === "semantic" ? "Describe a theme, project, era, or mood..." : "Search title, author, award, subject, imprint..."}
               value={query}
               onChange={(event) => {
-                setQuery(event.target.value);
+                const nextQuery = event.target.value;
+                setQuery(nextQuery);
+                if (mode === "semantic" && !nextQuery.trim()) setSemanticQuery("");
                 setPage(1);
               }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" && mode === "semantic") {
+                  event.preventDefault();
+                  submitSemanticQuery();
+                }
+              }}
             />
-            {query ? (
+            {query || semanticQuery ? (
               <button
                 aria-label="Clear search"
                 className="focus-ring grid h-8 w-8 shrink-0 place-items-center rounded-full text-[var(--muted)] transition hover:bg-[var(--panel)] hover:text-[var(--ink)]"
@@ -276,13 +346,36 @@ export function BookCatalog({
                 <X size={14} />
               </button>
             ) : null}
-            <SearchModeSelect onChange={setMode} value={mode} />
+            {mode === "semantic" ? (
+              <button
+                aria-label="Run meaning search"
+                className={`semantic-submit focus-ring inline-flex h-9 shrink-0 items-center gap-2 rounded-full px-3 text-xs ${hasPendingSemanticQuery ? "semantic-submit-ready" : ""}`}
+                disabled={!query.trim() || !hasPendingSemanticQuery}
+                onClick={submitSemanticQuery}
+                type="button"
+              >
+                Enter
+                <CornerDownLeft size={13} />
+              </button>
+            ) : null}
           </div>
           <div className="flex flex-wrap items-center justify-between gap-3 px-1 font-[var(--font-mono)] text-xs">
-            <span className="muted">
-              {resultContext}
+            <span className="grid gap-1 muted">
+              <span>{resultContext}</span>
+              {hasPendingSemanticQuery && query.trim() ? <span>Press Enter to search this phrase.</span> : null}
+              {semanticSearchPending ? <span>Reading for meaning...</span> : null}
+              {semanticConceptLine ? <span className="text-[var(--ink)]">Interpreted as {semanticConceptLine}</span> : null}
+              {semanticActive && semanticSearch.error ? <span className="text-[var(--accent)]">{semanticSearch.error} Showing keyword fallback.</span> : null}
+              {semanticActive && semanticSearch.warning ? <span>{semanticSearch.warning}</span> : null}
             </span>
             <div className={`items-center gap-2 ${showDenseCatalogControls ? "hidden" : "flex"}`}>
+              {semanticActive && !semanticSearchPending && semanticSearch.diagnostics ? (
+                <button className="semantic-detail-button focus-ring inline-flex items-center gap-2" onClick={() => setShowSemanticDetails(true)} type="button">
+                  <Info size={13} />
+                  How this worked
+                </button>
+              ) : null}
+              <SearchModeSelect className="semantic-mode-select" onChange={setMode} value={mode} />
               {hasActiveFilters ? (
                 <button className="filter-chip focus-ring inline-flex items-center gap-2 px-3 py-1.5 text-[var(--ink)]" onClick={resetFilters} type="button">
                   Clear
@@ -301,7 +394,7 @@ export function BookCatalog({
               </button>
             </div>
           </div>
-          {showOptions && !showDenseCatalogControls ? (
+      {showOptions && !showDenseCatalogControls ? (
             <div className="panel rounded-[2px] border hairline p-4 shadow-[0_14px_32px_color-mix(in_srgb,var(--ink)_4%,transparent)]">
               <div className="filter-group border-b hairline pb-3 font-[var(--font-mono)] text-xs">
                 <span className="filter-label mr-1">Awards</span>
@@ -424,6 +517,13 @@ export function BookCatalog({
             </select>
           </label>
           <div className="flex items-center justify-between gap-2 lg:justify-end">
+            {semanticActive && !semanticSearchPending && semanticSearch.diagnostics ? (
+              <button className="semantic-detail-button focus-ring inline-flex items-center gap-2" onClick={() => setShowSemanticDetails(true)} type="button">
+                <Info size={13} />
+                Details
+              </button>
+            ) : null}
+            <SearchModeSelect className="semantic-mode-select" onChange={setMode} value={mode} />
             {hasActiveFilters ? (
               <button className="filter-chip focus-ring inline-flex items-center gap-2 px-3 py-1.5 text-[var(--ink)]" onClick={resetFilters} type="button">
                 Clear
@@ -442,6 +542,15 @@ export function BookCatalog({
             </button>
           </div>
         </div>
+      ) : null}
+
+      {showSemanticDetails && semanticSearch.diagnostics ? (
+        <SemanticDetailsModal
+          diagnostics={semanticSearch.diagnostics}
+          interpretation={semanticSearch.interpretation}
+          onClose={() => setShowSemanticDetails(false)}
+          query={semanticQuery}
+        />
       ) : null}
 
       {showOptions && showDenseCatalogControls ? (
@@ -548,7 +657,9 @@ export function BookCatalog({
             ))}
           </div>
         ) : null}
-        {rows.length === 0 ? (
+        {semanticSearchPending ? (
+          <SemanticLoadingState candidateCount={structuredRows.length} query={semanticQuery} />
+        ) : rows.length === 0 ? (
           <div className="px-4 py-16 text-center">
             <p className="text-lg">No books match the current view.</p>
             <p className="mt-2 text-sm muted">Try clearing a filter or broadening the search.</p>
@@ -749,6 +860,10 @@ function paginationRange(current: number, total: number): Array<number | "ellips
   return output;
 }
 
+function searchParamsMode(value: string | null): "keyword" | "semantic" {
+  return value === "semantic" ? "semantic" : "keyword";
+}
+
 function CatalogSubjectPill({
   subject,
   onClick,
@@ -813,10 +928,11 @@ function BookMobileCard({
   const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name : "";
   const firstRecognitionYear = Math.min(...data.appearances.filter((appearance) => appearance.bookId === book.id).map((appearance) => appearance.year));
   const displayYear = book.publicationYear ?? (Number.isFinite(firstRecognitionYear) ? firstRecognitionYear : undefined);
+  const firstTopic = book.topics.find((topic) => topic !== book.primaryTopic) ?? book.primaryTopic ?? book.topics[0];
 
   return (
     <div
-      className={`book-mobile-card fade-up border-b hairline p-4 text-left transition last:border-b-0 hover:bg-[var(--accent-soft)] ${
+      className={`book-mobile-card book-mobile-card-compact fade-up border-b hairline px-3 py-3 text-left transition last:border-b-0 hover:bg-[var(--accent-soft)] ${
         isSelected ? "book-table-row-active" : ""
       }`}
       onClick={onOpen}
@@ -830,33 +946,36 @@ function BookMobileCard({
       style={style}
       tabIndex={0}
     >
-      <span className="grid grid-cols-[3rem_minmax(0,1fr)] gap-3">
+      <span className="grid grid-cols-[2.55rem_minmax(0,1fr)_auto] items-start gap-3">
         <BookRowCover book={book} />
-        <span className="min-w-0">
-          <span className="book-catalog-title text-lg leading-snug">{book.title}</span>
-          <span className="mt-1 block text-sm leading-5 muted">{book.authors.map((author) => author.name).join(", ")}</span>
+        <span className="min-w-0 overflow-hidden">
+          <span className="book-mobile-title text-base font-medium leading-snug">{book.title}</span>
+          <span className="mt-0.5 block truncate text-sm leading-5 muted">{book.authors.map((author) => author.name).join(", ")}</span>
+        </span>
+        <span className="grid justify-items-end gap-1 font-[var(--font-mono)] text-xs">
+          <span className="plain-number text-[var(--ink)]">{displayYear ?? "-"}</span>
+          <span className="plain-number muted">{stats.score} pts</span>
         </span>
       </span>
-      <span className="mt-4 grid grid-cols-3 border-y hairline py-3 font-[var(--font-mono)] text-xs">
-        <span>
-          <span className="block uppercase tracking-[0.14em] muted">Year</span>
-          <span className="plain-number mt-1 block text-[var(--ink)]">{displayYear ?? "-"}</span>
-        </span>
-        <span>
-          <span className="block uppercase tracking-[0.14em] muted">Wins</span>
-          <span className="plain-number mt-1 block text-[var(--ink)]">{stats.wins}</span>
-        </span>
-        <span>
-          <span className="block uppercase tracking-[0.14em] muted">Lists</span>
-          <span className="plain-number mt-1 block text-[var(--ink)]">{stats.lists}</span>
-        </span>
+      <span className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-[var(--font-mono)] text-xs muted">
+        <span><span className="plain-number text-[var(--ink)]">{stats.wins}</span> wins</span>
+        <span><span className="plain-number text-[var(--ink)]">{stats.lists}</span> lists</span>
+        <span className={`min-w-0 max-w-full truncate font-sans text-sm normal-case tracking-normal ${imprint ? "text-[var(--ink)]" : "book-missing-value"}`}>{imprint || "Unknown imprint"}</span>
       </span>
-      <span className="mt-3 block text-sm">
-        <span className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Imprint</span>
-        <span className={`mt-1 block ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</span>
-      </span>
-      <span className="mt-3 block">
-        <BookSubjectTags book={book} interactive={false} />
+      <span className="mt-2 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
+        {book.primarySubject ? (
+          <span className={`subject-chip ${subjectChipClass(book.primarySubject)} rounded-full border hairline px-2 py-[0.18rem] text-[0.68rem]`}>
+            {book.primarySubject}
+          </span>
+        ) : null}
+        {firstTopic ? (
+          <span className={`topic-tag topic-tag-compact ${firstTopic === book.primaryTopic ? "topic-tag-primary" : ""}`}>
+            {titleCaseLabel(firstTopic)}
+          </span>
+        ) : null}
+        {book.topics.length > 1 ? (
+          <span className="plain-number text-[0.58rem] text-[var(--muted)]">+{Math.max(book.topics.length - 1, 0)}</span>
+        ) : null}
       </span>
     </div>
   );
@@ -959,6 +1078,96 @@ function InlineFilterSelect({
         ))}
       </select>
     </label>
+  );
+}
+
+function SemanticDetailsModal({
+  diagnostics,
+  interpretation,
+  onClose,
+  query,
+}: {
+  diagnostics: SemanticSearchDiagnostics;
+  interpretation: SemanticQueryInterpretation | null;
+  onClose: () => void;
+  query: string;
+}) {
+  const rankingTerms = diagnostics.rankingTerms?.slice(0, 18) ?? [];
+  const indexDate = diagnostics.indexGeneratedAt ? new Date(diagnostics.indexGeneratedAt).toLocaleDateString() : "unknown";
+  return (
+    <div className="semantic-details-overlay" role="presentation">
+      <button aria-label="Close semantic search details" className="semantic-details-backdrop" onClick={onClose} type="button" />
+      <section aria-modal="true" className="semantic-details-modal" role="dialog">
+        <div className="flex items-start justify-between gap-4 border-b hairline pb-3">
+          <div>
+            <p className="filter-label">Semantic Search</p>
+            <h2 className="mt-2 text-xl font-medium">How this search worked</h2>
+          </div>
+          <button aria-label="Close" className="focus-ring grid h-8 w-8 place-items-center border hairline transition hover:bg-[var(--panel)]" onClick={onClose} type="button">
+            <X size={14} />
+          </button>
+        </div>
+        <div className="mt-4 grid gap-4 text-sm leading-6">
+          <p className="muted">
+            The query <span className="text-[var(--ink)]">"{query.trim()}"</span> was converted into an embedding query, compared against
+            {` ${diagnostics.candidateBookCount?.toLocaleString() ?? "the filtered set of"} candidate books`} from a
+            {` ${diagnostics.indexBookCount?.toLocaleString() ?? "local"}-book semantic index`}, then reranked with text, topic, period, and recognition signals.
+          </p>
+          <div className="semantic-details-grid">
+            <DetailItem label="Embedding model" value={diagnostics.embeddingModel ?? "unknown"} />
+            <DetailItem label="Query expansion" value={diagnostics.usedModelInterpretation ? diagnostics.interpretationModel ?? "model assisted" : "local terms"} />
+            <DetailItem label="Index date" value={indexDate} />
+            <DetailItem label="Returned" value={`${diagnostics.resultCount?.toLocaleString() ?? 0} matches`} />
+          </div>
+          {interpretation ? (
+            <div className="grid gap-2">
+              <p className="filter-label">Expanded Intent</p>
+              <p className="semantic-details-box">{interpretation.expandedQuery}</p>
+            </div>
+          ) : null}
+          {rankingTerms.length ? (
+            <div className="grid gap-2">
+              <p className="filter-label">Ranking Terms</p>
+              <p className="semantic-details-box">{rankingTerms.join(", ")}</p>
+            </div>
+          ) : null}
+          {diagnostics.embeddingInput ? (
+            <details className="semantic-details-raw">
+              <summary>Show exact embedding text</summary>
+              <pre>{diagnostics.embeddingInput}</pre>
+            </details>
+          ) : null}
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function SemanticLoadingState({ candidateCount, query }: { candidateCount: number; query: string }) {
+  return (
+    <div className="semantic-loading-state" aria-live="polite" role="status">
+      <div className="semantic-loading-orbit" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div>
+        <p className="semantic-loading-kicker">Semantic search</p>
+        <p className="semantic-loading-title">Reading for meaning</p>
+        <p className="semantic-loading-copy">
+          Comparing "{query.trim()}" against {candidateCount.toLocaleString()} candidate books.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function DetailItem({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="filter-label">{label}</p>
+      <p className="mt-1 text-[var(--ink)]">{value}</p>
+    </div>
   );
 }
 

@@ -33,6 +33,7 @@ import type {
   SubjectDefinition,
   SubjectSummary,
   TopicDefinition,
+  WikipediaBookEvidence,
 } from "../lib/types";
 
 type ManifestEntry = {
@@ -100,6 +101,10 @@ type GeneratedTopicsFile = {
   generatedAt?: string;
   notes?: string;
   books?: Record<string, GeneratedTopicClassification>;
+};
+
+type WikipediaGeneratedFile = CurationFile & {
+  wikipediaEvidence?: Record<string, WikipediaBookEvidence>;
 };
 
 type BookAliasFile = {
@@ -600,6 +605,7 @@ async function main() {
   const subjectMapRules = await readSubjectMapRules(subjectDefinitions);
   const curation = await readCuration();
   const enrichment = await readEnrichment();
+  const wikipediaEvidence = await readWikipediaEvidence();
   const bookAliases = await readBookAliases();
   const generatedTopics = await readGeneratedTopics();
   const prizeRegistry = await readPrizeRegistry();
@@ -752,7 +758,7 @@ async function main() {
   await importRawAwardRecords({ books, awards, editions, appearances, imprints, publishers, sources, generatedAt, titleResolver, prizeRegistry });
 
   applySourcePatches(sources, enrichment.sources);
-  applyBookCuration(books, enrichment.books, titleResolver);
+  applyBookCuration(books, enrichment.books, titleResolver, { allowCreate: false });
   applyCuration(awards, enrichment.awards);
   applyCuration(imprints, enrichment.imprints);
   applyCuration(publishers, enrichment.publishers);
@@ -905,6 +911,9 @@ async function main() {
     subjects,
     sources: [...sources.values()],
     stats: [...stats.values()].sort(compareBookStats),
+    wikipediaEvidence: wikipediaEvidence
+      .filter((item) => books.has(item.bookId))
+      .sort((a, b) => a.pageTitle.localeCompare(b.pageTitle)),
   };
   const topicSummary = buildTopicSummary({
     generatedAt,
@@ -2354,6 +2363,15 @@ async function readGeneratedTopics(): Promise<GeneratedTopicsFile> {
   }
 }
 
+async function readWikipediaEvidence(): Promise<WikipediaBookEvidence[]> {
+  try {
+    const parsed = JSON.parse(await fs.readFile(path.join(sourcesDir, "enrichment", "wikipedia.generated.json"), "utf8")) as WikipediaGeneratedFile;
+    return Object.values(parsed.wikipediaEvidence ?? {});
+  } catch {
+    return [];
+  }
+}
+
 async function readBookAliases(): Promise<BookAliasFile> {
   try {
     return JSON.parse(await fs.readFile(path.join(sourcesDir, "book-aliases.json"), "utf8")) as BookAliasFile;
@@ -2370,17 +2388,40 @@ async function readPrizeRegistry(): Promise<PrizeRegistryFileEntry[]> {
   }
 }
 
-function applyBookCuration(books: Map<string, Book>, patches: Record<string, Partial<Book>> | undefined, titleResolver: CanonicalTitleResolver) {
+function applyBookCuration(
+  books: Map<string, Book>,
+  patches: Record<string, Partial<Book>> | undefined,
+  titleResolver: CanonicalTitleResolver,
+  options: { allowCreate?: boolean } = {},
+) {
   if (!patches) return;
+  const allowCreate = options.allowCreate ?? true;
   for (const [id, patch] of Object.entries(patches)) {
     const targetId = titleResolver.resolveBookId(id);
     const current = books.get(targetId);
     if (!current) {
-      books.set(targetId, { id: targetId, ...patch } as Book);
+      if (!allowCreate) continue;
+      books.set(targetId, normalizeBookPatch(targetId, patch));
       continue;
     }
     books.set(targetId, mergeObject(current, patch));
   }
+}
+
+function normalizeBookPatch(id: string, patch: Partial<Book>): Book {
+  return {
+    slug: id.replace(/^book-/, ""),
+    title: "",
+    authors: [],
+    isbn13: [],
+    subjects: [],
+    topics: [],
+    centralFigures: [],
+    links: {},
+    sourceIds: [],
+    ...patch,
+    id,
+  } as Book;
 }
 
 function applyBookAliases(books: Map<string, Book>, appearances: Map<string, AwardAppearance>, aliasFile: BookAliasFile) {

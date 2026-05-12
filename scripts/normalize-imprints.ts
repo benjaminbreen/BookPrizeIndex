@@ -2,7 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { data } from "../lib/data";
-import type { Book, Imprint, Publisher, SourceRef } from "../lib/types";
+import type { Book, Imprint, Publisher, PublisherEvidence, SourceRef } from "../lib/types";
 
 type MappingConfidence = "high" | "medium" | "low";
 
@@ -35,6 +35,10 @@ type BookMetadataPatch = {
   publishers?: Record<string, Partial<Publisher>>;
 };
 
+type PublisherEvidenceFile = {
+  publisherEvidence?: Record<string, PublisherEvidence[]>;
+};
+
 type ReviewRow = {
   publisherId: string;
   publisherName: string;
@@ -49,6 +53,18 @@ type ValidationReport = {
   nonHighMappingsApplied: Array<NormalizationMapping & { matchedBookCount: number }>;
   zeroMatchMappings: NormalizationMapping[];
   parentPublisherMappings: Array<NormalizationMapping & { matchedBookCount: number }>;
+  publisherEvidenceConflicts: Array<{
+    bookId: string;
+    title: string;
+    author: string;
+    currentPublisher?: string;
+    currentImprint?: string;
+    evidenceRawName: string;
+    evidenceSource: PublisherEvidence["source"];
+    evidenceSourceUrl?: string;
+    mappedPublisher: string;
+    mappedImprint: string;
+  }>;
 };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -57,12 +73,14 @@ const mappingPath = path.join(root, "sources", "imprint-normalization.json");
 const outputPath = path.join(root, "sources", "enrichment", "imprints.normalized.json");
 const reviewPath = path.join(root, "data", "public", "imprint-review-queue.json");
 const bookMetadataPath = path.join(root, "sources", "enrichment", "books.generated.json");
+const enrichmentDir = path.join(root, "sources", "enrichment");
 const sourceId = "source-imprint-normalization";
 
 async function main() {
   const generatedAt = new Date().toISOString();
   const mappingFile = JSON.parse(await fs.readFile(mappingPath, "utf8")) as MappingFile;
   const bookMetadata = await readBookMetadataPatch();
+  const publisherEvidenceByBook = await readPublisherEvidence();
   const { mappingsByRawName, validation } = validateMappings(mappingFile.mappings);
   const publishersById = new Map<string, Partial<Publisher>>([
     ...data.publishers.map((publisher) => [publisher.id, publisher] as const),
@@ -72,6 +90,35 @@ async function main() {
   const booksByRawString = new Map<string, { rawName: string; books: Book[] }>();
 
   for (const book of data.books) {
+    const evidence = bestPublisherEvidence(publisherEvidenceByBook.get(book.id));
+    if (evidence && (!book.imprintId || book.sourceIds.includes(sourceId))) {
+      addRawStringBook(booksByRawString, `publisher-evidence:${normalizeName(evidence.rawName)}`, evidence.rawName, book);
+      continue;
+    }
+    if (evidence && book.imprintId && !book.sourceIds.includes(sourceId)) {
+      const mapping = mappingsByRawName.get(normalizeName(evidence.rawName));
+      const currentImprintName = imprintsById.get(book.imprintId)?.name;
+      const currentPublisherName = book.publisherId ? publishersById.get(book.publisherId)?.name : undefined;
+      if (
+        mapping &&
+        (normalizeName(mapping.imprint) !== normalizeName(currentImprintName ?? "") ||
+          normalizeName(mapping.publisher) !== normalizeName(currentPublisherName ?? ""))
+      ) {
+        validation.publisherEvidenceConflicts.push({
+          bookId: book.id,
+          title: book.title,
+          author: book.authors.map((author) => author.name).join(", "),
+          currentPublisher: currentPublisherName,
+          currentImprint: currentImprintName,
+          evidenceRawName: evidence.rawName,
+          evidenceSource: evidence.source,
+          evidenceSourceUrl: evidence.sourceUrl,
+          mappedPublisher: mapping.publisher,
+          mappedImprint: mapping.imprint,
+        });
+      }
+    }
+
     const currentImprintName = book.imprintId ? imprintsById.get(book.imprintId)?.name : undefined;
     if (currentImprintName && mappingsByRawName.has(normalizeName(currentImprintName))) {
       addRawStringBook(booksByRawString, `imprint:${book.imprintId}`, currentImprintName, book);
@@ -177,6 +224,39 @@ async function readBookMetadataPatch(): Promise<BookMetadataPatch> {
   }
 }
 
+async function readPublisherEvidence(): Promise<Map<string, PublisherEvidence[]>> {
+  const byBook = new Map<string, PublisherEvidence[]>();
+  try {
+    const files = (await fs.readdir(enrichmentDir)).filter((file) => file.endsWith(".json")).sort();
+    for (const file of files) {
+      const parsed = JSON.parse(await fs.readFile(path.join(enrichmentDir, file), "utf8")) as PublisherEvidenceFile;
+      for (const [bookId, rows] of Object.entries(parsed.publisherEvidence ?? {})) {
+        byBook.set(bookId, [...(byBook.get(bookId) ?? []), ...rows]);
+      }
+    }
+  } catch {
+    return byBook;
+  }
+  return byBook;
+}
+
+function bestPublisherEvidence(rows: PublisherEvidence[] | undefined) {
+  return rows
+    ?.filter((row) => row.rawName && row.confidence !== "low")
+    .sort((a, b) => confidenceRank(a.confidence) - confidenceRank(b.confidence) || sourceRank(a.source) - sourceRank(b.source))[0];
+}
+
+function confidenceRank(confidence: PublisherEvidence["confidence"]) {
+  return confidence === "high" ? 0 : confidence === "medium" ? 1 : 2;
+}
+
+function sourceRank(source: PublisherEvidence["source"]) {
+  if (source === "manual") return 0;
+  if (source === "wikipedia_infobox") return 1;
+  if (source === "award_record") return 2;
+  return 3;
+}
+
 function toReviewRow(publisherId: string, publisherName: string, books: Book[]): ReviewRow {
   const action = recommendedAction(publisherName, books);
   return {
@@ -217,6 +297,7 @@ function validateMappings(mappings: NormalizationMapping[]) {
     nonHighMappingsApplied: [],
     zeroMatchMappings: [],
     parentPublisherMappings: [],
+    publisherEvidenceConflicts: [],
   };
   return {
     mappingsByRawName: new Map([...grouped.entries()].map(([key, values]) => [key, values.at(-1)!])),
@@ -239,7 +320,14 @@ function sortObject<T>(value: Record<string, T>) {
 }
 
 function normalizeName(value: string) {
-  return value.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/&/g, " and ").replace(/\bthe\b/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/\b(the|and|inc|incorporated|llc|ltd|limited|company|co|publishing|publishers?|press)\b/g, " ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
 }
 
 function isLikelyParentPublisher(normalized: string) {

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-10T16:44:15.102Z",
+  "generatedAt": "2026-05-11T21:48:06.044Z",
   "notes": "Flags suspicious generated topic assignments after classifier normalization. Curated overrides should live in sources/curation.json.",
   "totals": {
-    "flaggedBooks": 24,
+    "flaggedBooks": 32,
     "byReason": {
-      "generic_primary_topic": 24
+      "generic_primary_topic": 32
     }
   },
   "books": [
@@ -48,13 +48,13 @@
       ]
     },
     {
-      "bookId": "book-no-ordinary-time-franklin-and-eleanor-roosevelt-the-home-front-in-world-war-ii-doris-kearns-good",
-      "title": "No Ordinary Time: Franklin and Eleanor Roosevelt: The Home Front in World War II",
-      "author": "Doris Kearns Goodwin",
-      "primarySubject": "History",
-      "primaryTopic": "Regional & Local History",
+      "bookId": "book-life-the-unfinished-experiment-s-e-luria",
+      "title": "Life: The Unfinished Experiment",
+      "author": "S. E. Luria",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
       "topics": [
-        "Regional & Local History"
+        "Science & Discovery"
       ],
       "reasons": [
         "generic_primary_topic"
@@ -74,13 +74,13 @@
       ]
     },
     {
-      "bookId": "book-polio-an-american-story-david-oshinsky",
-      "title": "Polio: An American Story",
-      "author": "David Oshinsky",
-      "primarySubject": "History",
-      "primaryTopic": "Regional & Local History",
+      "bookId": "book-radioactive-marie-and-pierre-curie-a-tale-of-love-and-fallout-lauren-redniss",
+      "title": "Radioactive: Marie & Pierre Curie, A Tale of Love & Fallout",
+      "author": "Lauren Redniss",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
       "topics": [
-        "Regional & Local History"
+        "Science & Discovery"
       ],
       "reasons": [
         "generic_primary_topic"
@@ -100,6 +100,19 @@
       ]
     },
     {
+      "bookId": "book-russia-leaves-the-war-soviet-american-relations-1917-1920-george-f-kennan",
+      "title": "Russia Leaves the War: Soviet-American Relations, 1917–1920",
+      "author": "George F. Kennan",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
+      "topics": [
+        "Science & Discovery"
+      ],
+      "reasons": [
+        "generic_primary_topic"
+      ]
+    },
+    {
       "bookId": "book-salem-possessed-the-social-origins-of-witchcraft-paul-boyer-and-stephen-nissenbaum",
       "title": "Salem Possessed: The Social Origins of Witchcraft",
       "author": "Paul Boyer, Stephen Nissenbaum",
@@ -107,6 +120,46 @@
       "primaryTopic": "Regional & Local History",
       "topics": [
         "Regional & Local History"
+      ],
+      "reasons": [
+        "generic_primary_topic"
+      ]
+    },
+    {
+      "bookId": "book-science-good-bad-and-bogus-martin-gardner",
+      "title": "Science: Good, Bad and Bogus",
+      "author": "Martin Gardner",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
+      "topics": [
+        "Science & Discovery"
+      ],
+      "reasons": [
+        "generic_primary_topic"
+      ]
+    },
+    {
+      "bookId": "book-scientists-against-time-james-phinney-baxter-iii",
+      "title": "Scientists Against Time",
+      "author": "James Phinney Baxter III",
+      "primarySubject": "History",
+      "primaryTopic": "Science & Discovery",
+      "topics": [
+        "Science & Discovery",
+        "Regional & Local History"
+      ],
+      "reasons": [
+        "generic_primary_topic"
+      ]
+    },
+    {
+      "bookId": "book-she-has-her-mother-s-laugh-the-powers-perversions-and-potential-of-heredity-carl-zimmer",
+      "title": "She Has Her Mother's Laugh: The Powers, Perversions and Potential of Heredity",
+      "author": "Carl Zimmer",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
+      "topics": [
+        "Science & Discovery"
       ],
       "reasons": [
         "generic_primary_topic"
@@ -152,6 +205,19 @@
       ]
     },
     {
+      "bookId": "book-stalingrad-antony-beevor",
+      "title": "Stalingrad",
+      "author": "Antony Beevor",
+      "primarySubject": "History",
+      "primaryTopic": "Regional & Local History",
+      "topics": [
+        "Regional & Local History"
+      ],
+      "reasons": [
+        "generic_primary_topic"
+      ]
+    },
+    {
       "bookId": "book-terrorists-and-novelists-diane-johnson",
       "title": "Terrorists and Novelists",
       "author": "Diane Johnson",
@@ -181,23 +247,36 @@
       "bookId": "book-the-elegant-universe-superstrings-hidden-dimensions-and-the-quest-for-the-ultimate-theory-brian-",
       "title": "The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory",
       "author": "Brian Greene",
-      "primarySubject": "History",
-      "primaryTopic": "Regional & Local History",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
       "topics": [
-        "Regional & Local History"
+        "Science & Discovery"
       ],
       "reasons": [
         "generic_primary_topic"
       ]
     },
     {
-      "bookId": "book-the-generation-of-1914-robert-wohl",
-      "title": "The Generation of 1914",
-      "author": "Robert Wohl",
-      "primarySubject": "History",
-      "primaryTopic": "Regional & Local History",
+      "bookId": "book-the-emperor-of-all-maladies-a-biography-of-cancer-siddhartha-mukherjee",
+      "title": "The Emperor of All Maladies: A Biography of Cancer",
+      "author": "Siddhartha Mukherjee",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
       "topics": [
-        "Regional & Local History"
+        "Science & Discovery"
+      ],
+      "reasons": [
+        "generic_primary_topic"
+      ]
+    },
+    {
+      "bookId": "book-the-evolution-of-god-robert-wright",
+      "title": "The Evolution of God",
+      "author": "Robert Wright",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
+      "topics": [
+        "Science & Discovery"
       ],
       "reasons": [
         "generic_primary_topic"
@@ -211,6 +290,32 @@
       "primaryTopic": "Regional & Local History",
       "topics": [
         "Regional & Local History"
+      ],
+      "reasons": [
+        "generic_primary_topic"
+      ]
+    },
+    {
+      "bookId": "book-the-middle-ground-indians-empires-and-republics-in-the-great-lakes-region-1650-1815-richard-whit",
+      "title": "The Middle Ground: Indians, Empires, and Republics in the Great Lakes Region, 1650–1815",
+      "author": "Richard White",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
+      "topics": [
+        "Science & Discovery"
+      ],
+      "reasons": [
+        "generic_primary_topic"
+      ]
+    },
+    {
+      "bookId": "book-the-republican-war-on-science-chris-mooney",
+      "title": "The Republican War on Science",
+      "author": "Chris Mooney",
+      "primarySubject": "Science",
+      "primaryTopic": "Science & Discovery",
+      "topics": [
+        "Science & Discovery"
       ],
       "reasons": [
         "generic_primary_topic"

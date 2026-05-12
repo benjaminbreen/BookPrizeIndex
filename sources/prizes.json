@@ -313,7 +313,7 @@
     "organization": "Association of American Publishers",
     "geography": "United States / International",
     "officialUrl": "https://proseawards.com/",
-    "notes": "Initial importer uses the official PROSE Awards winners archive. The first pass imports category winners from the current winners page; finalist PDFs should be imported in a later pass.",
+    "notes": "Importer uses the official PROSE Awards winners archive and keeps book-like nonfiction categories relevant to a broad public nonfiction index, including Outstanding Work by a Trade Publisher. It excludes technical, professional, education, reference, journal, and narrow scholarly categories that would otherwise over-weight specialist publishing; finalist PDFs should be imported in a later pass.",
     "categories": []
   },
   {
@@ -410,6 +410,7 @@
   {
     "id": "orwell-prize",
     "name": "Orwell Prize",
+    "awardType": "award",
     "scope": "subject",
     "organization": "The Orwell Foundation",
     "geography": "United Kingdom / International",
@@ -449,6 +450,73 @@
         "importStrategy": "official-html",
         "activeYears": "1948-present",
         "coverageNotes": "Covers annual winners listed on Columbia University Libraries' official previous-awards archive. The archive does not list finalists or shortlists."
+      }
+    ]
+  },
+  {
+    "id": "aha-book-prizes",
+    "name": "American Historical Association Book Prizes",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "American Historical Association",
+    "geography": "United States",
+    "officialUrl": "https://www.historians.org/community-careers/awards-grants/awards-prizes/",
+    "notes": "Selected AHA publication prizes with broad value for history nonfiction discovery. Importer uses official AHA prize pages and records Past Recipients as winners; finalist/shortlist slates are not publicly listed on those pages.",
+    "categories": [
+      {
+        "id": "aha-beveridge-family",
+        "name": "Beveridge Family Prize in American History",
+        "officialUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+        "sourceUrl": "https://www.historians.org/award-grant/beveridge-family-prize/",
+        "sourceLabel": "AHA Beveridge Family Prize official page",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1939-present",
+        "coverageNotes": "Covers winners listed in the Past Recipients section. Finalists and shortlists are not listed on the official prize page."
+      },
+      {
+        "id": "aha-jerry-bentley",
+        "name": "Jerry Bentley Prize in World History",
+        "officialUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+        "sourceUrl": "https://www.historians.org/award-grant/jerry-bentley-prize/",
+        "sourceLabel": "AHA Jerry Bentley Prize official page",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "2014-present",
+        "coverageNotes": "Covers winners listed in the Past Recipients section. Finalists and shortlists are not listed on the official prize page."
+      },
+      {
+        "id": "aha-european-international-history",
+        "name": "AHA Prize in European International History",
+        "officialUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+        "sourceUrl": "https://www.historians.org/award-grant/aha-prize-in-european-international-history/",
+        "sourceLabel": "AHA Prize in European International History official page",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1923-present",
+        "coverageNotes": "Formerly the George Louis Beer Prize. Covers winners listed in the Past Recipients section. Finalists and shortlists are not listed on the official prize page."
+      },
+      {
+        "id": "aha-george-l-mosse",
+        "name": "George L. Mosse Prize in European Intellectual and Cultural History",
+        "officialUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+        "sourceUrl": "https://www.historians.org/award-grant/george-l-mosse-prize/",
+        "sourceLabel": "AHA George L. Mosse Prize official page",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "2000-present",
+        "coverageNotes": "Covers winners listed in the Past Recipients section. Finalists and shortlists are not listed on the official prize page."
+      },
+      {
+        "id": "aha-james-a-rawley",
+        "name": "James A. Rawley Prize in Atlantic History",
+        "officialUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+        "sourceUrl": "https://www.historians.org/award-grant/james-a-rawley-prize/",
+        "sourceLabel": "AHA James A. Rawley Prize official page",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1999-present",
+        "coverageNotes": "Covers winners listed in the Past Recipients section. Finalists and shortlists are not listed on the official prize page."
       }
     ]
   },
@@ -525,7 +593,7 @@
     "id": "pen-eo-wilson-award",
     "name": "PEN/E.O. Wilson Literary Science Writing Award",
     "awardType": "award",
-    "scope": "science",
+    "scope": "subject",
     "organization": "PEN America",
     "geography": "United States",
     "officialUrl": "https://pen.org/pen-eo-wilson-prize-literary-science-writing/",
@@ -544,10 +612,194 @@
     ]
   },
   {
+    "id": "pen-weld-biography-award",
+    "name": "PEN/Jacqueline Bograd Weld Award for Biography",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "PEN America",
+    "geography": "United States",
+    "officialUrl": "https://pen.org/literary-awards/pen-bograd-weld-award-biography/",
+    "notes": "Awarded for excellence in biography published in the United States. Initial importer uses the Wikipedia winners table as a deterministic secondary source while retaining the official PEN America award page for later verification.",
+    "categories": [
+      {
+        "id": "pen-weld-biography",
+        "name": "Biography",
+        "officialUrl": "https://pen.org/literary-awards/pen-bograd-weld-award-biography/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/PEN/Jacqueline_Bograd_Weld_Award",
+        "sourceLabel": "Wikipedia: PEN/Jacqueline Bograd Weld Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2008-present",
+        "coverageNotes": "Covers winners and runner-up/finalist rows listed in the deterministic table. Runner-up rows are normalized to finalist status."
+      }
+    ]
+  },
+  {
+    "id": "pen-diamonstein-spielvogel-award",
+    "name": "PEN/Diamonstein-Spielvogel Award for the Art of the Essay",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "PEN America",
+    "geography": "United States",
+    "officialUrl": "https://pen.org/literary-awards/pen-diamonstein-spielvogel-award-for-the-art-of-the-essay/",
+    "notes": "Awarded for a book of essays by a seasoned writer. Initial importer uses the Wikipedia winners table as a deterministic secondary source while retaining the official PEN America award page for later verification.",
+    "categories": [
+      {
+        "id": "pen-diamonstein-essay",
+        "name": "Art of the Essay",
+        "officialUrl": "https://pen.org/literary-awards/pen-diamonstein-spielvogel-award-for-the-art-of-the-essay/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/PEN/Diamonstein-Spielvogel_Award_for_the_Art_of_the_Essay",
+        "sourceLabel": "Wikipedia: PEN/Diamonstein-Spielvogel Award for the Art of the Essay",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1990-present",
+        "coverageNotes": "Covers winners and runner-up/finalist rows listed in the deterministic table. The award was on hiatus from 2005 to 2010."
+      }
+    ]
+  },
+  {
+    "id": "rachel-carson-environment-book-award",
+    "name": "Rachel Carson Environment Book Award",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Society of Environmental Journalists",
+    "geography": "United States / International",
+    "officialUrl": "https://www.sej.org/library/books/rachel-carson-environment-book-award-winners",
+    "notes": "Book category of SEJ's Annual Awards for Reporting on the Environment. Importer uses official SEJ annual award pages linked from the official winners index.",
+    "categories": [
+      {
+        "id": "rachel-carson-environment-book",
+        "name": "Environment Book",
+        "officialUrl": "https://www.sej.org/library/books/rachel-carson-environment-book-award-winners",
+        "sourceUrl": "https://www.sej.org/library/books/rachel-carson-environment-book-award-winners",
+        "sourceLabel": "SEJ Rachel Carson Environment Book Award winners",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "2008-present",
+        "coverageNotes": "Covers first-place winners listed on official annual pages. Second/third-place finalists and honorable mentions are deferred because annual page layouts vary substantially across years."
+      }
+    ]
+  },
+  {
+    "id": "plutarch-award",
+    "name": "Plutarch Award",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Biographers International Organization",
+    "geography": "United States / International",
+    "officialUrl": "https://biographersinternational.org/award/plutarch/",
+    "notes": "Annual biography award selected by members of Biographers International Organization. Initial importer uses the Wikipedia winners and finalists table as a deterministic secondary source while retaining the BIO award page for later verification.",
+    "categories": [
+      {
+        "id": "plutarch-biography",
+        "name": "Biography",
+        "officialUrl": "https://biographersinternational.org/award/plutarch/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Plutarch_Award",
+        "sourceLabel": "Wikipedia: Plutarch Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2013-present",
+        "coverageNotes": "Covers winners and nominee/finalist rows listed in the deterministic table. Nominee rows are normalized to finalist status."
+      }
+    ]
+  },
+  {
+    "id": "helen-bernstein-book-award",
+    "name": "Helen Bernstein Book Award for Excellence in Journalism",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "New York Public Library",
+    "geography": "United States",
+    "officialUrl": "https://www.nypl.org/about/awards/helen-bernstein-award-excellence-journalism",
+    "notes": "Annual award for books of journalism that bring public attention to important issues. Initial importer uses the Wikipedia winners list as a deterministic secondary source while retaining the NYPL award page for later verification.",
+    "categories": [
+      {
+        "id": "helen-bernstein-journalism",
+        "name": "Journalism",
+        "officialUrl": "https://www.nypl.org/about/awards/helen-bernstein-award-excellence-journalism",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Helen_Bernstein_Book_Award_for_Excellence_in_Journalism",
+        "sourceLabel": "Wikipedia: Helen Bernstein Book Award for Excellence in Journalism",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-bullets",
+        "activeYears": "1988-present",
+        "coverageNotes": "Covers book winners from 1990 onward and finalist rows listed from 2019 onward. The first two historical honorees were not book records and are intentionally skipped."
+      }
+    ]
+  },
+  {
+    "id": "ridenhour-book-prize",
+    "name": "Ridenhour Book Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "The Ridenhour Prizes",
+    "geography": "United States",
+    "officialUrl": "https://www.ridenhour.org/",
+    "notes": "Annual public-interest nonfiction book prize named for Ron Ridenhour. Initial importer uses the Wikipedia Ridenhour Book Prize section as a deterministic secondary source while retaining the official prize site for later verification.",
+    "categories": [
+      {
+        "id": "ridenhour-book",
+        "name": "Book Prize",
+        "officialUrl": "https://www.ridenhour.org/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/The_Ridenhour_Prizes",
+        "sourceLabel": "Wikipedia: The Ridenhour Prizes",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-bullets",
+        "activeYears": "2004-present",
+        "coverageNotes": "Covers winners listed in the Ridenhour Book Prize section. Non-book Ridenhour prize categories are intentionally excluded."
+      }
+    ]
+  },
+  {
+    "id": "new-york-historical-american-history-book-prize",
+    "name": "Barbara and David Zalaznick Book Prize in American History",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "New York Historical",
+    "geography": "United States",
+    "officialUrl": "https://www.nyhistory.org/programs/american-history-book-prize",
+    "notes": "Formerly the New-York Historical Society American History Book Prize. Awarded for adult nonfiction on American history or biography. Initial importer uses the Wikipedia winners list as a deterministic secondary source while retaining the New York Historical prize page for later verification.",
+    "categories": [
+      {
+        "id": "ny-history-american-history",
+        "name": "American History",
+        "officialUrl": "https://www.nyhistory.org/programs/american-history-book-prize",
+        "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
+        "sourceLabel": "Wikipedia: New York Historical book prizes",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-bullets",
+        "activeYears": "2005-present",
+        "coverageNotes": "Covers winners listed under the Barbara and David Zalaznick Book Prize in American History section. Publication year is used as award year, matching the source note."
+      }
+    ]
+  },
+  {
+    "id": "hillman-prize-book-journalism",
+    "name": "Hillman Prize for Book Journalism",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "The Sidney Hillman Foundation",
+    "geography": "United States / International",
+    "officialUrl": "https://www.hillmanfoundation.org/hillman-prizes/us/honorees",
+    "notes": "U.S. Hillman Prize category for book journalism. Importer uses the official previous-honorees table and keeps only rows whose category is Book.",
+    "categories": [
+      {
+        "id": "hillman-book-journalism",
+        "name": "Book Journalism",
+        "officialUrl": "https://www.hillmanfoundation.org/hillman-prizes/us/honorees",
+        "sourceUrl": "https://www.hillmanfoundation.org/hillman-prizes/us/honorees",
+        "sourceLabel": "Hillman Prize previous honorees",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1950-present",
+        "coverageNotes": "Covers official Book category honorees listed in the U.S. Hillman Prize previous-honorees table. Multiple Book rows in a year are normalized as co-winners."
+      }
+    ]
+  },
+  {
     "id": "lionel-gelber-prize",
     "name": "Lionel Gelber Prize",
     "awardType": "major_award",
-    "scope": "nonfiction",
+    "scope": "subject",
     "organization": "Munk School of Global Affairs & Public Policy / Foreign Policy",
     "geography": "International",
     "officialUrl": "https://munkschool.utoronto.ca/lionel-gelber-prize",
@@ -570,7 +822,7 @@
     "id": "duff-cooper-prize",
     "name": "Duff Cooper Prize",
     "awardType": "award",
-    "scope": "nonfiction",
+    "scope": "subject",
     "organization": "Pol Roger / New College, Oxford",
     "geography": "United Kingdom",
     "officialUrl": "https://www.duffcooperprize.org/",
@@ -593,7 +845,7 @@
     "id": "ft-business-book-of-the-year",
     "name": "FT Business Book of the Year",
     "awardType": "major_award",
-    "scope": "nonfiction",
+    "scope": "subject",
     "organization": "Financial Times",
     "geography": "International",
     "officialUrl": "https://www.ft.com/business-book-of-the-year",
@@ -609,6 +861,29 @@
         "importStrategy": "mediawiki-prose",
         "activeYears": "2005-present",
         "coverageNotes": "Winners and shortlists from 2005 onward. Wikipedia article uses prose bullet lists (not a wikitable); winners marked with {{blue ribbon}} template."
+      }
+    ]
+  },
+  {
+    "id": "british-academy-book-prize",
+    "name": "British Academy Book Prize",
+    "awardType": "major_award",
+    "scope": "general",
+    "organization": "The British Academy",
+    "geography": "United Kingdom / International",
+    "officialUrl": "https://www.thebritishacademy.ac.uk/british-academy-book-prize/",
+    "notes": "Launched in 2013 to recognize outstanding nonfiction in the humanities and social sciences. Formerly known as the British Academy Book Prize for Global Cultural Understanding and earlier as the Nayef Al-Rodhan Prize.",
+    "categories": [
+      {
+        "id": "british-academy-book-prize",
+        "name": "British Academy Book Prize",
+        "officialUrl": "https://www.thebritishacademy.ac.uk/british-academy-book-prize/",
+        "sourceUrl": "https://www.thebritishacademy.ac.uk/british-academy-book-prize/past-winners/",
+        "sourceLabel": "British Academy Book Prize past-winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "2013-present",
+        "coverageNotes": "Currently imports official winner and shortlist rows from 2018 onward. Earlier 2013–2017 archive pages require separate QA because their page structure differs from the modern annual pages."
       }
     ]
   }

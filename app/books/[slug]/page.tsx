@@ -2,8 +2,8 @@ import Link from "next/link";
 import type React from "react";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
-import { awardsById, booksById, data, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName } from "@/lib/data";
-import type { Book } from "@/lib/types";
+import { awardsById, booksById, data, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName, wikipediaEvidenceByBook } from "@/lib/data";
+import type { AwardAppearance, Book, WikipediaBookEvidence } from "@/lib/types";
 
 export function generateStaticParams() {
   return data.books.map((book) => ({ slug: book.slug }));
@@ -26,9 +26,11 @@ export default async function BookPage({ params }: PageProps) {
   const stats = getBookStats(book.id);
   const appearances = data.appearances
     .filter((appearance) => appearance.bookId === book.id)
-    .sort((a, b) => b.year - a.year || a.statusRank - b.statusRank);
+    .sort(compareAwardAppearances);
+  const winsCount = appearances.filter((appearance) => isWinningStatus(appearance.status)).length;
   const imprint = book.imprintId ? imprintsById.get(book.imprintId) : undefined;
   const publisher = book.publisherId ? publishersById.get(book.publisherId) : undefined;
+  const wikipediaEvidence = wikipediaEvidenceByBook.get(book.id);
   const firstAwardYear = appearances.length ? Math.min(...appearances.map((appearance) => appearance.year)) : undefined;
   const latestRecognition = appearances.length ? Math.max(...appearances.map((appearance) => appearance.year)) : undefined;
   const authorNames = new Set(book.authors.map((author) => author.name));
@@ -37,22 +39,23 @@ export default async function BookPage({ params }: PageProps) {
     .slice(0, 1);
   const relatedBooks = findRelatedBooks(book.id).slice(0, 4);
   const detailSummary = detailPageSummary(book);
+  const wikipediaInfobox = wikipediaEvidence?.infobox;
 
   return (
-    <main>
+    <main className="book-detail-page">
       <section className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[16rem_minmax(0,1fr)_20rem] lg:items-start lg:px-8">
         <aside className="border-r-0 hairline lg:border-r lg:pr-6">
           <BookCover title={book.title} author={book.authors.map((author) => author.name).join(", ")} thumbnailUrl={book.thumbnailUrl} />
           <dl className="mt-3 grid text-[0.72rem]">
             <RailMeta label="Author" value={book.authors.map((author) => author.name).join(", ")} />
-            <RailMeta label="Publisher" value={publisher?.name ?? "Not yet sourced"} />
+            <RailMeta label="Publisher" value={metadataValue(publisher?.name, wikipediaInfobox?.publisher, "Not yet sourced")} />
             <RailMeta
               label="Imprint"
               value={imprint ? <Link className="book-detail-text-link" href={`/imprints/${imprint.id.replace(/^imprint-/, "")}`}>{imprint.name}</Link> : "Unknown"}
             />
-            <RailMeta label="Publication year" value={String(book.publicationYear ?? "Unknown")} />
-            <RailMeta label="Pages" value={book.pageCount ? String(book.pageCount) : "Not yet sourced"} />
-            <RailMeta label="ISBN" value={book.isbn13.join(", ") || "Not yet sourced"} />
+            <RailMeta label="Publication year" value={metadataValue(book.publicationYear ? String(book.publicationYear) : undefined, wikipediaInfobox?.publicationDate, "Unknown")} />
+            <RailMeta label="Pages" value={metadataValue(book.pageCount ? String(book.pageCount) : undefined, wikipediaInfobox?.pages, "Not yet sourced")} />
+            <RailMeta label="ISBN" value={metadataValue(book.isbn13.join(", ") || undefined, wikipediaInfobox?.isbn, "Not yet sourced")} />
           </dl>
         </aside>
 
@@ -77,6 +80,8 @@ export default async function BookPage({ params }: PageProps) {
               </>
             )}
           </div>
+
+          {wikipediaEvidence ? <WikipediaReferencePanel evidence={wikipediaEvidence} /> : null}
 
           <div className="mt-6 flex flex-wrap gap-2.5">
             {book.primarySubject ? (
@@ -104,7 +109,12 @@ export default async function BookPage({ params }: PageProps) {
       <section className="border-t hairline">
         <div className="mx-auto grid max-w-7xl gap-0 px-4 sm:px-6 lg:grid-cols-[1fr_24rem] lg:px-8">
           <div className="py-8 lg:pr-10">
-            <h2 className="font-[var(--font-serif)] text-2xl font-light">Award History</h2>
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="font-[var(--font-serif)] text-2xl font-light">Award History</h2>
+              <p className="font-[var(--font-mono)] text-xs muted">
+                <span className="plain-number">{winsCount}</span> wins · <span className="plain-number">{appearances.length}</span> total
+              </p>
+            </div>
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[720px] border-collapse text-left">
                 <thead className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.12em] muted">
@@ -118,18 +128,20 @@ export default async function BookPage({ params }: PageProps) {
                 <tbody>
                   {appearances.map((appearance) => {
                     const award = awardsById.get(appearance.awardId);
+                    const isMajor = award?.awardType === "major_award";
+                    const isWinner = isWinningStatus(appearance.status);
                     return (
-                      <tr className="border-b hairline text-sm" key={appearance.id}>
-                        <td className="py-2 pr-4">
+                      <tr className={`award-history-row border-b hairline text-sm ${isWinner ? "award-history-winner" : ""} ${isMajor ? "award-history-major" : ""}`} key={appearance.id}>
+                        <td className="py-2 pl-3 pr-4">
                           {award ? (
                             <Link className="book-award-row-link transition hover:text-[var(--accent)]" href={`/awards/${award.slug}`}>
-                              <AwardLogoMark logoAlt={award.logoAlt} logoUrl={award.logoUrl} name={award.name} />
                               <span>{award.name}</span>
+                              {isMajor ? <span className="award-major-pill">Major</span> : null}
                             </Link>
                           ) : null}
                         </td>
                         <td className="plain-number px-4 py-2 text-xs muted">{appearance.year}</td>
-                        <td className="px-4 py-2">{statusLabels[appearance.status]}</td>
+                        <td className={`px-4 py-2 ${isWinner ? "award-status-winner" : "award-status-secondary"}`}>{statusLabels[appearance.status]}</td>
                         <td className="px-4 py-2 muted">
                           {appearance.sourceUrl ? (
                             <a className="inline-flex items-center gap-1 hover:text-[var(--ink)]" href={appearance.sourceUrl}>
@@ -225,6 +237,57 @@ function sourceLabel(source: NonNullable<Book["subjectEvidence"]>["evidence"][nu
     .join(" ");
 }
 
+function WikipediaReferencePanel({ evidence }: { evidence: WikipediaBookEvidence }) {
+  const excerpt = wikipediaExcerpt(evidence);
+  return (
+    <aside className="wikipedia-reference mt-5 max-w-3xl">
+      <div className="flex items-center justify-between gap-4">
+        <p className="font-[var(--font-mono)] text-[0.64rem] uppercase tracking-[0.18em] muted">Wikipedia</p>
+        <a className="focus-ring inline-flex items-center gap-1.5 font-[var(--font-mono)] text-[0.64rem] uppercase tracking-[0.12em] muted transition hover:text-[var(--accent)]" href={evidence.url} rel="noreferrer" target="_blank">
+          Article
+          <ArrowUpRight size={11} />
+        </a>
+      </div>
+      {excerpt ? <p className="wikipedia-reference-text mt-2">{excerpt}</p> : null}
+      <p className="mt-2 text-[0.68rem] leading-4 muted">
+        From <a className="book-detail-text-link" href={evidence.attribution.url} rel="noreferrer" target="_blank">{evidence.attribution.label}</a>
+        {" "}under <a className="book-detail-text-link" href={evidence.attribution.licenseUrl} rel="noreferrer" target="_blank">{evidence.attribution.license}</a>.
+      </p>
+    </aside>
+  );
+}
+
+function wikipediaExcerpt(evidence: WikipediaBookEvidence) {
+  if (!evidence.extract) return undefined;
+  const words = evidence.extract.replace(/\s+/g, " ").trim().split(/\s+/);
+  return words.slice(0, 86).join(" ") + (words.length > 86 ? "..." : "");
+}
+
+function compareAwardAppearances(a: AwardAppearance, b: AwardAppearance) {
+  const awardA = awardsById.get(a.awardId);
+  const awardB = awardsById.get(b.awardId);
+  const winnerDelta = Number(isWinningStatus(b.status)) - Number(isWinningStatus(a.status));
+  if (winnerDelta) return winnerDelta;
+  const majorDelta = Number(awardB?.awardType === "major_award") - Number(awardA?.awardType === "major_award");
+  if (majorDelta) return majorDelta;
+  return b.year - a.year || a.statusRank - b.statusRank || (awardA?.name ?? "").localeCompare(awardB?.name ?? "");
+}
+
+function isWinningStatus(status: AwardAppearance["status"]) {
+  return status === "winner" || status === "co_winner";
+}
+
+function metadataValue(primary: string | undefined, fallback: string | undefined, missing: string) {
+  if (primary) return primary;
+  if (!fallback) return missing;
+  return (
+    <span className="metadata-fallback">
+      {fallback}
+      <span className="metadata-source">Wiki</span>
+    </span>
+  );
+}
+
 function detailPageSummary(book: Book) {
   const source = book.summary ?? book.displaySummary;
   if (!source) return undefined;
@@ -257,14 +320,6 @@ function BookCover({ title, author, thumbnailUrl }: { title: string; author: str
         <p className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.2em] muted">{author.slice(0, 42)}</p>
       </div>
     </div>
-  );
-}
-
-function AwardLogoMark({ logoAlt, logoUrl, name }: { logoAlt?: string; logoUrl?: string; name: string }) {
-  return (
-    <span className="book-award-logo" aria-hidden="true">
-      {logoUrl ? <img alt={logoAlt ?? `${name} logo`} src={logoUrl} /> : <span>{name.trim()[0]?.toUpperCase() ?? "?"}</span>}
-    </span>
   );
 }
 

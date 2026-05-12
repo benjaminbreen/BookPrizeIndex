@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { BookOpen, Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, Link2, X } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, Link2, X } from "lucide-react";
+import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import { awardsById, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName } from "@/lib/data";
-import type { AwardAppearance, Book } from "@/lib/types";
+import { awardsById, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName, wikipediaEvidenceByBook } from "@/lib/data";
+import type { AwardAppearance, Book, WikipediaBookEvidence } from "@/lib/types";
 
 const DRAWER_EXIT_MS = 360;
 
@@ -105,7 +106,11 @@ export function BookDrawer({
   const imprint = renderedBook.imprintId ? imprintsById.get(renderedBook.imprintId)?.name : undefined;
   const publisher = renderedBook.publisherId ? publishersById.get(renderedBook.publisherId)?.name : undefined;
   const stats = getBookStats(renderedBook.id);
-  const sortedAppearances = [...renderedAppearances].sort((a, b) => b.year - a.year || a.statusRank - b.statusRank);
+  const wikipediaEvidence = wikipediaEvidenceByBook.get(renderedBook.id);
+  const wikipediaInfobox = wikipediaEvidence?.infobox;
+  const wikipediaUrl = renderedBook.links.wikipedia ?? wikipediaEvidence?.url;
+  const sortedAppearances = sortAwardAppearances(renderedAppearances);
+  const winsCount = sortedAppearances.filter((appearance) => isWinningStatus(appearance.status)).length;
   const layerState = isClosing ? "is-closing" : hasEntered ? "is-open" : "is-entering";
   const citation = formatCitation(renderedBook, publisher);
   const summaryPreview = renderedBook.displaySummary ?? renderedBook.summary ? makeSummaryPreview(renderedBook.displaySummary ?? renderedBook.summary ?? "") : "";
@@ -163,6 +168,17 @@ export function BookDrawer({
               <FileText size={15} />
               Full record
             </Link>
+            {wikipediaUrl ? (
+              <a
+                className="focus-ring inline-flex w-32 items-center justify-center gap-2 border hairline px-3 py-2 text-sm transition hover:bg-[var(--panel)]"
+                href={wikipediaUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <WikipediaMark />
+                Wikipedia
+              </a>
+            ) : null}
           </div>
           <div className="self-center">
             <h2 className="text-[1.9rem] font-medium leading-[1.12] sm:text-[2.2rem]">{renderedBook.title}</h2>
@@ -187,8 +203,8 @@ export function BookDrawer({
 
         <dl className="book-drawer-section grid border-b hairline py-2 text-sm sm:grid-cols-2">
           <div className="sm:border-r hairline sm:pr-6">
-            <Meta label="Publisher" value={publisher ?? "Not yet sourced"} />
-            <Meta label="Imprint" value={imprint ?? "Unknown"} />
+            <Meta label="Publisher" value={metadataValue(publisher, wikipediaInfobox?.publisher, "Not yet sourced")} missing={!publisher && !wikipediaInfobox?.publisher} />
+            <Meta label="Imprint" value={imprint ?? "Unknown"} missing={!imprint} />
             <div className="grid gap-2 border-b hairline py-2.5">
               <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">Primary subject</dt>
               <dd className="flex flex-wrap gap-2">
@@ -197,8 +213,8 @@ export function BookDrawer({
             </div>
           </div>
           <div className="sm:pl-6">
-            <Meta label="Pages" value={renderedBook.pageCount ? `${renderedBook.pageCount} pp` : "Not yet sourced"} />
-            <Meta label="ISBN" value={renderedBook.isbn13.join(", ") || "Not yet sourced"} />
+            <Meta label="Pages" value={metadataValue(renderedBook.pageCount ? `${renderedBook.pageCount} pp` : undefined, wikipediaInfobox?.pages, "Not yet sourced")} missing={!renderedBook.pageCount && !wikipediaInfobox?.pages} />
+            <Meta label="ISBN" value={metadataValue(renderedBook.isbn13.join(", ") || undefined, wikipediaInfobox?.isbn, "Not yet sourced")} missing={!renderedBook.isbn13.length && !wikipediaInfobox?.isbn} />
             <Meta label="Language" value="English" />
           </div>
         </dl>
@@ -206,21 +222,26 @@ export function BookDrawer({
         <div className="book-drawer-section mt-5">
           <div className="flex items-center justify-between">
             <h3 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Award history</h3>
-            <p className="font-[var(--font-mono)] text-xs muted"><span className="plain-number">{sortedAppearances.length}</span> total</p>
+            <p className="font-[var(--font-mono)] text-xs muted">
+              <span className="plain-number">{winsCount}</span> wins · <span className="plain-number">{sortedAppearances.length}</span> total
+            </p>
           </div>
           <div className="mt-4 border hairline">
             {sortedAppearances.map((appearance) => {
               const award = awardsById.get(appearance.awardId);
+              const isMajor = award?.awardType === "major_award";
+              const isWinner = isWinningStatus(appearance.status);
               return (
                 <div
-                  className="award-history-link grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-4 border-b hairline px-4 py-3 text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
+                  className={`award-history-link grid grid-cols-[1fr_auto_auto_auto_auto] items-center gap-4 border-b hairline px-4 py-3 text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)] ${isWinner ? "award-history-winner" : ""} ${isMajor ? "award-history-major" : ""}`}
                   key={appearance.id}
                 >
-                  <Link className="focus-ring transition hover:text-[var(--accent)]" href={award ? `/awards/${award.slug}` : "#"}>
-                    {award?.name}
+                  <Link className="award-history-award-title focus-ring transition hover:text-[var(--accent)]" href={award ? `/awards/${award.slug}` : "#"}>
+                    <span>{award?.name}</span>
+                    {isMajor ? <span className="award-major-pill">Major</span> : null}
                   </Link>
                   <span className="plain-number text-xs">{appearance.year}</span>
-                  <span>{statusLabels[appearance.status]}</span>
+                  <span className={isWinner ? "award-status-winner" : "award-status-secondary"}>{statusLabels[appearance.status]}</span>
                   {appearance.sourceUrl ? (
                     <a
                       aria-label={`Open source for ${award?.name ?? "award record"}`}
@@ -283,57 +304,40 @@ export function BookDrawer({
               </div>
             </>
           ) : null}
-          <SubjectEvidencePanel book={renderedBook} />
-          <div className="mt-6 flex items-start gap-3 text-sm muted">
-            <BookOpen className="mt-1 shrink-0" size={17} />
-            <p>Publisher summaries, cover thumbnails, page counts, and ISBNs will replace placeholders as enrichment sources are added.</p>
-          </div>
+          {wikipediaEvidence ? <WikipediaDrawerReference evidence={wikipediaEvidence} /> : null}
         </div>
       </aside>
     </div>
   );
 }
 
-function SubjectEvidencePanel({ book }: { book: Book }) {
-  const decision = book.subjectEvidence;
-  if (!decision) return null;
+function WikipediaDrawerReference({ evidence }: { evidence: WikipediaBookEvidence }) {
+  const excerpt = wikipediaExcerpt(evidence);
   return (
     <div className="mt-6 border-t hairline pt-5">
-      <div className="flex items-center justify-between gap-4">
-        <h4 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Subject evidence</h4>
-        <span className="font-[var(--font-mono)] text-[0.65rem] uppercase tracking-[0.14em] muted">{decision.confidence} confidence</span>
-      </div>
-      <div className="mt-3 grid gap-2 text-xs">
-        {decision.candidates.slice(0, 3).map((candidate) => (
-          <div className="grid grid-cols-[1fr_auto_auto] gap-3 border-b hairline py-2 last:border-b-0" key={candidate.subject}>
-            <span>{candidate.subject}</span>
-            <span className="plain-number muted">{candidate.score}</span>
-            <span className="muted">{candidate.evidenceCount} signals</span>
-          </div>
-        ))}
-      </div>
-      {decision.confidence === "low" ? (
-        <p className="mt-3 text-xs leading-5 muted">
-          Catalog subject evidence is still thin for this record; the current assignment is provisional.
+      <div className="wikipedia-reference wikipedia-reference-compact">
+        <div className="flex items-center justify-between gap-4">
+          <p className="font-[var(--font-mono)] text-[0.64rem] uppercase tracking-[0.18em] muted">Wikipedia</p>
+          <a className="focus-ring inline-flex items-center gap-1.5 font-[var(--font-mono)] text-[0.64rem] uppercase tracking-[0.12em] muted transition hover:text-[var(--accent)]" href={evidence.url} rel="noreferrer" target="_blank">
+            Article
+            <ExternalLink size={11} />
+          </a>
+        </div>
+        {excerpt ? <p className="wikipedia-reference-text mt-2">{excerpt}</p> : null}
+        <p className="mt-2 text-[0.68rem] leading-4 muted">
+          From <a className="book-detail-text-link" href={evidence.attribution.url} rel="noreferrer" target="_blank">{evidence.attribution.label}</a>.
         </p>
-      ) : null}
-      <div className="mt-3 space-y-2">
-        {decision.evidence.slice(0, 4).map((item) => (
-          <p className="text-xs leading-5 muted" key={item.id}>
-            <span className="text-[var(--ink)]">{sourceLabel(item.source)}</span>
-            {`: ${item.rawLabel} -> ${item.mappedSubject}`}
-          </p>
-        ))}
       </div>
     </div>
   );
 }
 
-function sourceLabel(source: NonNullable<Book["subjectEvidence"]>["evidence"][number]["source"]) {
-  return source
-    .split("_")
-    .map((part) => part.slice(0, 1).toUpperCase() + part.slice(1))
-    .join(" ");
+function WikipediaMark() {
+  return (
+    <span className="wikipedia-action-mark" aria-hidden="true">
+      W
+    </span>
+  );
 }
 
 function Metric({ label, value }: { label: string; value: number }) {
@@ -345,12 +349,11 @@ function Metric({ label, value }: { label: string; value: number }) {
   );
 }
 
-function Meta({ label, value }: { label: string; value: string }) {
-  const isMissing = value === "Not yet sourced" || value === "Unknown" || value === "Not yet classified";
+function Meta({ label, value, missing }: { label: string; value: React.ReactNode; missing?: boolean }) {
   return (
     <div className="grid gap-1 border-b hairline py-2.5">
       <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">{label}</dt>
-      <dd className={isMissing ? "book-missing-value" : undefined}>{value}</dd>
+      <dd className={missing ? "book-missing-value" : undefined}>{value}</dd>
     </div>
   );
 }
@@ -422,4 +425,37 @@ function makeSummaryPreview(summary: string) {
   const sentenceBreak = Math.max(clipped.lastIndexOf(". "), clipped.lastIndexOf("! "), clipped.lastIndexOf("? "));
   if (sentenceBreak > 120) return `${clipped.slice(0, sentenceBreak + 1)}`;
   return `${clipped.replace(/[,;:\s]+$/, "")}...`;
+}
+
+function wikipediaExcerpt(evidence: WikipediaBookEvidence) {
+  if (!evidence.extract) return undefined;
+  const words = evidence.extract.replace(/\s+/g, " ").trim().split(/\s+/);
+  return words.slice(0, 58).join(" ") + (words.length > 58 ? "..." : "");
+}
+
+function sortAwardAppearances(appearances: AwardAppearance[]) {
+  return [...appearances].sort((a, b) => {
+    const awardA = awardsById.get(a.awardId);
+    const awardB = awardsById.get(b.awardId);
+    const winnerDelta = Number(isWinningStatus(b.status)) - Number(isWinningStatus(a.status));
+    if (winnerDelta) return winnerDelta;
+    const majorDelta = Number(awardB?.awardType === "major_award") - Number(awardA?.awardType === "major_award");
+    if (majorDelta) return majorDelta;
+    return b.year - a.year || a.statusRank - b.statusRank || (awardA?.name ?? "").localeCompare(awardB?.name ?? "");
+  });
+}
+
+function isWinningStatus(status: AwardAppearance["status"]) {
+  return status === "winner" || status === "co_winner";
+}
+
+function metadataValue(primary: string | undefined, fallback: string | undefined, missing: string) {
+  if (primary) return primary;
+  if (!fallback) return missing;
+  return (
+    <span className="metadata-fallback">
+      {fallback}
+      <span className="metadata-source">Wiki</span>
+    </span>
+  );
 }

@@ -23,6 +23,7 @@ type EnrichmentPatch = {
   generatedAt: string;
   notes: string;
   books: Record<string, Partial<Book>>;
+  imprints: Record<string, { id: string; name: string; publisherId?: string; sourceIds: string[] }>;
   publishers: Record<string, { id: string; name: string; sourceIds: string[] }>;
   sources: Record<string, SourceRef>;
 };
@@ -37,6 +38,7 @@ type ReportRow = {
   skippedFields?: string[];
   missingFields?: CatalogMissingBookField[];
   deferredFields?: DeferredMissingBookField[];
+  rawPublisher?: string;
   matches?: MatchReport[];
   notes?: string;
 };
@@ -44,8 +46,24 @@ type ReportRow = {
 type BookCompletionResult = {
   report: ReportRow;
   bookPatch?: Partial<Book>;
+  imprints?: EnrichmentPatch["imprints"];
   publishers?: EnrichmentPatch["publishers"];
   sources?: EnrichmentPatch["sources"];
+};
+
+type MetadataMergeResult = {
+  bookPatch: Partial<Book>;
+  imprints: EnrichmentPatch["imprints"];
+  publishers: EnrichmentPatch["publishers"];
+  sources: EnrichmentPatch["sources"];
+  rawPublisher?: string;
+};
+
+type ImprintMapping = {
+  raw: string;
+  imprint: string;
+  publisher: string;
+  confidence: "high" | "medium" | "low";
 };
 
 type AttemptRow = {
@@ -67,6 +85,7 @@ type MatchReport = {
   url?: string;
   score: number;
   accepted: boolean;
+  via?: "isbn" | "search";
 };
 
 type OpenLibraryDoc = {
@@ -78,15 +97,22 @@ type OpenLibraryDoc = {
   number_of_pages_median?: number;
   cover_i?: number;
   first_publish_year?: number;
+  description?: string;
   key?: string;
+  edition_key?: string;
+  matchVia?: "isbn" | "search";
 };
 
 type OpenLibraryWork = {
+  title?: string;
   subjects?: string[];
+  description?: string | { value?: string };
 };
 
 type OpenLibraryEdition = {
   title?: string;
+  subtitle?: string;
+  description?: string | { value?: string };
   authors?: { key?: string }[];
   isbn_13?: string[];
   isbn_10?: string[];
@@ -95,6 +121,7 @@ type OpenLibraryEdition = {
   covers?: number[];
   publish_date?: string;
   key?: string;
+  works?: { key?: string }[];
 };
 
 type GoogleVolume = {
@@ -126,53 +153,61 @@ const requestedLane = parseLane(readArg("--lane") ?? process.env.BOOK_COMPLETION
 const requestedFields = parseMissingFieldSet(readArg("--fields") ?? process.env.BOOK_COMPLETION_FIELDS ?? process.env.ENRICH_FIELDS);
 const concurrency = positiveNumber(process.env.BOOK_COMPLETION_CONCURRENCY ?? process.env.ENRICH_CONCURRENCY ?? readArg("--concurrency"), 3);
 const fastMode = hasArg("--fast") || process.env.BOOK_COMPLETION_FAST === "1" || process.env.ENRICH_FAST === "1";
+const quietMode = hasArg("--quiet") || process.env.BOOK_COMPLETION_QUIET === "1" || process.env.ENRICH_QUIET === "1";
+const checkpointEvery = positiveNumber(process.env.BOOK_COMPLETION_CHECKPOINT_EVERY ?? process.env.ENRICH_CHECKPOINT_EVERY ?? readArg("--checkpoint-every"), 0);
 const providerPlan = selectProviderPlan(provider, requestedFields);
+let imprintMappingsByRawName = new Map<string, ImprintMapping>();
 
 async function main() {
   const generatedAt = new Date().toISOString();
+  imprintMappingsByRawName = await readImprintMappings();
   const requestedBookIds = new Set((process.env.BOOK_COMPLETION_BOOK_IDS ?? process.env.ENRICH_BOOK_IDS ?? "").split(",").map((item) => item.trim()).filter(Boolean));
   const retryFailures = hasArg("--retry-failures") || process.env.BOOK_COMPLETION_RETRY_FAILURES === "1" || process.env.ENRICH_RETRY_FAILURES === "1";
   const attempts = await readAttempts();
+  const patch = await readExistingPatch(generatedAt);
   const selected = (requestedBookIds.size ? data.books.filter((book) => requestedBookIds.has(book.id) || requestedBookIds.has(book.slug)) : [...data.books])
     .map((book) => selectionRow(book, attempts[book.id]))
     .filter((row) => row.selectedMissingFields.length > 0)
     .filter((row) => !requestedLane || row.lane === requestedLane)
+    .filter((row) => retryFailures || !existingPatchSatisfiesFields(patch.books[row.book.id], row.selectedMissingFields))
     .filter((row) => requestedBookIds.size || retryFailures || !isRecentUnproductiveAttempt(attempts[row.book.id], row.book))
     .sort(compareEnrichmentPriority)
     .slice(0, limit);
 
-  const patch = await readExistingPatch(generatedAt);
-  const results = await mapConcurrent(selected, concurrency, (row, index) => completeBook(row, index + 1, selected.length, generatedAt));
   const report: ReportRow[] = [];
-
-  for (const result of results) {
-    report.push(result.report);
-    if (result.bookPatch) patch.books[result.report.bookId] = mergePatch(patch.books[result.report.bookId] ?? {}, result.bookPatch);
-    if (result.publishers) Object.assign(patch.publishers, result.publishers);
-    if (result.sources) Object.assign(patch.sources, result.sources);
-  }
-
+  const runAttempts = { ...attempts };
+  let completedCount = 0;
+  let checkpointChain = Promise.resolve();
   await fs.mkdir(outputDir, { recursive: true });
-  await fs.writeFile(path.join(outputDir, "books.generated.json"), `${JSON.stringify(patch, null, 2)}\n`);
-  const reportPayload = {
-    generatedAt,
-    limit,
-    minimumScore,
-    provider,
-    providerPlan,
-    concurrency,
-    fastMode,
-    lane: requestedLane,
-    fields: requestedFields ? [...requestedFields] : undefined,
-    selectedCount: selected.length,
-    selectedLanes: summarizeSelectedLanes(selected),
-    summary: completionSummary(data.books),
-    report,
+  await fs.mkdir(publicDataDir, { recursive: true });
+
+  const checkpoint = async (force = false) => {
+    if (!force && (!checkpointEvery || completedCount % checkpointEvery !== 0)) return;
+    const progressPayload = progressReportPayload(generatedAt, selected, report, completedCount);
+    await fs.writeFile(path.join(outputDir, "books.generated.json"), `${JSON.stringify(patch, null, 2)}\n`);
+    await writeReports(progressPayload);
+    await writeRawPublisherReview(generatedAt, report);
+    await writeAttempts(runAttempts);
+    await fs.writeFile(path.join(publicDataDir, "book-enrichment-progress.json"), `${JSON.stringify(progressPayload, null, 2)}\n`);
   };
-  await fs.writeFile(path.join(publicDataDir, "book-completion-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
-  await fs.writeFile(path.join(publicDataDir, "book-enrichment-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
-  await fs.writeFile(path.join(publicDataDir, "enrichment-report.json"), `${JSON.stringify(reportPayload, null, 2)}\n`);
-  await writeAttempts({ ...attempts, ...Object.fromEntries(report.map((row) => [row.bookId, toAttemptRow(row, generatedAt)])) });
+
+  await mapConcurrent(selected, concurrency, async (row, index) => {
+    const result = await completeBook(row, index + 1, selected.length, generatedAt);
+    checkpointChain = checkpointChain.then(async () => {
+      report.push(result.report);
+      mergeResultIntoPatch(patch, result);
+      runAttempts[result.report.bookId] = toAttemptRow(result.report, generatedAt);
+      completedCount += 1;
+      if (!quietMode && checkpointEvery && completedCount % checkpointEvery === 0) {
+        console.log(`Checkpointed ${completedCount}/${selected.length} books.`);
+      }
+      await checkpoint();
+    });
+    await checkpointChain;
+    return result;
+  });
+  await checkpointChain;
+  await checkpoint(true);
   const enrichedCount = report.filter((row) => row.status === "enriched").length;
   console.log(`Completed ${enrichedCount}/${selected.length} books. Report written to data/public/book-completion-report.json.`);
 }
@@ -183,6 +218,15 @@ async function readAttempts(): Promise<Record<string, AttemptRow>> {
     return parsed.attempts ?? {};
   } catch {
     return {};
+  }
+}
+
+async function readImprintMappings() {
+  try {
+    const parsed = JSON.parse(await fs.readFile(path.join(root, "sources", "imprint-normalization.json"), "utf8")) as { mappings?: ImprintMapping[] };
+    return new Map((parsed.mappings ?? []).map((mapping) => [normalizePublisherName(mapping.raw), mapping]));
+  } catch {
+    return new Map<string, ImprintMapping>();
   }
 }
 
@@ -205,7 +249,7 @@ async function completeBook(
   }
 
   try {
-    console.log(`[${index}/${total}] Completing ${book.title} - ${author}`);
+    if (!quietMode) console.log(`[${index}/${total}] Completing ${book.title} - ${author}`);
     const useOpenLibrary = shouldUseOpenLibrary(selectedMissingFields);
     const useGoogleBooks = shouldUseGoogleBooks(selectedMissingFields);
     const [openLibraryResult, googleResult] = await Promise.allSettled([
@@ -215,8 +259,8 @@ async function completeBook(
     const openLibrary = openLibraryResult.status === "fulfilled" ? openLibraryResult.value : undefined;
     const google = googleResult.status === "fulfilled" ? googleResult.value : undefined;
     const matches = [
-      google ? matchReport("google_books", book, author, google.item.volumeInfo?.title, google.item.volumeInfo?.authors?.join(" "), google.item.volumeInfo?.canonicalVolumeLink ?? google.item.volumeInfo?.infoLink, google.score) : undefined,
-      openLibrary ? matchReport("open_library", book, author, openLibrary.doc.title, openLibrary.doc.author_name?.join(" "), openLibrary.doc.key ? `https://openlibrary.org${openLibrary.doc.key}` : undefined, openLibrary.score) : undefined,
+      google ? matchReport("google_books", book, author, google.item.volumeInfo?.title, google.item.volumeInfo?.authors?.join(" "), google.item.volumeInfo?.canonicalVolumeLink ?? google.item.volumeInfo?.infoLink, google.score, google.via) : undefined,
+      openLibrary ? matchReport("open_library", book, author, openLibrary.doc.title, openLibrary.doc.author_name?.join(" "), openLibrary.doc.edition_key ? `https://openlibrary.org${openLibrary.doc.edition_key}` : openLibrary.doc.key ? `https://openlibrary.org${openLibrary.doc.key}` : undefined, openLibrary.score, openLibrary.doc.matchVia) : undefined,
     ].filter(Boolean) as MatchReport[];
     const hasAcceptedMatch = matches.some((match) => match.accepted);
 
@@ -239,8 +283,8 @@ async function completeBook(
 
     const enriched = mergeMetadata(
       book,
-      openLibrary && isAcceptedMatch(book, author, openLibrary.doc.title, openLibrary.doc.author_name?.join(" "), openLibrary.score) ? openLibrary.doc : undefined,
-      google && isAcceptedMatch(book, author, google.item.volumeInfo?.title, google.item.volumeInfo?.authors?.join(" "), google.score) ? google.item : undefined,
+      openLibrary && isAcceptedProviderMatch(book, author, openLibrary.doc.title, openLibrary.doc.author_name?.join(" "), openLibrary.score, openLibrary.doc.matchVia) ? openLibrary.doc : undefined,
+      google && isAcceptedProviderMatch(book, author, google.item.volumeInfo?.title, google.item.volumeInfo?.authors?.join(" "), google.score, google.via) ? google.item : undefined,
       generatedAt,
       requestedFields,
     );
@@ -263,6 +307,7 @@ async function completeBook(
 
     return {
       bookPatch: enriched.bookPatch,
+      imprints: enriched.imprints,
       publishers: enriched.publishers,
       sources: enriched.sources,
       report: {
@@ -275,6 +320,7 @@ async function completeBook(
         skippedFields: selectedMissingFields.filter((field) => !Object.keys(enriched.bookPatch).includes(fieldToPatchKey(field))),
         missingFields: selectedMissingFields,
         deferredFields,
+        rawPublisher: enriched.rawPublisher,
         matches,
       },
     };
@@ -314,6 +360,53 @@ function summarizeSelectedLanes(rows: Array<ReturnType<typeof selectionRow>>) {
   return summary;
 }
 
+function progressReportPayload(generatedAt: string, selected: Array<ReturnType<typeof selectionRow>>, report: ReportRow[], completedCount: number) {
+  return {
+    generatedAt,
+    updatedAt: new Date().toISOString(),
+    limit,
+    minimumScore,
+    provider,
+    providerPlan,
+    concurrency,
+    fastMode,
+    quietMode,
+    checkpointEvery,
+    lane: requestedLane,
+    fields: requestedFields ? [...requestedFields] : undefined,
+    selectedCount: selected.length,
+    completedCount,
+    remainingCount: Math.max(0, selected.length - completedCount),
+    selectedLanes: summarizeSelectedLanes(selected),
+    summary: completionSummary(data.books),
+    report,
+  };
+}
+
+async function writeReports(payload: ReturnType<typeof progressReportPayload>) {
+  await fs.writeFile(path.join(publicDataDir, "book-completion-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
+  await fs.writeFile(path.join(publicDataDir, "book-enrichment-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
+  await fs.writeFile(path.join(publicDataDir, "enrichment-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
+}
+
+function mergeResultIntoPatch(patch: EnrichmentPatch, result: BookCompletionResult) {
+  if (result.bookPatch) patch.books[result.report.bookId] = mergePatch(patch.books[result.report.bookId] ?? {}, result.bookPatch);
+  if (result.imprints) Object.assign(patch.imprints, result.imprints);
+  if (result.publishers) Object.assign(patch.publishers, result.publishers);
+  if (result.sources) Object.assign(patch.sources, result.sources);
+}
+
+function existingPatchSatisfiesFields(bookPatch: Partial<Book> | undefined, fields: CatalogMissingBookField[]) {
+  if (!bookPatch) return false;
+  return fields.every((field) => patchHasField(bookPatch, field));
+}
+
+function patchHasField(bookPatch: Partial<Book>, field: CatalogMissingBookField) {
+  if (field === "publisherLink") return Boolean(bookPatch.links?.publisher);
+  if (field === "isbn13") return Boolean(bookPatch.isbn13?.length);
+  return Boolean(bookPatch[fieldToPatchKey(field) as keyof Book]);
+}
+
 function toAttemptRow(row: ReportRow, attemptedAt: string): AttemptRow {
   return {
     bookId: row.bookId,
@@ -328,6 +421,43 @@ function toAttemptRow(row: ReportRow, attemptedAt: string): AttemptRow {
   };
 }
 
+async function writeRawPublisherReview(generatedAt: string, report: ReportRow[]) {
+  const rows = report.filter((row) => row.rawPublisher && row.missingFields?.includes("publisherId"));
+  const grouped = new Map<string, {
+    rawPublisher: string;
+    bookCount: number;
+    sampleBooks: Array<{ bookId: string; title: string; author: string; status: ReportRow["status"]; matchTitle?: string; matchAuthor?: string; matchScore?: number }>;
+  }>();
+  for (const row of rows) {
+    const rawPublisher = row.rawPublisher!;
+    const key = normalizePublisherName(rawPublisher);
+    const current = grouped.get(key) ?? { rawPublisher, bookCount: 0, sampleBooks: [] };
+    current.bookCount += 1;
+    if (current.sampleBooks.length < 8) {
+      const match = row.matches?.[0];
+      current.sampleBooks.push({
+        bookId: row.bookId,
+        title: row.title,
+        author: row.author,
+        status: row.status,
+        matchTitle: match?.title,
+        matchAuthor: match?.author,
+        matchScore: match?.score,
+      });
+    }
+    grouped.set(key, current);
+  }
+  await fs.writeFile(
+    path.join(publicDataDir, "raw-publisher-review-report.json"),
+    `${JSON.stringify({
+      generatedAt,
+      count: grouped.size,
+      note: "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
+      review: [...grouped.values()].sort((a, b) => b.bookCount - a.bookCount || a.rawPublisher.localeCompare(b.rawPublisher)),
+    }, null, 2)}\n`,
+  );
+}
+
 function isRecentUnproductiveAttempt(attempt: AttemptRow | undefined, book: Book) {
   return isUnproductiveAttempt(attempt) && sameMissingFields(attempt?.missingFields, catalogMissingFieldsForBook(book));
 }
@@ -339,6 +469,7 @@ async function readExistingPatch(generatedAt: string): Promise<EnrichmentPatch> 
       generatedAt,
       notes: "Generated by scripts/enrich-books.ts from Open Library and Google Books catalog APIs. Existing generated patches are merged, not replaced. Manual curation may override these fields. This pass promotes catalog metadata, not inferred imprints.",
       books: existing.books ?? {},
+      imprints: existing.imprints ?? {},
       publishers: existing.publishers ?? {},
       sources: existing.sources ?? {},
     };
@@ -347,6 +478,7 @@ async function readExistingPatch(generatedAt: string): Promise<EnrichmentPatch> 
       generatedAt,
       notes: "Generated by scripts/enrich-books.ts from Open Library and Google Books catalog APIs. Manual curation may override these fields. This pass promotes catalog metadata, not inferred imprints.",
       books: {},
+      imprints: {},
       publishers: {},
       sources: {},
     };
@@ -354,6 +486,9 @@ async function readExistingPatch(generatedAt: string): Promise<EnrichmentPatch> 
 }
 
 async function fetchOpenLibrary(book: Book, author: string, missingFields: CatalogMissingBookField[]): Promise<{ doc: OpenLibraryDoc; score: number } | undefined> {
+  const isbnMatch = await fetchOpenLibraryByIsbn(book, author);
+  if (isbnMatch) return isbnMatch;
+
   const docs: OpenLibraryDoc[] = [];
   for (const params of openLibraryQueries(book, author)) {
     const json = await fetchJson<{ docs?: OpenLibraryDoc[] }>(`https://openlibrary.org/search.json?${params}`);
@@ -378,12 +513,54 @@ async function fetchOpenLibrary(book: Book, author: string, missingFields: Catal
     doc: {
       ...(bestEdition ? mergeOpenLibraryEdition(match.doc, bestEdition) : match.doc),
       subject: [...new Set([...(match.doc.subject ?? []), ...(work.subjects ?? [])])],
+      description: match.doc.description ?? descriptionText(work.description),
+      matchVia: "search",
     },
   };
 }
 
-async function fetchGoogleBooks(book: Book, author: string): Promise<{ item: GoogleVolume; score: number } | undefined> {
+async function fetchOpenLibraryByIsbn(book: Book, author: string): Promise<{ doc: OpenLibraryDoc; score: number } | undefined> {
+  const isbn = book.isbn13.find((value) => /^\d{13}$/.test(value.replaceAll("-", "")))?.replaceAll("-", "");
+  if (!isbn) return undefined;
+  const edition = await fetchJson<OpenLibraryEdition>(`https://openlibrary.org/isbn/${isbn}.json`).catch(() => undefined);
+  if (!edition) return undefined;
+  const workKey = edition.works?.[0]?.key;
+  const work = workKey ? await fetchOpenLibraryWork(workKey).catch(() => undefined) : undefined;
+  const title = [edition.title, edition.subtitle].filter(Boolean).join(": ") || work?.title;
+  const doc = mergeOpenLibraryEdition(
+    {
+      title,
+      author_name: [author],
+      isbn: [isbn],
+      key: workKey,
+      subject: [],
+      description: descriptionText(edition.description) ?? descriptionText(work?.description),
+      matchVia: "isbn",
+    },
+    edition,
+  );
+  return {
+    doc: {
+      ...doc,
+      subject: [...new Set([...(doc.subject ?? []), ...(work?.subjects ?? [])])],
+      description: doc.description ?? descriptionText(work?.description),
+      matchVia: "isbn",
+    },
+    score: 1,
+  };
+}
+
+async function fetchGoogleBooks(book: Book, author: string): Promise<{ item: GoogleVolume; score: number; via: "isbn" | "search" } | undefined> {
   const items: GoogleVolume[] = [];
+  for (const isbn of book.isbn13) {
+    const normalized = isbn.replaceAll("-", "");
+    if (!/^\d{13}$/.test(normalized)) continue;
+    const params = new URLSearchParams({ q: `isbn:${normalized}`, maxResults: "5", printType: "books" });
+    const json = await fetchJson<{ items?: GoogleVolume[] }>(`https://www.googleapis.com/books/v1/volumes?${params}`);
+    const isbnItems = dedupeGoogleVolumes(json.items ?? []);
+    const isbnMatch = bestGoogleMatch(book, author, isbnItems);
+    if (isbnMatch?.score && isbnMatch.score >= 0.5) return { ...isbnMatch, via: "isbn" };
+  }
   for (const query of googleQueries(book, author)) {
     const params = new URLSearchParams({ q: query, maxResults: "5", printType: "books" });
     const json = await fetchJson<{ items?: GoogleVolume[] }>(`https://www.googleapis.com/books/v1/volumes?${params}`);
@@ -392,7 +569,8 @@ async function fetchGoogleBooks(book: Book, author: string): Promise<{ item: Goo
     if (earlyMatch?.score >= 0.92) break;
     await delay(250);
   }
-  return bestGoogleMatch(book, author, dedupeGoogleVolumes(items));
+  const match = bestGoogleMatch(book, author, dedupeGoogleVolumes(items));
+  return match ? { ...match, via: "search" } : undefined;
 }
 
 async function fetchJson<T>(url: string, retries = 2): Promise<T> {
@@ -409,7 +587,7 @@ async function fetchJson<T>(url: string, retries = 2): Promise<T> {
 }
 
 async function fetchOpenLibraryEditions(workKey: string): Promise<OpenLibraryEdition[]> {
-  const params = new URLSearchParams({ limit: "12" });
+  const params = new URLSearchParams({ limit: requestedFields?.has("publisherId") ? "50" : "12" });
   const json = await fetchJson<{ entries?: OpenLibraryEdition[] }>(`https://openlibrary.org${workKey}/editions.json?${params}`);
   return json.entries ?? [];
 }
@@ -495,7 +673,7 @@ function openLibraryEditionScore(work: OpenLibraryDoc, edition: OpenLibraryEditi
   if (edition.isbn_13?.some((isbn) => /^\d{13}$/.test(isbn.replaceAll("-", "")))) score += 8;
   if (edition.number_of_pages && edition.number_of_pages >= 80) score += 4;
   if (edition.covers?.length || work.cover_i) score += 3;
-  if (edition.publishers?.length) score += 2;
+  if (edition.publishers?.some((publisher) => isUsableCatalogPublisher(publisher))) score += requestedFields?.has("publisherId") ? 10 : 2;
   if (edition.title && work.title) score += similarity(work.title, edition.title);
   return score;
 }
@@ -504,10 +682,12 @@ function mergeOpenLibraryEdition(work: OpenLibraryDoc, edition: OpenLibraryEditi
   return {
     ...work,
     isbn: [...(work.isbn ?? []), ...(edition.isbn_13 ?? []), ...(edition.isbn_10 ?? [])],
-    publisher: work.publisher?.length ? work.publisher : edition.publishers,
+    publisher: firstUsablePublishers(work.publisher) ?? firstUsablePublishers(edition.publishers),
     number_of_pages_median: work.number_of_pages_median ?? edition.number_of_pages,
     cover_i: work.cover_i ?? edition.covers?.[0],
     first_publish_year: work.first_publish_year ?? firstYear([edition.publish_date]),
+    description: work.description ?? descriptionText(edition.description),
+    edition_key: work.edition_key ?? edition.key,
   };
 }
 
@@ -517,16 +697,17 @@ function mergeMetadata(
   google: GoogleVolume | undefined,
   generatedAt: string,
   allowedFields: Set<CatalogMissingBookField> | undefined,
-) {
+) : MetadataMergeResult {
   const sourceIds = new Set(book.sourceIds);
   const sources: Record<string, SourceRef> = {};
+  const imprints: EnrichmentPatch["imprints"] = {};
   const publishers: EnrichmentPatch["publishers"] = {};
   const links = { ...book.links };
   const isbn13 = firstIsbn13([...(google?.volumeInfo?.industryIdentifiers?.map((item) => item.identifier) ?? []), ...(openLibrary?.isbn ?? [])]);
   const publisherName = google?.volumeInfo?.publisher ?? openLibrary?.publisher?.[0];
   const publicationYear = firstYear([google?.volumeInfo?.publishedDate, openLibrary?.first_publish_year]);
   const googleUrl = google?.volumeInfo?.canonicalVolumeLink ?? google?.volumeInfo?.infoLink;
-  const openLibraryUrl = openLibrary?.key ? `https://openlibrary.org${openLibrary.key}` : undefined;
+  const openLibraryUrl = openLibrary?.edition_key ? `https://openlibrary.org${openLibrary.edition_key}` : openLibrary?.key ? `https://openlibrary.org${openLibrary.key}` : undefined;
 
   if (googleUrl) {
     links.publisher ??= googleUrl;
@@ -578,7 +759,8 @@ function mergeMetadata(
   if (allowsField(allowedFields, "pageCount") && !book.pageCount && (google?.volumeInfo?.pageCount || openLibrary?.number_of_pages_median)) {
     bookPatch.pageCount = google?.volumeInfo?.pageCount ?? openLibrary?.number_of_pages_median;
   }
-  if (allowsField(allowedFields, "summary") && !book.summary && google?.volumeInfo?.description) bookPatch.summary = trimDescription(google.volumeInfo.description);
+  const summary = google?.volumeInfo?.description ?? openLibrary?.description;
+  if (allowsField(allowedFields, "summary") && !book.summary && summary) bookPatch.summary = trimDescription(summary);
   const thumbnail = google?.volumeInfo?.imageLinks?.thumbnail ?? google?.volumeInfo?.imageLinks?.smallThumbnail;
   if (allowsField(allowedFields, "thumbnailUrl") && !book.thumbnailUrl && thumbnail) bookPatch.thumbnailUrl = thumbnail.replace(/^http:/, "https:");
   if (allowsField(allowedFields, "thumbnailUrl") && !book.thumbnailUrl && openLibrary?.cover_i) {
@@ -586,29 +768,55 @@ function mergeMetadata(
   }
   if (allowsField(allowedFields, "publisherLink") && !book.links.publisher && links.publisher) bookPatch.links = links;
   if (sourceIds.size > book.sourceIds.length) bookPatch.sourceIds = [...sourceIds];
-  if (allowsField(allowedFields, "publisherId") && !book.publisherId && publisherName && !isLikelyAudioPublisher(publisherName)) {
-    const publisherId = `publisher-${slugify(publisherName)}`;
+  let rawPublisher: string | undefined;
+  if (allowsField(allowedFields, "publisherId") && !book.publisherId && publisherName && isUsableCatalogPublisher(publisherName)) {
+    const mapping = imprintMappingsByRawName.get(normalizePublisherName(publisherName));
+    if (mapping) {
+      const publisherId = `publisher-${slugify(mapping.publisher)}`;
+      const imprintId = `imprint-${slugify(mapping.imprint)}`;
+      const sourceId = `source-publisher-catalog-${slugify(publisherName)}`;
+      bookPatch.publisherId = publisherId;
+      if (!book.imprintId) bookPatch.imprintId = imprintId;
+      publishers[publisherId] = {
+        id: publisherId,
+        name: mapping.publisher,
+        sourceIds: [sourceId],
+      };
+      imprints[imprintId] = {
+        id: imprintId,
+        name: mapping.imprint,
+        publisherId,
+        sourceIds: [sourceId],
+      };
+      sources[sourceId] = {
+        id: sourceId,
+        label: `Publisher/imprint name from catalog metadata: ${publisherName}`,
+        url: googleUrl ?? openLibraryUrl ?? "",
+        accessedAt: generatedAt,
+        confidence: "catalog",
+        field: "publisher",
+        note: `Normalized via sources/imprint-normalization.json to publisher "${mapping.publisher}" and imprint "${mapping.imprint}".`,
+      };
+    }
+  }
+  if (allowsField(allowedFields, "publisherId") && !book.publisherId && publisherName && isUsableCatalogPublisher(publisherName) && !imprintMappingsByRawName.has(normalizePublisherName(publisherName))) {
+    rawPublisher = publisherName;
     const sourceId = `source-publisher-catalog-${slugify(publisherName)}`;
-    bookPatch.publisherId = publisherId;
-    publishers[publisherId] = {
-      id: publisherId,
-      name: publisherName,
-      sourceIds: [sourceId],
-    };
     sources[sourceId] = {
       id: sourceId,
-      label: `Publisher name from catalog metadata: ${publisherName}`,
+      label: `Unmapped catalog publisher string for ${book.title}: ${publisherName}`,
       url: googleUrl ?? openLibraryUrl ?? "",
       accessedAt: generatedAt,
       confidence: "catalog",
       field: "publisher",
+      note: "Raw publisher string was not promoted to publisherId because it lacks a curated imprint-normalization mapping.",
     };
   }
 
   const substantiveFields = Object.keys(bookPatch).filter((key) => key !== "sourceIds");
-  if (!substantiveFields.length) return { bookPatch: {}, publishers: {}, sources: {} };
+  if (!substantiveFields.length) return { bookPatch: {}, imprints: {}, publishers: {}, sources: {}, rawPublisher };
 
-  return { bookPatch, publishers, sources };
+  return { bookPatch, imprints, publishers, sources, rawPublisher };
 }
 
 function allowsField(fields: Set<CatalogMissingBookField> | undefined, field: CatalogMissingBookField) {
@@ -654,6 +862,7 @@ function matchReport(
   candidateAuthor: string | undefined,
   url: string | undefined,
   score: number,
+  via: "isbn" | "search" | undefined,
 ): MatchReport {
   return {
     provider,
@@ -661,8 +870,14 @@ function matchReport(
     author: candidateAuthor,
     url,
     score: Number(score.toFixed(3)),
-    accepted: isAcceptedMatch(book, author, candidateTitle, candidateAuthor, score),
+    accepted: isAcceptedProviderMatch(book, author, candidateTitle, candidateAuthor, score, via),
+    via,
   };
+}
+
+function isAcceptedProviderMatch(book: Book, author: string, candidateTitle: string | undefined, candidateAuthor: string | undefined, score: number, via: "isbn" | "search" | undefined) {
+  if (via === "isbn" && candidateTitle && !isDisallowedEdition(normalizeForMatch(candidateTitle), normalizeForMatch(book.title))) return true;
+  return isAcceptedMatch(book, author, candidateTitle, candidateAuthor, score);
 }
 
 function isAcceptedMatch(book: Book, author: string, candidateTitle: string | undefined, candidateAuthor: string | undefined, score: number) {
@@ -699,6 +914,11 @@ function firstYear(values: Array<string | number | undefined>) {
     if (match) return Number(match[1]);
   }
   return undefined;
+}
+
+function descriptionText(value: OpenLibraryWork["description"] | OpenLibraryEdition["description"] | undefined) {
+  if (!value) return undefined;
+  return typeof value === "string" ? value : value.value;
 }
 
 function completionSummary(books: Book[]) {
@@ -754,9 +974,34 @@ function slugify(input: string) {
   return input.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/&/g, " and ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 96);
 }
 
+function normalizePublisherName(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/\b(the|and|inc|incorporated|llc|ltd|limited|company|co|publishing|publishers?|press)\b/g, " ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
 function isLikelyAudioPublisher(value: string) {
   const normalized = value.toLowerCase();
   return /\b(audio|audiobook|spoken word|recorded books|blackstone|tantor)\b/.test(normalized);
+}
+
+function firstUsablePublishers(values: string[] | undefined) {
+  const publisher = values?.map((value) => value.trim()).find(isUsableCatalogPublisher);
+  return publisher ? [publisher] : undefined;
+}
+
+function isUsableCatalogPublisher(value: string | undefined) {
+  if (!value) return false;
+  const normalized = value.toLowerCase().trim();
+  if (!normalized || normalized.length < 2) return false;
+  if (isLikelyAudioPublisher(normalized)) return false;
+  if (/\b(self[-\s]?published|independently published|unknown|not stated|publisher not identified)\b/.test(normalized)) return false;
+  return true;
 }
 
 async function mapConcurrent<T, R>(items: T[], width: number, worker: (item: T, index: number) => Promise<R>): Promise<R[]> {
@@ -781,7 +1026,7 @@ function selectProviderPlan(providerName: string, fields: Set<CatalogMissingBook
   const fieldList = [...(fields ?? [])];
   const onlyImprint = fieldList.length > 0 && fieldList.every((field) => field === "imprintId");
   const googleUseful = !fields?.size || fieldList.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "summary", "thumbnailUrl", "publisherLink"].includes(field));
-  const openLibraryUseful = !fields?.size || fieldList.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "thumbnailUrl"].includes(field));
+  const openLibraryUseful = !fields?.size || fieldList.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "summary", "thumbnailUrl", "publisherLink"].includes(field));
 
   return {
     openLibrary: !onlyImprint && !explicitGoogle && openLibraryUseful,
@@ -790,7 +1035,7 @@ function selectProviderPlan(providerName: string, fields: Set<CatalogMissingBook
 }
 
 function shouldUseOpenLibrary(missingFields: CatalogMissingBookField[]) {
-  return providerPlan.openLibrary && (!requestedFields?.size || missingFields.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "thumbnailUrl"].includes(field)));
+  return providerPlan.openLibrary && (!requestedFields?.size || missingFields.some((field) => ["isbn13", "publicationYear", "publisherId", "pageCount", "summary", "thumbnailUrl", "publisherLink"].includes(field)));
 }
 
 function shouldUseGoogleBooks(missingFields: CatalogMissingBookField[]) {
@@ -798,7 +1043,7 @@ function shouldUseGoogleBooks(missingFields: CatalogMissingBookField[]) {
 }
 
 function needsOpenLibraryDetail(missingFields: CatalogMissingBookField[]) {
-  return missingFields.some((field) => ["isbn13", "pageCount", "thumbnailUrl"].includes(field));
+  return missingFields.some((field) => ["isbn13", "pageCount", "summary", "thumbnailUrl", "publisherLink"].includes(field));
 }
 
 function rejectionNotes(results: PromiseSettledResult<unknown>[]) {

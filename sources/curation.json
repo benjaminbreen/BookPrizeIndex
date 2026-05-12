@@ -1,6 +1,20 @@
 {
   "notes": "Manual source-backed corrections and enrichments. Use stable generated IDs from data/public/catalog.json.",
   "books": {
+    "book-black-sea-neal-ascherson": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-jonathan-cape",
+      "sourceIds": [
+        "source-imprint-resolution-black-sea-judgement"
+      ]
+    },
+    "book-question-7-richard-flanagan": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-knopf",
+      "sourceIds": [
+        "source-imprint-resolution-question-7-judgement"
+      ]
+    },
     "book-a-bright-shining-lie-john-paul-vann-and-america-in-vietnam-neil-sheehan": {
       "publisherId": "publisher-penguin-random-house",
       "imprintId": "imprint-random-house",
@@ -100,6 +114,148 @@
         "source-award-record-national-book-awards-religion-inspiration-hardcover-wikipedia-national-book-award-for-nonfiction",
         "source-award-record-nbcc-criticism-wikipedia-national-book-critics-circle-award-for-criticism",
         "source-open-library-the-gnostic-gospels-elaine-pagels",
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-the-fate-of-liberty-abraham-lincoln-and-civil-liberties-mark-e-neely-jr": {
+      "publisherId": "publisher-oxford-university-press",
+      "imprintId": "imprint-oxford-university-press",
+      "sourceIds": [
+        "source-award-record-pulitzer-history-wikipedia-pulitzer-prize-for-history",
+        "source-open-library-the-fate-of-liberty-abraham-lincoln-and-civil-liberties-mark-e-neely-jr",
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-a-civil-action-jonathan-harr": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-random-house",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-a-midwife-s-tale-the-life-of-martha-ballard-based-on-her-diary-1785-1812-laurel-thatcher-ulrich": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-knopf",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-catherine-the-great-portrait-of-a-woman-robert-k-massie": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-random-house",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-educated-a-memoir-tara-westover": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-random-house",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-napoleon-a-life-andrew-roberts": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-viking",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-notes-from-no-man-s-land-american-essays-eula-biss": {
+      "publisherId": "publisher-graywolf-press",
+      "imprintId": "imprint-graywolf-press",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-the-woman-warrior-memoirs-of-a-girlhood-among-ghosts-maxine-hong-kingston": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-knopf",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-thinking-fast-and-slow-daniel-kahneman": {
+      "publisherId": "publisher-macmillan",
+      "imprintId": "imprint-farrar-straus-and-giroux",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-can-t-we-talk-about-something-more-pleasant-roz-chast": {
+      "publisherId": "publisher-bloomsbury-publishing",
+      "imprintId": "imprint-bloomsbury",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-hitler-in-los-angeles-how-jews-foiled-nazi-plots-against-hollywood-and-america-steven-j-ross": {
+      "publisherId": "publisher-bloomsbury-publishing",
+      "imprintId": "imprint-bloomsbury",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-london-s-triumph-merchants-adventurers-and-money-in-shakespeare-s-city-stephen-alford": {
+      "publisherId": "publisher-bloomsbury-publishing",
+      "imprintId": "imprint-bloomsbury",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-multicultural-britain-a-people-s-history-kieran-connell": {
+      "publisherId": "publisher-hurst-publishers",
+      "imprintId": "imprint-hurst",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-no-visible-bruises-what-we-don-t-know-about-domestic-violence-can-kill-us-rachel-louise-snyder": {
+      "publisherId": "publisher-bloomsbury-publishing",
+      "imprintId": "imprint-bloomsbury",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-one-person-no-vote-carol-anderson": {
+      "publisherId": "publisher-bloomsbury-publishing",
+      "imprintId": "imprint-bloomsbury",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-the-browns-of-california-miriam-pawel": {
+      "publisherId": "publisher-bloomsbury-publishing",
+      "imprintId": "imprint-bloomsbury",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-the-doomsday-machine-confessions-of-a-nuclear-war-planner-daniel-ellsberg": {
+      "publisherId": "publisher-bloomsbury-publishing",
+      "imprintId": "imprint-bloomsbury",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-aftermath-the-remnants-of-war-donovan-webster": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-vintage-books",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-the-age-of-extremes-the-short-20th-century-1914-1991-eric-hobsbawm": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-vintage-books",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
+    "book-writing-dangerously-mary-mccarthy-and-her-world-carol-brightman": {
+      "publisherId": "publisher-methuen-publishing",
+      "imprintId": "imprint-methuen",
+      "sourceIds": [
         "source-publisher-cleanup-curation"
       ]
     },
@@ -1860,6 +2016,13 @@
     "imprint-haymarket-books": {
       "publisherId": "publisher-haymarket-books"
     },
+    "imprint-hurst": {
+      "name": "Hurst",
+      "publisherId": "publisher-hurst-publishers",
+      "sourceIds": [
+        "source-publisher-cleanup-curation"
+      ]
+    },
     "imprint-houghton-mifflin-harcourt": {
       "shortName": "HMH",
       "publisherId": "publisher-houghton-mifflin-harcourt"
@@ -2542,6 +2705,22 @@
       "url": "",
       "confidence": "manual",
       "note": "Tags publishers with ISO country codes so that award credit is only assigned when the award's required publication region matches the publisher's home region."
+    },
+    "source-imprint-resolution-black-sea-judgement": {
+      "id": "source-imprint-resolution-black-sea-judgement",
+      "label": "Manual imprint resolution for Black Sea",
+      "url": "https://ci.nii.ac.jp/ncid/BC08096227",
+      "confidence": "manual",
+      "field": "publisher",
+      "note": "Uses Jonathan Cape as the original UK trade imprint for Neal Ascherson's Black Sea; later Vintage and US Hill and Wang editions are not used for the primary imprint."
+    },
+    "source-imprint-resolution-question-7-judgement": {
+      "id": "source-imprint-resolution-question-7-judgement",
+      "label": "Manual imprint resolution for Question 7",
+      "url": "https://www.publishersweekly.com/9780593802335",
+      "confidence": "manual",
+      "field": "publisher",
+      "note": "Uses Knopf for the 2024 US trade edition of Richard Flanagan's Question 7, ISBN 9780593802335."
     }
   }
 }

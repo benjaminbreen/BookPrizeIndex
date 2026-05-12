@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Search } from "lucide-react";
+import { CornerDownLeft, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import type React from "react";
 import { BookDrawer } from "@/components/book-drawer";
 import { EntityMetricGrid, SearchModeSelect } from "@/components/ui/design-primitives";
+import { useSemanticBookSearch } from "@/components/use-semantic-book-search";
 import { filterBooksByQuery, sortBooks, type BookSortKey } from "@/lib/catalog";
 import { awardsById, data, getBookStats, imprintsById, publishersById } from "@/lib/data";
 import { topicSlug } from "@/lib/topics";
@@ -13,11 +14,31 @@ import type { Book, SubjectSummary } from "@/lib/types";
 
 export function SubjectDetail({ subject, books }: { subject: SubjectSummary; books: Book[] }) {
   const [query, setQuery] = useState("");
+  const [semanticQuery, setSemanticQuery] = useState("");
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
   const [mode, setMode] = useState<"keyword" | "semantic">("keyword");
   const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
+  const activeQuery = mode === "semantic" ? semanticQuery : query;
+  const semanticCandidateBookIds = useMemo(() => books.map((book) => book.id), [books]);
 
-  const rows = useMemo(() => sortBooks(filterBooksByQuery(books, query), sortKey).slice(0, 50), [books, query, sortKey]);
+  const semanticSearch = useSemanticBookSearch({
+    candidateBookIds: semanticCandidateBookIds,
+    enabled: mode === "semantic",
+    limit: 80,
+    query: semanticQuery,
+  });
+  const semanticResultByBookId = useMemo(() => new Map(semanticSearch.results.map((result, index) => [result.bookId, index])), [semanticSearch.results]);
+  const rows = useMemo(() => {
+    const trimmedQuery = activeQuery.trim();
+    if (mode === "semantic" && trimmedQuery.length >= 3 && semanticSearch.results.length) {
+      return books
+        .filter((book) => semanticResultByBookId.has(book.id))
+        .sort((a, b) => (semanticResultByBookId.get(a.id) ?? 0) - (semanticResultByBookId.get(b.id) ?? 0))
+        .slice(0, 50);
+    }
+    if (mode === "semantic" && trimmedQuery.length >= 3 && !semanticSearch.loading && !semanticSearch.error) return [];
+    return sortBooks(filterBooksByQuery(books, activeQuery), sortKey).slice(0, 50);
+  }, [activeQuery, books, mode, semanticResultByBookId, semanticSearch.error, semanticSearch.loading, semanticSearch.results.length, sortKey]);
   const selectedBook = selectedBookId ? data.books.find((book) => book.id === selectedBookId) ?? null : null;
   const selectedIndex = selectedBookId ? rows.findIndex((book) => book.id === selectedBookId) : -1;
   const goPrevious = selectedIndex > 0 ? () => setSelectedBookId(rows[selectedIndex - 1].id) : undefined;
@@ -31,15 +52,24 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
   const topicMix = topTopicCounts(books, subject.name);
   const topAwards = topCounts(appearances.map((appearance) => awardsById.get(appearance.awardId)?.shortName ?? awardsById.get(appearance.awardId)?.name ?? ""));
   const topImprints = topCounts(books.map((book) => (book.imprintId ? imprintsById.get(book.imprintId)?.name ?? "" : "")));
-  const contextLine = `${subject.name} · Sorted by ${subjectSortLabel(sortKey).toLowerCase()} · Showing ${rows.length.toLocaleString()} of ${books.length.toLocaleString()} books${query.trim() ? ` · Search: ${query.trim()}` : ""}`;
+  const semanticActive = mode === "semantic" && semanticQuery.trim().length >= 3;
+  const hasPendingSemanticQuery = mode === "semantic" && query.trim() !== semanticQuery.trim();
+  const contextLine = `${subject.name} · ${semanticActive ? "Sorted by meaning match" : `Sorted by ${subjectSortLabel(sortKey).toLowerCase()}`} · Showing ${rows.length.toLocaleString()} of ${books.length.toLocaleString()} books${activeQuery.trim() ? ` · Search: ${activeQuery.trim()}` : ""}`;
+  const semanticConceptLine = semanticActive && semanticSearch.interpretation
+    ? [
+        semanticSearch.interpretation.concepts.slice(0, 4).join(", "),
+        semanticSearch.interpretation.eras.slice(0, 2).join(", "),
+        semanticSearch.interpretation.subjects.slice(0, 3).join(", "),
+      ].filter(Boolean).join(" · ")
+    : "";
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <section className="grid gap-6 lg:grid-cols-[1fr_0.5fr] lg:items-center">
         <div>
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Subject</p>
-          <h1 className="mt-3 text-5xl font-light leading-tight">{subject.name}</h1>
-          <p className="mt-4 max-w-2xl text-lg leading-8 muted">{subjectDeck(subject.name)}</p>
+          <h1 className="mt-3 text-4xl font-light leading-tight sm:text-5xl">{subject.name}</h1>
+          <p className="mt-4 max-w-2xl text-base leading-7 muted sm:text-lg sm:leading-8">{subjectDeck(subject.name)}</p>
           <p className="mt-7 font-[var(--font-mono)] text-xs muted">{contextLine}</p>
         </div>
         <EntityMetricGrid
@@ -58,10 +88,33 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
             <Search size={18} className="muted" />
             <input
               className="min-w-0 flex-1 bg-transparent outline-none placeholder:text-[var(--muted)]"
+              maxLength={600}
               placeholder={`Search within ${subject.name}...`}
               value={query}
-              onChange={(event) => setQuery(event.target.value)}
+              onChange={(event) => {
+                const nextQuery = event.target.value;
+                setQuery(nextQuery);
+                if (mode === "semantic" && !nextQuery.trim()) setSemanticQuery("");
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" && mode === "semantic") {
+                  event.preventDefault();
+                  setSemanticQuery(query.trim());
+                }
+              }}
             />
+            {mode === "semantic" ? (
+              <button
+                aria-label="Run meaning search"
+                className={`semantic-submit focus-ring inline-flex h-8 shrink-0 items-center gap-2 rounded-full px-3 text-xs ${hasPendingSemanticQuery ? "semantic-submit-ready" : ""}`}
+                disabled={!query.trim() || !hasPendingSemanticQuery}
+                onClick={() => setSemanticQuery(query.trim())}
+                type="button"
+              >
+                Enter
+                <CornerDownLeft size={13} />
+              </button>
+            ) : null}
           </div>
           <div className="hidden flex-wrap gap-1.5 font-[var(--font-mono)] text-xs xl:flex">
             {(["score", "wins", "year"] as BookSortKey[]).map((key) => (
@@ -87,8 +140,24 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
               ))}
             </select>
           </label>
-          <SearchModeSelect className="justify-self-start lg:justify-self-end" onChange={setMode} value={mode} />
+          <SearchModeSelect
+            className="semantic-mode-select justify-self-start lg:justify-self-end"
+            onChange={(nextMode) => {
+              if (nextMode === "semantic") setSemanticQuery("");
+              setMode(nextMode);
+            }}
+            value={mode}
+          />
         </div>
+        {semanticActive || (hasPendingSemanticQuery && query.trim()) ? (
+          <p className="mt-2 grid gap-1 px-1 font-[var(--font-mono)] text-xs muted">
+            {hasPendingSemanticQuery && query.trim() ? <span>Press Enter to search this phrase.</span> : null}
+            {semanticSearch.loading ? <span>Reading for meaning...</span> : null}
+            {semanticConceptLine ? <span className="text-[var(--ink)]">Interpreted as {semanticConceptLine}</span> : null}
+            {semanticSearch.error ? <span className="text-[var(--accent)]">{semanticSearch.error} Showing keyword fallback.</span> : null}
+            {semanticSearch.warning ? <span>{semanticSearch.warning}</span> : null}
+          </p>
+        ) : null}
       </section>
 
       <section className="mt-5 grid gap-6 lg:grid-cols-[1fr_0.5fr] lg:items-start">
@@ -100,7 +169,7 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
               const publisher = book.publisherId ? publishersById.get(book.publisherId)?.name : "";
               return (
                 <div
-                  className={`book-mobile-card cursor-pointer border-b hairline p-4 text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)] ${
+                  className={`book-mobile-card book-mobile-card-compact cursor-pointer border-b hairline px-3 py-3 text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)] ${
                     selectedBookId === book.id ? "book-table-row-active" : ""
                   }`}
                   key={book.id}
@@ -114,30 +183,19 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
                   role="button"
                   tabIndex={0}
                 >
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0">
-                      <p className="text-lg font-medium leading-tight">{book.title}</p>
-                      <p className="mt-1 text-sm leading-5 muted">{book.authors.map((author) => author.name).join(", ")}</p>
+                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+                    <div className="min-w-0 overflow-hidden">
+                      <p className="book-mobile-title-one-line text-base font-medium leading-snug">{book.title}</p>
+                      <p className="mt-0.5 truncate text-sm leading-5 muted">{book.authors.map((author) => author.name).join(", ")}</p>
                     </div>
-                    <span className="plain-number shrink-0 font-[var(--font-mono)] text-xs muted">{book.publicationYear ?? "-"}</span>
+                    <span className="plain-number shrink-0 font-[var(--font-mono)] text-xs">{book.publicationYear ?? "-"}</span>
                   </div>
-                  <div className="mt-4 grid grid-cols-3 gap-3 border-y hairline py-3 font-[var(--font-mono)] text-xs">
-                    <div>
-                      <p className="uppercase tracking-[0.14em] muted">Wins</p>
-                      <p className="plain-number mt-1 text-[var(--ink)]">{stats.wins}</p>
-                    </div>
-                    <div>
-                      <p className="uppercase tracking-[0.14em] muted">Lists</p>
-                      <p className="plain-number mt-1 text-[var(--ink)]">{stats.lists}</p>
-                    </div>
-                    <div>
-                      <p className="uppercase tracking-[0.14em] muted">Year</p>
-                      <p className="plain-number mt-1 text-[var(--ink)]">{book.publicationYear ?? "-"}</p>
-                    </div>
-                  </div>
-                  <div className="mt-3">
-                    <p className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.14em] muted">Imprint</p>
-                    <p className={`mt-1 ${imprint || publisher ? "" : "book-missing-value"}`}>{imprint || publisher || "Not yet sourced"}</p>
+                  <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-[var(--font-mono)] text-xs muted">
+                    <span><span className="plain-number text-[var(--ink)]">{stats.wins}</span> wins</span>
+                    <span><span className="plain-number text-[var(--ink)]">{stats.lists}</span> lists</span>
+                    <span className={`min-w-0 max-w-full truncate font-sans text-sm normal-case tracking-normal ${imprint || publisher ? "text-[var(--ink)]" : "book-missing-value"}`}>
+                      {imprint || publisher || "Not yet sourced"}
+                    </span>
                   </div>
                 </div>
               );
@@ -181,14 +239,15 @@ export function SubjectDetail({ subject, books }: { subject: SubjectSummary; boo
                     <td className="plain-number px-4 py-3 text-xs">{book.publicationYear}</td>
                     <td className="px-4 py-3">
                       <button
-                        className="focus-ring block w-full text-left text-base transition hover:text-[var(--accent)]"
+                        className="focus-ring grid w-full grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-left text-base transition hover:text-[var(--accent)]"
                         onClick={(event) => {
                           event.stopPropagation();
                           setSelectedBookId(book.id);
                         }}
                         type="button"
                       >
-                        {book.title}
+                        <SubjectBookCover book={book} />
+                        <span className="line-clamp-2">{book.title}</span>
                       </button>
                     </td>
                     <td className="px-4 py-3">{book.authors.map((author) => author.name).join(", ")}</td>
@@ -302,6 +361,21 @@ function topCounts(values: string[], limit = 5) {
     .map(([label, value]) => ({ label, value }))
     .sort((a, b) => b.value - a.value || a.label.localeCompare(b.label))
     .slice(0, limit);
+}
+
+function SubjectBookCover({ book }: { book: Book }) {
+  if (book.thumbnailUrl) {
+    return (
+      <span className="subject-book-cover" aria-hidden="true">
+        <img src={book.thumbnailUrl} alt="" />
+      </span>
+    );
+  }
+  return (
+    <span className="subject-book-cover subject-book-cover-placeholder" aria-hidden="true">
+      {book.title.charAt(0)}
+    </span>
+  );
 }
 
 function subjectSortLabel(sortKey: BookSortKey) {
