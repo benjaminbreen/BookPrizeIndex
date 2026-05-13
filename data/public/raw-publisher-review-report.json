@@ -1,6 +1,112 @@
 {
-  "generatedAt": "2026-05-13T05:55:16.112Z",
-  "count": 0,
+  "generatedAt": "2026-05-13T22:08:46.312Z",
+  "count": 7,
   "note": "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
-  "review": []
+  "review": [
+    {
+      "rawPublisher": "And Other Stories",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-this-part-is-silent-a-life-between-cultures-sj-kim",
+          "title": "This Part Is Silent: A Life between Cultures",
+          "author": "SJ Kim",
+          "status": "enriched",
+          "matchTitle": "This Part Is Silent",
+          "matchAuthor": "SJ Kim",
+          "matchScore": 0.7
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Canongate Books Ltd",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-trip-to-echo-spring-why-writers-drink-olivia-laing",
+          "title": "The Trip to Echo Spring: Why Writers Drink",
+          "author": "Olivia Laing",
+          "status": "enriched",
+          "matchTitle": "The Trip To Echo Spring On Writers And Drinking",
+          "matchAuthor": "Olivia Laing",
+          "matchScore": 0.767
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Center Point",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-there-will-be-no-miracles-here-casey-gerald",
+          "title": "There Will Be No Miracles Here",
+          "author": "Casey Gerald",
+          "status": "enriched",
+          "matchTitle": "There will be no miracles here",
+          "matchAuthor": "Casey Gerald",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Ecco, an imprint of HarperCollins Publishers",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-story-of-the-jews-finding-the-words-1000-bc-1492-ad-simon-schama",
+          "title": "The Story of the Jews: Finding the Words, 1000 BC-1492 AD",
+          "author": "Simon Schama",
+          "status": "enriched",
+          "matchTitle": "The Story of the Jews",
+          "matchAuthor": "Simon Schama",
+          "matchScore": 0.58
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Harper Perennial",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-to-explain-the-world-the-discovery-of-modern-science-steven-weinberg",
+          "title": "To Explain the World: The Discovery of Modern Science",
+          "author": "Steven Weinberg",
+          "status": "enriched",
+          "matchTitle": "To Explain the World",
+          "matchAuthor": "Steven Weinberg",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Houghton Mifflin Harcourt Trade & Reference Publishers",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-to-the-end-of-june-the-intimate-life-of-american-foster-care-cris-beam",
+          "title": "To the End of June: The Intimate Life of American Foster Care",
+          "author": "Cris Beam",
+          "status": "enriched",
+          "matchTitle": "To the end of June",
+          "matchAuthor": "Cris Beam",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Paul Mellon Centre BA",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-stranger-from-paradise-a-biography-of-william-blake-g-e-bentley-jr",
+          "title": "The Stranger from Paradise: A Biography of William Blake",
+          "author": "G.E. Bentley Jr.",
+          "status": "enriched",
+          "matchTitle": "The stranger from paradise",
+          "matchAuthor": "G. E. Bentley, Jr.",
+          "matchScore": 0.65
+        }
+      ]
+    }
+  ]
 }

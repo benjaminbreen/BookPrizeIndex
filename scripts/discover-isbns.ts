@@ -2,9 +2,15 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { Book, BookStats, SourceRef } from "../lib/types";
+import {
+  enrichmentLaneForBook,
+  parseLane,
+  type EnrichmentAttemptLike,
+} from "./book-enrichment-priority";
 
 type CatalogData = {
   books: Book[];
+  appearances?: Array<{ bookId: string; year: number }>;
   stats: BookStats[];
   sources?: Record<string, SourceRef> | SourceRef[];
 };
@@ -66,11 +72,26 @@ type ReportRow = {
   title: string;
   author: string;
   publicationYear?: number;
+  firstRecognitionYear?: number;
+  inputSignature: string;
   recognitionScore: number;
   status: "selected" | "ambiguous" | "not_found" | "low_confidence" | "error";
   selected?: Candidate;
   candidates: Candidate[];
   notes?: string;
+};
+
+type IsbnAttemptRow = {
+  bookId: string;
+  slug: string;
+  title: string;
+  author: string;
+  status: ReportRow["status"];
+  attemptedAt: string;
+  inputSignature: string;
+  selectedIsbn13?: string;
+  notes?: string;
+  candidates?: Candidate[];
 };
 
 type GeneratedPatch = {
@@ -87,11 +108,14 @@ const outputPath = path.join(root, "sources", "enrichment", "isbn.generated.json
 const reportPath = path.join(root, "data", "public", "isbn-discovery-report.json");
 const reviewPath = path.join(root, "data", "public", "isbn-review-queue.json");
 const cachePath = path.join(root, "data", "public", "isbn-discovery-cache.json");
+const isbnAttemptsPath = path.join(root, "data", "public", "isbn-discovery-attempts.json");
+const attemptsPath = path.join(root, "data", "public", "book-enrichment-attempts.json");
 const limit = positiveNumber(readArg("--limit") ?? process.env.ISBN_DISCOVERY_LIMIT, 100);
 const minScore = Number(readArg("--min-score") ?? process.env.ISBN_DISCOVERY_MIN_SCORE ?? "0.72");
 const concurrency = positiveNumber(readArg("--concurrency") ?? process.env.ISBN_DISCOVERY_CONCURRENCY, 2);
 const requestDelayMs = positiveNumber(readArg("--request-delay-ms") ?? process.env.ISBN_DISCOVERY_REQUEST_DELAY_MS, 350);
-const requestedLane = readArg("--lane") ?? process.env.ISBN_DISCOVERY_LANE;
+const requestedLane = parseLane(readArg("--lane") ?? process.env.ISBN_DISCOVERY_LANE);
+const retryFailures = process.argv.includes("--retry-failures") || process.env.ISBN_DISCOVERY_RETRY_FAILURES === "1";
 let cache: NonNullable<CacheFile["entries"]> = {};
 let lastRequestAt = 0;
 
@@ -99,20 +123,34 @@ async function main() {
   const generatedAt = new Date().toISOString();
   const catalog = JSON.parse(await fs.readFile(catalogPath, "utf8")) as CatalogData;
   cache = await readCache();
+  const attempts = await readAttempts();
+  const isbnAttempts = await readIsbnAttempts();
+  const previousReviewBookIds = retryFailures ? new Set<string>() : await readPreviousReviewBookIds();
   const statsByBook = new Map(catalog.stats.map((stat) => [stat.bookId, stat]));
-  const selected = catalog.books
+  const laneCandidates = catalog.books
     .filter((book) => !book.isbn13.length)
-    .map((book) => ({ book, stats: statsByBook.get(book.id) }))
-    .filter((row) => !requestedLane || laneFor(row.stats) === requestedLane)
+    .filter((book) => !previousReviewBookIds.has(book.id))
+    .map((book) => {
+      const firstRecognitionYear = firstRecognitionYearForBook(catalog, book.id);
+      return { book, stats: statsByBook.get(book.id), firstRecognitionYear, inputSignature: isbnAttemptSignature(book, firstRecognitionYear) };
+    })
+    .filter((row) => !requestedLane || enrichmentLaneForBook(row.book, statsFor(row.stats), attempts[row.book.id]) === requestedLane);
+  const candidates = laneCandidates
+    .filter((row) => retryFailures || !isReusableIsbnAttempt(isbnAttempts[row.book.id], row.inputSignature));
+  const selected = candidates
     .sort((a, b) => (b.stats?.score ?? 0) - (a.stats?.score ?? 0) || a.book.title.localeCompare(b.book.title))
     .slice(0, limit);
 
-  const report = await mapConcurrent(selected, concurrency, ({ book, stats }, index) => discoverBookIsbn(book, stats, index + 1, selected.length));
+  const report = await mapConcurrent(selected, concurrency, ({ book, stats, firstRecognitionYear }, index) =>
+    discoverBookIsbn(book, stats, firstRecognitionYear, index + 1, selected.length),
+  );
   const patch = buildPatch(generatedAt, report, await readExistingPatch(), buildCatalogPatch(catalog));
   const review = report.filter((row) => row.status !== "selected");
+  const nextIsbnAttempts = mergeIsbnAttempts(isbnAttempts, report, generatedAt);
 
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
   await fs.writeFile(outputPath, `${JSON.stringify(patch, null, 2)}\n`);
+  await fs.writeFile(isbnAttemptsPath, `${JSON.stringify({ generatedAt, attempts: nextIsbnAttempts }, null, 2)}\n`);
   await fs.writeFile(
     reportPath,
     `${JSON.stringify({
@@ -123,6 +161,9 @@ async function main() {
       concurrency,
       requestDelayMs,
       lane: requestedLane,
+      retryFailures,
+      skippedPreviousReviewCount: previousReviewBookIds.size,
+      skippedPreviousAttemptCount: laneCandidates.length - candidates.length,
       selectedCount: selected.length,
       summary: summarize(report),
       report,
@@ -142,7 +183,7 @@ async function main() {
   console.log("Report written to data/public/isbn-discovery-report.json.");
 }
 
-async function discoverBookIsbn(book: Book, stats: BookStats | undefined, index: number, total: number): Promise<ReportRow> {
+async function discoverBookIsbn(book: Book, stats: BookStats | undefined, firstRecognitionYear: number | undefined, index: number, total: number): Promise<ReportRow> {
   const author = book.authors.map((item) => item.name).join(", ");
   console.log(`[${index}/${total}] Discovering ISBN for ${book.title}`);
   const base = {
@@ -151,6 +192,8 @@ async function discoverBookIsbn(book: Book, stats: BookStats | undefined, index:
     title: book.title,
     author,
     publicationYear: book.publicationYear,
+    firstRecognitionYear,
+    inputSignature: isbnAttemptSignature(book, firstRecognitionYear),
     recognitionScore: stats?.score ?? 0,
   };
 
@@ -160,7 +203,7 @@ async function discoverBookIsbn(book: Book, stats: BookStats | undefined, index:
 
     const editions = await fetchOpenLibraryEditions(work.doc.key);
     const candidates = editions
-      .map((edition) => candidateFromEdition(book, work.doc, edition))
+      .map((edition) => candidateFromEdition(book, work.doc, edition, firstRecognitionYear))
       .filter((candidate): candidate is Candidate => Boolean(candidate))
       .sort(compareCandidates);
 
@@ -176,6 +219,57 @@ async function discoverBookIsbn(book: Book, stats: BookStats | undefined, index:
   } catch (error) {
     return { ...base, status: "error", candidates: [], notes: error instanceof Error ? error.message : String(error) };
   }
+}
+
+async function readAttempts(): Promise<Record<string, EnrichmentAttemptLike>> {
+  try {
+    const parsed = JSON.parse(await fs.readFile(attemptsPath, "utf8")) as { attempts?: Record<string, EnrichmentAttemptLike> };
+    return parsed.attempts ?? {};
+  } catch {
+    return {};
+  }
+}
+
+async function readPreviousReviewBookIds(): Promise<Set<string>> {
+  try {
+    const parsed = JSON.parse(await fs.readFile(reviewPath, "utf8")) as { review?: Array<{ bookId?: string }> };
+    return new Set((parsed.review ?? []).map((row) => row.bookId).filter((bookId): bookId is string => Boolean(bookId)));
+  } catch {
+    return new Set();
+  }
+}
+
+async function readIsbnAttempts(): Promise<Record<string, IsbnAttemptRow>> {
+  try {
+    const parsed = JSON.parse(await fs.readFile(isbnAttemptsPath, "utf8")) as { attempts?: Record<string, IsbnAttemptRow> };
+    return parsed.attempts ?? {};
+  } catch {
+    return {};
+  }
+}
+
+function isReusableIsbnAttempt(attempt: IsbnAttemptRow | undefined, inputSignature: string) {
+  if (!attempt || attempt.inputSignature !== inputSignature) return false;
+  return attempt.status === "ambiguous" || attempt.status === "not_found" || attempt.status === "low_confidence" || attempt.status === "error";
+}
+
+function mergeIsbnAttempts(existing: Record<string, IsbnAttemptRow>, report: ReportRow[], generatedAt: string) {
+  const next = { ...existing };
+  for (const row of report) {
+    next[row.bookId] = {
+      bookId: row.bookId,
+      slug: row.slug,
+      title: row.title,
+      author: row.author,
+      status: row.status,
+      attemptedAt: generatedAt,
+      inputSignature: row.inputSignature,
+      selectedIsbn13: row.selected?.isbn13,
+      notes: row.notes,
+      candidates: row.candidates.slice(0, 5),
+    };
+  }
+  return next;
 }
 
 async function findOpenLibraryWork(book: Book, author: string) {
@@ -203,7 +297,7 @@ async function fetchOpenLibraryEditions(workKey: string) {
   return editions;
 }
 
-function candidateFromEdition(book: Book, work: OpenLibrarySearchDoc, edition: OpenLibraryEdition): Candidate | undefined {
+function candidateFromEdition(book: Book, work: OpenLibrarySearchDoc, edition: OpenLibraryEdition, firstRecognitionYear?: number): Candidate | undefined {
   const isbn13 = firstIsbn13(edition.isbn_13 ?? []);
   if (!isbn13) return undefined;
   const title = [edition.title, edition.subtitle].filter(Boolean).join(": ");
@@ -217,6 +311,7 @@ function candidateFromEdition(book: Book, work: OpenLibrarySearchDoc, edition: O
   if (publishYear && publishYear < 1900) return undefined;
   const baselineYear = book.publicationYear;
   if (baselineYear && publishYear && publishYear > baselineYear + 5) return undefined;
+  if (firstRecognitionYear && publishYear && publishYear > firstRecognitionYear + 1) return undefined;
 
   let score = titleScore * 0.45;
   const reasons = [`title_match:${titleScore.toFixed(2)}`];
@@ -266,6 +361,33 @@ function candidateFromEdition(book: Book, work: OpenLibrarySearchDoc, edition: O
     reasons,
     warnings,
   };
+}
+
+function firstRecognitionYearForBook(catalog: CatalogData, bookId: string) {
+  const years = (catalog.appearances ?? [])
+    .filter((appearance) => appearance.bookId === bookId)
+    .map((appearance) => appearance.year)
+    .filter((year) => Number.isFinite(year));
+  return years.length ? Math.min(...years) : undefined;
+}
+
+function isbnAttemptSignature(book: Book, firstRecognitionYear: number | undefined) {
+  const author = book.authors.map((item) => item.name).join(", ");
+  return [
+    normalizeForSignature(book.title),
+    normalizeForSignature(author),
+    book.publicationYear ?? "",
+    firstRecognitionYear ?? "",
+  ].join("|");
+}
+
+function normalizeForSignature(value: string) {
+  return value
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
 }
 
 async function readExistingPatch(): Promise<GeneratedPatch | undefined> {
@@ -439,9 +561,30 @@ function summarize(report: ReportRow[]) {
   }, {});
 }
 
-function laneFor(stats: BookStats | undefined) {
-  if (!stats) return "catalog_completion";
-  return stats.majorWins > 0 || stats.wins > 0 || stats.majorShortlists > 0 || stats.score >= 12 ? "high_value" : "catalog_completion";
+function statsFor(stats: BookStats | undefined): BookStats {
+  return stats ?? {
+    bookId: "",
+    wins: 0,
+    lists: 0,
+    score: 0,
+    majorWins: 0,
+    normalWins: 0,
+    majorShortlists: 0,
+    normalShortlists: 0,
+    majorLonglists: 0,
+    normalLonglists: 0,
+    statuses: {
+      winner: 0,
+      co_winner: 0,
+      finalist: 0,
+      shortlist: 0,
+      longlist: 0,
+      honorable_mention: 0,
+      commended: 0,
+      notable: 0,
+      unknown: 0,
+    },
+  };
 }
 
 function editionWarnings(edition: OpenLibraryEdition) {

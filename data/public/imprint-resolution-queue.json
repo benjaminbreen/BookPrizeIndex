@@ -1,19 +1,9 @@
 {
-  "generatedAt": "2026-05-13T05:16:43.959Z",
+  "generatedAt": "2026-05-13T22:15:30.762Z",
   "policy": "Resolve broad parent publishers to the first US/UK trade edition imprint only when catalog evidence produces one strong known-imprint candidate.",
-  "limit": 100,
-  "count": 5,
+  "limit": 250,
+  "count": 4,
   "queue": [
-    {
-      "bookId": "book-walter-lippmann-and-the-american-century-ronald-steel",
-      "slug": "walter-lippmann-and-the-american-century-ronald-steel",
-      "title": "Walter Lippmann and the American Century",
-      "author": "Ronald Steel",
-      "year": 2017,
-      "publisherId": "publisher-taylor-and-francis-group",
-      "publisherName": "Taylor & Francis Group",
-      "reason": "broad_taylor_francis_parent"
-    },
     {
       "bookId": "book-a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
       "slug": "a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
@@ -48,7 +38,6 @@
       "slug": "will-in-the-world-how-shakespeare-became-shakespeare-stephen-greenblatt",
       "title": "Will in the World: How Shakespeare Became Shakespeare",
       "author": "Stephen Greenblatt",
-      "year": 2007,
       "publisherId": "publisher-penguin-random-house",
       "publisherName": "Penguin Random House",
       "reason": "broad_penguin_random_house_parent"

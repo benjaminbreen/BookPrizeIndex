@@ -904,6 +904,7 @@ async function main() {
     appearances,
     stats,
   });
+  dropImplausiblePublicationYears(books, appearances);
 
   const publicData: PublicData = {
     generatedAt,
@@ -967,6 +968,20 @@ async function main() {
   await fs.writeFile(path.join(publicDataDir, "import-report.json"), `${JSON.stringify(warnings, null, 2)}\n`);
   console.log(`Built ${publicData.books.length} books, ${publicData.appearances.length} appearances, ${publicData.awards.length} awards.`);
   console.log(`Warnings: ${JSON.stringify(warnings)}`);
+}
+
+function dropImplausiblePublicationYears(books: Map<string, Book>, appearances: Map<string, AwardAppearance>) {
+  const firstRecognitionYearByBookId = new Map<string, number>();
+  for (const appearance of appearances.values()) {
+    const previous = firstRecognitionYearByBookId.get(appearance.bookId);
+    if (!previous || appearance.year < previous) firstRecognitionYearByBookId.set(appearance.bookId, appearance.year);
+  }
+  for (const book of books.values()) {
+    const firstRecognitionYear = firstRecognitionYearByBookId.get(book.id);
+    if (book.publicationYear && firstRecognitionYear && book.publicationYear > firstRecognitionYear + 1) {
+      delete book.publicationYear;
+    }
+  }
 }
 
 function applyRelatedBookIds({

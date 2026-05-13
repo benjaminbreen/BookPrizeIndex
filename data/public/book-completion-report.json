@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-05-13T05:55:16.112Z",
-  "updatedAt": "2026-05-13T05:55:36.396Z",
-  "limit": 75,
+  "generatedAt": "2026-05-13T22:08:46.312Z",
+  "updatedAt": "2026-05-13T22:11:12.791Z",
+  "limit": 100,
   "minimumScore": 0.58,
   "provider": "all",
   "providerPlan": {
@@ -12,49 +12,116 @@
   "fastMode": false,
   "quietMode": false,
   "checkpointEvery": 0,
-  "lane": "summary_needed",
+  "lane": "identity_needed",
   "fields": [
-    "summary",
-    "pageCount",
-    "publisherLink"
+    "isbn13",
+    "publicationYear",
+    "publisherId",
+    "publisherLink",
+    "pageCount"
   ],
-  "selectedCount": 15,
-  "completedCount": 15,
+  "selectedCount": 100,
+  "completedCount": 100,
   "remainingCount": 0,
   "selectedLanes": {
-    "summary_needed": 15
+    "identity_needed": 100
   },
   "summary": {
-    "totalBooks": 5213,
-    "completeCoreBooks": 272,
+    "totalBooks": 5216,
+    "completeCoreBooks": 282,
     "missingByField": {
-      "isbn13": 4417,
-      "publicationYear": 3928,
-      "publisherId": 2742,
-      "imprintId": 2854,
-      "pageCount": 4550,
-      "summary": 4841,
-      "thumbnailUrl": 4132,
-      "publisherLink": 3983
+      "isbn13": 3822,
+      "publicationYear": 3777,
+      "publisherId": 2592,
+      "imprintId": 2631,
+      "pageCount": 4372,
+      "summary": 4814,
+      "thumbnailUrl": 3925,
+      "publisherLink": 3681
     },
     "note": "imprintId remains a manual or normalization task unless source data clearly distinguishes imprint from parent publisher."
   },
   "report": [
     {
-      "bookId": "book-against-the-world-anti-globalism-and-mass-politics-between-the-world-wars-tara-zahra",
-      "slug": "against-the-world-anti-globalism-and-mass-politics-between-the-world-wars-tara-zahra",
-      "title": "Against the World: Anti-Globalism and Mass Politics Between the World Wars",
-      "author": "Tara Zahra",
-      "status": "enriched",
-      "fields": [
+      "bookId": "book-in-extremis-the-life-and-death-of-the-war-correspondent-marie-colvin-lindsey-hilsum",
+      "slug": "in-extremis-the-life-and-death-of-the-war-correspondent-marie-colvin-lindsey-hilsum",
+      "title": "In Extremis: The Life and Death of the War Correspondent Marie Colvin",
+      "author": "Lindsey Hilsum",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publisherId",
         "pageCount"
       ],
-      "skippedFields": [
-        "summary"
+      "deferredFields": [
+        "wikipedia"
       ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "In extremis",
+          "author": "Lindsey Hilsum",
+          "url": "https://openlibrary.org/works/OL19761939W",
+          "score": 0.427,
+          "accepted": true
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22In+Extremis%3A+The+Life+and+Death+of+the+War+Correspondent+Marie+Colvin%22+inauthor%3A%22Lindsey+Hilsum%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-dragon-behind-the-glass-a-true-story-of-power-obsession-and-the-world-s-most-coveted-fish-em",
+      "slug": "the-dragon-behind-the-glass-a-true-story-of-power-obsession-and-the-world-s-most-coveted-fish-em",
+      "title": "The Dragon behind the Glass. A True Story of Power, Obsession, and the World's Most Coveted Fish",
+      "author": "Emily Voight",
+      "status": "not_found",
+      "fields": [],
       "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
         "pageCount",
-        "summary"
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Dragon+behind+the+Glass.+A+True+Story+of+Power%2C+Obsession%2C+and+the+World%27s+Most+Coveted+Fish%22+inauthor%3A%22Emily+Voight%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-an-amerikan-family-the-shakurs-and-the-nation-they-created-santi-elijah-holley",
+      "slug": "an-amerikan-family-the-shakurs-and-the-nation-they-created-santi-elijah-holley",
+      "title": "An Amerikan Family: The Shakurs and the Nation They Created",
+      "author": "Santi Elijah Holley",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22An+Amerikan+Family%3A+The+Shakurs+and+the+Nation+They+Created%22+inauthor%3A%22Santi+Elijah+Holley%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-cold-crematorium-reporting-from-the-land-of-auschwitz-jozsef-debreczeni",
+      "slug": "cold-crematorium-reporting-from-the-land-of-auschwitz-jozsef-debreczeni",
+      "title": "Cold Crematorium: Reporting from the Land of Auschwitz",
+      "author": "József Debreczeni",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
       ],
       "deferredFields": [
         "wikipedia"
@@ -62,77 +129,1421 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "Against the World - Anti-Globalism and Mass Politics Between the World Wars",
-          "author": "Tara Zahra",
-          "url": "https://openlibrary.org/books/OL38795247M",
+          "title": "Hideg krematórium",
+          "author": "József Debreczeni",
+          "url": "https://openlibrary.org/works/OL31473516W",
+          "score": 0.3,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Cold+Crematorium%3A+Reporting+from+the+Land+of+Auschwitz%22+inauthor%3A%22J%C3%B3zsef+Debreczeni%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-empire-of-pain-the-secret-history-of-the-sackler-dynasty-patrick-radden-keefer",
+      "slug": "empire-of-pain-the-secret-history-of-the-sackler-dynasty-patrick-radden-keefer",
+      "title": "Empire of Pain: The Secret History of the Sackler Dynasty",
+      "author": "Patrick Radden Keefer",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Empire+of+Pain%3A+The+Secret+History+of+the+Sackler+Dynasty%22+inauthor%3A%22Patrick+Radden+Keefer%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-anti-semitism-in-america-leonard-dinnerstein",
+      "slug": "anti-semitism-in-america-leonard-dinnerstein",
+      "title": "Anti-Semitism in America",
+      "author": "Leonard Dinnerstein",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Antisemitism in America",
+          "author": "Leonard Dinnerstein",
+          "url": "https://openlibrary.org/books/OL28424686M",
+          "score": 0.65,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Anti-Semitism+in+America%22+inauthor%3A%22Leonard+Dinnerstein%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-ghosts-of-hiroshima-charles-pellegrino",
+      "slug": "ghosts-of-hiroshima-charles-pellegrino",
+      "title": "Ghosts of Hiroshima",
+      "author": "Charles Pellegrino",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Ghosts+of+Hiroshima%22+inauthor%3A%22Charles+Pellegrino%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-hip-hop-is-history-questlove-and-ben-greenman",
+      "slug": "hip-hop-is-history-questlove-and-ben-greenman",
+      "title": "Hip-Hop Is History",
+      "author": "Questlove Ben Greenman",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Hip-Hop+Is+History%22+inauthor%3A%22Questlove+Ben+Greenman%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-hidden-figures-the-american-dream-and-the-untold-story-of-the-black-women-mathematicians-who-hel",
+      "slug": "hidden-figures-the-american-dream-and-the-untold-story-of-the-black-women-mathematicians-who-hel",
+      "title": "Hidden Figures: The American Dream and the Untold Story of the Black Women Mathematicians Who Helped Win the Space Race",
+      "author": "Margot Lee Shetterly",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Summary and Analysis of Hidden Figures : The American Dream and the Untold Story of the Black Women Mathematicians Who Helped Win the Space Race",
+          "author": "Worth Books",
+          "url": "https://openlibrary.org/books/OL31944809M",
+          "score": 0.626,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Hidden+Figures%3A+The+American+Dream+and+the+Untold+Story+of+the+Black+Women+Mathematicians+Who+Helped+Win+the+Space+Race%22+inauthor%3A%22Margot+Lee+Shetterly%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-hitler-volume-one-hubris-1889-1936-ian-kershaw",
+      "slug": "hitler-volume-one-hubris-1889-1936-ian-kershaw",
+      "title": "Hitler, Volume One Hubris 1889–1936",
+      "author": "Ian Kershaw",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Hitler",
+          "author": "Ian Kershaw",
+          "url": "https://openlibrary.org/works/OL28356594W",
+          "score": 0.417,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Hitler%2C+Volume+One+Hubris+1889%E2%80%931936%22+inauthor%3A%22Ian+Kershaw%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-inseparable-the-original-siamese-twins-and-their-rendezvous-with-american-history-victor-sebesty",
+      "slug": "inseparable-the-original-siamese-twins-and-their-rendezvous-with-american-history-victor-sebesty",
+      "title": "Inseparable: The Original Siamese Twins and Their Rendezvous with American History",
+      "author": "Victor Sebestyen",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Inseparable%3A+The+Original+Siamese+Twins+and+Their+Rendezvous+with+American+History%22+inauthor%3A%22Victor+Sebestyen%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-hitler-1936-45-nemesis-ian-kershaw",
+      "slug": "hitler-1936-45-nemesis-ian-kershaw",
+      "title": "Hitler: 1936–45 Nemesis",
+      "author": "Ian Kershaw",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Hitler 1936-1945",
+          "author": "Ian Kershaw",
+          "url": "https://openlibrary.org/books/OL9031820M",
+          "score": 0.65,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Hitler%3A+1936%E2%80%9345+Nemesis%22+inauthor%3A%22Ian+Kershaw%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-island-on-fire-the-extraordinary-story-of-a-forgotten-volcano-that-changed-the-world-alexandra-w",
+      "slug": "island-on-fire-the-extraordinary-story-of-a-forgotten-volcano-that-changed-the-world-alexandra-w",
+      "title": "Island on Fire: The Extraordinary Story of a Forgotten Volcano That Changed the World",
+      "author": "Alexandra Witze Jeff Kanipe",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Island on fire",
+          "author": "Alexandra Witze",
+          "url": "https://openlibrary.org/works/OL19995130W",
+          "score": 0.325,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Island+on+Fire%3A+The+Extraordinary+Story+of+a+Forgotten+Volcano+That+Changed+the+World%22+inauthor%3A%22Alexandra+Witze+Jeff+Kanipe%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-marriage-of-likeness-same-sex-unions-in-pre-modern-europe-john-boswell",
+      "slug": "marriage-of-likeness-same-sex-unions-in-pre-modern-europe-john-boswell",
+      "title": "Marriage of Likeness: Same-sex Unions in Pre-modern Europe",
+      "author": "John Boswell",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Same-Sex Unions in Premodern Europe",
+          "author": "John Boswell",
+          "url": "https://openlibrary.org/books/OL21611736M",
+          "score": 0.65,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Marriage+of+Likeness%3A+Same-sex+Unions+in+Pre-modern+Europe%22+inauthor%3A%22John+Boswell%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-leonardo-da-vinci-walter-isaacson",
+      "slug": "leonardo-da-vinci-walter-isaacson",
+      "title": "Leonardo Da Vinci",
+      "author": "Walter Isaacson",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Leonardo da Vinci",
+          "author": "Walter Isaacson Jordi Ainaud i Escudero Beruryah Ben Barukh",
+          "url": "https://openlibrary.org/books/OL47482705M",
+          "score": 0.775,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Leonardo+Da+Vinci%22+inauthor%3A%22Walter+Isaacson%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-misbehaving-at-the-crossroads-essays-and-writings-honoree-fannone-jeffers",
+      "slug": "misbehaving-at-the-crossroads-essays-and-writings-honoree-fannone-jeffers",
+      "title": "Misbehaving at the Crossroads: Essays and Writings",
+      "author": "Honorée Fannone Jeffers",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Misbehaving+at+the+Crossroads%3A+Essays+and+Writings%22+inauthor%3A%22Honor%C3%A9e+Fannone+Jeffers%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-nothing-more-of-this-land-community-power-and-the-search-for-indigenous-identity-joseph-lee",
+      "slug": "nothing-more-of-this-land-community-power-and-the-search-for-indigenous-identity-joseph-lee",
+      "title": "Nothing More of This Land: Community, Power, and the Search for Indigenous Identity",
+      "author": "Joseph Lee",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Study Guide",
+          "author": "SuperSummary",
+          "url": "https://openlibrary.org/works/OL21868175W",
+          "score": 0,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Nothing+More+of+This+Land%3A+Community%2C+Power%2C+and+the+Search+for+Indigenous+Identity%22+inauthor%3A%22Joseph+Lee%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-okinawa-susumu-higa",
+      "slug": "okinawa-susumu-higa",
+      "title": "Okinawa",
+      "author": "Susumu Higa",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Okinawa",
+          "author": "Susumu Higa Susumu Higa Jocelyne Allen",
+          "url": "https://openlibrary.org/books/OL30595183M",
+          "score": 0.85,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Okinawa%22+inauthor%3A%22Susumu+Higa%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-one-minute-to-midnight-kennedy-khrushchev-and-castro-on-the-brink-of-nuclear-war-michael-dobbs",
+      "slug": "one-minute-to-midnight-kennedy-khrushchev-and-castro-on-the-brink-of-nuclear-war-michael-dobbs",
+      "title": "One Minute to Midnight: Kennedy, Khrushchev, and Castro on the Brink of Nuclear War",
+      "author": "Michael Dobbs",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "On Minute to Midnight",
+          "author": "Michael Dobbs",
+          "url": "https://openlibrary.org/works/OL44181378W",
+          "score": 0.5,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22One+Minute+to+Midnight%3A+Kennedy%2C+Khrushchev%2C+and+Castro+on+the+Brink+of+Nuclear+War%22+inauthor%3A%22Michael+Dobbs%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-silver-sword-and-stone-three-crucibles-of-the-latin-american-story-marie-arana",
+      "slug": "silver-sword-and-stone-three-crucibles-of-the-latin-american-story-marie-arana",
+      "title": "Silver, Sword & Stone: Three Crucibles of the Latin American Story",
+      "author": "Marie Arana",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Silver, Sword and Stone",
+          "author": "Marie Arana",
+          "url": "https://openlibrary.org/works/OL21107020W",
+          "score": 0.51,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Silver%2C+Sword+%26+Stone%3A+Three+Crucibles+of+the+Latin+American+Story%22+inauthor%3A%22Marie+Arana%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-scott-wilson-a-berg",
+      "slug": "scott-wilson-a-berg",
+      "title": "Scott. Wilson",
+      "author": "A. Berg",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Wilson",
+          "author": "A. Scott Berg",
+          "url": "https://openlibrary.org/works/OL19670743W",
+          "score": 0.5,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Scott.+Wilson%22+inauthor%3A%22A.+Berg%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-age-of-deer-trouble-and-kinship-with-our-wild-neighbors-erika-howsare",
+      "slug": "the-age-of-deer-trouble-and-kinship-with-our-wild-neighbors-erika-howsare",
+      "title": "The Age of Deer: Trouble and Kinship with Our Wild Neighbors",
+      "author": "Erika Howsare",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Age+of+Deer%3A+Trouble+and+Kinship+with+Our+Wild+Neighbors%22+inauthor%3A%22Erika+Howsare%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-anatomy-of-a-moment-thirty-five-minutes-in-history-and-imagination-javier-cercas",
+      "slug": "the-anatomy-of-a-moment-thirty-five-minutes-in-history-and-imagination-javier-cercas",
+      "title": "The Anatomy of a Moment: Thirty-Five Minutes in History and Imagination",
+      "author": "Javier Cercas",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Anatomía de un instante",
+          "author": "Javier Cercas",
+          "url": "https://openlibrary.org/works/OL1647058W",
+          "score": 0.3,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Anatomy+of+a+Moment%3A+Thirty-Five+Minutes+in+History+and+Imagination%22+inauthor%3A%22Javier+Cercas%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-bathysphere-book-effects-of-the-luminous-ocean-depths-brad-fox",
+      "slug": "the-bathysphere-book-effects-of-the-luminous-ocean-depths-brad-fox",
+      "title": "The Bathysphere Book: Effects of the Luminous Ocean Depths",
+      "author": "Brad Fox",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Bathysphere Book",
+          "author": "Brad Fox",
+          "url": "https://openlibrary.org/works/OL28839392W",
+          "score": 0.475,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Bathysphere+Book%3A+Effects+of+the+Luminous+Ocean+Depths%22+inauthor%3A%22Brad+Fox%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-burning-earth-a-history-sunil-amrith",
+      "slug": "the-burning-earth-a-history-sunil-amrith",
+      "title": "The Burning Earth: A History",
+      "author": "Sunil Amrith",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Burning Earth",
+          "author": "Sunil Amrith",
+          "url": "https://openlibrary.org/books/OL57540866M",
+          "score": 0.65,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Burning+Earth%3A+A+History%22+inauthor%3A%22Sunil+Amrith%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-burning-of-the-world-the-great-chicago-fire-and-the-war-for-a-city-s-soul-scott-w-berg",
+      "slug": "the-burning-of-the-world-the-great-chicago-fire-and-the-war-for-a-city-s-soul-scott-w-berg",
+      "title": "The Burning of the World: The Great Chicago Fire and the War for a City’s Soul",
+      "author": "Scott W. Berg",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Burning of the World",
+          "author": "Scott W. Berg",
+          "url": "https://openlibrary.org/works/OL34247843W",
+          "score": 0.533,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Burning+of+the+World%3A+The+Great+Chicago+Fire+and+the+War+for+a+City%E2%80%99s+Soul%22+inauthor%3A%22Scott+W.+Berg%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-case-of-the-murderous-dr-cream-the-hunt-for-a-victorian-era-serial-killer-dean-jobb",
+      "slug": "the-case-of-the-murderous-dr-cream-the-hunt-for-a-victorian-era-serial-killer-dean-jobb",
+      "title": "The Case of the Murderous Dr. Cream: The Hunt for a Victorian Era Serial Killer",
+      "author": "Dean Jobb",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Case of the Murderous Dr. Cream",
+          "author": "Dean Jobb",
+          "url": "https://openlibrary.org/books/OL47325679M",
+          "score": 0.65,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Case+of+the+Murderous+Dr.+Cream%3A+The+Hunt+for+a+Victorian+Era+Serial+Killer%22+inauthor%3A%22Dean+Jobb%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-catalyst-rna-and-the-quest-to-unlock-life-s-deepest-secrets-thomas-r-cech",
+      "slug": "the-catalyst-rna-and-the-quest-to-unlock-life-s-deepest-secrets-thomas-r-cech",
+      "title": "The Catalyst: RNA and the Quest to Unlock Life’s Deepest Secrets",
+      "author": "Thomas R. Cech",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Catalyst",
+          "author": "Thomas R. Cech",
+          "url": "https://openlibrary.org/works/OL42394626W",
+          "score": 0.37,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Catalyst%3A+RNA+and+the+Quest+to+Unlock+Life%E2%80%99s+Deepest+Secrets%22+inauthor%3A%22Thomas+R.+Cech%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-chaos-machine-the-inside-story-of-how-social-media-rewired-our-minds-and-our-world-max-fishe",
+      "slug": "the-chaos-machine-the-inside-story-of-how-social-media-rewired-our-minds-and-our-world-max-fishe",
+      "title": "The Chaos Machine: The Inside Story of How Social Media Rewired Our Minds and Our World",
+      "author": "Max Fisher",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Chaos Machine",
+          "author": "Max Fisher",
+          "url": "https://openlibrary.org/works/OL26511158W",
+          "score": 0.4,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Chaos+Machine%3A+The+Inside+Story+of+How+Social+Media+Rewired+Our+Minds+and+Our+World%22+inauthor%3A%22Max+Fisher%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-coming-storm-a-journey-into-the-heart-of-the-conspiracy-machine-gabriel-gatehouse",
+      "slug": "the-coming-storm-a-journey-into-the-heart-of-the-conspiracy-machine-gabriel-gatehouse",
+      "title": "The Coming Storm: A Journey into the Heart of the Conspiracy Machine",
+      "author": "Gabriel Gatehouse",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Coming Storm",
+          "author": "Gabriel Gatehouse",
+          "url": "https://openlibrary.org/works/OL37589569W",
+          "score": 0.456,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Coming+Storm%3A+A+Journey+into+the+Heart+of+the+Conspiracy+Machine%22+inauthor%3A%22Gabriel+Gatehouse%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-empathy-exams-leslie-jamison",
+      "slug": "the-empathy-exams-leslie-jamison",
+      "title": "The Empathy Exams",
+      "author": "Leslie Jamison",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Empathy Exams Essays",
+          "author": "Leslie Jamison Coleen Marlo",
+          "url": "https://openlibrary.org/books/OL26185254M",
+          "score": 0.675,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Empathy+Exams%22+inauthor%3A%22Leslie+Jamison%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-gospel-of-germs-men-women-and-the-microbe-in-american-life-nancy-tomes",
+      "slug": "the-gospel-of-germs-men-women-and-the-microbe-in-american-life-nancy-tomes",
+      "title": "The Gospel of Germs: Men, Women, and the Microbe in American Life",
+      "author": "Nancy Tomes",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Gospel of Germs",
+          "author": "Nancy Tomes",
+          "url": "https://openlibrary.org/works/OL2698084W",
+          "score": 0.491,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Gospel+of+Germs%3A+Men%2C+Women%2C+and+the+Microbe+in+American+Life%22+inauthor%3A%22Nancy+Tomes%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-givenness-of-things-essays-marilynne-robinson",
+      "slug": "the-givenness-of-things-essays-marilynne-robinson",
+      "title": "The Givenness of Things: Essays",
+      "author": "Marilynne Robinson",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Givenness of Things: Essays",
+          "author": "Marilynne Robinson Coleen Marlo",
+          "url": "https://openlibrary.org/books/OL26759332M",
+          "score": 0.85,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Givenness+of+Things%3A+Essays%22+inauthor%3A%22Marilynne+Robinson%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-green-hour-a-natural-history-of-home-alison-townsend",
+      "slug": "the-green-hour-a-natural-history-of-home-alison-townsend",
+      "title": "The Green Hour: A Natural History of Home",
+      "author": "Alison Townsend",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Green+Hour%3A+A+Natural+History+of+Home%22+inauthor%3A%22Alison+Townsend%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-ice-at-the-end-of-the-world-greenland-s-secret-past-and-earth-s-perilous-future-jon-gertner",
+      "slug": "the-ice-at-the-end-of-the-world-greenland-s-secret-past-and-earth-s-perilous-future-jon-gertner",
+      "title": "The Ice at the End of the World: Greenland's Secret Past and Earth's Perilous Future",
+      "author": "Jon Gertner",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Ice at the End of the World",
+          "author": "Jon Gernter",
+          "url": "https://openlibrary.org/works/OL20879716W",
+          "score": 0.473,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Ice+at+the+End+of+the+World%3A+Greenland%27s+Secret+Past+and+Earth%27s+Perilous+Future%22+inauthor%3A%22Jon+Gertner%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-gun-the-ship-and-the-pen-warfare-constitutions-and-the-making-of-the-modern-world-linda-coll",
+      "slug": "the-gun-the-ship-and-the-pen-warfare-constitutions-and-the-making-of-the-modern-world-linda-coll",
+      "title": "The Gun, the Ship, and the Pen: Warfare, Constitutions, and the Making of the Modern World",
+      "author": "Linda Colley",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Gun, the Ship, and the Pen",
+          "author": "Linda Colley",
+          "url": "https://openlibrary.org/books/OL36687173M",
+          "score": 0.618,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Gun%2C+the+Ship%2C+and+the+Pen%3A+Warfare%2C+Constitutions%2C+and+the+Making+of+the+Modern+World%22+inauthor%3A%22Linda+Colley%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-immobile-empire-alain-peyrefitte-and-jon-rothschild",
+      "slug": "the-immobile-empire-alain-peyrefitte-and-jon-rothschild",
+      "title": "The Immobile Empire",
+      "author": "Alain Peyrefitte Jon Rothschild",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The immobile empire",
+          "author": "Alain Peyrefitte A Peyrefitte",
+          "url": "https://openlibrary.org/books/OL30865504M",
+          "score": 0.85,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Immobile+Empire%22+inauthor%3A%22Alain+Peyrefitte+Jon+Rothschild%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-incarcerations-alpa-shah",
+      "slug": "the-incarcerations-alpa-shah",
+      "title": "The Incarcerations",
+      "author": "Alpa Shah",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Incarcerations",
+          "author": "Alpa Shah",
+          "url": "https://openlibrary.org/books/OL57541431M",
+          "score": 0.65,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Incarcerations%22+inauthor%3A%22Alpa+Shah%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-infernal-machine-a-true-story-of-dynamite-terror-and-the-rise-of-the-modern-detective-steven",
+      "slug": "the-infernal-machine-a-true-story-of-dynamite-terror-and-the-rise-of-the-modern-detective-steven",
+      "title": "The Infernal Machine: A True Story of Dynamite, Terror, and the Rise of the Modern Detective",
+      "author": "Steven Johnson",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Infernal Machine",
+          "author": "Steven Johnson",
+          "url": "https://openlibrary.org/works/OL37588378W",
+          "score": 0.417,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Infernal+Machine%3A+A+True+Story+of+Dynamite%2C+Terror%2C+and+the+Rise+of+the+Modern+Detective%22+inauthor%3A%22Steven+Johnson%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-innovators-how-a-group-of-hackers-geniuses-and-geeks-created-the-digital-revolution-walter-i",
+      "slug": "the-innovators-how-a-group-of-hackers-geniuses-and-geeks-created-the-digital-revolution-walter-i",
+      "title": "The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution",
+      "author": "Walter Isaacson",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Summary and Analysis of the Innovators",
+          "author": "Acesprint",
+          "url": "https://openlibrary.org/works/OL28080411W",
+          "score": 0.233,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Innovators%3A+How+a+Group+of+Hackers%2C+Geniuses%2C+and+Geeks+Created+the+Digital+Revolution%22+inauthor%3A%22Walter+Isaacson%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-innovators-how-a-group-of-inventors-hackers-geniuses-and-geeks-created-the-digital-revolutio",
+      "slug": "the-innovators-how-a-group-of-inventors-hackers-geniuses-and-geeks-created-the-digital-revolutio",
+      "title": "The Innovators: How a Group of Inventors, Hackers, Geniuses, and Geeks Created the Digital Revolution",
+      "author": "Walter Isaacson",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Summary of the Innovators by Walter Isaacson",
+          "author": "Bookhabits",
+          "url": "https://openlibrary.org/works/OL38174771W",
+          "score": 0.162,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Innovators%3A+How+a+Group+of+Inventors%2C+Hackers%2C+Geniuses%2C+and+Geeks+Created+the+Digital+Revolution%22+inauthor%3A%22Walter+Isaacson%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-insider-malcolm-cowley-and-the-triumph-of-american-literature-gerald-howard",
+      "slug": "the-insider-malcolm-cowley-and-the-triumph-of-american-literature-gerald-howard",
+      "title": "The Insider: Malcolm Cowley and the Triumph of American Literature",
+      "author": "Gerald Howard",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Insider",
+          "author": "Gerald Howard",
+          "url": "https://openlibrary.org/works/OL44581850W",
+          "score": 0.378,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Insider%3A+Malcolm+Cowley+and+the+Triumph+of+American+Literature%22+inauthor%3A%22Gerald+Howard%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-interest-how-the-british-establishment-resisted-the-abolition-of-slavery-michael-taylor",
+      "slug": "the-interest-how-the-british-establishment-resisted-the-abolition-of-slavery-michael-taylor",
+      "title": "The Interest: How the British Establishment Resisted the Abolition of Slavery",
+      "author": "Michael Taylor",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Interest",
+          "author": "Michael Taylor",
+          "url": "https://openlibrary.org/works/OL25272002W",
+          "score": 0.378,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Interest%3A+How+the+British+Establishment+Resisted+the+Abolition+of+Slavery%22+inauthor%3A%22Michael+Taylor%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-last-colony-a-tale-of-exile-justice-and-britain-s-colonial-legacy-philippe-sands",
+      "slug": "the-last-colony-a-tale-of-exile-justice-and-britain-s-colonial-legacy-philippe-sands",
+      "title": "The Last Colony: A Tale of Exile, Justice and Britain’s Colonial Legacy",
+      "author": "Philippe Sands",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Last Colony",
+          "author": "Philippe Sands Martin Rowson",
+          "url": "https://openlibrary.org/works/OL26346326W",
+          "score": 0.277,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Last+Colony%3A+A+Tale+of+Exile%2C+Justice+and+Britain%E2%80%99s+Colonial+Legacy%22+inauthor%3A%22Philippe+Sands%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-lost-sons-of-omaha-two-young-men-in-an-american-tragedy-joe-sexton",
+      "slug": "the-lost-sons-of-omaha-two-young-men-in-an-american-tragedy-joe-sexton",
+      "title": "The Lost Sons of Omaha: Two Young Men in an American Tragedy",
+      "author": "Joe Sexton",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Lost+Sons+of+Omaha%3A+Two+Young+Men+in+an+American+Tragedy%22+inauthor%3A%22Joe+Sexton%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-making-of-poetry-adam-nicolson",
+      "slug": "the-making-of-poetry-adam-nicolson",
+      "title": "The Making of Poetry",
+      "author": "Adam Nicolson",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Making of Poetry",
+          "author": "Adam Nicolson Tom Hammick",
+          "url": "https://openlibrary.org/books/OL28300876M",
+          "score": 0.85,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Making+of+Poetry%22+inauthor%3A%22Adam+Nicolson%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-memory-thief-and-the-secrets-behind-what-we-remember-a-medical-mystery-lauren-aguirre",
+      "slug": "the-memory-thief-and-the-secrets-behind-what-we-remember-a-medical-mystery-lauren-aguirre",
+      "title": "The Memory Thief: And the Secrets Behind What We Remember — A Medical Mystery",
+      "author": "Lauren Aguirre",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Memory Thief",
+          "author": "Lauren Aguirre",
+          "url": "https://openlibrary.org/works/OL25760586W",
+          "score": 0.427,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Memory+Thief%3A+And+the+Secrets+Behind+What+We+Remember+%E2%80%94+A+Medical+Mystery%22+inauthor%3A%22Lauren+Aguirre%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-new-guys-the-historic-class-of-astronauts-that-broke-barriers-and-changed-the-face-of-space-",
+      "slug": "the-new-guys-the-historic-class-of-astronauts-that-broke-barriers-and-changed-the-face-of-space-",
+      "title": "The New Guys: The Historic Class of Astronauts That Broke Barriers and Changed the Face of Space Travel",
+      "author": "Meredith Bagby",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "New Guys",
+          "author": "Meredith Bagby",
+          "url": "https://openlibrary.org/works/OL27488904W",
+          "score": 0.393,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+New+Guys%3A+The+Historic+Class+of+Astronauts+That+Broke+Barriers+and+Changed+the+Face+of+Space+Travel%22+inauthor%3A%22Meredith+Bagby%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-moth-and-the-mountain-a-true-story-of-love-war-and-everest-ed-caesar",
+      "slug": "the-moth-and-the-mountain-a-true-story-of-love-war-and-everest-ed-caesar",
+      "title": "The Moth and the Mountain: A True Story of Love, War and Everest",
+      "author": "Ed Caesar",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Moth and the Mountain",
+          "author": "Ed Caesar",
+          "url": "https://openlibrary.org/books/OL29862496M",
+          "score": 0.58,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Moth+and+the+Mountain%3A+A+True+Story+of+Love%2C+War+and+Everest%22+inauthor%3A%22Ed+Caesar%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-other-side-of-prospect-a-story-of-violence-injustice-and-the-american-city-nicholas-dawidoff",
+      "slug": "the-other-side-of-prospect-a-story-of-violence-injustice-and-the-american-city-nicholas-dawidoff",
+      "title": "The Other Side of Prospect: A Story of Violence, Injustice, and the American City",
+      "author": "Nicholas Dawidoff",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Other Side of Prospect",
+          "author": "Nicholas Dawidoff",
+          "url": "https://openlibrary.org/works/OL28018040W",
+          "score": 0.555,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Other+Side+of+Prospect%3A+A+Story+of+Violence%2C+Injustice%2C+and+the+American+City%22+inauthor%3A%22Nicholas+Dawidoff%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-patriarchs-how-men-came-to-rule-angela-saini",
+      "slug": "the-patriarchs-how-men-came-to-rule-angela-saini",
+      "title": "The Patriarchs: How Men Came to Rule",
+      "author": "Angela Saini",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Patriarchs",
+          "author": "Angela Saini",
+          "url": "https://openlibrary.org/works/OL27812843W",
+          "score": 0.4,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Patriarchs%3A+How+Men+Came+to+Rule%22+inauthor%3A%22Angela+Saini%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-people-s-hospital-hope-and-peril-in-american-medicine-ricardo-nuila",
+      "slug": "the-people-s-hospital-hope-and-peril-in-american-medicine-ricardo-nuila",
+      "title": "The People’s Hospital: Hope and Peril in American Medicine",
+      "author": "Ricardo Nuila",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "People's Hospital",
+          "author": "Ricardo Nuila",
+          "url": "https://openlibrary.org/works/OL27408795W",
+          "score": 0.456,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+People%E2%80%99s+Hospital%3A+Hope+and+Peril+in+American+Medicine%22+inauthor%3A%22Ricardo+Nuila%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-quarry-susan-howe",
+      "slug": "the-quarry-susan-howe",
+      "title": "The Quarry",
+      "author": "Susan Howe",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Quarry%22+inauthor%3A%22Susan+Howe%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-riddle-of-the-labyrinth-the-quest-to-crack-an-ancient-code-margalit-fox",
+      "slug": "the-riddle-of-the-labyrinth-the-quest-to-crack-an-ancient-code-margalit-fox",
+      "title": "The Riddle of the Labyrinth: The Quest to Crack an Ancient Code",
+      "author": "Margalit Fox",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Riddle Of The Labyrinth The Quest To Crack An Ancient Code",
+          "author": "Margalit Fox",
+          "url": "https://openlibrary.org/books/OL26176999M",
           "score": 1,
           "accepted": true,
-          "via": "isbn"
+          "via": "search"
         }
       ]
     },
     {
-      "bookId": "book-african-europeans-an-untold-history-olivette-otele",
-      "slug": "african-europeans-an-untold-history-olivette-otele",
-      "title": "African Europeans: An Untold History",
-      "author": "Olivette Otele",
-      "status": "no_new_fields",
+      "bookId": "book-the-riders-come-out-at-night-brutality-corruption-and-cover-up-in-oakland-ali-winston-and-darwin",
+      "slug": "the-riders-come-out-at-night-brutality-corruption-and-cover-up-in-oakland-ali-winston-and-darwin",
+      "title": "The Riders Come Out at Night: Brutality, Corruption, and Cover Up in Oakland",
+      "author": "Ali Winston Darwin BondGraham",
+      "status": "low_confidence",
       "fields": [],
       "missingFields": [
-        "summary"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "open_library",
-          "title": "African Europeans: An Untold History",
-          "author": "Olivette Otele",
-          "url": "https://openlibrary.org/books/OL61173790M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781399804868&maxResults=5&printType=books"
-    },
-    {
-      "bookId": "book-solito-a-memoir-javier-zamora",
-      "slug": "solito-a-memoir-javier-zamora",
-      "title": "Solito: A Memoir",
-      "author": "Javier Zamora",
-      "status": "no_new_fields",
-      "fields": [],
-      "missingFields": [
-        "summary"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "open_library",
-          "title": "Solito: A Memoir",
-          "author": "Javier Zamora",
-          "url": "https://openlibrary.org/books/OL46844602M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780593498088&maxResults=5&printType=books"
-    },
-    {
-      "bookId": "book-1861-the-civil-war-awakening-adam-goodheart",
-      "slug": "1861-the-civil-war-awakening-adam-goodheart",
-      "title": "1861: The Civil War Awakening",
-      "author": "Adam Goodheart",
-      "status": "no_new_fields",
-      "fields": [],
-      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
         "pageCount",
-        "summary"
+        "publisherLink"
       ],
       "deferredFields": [
         "wikipedia"
@@ -140,111 +1551,596 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "1861 The Civil War Awakening",
-          "author": "Adam Goodheart",
-          "url": "https://openlibrary.org/books/OL26077236M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
+          "title": "Riders Come Out at Night",
+          "author": "Ali Winston Darwin BondGraham",
+          "url": "https://openlibrary.org/works/OL28442297W",
+          "score": 0.569,
+          "accepted": false
         }
       ],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781400032198&maxResults=5&printType=books"
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Riders+Come+Out+at+Night%3A+Brutality%2C+Corruption%2C+and+Cover+Up+in+Oakland%22+inauthor%3A%22Ali+Winston+Darwin+BondGraham%22&maxResults=5&printType=books"
     },
     {
-      "bookId": "book-gandhi-the-years-that-changed-the-world-1914-1948-ramachandra-guha",
-      "slug": "gandhi-the-years-that-changed-the-world-1914-1948-ramachandra-guha",
-      "title": "Gandhi: The Years That Changed the World, 1914–1948",
-      "author": "Ramachandra Guha",
-      "status": "no_new_fields",
-      "fields": [],
-      "missingFields": [
-        "pageCount",
-        "summary"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "open_library",
-          "title": "Gandhi: The Years That Changed the World 1914-1948",
-          "author": "Ramachandra Guha",
-          "url": "https://openlibrary.org/books/OL26850372M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780670083886&maxResults=5&printType=books"
-    },
-    {
-      "bookId": "book-spare-parts-four-undocumented-teenagers-one-ugly-robot-and-the-battle-for-the-american-dream-jos",
-      "slug": "spare-parts-four-undocumented-teenagers-one-ugly-robot-and-the-battle-for-the-american-dream-jos",
-      "title": "Spare Parts: Four Undocumented Teenagers, One Ugly Robot, and the Battle for the American Dream",
-      "author": "Joshua Davis",
-      "status": "no_new_fields",
-      "fields": [],
-      "missingFields": [
-        "summary"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "open_library",
-          "title": "Spare Parts: Four Undocumented Teenagers, One Ugly Robot, and the Battle for the American Dream",
-          "author": "Joshua Davis",
-          "url": "https://openlibrary.org/books/OL26759297M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780374534981&maxResults=5&printType=books"
-    },
-    {
-      "bookId": "book-the-opium-war-drugs-dreams-and-the-making-of-china-julia-lovell",
-      "slug": "the-opium-war-drugs-dreams-and-the-making-of-china-julia-lovell",
-      "title": "The Opium War: Drugs, Dreams and the Making of China",
-      "author": "Julia Lovell",
-      "status": "no_new_fields",
-      "fields": [],
-      "missingFields": [
-        "pageCount",
-        "summary"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "open_library",
-          "title": "Opium War Drugs, Dreams and the Making of China",
-          "author": "Julia Lovell",
-          "url": "https://openlibrary.org/books/OL26755424M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780330457484&maxResults=5&printType=books"
-    },
-    {
-      "bookId": "book-leningrad-tragedy-of-a-city-under-siege-1941-44-anna-reid",
-      "slug": "leningrad-tragedy-of-a-city-under-siege-1941-44-anna-reid",
-      "title": "Leningrad: Tragedy of a City Under Siege, 1941–44",
-      "author": "Anna Reid",
+      "bookId": "book-the-rise-and-fall-of-adam-and-eve-stephen-greenblatt",
+      "slug": "the-rise-and-fall-of-adam-and-eve-stephen-greenblatt",
+      "title": "The Rise and Fall of Adam and Eve",
+      "author": "Stephen Greenblatt",
       "status": "enriched",
       "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Rise and Fall of Adam and Eve",
+          "author": "Stephen Greenblatt",
+          "url": "https://openlibrary.org/books/OL26774429M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-scholems-a-story-of-the-german-jewish-bourgeoisie-from-emancipation-to-destruction-jay-howar",
+      "slug": "the-scholems-a-story-of-the-german-jewish-bourgeoisie-from-emancipation-to-destruction-jay-howar",
+      "title": "The Scholems: A Story of the German-Jewish Bourgeoisie from Emancipation to Destruction",
+      "author": "Jay Howard Geller",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Scholems",
+          "author": "Jay Howard Geller",
+          "url": "https://openlibrary.org/works/OL21189415W",
+          "score": 0.364,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Scholems%3A+A+Story+of+the+German-Jewish+Bourgeoisie+from+Emancipation+to+Destruction%22+inauthor%3A%22Jay+Howard+Geller%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-story-of-alice-lewis-carroll-and-the-secret-history-of-wonderland-robert-douglas-fairhurst",
+      "slug": "the-story-of-alice-lewis-carroll-and-the-secret-history-of-wonderland-robert-douglas-fairhurst",
+      "title": "The Story of Alice: Lewis Carroll and the Secret History of Wonderland",
+      "author": "Robert Douglas-Fairhurst",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The story of Alice",
+          "author": "Robert Douglas-Fairhurst",
+          "url": "https://openlibrary.org/books/OL27440822M",
+          "score": 0.58,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-story-of-america-jill-lepore",
+      "slug": "the-story-of-america-jill-lepore",
+      "title": "The Story of America",
+      "author": "Jill Lepore",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The story of America",
+          "author": "Jill Lepore",
+          "url": "https://openlibrary.org/books/OL27590341M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-story-of-the-jews-finding-the-words-1000-bc-1492-ad-simon-schama",
+      "slug": "the-story-of-the-jews-finding-the-words-1000-bc-1492-ad-simon-schama",
+      "title": "The Story of the Jews: Finding the Words, 1000 BC-1492 AD",
+      "author": "Simon Schama",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "publisherId"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "rawPublisher": "Ecco, an imprint of HarperCollins Publishers",
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Story of the Jews",
+          "author": "Simon Schama",
+          "url": "https://openlibrary.org/books/OL26885215M",
+          "score": 0.58,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-stranger-from-paradise-a-biography-of-william-blake-g-e-bentley-jr",
+      "slug": "the-stranger-from-paradise-a-biography-of-william-blake-g-e-bentley-jr",
+      "title": "The Stranger from Paradise: A Biography of William Blake",
+      "author": "G.E. Bentley Jr.",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "publisherId"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "rawPublisher": "Paul Mellon Centre BA",
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The stranger from paradise",
+          "author": "G. E. Bentley, Jr.",
+          "url": "https://openlibrary.org/books/OL9856045M",
+          "score": 0.65,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-sun-does-shine-how-i-found-life-and-freedom-on-death-row-anthony-ray-hinton-and-lara-love-ha",
+      "slug": "the-sun-does-shine-how-i-found-life-and-freedom-on-death-row-anthony-ray-hinton-and-lara-love-ha",
+      "title": "The Sun Does Shine: How I Found Life and Freedom on Death Row",
+      "author": "Anthony Ray Hinton Lara Love Hardin",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The sun does shine",
+          "author": "Anthony Ray Hinton",
+          "url": "https://openlibrary.org/works/OL19751305W",
+          "score": 0.383,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Sun+Does+Shine%3A+How+I+Found+Life+and+Freedom+on+Death+Row%22+inauthor%3A%22Anthony+Ray+Hinton+Lara+Love+Hardin%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-third-person-emma-grove",
+      "slug": "the-third-person-emma-grove",
+      "title": "The Third Person",
+      "author": "Emma Grove",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Third+Person%22+inauthor%3A%22Emma+Grove%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-third-reich-in-power-volume-2-of-the-third-reich-series-richard-j-evans",
+      "slug": "the-third-reich-in-power-volume-2-of-the-third-reich-series-richard-j-evans",
+      "title": "The Third Reich in Power: Volume 2 of The Third Reich Series",
+      "author": "Richard J. Evans",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "COMING OF THE THIRD REICH",
+          "author": "Richard J Evans          Richard J. Evans",
+          "url": "https://openlibrary.org/books/OL38804285M",
+          "score": 0.65,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Third+Reich+in+Power%3A+Volume+2+of+The+Third+Reich+Series%22+inauthor%3A%22Richard+J.+Evans%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-trip-to-echo-spring-why-writers-drink-olivia-laing",
+      "slug": "the-trip-to-echo-spring-why-writers-drink-olivia-laing",
+      "title": "The Trip to Echo Spring: Why Writers Drink",
+      "author": "Olivia Laing",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "publisherId",
         "pageCount"
       ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "rawPublisher": "Canongate Books Ltd",
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Trip To Echo Spring On Writers And Drinking",
+          "author": "Olivia Laing",
+          "url": "https://openlibrary.org/books/OL26002594M",
+          "score": 0.767,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-trial-of-adolf-hitler-the-beer-hall-putsch-and-the-rise-of-nazi-germany-david-king",
+      "slug": "the-trial-of-adolf-hitler-the-beer-hall-putsch-and-the-rise-of-nazi-germany-david-king",
+      "title": "The Trial of Adolf Hitler: The Beer Hall Putsch and the Rise of Nazi Germany",
+      "author": "David King",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Trial of Adolf Hitler",
+          "author": "David King",
+          "url": "https://openlibrary.org/books/OL27363362M",
+          "score": 0.592,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-uninhabitable-earth-life-after-warming-david-wallace-wells",
+      "slug": "the-uninhabitable-earth-life-after-warming-david-wallace-wells",
+      "title": "The Uninhabitable Earth: Life after Warming",
+      "author": "David Wallace-Wells",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Uninhabitable Earth",
+          "author": "David Wallace-Wells",
+          "url": "https://openlibrary.org/books/OL28297349M",
+          "score": 0.65,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-viral-underclass-the-human-toll-when-inequality-and-disease-collide-steven-thrasher",
+      "slug": "the-viral-underclass-the-human-toll-when-inequality-and-disease-collide-steven-thrasher",
+      "title": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
+      "author": "Steven Thrasher",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Viral Underclass",
+          "author": "Steven W. Thrasher",
+          "url": "https://openlibrary.org/works/OL25913670W",
+          "score": 0.44,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Viral+Underclass%3A+The+Human+Toll+When+Inequality+and+Disease+Collide%22+inauthor%3A%22Steven+Thrasher%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-unruly-queen-the-life-of-queen-caroline-flora-fraser",
+      "slug": "the-unruly-queen-the-life-of-queen-caroline-flora-fraser",
+      "title": "The Unruly Queen: The Life of Queen Caroline",
+      "author": "Flora Fraser",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Unruly Queen",
+          "author": "Flora Fraser",
+          "url": "https://openlibrary.org/books/OL7860886M",
+          "score": 0.65,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-war-of-the-world-twentieth-century-conflict-and-the-descent-of-the-west-niall-ferguson",
+      "slug": "the-war-of-the-world-twentieth-century-conflict-and-the-descent-of-the-west-niall-ferguson",
+      "title": "The War of the World: Twentieth-Century Conflict and the Descent of the West",
+      "author": "Niall Ferguson",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The War of the World",
+          "author": "Niall Ferguson",
+          "url": "https://openlibrary.org/books/OL28435860M",
+          "score": 0.58,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-windrush-betrayal-exposing-the-hostile-environment-amelia-gentleman",
+      "slug": "the-windrush-betrayal-exposing-the-hostile-environment-amelia-gentleman",
+      "title": "The Windrush Betrayal: Exposing the Hostile Environment",
+      "author": "Amelia Gentleman",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Windrush Betrayal",
+          "author": "Amelia Gentleman",
+          "url": "https://openlibrary.org/books/OL29511598M",
+          "score": 0.65,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-wilsonian-moment-self-determination-and-the-international-origins-of-anticolonial-nationalis",
+      "slug": "the-wilsonian-moment-self-determination-and-the-international-origins-of-anticolonial-nationalis",
+      "title": "The Wilsonian Moment: Self-Determination and the International Origins of Anticolonial Nationalism",
+      "author": "Erez Manela",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
       "skippedFields": [
-        "summary"
+        "pageCount"
       ],
       "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
         "pageCount",
-        "summary"
+        "publisherLink"
       ],
       "deferredFields": [
         "wikipedia"
@@ -252,29 +2148,37 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "Leningrad: Tragedy Of A City Under Siege 1941-44",
-          "author": "Anna Reid",
-          "url": "https://openlibrary.org/books/OL26819070M",
-          "score": 1,
+          "title": "The Wilsonian Moment Selfdetermination And The International Origins Of Anticolonial Nationalism",
+          "author": "Erez Manela",
+          "url": "https://openlibrary.org/books/OL26068224M",
+          "score": 0.873,
           "accepted": true,
-          "via": "isbn"
+          "via": "search"
         }
       ]
     },
     {
-      "bookId": "book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay",
-      "slug": "the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay",
-      "title": "The Civil War of 1812: American Citizens, British Subjects, Irish Rebels, & Indian Allies",
-      "author": "Alan Taylor",
+      "bookId": "book-the-witches-salem-1692-stacy-schiff",
+      "slug": "the-witches-salem-1692-stacy-schiff",
+      "title": "The Witches: Salem, 1692",
+      "author": "Stacy Schiff",
       "status": "enriched",
       "fields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
-        "summary"
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
       ],
       "skippedFields": [],
       "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
         "pageCount",
-        "summary"
+        "publisherLink"
       ],
       "deferredFields": [
         "wikipedia"
@@ -282,29 +2186,37 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "The civil war of 1812: American citizens, British subjects, Irish rebels, & Indian allies",
-          "author": "Alan Taylor",
-          "url": "https://openlibrary.org/books/OL26882666M",
+          "title": "The witches: Salem, 1692",
+          "author": "Stacy Schiff",
+          "url": "https://openlibrary.org/books/OL25842323M",
           "score": 1,
           "accepted": true,
-          "via": "isbn"
+          "via": "search"
         }
       ]
     },
     {
-      "bookId": "book-how-jesus-became-christian-barrie-wilson",
-      "slug": "how-jesus-became-christian-barrie-wilson",
-      "title": "How Jesus Became Christian",
-      "author": "Barrie Wilson",
+      "bookId": "book-the-world-in-a-grain-vince-beiser",
+      "slug": "the-world-in-a-grain-vince-beiser",
+      "title": "The World in a Grain",
+      "author": "Vince Beiser",
       "status": "enriched",
       "fields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
-        "summary"
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
       ],
       "skippedFields": [],
       "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
         "pageCount",
-        "summary"
+        "publisherLink"
       ],
       "deferredFields": [
         "wikipedia"
@@ -312,29 +2224,301 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "How Jesus Became Christian",
-          "author": "Barrie Wilson",
-          "url": "https://openlibrary.org/books/OL30454987M",
+          "title": "The world in a grain",
+          "author": "Vince Beiser",
+          "url": "https://openlibrary.org/books/OL26964226M",
           "score": 1,
           "accepted": true,
-          "via": "isbn"
+          "via": "search"
         }
       ]
     },
     {
-      "bookId": "book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin",
-      "slug": "the-sacco-vanzetti-affair-america-on-trial-moshik-temkin",
-      "title": "The Sacco–Vanzetti Affair: America on Trial",
-      "author": "Moshik Temkin",
+      "bookId": "book-the-world-of-the-cold-war-1945-1991-vladislav-zubok",
+      "slug": "the-world-of-the-cold-war-1945-1991-vladislav-zubok",
+      "title": "The World of the Cold War: 1945–1991",
+      "author": "Vladislav Zubok",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Masterpieces of History",
+          "author": "Svetlana Savranskaya Thomas Blanton Vladislav Zubok Tom Blanton Svetlana Sdavranskaya",
+          "url": "https://openlibrary.org/works/OL21238170W",
+          "score": 0.175,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+World+of+the+Cold+War%3A+1945%E2%80%931991%22+inauthor%3A%22Vladislav+Zubok%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-theft-by-finding-diaries-1977-2002-david-sedaris",
+      "slug": "theft-by-finding-diaries-1977-2002-david-sedaris",
+      "title": "Theft by Finding: Diaries, 1977-2002",
+      "author": "David Sedaris",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Theft by Finding: Diaries: Volume One",
+          "author": "David Sedaris Gary Carpenter",
+          "url": "https://openlibrary.org/books/OL26758140M",
+          "score": 0.617,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Theft+by+Finding%3A+Diaries%2C+1977-2002%22+inauthor%3A%22David+Sedaris%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-there-will-be-no-miracles-here-casey-gerald",
+      "slug": "there-will-be-no-miracles-here-casey-gerald",
+      "title": "There Will Be No Miracles Here",
+      "author": "Casey Gerald",
       "status": "enriched",
       "fields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
-        "summary"
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "publisherId"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "rawPublisher": "Center Point",
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "There will be no miracles here",
+          "author": "Casey Gerald",
+          "url": "https://openlibrary.org/books/OL32193471M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-this-is-what-it-sounds-like-what-the-music-you-love-says-about-you-susan-rogers-and-ogi-ogas",
+      "slug": "this-is-what-it-sounds-like-what-the-music-you-love-says-about-you-susan-rogers-and-ogi-ogas",
+      "title": "This Is What It Sounds Like: What the Music You Love Says About You",
+      "author": "Susan Rogers Ogi Ogas",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Summary of Susan Rogers & Ogi Ogas's This Is What It Sounds Like",
+          "author": "Irb Media",
+          "url": "https://openlibrary.org/works/OL31129967W",
+          "score": 0.35,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22This+Is+What+It+Sounds+Like%3A+What+the+Music+You+Love+Says+About+You%22+inauthor%3A%22Susan+Rogers+Ogi+Ogas%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-thunder-song-sasha-taqw-and-scaron-lapointe-and-blu",
+      "slug": "thunder-song-sasha-taqw-and-scaron-lapointe-and-blu",
+      "title": "Thunder Song",
+      "author": "Sasha taqʷ&scaron LaPointe əblu",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Thunder+Song%22+inauthor%3A%22Sasha+taq%CA%B7%26scaron+LaPointe+%C9%99blu%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-this-part-is-silent-a-life-between-cultures-sj-kim",
+      "slug": "this-part-is-silent-a-life-between-cultures-sj-kim",
+      "title": "This Part Is Silent: A Life between Cultures",
+      "author": "SJ Kim",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "publisherId",
+        "pageCount"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "rawPublisher": "And Other Stories",
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "This Part Is Silent",
+          "author": "SJ Kim",
+          "url": "https://openlibrary.org/books/OL60852800M",
+          "score": 0.7,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-to-explain-the-world-the-discovery-of-modern-science-steven-weinberg",
+      "slug": "to-explain-the-world-the-discovery-of-modern-science-steven-weinberg",
+      "title": "To Explain the World: The Discovery of Modern Science",
+      "author": "Steven Weinberg",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "publisherId"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "rawPublisher": "Harper Perennial",
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "To Explain the World",
+          "author": "Steven Weinberg",
+          "url": "https://openlibrary.org/books/OL32500726M",
+          "score": 0.65,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-to-the-end-of-june-the-intimate-life-of-american-foster-care-cris-beam",
+      "slug": "to-the-end-of-june-the-intimate-life-of-american-foster-care-cris-beam",
+      "title": "To the End of June: The Intimate Life of American Foster Care",
+      "author": "Cris Beam",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "publisherId"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "rawPublisher": "Houghton Mifflin Harcourt Trade & Reference Publishers",
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "To the end of June",
+          "author": "Cris Beam",
+          "url": "https://openlibrary.org/books/OL28790117M",
+          "score": 0.65,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-tom-stoppard-a-life-hermione-lee",
+      "slug": "tom-stoppard-a-life-hermione-lee",
+      "title": "Tom Stoppard: A Life",
+      "author": "Hermione Lee",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
       ],
       "skippedFields": [],
       "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
         "pageCount",
-        "summary"
+        "publisherLink"
       ],
       "deferredFields": [
         "wikipedia"
@@ -342,25 +2526,217 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "The Sacco-Vanzetti Affair: America on trial",
-          "author": "Moshik Temkin",
-          "url": "https://openlibrary.org/books/OL22653519M",
-          "score": 1,
+          "title": "Tom Stoppard",
+          "author": "Hermione Lee",
+          "url": "https://openlibrary.org/books/OL33904460M",
+          "score": 0.767,
           "accepted": true,
-          "via": "isbn"
+          "via": "search"
         }
       ]
     },
     {
-      "bookId": "book-india-after-gandhi-the-history-of-the-world-s-largest-democracy-ramachandra-guha",
-      "slug": "india-after-gandhi-the-history-of-the-world-s-largest-democracy-ramachandra-guha",
-      "title": "India After Gandhi: The History of the World's Largest Democracy",
-      "author": "Ramachandra Guha",
+      "bookId": "book-trick-mirror-reflections-on-self-delusion-jia-tolentino",
+      "slug": "trick-mirror-reflections-on-self-delusion-jia-tolentino",
+      "title": "Trick Mirror: Reflections on Self-Delusion",
+      "author": "Jia Tolentino",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Trick Mirror",
+          "author": "Jia Tolentino Juan Trejo",
+          "url": "https://openlibrary.org/works/OL20088523W",
+          "score": 0.383,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Trick+Mirror%3A+Reflections+on+Self-Delusion%22+inauthor%3A%22Jia+Tolentino%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-under-a-white-sky-the-nature-of-the-future-elizabeth-kolbert",
+      "slug": "under-a-white-sky-the-nature-of-the-future-elizabeth-kolbert",
+      "title": "Under a White Sky: The Nature of the Future",
+      "author": "Elizabeth Kolbert",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Under a White Sky",
+          "author": "Elizabeth Kolbert Joan Lluís Riera",
+          "url": "https://openlibrary.org/works/OL22857877W",
+          "score": 0.42,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Under+a+White+Sky%3A+The+Nature+of+the+Future%22+inauthor%3A%22Elizabeth+Kolbert%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-vortex-a-true-story-of-history-s-deadliest-storm-an-unspeakable-war-and-liberation-scott-carney-",
+      "slug": "vortex-a-true-story-of-history-s-deadliest-storm-an-unspeakable-war-and-liberation-scott-carney-",
+      "title": "Vortex: A True Story of History's Deadliest Storm, an Unspeakable War, and Liberation",
+      "author": "Scott Carney Jason Miklian",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Vortex",
+          "author": "Scott Carney Jason Miklian",
+          "url": "https://openlibrary.org/works/OL25252724W",
+          "score": 0.358,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Vortex%3A+A+True+Story+of+History%27s+Deadliest+Storm%2C+an+Unspeakable+War%2C+and+Liberation%22+inauthor%3A%22Scott+Carney+Jason+Miklian%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-when-women-ran-fifth-avenue-glamour-and-power-at-the-dawn-of-american-fashion-julie-satow",
+      "slug": "when-women-ran-fifth-avenue-glamour-and-power-at-the-dawn-of-american-fashion-julie-satow",
+      "title": "When Women Ran Fifth Avenue: Glamour and Power at the Dawn of American Fashion",
+      "author": "Julie Satow",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "publisherId",
+        "pageCount"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "When Women Ran Fifth Avenue",
+          "author": "Julie Satow",
+          "url": "https://openlibrary.org/works/OL37615761W",
+          "score": 0.55,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-why-peacocks-an-unlikely-search-for-meaning-in-the-world-s-most-magnificent-bird-sean-flynn",
+      "slug": "why-peacocks-an-unlikely-search-for-meaning-in-the-world-s-most-magnificent-bird-sean-flynn",
+      "title": "Why Peacocks? An Unlikely Search for Meaning in the World's Most Magnificent Bird",
+      "author": "Sean Flynn",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Why Peacocks?",
+          "author": "Sean Flynn",
+          "url": "https://openlibrary.org/works/OL24793165W",
+          "score": 0.408,
+          "accepted": false
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Why+Peacocks%3F+An+Unlikely+Search+for+Meaning+in+the+World%27s+Most+Magnificent+Bird%22+inauthor%3A%22Sean+Flynn%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-where-the-past-begins-a-writer-s-memoir-amy-tan",
+      "slug": "where-the-past-begins-a-writer-s-memoir-amy-tan",
+      "title": "Where the Past Begins: A Writer's Memoir",
+      "author": "Amy Tan",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds",
+        "publisherId",
+        "imprintId"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "publisherId",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Where the Past Begins",
+          "author": "Amy Tan",
+          "url": "https://openlibrary.org/books/OL26707029M",
+          "score": 0.767,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-claire-mccardell-the-designer-who-set-women-free-elizabeth-evitts-dickinson",
+      "slug": "claire-mccardell-the-designer-who-set-women-free-elizabeth-evitts-dickinson",
+      "title": "Claire McCardell: The Designer Who Set Women Free",
+      "author": "Elizabeth Evitts Dickinson",
       "status": "no_new_fields",
       "fields": [],
       "missingFields": [
-        "pageCount",
-        "summary"
+        "isbn13",
+        "publisherId",
+        "pageCount"
       ],
       "deferredFields": [
         "wikipedia"
@@ -368,30 +2744,26 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "India After Gandhi: The History of the World's Largest Democracy",
-          "author": "Ramachandra Guha",
-          "url": "https://openlibrary.org/books/OL26872739M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
+          "title": "Claire Mccardell",
+          "author": "Elizabeth Evitts Dickinson",
+          "url": "https://openlibrary.org/works/OL42441035W",
+          "score": 0.475,
+          "accepted": true
         }
       ],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780330505543&maxResults=5&printType=books"
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Claire+McCardell%3A+The+Designer+Who+Set+Women+Free%22+inauthor%3A%22Elizabeth+Evitts+Dickinson%22&maxResults=5&printType=books"
     },
     {
-      "bookId": "book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown",
-      "slug": "the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown",
-      "title": "The Reaper's Garden: Death and Power in the World of Atlantic Slavery",
-      "author": "Vincent Brown",
-      "status": "enriched",
-      "fields": [
-        "pageCount",
-        "summary"
-      ],
-      "skippedFields": [],
+      "bookId": "book-cults-like-us-why-doomsday-thinking-drives-america-jane-borden",
+      "slug": "cults-like-us-why-doomsday-thinking-drives-america-jane-borden",
+      "title": "Cults Like Us: Why Doomsday Thinking Drives America",
+      "author": "Jane Borden",
+      "status": "no_new_fields",
+      "fields": [],
       "missingFields": [
-        "pageCount",
-        "summary"
+        "isbn13",
+        "publisherId",
+        "pageCount"
       ],
       "deferredFields": [
         "wikipedia"
@@ -399,29 +2771,26 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "The Reapers Garden Death And Power In The World Of Atlantic Slavery",
-          "author": "Vincent Brown",
-          "url": "https://openlibrary.org/books/OL26036940M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
+          "title": "Cults Like Us",
+          "author": "Jane Borden",
+          "url": "https://openlibrary.org/works/OL42422700W",
+          "score": 0.563,
+          "accepted": true
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Cults+Like+Us%3A+Why+Doomsday+Thinking+Drives+America%22+inauthor%3A%22Jane+Borden%22&maxResults=5&printType=books"
     },
     {
-      "bookId": "book-remembering-the-year-of-the-french-irish-folk-history-and-social-memory-guy-beiner",
-      "slug": "remembering-the-year-of-the-french-irish-folk-history-and-social-memory-guy-beiner",
-      "title": "Remembering the Year of the French: Irish Folk History and Social Memory",
-      "author": "Guy Beiner",
-      "status": "enriched",
-      "fields": [
-        "pageCount",
-        "summary"
-      ],
-      "skippedFields": [],
+      "bookId": "book-toni-at-random-the-iconic-writer-s-legendary-editorship-dana-a-williams",
+      "slug": "toni-at-random-the-iconic-writer-s-legendary-editorship-dana-a-williams",
+      "title": "Toni at Random: The Iconic Writer’s Legendary Editorship",
+      "author": "Dana A. Williams",
+      "status": "no_new_fields",
+      "fields": [],
       "missingFields": [
-        "pageCount",
-        "summary"
+        "isbn13",
+        "publisherId",
+        "pageCount"
       ],
       "deferredFields": [
         "wikipedia"
@@ -429,27 +2798,26 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "Remembering the Year of the French: Irish Folk History and Social Memory (History of Ireland & the Irish Diaspora)",
-          "author": "Guy Beiner",
-          "url": "https://openlibrary.org/books/OL10317276M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
+          "title": "Toni at Random",
+          "author": "Dana A. Williams",
+          "url": "https://openlibrary.org/works/OL43573367W",
+          "score": 0.563,
+          "accepted": true
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Toni+at+Random%3A+The+Iconic+Writer%E2%80%99s+Legendary+Editorship%22+inauthor%3A%22Dana+A.+Williams%22&maxResults=5&printType=books"
     },
     {
-      "bookId": "book-anthony-blunt-his-lives-miranda-carter",
-      "slug": "anthony-blunt-his-lives-miranda-carter",
-      "title": "Anthony Blunt: His Lives",
-      "author": "Miranda Carter",
-      "status": "enriched",
-      "fields": [
-        "summary"
-      ],
-      "skippedFields": [],
+      "bookId": "book-unbearable-five-women-and-the-perils-of-pregnancy-in-america-irin-carmon",
+      "slug": "unbearable-five-women-and-the-perils-of-pregnancy-in-america-irin-carmon",
+      "title": "Unbearable: Five Women and the Perils of Pregnancy in America",
+      "author": "Irin Carmon",
+      "status": "no_new_fields",
+      "fields": [],
       "missingFields": [
-        "summary"
+        "isbn13",
+        "publisherId",
+        "pageCount"
       ],
       "deferredFields": [
         "wikipedia"
@@ -457,14 +2825,195 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "Anthony Blunt: His Lives",
-          "author": "Miranda Carter",
-          "url": "https://openlibrary.org/books/OL9894848M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
+          "title": "Unbearable",
+          "author": "Irin Carmon",
+          "url": "https://openlibrary.org/works/OL42565699W",
+          "score": 0.37,
+          "accepted": true
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Unbearable%3A+Five+Women+and+the+Perils+of+Pregnancy+in+America%22+inauthor%3A%22Irin+Carmon%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-we-are-eating-the-earth-the-race-to-fix-our-food-system-and-save-our-climate-michael-grunwald",
+      "slug": "we-are-eating-the-earth-the-race-to-fix-our-food-system-and-save-our-climate-michael-grunwald",
+      "title": "We Are Eating the Earth: The Race to Fix Our Food System and Save Our Climate",
+      "author": "Michael Grunwald",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "pageCount"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "We Are Eating the Earth",
+          "author": "Michael Grunwald",
+          "url": "https://openlibrary.org/works/OL42551876W",
+          "score": 0.55,
+          "accepted": true
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22We+Are+Eating+the+Earth%3A+The+Race+to+Fix+Our+Food+System+and+Save+Our+Climate%22+inauthor%3A%22Michael+Grunwald%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-we-tell-ourselves-stories-joan-didion-and-the-american-dream-machine-alissa-wilkinson",
+      "slug": "we-tell-ourselves-stories-joan-didion-and-the-american-dream-machine-alissa-wilkinson",
+      "title": "We Tell Ourselves Stories: Joan Didion and the American Dream Machine",
+      "author": "Alissa Wilkinson",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "pageCount"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "We Tell Ourselves Stories",
+          "author": "Alissa Wilkinson",
+          "url": "https://openlibrary.org/works/OL42406564W",
+          "score": 0.555,
+          "accepted": true
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22We+Tell+Ourselves+Stories%3A+Joan+Didion+and+the+American+Dream+Machine%22+inauthor%3A%22Alissa+Wilkinson%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-without-fear-black-women-and-the-making-of-human-rights-keisha-n-blain",
+      "slug": "without-fear-black-women-and-the-making-of-human-rights-keisha-n-blain",
+      "title": "Without Fear: Black Women and the Making of Human Rights",
+      "author": "Keisha N. Blain",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "pageCount"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Without Fear",
+          "author": "Keisha N. Blain",
+          "url": "https://openlibrary.org/works/OL44588117W",
+          "score": 0.44,
+          "accepted": true
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Without+Fear%3A+Black+Women+and+the+Making+of+Human+Rights%22+inauthor%3A%22Keisha+N.+Blain%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-lucky-ones-a-memoir-zara-chowdhary",
+      "slug": "the-lucky-ones-a-memoir-zara-chowdhary",
+      "title": "The Lucky Ones: A Memoir",
+      "author": "Zara Chowdhary",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Lucky Ones",
+          "author": "Zara Chowdhary",
+          "url": "https://openlibrary.org/books/OL51093410M",
+          "score": 0.65,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Lucky+Ones%3A+A+Memoir%22+inauthor%3A%22Zara+Chowdhary%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-the-rent-collectors-exploitation-murder-and-redemption-in-immigrant-la-jesse-katz",
+      "slug": "the-rent-collectors-exploitation-murder-and-redemption-in-immigrant-la-jesse-katz",
+      "title": "The Rent Collectors: Exploitation, Murder, and Redemption in Immigrant LA",
+      "author": "Jesse Katz",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "pageCount",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Rent+Collectors%3A+Exploitation%2C+Murder%2C+and+Redemption+in+Immigrant+LA%22+inauthor%3A%22Jesse+Katz%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-a-greek-tragedy-one-day-a-deadly-shipwreck-and-the-human-cost-of-the-refugee-crisis-jeanne-carst",
+      "slug": "a-greek-tragedy-one-day-a-deadly-shipwreck-and-the-human-cost-of-the-refugee-crisis-jeanne-carst",
+      "title": "A Greek Tragedy: One Day, a Deadly Shipwreck, and the Human Cost of the Refugee Crisis",
+      "author": "Jeanne Carstensen",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "pageCount"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Greek Tragedy",
+          "author": "Jeanne Carstensen",
+          "url": "https://openlibrary.org/works/OL34548346W",
+          "score": 0.408,
+          "accepted": true
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22A+Greek+Tragedy%3A+One+Day%2C+a+Deadly+Shipwreck%2C+and+the+Human+Cost+of+the+Refugee+Crisis%22+inauthor%3A%22Jeanne+Carstensen%22&maxResults=5&printType=books"
+    },
+    {
+      "bookId": "book-all-in-her-head-the-truth-and-lies-early-medicine-taught-us-about-women-s-bodies-and-why-it-matt",
+      "slug": "all-in-her-head-the-truth-and-lies-early-medicine-taught-us-about-women-s-bodies-and-why-it-matt",
+      "title": "All in Her Head: The Truth and Lies Early Medicine Taught Us About Women’s Bodies and Why It Matters Today",
+      "author": "Elizabeth Comen",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publisherId",
+        "pageCount"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "All in Her Head",
+          "author": "Elizabeth Comen",
+          "url": "https://openlibrary.org/works/OL37615116W",
+          "score": 0.447,
+          "accepted": true
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22All+in+Her+Head%3A+The+Truth+and+Lies+Early+Medicine+Taught+Us+About+Women%E2%80%99s+Bodies+and+Why+It+Matters+Today%22+inauthor%3A%22Elizabeth+Comen%22&maxResults=5&printType=books"
     }
   ]
 }

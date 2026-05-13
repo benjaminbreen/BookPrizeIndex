@@ -1,106 +1,18 @@
 {
-  "generatedAt": "2026-05-13T05:16:43.959Z",
+  "generatedAt": "2026-05-13T22:15:30.762Z",
   "policy": "First US/UK trade edition imprint when supported by strong catalog evidence. Ambiguous edition/reprint conflicts remain manual review items.",
-  "limit": 100,
+  "limit": 250,
   "minScore": 0.74,
-  "concurrency": 3,
-  "provider": "all",
-  "requestDelayMs": 300,
-  "providerCacheEntries": 13,
-  "selectedCount": 5,
+  "concurrency": 1,
+  "provider": "open_library",
+  "requestDelayMs": 900,
+  "providerCacheEntries": 14,
+  "selectedCount": 4,
   "summary": {
-    "parent_only": 1,
     "not_found": 3,
     "unmapped_candidate": 1
   },
   "report": [
-    {
-      "bookId": "book-walter-lippmann-and-the-american-century-ronald-steel",
-      "slug": "walter-lippmann-and-the-american-century-ronald-steel",
-      "title": "Walter Lippmann and the American Century",
-      "author": "Ronald Steel",
-      "year": 2017,
-      "publisherId": "publisher-taylor-and-francis-group",
-      "publisherName": "Taylor & Francis Group",
-      "reason": "broad_taylor_francis_parent",
-      "status": "parent_only",
-      "candidates": [
-        {
-          "provider": "open_library",
-          "rawPublisher": "Bodley Head",
-          "rawVariant": "Bodley Head",
-          "mapped": {
-            "raw": "The Bodley Head",
-            "imprint": "The Bodley Head",
-            "publisher": "Penguin Random House",
-            "confidence": "high"
-          },
-          "title": "Walter Lippmann and the American century",
-          "author": "Ronald Steel, Ronald Steel",
-          "publishedYear": 1980,
-          "sourceUrl": "https://openlibrary.org/works/OL509858W",
-          "score": 1,
-          "yearCompatible": false
-        },
-        {
-          "provider": "open_library",
-          "rawPublisher": "Little, Brown",
-          "rawVariant": "Little, Brown",
-          "mapped": {
-            "raw": "Little, Brown & Co.",
-            "imprint": "Little, Brown",
-            "publisher": "Hachette Book Group",
-            "confidence": "high"
-          },
-          "title": "Walter Lippmann and the American century",
-          "author": "Ronald Steel, Ronald Steel",
-          "publishedYear": 1980,
-          "sourceUrl": "https://openlibrary.org/works/OL509858W",
-          "score": 1,
-          "yearCompatible": false
-        },
-        {
-          "provider": "open_library",
-          "rawPublisher": "Vintage Books",
-          "rawVariant": "Vintage Books",
-          "mapped": {
-            "raw": "Vintage Books",
-            "imprint": "Vintage Books",
-            "publisher": "Penguin Random House",
-            "confidence": "high"
-          },
-          "title": "Walter Lippmann and the American century",
-          "author": "Ronald Steel, Ronald Steel",
-          "publishedYear": 1980,
-          "sourceUrl": "https://openlibrary.org/works/OL509858W",
-          "score": 1,
-          "yearCompatible": false
-        },
-        {
-          "provider": "open_library",
-          "rawPublisher": "Taylor & Francis Group",
-          "rawVariant": "Taylor & Francis Group",
-          "title": "Walter Lippmann and the American century",
-          "author": "Ronald Steel, Ronald Steel",
-          "publishedYear": 1980,
-          "sourceUrl": "https://openlibrary.org/works/OL509858W",
-          "score": 1,
-          "yearCompatible": false
-        },
-        {
-          "provider": "open_library",
-          "rawPublisher": "Transaction",
-          "rawVariant": "Transaction",
-          "title": "Walter Lippmann and the American century",
-          "author": "Ronald Steel, Ronald Steel",
-          "publishedYear": 1980,
-          "sourceUrl": "https://openlibrary.org/works/OL509858W",
-          "score": 1,
-          "yearCompatible": false
-        }
-      ],
-      "notes": "Only parent-publisher mappings were found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Walter%20Lippmann%20and%20the%20American%20Century%22%20inauthor%3A%22Ronald%20Steel%22%202017&maxResults=10&printType=books"
-    },
     {
       "bookId": "book-a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
       "slug": "a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
@@ -112,7 +24,7 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22A%20Bold%20and%20Dangerous%20Family%3A%20The%20Rossellis%20and%20the%20Fight%20Against%20Mussolini%22%20inauthor%3A%22Caroline%20Moorehead%22%202017&maxResults=10&printType=books"
+      "notes": "No usable catalog publisher candidates found."
     },
     {
       "bookId": "book-bringing-ben-home-a-murder-a-conviction-and-the-fight-to-redeem-american-justice-barbara-bradley",
@@ -124,7 +36,7 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Bringing%20Ben%20Home%3A%20A%20Murder%2C%20a%20Conviction%2C%20and%20the%20Fight%20to%20Redeem%20American%20Justice%22%20inauthor%3A%22Barbara%20Bradley%20Hagerty%22&maxResults=10&printType=books"
+      "notes": "No usable catalog publisher candidates found."
     },
     {
       "bookId": "book-patriot-a-memoir-alexei-navalny",
@@ -137,14 +49,13 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Patriot%3A%20A%20Memoir%22%20inauthor%3A%22Alexei%20Navalny%22%202024&maxResults=10&printType=books"
+      "notes": "No usable catalog publisher candidates found."
     },
     {
       "bookId": "book-will-in-the-world-how-shakespeare-became-shakespeare-stephen-greenblatt",
       "slug": "will-in-the-world-how-shakespeare-became-shakespeare-stephen-greenblatt",
       "title": "Will in the World: How Shakespeare Became Shakespeare",
       "author": "Stephen Greenblatt",
-      "year": 2007,
       "publisherId": "publisher-penguin-random-house",
       "publisherName": "Penguin Random House",
       "reason": "broad_penguin_random_house_parent",
@@ -162,7 +73,7 @@
           "yearCompatible": true
         }
       ],
-      "notes": "Catalog sources returned publisher strings that are not in sources/imprint-normalization.json. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Will%20in%20the%20World%3A%20How%20Shakespeare%20Became%20Shakespeare%22%20inauthor%3A%22Stephen%20Greenblatt%22%202007&maxResults=10&printType=books"
+      "notes": "Catalog sources returned publisher strings that are not in sources/imprint-normalization.json."
     }
   ]
 }

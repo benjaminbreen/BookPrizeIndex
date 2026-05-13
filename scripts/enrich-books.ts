@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { data, getBookStats } from "../lib/data";
+import { appearancesByBookId, data, getBookStats } from "../lib/data";
 import type { Book, SourceRef } from "../lib/types";
 import {
   catalogMissingFieldsForBook,
@@ -755,7 +755,9 @@ function mergeMetadata(
     bookPatch.subjectCategories = mergeSubjectCategories(book.subjectCategories ?? [], subjectCategories);
   }
   if (allowsField(allowedFields, "isbn13") && !book.isbn13.length && isbn13) bookPatch.isbn13 = [isbn13];
-  if (allowsField(allowedFields, "publicationYear") && !book.publicationYear && publicationYear) bookPatch.publicationYear = publicationYear;
+  if (allowsField(allowedFields, "publicationYear") && !book.publicationYear && publicationYear && isPlausiblePublicationYear(book, publicationYear)) {
+    bookPatch.publicationYear = publicationYear;
+  }
   if (allowsField(allowedFields, "pageCount") && !book.pageCount && (google?.volumeInfo?.pageCount || openLibrary?.number_of_pages_median)) {
     bookPatch.pageCount = google?.volumeInfo?.pageCount ?? openLibrary?.number_of_pages_median;
   }
@@ -878,6 +880,12 @@ function matchReport(
 function isAcceptedProviderMatch(book: Book, author: string, candidateTitle: string | undefined, candidateAuthor: string | undefined, score: number, via: "isbn" | "search" | undefined) {
   if (via === "isbn" && candidateTitle && !isDisallowedEdition(normalizeForMatch(candidateTitle), normalizeForMatch(book.title))) return true;
   return isAcceptedMatch(book, author, candidateTitle, candidateAuthor, score);
+}
+
+function isPlausiblePublicationYear(book: Book, publicationYear: number) {
+  const firstRecognitionYear = Math.min(...(appearancesByBookId.get(book.id) ?? []).map((appearance) => appearance.year));
+  if (Number.isFinite(firstRecognitionYear) && publicationYear > firstRecognitionYear + 1) return false;
+  return true;
 }
 
 function isAcceptedMatch(book: Book, author: string, candidateTitle: string | undefined, candidateAuthor: string | undefined, score: number) {
