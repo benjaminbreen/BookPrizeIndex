@@ -1,6 +1,187 @@
 {
-  "generatedAt": "2026-05-12T22:45:40.796Z",
-  "count": 0,
+  "generatedAt": "2026-05-12T23:45:50.397Z",
+  "count": 12,
   "note": "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
-  "review": []
+  "review": [
+    {
+      "rawPublisher": "Commonwealth Publishing Co., Ltd.",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-diversity-of-life-edward-o-wilson",
+          "title": "The Diversity of Life",
+          "author": "Edward O. Wilson",
+          "status": "enriched",
+          "matchTitle": "The Diversity of Life",
+          "matchAuthor": "Edward O. Wilson",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Dey Street Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-radioactive-marie-and-pierre-curie-a-tale-of-love-and-fallout-lauren-redniss",
+          "title": "Radioactive: Marie & Pierre Curie, A Tale of Love & Fallout",
+          "author": "Lauren Redniss",
+          "status": "enriched",
+          "matchTitle": "Radioactive : Marie & Pierre Curie",
+          "matchAuthor": "Lauren Redniss",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Dreamscape Media",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-islamic-enlightenment-the-modern-struggle-between-faith-and-reason-christopher-de-bellaigue",
+          "title": "The Islamic Enlightenment The Modern Struggle Between Faith and Reason",
+          "author": "Christopher de Bellaigue",
+          "status": "enriched",
+          "matchTitle": "The Islamic Enlightenment : The Struggle Between Faith and Reason",
+          "matchAuthor": "Christopher de Bellaigue Charles Armstrong",
+          "matchScore": 0.802
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Hodder & Stoughton General Division",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-coleridge-darker-reflections-richard-holmes",
+          "title": "Coleridge: Darker Reflections",
+          "author": "Richard Holmes",
+          "status": "enriched",
+          "matchTitle": "Coleridge: Darker Reflections Bds",
+          "matchAuthor": "Richard Holmes",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Large Print Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-strength-in-what-remains-a-journey-of-remembrance-and-forgiveness-tracy-kidder",
+          "title": "Strength in What Remains: A Journey of Remembrance and Forgiveness",
+          "author": "Tracy Kidder",
+          "status": "enriched",
+          "matchTitle": "Strength in What Remains",
+          "matchAuthor": "Tracy Kidder",
+          "matchScore": 0.611
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Metropolitan Books, Henry Holt and Co.",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-fordlandia-the-rise-and-fall-of-henry-ford-s-forgotten-jungle-city-greg-grandin",
+          "title": "Fordlândia: The Rise and Fall of Henry Ford's Forgotten Jungle City",
+          "author": "Greg Grandin",
+          "status": "enriched",
+          "matchTitle": "Fordlandia",
+          "matchAuthor": "Greg Grandin",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin Audiobooks",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-samuel-pepys-the-unequalled-self-claire-tomalin",
+          "title": "Samuel Pepys: The Unequalled Self",
+          "author": "Claire Tomalin",
+          "status": "enriched",
+          "matchTitle": "Samuel Pepys",
+          "matchAuthor": "Claire Tomalin",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin Press HC, The",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-andrew-carnegie-david-nasaw",
+          "title": "Andrew Carnegie",
+          "author": "David Nasaw",
+          "status": "enriched",
+          "matchTitle": "Andrew Carnegie",
+          "matchAuthor": "David Nasaw",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Perennial",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-lonely-hearts-of-the-cosmos-the-story-of-the-scientific-quest-for-the-secret-of-the-universe-den",
+          "title": "Lonely Hearts of the Cosmos: The Story of the Scientific Quest for the Secret of the Universe",
+          "author": "Dennis Overbye",
+          "status": "enriched",
+          "matchTitle": "Lonely hearts of the cosmos",
+          "matchAuthor": "Dennis Overbye",
+          "matchScore": 0.618
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Scribe Publications",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-thank-you-for-your-service-david-finkel",
+          "title": "Thank You for Your Service",
+          "author": "David Finkel",
+          "status": "enriched",
+          "matchTitle": "THANK YOU FOR YOUR SERVICE",
+          "matchAuthor": "David Finkel",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Twelve",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-hitch-22-a-memoir-christopher-hitchens",
+          "title": "Hitch-22: A Memoir",
+          "author": "Christopher Hitchens",
+          "status": "enriched",
+          "matchTitle": "Hitch-22",
+          "matchAuthor": "Christopher Hitchens",
+          "matchScore": 0.767
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Virago",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-anne-sexton-a-biography-diane-wood-middlebrook",
+          "title": "Anne Sexton: A Biography",
+          "author": "Diane Wood Middlebrook",
+          "status": "enriched",
+          "matchTitle": "Anne Sexton",
+          "matchAuthor": "Diane Wood Middlebrook",
+          "matchScore": 0.767
+        }
+      ]
+    }
+  ]
 }

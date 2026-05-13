@@ -519,7 +519,7 @@
     "bookId": "book-fordlandia-the-rise-and-fall-of-henry-ford-s-forgotten-jungle-city-greg-grandin",
     "title": "Fordlândia: The Rise and Fall of Henry Ford's Forgotten Jungle City",
     "author": "Greg Grandin",
-    "primarySubject": "Society & Culture",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Africa & the African Diaspora",
     "topics": [
       "Africa & the African Diaspora",
@@ -914,7 +914,7 @@
     "bookId": "book-the-dawn-watch-joseph-conrad-in-a-global-world-maya-jasanoff",
     "title": "The Dawn Watch: Joseph Conrad in a Global World",
     "author": "Maya Jasanoff",
-    "primarySubject": "World History",
+    "primarySubject": "Arts & Criticism",
     "primaryTopic": "Africa & the African Diaspora",
     "topics": [
       "Africa & the African Diaspora",
@@ -1144,6 +1144,32 @@
     "reviewReason": "Primary topic selected from multiple candidates: American Civil War, Slavery & Emancipation, Constitutional History, War & Military Strategy."
   },
   {
+    "bookId": "book-a-savage-war-of-peace-algeria-1954-1962-alistair-horne",
+    "title": "A Savage War of Peace: Algeria, 1954-1962",
+    "author": "Alistair Horne",
+    "primarySubject": "American History",
+    "primaryTopic": "American Civil War",
+    "topics": [
+      "American Civil War",
+      "Genocide, Atrocity & Political Violence",
+      "Empire & Colonialism",
+      "Migration & Diaspora"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "Civil War keyword",
+      "atrocity keyword",
+      "empire/colonial keyword",
+      "Middle East/North Africa keyword",
+      "religion keyword",
+      "migration/diaspora keyword",
+      "nationalism/authoritarianism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: American Civil War, Genocide, Atrocity & Political Violence, Empire & Colonialism, Migration & Diaspora."
+  },
+  {
     "bookId": "book-britain-and-the-russian-civil-war-november-1918-february-1920-richard-ullman",
     "title": "Britain and the Russian Civil War, November 1918-February 1920",
     "author": "Richard Ullman",
@@ -1211,6 +1237,32 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-dwelling-place-a-plantation-epic-erskine-clarke",
+    "title": "Dwelling Place: A Plantation Epic",
+    "author": "Erskine Clarke",
+    "primarySubject": "American History",
+    "primaryTopic": "American Civil War",
+    "topics": [
+      "American Civil War",
+      "Slavery & Emancipation",
+      "Black History & Culture",
+      "Food, Agriculture & Land"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "Civil War keyword",
+      "slavery/emancipation keyword",
+      "Black history/culture keyword",
+      "religion keyword",
+      "family/childhood keyword",
+      "food/agriculture/land keyword",
+      "travel/place keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: American Civil War, Slavery & Emancipation, Black History & Culture, Food, Agriculture & Land."
   },
   {
     "bookId": "book-freedom-from-fear-the-american-people-in-depression-and-war-1929-1945-david-m-kennedy",
@@ -1283,6 +1335,25 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-in-the-presence-of-mine-enemies-war-in-the-heart-of-america-1859-1863-edward-l-ayers",
+    "title": "In the Presence of Mine Enemies: War in the Heart of America, 1859-1863",
+    "author": "Edward L. Ayers",
+    "primarySubject": "American History",
+    "primaryTopic": "American Civil War",
+    "topics": [
+      "American Civil War",
+      "War & Military Strategy",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "Civil War keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: American Civil War, War & Military Strategy, Regional & Local History."
   },
   {
     "bookId": "book-israel-on-the-appomattox-a-southern-experiment-in-black-freedom-from-the-1790s-through-the-civil",
@@ -1413,6 +1484,7 @@
     "primaryTopic": "American Civil War",
     "topics": [
       "American Civil War",
+      "Money, Markets & Economic Policy",
       "War & Military Strategy",
       "Regional & Local History"
     ],
@@ -1420,9 +1492,10 @@
     "reasons": [
       "war/military keyword",
       "Civil War keyword",
+      "money/markets keyword",
       "subject fallback"
     ],
-    "reviewReason": "Primary topic selected from multiple candidates: American Civil War, War & Military Strategy, Regional & Local History."
+    "reviewReason": "Primary topic selected from multiple candidates: American Civil War, Money, Markets & Economic Policy, War & Military Strategy, Regional & Local History."
   },
   {
     "bookId": "book-race-and-reunion-the-civil-war-in-american-memory-david-w-blight",
@@ -1990,6 +2063,27 @@
     ]
   },
   {
+    "bookId": "book-the-weaker-vessel-woman-s-lot-in-seventeenth-century-england-antonia-fraser",
+    "title": "The Weaker Vessel: Woman's Lot in Seventeenth-Century England",
+    "author": "Antonia Fraser",
+    "primarySubject": "American History",
+    "primaryTopic": "American Civil War",
+    "topics": [
+      "American Civil War",
+      "Gender & Feminism",
+      "War & Military Strategy",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "Civil War keyword",
+      "gender/feminism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: American Civil War, Gender & Feminism, War & Military Strategy, Regional & Local History."
+  },
+  {
     "bookId": "book-the-women-s-fight-the-civil-war-s-battles-for-home-freedom-and-nation-thavolia-glymph",
     "title": "The Women’s Fight: The Civil War’s Battles for Home, Freedom, and Nation",
     "author": "Thavolia Glymph",
@@ -2018,18 +2112,20 @@
     "primaryTopic": "American Civil War",
     "topics": [
       "American Civil War",
+      "Science & Discovery",
       "Slavery & Emancipation",
-      "War & Military Strategy",
-      "Regional & Local History"
+      "War & Military Strategy"
     ],
     "confidence": "medium",
     "reasons": [
       "war/military keyword",
       "Civil War keyword",
       "slavery/emancipation keyword",
+      "science/discovery keyword",
+      "archives/museums/method keyword",
       "subject fallback"
     ],
-    "reviewReason": "Primary topic selected from multiple candidates: American Civil War, Slavery & Emancipation, War & Military Strategy, Regional & Local History."
+    "reviewReason": "Primary topic selected from multiple candidates: American Civil War, Science & Discovery, Slavery & Emancipation, War & Military Strategy."
   },
   {
     "bookId": "book-west-of-the-revolution-an-uncommon-history-of-1776-claudio-saunt",
@@ -3399,20 +3495,6 @@
     ]
   },
   {
-    "bookId": "book-thomas-cranmer-a-life-diarmaid-macculloch",
-    "title": "Thomas Cranmer: A Life",
-    "author": "Diarmaid MacCulloch",
-    "primarySubject": "Politics & Government",
-    "primaryTopic": "American Politics",
-    "topics": [
-      "American Politics"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-trotsky-a-biography-robert-service",
     "title": "Trotsky: A Biography",
     "author": "Robert Service",
@@ -3710,6 +3792,28 @@
     ]
   },
   {
+    "bookId": "book-dance-in-the-renaissance-european-fashion-french-obsession-margaret-mcgowan",
+    "title": "Dance in the Renaissance: European Fashion, French Obsession",
+    "author": "Margaret McGowan",
+    "primarySubject": "Arts & Criticism",
+    "primaryTopic": "Art, Music & Performance",
+    "topics": [
+      "Art, Music & Performance",
+      "Courts & Trials",
+      "Essays & Cultural Criticism",
+      "Travel, Exploration & Place"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "court/trial keyword",
+      "art/music/performance keyword",
+      "travel/place keyword",
+      "essays/cultural criticism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Art, Music & Performance, Courts & Trials, Essays & Cultural Criticism, Travel, Exploration & Place."
+  },
+  {
     "bookId": "book-decomposed-the-political-ecology-of-music-kyle-devine",
     "title": "Decomposed: The Political Ecology of Music",
     "author": "Kyle Devine",
@@ -3776,6 +3880,28 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-explicit-and-authentic-acts-amending-the-u-s-constitution-1776-1995-david-e-kyvig",
+    "title": "Explicit and Authentic Acts: Amending the U.S. Constitution, 1776-1995",
+    "author": "David E. Kyvig",
+    "primarySubject": "American History",
+    "primaryTopic": "Art, Music & Performance",
+    "topics": [
+      "Art, Music & Performance",
+      "Constitutional History",
+      "Intellectual History & Ideas",
+      "Law & Legal Change"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "constitutional keyword",
+      "law/legal keyword",
+      "intellectual history keyword",
+      "art/music/performance keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Art, Music & Performance, Constitutional History, Intellectual History & Ideas, Law & Legal Change."
   },
   {
     "bookId": "book-how-music-got-free-the-end-of-an-industry-the-turn-of-the-century-and-the-patient-zero-of-piracy",
@@ -4442,7 +4568,7 @@
     "bookId": "book-listening-to-stone-the-art-and-life-of-isamu-noguchi-hayden-herrera",
     "title": "Listening to Stone: The Art and Life of Isamu Noguchi",
     "author": "Hayden Herrera",
-    "primarySubject": "Arts & Criticism",
+    "primarySubject": "American History",
     "primaryTopic": "Artistic Biography",
     "topics": [
       "Artistic Biography",
@@ -4722,7 +4848,7 @@
     "bookId": "book-visions-of-jazz-the-first-century-gary-giddins",
     "title": "Visions of Jazz: The First Century",
     "author": "Gary Giddins",
-    "primarySubject": "Arts & Criticism",
+    "primarySubject": "American History",
     "primaryTopic": "Artistic Biography",
     "topics": [
       "Artistic Biography"
@@ -7085,7 +7211,7 @@
     "bookId": "book-freedom-vol-1-freedom-in-the-making-of-western-culture-orlando-patterson",
     "title": "Freedom, Vol. 1: Freedom in the Making of Western Culture",
     "author": "Orlando Patterson",
-    "primarySubject": "Society & Culture",
+    "primarySubject": "Religion",
     "primaryTopic": "Black History & Culture",
     "topics": [
       "Black History & Culture",
@@ -7690,7 +7816,7 @@
     "bookId": "book-the-race-beat-the-press-the-civil-rights-struggle-and-the-awakening-of-a-nation-gene-roberts-and",
     "title": "The Race Beat: The Press, the Civil Rights Struggle, and the Awakening of a Nation",
     "author": "Gene Roberts, Hank Klibanoff",
-    "primarySubject": "Race & Ethnicity",
+    "primarySubject": "American History",
     "primaryTopic": "Black History & Culture",
     "topics": [
       "Black History & Culture",
@@ -8407,7 +8533,7 @@
     "bookId": "book-mike-nichols-a-life-mark-harris",
     "title": "Mike Nichols: A Life",
     "author": "Mark Harris",
-    "primarySubject": "Biography",
+    "primarySubject": "Nature & Environment",
     "primaryTopic": "Business Biography",
     "topics": [
       "Business Biography"
@@ -8919,7 +9045,7 @@
     "bookId": "book-the-lion-and-the-throne-catherine-drinker-bowen",
     "title": "The Lion and the Throne",
     "author": "Catherine Drinker Bowen",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "True Crime & Justice",
     "primaryTopic": "Business Biography",
     "topics": [
       "Business Biography"
@@ -9406,6 +9532,26 @@
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Environment, Conservation & Pollution, Money, Markets & Economic Policy, Asia & the Pacific."
   },
   {
+    "bookId": "book-china-shakes-the-world-a-titan-s-rise-and-troubled-future-and-the-challenge-for-america-james-ky",
+    "title": "China Shakes The World: A Titan's Rise and Troubled Future – and the Challenge for America",
+    "author": "James Kynge",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Money, Markets & Economic Policy",
+      "Asia & the Pacific"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Asia/Pacific keyword",
+      "business/capitalism keyword",
+      "money/markets keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Money, Markets & Economic Policy, Asia & the Pacific."
+  },
+  {
     "bookId": "book-chokepoints-how-the-global-economy-became-a-weapon-of-war-edward-fishman",
     "title": "Chokepoints: How the Global Economy Became a Weapon of War",
     "author": "Edward Fishman",
@@ -9756,6 +9902,28 @@
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Gender & Feminism, Labor, Work & Organizing."
   },
   {
+    "bookId": "book-marianne-in-chains-in-search-of-the-german-occupation-1940-1945-robert-gildea",
+    "title": "Marianne in Chains: In search of the German Occupation 1940-1945",
+    "author": "Robert Gildea",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Food, Agriculture & Land",
+      "Labor, Work & Organizing",
+      "Family, Childhood & Adoption"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "family/childhood keyword",
+      "labor/work keyword",
+      "business/capitalism keyword",
+      "food/agriculture/land keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Food, Agriculture & Land, Labor, Work & Organizing, Family, Childhood & Adoption."
+  },
+  {
     "bookId": "book-more-money-than-god-hedge-funds-and-the-making-of-a-new-elite-sebastian-mallaby",
     "title": "More Money Than God: Hedge Funds and the Making of a New Elite",
     "author": "Sebastian Mallaby",
@@ -9799,6 +9967,28 @@
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Infrastructure, Engineering & Built Environment, Money, Markets & Economic Policy, Family, Childhood & Adoption."
   },
   {
+    "bookId": "book-red-fortress-the-secret-heart-of-russia-s-history-catherine-merridale",
+    "title": "Red Fortress: The Secret Heart of Russia's History",
+    "author": "Catherine Merridale",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Crime, Policing & Violence",
+      "Religion & Religious Movements",
+      "Europe & Russia"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "crime/policing keyword",
+      "Europe/Russia keyword",
+      "religion keyword",
+      "business/capitalism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Crime, Policing & Violence, Religion & Religious Movements, Europe & Russia."
+  },
+  {
     "bookId": "book-retirement-heist-how-companies-plunder-and-profit-from-the-nest-eggs-of-american-workers-ellen-s",
     "title": "Retirement Heist: How Companies Plunder and Profit from the Nest Eggs of American Workers",
     "author": "Ellen Schultz",
@@ -9816,6 +10006,26 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Labor, Work & Organizing, Regional & Local History."
+  },
+  {
+    "bookId": "book-right-hand-left-hand-chris-mcmanus",
+    "title": "Right Hand, Left Hand",
+    "author": "Chris McManus",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Labor, Work & Organizing",
+      "Travel, Exploration & Place"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "labor/work keyword",
+      "business/capitalism keyword",
+      "travel/place keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Labor, Work & Organizing, Travel, Exploration & Place."
   },
   {
     "bookId": "book-the-age-of-mass-migration-causes-and-economic-impact-timothy-j-hatton-and-jeffrey-g-williamson",
@@ -9880,6 +10090,26 @@
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Class, Poverty & Inequality, Constitutional History, Money, Markets & Economic Policy."
   },
   {
+    "bookId": "book-the-crisis-of-the-old-order-arthur-m-schlesinger-jr",
+    "title": "The Crisis of the Old Order",
+    "author": "Arthur M. Schlesinger Jr.",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Democracy & Elections",
+      "Money, Markets & Economic Policy"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "democracy/elections keyword",
+      "business/capitalism keyword",
+      "money/markets keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Democracy & Elections, Money, Markets & Economic Policy."
+  },
+  {
     "bookId": "book-the-end-of-loyalty-the-rise-and-fall-of-good-jobs-in-america-rick-wartzman",
     "title": "The End of Loyalty: The Rise and Fall of Good Jobs in America",
     "author": "Rick Wartzman",
@@ -9909,6 +10139,26 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-the-man-who-loved-only-numbers-paul-hoffman",
+    "title": "The Man Who Loved Only Numbers",
+    "author": "Paul Hoffman",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Cold War & Nuclear Politics",
+      "Labor, Work & Organizing"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "cold war/nuclear keyword",
+      "labor/work keyword",
+      "business/capitalism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Cold War & Nuclear Politics, Labor, Work & Organizing."
   },
   {
     "bookId": "book-the-men-who-lost-america-british-leadership-the-american-revolution-and-the-fate-of-the-empire-a",
@@ -9984,6 +10234,31 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Medicine, Health & the Body, Regional & Local History."
+  },
+  {
+    "bookId": "book-the-travels-of-a-t-shirt-in-the-global-economy-an-economist-examines-the-markets-power-and-polit",
+    "title": "The Travels of a T-Shirt in the Global Economy: An Economist Examines the Markets, Power and Politics of World Trade",
+    "author": "Pietra Rivoli",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Labor, Work & Organizing",
+      "Money, Markets & Economic Policy",
+      "Travel, Exploration & Place"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Asia/Pacific keyword",
+      "Africa/diaspora keyword",
+      "labor/work keyword",
+      "business/capitalism keyword",
+      "money/markets keyword",
+      "travel/place keyword",
+      "regional/local keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Labor, Work & Organizing, Money, Markets & Economic Policy, Travel, Exploration & Place."
   },
   {
     "bookId": "book-the-vanishing-middle-class-prejudice-and-power-in-a-dual-economy-peter-temin",
@@ -10381,31 +10656,10 @@
     "reviewReason": "Primary topic selected from multiple candidates: Civil Rights & Racial Justice, Crime, Policing & Violence, Human Rights & International Law."
   },
   {
-    "bookId": "book-from-jim-crow-to-civil-rights-the-supreme-court-and-the-struggle-for-racial-equality-michael-j-k",
-    "title": "From Jim Crow to Civil Rights: The Supreme Court and the Struggle for Racial Equality",
-    "author": "Michael J. Klarman",
-    "primarySubject": "American History",
-    "primaryTopic": "Civil Rights & Racial Justice",
-    "topics": [
-      "Civil Rights & Racial Justice",
-      "Courts & Trials",
-      "Law & Legal Change",
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "law/legal keyword",
-      "court/trial keyword",
-      "civil rights/racial justice keyword",
-      "subject fallback"
-    ],
-    "reviewReason": "Primary topic selected from multiple candidates: Civil Rights & Racial Justice, Courts & Trials, Law & Legal Change, Regional & Local History."
-  },
-  {
     "bookId": "book-his-name-is-george-floyd-one-man-s-life-and-the-struggle-for-racial-justice-toluse-olorunnipa-an",
     "title": "His Name Is George Floyd: One Man's Life and the Struggle for Racial Justice",
     "author": "Toluse Olorunnipa, Robert Samuels",
-    "primarySubject": "True Crime & Justice",
+    "primarySubject": "American History",
     "primaryTopic": "Civil Rights & Racial Justice",
     "topics": [
       "Civil Rights & Racial Justice"
@@ -10808,7 +11062,7 @@
     "bookId": "book-death-at-an-early-age-jonathan-kozol",
     "title": "Death at an Early Age",
     "author": "Jonathan Kozol",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Race & Ethnicity",
     "primaryTopic": "Class, Poverty & Inequality",
     "topics": [
       "Class, Poverty & Inequality",
@@ -10818,20 +11072,6 @@
     "confidence": "medium",
     "reasons": [
       "generated topic enrichment: embedding"
-    ]
-  },
-  {
-    "bookId": "book-eugene-v-debs-citizen-and-socialist-nick-salvatore",
-    "title": "Eugene V. Debs: Citizen and Socialist",
-    "author": "Nick Salvatore",
-    "primarySubject": "Society & Culture",
-    "primaryTopic": "Class, Poverty & Inequality",
-    "topics": [
-      "Class, Poverty & Inequality"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
     ]
   },
   {
@@ -11585,20 +11825,22 @@
     "bookId": "book-katrina-a-history-1915-2015-andy-horowitz",
     "title": "Katrina: A History, 1915-2015",
     "author": "Andy Horowitz",
-    "primarySubject": "History",
+    "primarySubject": "American History",
     "primaryTopic": "Climate, Weather & Disaster",
     "topics": [
       "Climate, Weather & Disaster",
       "Housing, Cities & Urban Life",
+      "Money, Markets & Economic Policy",
       "Regional & Local History"
     ],
     "confidence": "medium",
     "reasons": [
       "housing/cities keyword",
+      "money/markets keyword",
       "climate/weather/disaster keyword",
       "subject fallback"
     ],
-    "reviewReason": "Primary topic selected from multiple candidates: Climate, Weather & Disaster, Housing, Cities & Urban Life, Regional & Local History."
+    "reviewReason": "Primary topic selected from multiple candidates: Climate, Weather & Disaster, Housing, Cities & Urban Life, Money, Markets & Economic Policy, Regional & Local History."
   },
   {
     "bookId": "book-mapping-the-deep-robert-kunzig",
@@ -12289,6 +12531,29 @@
     "reviewReason": "Primary topic selected from multiple candidates: Cold War & Nuclear Politics, Europe & Russia, Regional & Local History."
   },
   {
+    "bookId": "book-the-house-of-government-a-saga-of-the-russian-revolution-yuri-slezkine",
+    "title": "The House of Government: A Saga of the Russian Revolution",
+    "author": "Yuri Slezkine",
+    "primarySubject": "American History",
+    "primaryTopic": "Cold War & Nuclear Politics",
+    "topics": [
+      "Cold War & Nuclear Politics",
+      "Religion & Religious Movements",
+      "War & Military Strategy",
+      "Europe & Russia"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "cold war/nuclear keyword",
+      "Europe/Russia keyword",
+      "religion keyword",
+      "family/childhood keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Cold War & Nuclear Politics, Religion & Religious Movements, War & Military Strategy, Europe & Russia."
+  },
+  {
     "bookId": "book-the-last-empire-the-final-days-of-the-soviet-union-serhii-plokhy",
     "title": "The Last Empire: The Final Days of the Soviet Union",
     "author": "Serhii Plokhy",
@@ -12345,25 +12610,6 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Cold War & Nuclear Politics, Europe & Russia, Empire & Colonialism."
-  },
-  {
-    "bookId": "book-the-united-states-and-the-origins-of-the-cold-war-john-lewis-gaddis",
-    "title": "The United States and the Origins of the Cold War",
-    "author": "John Lewis Gaddis",
-    "primarySubject": "American History",
-    "primaryTopic": "Cold War & Nuclear Politics",
-    "topics": [
-      "Cold War & Nuclear Politics",
-      "War & Military Strategy",
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "war/military keyword",
-      "cold war/nuclear keyword",
-      "subject fallback"
-    ],
-    "reviewReason": "Primary topic selected from multiple candidates: Cold War & Nuclear Politics, War & Military Strategy, Regional & Local History."
   },
   {
     "bookId": "book-the-war-of-nerves-inside-the-cold-war-mind-martin-sixsmith",
@@ -12723,18 +12969,20 @@
     "primaryTopic": "Constitutional History",
     "topics": [
       "Constitutional History",
+      "Labor, Work & Organizing",
       "Medicine, Health & the Body",
-      "Public Health Systems",
-      "Regional & Local History"
+      "Money, Markets & Economic Policy"
     ],
     "confidence": "medium",
     "reasons": [
       "constitutional keyword",
+      "labor/work keyword",
+      "money/markets keyword",
       "medicine/health keyword",
       "public health systems keyword",
       "subject fallback"
     ],
-    "reviewReason": "Primary topic selected from multiple candidates: Constitutional History, Medicine, Health & the Body, Public Health Systems, Regional & Local History."
+    "reviewReason": "Primary topic selected from multiple candidates: Constitutional History, Labor, Work & Organizing, Medicine, Health & the Body, Money, Markets & Economic Policy."
   },
   {
     "bookId": "book-the-bill-of-rights-its-origin-and-meaning-irving-brant",
@@ -12843,7 +13091,7 @@
     "bookId": "book-the-guns-of-august-barbara-w-tuchman",
     "title": "The Guns of August",
     "author": "Barbara W. Tuchman",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Constitutional History",
     "topics": [
       "Constitutional History",
@@ -12895,7 +13143,7 @@
     "bookId": "book-the-ordeal-of-thomas-hutchinson-bernard-bailyn",
     "title": "The Ordeal of Thomas Hutchinson",
     "author": "Bernard Bailyn",
-    "primarySubject": "History",
+    "primarySubject": "American History",
     "primaryTopic": "Constitutional History",
     "topics": [
       "Constitutional History"
@@ -13810,7 +14058,7 @@
     "bookId": "book-the-better-angels-of-our-nature-a-history-of-violence-and-humanity-steven-pinker",
     "title": "The Better Angels of our Nature: A History of Violence and Humanity",
     "author": "Steven Pinker",
-    "primarySubject": "Nature & Environment",
+    "primarySubject": "American History",
     "primaryTopic": "Crime, Policing & Violence",
     "topics": [
       "Crime, Policing & Violence"
@@ -14734,6 +14982,28 @@
     "reviewReason": "Primary topic selected from multiple candidates: Disease, Epidemics & Drugs, Drugs, Addiction & Treatment, Science & Discovery."
   },
   {
+    "bookId": "book-mockingbird-song-ecological-landscapes-of-the-south-jack-temple-kirby",
+    "title": "Mockingbird Song: Ecological Landscapes of the South",
+    "author": "Jack Temple Kirby",
+    "primarySubject": "American History",
+    "primaryTopic": "Disease, Epidemics & Drugs",
+    "topics": [
+      "Disease, Epidemics & Drugs",
+      "Natural History & Animals",
+      "Oceans, Rivers & Water",
+      "Literature & Writers"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "literature/writers keyword",
+      "disease/drugs keyword",
+      "natural history/animals keyword",
+      "water keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Disease, Epidemics & Drugs, Natural History & Animals, Oceans, Rivers & Water, Literature & Writers."
+  },
+  {
     "bookId": "book-plague-s-progress-arno-karlen",
     "title": "Plague's Progress",
     "author": "Arno Karlen",
@@ -14911,6 +15181,29 @@
     "reviewReason": "Primary topic selected from multiple candidates: Disease, Epidemics & Drugs, Drugs, Addiction & Treatment, Medicine, Health & the Body, Public Health Systems."
   },
   {
+    "bookId": "book-the-consumer-s-good-chemical-guide-john-emsley",
+    "title": "The Consumer’s Good Chemical Guide",
+    "author": "John Emsley",
+    "primarySubject": "Nature & Environment",
+    "primaryTopic": "Disease, Epidemics & Drugs",
+    "topics": [
+      "Disease, Epidemics & Drugs",
+      "Drugs, Addiction & Treatment",
+      "Natural History & Animals",
+      "Science & Discovery"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "science/discovery keyword",
+      "disease/drugs keyword",
+      "environment keyword",
+      "natural history/animals keyword",
+      "drugs/addiction keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Disease, Epidemics & Drugs, Drugs, Addiction & Treatment, Natural History & Animals, Science & Discovery."
+  },
+  {
     "bookId": "book-the-panic-virus-a-true-story-of-medicine-science-and-fear-seth-mnookin",
     "title": "The Panic Virus: A True Story of Medicine, Science, and Fear",
     "author": "Seth Mnookin",
@@ -15009,6 +15302,28 @@
     ]
   },
   {
+    "bookId": "book-the-united-states-and-the-origins-of-the-cold-war-john-lewis-gaddis",
+    "title": "The United States and the Origins of the Cold War",
+    "author": "John Lewis Gaddis",
+    "primarySubject": "American History",
+    "primaryTopic": "Drugs, Addiction & Treatment",
+    "topics": [
+      "Drugs, Addiction & Treatment",
+      "Cold War & Nuclear Politics",
+      "Housing, Cities & Urban Life",
+      "War & Military Strategy"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "cold war/nuclear keyword",
+      "housing/cities keyword",
+      "drugs/addiction keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Drugs, Addiction & Treatment, Cold War & Nuclear Politics, Housing, Cities & Urban Life, War & Military Strategy."
+  },
+  {
     "bookId": "book-computer-applications-in-engineering-education-magdy-f-iskander",
     "title": "Computer Applications in Engineering Education",
     "author": "Magdy F. Iskander",
@@ -15045,6 +15360,26 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-infinite-powers-steven-strogatz",
+    "title": "Infinite Powers",
+    "author": "Steven Strogatz",
+    "primarySubject": "Nature & Environment",
+    "primaryTopic": "Education & Universities",
+    "topics": [
+      "Education & Universities",
+      "Environment, Conservation & Pollution",
+      "Film, Television & Popular Culture"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "film/television/pop culture keyword",
+      "environment keyword",
+      "education keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Education & Universities, Environment, Conservation & Pollution, Film, Television & Popular Culture."
   },
   {
     "bookId": "book-a-public-empire-property-and-the-quest-for-the-common-good-in-imperial-russia-ekaterina-pravilov",
@@ -15416,6 +15751,26 @@
     ]
   },
   {
+    "bookId": "book-iron-kingdom-the-rise-and-downfall-of-prussia-1600-1947-christopher-clark",
+    "title": "Iron Kingdom: The Rise and Downfall of Prussia 1600-1947",
+    "author": "Christopher Clark",
+    "primarySubject": "Religion",
+    "primaryTopic": "Empire & Colonialism",
+    "topics": [
+      "Empire & Colonialism",
+      "Religion & Religious Movements",
+      "War & Military Strategy"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "empire/colonial keyword",
+      "religion keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Empire & Colonialism, Religion & Religious Movements, War & Military Strategy."
+  },
+  {
     "bookId": "book-martial-the-world-of-the-epigram-william-fitzgerald",
     "title": "Martial: The World of the Epigram",
     "author": "William Fitzgerald",
@@ -15428,6 +15783,28 @@
     "reasons": [
       "subject fallback"
     ]
+  },
+  {
+    "bookId": "book-national-service-conscription-in-britain-1945-1963-richard-vinen",
+    "title": "National Service: Conscription in Britain, 1945-1963",
+    "author": "Richard Vinen",
+    "primarySubject": "Nature & Environment",
+    "primaryTopic": "Empire & Colonialism",
+    "topics": [
+      "Empire & Colonialism",
+      "Environment, Conservation & Pollution",
+      "Soldiers, Veterans & Combat Experience",
+      "War & Military Strategy"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "combat/veteran keyword",
+      "empire/colonial keyword",
+      "environment keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Empire & Colonialism, Environment, Conservation & Pollution, Soldiers, Veterans & Combat Experience, War & Military Strategy."
   },
   {
     "bookId": "book-papyrus-the-invention-of-books-in-the-ancient-world-irene-vallejo",
@@ -15540,6 +15917,25 @@
     "reasons": [
       "subject fallback"
     ]
+  },
+  {
+    "bookId": "book-the-americans-the-colonial-experience-daniel-j-boorstin",
+    "title": "The Americans: The Colonial Experience",
+    "author": "Daniel J. Boorstin",
+    "primarySubject": "American History",
+    "primaryTopic": "Empire & Colonialism",
+    "topics": [
+      "Empire & Colonialism",
+      "Food, Agriculture & Land",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "empire/colonial keyword",
+      "food/agriculture/land keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Empire & Colonialism, Food, Agriculture & Land, Regional & Local History."
   },
   {
     "bookId": "book-the-atlantic-economy-and-colonial-maryland-s-eastern-shore-from-tobacco-to-grain-paul-clemens",
@@ -15662,20 +16058,6 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Empire & Colonialism, Migration & Diaspora, Human Rights & International Law, American Politics."
-  },
-  {
-    "bookId": "book-the-minutemen-and-their-world-robert-a-gross",
-    "title": "The Minutemen and Their World",
-    "author": "Robert A. Gross",
-    "primarySubject": "World History",
-    "primaryTopic": "Empire & Colonialism",
-    "topics": [
-      "Empire & Colonialism"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
   },
   {
     "bookId": "book-the-prince-of-medicine-galen-in-the-roman-empire-susan-p-mattern",
@@ -18471,7 +18853,7 @@
     "bookId": "book-sons-of-mississippi-paul-hendrickson",
     "title": "Sons of Mississippi",
     "author": "Paul Hendrickson",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Race & Ethnicity",
     "primaryTopic": "Family Biography",
     "topics": [
       "Family Biography"
@@ -19053,6 +19435,26 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Food, Agriculture & Land, Religion & Religious Movements, Regional & Local History."
+  },
+  {
+    "bookId": "book-devil-land-england-under-siege-1588-1688-clare-jackson",
+    "title": "Devil-Land: England Under Siege, 1588-1688",
+    "author": "Clare Jackson",
+    "primarySubject": "Religion",
+    "primaryTopic": "Food, Agriculture & Land",
+    "topics": [
+      "Food, Agriculture & Land",
+      "Religion & Religious Movements",
+      "Europe & Russia"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Europe/Russia keyword",
+      "religion keyword",
+      "food/agriculture/land keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Food, Agriculture & Land, Religion & Religious Movements, Europe & Russia."
   },
   {
     "bookId": "book-fasting-and-feasting-the-life-of-visionary-food-writer-patience-gray-adam-federman",
@@ -20707,7 +21109,7 @@
     "bookId": "book-the-city-in-history-its-origins-its-transformations-and-its-prospects-lewis-mumford",
     "title": "The City in History: Its Origins, its Transformations and its Prospects",
     "author": "Lewis Mumford",
-    "primarySubject": "Society & Culture",
+    "primarySubject": "Nature & Environment",
     "primaryTopic": "Housing, Cities & Urban Life",
     "topics": [
       "Housing, Cities & Urban Life",
@@ -20868,17 +21270,18 @@
       "Immigration, Refugees & Borderlands",
       "Travel, Exploration & Place",
       "War & Military Strategy",
-      "Law & Legal Change"
+      "Africa & the African Diaspora"
     ],
     "confidence": "medium",
     "reasons": [
       "law/legal keyword",
       "war/military keyword",
       "immigration/border keyword",
+      "Africa/diaspora keyword",
       "travel/place keyword",
       "subject fallback"
     ],
-    "reviewReason": "Primary topic selected from multiple candidates: Immigration, Refugees & Borderlands, Travel, Exploration & Place, War & Military Strategy, Law & Legal Change."
+    "reviewReason": "Primary topic selected from multiple candidates: Immigration, Refugees & Borderlands, Travel, Exploration & Place, War & Military Strategy, Africa & the African Diaspora."
   },
   {
     "bookId": "book-cast-away-true-stories-of-survival-from-europe-s-refugee-crisis-charlotte-mcdonald-gibson",
@@ -20919,6 +21322,29 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Immigration, Refugees & Borderlands, Housing, Cities & Urban Life, Civil Rights & Racial Justice."
+  },
+  {
+    "bookId": "book-entangled-life-merlin-sheldrake",
+    "title": "Entangled Life",
+    "author": "Merlin Sheldrake",
+    "primarySubject": "Medicine & Public Health",
+    "primaryTopic": "Immigration, Refugees & Borderlands",
+    "topics": [
+      "Immigration, Refugees & Borderlands",
+      "Energy, Extraction & Resources",
+      "Medicine, Health & the Body",
+      "Public Health Systems"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "immigration/border keyword",
+      "medicine/health keyword",
+      "energy/extraction keyword",
+      "travel/place keyword",
+      "public health systems keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Immigration, Refugees & Borderlands, Energy, Extraction & Resources, Medicine, Health & the Body, Public Health Systems."
   },
   {
     "bookId": "book-exit-wounds-how-america-s-guns-fuel-violence-across-the-border-ieva-jusionyte",
@@ -21094,6 +21520,33 @@
     ]
   },
   {
+    "bookId": "book-the-great-arizona-orphan-abduction-linda-gordon",
+    "title": "The Great Arizona Orphan Abduction",
+    "author": "Linda Gordon",
+    "primarySubject": "American History",
+    "primaryTopic": "Immigration, Refugees & Borderlands",
+    "topics": [
+      "Immigration, Refugees & Borderlands",
+      "Courts & Trials",
+      "Energy, Extraction & Resources",
+      "Housing, Cities & Urban Life"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "court/trial keyword",
+      "immigration/border keyword",
+      "Latin America/Caribbean keyword",
+      "religion keyword",
+      "family/childhood keyword",
+      "housing/cities keyword",
+      "energy/extraction keyword",
+      "travel/place keyword",
+      "regional/local keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Immigration, Refugees & Borderlands, Courts & Trials, Energy, Extraction & Resources, Housing, Cities & Urban Life."
+  },
+  {
     "bookId": "book-voyagers-to-the-west-a-passage-in-the-peopling-of-america-on-the-eve-of-the-revolution-bernard-b",
     "title": "Voyagers to the West: A Passage in the Peopling of America on the Eve of the Revolution",
     "author": "Bernard Bailyn",
@@ -21190,6 +21643,28 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-god-s-red-son-the-ghost-dance-religion-and-the-making-of-modern-america-louis-s-warren",
+    "title": "God's Red Son: The Ghost Dance Religion and the Making of Modern America",
+    "author": "Louis S. Warren",
+    "primarySubject": "American History",
+    "primaryTopic": "Indigenous History",
+    "topics": [
+      "Indigenous History",
+      "Food, Agriculture & Land",
+      "Religion & Religious Movements",
+      "Family, Childhood & Adoption"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Indigenous history keyword",
+      "religion keyword",
+      "family/childhood keyword",
+      "food/agriculture/land keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Indigenous History, Food, Agriculture & Land, Religion & Religious Movements, Family, Childhood & Adoption."
   },
   {
     "bookId": "book-how-progress-ends-technology-innovation-and-the-fate-of-nations-carl-benedikt-frey",
@@ -21406,6 +21881,28 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Indigenous History, Reconstruction, Regional & Local History."
+  },
+  {
+    "bookId": "book-the-saltwater-frontier-indians-and-the-contest-for-the-american-coast-andrew-lipman",
+    "title": "The Saltwater Frontier: Indians and the Contest for the American Coast",
+    "author": "Andrew Lipman",
+    "primarySubject": "American History",
+    "primaryTopic": "Indigenous History",
+    "topics": [
+      "Indigenous History",
+      "Oceans, Rivers & Water",
+      "Food, Agriculture & Land",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Indigenous history keyword",
+      "food/agriculture/land keyword",
+      "water keyword",
+      "regional/local keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Indigenous History, Oceans, Rivers & Water, Food, Agriculture & Land, Regional & Local History."
   },
   {
     "bookId": "book-the-world-and-all-the-things-upon-it-native-hawaiian-geographies-of-exploration-david-chang",
@@ -21625,7 +22122,7 @@
     "bookId": "book-anarchy-state-and-utopia-robert-nozick",
     "title": "Anarchy, State, and Utopia",
     "author": "Robert Nozick",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "American History",
     "primaryTopic": "Intellectual Biography",
     "topics": [
       "Intellectual Biography",
@@ -23832,7 +24329,7 @@
     "bookId": "book-the-third-reich-a-new-history-michael-burleigh",
     "title": "The Third Reich: A New History",
     "author": "Michael Burleigh",
-    "primarySubject": "History",
+    "primarySubject": "War & Military",
     "primaryTopic": "Intellectual Biography",
     "topics": [
       "Intellectual Biography",
@@ -24241,7 +24738,7 @@
     "bookId": "book-the-end-of-history-and-the-last-man-francis-fukuyama",
     "title": "The End of History and the Last Man",
     "author": "Francis Fukuyama",
-    "primarySubject": "History",
+    "primarySubject": "Politics & Government",
     "primaryTopic": "Intellectual History & Ideas",
     "topics": [
       "Intellectual History & Ideas",
@@ -24321,7 +24818,7 @@
     "bookId": "book-thinking-fast-and-slow-daniel-kahneman",
     "title": "Thinking, Fast and Slow",
     "author": "Daniel Kahneman",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Intellectual History & Ideas",
     "topics": [
       "Intellectual History & Ideas",
@@ -24380,6 +24877,25 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-giordano-bruno-and-the-embassy-affair-john-bossy",
+    "title": "Giordano Bruno and the Embassy Affair",
+    "author": "John Bossy",
+    "primarySubject": "History",
+    "primaryTopic": "Intelligence, Secrecy & Surveillance",
+    "topics": [
+      "Intelligence, Secrecy & Surveillance",
+      "Europe & Russia",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "intelligence/secrecy keyword",
+      "Europe/Russia keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Intelligence, Secrecy & Surveillance, Europe & Russia, Regional & Local History."
   },
   {
     "bookId": "book-legacy-of-ashes-the-history-of-the-cia-tim-weiner",
@@ -24444,6 +24960,25 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-birth-control-in-america-the-career-of-margaret-sanger-david-m-kennedy",
+    "title": "Birth Control in America: The Career of Margaret Sanger",
+    "author": "David M. Kennedy",
+    "primarySubject": "American History",
+    "primaryTopic": "Labor, Work & Organizing",
+    "topics": [
+      "Labor, Work & Organizing",
+      "Social Movements & Activism",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "social movements keyword",
+      "labor/work keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Labor, Work & Organizing, Social Movements & Activism, Regional & Local History."
   },
   {
     "bookId": "book-brotherhood-of-the-bomb-the-tangled-lives-and-loyalties-of-robert-oppenheimer-ernest-lawrence-an",
@@ -24732,6 +25267,29 @@
     "reviewReason": "Primary topic selected from multiple candidates: LGBTQ History & Life, Class, Poverty & Inequality, Gender & Feminism."
   },
   {
+    "bookId": "book-age-of-fracture-daniel-t-rodgers",
+    "title": "Age of Fracture",
+    "author": "Daniel T. Rodgers",
+    "primarySubject": "Gender & Sexuality",
+    "primaryTopic": "LGBTQ History & Life",
+    "topics": [
+      "LGBTQ History & Life",
+      "Death, Memory & Commemoration",
+      "Gender & Feminism",
+      "Money, Markets & Economic Policy"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "gender/feminism keyword",
+      "LGBTQ keyword",
+      "intellectual history keyword",
+      "money/markets keyword",
+      "death/memory keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: LGBTQ History & Life, Death, Memory & Commemoration, Gender & Feminism, Money, Markets & Economic Policy."
+  },
+  {
     "bookId": "book-becoming-mexican-american-ethnicity-culture-and-identity-in-chicano-los-angeles-1900-1945-george",
     "title": "Becoming Mexican American: Ethnicity, Culture and Identity in Chicano Los Angeles, 1900-1945",
     "author": "George Sanchez",
@@ -24746,6 +25304,28 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-britons-forging-the-nation-1707-1837-linda-colley",
+    "title": "Britons: Forging the Nation 1707 - 1837",
+    "author": "Linda Colley",
+    "primarySubject": "Gender & Sexuality",
+    "primaryTopic": "LGBTQ History & Life",
+    "topics": [
+      "LGBTQ History & Life",
+      "Empire & Colonialism",
+      "Gender & Feminism",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "empire/colonial keyword",
+      "gender/feminism keyword",
+      "LGBTQ keyword",
+      "regional/local keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: LGBTQ History & Life, Empire & Colonialism, Gender & Feminism, Regional & Local History."
   },
   {
     "bookId": "book-culture-wars-the-struggle-to-define-america-james-davison-hunter",
@@ -24801,6 +25381,28 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: LGBTQ History & Life, Black History & Culture, American Politics."
+  },
+  {
+    "bookId": "book-roaring-camp-the-social-world-of-the-california-gold-rush-susan-lee-johnson",
+    "title": "Roaring Camp: The Social World of the California Gold Rush",
+    "author": "Susan Lee Johnson",
+    "primarySubject": "Gender & Sexuality",
+    "primaryTopic": "LGBTQ History & Life",
+    "topics": [
+      "LGBTQ History & Life",
+      "Gender & Feminism",
+      "Latin America & the Caribbean",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Latin America/Caribbean keyword",
+      "gender/feminism keyword",
+      "LGBTQ keyword",
+      "regional/local keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: LGBTQ History & Life, Gender & Feminism, Latin America & the Caribbean, Regional & Local History."
   },
   {
     "bookId": "book-the-cultivation-of-hatred-the-bourgeois-experience-victoria-to-freud-peter-gay",
@@ -25022,7 +25624,7 @@
     "bookId": "book-baldwin-a-love-story-nicholas-boggs",
     "title": "Baldwin: A Love Story",
     "author": "Nicholas Boggs",
-    "primarySubject": "Biography",
+    "primarySubject": "American History",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography",
@@ -25158,7 +25760,7 @@
     "bookId": "book-book-of-ages-the-life-and-opinions-of-jane-franklin-jill-lepore",
     "title": "Book of Ages: The Life and Opinions of Jane Franklin",
     "author": "Jill Lepore",
-    "primarySubject": "Biography",
+    "primarySubject": "American History",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography",
@@ -25511,7 +26113,7 @@
     "bookId": "book-deeper-into-movies-pauline-kael",
     "title": "Deeper into Movies",
     "author": "Pauline Kael",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "American History",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography",
@@ -26028,7 +26630,7 @@
     "bookId": "book-holding-on-upside-down-the-life-and-work-of-marianne-moore-linda-leavell",
     "title": "Holding On Upside Down: The Life and Work of Marianne Moore",
     "author": "Linda Leavell",
-    "primarySubject": "Business & Economics",
+    "primarySubject": "American History",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography",
@@ -27220,7 +27822,7 @@
     "bookId": "book-solzhenitsyn-a-biography-michael-scammell",
     "title": "Solzhenitsyn: A Biography",
     "author": "Michael Scammell",
-    "primarySubject": "Biography",
+    "primarySubject": "Arts & Criticism",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography"
@@ -29385,7 +29987,7 @@
     "bookId": "book-opera-in-america-a-cultural-history-john-dizikes",
     "title": "Opera in America: A Cultural History",
     "author": "John Dizikes",
-    "primarySubject": "Arts & Criticism",
+    "primarySubject": "American History",
     "primaryTopic": "Literature & Writers",
     "topics": [
       "Literature & Writers",
@@ -29873,7 +30475,7 @@
     "bookId": "book-the-blind-watchmaker-richard-dawkins",
     "title": "The Blind Watchmaker",
     "author": "Richard Dawkins",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Science",
     "primaryTopic": "Literature & Writers",
     "topics": [
       "Literature & Writers",
@@ -30685,7 +31287,7 @@
     "bookId": "book-zeitoun-dave-eggers",
     "title": "Zeitoun",
     "author": "Dave Eggers",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Literature & Writers",
     "topics": [
       "Literature & Writers",
@@ -31170,7 +31772,7 @@
     "bookId": "book-becoming-a-man-half-a-life-story-paul-monette",
     "title": "Becoming a Man: Half a Life Story",
     "author": "Paul Monette",
-    "primarySubject": "Biography",
+    "primarySubject": "Arts & Criticism",
     "primaryTopic": "Memoir & Personal History",
     "topics": [
       "Memoir & Personal History",
@@ -31185,7 +31787,7 @@
     "bookId": "book-belonging-a-german-reckons-with-history-and-home-nora-krug",
     "title": "Belonging: A German Reckons With History and Home",
     "author": "Nora Krug",
-    "primarySubject": "Memoir & Autobiography",
+    "primarySubject": "Arts & Criticism",
     "primaryTopic": "Memoir & Personal History",
     "topics": [
       "Memoir & Personal History",
@@ -31667,7 +32269,7 @@
     "bookId": "book-into-thin-air-a-personal-account-of-the-mount-everest-disaster-jon-krakauer",
     "title": "Into Thin Air: A Personal Account of the Mount Everest Disaster",
     "author": "Jon Krakauer",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Travel & Place",
     "primaryTopic": "Memoir & Personal History",
     "topics": [
       "Memoir & Personal History",
@@ -31945,7 +32547,7 @@
     "bookId": "book-passage-to-ararat-michael-j-arlen",
     "title": "Passage to Ararat",
     "author": "Michael J. Arlen",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Memoir & Autobiography",
     "primaryTopic": "Memoir & Personal History",
     "topics": [
       "Memoir & Personal History",
@@ -35134,6 +35736,28 @@
     "reviewReason": "Primary topic selected from multiple candidates: Oceans, Rivers & Water, Death, Memory & Commemoration, War & Military Strategy."
   },
   {
+    "bookId": "book-the-wavewatcher-s-companion-gavin-pretor-pinney",
+    "title": "The Wavewatcher's Companion",
+    "author": "Gavin Pretor-Pinney",
+    "primarySubject": "Nature & Environment",
+    "primaryTopic": "Oceans, Rivers & Water",
+    "topics": [
+      "Oceans, Rivers & Water",
+      "Environment, Conservation & Pollution",
+      "Food, Agriculture & Land",
+      "Social Movements & Activism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "social movements keyword",
+      "food/agriculture/land keyword",
+      "environment keyword",
+      "water keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Oceans, Rivers & Water, Environment, Conservation & Pollution, Food, Agriculture & Land, Social Movements & Activism."
+  },
+  {
     "bookId": "book-venice-from-the-water-architecture-and-myth-in-an-early-modern-city-daniel-savoy",
     "title": "Venice from the Water: Architecture and Myth in an Early Modern City",
     "author": "Daniel Savoy",
@@ -36627,7 +37251,7 @@
     "bookId": "book-secrets-of-the-temple-how-the-federal-reserve-runs-the-country-william-greider",
     "title": "Secrets of the Temple: How the Federal Reserve Runs the Country",
     "author": "William Greider",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Presidential Biography",
     "topics": [
       "Presidential Biography",
@@ -37554,6 +38178,27 @@
     "reviewReason": "Primary topic selected from multiple candidates: Reconstruction, Europe & Russia, Regional & Local History."
   },
   {
+    "bookId": "book-the-minutemen-and-their-world-robert-a-gross",
+    "title": "The Minutemen and Their World",
+    "author": "Robert A. Gross",
+    "primarySubject": "American History",
+    "primaryTopic": "Reconstruction",
+    "topics": [
+      "Reconstruction",
+      "Social Movements & Activism",
+      "Travel, Exploration & Place",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Reconstruction keyword",
+      "social movements keyword",
+      "travel/place keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Reconstruction, Social Movements & Activism, Travel, Exploration & Place, Regional & Local History."
+  },
+  {
     "bookId": "book-the-transformation-of-virginia-1740-1790-rhys-l-isaac",
     "title": "The Transformation of Virginia, 1740–1790",
     "author": "Rhys L. Isaac",
@@ -37584,6 +38229,28 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-thomas-cranmer-a-life-diarmaid-macculloch",
+    "title": "Thomas Cranmer: A Life",
+    "author": "Diarmaid MacCulloch",
+    "primarySubject": "American History",
+    "primaryTopic": "Reconstruction",
+    "topics": [
+      "Reconstruction",
+      "Courts & Trials",
+      "Religion & Religious Movements",
+      "Family, Childhood & Adoption"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "court/trial keyword",
+      "Reconstruction keyword",
+      "religion keyword",
+      "family/childhood keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Reconstruction, Courts & Trials, Religion & Religious Movements, Family, Childhood & Adoption."
   },
   {
     "bookId": "book-wilmington-s-lie-the-murderous-coup-of-1898-and-the-rise-of-white-supremacy-david-zucchino",
@@ -37745,20 +38412,6 @@
     "bookId": "book-africonomics-a-history-of-western-ignorance-bronwen-everill",
     "title": "Africonomics: A History of Western Ignorance",
     "author": "Bronwen Everill",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-age-of-fracture-daniel-t-rodgers",
-    "title": "Age of Fracture",
-    "author": "Daniel T. Rodgers",
     "primarySubject": "History",
     "primaryTopic": "Regional & Local History",
     "topics": [
@@ -37952,20 +38605,6 @@
     ]
   },
   {
-    "bookId": "book-an-intimate-history-of-killing-face-to-face-killing-in-twentieth-century-warfare-joanna-bourke",
-    "title": "An Intimate History of Killing: Face-To-Face Killing In Twentieth-Century Warfare",
-    "author": "Joanna Bourke",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-ancient-pathways-ancestral-knowledge-nancy-j-turner",
     "title": "Ancient Pathways, Ancestral Knowledge",
     "author": "Nancy J. Turner",
@@ -38148,20 +38787,6 @@
     ]
   },
   {
-    "bookId": "book-birth-control-in-america-the-career-of-margaret-sanger-david-m-kennedy",
-    "title": "Birth Control in America: The Career of Margaret Sanger",
-    "author": "David M. Kennedy",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-blood-libel-on-the-trail-of-an-antisemitic-myth-magda-teter",
     "title": "Blood Libel: On the Trail of an Antisemitic Myth",
     "author": "Magda Teter",
@@ -38194,20 +38819,6 @@
     "title": "British Enterprise in Nigeria",
     "author": "Arthur Cook",
     "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-britons-forging-the-nation-1707-1837-linda-colley",
-    "title": "Britons: Forging the Nation 1707 - 1837",
-    "author": "Linda Colley",
-    "primarySubject": "History",
     "primaryTopic": "Regional & Local History",
     "topics": [
       "Regional & Local History"
@@ -38512,20 +39123,6 @@
     ]
   },
   {
-    "bookId": "book-dance-in-the-renaissance-european-fashion-french-obsession-margaret-mcgowan",
-    "title": "Dance in the Renaissance: European Fashion, French Obsession",
-    "author": "Margaret McGowan",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-deadly-spin-an-insurance-company-insider-speaks-out-on-how-corporate-pr-is-killing-healthcare-an",
     "title": "Deadly Spin: An Insurance Company Insider Speaks Out on How Corporate PR is Killing Healthcare and Deceiving Americans",
     "author": "Wendell Potter",
@@ -38642,6 +39239,20 @@
     "title": "Ending Epidemics: A History of Escape from Contagion",
     "author": "Richard Conniff",
     "primarySubject": "History",
+    "primaryTopic": "Regional & Local History",
+    "topics": [
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "subject fallback"
+    ]
+  },
+  {
+    "bookId": "book-eugene-v-debs-citizen-and-socialist-nick-salvatore",
+    "title": "Eugene V. Debs: Citizen and Socialist",
+    "author": "Nick Salvatore",
+    "primarySubject": "American History",
     "primaryTopic": "Regional & Local History",
     "topics": [
       "Regional & Local History"
@@ -38904,20 +39515,6 @@
     ]
   },
   {
-    "bookId": "book-giordano-bruno-and-the-embassy-affair-john-bossy",
-    "title": "Giordano Bruno and the Embassy Affair",
-    "author": "John Bossy",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-gladstone-1875-1898-hcg-matthew",
     "title": "Gladstone, 1875-1898",
     "author": "HCG Matthew",
@@ -38977,20 +39574,6 @@
     "bookId": "book-henry-adams-elizabeth-stevenson",
     "title": "Henry Adams",
     "author": "Elizabeth Stevenson",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-henry-adams-the-middle-years-ernest-samuels",
-    "title": "Henry Adams: The Middle Years",
-    "author": "Ernest Samuels",
     "primarySubject": "History",
     "primaryTopic": "Regional & Local History",
     "topics": [
@@ -39268,20 +39851,6 @@
     ]
   },
   {
-    "bookId": "book-iron-kingdom-the-rise-and-downfall-of-prussia-1600-1947-christopher-clark",
-    "title": "Iron Kingdom: The Rise and Downfall of Prussia 1600-1947",
-    "author": "Christopher Clark",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-italy-at-the-paris-peace-conference-rene-albrecht-carrie",
     "title": "Italy at the Paris Peace Conference",
     "author": "Rene Albrecht-Carrie",
@@ -39506,20 +40075,6 @@
     ]
   },
   {
-    "bookId": "book-marianne-in-chains-in-search-of-the-german-occupation-1940-1945-robert-gildea",
-    "title": "Marianne in Chains: In search of the German Occupation 1940-1945",
-    "author": "Robert Gildea",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-maya-calendar-origins-monuments-mythistory-and-the-materialization-of-time-prudence-m-rice",
     "title": "Maya Calendar Origins: Monuments, Mythistory, and the Materialization of Time",
     "author": "Prudence M. Rice",
@@ -39594,20 +40149,6 @@
     "title": "Mussolini’s Enemies: The Italian Anti-Fascist Resistance",
     "author": "Charles Delzell",
     "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-national-service-conscription-in-britain-1945-1963-richard-vinen",
-    "title": "National Service: Conscription in Britain, 1945-1963",
-    "author": "Richard Vinen",
-    "primarySubject": "History",
     "primaryTopic": "Regional & Local History",
     "topics": [
       "Regional & Local History"
@@ -40070,20 +40611,6 @@
     "title": "Robert Morris, Revolutionary Financier",
     "author": "Clarence Ver Steeg",
     "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-roll-jordan-roll-eugene-genovese",
-    "title": "Roll, Jordan, Roll",
-    "author": "Eugene Genovese",
-    "primarySubject": "History",
     "primaryTopic": "Regional & Local History",
     "topics": [
       "Regional & Local History"
@@ -40696,20 +41223,6 @@
     ]
   },
   {
-    "bookId": "book-the-crisis-of-the-old-order-arthur-m-schlesinger-jr",
-    "title": "The Crisis of the Old Order",
-    "author": "Arthur M. Schlesinger Jr.",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-critics-bear-it-away-american-fiction-and-the-academy-frederick-crews",
     "title": "The Critics Bear It Away: American Fiction and the Academy",
     "author": "Frederick Crews",
@@ -40839,7 +41352,7 @@
     "bookId": "book-the-generation-of-1914-robert-wohl",
     "title": "The Generation of 1914",
     "author": "Robert Wohl",
-    "primarySubject": "History",
+    "primarySubject": "Society & Culture",
     "primaryTopic": "Regional & Local History",
     "topics": [
       "Regional & Local History"
@@ -40906,37 +41419,9 @@
     ]
   },
   {
-    "bookId": "book-the-great-arizona-orphan-abduction-linda-gordon",
-    "title": "The Great Arizona Orphan Abduction",
-    "author": "Linda Gordon",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-hillary-doctrine-sex-and-american-foreign-policy-valerie-m-hudson-and-patricia-leidl",
     "title": "The Hillary Doctrine: Sex and American Foreign Policy",
     "author": "Valerie M. Hudson, Patricia Leidl",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-the-house-of-government-a-saga-of-the-russian-revolution-yuri-slezkine",
-    "title": "The House of Government: A Saga of the Russian Revolution",
-    "author": "Yuri Slezkine",
     "primarySubject": "American History",
     "primaryTopic": "Regional & Local History",
     "topics": [
@@ -40993,20 +41478,6 @@
     "bookId": "book-the-known-citizen-a-history-of-privacy-in-modern-america-sarah-e-igo",
     "title": "The Known Citizen: A History of Privacy in Modern America",
     "author": "Sarah E. Igo",
-    "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-the-liberator-william-lloyd-garrison-john-l-thomas",
-    "title": "The Liberator: William Lloyd Garrison",
-    "author": "John L. Thomas",
     "primarySubject": "History",
     "primaryTopic": "Regional & Local History",
     "topics": [
@@ -41232,6 +41703,20 @@
     "title": "The Pantheon: From Antiquity to the Present",
     "author": "Tod A. Marder, Mark Wilson Jones",
     "primarySubject": "History",
+    "primaryTopic": "Regional & Local History",
+    "topics": [
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "subject fallback"
+    ]
+  },
+  {
+    "bookId": "book-the-particle-at-the-end-of-the-universe-sean-carroll",
+    "title": "The Particle at the End of the Universe",
+    "author": "Sean Carroll",
+    "primarySubject": "American History",
     "primaryTopic": "Regional & Local History",
     "topics": [
       "Regional & Local History"
@@ -42210,7 +42695,7 @@
     "bookId": "book-god-a-biography-jack-miles",
     "title": "God: A Biography",
     "author": "Jack Miles",
-    "primarySubject": "Religion",
+    "primarySubject": "Arts & Criticism",
     "primaryTopic": "Religious Biography",
     "topics": [
       "Religious Biography"
@@ -42954,7 +43439,7 @@
     "bookId": "book-lonely-hearts-of-the-cosmos-the-story-of-the-scientific-quest-for-the-secret-of-the-universe-den",
     "title": "Lonely Hearts of the Cosmos: The Story of the Scientific Quest for the Secret of the Universe",
     "author": "Dennis Overbye",
-    "primarySubject": "Science",
+    "primarySubject": "Nature & Environment",
     "primaryTopic": "Science & Discovery",
     "topics": [
       "Science & Discovery"
@@ -43233,6 +43718,26 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-religion-and-the-decline-of-magic-studies-in-popular-beliefs-in-sixteenth-and-seventeenth-centur",
+    "title": "Religion and the Decline of Magic: Studies in Popular Beliefs in Sixteenth and Seventeenth-Century England",
+    "author": "Keith Thomas",
+    "primarySubject": "Religion",
+    "primaryTopic": "Science & Discovery",
+    "topics": [
+      "Science & Discovery",
+      "Religion & Religious Movements",
+      "Intellectual History & Ideas"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "religion keyword",
+      "intellectual history keyword",
+      "science/discovery keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Science & Discovery, Religion & Religious Movements, Intellectual History & Ideas."
   },
   {
     "bookId": "book-russia-leaves-the-war-soviet-american-relations-1917-1920-george-f-kennan",
@@ -45240,26 +45745,6 @@
     ]
   },
   {
-    "bookId": "book-dwelling-place-a-plantation-epic-erskine-clarke",
-    "title": "Dwelling Place: A Plantation Epic",
-    "author": "Erskine Clarke",
-    "primarySubject": "Travel & Place",
-    "primaryTopic": "Slavery & Emancipation",
-    "topics": [
-      "Slavery & Emancipation",
-      "Food, Agriculture & Land",
-      "Travel, Exploration & Place"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "slavery/emancipation keyword",
-      "food/agriculture/land keyword",
-      "travel/place keyword",
-      "subject fallback"
-    ],
-    "reviewReason": "Primary topic selected from multiple candidates: Slavery & Emancipation, Food, Agriculture & Land, Travel, Exploration & Place."
-  },
-  {
     "bookId": "book-encounters-at-the-heart-of-the-world-a-history-of-the-mandan-people-hill-and-wang-greg-grandin-t",
     "title": "Encounters at the Heart of the World: A History of the Mandan People (Hill & Wang) Greg Grandin , The Empire of Necessity: Slavery, Freedom, and Deception in the New World",
     "author": "Elizabeth Fenn",
@@ -45403,6 +45888,29 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Slavery & Emancipation, Gender & Feminism, Regional & Local History."
+  },
+  {
+    "bookId": "book-roll-jordan-roll-eugene-genovese",
+    "title": "Roll, Jordan, Roll",
+    "author": "Eugene Genovese",
+    "primarySubject": "American History",
+    "primaryTopic": "Slavery & Emancipation",
+    "topics": [
+      "Slavery & Emancipation",
+      "Art, Music & Performance",
+      "Food, Agriculture & Land",
+      "Labor, Work & Organizing"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "slavery/emancipation keyword",
+      "religion keyword",
+      "art/music/performance keyword",
+      "labor/work keyword",
+      "food/agriculture/land keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Slavery & Emancipation, Art, Music & Performance, Food, Agriculture & Land, Labor, Work & Organizing."
   },
   {
     "bookId": "book-rough-crossings-britain-the-slaves-and-the-american-revolution-simon-schama",
@@ -45669,6 +46177,28 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-thomas-wyatt-the-heart-s-forest-susan-brigden",
+    "title": "Thomas Wyatt: The Heart's Forest",
+    "author": "Susan Brigden",
+    "primarySubject": "Arts & Criticism",
+    "primaryTopic": "Slavery & Emancipation",
+    "topics": [
+      "Slavery & Emancipation",
+      "Courts & Trials",
+      "Death, Memory & Commemoration",
+      "Essays & Cultural Criticism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "court/trial keyword",
+      "slavery/emancipation keyword",
+      "death/memory keyword",
+      "essays/cultural criticism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Slavery & Emancipation, Courts & Trials, Death, Memory & Commemoration, Essays & Cultural Criticism."
   },
   {
     "bookId": "book-unfree-labor-american-slavery-and-russian-serfdom-peter-kolchin",
@@ -45963,7 +46493,7 @@
     "bookId": "book-barbarian-days-a-surfing-life-william-finnegan",
     "title": "Barbarian Days: A Surfing Life",
     "author": "William Finnegan",
-    "primarySubject": "Biography",
+    "primarySubject": "Sports",
     "primaryTopic": "Sports Biography",
     "topics": [
       "Sports Biography",
@@ -46308,6 +46838,27 @@
     ]
   },
   {
+    "bookId": "book-madison-s-hand-revising-the-constitutional-convention-mary-sarah-bilder",
+    "title": "Madison’s Hand: Revising the Constitutional Convention",
+    "author": "Mary Sarah Bilder",
+    "primarySubject": "American History",
+    "primaryTopic": "Technology, Computing & AI",
+    "topics": [
+      "Technology, Computing & AI",
+      "Constitutional History",
+      "Essays & Cultural Criticism",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "constitutional keyword",
+      "technology/computing keyword",
+      "essays/cultural criticism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Technology, Computing & AI, Constitutional History, Essays & Cultural Criticism, Regional & Local History."
+  },
+  {
     "bookId": "book-no-place-to-hide-edward-snowden-the-nsa-and-the-u-s-surveillance-state-glenn-greenwald",
     "title": "No Place to Hide: Edward Snowden, the NSA, and the U.S. Surveillance State",
     "author": "Glenn Greenwald",
@@ -46600,7 +47151,7 @@
     "bookId": "book-annals-of-the-former-world-john-mcphee",
     "title": "Annals of the Former World",
     "author": "John McPhee",
-    "primarySubject": "World History",
+    "primarySubject": "American History",
     "primaryTopic": "Travel, Exploration & Place",
     "topics": [
       "Travel, Exploration & Place",
@@ -46696,7 +47247,7 @@
     "bookId": "book-encounters-at-the-heart-of-the-world-a-history-of-the-mandan-people-elizabeth-a-fenn",
     "title": "Encounters at the Heart of the World: A History of the Mandan People",
     "author": "Elizabeth A. Fenn",
-    "primarySubject": "World History",
+    "primarySubject": "American History",
     "primaryTopic": "Travel, Exploration & Place",
     "topics": [
       "Travel, Exploration & Place",
@@ -47316,6 +47867,30 @@
     ]
   },
   {
+    "bookId": "book-aftermath-the-remnants-of-war-donovan-webster",
+    "title": "Aftermath: The Remnants of War",
+    "author": "Donovan Webster",
+    "primarySubject": "Science",
+    "primaryTopic": "Vietnam War",
+    "topics": [
+      "Vietnam War",
+      "World War I",
+      "Science & Discovery",
+      "Cold War & Nuclear Politics"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "World War I keyword",
+      "Vietnam War keyword",
+      "cold war/nuclear keyword",
+      "science/discovery keyword",
+      "death/memory keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Vietnam War, World War I, Science & Discovery, Cold War & Nuclear Politics."
+  },
+  {
     "bookId": "book-american-reckoning-the-vietnam-war-and-our-national-identity-christian-g-appy",
     "title": "American Reckoning: The Vietnam War and Our National Identity",
     "author": "Christian G. Appy",
@@ -47333,6 +47908,30 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Vietnam War, War & Military Strategy, Regional & Local History."
+  },
+  {
+    "bookId": "book-an-intimate-history-of-killing-face-to-face-killing-in-twentieth-century-warfare-joanna-bourke",
+    "title": "An Intimate History of Killing: Face-To-Face Killing In Twentieth-Century Warfare",
+    "author": "Joanna Bourke",
+    "primarySubject": "American History",
+    "primaryTopic": "Vietnam War",
+    "topics": [
+      "Vietnam War",
+      "World War I",
+      "World War II",
+      "Labor, Work & Organizing"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "World War I keyword",
+      "World War II keyword",
+      "Vietnam War keyword",
+      "combat/veteran keyword",
+      "labor/work keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Vietnam War, World War I, World War II, Labor, Work & Organizing."
   },
   {
     "bookId": "book-assuming-the-burden-europe-and-the-american-commitment-to-war-in-vietnam-mark-lawrence",
@@ -47468,7 +48067,7 @@
     "bookId": "book-an-army-at-dawn-the-war-in-north-africa-1942-1943-rick-atkinson",
     "title": "An Army at Dawn: The War in North Africa, 1942–1943",
     "author": "Rick Atkinson",
-    "primarySubject": "War & Military",
+    "primarySubject": "American History",
     "primaryTopic": "War & Military Strategy",
     "topics": [
       "War & Military Strategy",
@@ -47998,6 +48597,30 @@
     ]
   },
   {
+    "bookId": "book-ring-of-steel-germany-and-austria-hungary-at-war-1914-1918-alexander-watson",
+    "title": "Ring of Steel: Germany and Austria-Hungary at War, 1914-1918",
+    "author": "Alexander Watson",
+    "primarySubject": "War & Military",
+    "primaryTopic": "World War I",
+    "topics": [
+      "World War I",
+      "Oceans, Rivers & Water",
+      "Food, Agriculture & Land",
+      "Soldiers, Veterans & Combat Experience"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "World War I keyword",
+      "combat/veteran keyword",
+      "Europe/Russia keyword",
+      "food/agriculture/land keyword",
+      "water keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: World War I, Oceans, Rivers & Water, Food, Agriculture & Land, Soldiers, Veterans & Combat Experience."
+  },
+  {
     "bookId": "book-the-age-of-extremes-the-short-20th-century-1914-1991-eric-hobsbawm",
     "title": "The Age of Extremes: The Short 20th Century, 1914–1991",
     "author": "Eric Hobsbawm",
@@ -48285,6 +48908,31 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-from-jim-crow-to-civil-rights-the-supreme-court-and-the-struggle-for-racial-equality-michael-j-k",
+    "title": "From Jim Crow to Civil Rights: The Supreme Court and the Struggle for Racial Equality",
+    "author": "Michael J. Klarman",
+    "primarySubject": "American History",
+    "primaryTopic": "World War II",
+    "topics": [
+      "World War II",
+      "Civil Rights & Racial Justice",
+      "Courts & Trials",
+      "Education & Universities"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "law/legal keyword",
+      "court/trial keyword",
+      "war/military keyword",
+      "World War II keyword",
+      "civil rights/racial justice keyword",
+      "education keyword",
+      "essays/cultural criticism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: World War II, Civil Rights & Racial Justice, Courts & Trials, Education & Universities."
   },
   {
     "bookId": "book-hitler-1936-1945-nemesis-ian-kershaw",
@@ -48888,23 +49536,26 @@
     "bookId": "book-the-wages-of-destruction-the-making-and-breaking-of-the-nazi-economy-adam-tooze",
     "title": "The Wages of Destruction: The Making and Breaking of the Nazi Economy",
     "author": "Adam Tooze",
-    "primarySubject": "Business & Economics",
+    "primarySubject": "American History",
     "primaryTopic": "World War II",
     "topics": [
       "World War II",
-      "Business, Capitalism & Corporations",
-      "Money, Markets & Economic Policy",
-      "War & Military Strategy"
+      "Cold War & Nuclear Politics",
+      "Empire & Colonialism",
+      "Energy, Extraction & Resources"
     ],
     "confidence": "medium",
     "reasons": [
       "war/military keyword",
       "World War II keyword",
-      "business/capitalism keyword",
+      "cold war/nuclear keyword",
+      "empire/colonial keyword",
+      "Europe/Russia keyword",
       "money/markets keyword",
+      "energy/extraction keyword",
       "subject fallback"
     ],
-    "reviewReason": "Primary topic selected from multiple candidates: World War II, Business, Capitalism & Corporations, Money, Markets & Economic Policy, War & Military Strategy."
+    "reviewReason": "Primary topic selected from multiple candidates: World War II, Cold War & Nuclear Politics, Empire & Colonialism, Energy, Extraction & Resources."
   },
   {
     "bookId": "book-the-war-of-the-world-twentieth-century-conflict-and-the-descent-of-the-west-niall-ferguson",
@@ -48926,7 +49577,7 @@
     "bookId": "book-the-years-of-extermination-nazi-germany-and-the-jews-1939-1945-saul-friedlander",
     "title": "The Years of Extermination: Nazi Germany and the Jews, 1939–1945",
     "author": "Saul Friedländer",
-    "primarySubject": "War & Military",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "World War II",
     "topics": [
       "World War II",
@@ -49122,7 +49773,7 @@
     "bookId": "book-after-tamerlane-the-rise-and-fall-of-global-empires-1400-2000-john-darwin",
     "title": "After Tamerlane: The Rise and Fall of Global Empires, 1400–2000",
     "author": "John Darwin",
-    "primarySubject": "World History",
+    "primarySubject": "War & Military",
     "primaryTopic": "Africa & the African Diaspora",
     "topics": [
       "Africa & the African Diaspora",
@@ -49974,7 +50625,7 @@
     "bookId": "book-the-fate-of-liberty-abraham-lincoln-and-civil-liberties-mark-e-neely-jr",
     "title": "The Fate of Liberty: Abraham Lincoln and Civil Liberties",
     "author": "Mark E. Neely, Jr.",
-    "primarySubject": "History",
+    "primarySubject": "True Crime & Justice",
     "primaryTopic": "American Civil War",
     "topics": [
       "American Civil War",
@@ -52139,6 +52790,23 @@
     ]
   },
   {
+    "bookId": "book-bones-of-contention-controversies-in-the-search-for-human-origins-roger-lewin",
+    "title": "Bones of Contention: Controversies in the Search for Human Origins",
+    "author": "Roger Lewin",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Labor, Work & Organizing"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "labor/work keyword",
+      "business/capitalism keyword",
+      "subject fallback"
+    ]
+  },
+  {
     "bookId": "book-breakneck-china-s-quest-to-engineer-the-future-dan-wang",
     "title": "Breakneck: China's Quest to Engineer the Future",
     "author": "Dan Wang",
@@ -52205,23 +52873,6 @@
     ]
   },
   {
-    "bookId": "book-china-shakes-the-world-a-titan-s-rise-and-troubled-future-and-the-challenge-for-america-james-ky",
-    "title": "China Shakes The World: A Titan's Rise and Troubled Future – and the Challenge for America",
-    "author": "James Kynge",
-    "primarySubject": "Business & Economics",
-    "primaryTopic": "Business, Capitalism & Corporations",
-    "topics": [
-      "Business, Capitalism & Corporations",
-      "Asia & the Pacific"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "Asia/Pacific keyword",
-      "business/capitalism keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-cobalt-red-how-the-blood-of-the-congo-powers-our-lives-siddarth-kara",
     "title": "Cobalt Red: How the Blood of the Congo Powers Our Lives",
     "author": "Siddarth Kara",
@@ -52258,7 +52909,7 @@
     "bookId": "book-dark-money-the-hidden-history-of-the-billionaires-behind-the-rise-of-the-radical-right-jane-maye",
     "title": "Dark Money: The Hidden History of the Billionaires Behind the Rise of the Radical Right",
     "author": "Jane Mayer",
-    "primarySubject": "Business & Economics",
+    "primarySubject": "American History",
     "primaryTopic": "Business, Capitalism & Corporations",
     "topics": [
       "Business, Capitalism & Corporations",
@@ -53105,23 +53756,6 @@
     "reasons": [
       "intelligence/secrecy keyword",
       "business/capitalism keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-the-travels-of-a-t-shirt-in-the-global-economy-an-economist-examines-the-markets-power-and-polit",
-    "title": "The Travels of a T-Shirt in the Global Economy: An Economist Examines the Markets, Power and Politics of World Trade",
-    "author": "Pietra Rivoli",
-    "primarySubject": "Business & Economics",
-    "primaryTopic": "Business, Capitalism & Corporations",
-    "topics": [
-      "Business, Capitalism & Corporations",
-      "Money, Markets & Economic Policy"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "business/capitalism keyword",
-      "money/markets keyword",
       "subject fallback"
     ]
   },
@@ -54389,38 +55023,6 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding"
-    ]
-  },
-  {
-    "bookId": "book-explicit-and-authentic-acts-amending-the-u-s-constitution-1776-1995-david-e-kyvig",
-    "title": "Explicit and Authentic Acts: Amending the U.S. Constitution, 1776-1995",
-    "author": "David E. Kyvig",
-    "primarySubject": "History",
-    "primaryTopic": "Constitutional History",
-    "topics": [
-      "Constitutional History",
-      "Regional & Local History"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "constitutional keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-madison-s-hand-revising-the-constitutional-convention-mary-sarah-bilder",
-    "title": "Madison’s Hand: Revising the Constitutional Convention",
-    "author": "Mary Sarah Bilder",
-    "primarySubject": "History",
-    "primaryTopic": "Constitutional History",
-    "topics": [
-      "Constitutional History",
-      "Regional & Local History"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "constitutional keyword",
-      "subject fallback"
     ]
   },
   {
@@ -56376,22 +56978,6 @@
     ]
   },
   {
-    "bookId": "book-the-americans-the-colonial-experience-daniel-j-boorstin",
-    "title": "The Americans: The Colonial Experience",
-    "author": "Daniel J. Boorstin",
-    "primarySubject": "American History",
-    "primaryTopic": "Empire & Colonialism",
-    "topics": [
-      "Empire & Colonialism",
-      "Regional & Local History"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "empire/colonial keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-image-empire-a-history-of-broadcasting-in-the-united-states-volume-iii-from-1953-erik-barnou",
     "title": "The Image Empire: A History of Broadcasting in the United States, Volume III—From 1953",
     "author": "Erik Barnouw",
@@ -56587,6 +57173,23 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding+llm"
+    ]
+  },
+  {
+    "bookId": "book-adventures-in-the-anthropocene-a-journey-to-the-heart-of-the-planet-we-made-gaia-vince",
+    "title": "Adventures in the Anthropocene: A Journey to the Heart of the Planet We Made",
+    "author": "Gaia Vince",
+    "primarySubject": "Nature & Environment",
+    "primaryTopic": "Environment, Conservation & Pollution",
+    "topics": [
+      "Environment, Conservation & Pollution",
+      "Travel, Exploration & Place"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "environment keyword",
+      "travel/place keyword",
+      "subject fallback"
     ]
   },
   {
@@ -57690,22 +58293,6 @@
     ]
   },
   {
-    "bookId": "book-red-fortress-the-secret-heart-of-russia-s-history-catherine-merridale",
-    "title": "Red Fortress: The Secret Heart of Russia's History",
-    "author": "Catherine Merridale",
-    "primarySubject": "World History",
-    "primaryTopic": "Europe & Russia",
-    "topics": [
-      "Europe & Russia",
-      "Empire & Colonialism"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "Europe/Russia keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-reformation-europe-s-house-divided-1490-1700-diarmaid-macculloch",
     "title": "Reformation: Europe's House Divided 1490-1700",
     "author": "Diarmaid MacCulloch",
@@ -58429,7 +59016,7 @@
     "bookId": "book-the-lost-children-of-wilder-the-epic-struggle-to-change-foster-care-nina-bernstein",
     "title": "The Lost Children of Wilder: The Epic Struggle to Change Foster Care",
     "author": "Nina Bernstein",
-    "primarySubject": "Journalism & Reportage",
+    "primarySubject": "True Crime & Justice",
     "primaryTopic": "Family, Childhood & Adoption",
     "topics": [
       "Family, Childhood & Adoption",
@@ -58530,22 +59117,6 @@
     "topics": [
       "Food, Agriculture & Land",
       "Essays & Cultural Criticism"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "food/agriculture/land keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-devil-land-england-under-siege-1588-1688-clare-jackson",
-    "title": "Devil-Land: England Under Siege, 1588-1688",
-    "author": "Clare Jackson",
-    "primarySubject": "History",
-    "primaryTopic": "Food, Agriculture & Land",
-    "topics": [
-      "Food, Agriculture & Land",
-      "Regional & Local History"
     ],
     "confidence": "high",
     "reasons": [
@@ -58956,7 +59527,7 @@
     "bookId": "book-how-to-end-a-story-collected-diaries-helen-garner",
     "title": "How to End a Story: Collected Diaries",
     "author": "Helen Garner",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Group Biography",
     "topics": [
       "Group Biography",
@@ -59120,7 +59691,7 @@
     "bookId": "book-cities-and-the-wealth-of-nations-jane-jacobs",
     "title": "Cities and the Wealth of Nations",
     "author": "Jane Jacobs",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Housing, Cities & Urban Life",
     "topics": [
       "Housing, Cities & Urban Life",
@@ -60182,7 +60753,7 @@
     "bookId": "book-a-history-of-christianity-the-first-three-thousand-years-diarmaid-macculloch",
     "title": "A History of Christianity: The First Three Thousand Years",
     "author": "Diarmaid MacCulloch",
-    "primarySubject": "History",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Intellectual History & Ideas",
     "topics": [
       "Intellectual History & Ideas",
@@ -61214,23 +61785,6 @@
     "bookId": "book-the-trans-generation-how-trans-kids-and-their-parents-are-creating-a-gender-revolution",
     "title": "The Trans Generation: How Trans Kids (and Their Parents) are Creating a Gender",
     "author": "Revolution",
-    "primarySubject": "Gender & Sexuality",
-    "primaryTopic": "LGBTQ History & Life",
-    "topics": [
-      "LGBTQ History & Life",
-      "Gender & Feminism"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "gender/feminism keyword",
-      "LGBTQ keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-the-weaker-vessel-woman-s-lot-in-seventeenth-century-england-antonia-fraser",
-    "title": "The Weaker Vessel: Woman's Lot in Seventeenth-Century England",
-    "author": "Antonia Fraser",
     "primarySubject": "Gender & Sexuality",
     "primaryTopic": "LGBTQ History & Life",
     "topics": [
@@ -64287,7 +64841,7 @@
     "bookId": "book-the-ants-bert-holldobler-and-edward-o-wilson",
     "title": "The Ants",
     "author": "Bert Hölldobler, Edward O. Wilson",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Nature & Environment",
     "primaryTopic": "Natural History & Animals",
     "topics": [
       "Natural History & Animals",
@@ -64809,22 +65363,6 @@
     ]
   },
   {
-    "bookId": "book-the-saltwater-frontier-indians-and-the-contest-for-the-american-coast-andrew-lipman",
-    "title": "The Saltwater Frontier: Indians and the Contest for the American Coast",
-    "author": "Andrew Lipman",
-    "primarySubject": "American History",
-    "primaryTopic": "Oceans, Rivers & Water",
-    "topics": [
-      "Oceans, Rivers & Water",
-      "Regional & Local History"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "water keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-shape-of-the-river-long-term-consequences-of-considering-race-in-college-and-university-admi",
     "title": "The Shape of the River: Long-Term Consequences of Considering Race in College and University Admissions",
     "author": "William G. Bowen, Derek Bok",
@@ -64958,7 +65496,7 @@
     "bookId": "book-angler-the-cheney-vice-presidency-barton-gellman",
     "title": "Angler: The Cheney Vice Presidency",
     "author": "Barton Gellman",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "American History",
     "primaryTopic": "Presidency & Executive Power",
     "topics": [
       "Presidency & Executive Power",
@@ -65038,7 +65576,7 @@
     "bookId": "book-diplomacy-henry-kissinger",
     "title": "Diplomacy",
     "author": "Henry Kissinger",
-    "primarySubject": "Politics & Government",
+    "primarySubject": "Arts & Criticism",
     "primaryTopic": "Presidency & Executive Power",
     "topics": [
       "Presidency & Executive Power",
@@ -65964,22 +66502,6 @@
     ]
   },
   {
-    "bookId": "book-roaring-camp-the-social-world-of-the-california-gold-rush-susan-lee-johnson",
-    "title": "Roaring Camp: The Social World of the California Gold Rush",
-    "author": "Susan Lee Johnson",
-    "primarySubject": "Society & Culture",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History",
-      "Class, Poverty & Inequality"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "regional/local keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-rise-of-southern-republicans-earl-black-and-merle-black",
     "title": "The Rise of Southern Republicans",
     "author": "Earl Black, Merle Black",
@@ -66089,23 +66611,6 @@
     "confidence": "high",
     "reasons": [
       "religion keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-god-s-red-son-the-ghost-dance-religion-and-the-making-of-modern-america-louis-s-warren",
-    "title": "God's Red Son: The Ghost Dance Religion and the Making of Modern America",
-    "author": "Louis S. Warren",
-    "primarySubject": "Religion",
-    "primaryTopic": "Religion & Religious Movements",
-    "topics": [
-      "Religion & Religious Movements",
-      "Family, Childhood & Adoption"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "religion keyword",
-      "family/childhood keyword",
       "subject fallback"
     ]
   },
@@ -66243,7 +66748,7 @@
     "bookId": "book-a-day-in-the-life-of-abed-salama-anatomy-of-a-jerusalem-tragedy-nathan-thrall",
     "title": "A Day in the Life of Abed Salama: Anatomy of a Jerusalem Tragedy",
     "author": "Nathan Thrall",
-    "primarySubject": "Politics & Government",
+    "primarySubject": "Nature & Environment",
     "primaryTopic": "Religious Biography",
     "topics": [
       "Religious Biography",
@@ -66274,7 +66779,7 @@
     "bookId": "book-the-reformation-a-history-diarmaid-macculloch",
     "title": "The Reformation: A History",
     "author": "Diarmaid MacCulloch",
-    "primarySubject": "History",
+    "primarySubject": "Nature & Environment",
     "primaryTopic": "Religious Biography",
     "topics": [
       "Religious Biography",
@@ -66446,23 +66951,6 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding"
-    ]
-  },
-  {
-    "bookId": "book-adventures-in-the-anthropocene-a-journey-to-the-heart-of-the-planet-we-made-gaia-vince",
-    "title": "Adventures in the Anthropocene: A Journey to the Heart of the Planet We Made",
-    "author": "Gaia Vince",
-    "primarySubject": "Science",
-    "primaryTopic": "Science & Discovery",
-    "topics": [
-      "Science & Discovery",
-      "Travel, Exploration & Place"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "science/discovery keyword",
-      "travel/place keyword",
-      "subject fallback"
     ]
   },
   {
@@ -67185,7 +67673,7 @@
     "bookId": "book-how-far-the-light-reaches-a-life-in-ten-sea-creatures-sabrina-imbler",
     "title": "How Far the Light Reaches: A Life in Ten Sea Creatures",
     "author": "Sabrina Imbler",
-    "primarySubject": "Science",
+    "primarySubject": "Nature & Environment",
     "primaryTopic": "Science & Discovery",
     "topics": [
       "Science & Discovery",
@@ -67210,6 +67698,23 @@
     "reasons": [
       "science/discovery keyword",
       "death/memory keyword",
+      "subject fallback"
+    ]
+  },
+  {
+    "bookId": "book-inventing-ourselves-the-secret-life-of-the-teenage-brain-sarah-jayne-blakemore",
+    "title": "Inventing Ourselves: The Secret Life of the Teenage Brain",
+    "author": "Sarah-Jayne Blakemore",
+    "primarySubject": "Science",
+    "primaryTopic": "Science & Discovery",
+    "topics": [
+      "Science & Discovery",
+      "Travel, Exploration & Place"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "science/discovery keyword",
+      "travel/place keyword",
       "subject fallback"
     ]
   },
@@ -67730,6 +68235,23 @@
     ]
   },
   {
+    "bookId": "book-the-emperor-s-new-mind-roger-penrose",
+    "title": "The Emperor's New Mind",
+    "author": "Roger Penrose",
+    "primarySubject": "Science",
+    "primaryTopic": "Science & Discovery",
+    "topics": [
+      "Science & Discovery",
+      "Intelligence, Secrecy & Surveillance"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "intelligence/secrecy keyword",
+      "science/discovery keyword",
+      "subject fallback"
+    ]
+  },
+  {
     "bookId": "book-the-european-discovery-of-america-the-northern-voyages-samuel-eliot-morison",
     "title": "The European Discovery of America: The Northern Voyages",
     "author": "Samuel Eliot Morison",
@@ -68051,6 +68573,23 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding"
+    ]
+  },
+  {
+    "bookId": "book-the-universe-in-a-nutshell-stephen-hawking",
+    "title": "The Universe in a Nutshell",
+    "author": "Stephen Hawking",
+    "primarySubject": "Science",
+    "primaryTopic": "Science & Discovery",
+    "topics": [
+      "Science & Discovery",
+      "Intellectual History & Ideas"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "intellectual history keyword",
+      "science/discovery keyword",
+      "subject fallback"
     ]
   },
   {
@@ -68576,6 +69115,23 @@
     ]
   },
   {
+    "bookId": "book-the-liberator-william-lloyd-garrison-john-l-thomas",
+    "title": "The Liberator: William Lloyd Garrison",
+    "author": "John L. Thomas",
+    "primarySubject": "Religion",
+    "primaryTopic": "Slavery & Emancipation",
+    "topics": [
+      "Slavery & Emancipation",
+      "Religion & Religious Movements"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "slavery/emancipation keyword",
+      "religion keyword",
+      "subject fallback"
+    ]
+  },
+  {
     "bookId": "book-the-other-slavery-the-uncovered-story-of-indian-enslavement-in-america-andres-resendez",
     "title": "The Other Slavery: The Uncovered Story of Indian Enslavement in America",
     "author": "Andrés Reséndez",
@@ -68948,7 +69504,7 @@
     "bookId": "book-no-good-men-among-the-living-america-the-taliban-and-the-war-through-afghan-eyes-anand-gopal",
     "title": "No Good Men among the Living: America, the Taliban, and the War through Afghan Eyes",
     "author": "Anand Gopal",
-    "primarySubject": "War & Military",
+    "primarySubject": "American History",
     "primaryTopic": "Soldiers, Veterans & Combat Experience",
     "topics": [
       "Soldiers, Veterans & Combat Experience",
@@ -69012,7 +69568,7 @@
     "bookId": "book-the-assassins-gate-america-in-iraq-george-packer",
     "title": "The Assassins' Gate: America in Iraq",
     "author": "George Packer",
-    "primarySubject": "War & Military",
+    "primarySubject": "American History",
     "primaryTopic": "Soldiers, Veterans & Combat Experience",
     "topics": [
       "Soldiers, Veterans & Combat Experience",
@@ -70246,7 +70802,7 @@
     "bookId": "book-the-sea-around-us-rachel-carson",
     "title": "The Sea Around Us",
     "author": "Rachel Carson",
-    "primarySubject": "Travel & Place",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Travel, Exploration & Place",
     "topics": [
       "Travel, Exploration & Place",
@@ -70704,6 +71260,22 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding"
+    ]
+  },
+  {
+    "bookId": "book-lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+    "title": "Lloyd George: From Peace to War, 1912-1916",
+    "author": "John Grigg",
+    "primarySubject": "Politics & Government",
+    "primaryTopic": "War & Military Strategy",
+    "topics": [
+      "War & Military Strategy",
+      "American Politics"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "war/military keyword",
+      "subject fallback"
     ]
   },
   {
@@ -71180,23 +71752,6 @@
     ]
   },
   {
-    "bookId": "book-ring-of-steel-germany-and-austria-hungary-at-war-1914-1918-alexander-watson",
-    "title": "Ring of Steel: Germany and Austria-Hungary at War, 1914-1918",
-    "author": "Alexander Watson",
-    "primarySubject": "War & Military",
-    "primaryTopic": "World War I",
-    "topics": [
-      "World War I",
-      "War & Military Strategy"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "war/military keyword",
-      "World War I keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-american-impact-on-great-britain-1898-1914-richard-heindel",
     "title": "The American Impact on Great Britain, 1898-1914",
     "author": "Richard Heindel",
@@ -71540,7 +72095,7 @@
     "bookId": "book-the-imperial-presidency-arthur-m-schlesinger-jr",
     "title": "The Imperial Presidency",
     "author": "Arthur M. Schlesinger Jr.",
-    "primarySubject": "Journalism & Reportage",
+    "primarySubject": "American History",
     "primaryTopic": "World War II",
     "topics": [
       "World War II",
