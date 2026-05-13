@@ -1,16 +1,16 @@
 {
-  "generatedAt": "2026-05-12T20:37:04.757Z",
+  "generatedAt": "2026-05-13T05:16:43.959Z",
   "policy": "First US/UK trade edition imprint when supported by strong catalog evidence. Ambiguous edition/reprint conflicts remain manual review items.",
-  "limit": 250,
+  "limit": 100,
   "minScore": 0.74,
-  "concurrency": 1,
+  "concurrency": 3,
   "provider": "all",
-  "requestDelayMs": 1500,
-  "providerCacheEntries": 8,
-  "selectedCount": 8,
+  "requestDelayMs": 300,
+  "providerCacheEntries": 13,
+  "selectedCount": 5,
   "summary": {
-    "parent_only": 2,
-    "not_found": 5,
+    "parent_only": 1,
+    "not_found": 3,
     "unmapped_candidate": 1
   },
   "report": [
@@ -99,61 +99,7 @@
           "yearCompatible": false
         }
       ],
-      "notes": "Only parent-publisher mappings were found. Provider errors: This operation was aborted"
-    },
-    {
-      "bookId": "book-leonardo-s-lost-robots-mark-elling-rosheim",
-      "slug": "leonardo-s-lost-robots-mark-elling-rosheim",
-      "title": "Leonardo’s Lost Robots",
-      "author": "Mark Elling Rosheim",
-      "publisherId": "publisher-springer-science-business-media",
-      "publisherName": "Springer Science+Business Media",
-      "reason": "broad_springer_parent",
-      "status": "parent_only",
-      "candidates": [
-        {
-          "provider": "open_library",
-          "rawPublisher": "Springer",
-          "rawVariant": "Springer",
-          "mapped": {
-            "raw": "Springer Publishing Company",
-            "imprint": "Springer Publishing Company",
-            "publisher": "Springer Publishing Company",
-            "confidence": "high"
-          },
-          "title": "Leonardo's Lost Robots",
-          "author": "Mark Elling Rosheim",
-          "publishedYear": 2006,
-          "sourceUrl": "https://openlibrary.org/works/OL9075261W",
-          "score": 1,
-          "yearCompatible": true
-        }
-      ],
-      "notes": "Only parent-publisher mappings were found. Provider errors: This operation was aborted"
-    },
-    {
-      "bookId": "book-solar-sails-a-novel-approach-to-interplanetary-travel-giovanni-vulpetti-les-johnson-and-gregory-",
-      "slug": "solar-sails-a-novel-approach-to-interplanetary-travel-giovanni-vulpetti-les-johnson-and-gregory-",
-      "title": "Solar Sails: A Novel Approach to Interplanetary Travel",
-      "author": "Giovanni Vulpetti, Les Johnson, Gregory L. Matloff",
-      "publisherId": "publisher-springer-science-business-media",
-      "publisherName": "Springer Science+Business Media",
-      "reason": "broad_springer_parent",
-      "status": "not_found",
-      "candidates": [],
-      "notes": "No usable catalog publisher candidates found. Provider errors: This operation was aborted"
-    },
-    {
-      "bookId": "book-springer-handbook-of-robotics-professors-bruno-siciliano-and-oussama-khatib",
-      "slug": "springer-handbook-of-robotics-professors-bruno-siciliano-and-oussama-khatib",
-      "title": "Springer Handbook of Robotics",
-      "author": "Professors Bruno Siciliano, Oussama Khatib",
-      "publisherId": "publisher-springer-science-business-media",
-      "publisherName": "Springer Science+Business Media",
-      "reason": "broad_springer_parent",
-      "status": "not_found",
-      "candidates": [],
-      "notes": "No usable catalog publisher candidates found. Provider errors: This operation was aborted"
+      "notes": "Only parent-publisher mappings were found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Walter%20Lippmann%20and%20the%20American%20Century%22%20inauthor%3A%22Ronald%20Steel%22%202017&maxResults=10&printType=books"
     },
     {
       "bookId": "book-a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
@@ -166,7 +112,7 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found. Provider errors: This operation was aborted"
+      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22A%20Bold%20and%20Dangerous%20Family%3A%20The%20Rossellis%20and%20the%20Fight%20Against%20Mussolini%22%20inauthor%3A%22Caroline%20Moorehead%22%202017&maxResults=10&printType=books"
     },
     {
       "bookId": "book-bringing-ben-home-a-murder-a-conviction-and-the-fight-to-redeem-american-justice-barbara-bradley",
@@ -178,7 +124,7 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found. Provider errors: This operation was aborted"
+      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Bringing%20Ben%20Home%3A%20A%20Murder%2C%20a%20Conviction%2C%20and%20the%20Fight%20to%20Redeem%20American%20Justice%22%20inauthor%3A%22Barbara%20Bradley%20Hagerty%22&maxResults=10&printType=books"
     },
     {
       "bookId": "book-patriot-a-memoir-alexei-navalny",
@@ -191,7 +137,7 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found. Provider errors: This operation was aborted"
+      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Patriot%3A%20A%20Memoir%22%20inauthor%3A%22Alexei%20Navalny%22%202024&maxResults=10&printType=books"
     },
     {
       "bookId": "book-will-in-the-world-how-shakespeare-became-shakespeare-stephen-greenblatt",
@@ -216,7 +162,7 @@
           "yearCompatible": true
         }
       ],
-      "notes": "Catalog sources returned publisher strings that are not in sources/imprint-normalization.json. Provider errors: This operation was aborted"
+      "notes": "Catalog sources returned publisher strings that are not in sources/imprint-normalization.json. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Will%20in%20the%20World%3A%20How%20Shakespeare%20Became%20Shakespeare%22%20inauthor%3A%22Stephen%20Greenblatt%22%202007&maxResults=10&printType=books"
     }
   ]
 }

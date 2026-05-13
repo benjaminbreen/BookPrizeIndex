@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-12T21:28:58.737Z",
-  "count": 88,
+  "generatedAt": "2026-05-13T05:45:53.036Z",
+  "count": 154,
   "review": [
     {
       "bookId": "book-parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
@@ -423,6 +423,91 @@
       "status": "not_found",
       "candidates": [],
       "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-the-mortal-sea-fishing-the-atlantic-in-the-age-of-sail-w-jeffrey-bolster",
+      "slug": "the-mortal-sea-fishing-the-atlantic-in-the-age-of-sail-w-jeffrey-bolster",
+      "title": "The Mortal Sea: Fishing the Atlantic in the Age of Sail",
+      "author": "W. Jeffrey Bolster",
+      "publicationYear": 2012,
+      "recognitionScore": 18,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780674047655",
+          "editionKey": "/books/OL25253310M",
+          "title": "The mortal sea: fishing the Atlantic in the Age of Sail",
+          "publisher": "The Belknap Press of Harvard University Press",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "score": 0.7863,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:The Belknap Press of Harvard University Press"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780674070462",
+          "editionKey": "/books/OL39580842M",
+          "title": "Mortal Sea: Fishing the Atlantic in the Age of Sail",
+          "publisher": "Harvard University Press",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "score": 0.7863,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:Harvard University Press"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780674283961",
+          "editionKey": "/books/OL27560435M",
+          "title": "The Mortal Sea: Fishing the Atlantic in the Age of Sail",
+          "publisher": "Belknap Press: An Imprint of Harvard University Press",
+          "publishDate": "May 05, 2014",
+          "publishYear": 2014,
+          "physicalFormat": "paperback",
+          "pages": 416,
+          "coverId": 9015795,
+          "score": 0.856,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:Belknap Press: An Imprint of Harvard University Press",
+            "pages:416",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9780674067219",
+          "editionKey": "/books/OL29138476M",
+          "title": "Mortal Sea",
+          "publisher": "Harvard University Press",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "pages": 366,
+          "score": 0.6763,
+          "reasons": [
+            "title_match:0.67",
+            "publish_year:2012",
+            "english",
+            "publisher:Harvard University Press",
+            "pages:366"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
     },
     {
       "bookId": "book-waldo-emerson-a-biography-gay-wilson-allen",
@@ -1977,6 +2062,17 @@
       "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
     },
     {
+      "bookId": "book-the-middle-ground-indians-empires-and-republics-in-the-great-lakes-region-1650-1815-richard-whit",
+      "slug": "the-middle-ground-indians-empires-and-republics-in-the-great-lakes-region-1650-1815-richard-whit",
+      "title": "The Middle Ground: Indians, Empires, and Republics in the Great Lakes Region, 1650–1815",
+      "author": "Richard White",
+      "publicationYear": 1991,
+      "recognitionScore": 12,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
       "bookId": "book-the-poisoned-city-flint-s-water-and-the-american-urban-tragedy-anna-clark",
       "slug": "the-poisoned-city-flint-s-water-and-the-american-urban-tragedy-anna-clark",
       "title": "The Poisoned City: Flint's Water and the American Urban Tragedy",
@@ -3013,6 +3109,2004 @@
       "title": "Cities and the Wealth of Nations",
       "author": "Jane Jacobs",
       "publicationYear": 1984,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-city-of-laughter-sex-and-satire-in-eighteenth-century-london-vic-gatrell",
+      "slug": "city-of-laughter-sex-and-satire-in-eighteenth-century-london-vic-gatrell",
+      "title": "City of Laughter: Sex and Satire in Eighteenth-Century London",
+      "author": "Vic Gatrell",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-cocteau-a-biography-francis-steegmuller",
+      "slug": "cocteau-a-biography-francis-steegmuller",
+      "title": "Cocteau: A Biography",
+      "author": "Francis Steegmuller",
+      "publicationYear": 1970,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-code-of-peace-ethics-and-security-in-the-world-of-warlord-states-dorothy-v-jones",
+      "slug": "code-of-peace-ethics-and-security-in-the-world-of-warlord-states-dorothy-v-jones",
+      "title": "Code of Peace: Ethics and Security in the World of Warlord States",
+      "author": "Dorothy V. Jones",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-command-and-control-nuclear-weapons-the-damascus-accident-and-the-illusion-of-safety-eric-schlos",
+      "slug": "command-and-control-nuclear-weapons-the-damascus-accident-and-the-illusion-of-safety-eric-schlos",
+      "title": "Command and Control: Nuclear Weapons, the Damascus Accident, and the Illusion of Safety",
+      "author": "Eric Schlosser",
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781594202278",
+          "editionKey": "/books/OL25434712M",
+          "title": "Command and Control",
+          "publisher": "Penguin Press",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "pages": 632,
+          "coverId": 7267261,
+          "score": 0.8562,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Penguin Press",
+            "pages:632",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780141943176",
+          "editionKey": "/books/OL38703624M",
+          "title": "Command and Control: Nuclear Weapons, the Damascus Accident, and the Illusion of Safety",
+          "publisher": "Penguin Books, Limited",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "score": 0.7862,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Penguin Books, Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781410461933",
+          "editionKey": "/books/OL27150849M",
+          "title": "Command and control: nuclear weapons, the Damascus accident, and the illusion of safety",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "pages": 1041,
+          "score": 0.7762,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "pages:1041"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780141037912",
+          "editionKey": "/books/OL27541755M",
+          "title": "Command and Control",
+          "publisher": "Penguin Books Ltd",
+          "publishDate": "Jul 03, 2014",
+          "publishYear": 2014,
+          "physicalFormat": "paperback",
+          "pages": 656,
+          "coverId": 8997452,
+          "score": 0.856,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:Penguin Books Ltd",
+            "pages:656",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9780143125785",
+          "editionKey": "/books/OL31983905M",
+          "title": "Command and Control: Nuclear Weapons, the Damascus Accident, and the Illusion of Safety",
+          "publisher": "Penguin Books",
+          "publishDate": "Aug 26, 2014",
+          "publishYear": 2014,
+          "physicalFormat": "paperback",
+          "pages": 656,
+          "coverId": 10657747,
+          "score": 0.856,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:Penguin Books",
+            "pages:656",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-congressional-quarterly-s-guide-to-the-u-s-supreme-court-elder-witt",
+      "slug": "congressional-quarterly-s-guide-to-the-u-s-supreme-court-elder-witt",
+      "title": "Congressional Quarterly's Guide to the U.S. Supreme Court",
+      "author": "Elder Witt",
+      "publicationYear": 1989,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-conquest-coexistence-and-change-wales-1063-1415-rees-davies",
+      "slug": "conquest-coexistence-and-change-wales-1063-1415-rees-davies",
+      "title": "Conquest, Coexistence, and Change: Wales 1063-1415",
+      "author": "Rees Davies",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-countdown-our-last-best-hope-for-a-future-on-earth-alan-weisman",
+      "slug": "countdown-our-last-best-hope-for-a-future-on-earth-alan-weisman",
+      "title": "Countdown: Our Last, Best Hope for a Future on Earth?",
+      "author": "Alan Weisman",
+      "publicationYear": 2013,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780748118595",
+          "editionKey": "/books/OL34605994M",
+          "title": "Countdown: Our Last, Best Hope for a Future on Earth?",
+          "publisher": "Little, Brown Book Group Limited",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "score": 0.7862,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Little, Brown Book Group Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781408702666",
+          "editionKey": "/books/OL34603329M",
+          "title": "Countdown: Our Last, Best Hope for a Future on Earth?",
+          "publisher": "Little, Brown Book Group Limited",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "score": 0.7862,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Little, Brown Book Group Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781408702673",
+          "editionKey": "/books/OL34602294M",
+          "title": "Countdown: Our Last, Best Hope for a Future on Earth?",
+          "publisher": "Little, Brown Book Group Limited",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "score": 0.7862,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Little, Brown Book Group Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780316239813",
+          "editionKey": "/books/OL27149466M",
+          "title": "Countdown: our last, best hope for a future on Earth?",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "pages": 783,
+          "score": 0.7762,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "pages:783"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780316097741",
+          "editionKey": "/books/OL29680797M",
+          "title": "Countdown: Our Last, Best Hope for a Future on Earth?",
+          "publisher": "Little Brown & Company",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "pages": 528,
+          "score": 0.826,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:Little Brown & Company",
+            "pages:528"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780349123332",
+          "editionKey": "/books/OL33474724M",
+          "title": "Countdown: Our Last, Best Hope for a Future on Earth?",
+          "publisher": "Little, Brown Book Group Limited",
+          "pages": 528,
+          "score": 0.7,
+          "reasons": [
+            "title_match:1.00",
+            "english",
+            "publisher:Little, Brown Book Group Limited",
+            "pages:528"
+          ],
+          "warnings": [
+            "missing_publish_year"
+          ]
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-cradle-of-the-middle-class-the-family-in-oneida-county-new-york-1790-1865-mary-p-ryan",
+      "slug": "cradle-of-the-middle-class-the-family-in-oneida-county-new-york-1790-1865-mary-p-ryan",
+      "title": "Cradle of the Middle Class: The Family in Oneida County, New York, 1790-1865",
+      "author": "Mary P. Ryan",
+      "publicationYear": 1981,
+      "recognitionScore": 10,
+      "status": "low_confidence",
+      "candidates": [
+        {
+          "isbn13": "9780521274036",
+          "editionKey": "/books/OL7735087M",
+          "title": "Cradle of the Middle Class: The Family in Oneida County, New York, 17901865 (Interdisciplinary Perspectives on Modern History)",
+          "publisher": "Cambridge University Press",
+          "publishDate": "November 25, 1983",
+          "publishYear": 1983,
+          "physicalFormat": "Paperback",
+          "pages": 321,
+          "coverId": 332031,
+          "score": 0.7023,
+          "reasons": [
+            "title_match:0.65",
+            "publish_year:1983",
+            "english",
+            "publisher:Cambridge University Press",
+            "pages:321",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ],
+      "notes": "Best candidate did not meet minimum score."
+    },
+    {
+      "bookId": "book-crashed-how-a-decade-of-financial-crises-changed-the-world-adam-tooze",
+      "slug": "crashed-how-a-decade-of-financial-crises-changed-the-world-adam-tooze",
+      "title": "Crashed: How a Decade of Financial Crises Changed the World",
+      "author": "Adam Tooze",
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780525558804",
+          "editionKey": "/books/OL50499700M",
+          "title": "Crashed: How a Decade of Financial Crises Changed the World",
+          "publisher": "Penguin Books",
+          "publishDate": "2018",
+          "publishYear": 2018,
+          "pages": 720,
+          "score": 0.8253,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:Penguin Books",
+            "pages:720"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780670024933",
+          "editionKey": "/books/OL26965635M",
+          "title": "Crashed: how a decade of financial crises changed the world",
+          "publisher": "Viking, an imprint of Penguin Random House LLC",
+          "publishDate": "2018",
+          "publishYear": 2018,
+          "pages": 706,
+          "score": 0.8253,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:Viking, an imprint of Penguin Random House LLC",
+            "pages:706"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780241011935",
+          "editionKey": "/books/OL38807046M",
+          "title": "Crashed: How a Decade of Financial Crises Changed the World",
+          "publisher": "Penguin Books, Limited",
+          "publishDate": "2018",
+          "publishYear": 2018,
+          "score": 0.7853,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:Penguin Books, Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780141032214",
+          "editionKey": "/books/OL28707934M",
+          "title": "Crashed: How a Decade of Financial Crises Changed the World",
+          "publisher": "Penguin Books, Limited",
+          "publishDate": "2019",
+          "publishYear": 2019,
+          "pages": 400,
+          "score": 0.8252,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2019",
+            "english",
+            "publisher:Penguin Books, Limited",
+            "pages:400"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780143110354",
+          "editionKey": "/books/OL28902580M",
+          "title": "Crashed: How a Decade of Financial Crises Changed the World",
+          "publisher": "Penguin Publishing Group",
+          "publishDate": "2019",
+          "publishYear": 2019,
+          "pages": 720,
+          "score": 0.8252,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2019",
+            "english",
+            "publisher:Penguin Publishing Group",
+            "pages:720"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9787542673107",
+          "editionKey": "/books/OL47066369M",
+          "title": "Crashed: How a Decade of Financial Crises Changed the World",
+          "publisher": "上海三联书店",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "coverId": 14365149,
+          "score": 0.8148,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:上海三联书店",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781846140365",
+          "editionKey": "/books/OL28004240M",
+          "title": "Crashed",
+          "publisher": "Allen Lane Penguin Random House UK",
+          "physicalFormat": "hardcover",
+          "coverId": 9388517,
+          "score": 0.83,
+          "reasons": [
+            "title_match:1.00",
+            "english",
+            "hardcover_like",
+            "publisher:Allen Lane Penguin Random House UK",
+            "cover"
+          ],
+          "warnings": [
+            "missing_publish_year"
+          ]
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-culture-and-anarchy-in-ireland-1890-1939-fsl-lyons",
+      "slug": "culture-and-anarchy-in-ireland-1890-1939-fsl-lyons",
+      "title": "Culture and Anarchy in Ireland, 1890-1939",
+      "author": "FSL Lyons",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-cultures-of-war-pearl-harbor-hiroshima-9-11-iraq-john-w-dower",
+      "slug": "cultures-of-war-pearl-harbor-hiroshima-9-11-iraq-john-w-dower",
+      "title": "Cultures of War: Pearl Harbor/Hiroshima/9-11/Iraq",
+      "author": "John W. Dower",
+      "publicationYear": 2010,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780393080476",
+          "editionKey": "/books/OL29594743M",
+          "title": "Cultures of War: Pearl Harbor - Hiroshima - 9-11 - Iraq",
+          "publisher": "Norton & Company, Incorporated, W. W.",
+          "publishDate": "2010",
+          "publishYear": 2010,
+          "pages": 640,
+          "score": 0.8267,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2010",
+            "english",
+            "publisher:Norton & Company, Incorporated, W. W.",
+            "pages:640"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780393061505",
+          "editionKey": "/books/OL24478776M",
+          "title": "Cultures of war: Pearl Harbor : Hiroshima : 9-11 : Iraq",
+          "publisher": "W.W. Norton",
+          "publishDate": "2010",
+          "publishYear": 2010,
+          "coverId": 9264656,
+          "score": 0.8167,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2010",
+            "english",
+            "publisher:W.W. Norton",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780393340686",
+          "editionKey": "/books/OL28470289M",
+          "title": "Cultures of War: Pearl Harbor - Hiroshima - 9-11 - Iraq",
+          "publisher": "Norton & Company, Incorporated, W. W.",
+          "publishDate": "2011",
+          "publishYear": 2011,
+          "pages": 320,
+          "score": 0.8265,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2011",
+            "english",
+            "publisher:Norton & Company, Incorporated, W. W.",
+            "pages:320"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-daniel-boone-the-life-and-legend-of-an-american-pioneer-john-mack-faragher",
+      "slug": "daniel-boone-the-life-and-legend-of-an-american-pioneer-john-mack-faragher",
+      "title": "Daniel Boone: The Life and Legend of an American Pioneer",
+      "author": "John Mack Faragher",
+      "publicationYear": 1992,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781429997065",
+          "editionKey": "/books/OL29609098M",
+          "title": "Daniel Boone: The Life and Legend of an American Pioneer",
+          "publisher": "Holt & Company, Henry",
+          "publishDate": "1993",
+          "publishYear": 1993,
+          "pages": 464,
+          "score": 0.8295,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1993",
+            "english",
+            "publisher:Holt & Company, Henry",
+            "pages:464"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780805030075",
+          "editionKey": "/books/OL7931896M",
+          "title": "Daniel Boone: The Life and Legend of an American Pioneer (An Owl Book)",
+          "publisher": "Owl Books",
+          "publishDate": "November 15, 1993",
+          "publishYear": 1993,
+          "physicalFormat": "Paperback",
+          "pages": 448,
+          "coverId": 579327,
+          "score": 0.7845,
+          "reasons": [
+            "title_match:0.83",
+            "publish_year:1993",
+            "english",
+            "publisher:Owl Books",
+            "pages:448",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-david-mccullough-history",
+      "slug": "david-mccullough-history",
+      "title": "David McCullough",
+      "author": "History",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-death-in-life-survivors-of-hiroshima-robert-jay-lifton",
+      "slug": "death-in-life-survivors-of-hiroshima-robert-jay-lifton",
+      "title": "Death in Life: Survivors of Hiroshima",
+      "author": "Robert Jay Lifton",
+      "publicationYear": 1967,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-death-in-paris-1795-1801-richard-cobb",
+      "slug": "death-in-paris-1795-1801-richard-cobb",
+      "title": "Death in Paris , 1795-1801",
+      "author": "Richard Cobb",
+      "publicationYear": 1978,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-diderot-arthur-m-wilson",
+      "slug": "diderot-arthur-m-wilson",
+      "title": "Diderot",
+      "author": "Arthur M. Wilson",
+      "publicationYear": 1957,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-dostoevsky-the-years-of-ordeal-1850-1859-joseph-frank",
+      "slug": "dostoevsky-the-years-of-ordeal-1850-1859-joseph-frank",
+      "title": "Dostoevsky: The Years of Ordeal, 1850–1859",
+      "author": "Joseph Frank",
+      "publicationYear": 1977,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-eleanor-roosevelt-volume-one-1884-1933-blanche-wiesen-cook",
+      "slug": "eleanor-roosevelt-volume-one-1884-1933-blanche-wiesen-cook",
+      "title": "Eleanor Roosevelt: Volume One, 1884–1933",
+      "author": "Blanche Wiesen Cook",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-electric-universe-how-electricity-switched-on-the-modern-world-david-bodanis",
+      "slug": "electric-universe-how-electricity-switched-on-the-modern-world-david-bodanis",
+      "title": "Electric Universe: How Electricity Switched on the Modern World",
+      "author": "David Bodanis",
+      "publicationYear": 2003,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780316861823",
+          "editionKey": "/books/OL9514210M",
+          "title": "The Electric Universe",
+          "publisher": "Little, Brown",
+          "publishDate": "January 20, 2005",
+          "publishYear": 2005,
+          "physicalFormat": "Hardcover",
+          "pages": 320,
+          "coverId": 190883,
+          "score": 0.8475,
+          "reasons": [
+            "title_match:0.67",
+            "publish_year:2005",
+            "english",
+            "hardcover_like",
+            "publisher:Little, Brown",
+            "pages:320",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780307335982",
+          "editionKey": "/books/OL25423429M",
+          "title": "Electric Universe: How electricity switched on the modern world",
+          "publisher": "Three Rivers Press",
+          "publishDate": "2005",
+          "publishYear": 2005,
+          "coverId": 7252034,
+          "score": 0.8175,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2005",
+            "english",
+            "publisher:Three Rivers Press",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-ernie-pyle-s-war-america-s-eyewitness-to-world-war-ii-james-tobin",
+      "slug": "ernie-pyle-s-war-america-s-eyewitness-to-world-war-ii-james-tobin",
+      "title": "Ernie Pyle's War: America's Eyewitness to World War II",
+      "author": "James Tobin",
+      "publicationYear": 1997,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-facing-the-ocean-the-atlantic-and-its-peoples-8000bc-ad1500-barry-cunliffe",
+      "slug": "facing-the-ocean-the-atlantic-and-its-peoples-8000bc-ad1500-barry-cunliffe",
+      "title": "Facing the Ocean: The Atlantic and its Peoples 8000BC-AD1500",
+      "author": "Barry Cunliffe",
+      "publicationYear": 2001,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-fascist-voices-an-intimate-history-of-mussolini-s-italy-christopher-duggan",
+      "slug": "fascist-voices-an-intimate-history-of-mussolini-s-italy-christopher-duggan",
+      "title": "Fascist Voices: An Intimate History of Mussolini's Italy",
+      "author": "Christopher Duggan",
+      "publicationYear": 2012,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781847921031",
+          "editionKey": "/books/OL27142265M",
+          "title": "Fascist voices: an intimate history of Mussolini's Italy",
+          "publisher": "The Bodley Head",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "pages": 501,
+          "score": 0.8263,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:The Bodley Head",
+            "pages:501"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781409028956",
+          "editionKey": "/books/OL36706885M",
+          "title": "Fascist Voices: An Intimate History of Mussolini's Italy",
+          "publisher": "Penguin Random House",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "score": 0.7863,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:Penguin Random House"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780199730780",
+          "editionKey": "/books/OL28764784M",
+          "title": "Fascist Voices: An Intimate History of Mussolini's Italy",
+          "publisher": "Oxford University Press",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "pages": 528,
+          "coverId": 12705828,
+          "score": 0.8562,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Oxford University Press",
+            "pages:528",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780099539896",
+          "editionKey": "/books/OL28437521M",
+          "title": "Fascist Voices: An Intimate History of Mussolini's Italy",
+          "publisher": "Penguin Random House",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "pages": 528,
+          "score": 0.8262,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Penguin Random House",
+            "pages:528"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780199338375",
+          "editionKey": "/books/OL46093289M",
+          "title": "Fascist Voices: An Intimate History of Mussolini's Italy",
+          "publisher": "Oxford University Press, Incorporated",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "score": 0.7862,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Oxford University Press, Incorporated"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781299622326",
+          "editionKey": "/books/OL46022613M",
+          "title": "Fascist Voices: an Intimate History of Mussolini's Italy",
+          "publisher": "Oxford University Press, Incorporated",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "score": 0.7862,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Oxford University Press, Incorporated"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781845952099",
+          "editionKey": "/books/OL40404013M",
+          "title": "Fascist Voices: An Intimate History of Mussolini's Italy",
+          "publisher": "Penguin Random House",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "score": 0.7862,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Penguin Random House"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-flash-the-making-of-weegee-the-famous-christopher-bonanos",
+      "slug": "flash-the-making-of-weegee-the-famous-christopher-bonanos",
+      "title": "Flash: The Making of Weegee the Famous",
+      "author": "Christopher Bonanos",
+      "publicationYear": 2018,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781627793063",
+          "editionKey": "/books/OL26961931M",
+          "title": "Flash: the making of Weegee the Famous",
+          "publisher": "Henry Holt and Company",
+          "publishDate": "2018",
+          "publishYear": 2018,
+          "pages": 379,
+          "score": 0.8253,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:Henry Holt and Company",
+            "pages:379"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781627793070",
+          "editionKey": "/books/OL29773750M",
+          "title": "Flash: the Making of Weegee the Famous",
+          "publisher": "Holt & Company, Henry",
+          "publishDate": "2018",
+          "publishYear": 2018,
+          "pages": 320,
+          "score": 0.8253,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:Holt & Company, Henry",
+            "pages:320"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781250229878",
+          "editionKey": "/books/OL28327351M",
+          "title": "Flash: The Making of Weegee the Famous",
+          "publisher": "Picador",
+          "publishDate": "Jun 11, 2019",
+          "publishYear": 2019,
+          "physicalFormat": "paperback",
+          "pages": 400,
+          "coverId": 10263875,
+          "score": 0.8552,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2019",
+            "english",
+            "publisher:Picador",
+            "pages:400",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-four-hundred-million-customers-the-experiences-some-happy-some-sad-of-an-american-living-in-chin",
+      "slug": "four-hundred-million-customers-the-experiences-some-happy-some-sad-of-an-american-living-in-chin",
+      "title": "Four Hundred Million Customers: The Experiences—Some Happy, Some Sad, of an American Living in China, and What They Taught Him",
+      "author": "Carl Crow",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-framing-the-early-middle-ages-europe-and-the-mediterranean-400-800-christopher-wickham",
+      "slug": "framing-the-early-middle-ages-europe-and-the-mediterranean-400-800-christopher-wickham",
+      "title": "Framing the Early Middle Ages: Europe and the Mediterranean 400-800",
+      "author": "Christopher Wickham",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-france-1848-1945-ambition-love-and-politics-theodore-zeldin",
+      "slug": "france-1848-1945-ambition-love-and-politics-theodore-zeldin",
+      "title": "France, 1848-1945: Ambition, Love & Politics",
+      "author": "Theodore Zeldin",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-franklin-d-roosevelt-and-the-new-deal-1932-1940-william-e-leuchtenburg",
+      "slug": "franklin-d-roosevelt-and-the-new-deal-1932-1940-william-e-leuchtenburg",
+      "title": "Franklin D. Roosevelt and the New Deal: 1932-1940",
+      "author": "William E. Leuchtenburg",
+      "publicationYear": 1963,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-free-coming-of-age-at-the-end-of-history-lea-ypi",
+      "slug": "free-coming-of-age-at-the-end-of-history-lea-ypi",
+      "title": "Free: Coming of Age at the End of History",
+      "author": "Lea Ypi",
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780141995113",
+          "editionKey": "/books/OL38807409M",
+          "title": "Free: Coming of Age at the End of History",
+          "publisher": "Penguin Books, Limited",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "score": 0.7848,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:Penguin Books, Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780241481851",
+          "editionKey": "/books/OL34710689M",
+          "title": "Free",
+          "publisher": "Penguin Books, Limited",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "score": 0.7848,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:Penguin Books, Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780141995106",
+          "editionKey": "/books/OL37330959M",
+          "title": "Free: Coming of Age at the End of History",
+          "publisher": "Penguin Books, Limited",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "score": 0.7847,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2022",
+            "english",
+            "publisher:Penguin Books, Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781324050292",
+          "editionKey": "/books/OL38798731M",
+          "title": "Free: Coming of Age at the End of History",
+          "publisher": "Norton & Company Limited, W. W.",
+          "publishDate": "2023",
+          "publishYear": 2023,
+          "score": 0.7845,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2023",
+            "english",
+            "publisher:Norton & Company Limited, W. W."
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780393867732",
+          "editionKey": "/books/OL33938472M",
+          "title": "Free: A Child and a Country at the End of History",
+          "publisher": "Norton & Company Limited, W. W.",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "pages": 256,
+          "score": 0.6747,
+          "reasons": [
+            "title_match:0.67",
+            "publish_year:2022",
+            "english",
+            "publisher:Norton & Company Limited, W. W.",
+            "pages:256"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780393867749",
+          "editionKey": "/books/OL42811867M",
+          "title": "Free: A Child and a Country at the End of History",
+          "publisher": "Norton & Company, Incorporated, W. W.",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "coverId": 14622179,
+          "score": 0.6647,
+          "reasons": [
+            "title_match:0.67",
+            "publish_year:2022",
+            "english",
+            "publisher:Norton & Company, Incorporated, W. W.",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-gay-bar-why-we-went-out-jeremy-atherton-lin",
+      "slug": "gay-bar-why-we-went-out-jeremy-atherton-lin",
+      "title": "Gay Bar: Why We Went Out",
+      "author": "Jeremy Atherton Lin",
+      "publicationYear": 2021,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780316458733",
+          "editionKey": "/books/OL29972132M",
+          "title": "Gay Bar: Why We Went Out",
+          "publisher": "Little Brown & Company",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "pages": 320,
+          "score": 0.8248,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:Little Brown & Company",
+            "pages:320"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780316458740",
+          "editionKey": "/books/OL30019833M",
+          "title": "Gay Bar: Why We Went Out",
+          "publisher": "Little Brown & Company",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "pages": 8,
+          "coverId": 14481812,
+          "score": 0.8148,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:Little Brown & Company",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781783785810",
+          "editionKey": "/books/OL35559887M",
+          "title": "Gay Bar: Why We Went Out",
+          "publisher": "Granta Books",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "score": 0.7848,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:Granta Books"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780316458757",
+          "editionKey": "/books/OL33346283M",
+          "title": "Gay Bar: Why We Went Out",
+          "publisher": "Back Bay Books",
+          "publishDate": "May 31, 2022",
+          "publishYear": 2022,
+          "physicalFormat": "paperback",
+          "pages": 320,
+          "coverId": 14481802,
+          "score": 0.8547,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2022",
+            "english",
+            "publisher:Back Bay Books",
+            "pages:320",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9781783785834",
+          "editionKey": "/books/OL36759845M",
+          "title": "Gay Bar: Why We Went Out",
+          "publisher": "Granta Books",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "coverId": 14780753,
+          "score": 0.8147,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2022",
+            "english",
+            "publisher:Granta Books",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-george-washington-anguish-and-farewell-1793-1799-james-thomas-flexner",
+      "slug": "george-washington-anguish-and-farewell-1793-1799-james-thomas-flexner",
+      "title": "George Washington: Anguish and Farewell, 1793–1799",
+      "author": "James Thomas Flexner",
+      "publicationYear": 1972,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-gladstone-1875-1898-hcg-matthew",
+      "slug": "gladstone-1875-1898-hcg-matthew",
+      "title": "Gladstone, 1875-1898",
+      "author": "HCG Matthew",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-god-and-golem-inc-a-comment-on-certain-points-where-cybernetics-impinges-on-religion-norbert-wie",
+      "slug": "god-and-golem-inc-a-comment-on-certain-points-where-cybernetics-impinges-on-religion-norbert-wie",
+      "title": "God & Golem, Inc.: A Comment on Certain Points Where Cybernetics Impinges on Religion",
+      "author": "Norbert Wiener",
+      "publicationYear": 1964,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780262730112",
+          "editionKey": "/books/OL9316994M",
+          "title": "God and Golem, Inc.: A Comment on Certain Points where Cybernetics Impinges on Religion",
+          "publisher": "The MIT Press",
+          "publishDate": "March 15, 1966",
+          "publishYear": 1966,
+          "physicalFormat": "Paperback",
+          "pages": 99,
+          "coverId": 152655,
+          "score": 0.8265,
+          "reasons": [
+            "title_match:0.92",
+            "publish_year:1966",
+            "english",
+            "publisher:The MIT Press",
+            "pages:99",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9780262286152",
+          "editionKey": "/books/OL29709658M",
+          "title": "God and Golem, Inc: A Comment on Certain Points Where Cybernetics Impinges on Religion",
+          "publisher": "MIT Press",
+          "publishDate": "1966",
+          "publishYear": 1966,
+          "pages": 99,
+          "score": 0.7965,
+          "reasons": [
+            "title_match:0.92",
+            "publish_year:1966",
+            "english",
+            "publisher:MIT Press",
+            "pages:99"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-grand-pursuit-the-story-of-economic-genius-sylvia-nasar",
+      "slug": "grand-pursuit-the-story-of-economic-genius-sylvia-nasar",
+      "title": "Grand Pursuit: The Story of Economic Genius",
+      "author": "Sylvia Nasar",
+      "publicationYear": 2011,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780684872988",
+          "editionKey": "/books/OL24639684M",
+          "title": "Grand Pursuit: The Story of Economic Genius",
+          "publisher": "Simon & Schuster",
+          "publishDate": "September 13, 2011",
+          "publishYear": 2011,
+          "pages": 558,
+          "coverId": 6906324,
+          "score": 0.8565,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2011",
+            "english",
+            "publisher:Simon & Schuster",
+            "pages:558",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781841154558",
+          "editionKey": "/books/OL31926328M",
+          "title": "Grand pursuit: the story of economic genius",
+          "publisher": "Fourth Estate",
+          "publishDate": "2011",
+          "publishYear": 2011,
+          "pages": 558,
+          "coverId": 10608662,
+          "score": 0.8565,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2011",
+            "english",
+            "publisher:Fourth Estate",
+            "pages:558",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781439198612",
+          "editionKey": "/books/OL35889360M",
+          "title": "Grand Pursuit: The Story of Economic Genius",
+          "publisher": "Simon & Schuster Children's Publishing",
+          "publishDate": "2011",
+          "publishYear": 2011,
+          "coverId": 14799414,
+          "score": 0.8165,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2011",
+            "english",
+            "publisher:Simon & Schuster Children's Publishing",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780007465743",
+          "editionKey": "/books/OL36707877M",
+          "title": "Grand Pursuit: A Story of Economic Genius",
+          "publisher": "HarperCollins Publishers Limited",
+          "publishDate": "2011",
+          "publishYear": 2011,
+          "score": 0.7222,
+          "reasons": [
+            "title_match:0.86",
+            "publish_year:2011",
+            "english",
+            "publisher:HarperCollins Publishers Limited"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780684872995",
+          "editionKey": "/books/OL32935818M",
+          "title": "Grand Pursuit: The Story of Economic Genius",
+          "publisher": "Simon & Schuster",
+          "publishDate": "Jul 31, 2012",
+          "publishYear": 2012,
+          "physicalFormat": "paperback",
+          "pages": 576,
+          "coverId": 11555327,
+          "score": 0.8563,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:Simon & Schuster",
+            "pages:576",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9781841154565",
+          "editionKey": "/books/OL28272411M",
+          "title": "Grand pursuit: the story of economic genius",
+          "publisher": "Fourth Estate",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "coverId": 10199907,
+          "score": 0.8163,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:Fourth Estate",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-grand-strategy-vol-iv-august-1942-september-1943-michael-howard",
+      "slug": "grand-strategy-vol-iv-august-1942-september-1943-michael-howard",
+      "title": "Grand Strategy, vol. IV: August 1942 - September 1943",
+      "author": "Michael Howard",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-henry-adams-the-middle-years-ernest-samuels",
+      "slug": "henry-adams-the-middle-years-ernest-samuels",
+      "title": "Henry Adams: The Middle Years",
+      "author": "Ernest Samuels",
+      "publicationYear": 1965,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-henry-james-a-life-leon-edel",
+      "slug": "henry-james-a-life-leon-edel",
+      "title": "Henry James: A Life",
+      "author": "Leon Edel",
+      "publicationYear": 1985,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-herman-melville-newton-arvin",
+      "slug": "herman-melville-newton-arvin",
+      "title": "Herman Melville",
+      "author": "Newton Arvin",
+      "publicationYear": 1950,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-hitler-ascent-1889-1939-volker-ullrich-with-jefferson-chase-trans",
+      "slug": "hitler-ascent-1889-1939-volker-ullrich-with-jefferson-chase-trans",
+      "title": "Hitler: Ascent, 1889–1939",
+      "author": "Volker Ullrich with Jefferson Chase (trans.)",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-how-to-live-or-a-life-of-montaigne-sarah-bakewell",
+      "slug": "how-to-live-or-a-life-of-montaigne-sarah-bakewell",
+      "title": "How To Live, Or A Life Of Montaigne",
+      "author": "Sarah Bakewell",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-huey-long-t-harry-william",
+      "slug": "huey-long-t-harry-william",
+      "title": "Huey Long",
+      "author": "T. Harry William",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-in-command-of-history-churchill-fighting-and-writing-the-second-world-war-david-reynolds",
+      "slug": "in-command-of-history-churchill-fighting-and-writing-the-second-world-war-david-reynolds",
+      "title": "In Command of History: Churchill Fighting and Writing the Second World War",
+      "author": "David Reynolds",
+      "publicationYear": 2004,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-interpretation-of-schizophrenia-silvano-arieti",
+      "slug": "interpretation-of-schizophrenia-silvano-arieti",
+      "title": "Interpretation of Schizophrenia",
+      "author": "Silvano Arieti",
+      "publicationYear": 1955,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-inventing-the-people-the-rise-of-popular-sovereignty-in-england-and-america-edmund-s-morgan",
+      "slug": "inventing-the-people-the-rise-of-popular-sovereignty-in-england-and-america-edmund-s-morgan",
+      "title": "Inventing the People: The Rise of Popular Sovereignty in England and America",
+      "author": "Edmund S. Morgan",
+      "publicationYear": 1988,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-irving-howe-history",
+      "slug": "irving-howe-history",
+      "title": "Irving Howe",
+      "author": "History",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-is-math-real-how-simple-questions-lead-us-to-mathematics-deepest-truths-eugenia-cheng",
+      "slug": "is-math-real-how-simple-questions-lead-us-to-mathematics-deepest-truths-eugenia-cheng",
+      "title": "Is Math Real? How Simple Questions Lead Us to Mathematics’ Deepest Truths",
+      "author": "Eugenia Cheng",
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781541601826",
+          "editionKey": "/books/OL46122991M",
+          "title": "Is Math Real?: How Simple Questions Lead Us to Mathematics' Deepest Truths",
+          "publisher": "Basic Books",
+          "publishDate": "2023",
+          "publishYear": 2023,
+          "score": 0.7845,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2023",
+            "english",
+            "publisher:Basic Books"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781541601840",
+          "editionKey": "/books/OL46123042M",
+          "title": "Is Math Real?: How Simple Questions Lead Us to Mathematics' Deepest Truths",
+          "publisher": "Basic Books",
+          "publishDate": "2023",
+          "publishYear": 2023,
+          "score": 0.7845,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2023",
+            "english",
+            "publisher:Basic Books"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781788169530",
+          "editionKey": "/books/OL50647757M",
+          "title": "Is Maths Real?: How Simple Questions Lead Us to Mathematics' Deepest Truths",
+          "publisher": "Profile Books Limited",
+          "publishDate": "2024",
+          "publishYear": 2024,
+          "coverId": 14745746,
+          "score": 0.7768,
+          "reasons": [
+            "title_match:0.92",
+            "publish_year:2024",
+            "english",
+            "publisher:Profile Books Limited",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-jefferson-davis-american-william-j-cooper-jr",
+      "slug": "jefferson-davis-american-william-j-cooper-jr",
+      "title": "Jefferson Davis, American",
+      "author": "William J. Cooper, Jr.",
+      "publicationYear": 2000,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-john-adams-page-smith",
+      "slug": "john-adams-page-smith",
+      "title": "John Adams",
+      "author": "Page Smith",
+      "publicationYear": 1962,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-lauren-bacall-by-myself-lauren-bacall",
+      "slug": "lauren-bacall-by-myself-lauren-bacall",
+      "title": "Lauren Bacall by Myself",
+      "author": "Lauren Bacall",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-less-than-one-selected-essays-joseph-brodsky",
+      "slug": "less-than-one-selected-essays-joseph-brodsky",
+      "title": "Less Than One: Selected Essays",
+      "author": "Joseph Brodsky",
+      "publicationYear": 1986,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-life-ascending-nick-lane",
+      "slug": "life-ascending-nick-lane",
+      "title": "Life Ascending",
+      "author": "Nick Lane",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-life-on-the-color-line-the-true-story-of-a-white-boy-who-discovered-he-was-black-gregory-howard-",
+      "slug": "life-on-the-color-line-the-true-story-of-a-white-boy-who-discovered-he-was-black-gregory-howard-",
+      "title": "Life on the Color Line: The True Story of a White Boy Who Discovered He Was Black",
+      "author": "Gregory Howard Williams",
+      "publicationYear": 1995,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780452275331",
+          "editionKey": "/books/OL7590676M",
+          "title": "Life on the Color Line: The True Story of a White Boy Who Discovered He Was Black",
+          "publisher": "Plume",
+          "publishDate": "February 1, 1996",
+          "publishYear": 1996,
+          "pages": 304,
+          "coverId": 296683,
+          "score": 0.859,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1996",
+            "english",
+            "publisher:Plume",
+            "pages:304",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780329042905",
+          "editionKey": "/books/OL43242116M",
+          "title": "Life On The Color Line",
+          "publisher": "n/a",
+          "publishDate": "1996-01-01",
+          "publishYear": 1996,
+          "score": 0.789,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1996",
+            "english",
+            "publisher:n/a"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-listen-the-wind-anne-morrow-lindbergh",
+      "slug": "listen-the-wind-anne-morrow-lindbergh",
+      "title": "Listen! The Wind",
+      "author": "Anne Morrow Lindbergh",
+      "publicationYear": 1938,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-living-with-risk-british-medical-association-board-of-science",
+      "slug": "living-with-risk-british-medical-association-board-of-science",
+      "title": "Living with Risk",
+      "author": "British Medical Association Board of Science",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+      "slug": "lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+      "title": "Lloyd George: From Peace to War, 1912-1916",
+      "author": "John Grigg",
+      "publicationYear": 2002,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-loosing-the-bonds-the-united-states-and-south-africa-in-the-apartheid-years-robert-kinloch-massi",
+      "slug": "loosing-the-bonds-the-united-states-and-south-africa-in-the-apartheid-years-robert-kinloch-massi",
+      "title": "Loosing the Bonds: The United States and South Africa In the Apartheid Years",
+      "author": "Robert Kinloch Massie",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-machiavelli-in-hell-sebastian-de-grazia",
+      "slug": "machiavelli-in-hell-sebastian-de-grazia",
+      "title": "Machiavelli in Hell",
+      "author": "Sebastian de Grazia",
+      "publicationYear": 1989,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-madame-curie-eve-curie",
+      "slug": "madame-curie-eve-curie",
+      "title": "Madame Curie",
+      "author": "Ève Curie",
+      "publicationYear": 1958,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-making-waves-mario-vargas-llosa",
+      "slug": "making-waves-mario-vargas-llosa",
+      "title": "Making Waves",
+      "author": "Mario Vargas Llosa",
+      "recognitionScore": 10,
+      "status": "low_confidence",
+      "candidates": [
+        {
+          "isbn13": "9781429922609",
+          "editionKey": "/books/OL37385456M",
+          "title": "Making Waves: Essays",
+          "publisher": "Farrar, Straus & Giroux",
+          "publishDate": "2011",
+          "publishYear": 2011,
+          "score": 0.6365,
+          "reasons": [
+            "title_match:0.67",
+            "publish_year:2011",
+            "english",
+            "publisher:Farrar, Straus & Giroux"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Best candidate did not meet minimum score."
+    },
+    {
+      "bookId": "book-marking-time-art-in-the-age-of-mass-incarceration-nicole-r-fleetwood",
+      "slug": "marking-time-art-in-the-age-of-mass-incarceration-nicole-r-fleetwood",
+      "title": "Marking Time: Art in the Age of Mass Incarceration",
+      "author": "Nicole R. Fleetwood",
+      "publicationYear": 2020,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780674919228",
+          "editionKey": "/books/OL29464302M",
+          "title": "Marking Time: Art in the Age of Mass Incarceration",
+          "publisher": "Harvard University Press",
+          "publishDate": "2020",
+          "publishYear": 2020,
+          "pages": 352,
+          "coverId": 14849800,
+          "score": 0.855,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2020",
+            "english",
+            "publisher:Harvard University Press",
+            "pages:352",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780674250925",
+          "editionKey": "/books/OL34192198M",
+          "title": "Marking Time: Art in the Age of Mass Incarceration",
+          "publisher": "Harvard University Press",
+          "publishDate": "2020",
+          "publishYear": 2020,
+          "pages": 352,
+          "score": 0.825,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2020",
+            "english",
+            "publisher:Harvard University Press",
+            "pages:352"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-mary-chesnut-s-civil-war-c-vann-woodward",
+      "slug": "mary-chesnut-s-civil-war-c-vann-woodward",
+      "title": "Mary Chesnut's Civil War",
+      "author": "C. Vann Woodward",
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-medical-apartheid-the-dark-history-of-medical-experimentation-on-black-americans-from-colonial-t",
+      "slug": "medical-apartheid-the-dark-history-of-medical-experimentation-on-black-americans-from-colonial-t",
+      "title": "Medical Apartheid: The Dark History of Medical Experimentation on Black Americans From Colonial Times to the Present",
+      "author": "Harriet A. Washington",
+      "publicationYear": 2006,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780385509930",
+          "editionKey": "/books/OL7440946M",
+          "title": "Medical Apartheid: The Dark History of Medical Experimentation on Black Americans from Colonial Times to the Present",
+          "publisher": "Doubleday",
+          "publishDate": "2006",
+          "publishYear": 2006,
+          "pages": 512,
+          "coverId": 10129522,
+          "score": 0.8573,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2006",
+            "english",
+            "publisher:Doubleday",
+            "pages:512",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780767915472",
+          "editionKey": "/books/OL25664536M",
+          "title": "Medical apartheid : the dark history of medical experimentation on Black Americans from colonial times to the present",
+          "publisher": "Harlem Moon",
+          "publishDate": "2006",
+          "publishYear": 2006,
+          "pages": 528,
+          "coverId": 7336154,
+          "score": 0.8573,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2006",
+            "english",
+            "publisher:Harlem Moon",
+            "pages:528",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780767915472",
+          "editionKey": "/books/OL18506651M",
+          "title": "Medical apartheid: the dark history of medical experimentation on Black Americans from colonial times to the present",
+          "publisher": "Harlem Moon",
+          "publishDate": "2006",
+          "publishYear": 2006,
+          "pages": 501,
+          "score": 0.8273,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2006",
+            "english",
+            "publisher:Harlem Moon",
+            "pages:501"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780767915472",
+          "editionKey": "/books/OL19968827M",
+          "title": "Medical apartheid: the dark history of medical experimentation on Black Americans from colonial times to the present",
+          "publisher": "Harlem Moon",
+          "publishDate": "2006",
+          "publishYear": 2006,
+          "pages": 501,
+          "score": 0.8273,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2006",
+            "english",
+            "publisher:Harlem Moon",
+            "pages:501"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780767915472",
+          "editionKey": "/books/OL9530964M",
+          "title": "Medical Apartheid: The Dark History of Medical Experimentation on Black Americans from Colonial Times to the Present",
+          "publisher": "Anchor Books",
+          "publishDate": "January 8, 2008",
+          "publishYear": 2008,
+          "physicalFormat": "Paperback",
+          "pages": 528,
+          "coverId": 1454361,
+          "score": 0.857,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2008",
+            "english",
+            "publisher:Anchor Books",
+            "pages:528",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-memoirs-1925-1950-george-f-kennan",
+      "slug": "memoirs-1925-1950-george-f-kennan",
+      "title": "Memoirs: 1925–1950",
+      "author": "George F. Kennan",
+      "publicationYear": 1967,
+      "recognitionScore": 10,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-midnight-in-washington-how-we-almost-lost-our-democracy-and-still-could-adam-schiff",
+      "slug": "midnight-in-washington-how-we-almost-lost-our-democracy-and-still-could-adam-schiff",
+      "title": "Midnight in Washington: How We Almost Lost Our Democracy and Still Could",
+      "author": "Adam Schiff",
+      "publicationYear": 2021,
+      "recognitionScore": 10,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780593231524",
+          "editionKey": "/books/OL34152056M",
+          "title": "Midnight in Washington: How We Almost Lost Our Democracy and Still Could",
+          "publisher": "Random House Publishing Group",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "pages": 528,
+          "coverId": 12441275,
+          "score": 0.8548,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:Random House Publishing Group",
+            "pages:528",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780593231548",
+          "editionKey": "/books/OL35999069M",
+          "title": "Midnight in Washington: How We Almost Lost Our Democracy and Still Could",
+          "publisher": "Random House Publishing Group",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "score": 0.7848,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:Random House Publishing Group"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780593231531",
+          "editionKey": "/books/OL38208568M",
+          "title": "Midnight in Washington: How We Almost Lost Our Democracy and Still Could",
+          "publisher": "Random House Publishing Group",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "score": 0.7847,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2022",
+            "english",
+            "publisher:Random House Publishing Group"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-mistress-to-an-age-a-life-of-madame-de-stael-j-christopher-herold",
+      "slug": "mistress-to-an-age-a-life-of-madame-de-stael-j-christopher-herold",
+      "title": "Mistress to an Age: A Life of Madame de Staël",
+      "author": "J. Christopher Herold",
+      "publicationYear": 1962,
       "recognitionScore": 10,
       "status": "not_found",
       "candidates": [],

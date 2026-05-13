@@ -18917,6 +18917,119 @@
     ]
   },
   {
+    "bookId": "book-anthony-blunt-his-lives-miranda-carter",
+    "title": "Anthony Blunt: His Lives",
+    "author": "Miranda Carter",
+    "primarySubject": "Biography",
+    "confidence": "low",
+    "reasons": [
+      "low confidence subject decision",
+      "no catalog/BISAC/Open Library/Google/publisher subject evidence",
+      "close candidate scores: Biography 6 vs Arts & Criticism 5"
+    ],
+    "candidates": [
+      {
+        "subject": "Biography",
+        "score": 6,
+        "evidenceCount": 3
+      },
+      {
+        "subject": "Arts & Criticism",
+        "score": 5,
+        "evidenceCount": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Journalism & Reportage",
+        "score": 2,
+        "evidenceCount": 1
+      }
+    ],
+    "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Arts & Criticism",
+        "mappedSubject": "Arts & Criticism",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; journalism/reportage keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-3"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Art, Music & Performance",
+        "mappedSubject": "Arts & Criticism",
+        "score": 2,
+        "confidence": "low",
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; art/music/performance keyword; class/poverty keyword; essays/cultural criticism keyword; subject fallback",
+        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-9"
+      },
+      {
+        "source": "award_category",
+        "rawLabel": "Costa Book Awards: Biography",
+        "mappedSubject": "Biography",
+        "score": 2,
+        "confidence": "low",
+        "sourceId": "source-award-record-costa-biography-wikipedia-costa-book-award-for-biography",
+        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-1"
+      },
+      {
+        "source": "award_category",
+        "rawLabel": "Biography",
+        "mappedSubject": "Biography",
+        "score": 2,
+        "confidence": "low",
+        "sourceId": "source-award-record-costa-biography-wikipedia-costa-book-award-for-biography",
+        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Biography",
+        "mappedSubject": "Biography",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; journalism/reportage keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-4"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Journalism & Reportage",
+        "mappedSubject": "Journalism & Reportage",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; journalism/reportage keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; journalism/reportage keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; journalism/reportage keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-7"
+      }
+    ]
+  },
+  {
     "bookId": "book-anthony-powell-dancing-to-the-music-of-time-hilary-spurling",
     "title": "Anthony Powell: Dancing to the Music of Time",
     "author": "Hilary Spurling",
@@ -73944,6 +74057,11 @@
         "subject": "History",
         "score": 4,
         "evidenceCount": 4
+      },
+      {
+        "subject": "World History",
+        "score": 2,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -73953,7 +74071,7 @@
         "mappedSubject": "Religion",
         "score": 2,
         "confidence": "low",
-        "note": "history keyword or history prize; religion keyword",
+        "note": "world history keyword; history keyword or history prize; religion keyword",
         "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-3"
       },
       {
@@ -73963,7 +74081,16 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-5"
+        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; religion keyword",
+        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-4"
       },
       {
         "source": "award_category",
@@ -73989,8 +74116,8 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "history keyword or history prize; religion keyword",
-        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-4"
+        "note": "world history keyword; history keyword or history prize; religion keyword",
+        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-5"
       },
       {
         "source": "topic_classifier",
@@ -73999,7 +74126,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-7"
+        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-8"
       },
       {
         "source": "topic_classifier",
@@ -74008,7 +74135,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-6"
+        "id": "subject-evidence-book-how-jesus-became-christian-barrie-wilson-7"
       }
     ]
   },
@@ -173846,86 +173973,6 @@
     ]
   },
   {
-    "bookId": "book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin",
-    "title": "The Sacco–Vanzetti Affair: America on Trial",
-    "author": "Moshik Temkin",
-    "primarySubject": "True Crime & Justice",
-    "confidence": "low",
-    "reasons": [
-      "low confidence subject decision",
-      "no catalog/BISAC/Open Library/Google/publisher subject evidence",
-      "close candidate scores: True Crime & Justice 5 vs History 3"
-    ],
-    "candidates": [
-      {
-        "subject": "True Crime & Justice",
-        "score": 5,
-        "evidenceCount": 3
-      },
-      {
-        "subject": "History",
-        "score": 3,
-        "evidenceCount": 3
-      }
-    ],
-    "evidence": [
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "True Crime & Justice",
-        "mappedSubject": "True Crime & Justice",
-        "score": 2,
-        "confidence": "low",
-        "note": "history keyword or history prize; crime/justice keyword",
-        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-3"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Courts & Trials",
-        "mappedSubject": "True Crime & Justice",
-        "score": 2,
-        "confidence": "low",
-        "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-5"
-      },
-      {
-        "source": "award_category",
-        "rawLabel": "Cundill History Prize",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "sourceId": "source-award-record-cundill-history-wikipedia-cundill-history-prize",
-        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-1"
-      },
-      {
-        "source": "award_category",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "sourceId": "source-award-record-cundill-history-wikipedia-cundill-history-prize",
-        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-2"
-      },
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "history keyword or history prize; crime/justice keyword",
-        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-4"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Crime, Policing & Violence",
-        "mappedSubject": "True Crime & Justice",
-        "score": 1,
-        "confidence": "low",
-        "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-6"
-      }
-    ]
-  },
-  {
     "bookId": "book-the-sacred-fire-of-liberty-james-madison-and-the-founding-of-the-federal-republic-lance-banning",
     "title": "The Sacred Fire of Liberty: James Madison and the Founding of the Federal Republic",
     "author": "Lance Banning",
@@ -215617,62 +215664,6 @@
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
         "id": "subject-evidence-book-another-word-for-love-a-memoir-carvell-wallace-5"
-      }
-    ]
-  },
-  {
-    "bookId": "book-anthony-blunt-his-lives-miranda-carter",
-    "title": "Anthony Blunt: His Lives",
-    "author": "Miranda Carter",
-    "primarySubject": "Biography",
-    "confidence": "low",
-    "reasons": [
-      "low confidence subject decision",
-      "no catalog/BISAC/Open Library/Google/publisher subject evidence"
-    ],
-    "candidates": [
-      {
-        "subject": "Biography",
-        "score": 8,
-        "evidenceCount": 4
-      }
-    ],
-    "evidence": [
-      {
-        "source": "award_category",
-        "rawLabel": "Costa Book Awards: Biography",
-        "mappedSubject": "Biography",
-        "score": 2,
-        "confidence": "low",
-        "sourceId": "source-award-record-costa-biography-wikipedia-costa-book-award-for-biography",
-        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-1"
-      },
-      {
-        "source": "award_category",
-        "rawLabel": "Biography",
-        "mappedSubject": "Biography",
-        "score": 2,
-        "confidence": "low",
-        "sourceId": "source-award-record-costa-biography-wikipedia-costa-book-award-for-biography",
-        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-2"
-      },
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "Biography",
-        "mappedSubject": "Biography",
-        "score": 2,
-        "confidence": "low",
-        "note": "biography/title pattern",
-        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-3"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Biography & Public Lives",
-        "mappedSubject": "Biography",
-        "score": 2,
-        "confidence": "low",
-        "note": "biography fallback; subject fallback",
-        "id": "subject-evidence-book-anthony-blunt-his-lives-miranda-carter-4"
       }
     ]
   },
@@ -332575,7 +332566,17 @@
         "evidenceCount": 4
       },
       {
+        "subject": "Race & Ethnicity",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "World History",
         "score": 2,
         "evidenceCount": 1
       },
@@ -332592,8 +332593,26 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; history keyword or history prize; war/military keyword",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; race/ethnicity keyword; travel/place keyword",
         "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-3"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Race & Ethnicity",
+        "mappedSubject": "Race & Ethnicity",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-6"
       },
       {
         "source": "keyword_classifier",
@@ -332601,7 +332620,7 @@
         "mappedSubject": "War & Military",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; history keyword or history prize; war/military keyword",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; race/ethnicity keyword; travel/place keyword",
         "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-4"
       },
       {
@@ -332611,7 +332630,16 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-5"
+        "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-7"
       },
       {
         "source": "award_category",
@@ -332630,24 +332658,6 @@
         "confidence": "low",
         "sourceId": "source-award-record-cundill-history-wikipedia-cundill-history-prize",
         "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-2"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "War & Military Strategy",
-        "mappedSubject": "War & Military",
-        "score": 1,
-        "confidence": "low",
-        "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-6"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Soldiers, Veterans & Combat Experience",
-        "mappedSubject": "War & Military",
-        "score": 1,
-        "confidence": "low",
-        "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-civil-war-of-1812-american-citizens-british-subjects-irish-rebels-and-indian-allies-alan-tay-7"
       }
     ]
   },
@@ -359772,6 +359782,11 @@
         "evidenceCount": 2
       },
       {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "War & Military",
         "score": 1,
         "evidenceCount": 1
@@ -359784,7 +359799,7 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
+        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword",
         "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-3"
       },
       {
@@ -359794,7 +359809,16 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-5"
+        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword",
+        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-4"
       },
       {
         "source": "keyword_classifier",
@@ -359802,8 +359826,8 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-4"
+        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword",
+        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-5"
       },
       {
         "source": "topic_classifier",
@@ -359812,7 +359836,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-6"
+        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-7"
       },
       {
         "source": "award_category",
@@ -359839,7 +359863,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-7"
+        "id": "subject-evidence-book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown-8"
       }
     ]
   },
@@ -362071,6 +362095,118 @@
         "confidence": "low",
         "note": "subject fallback",
         "id": "subject-evidence-book-the-rosicrucian-enlightenment-frances-yates-6"
+      }
+    ]
+  },
+  {
+    "bookId": "book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin",
+    "title": "The Sacco–Vanzetti Affair: America on Trial",
+    "author": "Moshik Temkin",
+    "primarySubject": "True Crime & Justice",
+    "confidence": "low",
+    "reasons": [
+      "low confidence subject decision",
+      "no catalog/BISAC/Open Library/Google/publisher subject evidence"
+    ],
+    "candidates": [
+      {
+        "subject": "True Crime & Justice",
+        "score": 5,
+        "evidenceCount": 3
+      },
+      {
+        "subject": "War & Military",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "World History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 2,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
+      }
+    ],
+    "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; crime/justice keyword",
+        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "True Crime & Justice",
+        "mappedSubject": "True Crime & Justice",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; crime/justice keyword",
+        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-3"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Courts & Trials",
+        "mappedSubject": "True Crime & Justice",
+        "score": 2,
+        "confidence": "low",
+        "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; crime/justice keyword",
+        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-4"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; crime/justice keyword",
+        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-6"
+      },
+      {
+        "source": "award_category",
+        "rawLabel": "Cundill History Prize",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "sourceId": "source-award-record-cundill-history-wikipedia-cundill-history-prize",
+        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-1"
+      },
+      {
+        "source": "award_category",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "sourceId": "source-award-record-cundill-history-wikipedia-cundill-history-prize",
+        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-2"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Crime, Policing & Violence",
+        "mappedSubject": "True Crime & Justice",
+        "score": 1,
+        "confidence": "low",
+        "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-the-sacco-vanzetti-affair-america-on-trial-moshik-temkin-8"
       }
     ]
   },

@@ -5,9 +5,11 @@ import type React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Info, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { BookDrawer } from "@/components/book-drawer";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import { appearancesByBookId, booksById } from "@/lib/data";
 import type { BrowseBookRow } from "@/lib/browse-types";
 import type { SemanticQueryInterpretation } from "@/lib/semantic-search";
 
@@ -133,6 +135,9 @@ export function BookCatalog({
   const showRowCovers = density !== "compact";
   const tableMinWidth = wideLayout ? "min-w-[1320px]" : "min-w-[1180px]";
   const showDenseCatalogControls = wideLayout && !compactHeader;
+  const activeBook = activeBookId ? booksById.get(activeBookId) ?? null : null;
+  const activeBookAppearances = activeBookId ? appearancesByBookId.get(activeBookId) ?? [] : [];
+  const activeBookIndex = activeBookId ? rows.findIndex((book) => book.id === activeBookId) : -1;
   useEffect(() => {
     setQuery(urlQuery);
     setSemanticQuery(routeMode === "semantic" ? urlQuery : "");
@@ -149,7 +154,6 @@ export function BookCatalog({
 
   function openBook(book: BrowseBookRow) {
     setActiveBookId(book.id);
-    router.push(`/books/${book.slug}`);
   }
 
   function resetFilters() {
@@ -278,6 +282,7 @@ export function BookCatalog({
     : "";
 
   return (
+    <>
     <section className={`mx-auto ${wideLayout ? "max-w-[90rem]" : "max-w-7xl"} px-4 sm:px-6 lg:px-8 ${compactHeader ? "pb-10" : wideLayout ? "py-4" : "py-10"}`}>
       <div className={`mx-auto mb-6 grid max-w-7xl gap-8 lg:items-center ${wideLayout ? "min-[1345px]:px-8" : ""} ${compactHeader ? "lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.9fr)]" : "lg:grid-cols-[0.86fr_1fr]"}`}>
         <div>
@@ -809,6 +814,15 @@ export function BookCatalog({
         </div>
       </div>
     </section>
+    <BookDrawer
+      appearances={activeBookAppearances}
+      book={activeBook}
+      currentLabel={activeBook && activeBookIndex >= 0 ? `${activeBookIndex + 1} of ${rows.length}` : undefined}
+      onClose={() => setActiveBookId(null)}
+      onNext={activeBookIndex >= 0 && activeBookIndex < rows.length - 1 ? () => setActiveBookId(rows[activeBookIndex + 1].id) : undefined}
+      onPrevious={activeBookIndex > 0 ? () => setActiveBookId(rows[activeBookIndex - 1].id) : undefined}
+    />
+    </>
   );
 }
 
@@ -849,11 +863,12 @@ function CatalogSubjectPill({
 }
 
 function BookRowCover({ book, size = "standard" }: { book: BrowseBookRow; size?: "standard" | "large" }) {
+  const [imageFailed, setImageFailed] = useState(false);
   const className = `book-row-cover ${size === "large" ? "book-row-cover-large" : ""}`;
-  if (book.thumbnailUrl) {
+  if (book.thumbnailUrl && !imageFailed) {
     return (
       <span className={className} aria-hidden="true">
-        <img src={book.thumbnailUrl} alt="" />
+        <img src={book.thumbnailUrl} alt="" onError={() => setImageFailed(true)} />
       </span>
     );
   }

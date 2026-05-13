@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-12T20:37:04.757Z",
+  "generatedAt": "2026-05-13T05:16:43.959Z",
   "policy": "Resolve broad parent publishers to the first US/UK trade edition imprint only when catalog evidence produces one strong known-imprint candidate.",
-  "limit": 250,
-  "count": 8,
+  "limit": 100,
+  "count": 5,
   "queue": [
     {
       "bookId": "book-walter-lippmann-and-the-american-century-ronald-steel",
@@ -13,33 +13,6 @@
       "publisherId": "publisher-taylor-and-francis-group",
       "publisherName": "Taylor & Francis Group",
       "reason": "broad_taylor_francis_parent"
-    },
-    {
-      "bookId": "book-leonardo-s-lost-robots-mark-elling-rosheim",
-      "slug": "leonardo-s-lost-robots-mark-elling-rosheim",
-      "title": "Leonardo’s Lost Robots",
-      "author": "Mark Elling Rosheim",
-      "publisherId": "publisher-springer-science-business-media",
-      "publisherName": "Springer Science+Business Media",
-      "reason": "broad_springer_parent"
-    },
-    {
-      "bookId": "book-solar-sails-a-novel-approach-to-interplanetary-travel-giovanni-vulpetti-les-johnson-and-gregory-",
-      "slug": "solar-sails-a-novel-approach-to-interplanetary-travel-giovanni-vulpetti-les-johnson-and-gregory-",
-      "title": "Solar Sails: A Novel Approach to Interplanetary Travel",
-      "author": "Giovanni Vulpetti, Les Johnson, Gregory L. Matloff",
-      "publisherId": "publisher-springer-science-business-media",
-      "publisherName": "Springer Science+Business Media",
-      "reason": "broad_springer_parent"
-    },
-    {
-      "bookId": "book-springer-handbook-of-robotics-professors-bruno-siciliano-and-oussama-khatib",
-      "slug": "springer-handbook-of-robotics-professors-bruno-siciliano-and-oussama-khatib",
-      "title": "Springer Handbook of Robotics",
-      "author": "Professors Bruno Siciliano, Oussama Khatib",
-      "publisherId": "publisher-springer-science-business-media",
-      "publisherName": "Springer Science+Business Media",
-      "reason": "broad_springer_parent"
     },
     {
       "bookId": "book-a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",

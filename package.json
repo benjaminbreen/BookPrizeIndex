@@ -12,6 +12,7 @@
     "books:queue:quick": "tsx scripts/queue-book-enrichment.ts",
     "books:complete": "tsx scripts/enrich-books.ts",
     "books:enrich": "tsx scripts/enrich-books.ts",
+    "covers:cache": "tsx scripts/cache-book-covers.ts",
     "books:wikipedia": "tsx scripts/enrich-wikipedia-books.ts",
     "report:duplicates": "tsx scripts/report-duplicate-books.ts",
     "report:publishers": "tsx scripts/report-publisher-imprints.ts",

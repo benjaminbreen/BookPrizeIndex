@@ -13,6 +13,7 @@ export default function MethodologyPage() {
         <ol className="grid grid-cols-2 gap-x-5 md:block">
           <li><a className="transition hover:text-[var(--ink)]" href="#authorship">Authorship</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#principles">Principles</a></li>
+          <li><a className="transition hover:text-[var(--ink)]" href="#data-sources">Data sources</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#imports">Imports</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#books">Books</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#subjects">Subjects</a></li>
@@ -51,6 +52,36 @@ export default function MethodologyPage() {
             archive page, importer code should capture the transformation so it can be rerun, validated, and corrected.
             LLMs may help parse messy source text, but they are not treated as factual authorities. Every public award
             appearance should either point to a source URL or remain clearly provisional.
+          </p>
+        </MethodSection>
+
+        <MethodSection id="data-sources" title="Data sources">
+          <p>
+            Prize data comes from public records. The preferred source is the prize's own public website: official
+            winner and finalist pages, archive pages, annual announcement posts, downloadable lists, press releases,
+            category pages, and similar pages published by the administering foundation, book prize, newspaper,
+            university, learned society, or professional organization. These sources are used because they are closest
+            to the institution that made the award decision and often preserve category names, eligibility notes,
+            shortlist language, and year-specific context.
+          </p>
+          <p>
+            Wikipedia is also used as a public secondary source, especially when an official archive is incomplete,
+            difficult to parse, split across many historical pages, or no longer available in a stable form. In those
+            cases, Wikipedia can provide a useful index of winners, finalists, historical category names, and links back
+            to primary sources. It is treated as supporting evidence, not as a substitute for provenance when a stable
+            official prize page is available.
+          </p>
+          <p>
+            Imported rows should retain the most specific source URL practical for that record. When a prize publishes a
+            year page or category page, the row should point there. When the best available public source is a broader
+            official archive page, the importer records that page and preserves notes about the level of coverage. When
+            Wikipedia is used to fill or cross-check historical lists, the row or importer notes should make that clear
+            so later review can replace it with a stronger official or archival source if one is found.
+          </p>
+          <p>
+            The project does not use LLM output as a factual source for prize results. Automated tools may help parse
+            public pages into structured rows, but the factual claim still needs to trace back to a public prize site,
+            Wikipedia page, or another explicit source URL captured in the import record.
           </p>
         </MethodSection>
 

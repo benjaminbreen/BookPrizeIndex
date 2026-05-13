@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown, ChevronUp, ChevronsUpDown, CornerDownLeft, Filter, Search } from "lucide-react";
 import { useMemo, useState } from "react";
+import { BookDrawer } from "@/components/book-drawer";
 import type { SearchMode } from "@/components/ui/design-primitives";
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import { appearancesByBookId, booksById } from "@/lib/data";
 import type { BrowseData } from "@/lib/browse-types";
 
 type SortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher";
@@ -26,10 +28,12 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
   const [query, setQuery] = useState("");
   const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
   const [searchMode, setSearchMode] = useState<SearchMode>("keyword");
+  const [tooltipMode, setTooltipMode] = useState<SearchMode | null>(null);
   const [type, setType] = useState<TypeFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("score");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [rankedSubject, setRankedSubject] = useState<RankedSubjectFilter>("all");
+  const [activeBookId, setActiveBookId] = useState<string | null>(null);
 
   const rankedBooks = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -48,6 +52,9 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
   }, [data.books, query, rankedSubject, sortDirection, sortKey]);
 
   const topBooks = rankedBooks.slice(0, 12);
+  const activeBook = activeBookId ? booksById.get(activeBookId) ?? null : null;
+  const activeBookAppearances = activeBookId ? appearancesByBookId.get(activeBookId) ?? [] : [];
+  const activeBookIndex = activeBookId ? topBooks.findIndex((book) => book.id === activeBookId) : -1;
   const browseData = useMemo(() => getBrowseData(data, region, type), [data, region, type]);
   const showingLabel = `${regionLabel(region)} · ${type === "all" ? "All" : titleCase(type)}`;
 
@@ -74,6 +81,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
   }
 
   return (
+    <>
     <main>
       <section className="home-hero-section bg-[var(--paper)]">
         <div className="home-hero-inner mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[1.04fr_0.96fr] lg:px-8 lg:pb-12 lg:pt-20">
@@ -110,33 +118,48 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                   <CornerDownLeft size={13} />
                 </button>
               ) : null}
-              <div className="home-search-mode-toggle" aria-label="Search mode">
+              <div className="home-search-mode-toggle" aria-label="Search mode" onMouseLeave={() => setTooltipMode(null)}>
                 <button
-                  aria-describedby="home-keyword-help"
+                  aria-describedby="home-search-mode-help"
                   aria-label="Keyword search"
                   className={`home-search-mode-button focus-ring ${searchMode === "keyword" ? "home-search-mode-button-active" : ""}`}
+                  onBlur={() => setTooltipMode(null)}
                   onClick={() => setSearchMode("keyword")}
+                  onFocus={() => setTooltipMode("keyword")}
+                  onMouseEnter={() => setTooltipMode("keyword")}
                   type="button"
                 >
                   Keyword
                 </button>
                 <button
-                  aria-describedby="home-semantic-help"
+                  aria-describedby="home-search-mode-help"
                   aria-label="Semantic search"
                   className={`home-search-mode-button focus-ring ${searchMode === "semantic" ? "home-search-mode-button-active" : ""}`}
+                  onBlur={() => setTooltipMode(null)}
                   onClick={() => setSearchMode("semantic")}
+                  onFocus={() => setTooltipMode("semantic")}
+                  onMouseEnter={() => setTooltipMode("semantic")}
                   type="button"
                 >
                   Semantic
                 </button>
-                <span className="home-mode-tooltip home-mode-tooltip-keyword" id="home-keyword-help" role="tooltip">
-                  <span className="home-mode-tooltip-label">Keyword</span>
-                  <span>Looks for the exact words you type in titles, authors, awards, subjects, publishers, and catalog text.</span>
-                </span>
-                <span className="home-mode-tooltip home-mode-tooltip-semantic" id="home-semantic-help" role="tooltip">
-                  <span className="home-mode-tooltip-label">Semantic</span>
-                  <span>Uses machine learning to find books, awards, and subjects related to what you describe.</span>
-                
+                <span
+                  className={`home-mode-tooltip home-mode-tooltip-${tooltipMode ?? searchMode} ${tooltipMode ? "home-mode-tooltip-visible" : ""}`}
+                  id="home-search-mode-help"
+                  role="tooltip"
+                >
+                  {tooltipMode === "semantic" ? (
+                    <>
+                      <span className="home-mode-tooltip-label">Semantic</span>
+                      <span>Uses machine learning to find books, awards, and subjects related to what you describe, even when the exact words do not appear.</span>
+                      <span className="home-mode-tooltip-note">Best for themes, eras, moods, comparisons, and open-ended ideas.</span>
+                    </>
+                  ) : (
+                    <>
+                      <span className="home-mode-tooltip-label">Keyword</span>
+                      <span>Looks for the exact words you type in titles, authors, awards, subjects, publishers, and catalog text.</span>
+                    </>
+                  )}
                 </span>
               </div>
             </form>
@@ -237,18 +260,31 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                 return (
                   <tr
                     key={book.id}
-                    className="book-table-row fade-up border-b hairline transition hover:bg-[var(--accent-soft)]"
+                    className="book-table-row fade-up cursor-pointer border-b hairline transition hover:bg-[var(--accent-soft)]"
+                    onClick={() => setActiveBookId(book.id)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        setActiveBookId(book.id);
+                      }
+                    }}
+                    role="button"
                     style={{ animationDelay: `${Math.min(index * 18, 140)}ms` }}
+                    tabIndex={0}
                   >
                     <td className="plain-number px-4 py-4 text-sm muted">{book.publicationYear}</td>
                     <td className="px-4 py-4">
-                      <Link
+                      <button
                         className="focus-ring grid w-full grid-cols-[2.15rem_minmax(0,1fr)] items-center gap-3 text-left font-[var(--font-serif)] text-xl font-light transition hover:text-[var(--accent)]"
-                        href={`/books/${book.slug}`}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          setActiveBookId(book.id);
+                        }}
+                        type="button"
                       >
                         <HomeBookCover book={book} />
                         <span className="line-clamp-2">{book.title}</span>
-                      </Link>
+                      </button>
                     </td>
                     <td className="px-4 py-4 text-sm">{book.author}</td>
                     <td className="plain-number px-4 py-4 text-sm">{book.wins}</td>
@@ -272,6 +308,15 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
         </div>
       </section>
     </main>
+    <BookDrawer
+      appearances={activeBookAppearances}
+      book={activeBook}
+      currentLabel={activeBook && activeBookIndex >= 0 ? `${activeBookIndex + 1} of ${topBooks.length}` : undefined}
+      onClose={() => setActiveBookId(null)}
+      onNext={activeBookIndex >= 0 && activeBookIndex < topBooks.length - 1 ? () => setActiveBookId(topBooks[activeBookIndex + 1].id) : undefined}
+      onPrevious={activeBookIndex > 0 ? () => setActiveBookId(topBooks[activeBookIndex - 1].id) : undefined}
+    />
+    </>
   );
 }
 
@@ -373,10 +418,11 @@ function FilterButton({
 }
 
 function HomeBookCover({ book }: { book: BrowseData["books"][number] }) {
-  if (book.thumbnailUrl) {
+  const [imageFailed, setImageFailed] = useState(false);
+  if (book.thumbnailUrl && !imageFailed) {
     return (
       <span className="home-book-cover" aria-hidden="true">
-        <img src={book.thumbnailUrl} alt="" />
+        <img src={book.thumbnailUrl} alt="" onError={() => setImageFailed(true)} />
       </span>
     );
   }

@@ -10,6 +10,7 @@ const navItems = [
   { href: "/awards", label: "Awards", match: ["/awards"] },
   { href: "/subjects", label: "Subjects", match: ["/subjects", "/topics"] },
   { href: "/publishers", label: "Publishers", match: ["/publishers", "/imprints", "/imprint-logos"] },
+  { href: "/experiments", label: "Experiments", match: ["/experiments"] },
 ];
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -153,6 +154,7 @@ function labelForPart(part: string, href: string) {
   if (part === "topics") return "Topics";
   if (part === "publishers") return "Publishers";
   if (part === "imprints") return "Imprints";
+  if (part === "experiments") return "Experiments";
   if (part === "methodology") return "Methodology";
   if (part === "colophon") return "Colophon";
   if (part === "privacy") return "Privacy";
@@ -199,7 +201,6 @@ function SiteFooter() {
           links={[
             { href: "/about", label: "About" },
             { href: "/methodology", label: "Methodology" },
-            { href: "#", label: "Data Sources" },
             { href: "#", label: "FAQ" },
             { href: "#", label: "Contact" },
           ]}

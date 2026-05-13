@@ -21837,10 +21837,13 @@
     "confidence": "medium",
     "reasons": [
       "American history keyword",
+      "world history keyword",
       "history keyword or history prize",
-      "war/military keyword"
+      "war/military keyword",
+      "race/ethnicity keyword",
+      "travel/place keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, War & Military.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, War & Military, Race & Ethnicity, Travel & Place, World History.",
     "candidates": [
       {
         "subject": "American History",
@@ -21849,6 +21852,18 @@
       {
         "subject": "War & Military",
         "score": 3
+      },
+      {
+        "subject": "Race & Ethnicity",
+        "score": 2
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2
       }
     ]
   },
@@ -25746,13 +25761,18 @@
     "reasons": [
       "American history keyword",
       "world history keyword",
-      "history keyword or history prize"
+      "history keyword or history prize",
+      "society/culture keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, World History.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Society & Culture, World History.",
     "candidates": [
       {
         "subject": "American History",
         "score": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
       },
       {
         "subject": "World History",
@@ -29299,6 +29319,50 @@
       },
       {
         "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "bookId": "book-anthony-blunt-his-lives-miranda-carter",
+    "title": "Anthony Blunt: His Lives",
+    "author": "Miranda Carter",
+    "subjects": [
+      "Arts & Criticism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "world history keyword",
+      "history keyword or history prize",
+      "society/culture keyword",
+      "journalism/reportage keyword",
+      "arts/criticism keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Arts & Criticism, Biography, Journalism & Reportage, Society & Culture, World History, History.",
+    "candidates": [
+      {
+        "subject": "Arts & Criticism",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "Journalism & Reportage",
+        "score": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "World History",
         "score": 2
       },
       {
@@ -74828,14 +74892,19 @@
     ],
     "confidence": "medium",
     "reasons": [
+      "world history keyword",
       "history keyword or history prize",
       "religion keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: Religion, History.",
+    "reviewReason": "Primary subject selected from multiple candidates: Religion, World History, History.",
     "candidates": [
       {
         "subject": "Religion",
         "score": 3
+      },
+      {
+        "subject": "World History",
+        "score": 2
       },
       {
         "subject": "History",
@@ -88010,18 +88079,29 @@
     ],
     "confidence": "medium",
     "reasons": [
+      "world history keyword",
       "history keyword or history prize",
+      "war/military keyword",
+      "society/culture keyword",
       "crime/justice keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: True Crime & Justice, History.",
+    "reviewReason": "Primary subject selected from multiple candidates: True Crime & Justice, War & Military, Society & Culture, World History.",
     "candidates": [
       {
         "subject": "True Crime & Justice",
         "score": 3
       },
       {
-        "subject": "History",
-        "score": 1
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2
       }
     ]
   },

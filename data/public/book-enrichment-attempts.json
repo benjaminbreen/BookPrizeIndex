@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-12T23:58:08.958Z",
+  "generatedAt": "2026-05-13T05:55:36.436Z",
   "attempts": {
     "book-the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro": {
       "bookId": "book-the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro",
@@ -7,9 +7,9 @@
       "title": "The Passage of Power: The Years of Lyndon Johnson",
       "author": "Robert A. Caro",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -52,9 +52,9 @@
       "title": "American Prometheus: The Triumph and Tragedy of J. Robert Oppenheimer",
       "author": "Kai Bird Martin J. Sherwin",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -73,9 +73,10 @@
       "slug": "just-mercy-a-story-of-justice-and-redemption-bryan-stevenson",
       "title": "Just Mercy: A Story of Justice and Redemption",
       "author": "Bryan Stevenson",
-      "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "status": "enriched",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "publicationYear",
         "publisherId"
       ],
       "matches": [
@@ -88,8 +89,7 @@
           "accepted": true,
           "via": "isbn"
         }
-      ],
-      "notes": ""
+      ]
     },
     "book-the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor": {
       "bookId": "book-the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor",
@@ -97,9 +97,9 @@
       "title": "The Internal Enemy: Slavery and War in Virginia, 1772–1832",
       "author": "Alan Taylor",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -119,9 +119,9 @@
       "title": "Battle Cry of Freedom: The Civil War Era",
       "author": "James M. McPherson",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -141,9 +141,9 @@
       "title": "Bury the Chains: Prophets and Rebels in the Fight to Free an Empire's Slaves",
       "author": "Adam Hochschild",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -184,9 +184,10 @@
       "slug": "max-perkins-editor-of-genius-a-scott-berg",
       "title": "Max Perkins: Editor of Genius",
       "author": "A. Scott Berg",
-      "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "status": "enriched",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "publicationYear",
         "publisherId",
         "summary",
         "thumbnailUrl"
@@ -201,8 +202,7 @@
           "accepted": true,
           "via": "isbn"
         }
-      ],
-      "notes": ""
+      ]
     },
     "book-say-nothing-a-true-story-of-murder-and-memory-in-northern-ireland-patrick-radden-keefe": {
       "bookId": "book-say-nothing-a-true-story-of-murder-and-memory-in-northern-ireland-patrick-radden-keefe",
@@ -262,9 +262,9 @@
       "title": "Why Americans Hate Politics: The Death of the Democratic Process",
       "author": "E. J. Dionne, Jr.",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -744,13 +744,11 @@
       "slug": "la-vida-a-puerto-rican-family-in-the-culture-of-poverty-san-juan-and-new-york-oscar-lewis",
       "title": "La Vida: A Puerto Rican Family in the Culture of Poverty—San Juan and New York",
       "author": "Oscar Lewis",
-      "status": "low_confidence",
-      "attemptedAt": "2026-05-10T22:58:23.879Z",
+      "status": "enriched",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "isbn13",
         "publicationYear",
         "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -759,14 +757,14 @@
       "matches": [
         {
           "provider": "open_library",
-          "title": "La Vida. Une famille portoricaine dans une culture de pauvreté",
+          "title": "LA Vida: A Puerto Rican Family in the Culture of Poverty--San Juan and New York.",
           "author": "Oscar Lewis",
-          "url": "https://openlibrary.org/works/OL16322992W",
-          "score": 0.44,
-          "accepted": false
+          "url": "https://openlibrary.org/books/OL7460452M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
         }
-      ],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22La+Vida%3A+A+Puerto+Rican+Family+in+the+Culture+of+Poverty%E2%80%94San+Juan+and+New+York%22+inauthor%3A%22Oscar+Lewis%22&maxResults=5&printType=books"
+      ]
     },
     "book-lab-girl-hope-jahren": {
       "bookId": "book-lab-girl-hope-jahren",
@@ -1141,20 +1139,27 @@
       "slug": "lucy-the-beginnings-of-humankind-donald-c-johanson-and-maitland-a-edey",
       "title": "Lucy: The Beginnings of Humankind",
       "author": "Donald C. Johanson Maitland A. Edey",
-      "status": "not_found",
-      "attemptedAt": "2026-05-10T22:58:23.879Z",
+      "status": "enriched",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "isbn13",
         "publicationYear",
         "publisherId",
-        "imprintId",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
-      "matches": [],
-      "notes": "fetch failed; fetch failed"
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Lucy: the Beginnings of Humankind",
+          "author": "Donald C. Johanson Maitland A. Edey",
+          "url": "https://openlibrary.org/books/OL47349499M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
     },
     "book-lyric-poetry-and-modern-politics-russia-poland-and-the-west-clare-cavanagh": {
       "bookId": "book-lyric-poetry-and-modern-politics-russia-poland-and-the-west-clare-cavanagh",
@@ -2071,8 +2076,9 @@
       "title": "Our Brains, Our Selves: What a Neurologist's Patients Taught Him About the Brain",
       "author": "Masud Husain",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary",
@@ -2088,7 +2094,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Our+Brains%2C+Our+Selves%3A+What+a+Neurologist%27s+Patients+Taught+Him+About+the+Brain%22+inauthor%3A%22Masud+Husain%22&maxResults=5&printType=books"
     },
     "book-padre-pio-miracles-and-politics-in-a-secular-age-sergio-luzzatto": {
       "bookId": "book-padre-pio-miracles-and-politics-in-a-secular-age-sergio-luzzatto",
@@ -2210,9 +2216,9 @@
       "title": "Patient H.M.: A Story of Memory, Madness, and Family Secrets",
       "author": "Luke Dittrich",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -2278,10 +2284,9 @@
       "slug": "peacemakers-the-paris-peace-conference-of-1919-and-its-attempt-to-end-war-margaret-macmillan",
       "title": "Peacemakers: The Paris Peace Conference of 1919 and Its Attempt to End War",
       "author": "Margaret MacMillan",
-      "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId",
         "summary"
       ],
       "matches": [
@@ -2294,7 +2299,8 @@
           "accepted": true,
           "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780719562334&maxResults=5&printType=books"
     },
     "book-peacemaking-among-primates-frans-de-waal": {
       "bookId": "book-peacemaking-among-primates-frans-de-waal",
@@ -2504,9 +2510,9 @@
       "title": "Prisoner Without a Name, Cell Without a Number",
       "author": "Jacobo Timerman",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -3454,8 +3460,9 @@
       "title": "Super-Infinite: The Transformations of John Donne",
       "author": "Katherine Rundell",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary",
@@ -3471,7 +3478,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Super-Infinite%3A+The+Transformations+of+John+Donne%22+inauthor%3A%22Katherine+Rundell%22&maxResults=5&printType=books"
     },
     "book-swimming-studies-leanne-shapton": {
       "bookId": "book-swimming-studies-leanne-shapton",
@@ -3600,9 +3607,9 @@
       "title": "The Big Short: Inside the Doomsday Machine",
       "author": "Michael Lewis",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId",
+        "publicationYear",
         "pageCount",
         "thumbnailUrl"
       ],
@@ -5924,8 +5931,9 @@
       "title": "Thieves of State: Why Corruption Threatens Global Security",
       "author": "Sarah Chayes",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary"
@@ -5940,7 +5948,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Thieves+of+State%3A+Why+Corruption+Threatens+Global+Security%22+inauthor%3A%22Sarah+Chayes%22&maxResults=5&printType=books"
     },
     "book-thinking-fast-and-slow-daniel-kahneman": {
       "bookId": "book-thinking-fast-and-slow-daniel-kahneman",
@@ -7340,8 +7348,9 @@
       "title": "Courting India: England, Mughal India and the Origins of Empire",
       "author": "Nandini Das",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -7355,7 +7364,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Courting+India%3A+England%2C+Mughal+India+and+the+Origins+of+Empire%22+inauthor%3A%22Nandini+Das%22&maxResults=5&printType=books"
     },
     "book-martin-luther-renegade-and-prophet-lyndal-roper": {
       "bookId": "book-martin-luther-renegade-and-prophet-lyndal-roper",
@@ -7456,24 +7465,23 @@
       "slug": "against-constitutional-originalism-a-historical-critique-jonathan-gienapp",
       "title": "Against Constitutional Originalism: A Historical Critique",
       "author": "Jonathan Gienapp",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:53:30.020Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "thumbnailUrl"
       ],
       "matches": [
         {
           "provider": "open_library",
-          "title": "Against Constitutional Originalism",
+          "title": "Against Constitutional Originalism: A Historical Critique",
           "author": "Jonathan Gienapp",
-          "url": "https://openlibrary.org/works/OL38011078W",
-          "score": 0.72,
-          "accepted": true
+          "url": "https://openlibrary.org/books/OL57738682M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780300284874&maxResults=5&printType=books"
     },
     "book-against-the-world-anti-globalism-and-mass-politics-between-the-world-wars-tara-zahra": {
       "bookId": "book-against-the-world-anti-globalism-and-mass-politics-between-the-world-wars-tara-zahra",
@@ -7481,21 +7489,20 @@
       "title": "Against the World: Anti-Globalism and Mass Politics Between the World Wars",
       "author": "Tara Zahra",
       "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "Against the World - Anti-Globalism and Mass Politics Between the World Wars",
           "author": "Tara Zahra",
-          "url": "https://openlibrary.org/works/OL28348231W",
+          "url": "https://openlibrary.org/books/OL38795247M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
       ]
     },
@@ -7817,24 +7824,24 @@
       "slug": "gandhi-the-years-that-changed-the-world-1914-1948-ramachandra-guha",
       "title": "Gandhi: The Years That Changed the World, 1914–1948",
       "author": "Ramachandra Guha",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "Gandhi: The Years That Changed the World 1914-1948",
           "author": "Ramachandra Guha",
-          "url": "https://openlibrary.org/works/OL19629417W",
+          "url": "https://openlibrary.org/books/OL26850372M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780670083886&maxResults=5&printType=books"
     },
     "book-gladius-living-fighting-and-dying-in-the-roman-army-guy-de-la-bedoyere": {
       "bookId": "book-gladius-living-fighting-and-dying-in-the-roman-army-guy-de-la-bedoyere",
@@ -7890,21 +7897,20 @@
       "title": "How Jesus Became Christian",
       "author": "Barrie Wilson",
       "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "How Jesus Became Christian",
           "author": "Barrie Wilson",
-          "url": "https://openlibrary.org/works/OL9392536W",
+          "url": "https://openlibrary.org/books/OL30454987M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
       ]
     },
@@ -7913,24 +7919,23 @@
       "slug": "how-the-world-made-the-west-a-4-000-year-history-josephine-quinn",
       "title": "How the World Made the West: A 4,000-Year History",
       "author": "Josephine Quinn",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:53:30.020Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "thumbnailUrl"
       ],
       "matches": [
         {
           "provider": "open_library",
-          "title": "How the World Made the West",
+          "title": "How the World Made the West: A 4,000 Year History",
           "author": "Josephine Quinn",
-          "url": "https://openlibrary.org/works/OL37568960W",
-          "score": 0.738,
-          "accepted": true
+          "url": "https://openlibrary.org/books/OL60896926M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780593729809&maxResults=5&printType=books"
     },
     "book-i-am-dynamite-a-life-of-friedrich-nietzsche-sue-prideaux": {
       "bookId": "book-i-am-dynamite-a-life-of-friedrich-nietzsche-sue-prideaux",
@@ -7962,24 +7967,24 @@
       "slug": "india-after-gandhi-the-history-of-the-world-s-largest-democracy-ramachandra-guha",
       "title": "India After Gandhi: The History of the World's Largest Democracy",
       "author": "Ramachandra Guha",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "India After Gandhi: The History of the World's Largest Democracy",
           "author": "Ramachandra Guha",
-          "url": "https://openlibrary.org/works/OL19653013W",
+          "url": "https://openlibrary.org/books/OL26872739M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780330505543&maxResults=5&printType=books"
     },
     "book-leningrad-tragedy-of-a-city-under-siege-1941-44-anna-reid": {
       "bookId": "book-leningrad-tragedy-of-a-city-under-siege-1941-44-anna-reid",
@@ -7987,21 +7992,20 @@
       "title": "Leningrad: Tragedy of a City Under Siege, 1941–44",
       "author": "Anna Reid",
       "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "Leningrad: Tragedy Of A City Under Siege 1941-44",
           "author": "Anna Reid",
-          "url": "https://openlibrary.org/works/OL19363149W",
+          "url": "https://openlibrary.org/books/OL26819070M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
       ]
     },
@@ -8083,21 +8087,20 @@
       "title": "Remembering the Year of the French: Irish Folk History and Social Memory",
       "author": "Guy Beiner",
       "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
-          "title": "Remembering the Year of the French",
+          "title": "Remembering the Year of the French: Irish Folk History and Social Memory (History of Ireland & the Irish Diaspora)",
           "author": "Guy Beiner",
-          "url": "https://openlibrary.org/works/OL9380982W",
-          "score": 0.618,
-          "accepted": true
+          "url": "https://openlibrary.org/books/OL10317276M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
         }
       ]
     },
@@ -8251,21 +8254,20 @@
       "title": "The Civil War of 1812: American Citizens, British Subjects, Irish Rebels, & Indian Allies",
       "author": "Alan Taylor",
       "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
-          "title": "The Civil War Of 1812 American Citizens British Subjects Irish Rebels Indian Allies",
+          "title": "The civil war of 1812: American citizens, British subjects, Irish rebels, & Indian allies",
           "author": "Alan Taylor",
-          "url": "https://openlibrary.org/works/OL17519330W",
+          "url": "https://openlibrary.org/books/OL26882666M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
       ]
     },
@@ -8420,48 +8422,47 @@
       "slug": "the-life-and-legend-of-the-sultan-saladin-jonathan-phillips",
       "title": "The Life and Legend of the Sultan Saladin",
       "author": "Jonathan Phillips",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:53:30.020Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "thumbnailUrl"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "Life and Legend of the Sultan Saladin",
           "author": "Jonathan Phillips",
-          "url": "https://openlibrary.org/works/OL20745299W",
+          "url": "https://openlibrary.org/books/OL29811410M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780300247060&maxResults=5&printType=books"
     },
     "book-the-opium-war-drugs-dreams-and-the-making-of-china-julia-lovell": {
       "bookId": "book-the-opium-war-drugs-dreams-and-the-making-of-china-julia-lovell",
       "slug": "the-opium-war-drugs-dreams-and-the-making-of-china-julia-lovell",
       "title": "The Opium War: Drugs, Dreams and the Making of China",
       "author": "Julia Lovell",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "Opium War Drugs, Dreams and the Making of China",
           "author": "Julia Lovell",
-          "url": "https://openlibrary.org/works/OL19088091W",
+          "url": "https://openlibrary.org/books/OL26755424M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780330457484&maxResults=5&printType=books"
     },
     "book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown": {
       "bookId": "book-the-reaper-s-garden-death-and-power-in-the-world-of-atlantic-slavery-vincent-brown",
@@ -8469,21 +8470,20 @@
       "title": "The Reaper's Garden: Death and Power in the World of Atlantic Slavery",
       "author": "Vincent Brown",
       "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "The Reapers Garden Death And Power In The World Of Atlantic Slavery",
           "author": "Vincent Brown",
-          "url": "https://openlibrary.org/works/OL17452404W",
-          "score": 0.936,
-          "accepted": true
+          "url": "https://openlibrary.org/books/OL26036940M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
         }
       ]
     },
@@ -8493,21 +8493,20 @@
       "title": "The Sacco–Vanzetti Affair: America on Trial",
       "author": "Moshik Temkin",
       "status": "enriched",
-      "attemptedAt": "2026-05-11T04:20:09.979Z",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "publisherLink"
+        "pageCount",
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
-          "title": "The Sacco-Vanzetti Affair",
+          "title": "The Sacco-Vanzetti Affair: America on trial",
           "author": "Moshik Temkin",
-          "url": "https://openlibrary.org/works/OL17907845W",
-          "score": 0.7,
-          "accepted": true
+          "url": "https://openlibrary.org/books/OL22653519M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
         }
       ]
     },
@@ -9044,8 +9043,9 @@
       "title": "The Armies of the Night: History as a Novel, The Novel as History",
       "author": "Norman Mailer",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -9060,7 +9060,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Armies+of+the+Night%3A+History+as+a+Novel%2C+The+Novel+as+History%22+inauthor%3A%22Norman+Mailer%22&maxResults=5&printType=books"
     },
     "book-thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive": {
       "bookId": "book-thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive",
@@ -9921,7 +9921,7 @@
       "title": "Munich: The Price of Peace",
       "author": "Telford Taylor",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "summary"
       ],
@@ -9936,7 +9936,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780340163597&maxResults=5&printType=books"
     },
     "book-china-men-maxine-hong-kingston": {
       "bookId": "book-china-men-maxine-hong-kingston",
@@ -10241,8 +10241,9 @@
       "title": "The Radicalism of the American Revolution",
       "author": "Gordon S. Wood",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary"
       ],
       "matches": [
@@ -10256,7 +10257,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Radicalism+of+the+American+Revolution%22+inauthor%3A%22Gordon+S.+Wood%22&maxResults=5&printType=books"
     },
     "book-white-over-black-american-attitudes-toward-the-negro-1550-1812-winthrop-d-jordan": {
       "bookId": "book-white-over-black-american-attitudes-toward-the-negro-1550-1812-winthrop-d-jordan",
@@ -10872,7 +10873,7 @@
       "title": "Great River: The Rio Grande in North American History",
       "author": "Paul Horgan",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "summary",
         "thumbnailUrl"
@@ -10888,7 +10889,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781597400633&maxResults=5&printType=books"
     },
     "book-in-the-days-of-mckinley-margaret-leech": {
       "bookId": "book-in-the-days-of-mckinley-margaret-leech",
@@ -10943,8 +10944,9 @@
       "title": "Neither Black nor White: Slavery and Race Relations in Brazil and the United States",
       "author": "Carl N. Degler",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -10958,7 +10960,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Neither+Black+nor+White%3A+Slavery+and+Race+Relations+in+Brazil+and+the+United+States%22+inauthor%3A%22Carl+N.+Degler%22&maxResults=5&printType=books"
     },
     "book-roosevelt-and-hopkins-robert-e-sherwood": {
       "bookId": "book-roosevelt-and-hopkins-robert-e-sherwood",
@@ -11011,7 +11013,7 @@
       "title": "The Devil and John Foster Dulles",
       "author": "Townsend Hoopes",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "summary"
       ],
@@ -11026,7 +11028,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780233965086&maxResults=5&printType=books"
     },
     "book-the-empire-of-necessity-slavery-freedom-and-deception-in-the-new-world-greg-grandin": {
       "bookId": "book-the-empire-of-necessity-slavery-freedom-and-deception-in-the-new-world-greg-grandin",
@@ -11403,12 +11405,9 @@
       "title": "The Five: The Untold Lives of the Women Killed by Jack the Ripper",
       "author": "Hallie Rubenhold",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T22:45:40.796Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -11520,8 +11519,9 @@
       "title": "The Peacemakers: The Great Powers and American Independence",
       "author": "Richard B. Morris",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -11535,7 +11535,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Peacemakers%3A+The+Great+Powers+and+American+Independence%22+inauthor%3A%22Richard+B.+Morris%22&maxResults=5&printType=books"
     },
     "book-the-visible-hand-the-managerial-revolution-in-american-business-alfred-d-chandler-jr": {
       "bookId": "book-the-visible-hand-the-managerial-revolution-in-american-business-alfred-d-chandler-jr",
@@ -11543,8 +11543,9 @@
       "title": "The Visible Hand: The Managerial Revolution in American Business",
       "author": "Alfred D. Chandler Jr.",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -11558,7 +11559,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Visible+Hand%3A+The+Managerial+Revolution+in+American+Business%22+inauthor%3A%22Alfred+D.+Chandler+Jr.%22&maxResults=5&printType=books"
     },
     "book-there-is-no-place-for-us-working-and-homeless-in-america-brian-goldstone": {
       "bookId": "book-there-is-no-place-for-us-working-and-homeless-in-america-brian-goldstone",
@@ -11635,7 +11636,7 @@
       "title": "Embers of War: The Fall of an Empire and the Making of America's Vietnam",
       "author": "Fredrik Logevall",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId",
         "pageCount",
@@ -11652,7 +11653,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781299127500&maxResults=5&printType=books"
     },
     "book-a-thousand-days-john-f-kennedy-in-the-white-house-arthur-m-schlesinger-jr": {
       "bookId": "book-a-thousand-days-john-f-kennedy-in-the-white-house-arthur-m-schlesinger-jr",
@@ -11660,7 +11661,7 @@
       "title": "A Thousand Days: John F. Kennedy in the White House",
       "author": "Arthur M. Schlesinger, Jr.",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId",
         "thumbnailUrl"
@@ -11676,7 +11677,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780449308189&maxResults=5&printType=books"
     },
     "book-lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed": {
       "bookId": "book-lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed",
@@ -11864,8 +11865,9 @@
       "title": "Eleanor and Franklin: The Story of Their Relationship, Based on Eleanor Roosevelt's Private Papers",
       "author": "Joseph P. Lash",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary",
         "thumbnailUrl"
@@ -11881,7 +11883,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Eleanor+and+Franklin%3A+The+Story+of+Their+Relationship%2C+Based+on+Eleanor+Roosevelt%27s+Private+Papers%22+inauthor%3A%22Joseph+P.+Lash%22&maxResults=5&printType=books"
     },
     "book-inventing-america-jefferson-s-declaration-of-independence-garry-wills": {
       "bookId": "book-inventing-america-jefferson-s-declaration-of-independence-garry-wills",
@@ -11889,7 +11891,7 @@
       "title": "Inventing America: Jefferson's Declaration of Independence",
       "author": "Garry Wills",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId",
         "pageCount",
@@ -11905,7 +11907,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780385542838&maxResults=5&printType=books"
     },
     "book-parting-the-waters-america-in-the-king-years-1954-63-taylor-branch": {
       "bookId": "book-parting-the-waters-america-in-the-king-years-1954-63-taylor-branch",
@@ -11966,7 +11968,7 @@
       "title": "The Flowering of New England: 1815–1865",
       "author": "Van Wyck Brooks",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "pageCount",
         "summary"
@@ -11982,7 +11984,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781178676129&maxResults=5&printType=books"
     },
     "book-voyagers-to-the-west-a-passage-in-the-peopling-of-america-on-the-eve-of-the-revolution-bernard-b": {
       "bookId": "book-voyagers-to-the-west-a-passage-in-the-peopling-of-america-on-the-eve-of-the-revolution-bernard-b",
@@ -11990,7 +11992,7 @@
       "title": "Voyagers to the West: A Passage in the Peopling of America on the Eve of the Revolution",
       "author": "Bernard Bailyn",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId",
         "summary"
@@ -12006,7 +12008,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781850430384&maxResults=5&printType=books"
     },
     "book-a-stillness-at-appomattox-bruce-catton": {
       "bookId": "book-a-stillness-at-appomattox-bruce-catton",
@@ -12061,8 +12063,9 @@
       "title": "Mr. Clemens and Mark Twain: A Biography",
       "author": "Justin Kaplan",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -12077,7 +12080,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Mr.+Clemens+and+Mark+Twain%3A+A+Biography%22+inauthor%3A%22Justin+Kaplan%22&maxResults=5&printType=books"
     },
     "book-walt-whitman-a-life-justin-kaplan": {
       "bookId": "book-walt-whitman-a-life-justin-kaplan",
@@ -12085,8 +12088,9 @@
       "title": "Walt Whitman: A Life",
       "author": "Justin Kaplan",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary"
       ],
       "matches": [
@@ -12100,7 +12104,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Walt+Whitman%3A+A+Life%22+inauthor%3A%22Justin+Kaplan%22&maxResults=5&printType=books"
     },
     "book-washington-s-crossing-david-hackett-fischer": {
       "bookId": "book-washington-s-crossing-david-hackett-fischer",
@@ -12326,7 +12330,7 @@
       "title": "Roosevelt: The Soldier Of Freedom",
       "author": "James MacGregor Burns",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "summary"
       ],
@@ -12341,7 +12345,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781582882604&maxResults=5&printType=books"
     },
     "book-a-beautiful-mind-sylvia-nasar": {
       "bookId": "book-a-beautiful-mind-sylvia-nasar",
@@ -12703,8 +12707,9 @@
       "title": "Modern Art: 19th and 20th Centuries (Selected Papers, Volume 2)",
       "author": "Meyer Schapiro",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary"
       ],
       "matches": [
@@ -12718,7 +12723,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Modern+Art%3A+19th+and+20th+Centuries+%28Selected+Papers%2C+Volume+2%29%22+inauthor%3A%22Meyer+Schapiro%22&maxResults=5&printType=books"
     },
     "book-and-i-worked-at-the-writer-s-trade-chapters-of-literary-history-1918-1978-malcolm-cowley": {
       "bookId": "book-and-i-worked-at-the-writer-s-trade-chapters-of-literary-history-1918-1978-malcolm-cowley",
@@ -12726,8 +12731,9 @@
       "title": "And I Worked at the Writer's Trade: Chapters of Literary History 1918–1978",
       "author": "Malcolm Cowley",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary"
       ],
       "matches": [
@@ -12741,7 +12747,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22And+I+Worked+at+the+Writer%27s+Trade%3A+Chapters+of+Literary+History+1918%E2%80%931978%22+inauthor%3A%22Malcolm+Cowley%22&maxResults=5&printType=books"
     },
     "book-louise-bogan-a-portrait-elizabeth-frank": {
       "bookId": "book-louise-bogan-a-portrait-elizabeth-frank",
@@ -14473,8 +14479,10 @@
       "title": "(2 volumes)",
       "author": "Michael O’Brien",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -14490,7 +14498,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22%282+volumes%29%22+inauthor%3A%22Michael+O%E2%80%99Brien%22&maxResults=5&printType=books"
     },
     "book-a-day-in-the-life-of-abed-salama-anatomy-of-a-jerusalem-tragedy-nathan-thrall": {
       "bookId": "book-a-day-in-the-life-of-abed-salama-anatomy-of-a-jerusalem-tragedy-nathan-thrall",
@@ -14821,8 +14829,10 @@
       "title": "And Their Children after Them",
       "author": "Dale Maharidge Michael Williamson",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -14839,7 +14849,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22And+Their+Children+after+Them%22+inauthor%3A%22Dale+Maharidge+Michael+Williamson%22&maxResults=5&printType=books"
     },
     "book-andrew-carnegie-joseph-frazier-wall": {
       "bookId": "book-andrew-carnegie-joseph-frazier-wall",
@@ -15048,15 +15058,17 @@
       "title": "Charles Francis Adams, 1807-1866",
       "author": "Martin B. Duberman",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Charles+Francis+Adams%2C+1807-1866%22+inauthor%3A%22Martin+B.+Duberman%22&maxResults=5&printType=books"
     },
     "book-charles-wilson-peale-charles-coleman-sellers": {
       "bookId": "book-charles-wilson-peale-charles-coleman-sellers",
@@ -15088,15 +15100,17 @@
       "title": "Children of Crisis, Volumes II and III",
       "author": "Robert Coles",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Children+of+Crisis%2C+Volumes+II+and+III%22+inauthor%3A%22Robert+Coles%22&maxResults=5&printType=books"
     },
     "book-chivalry-maurice-keen": {
       "bookId": "book-chivalry-maurice-keen",
@@ -15198,15 +15212,17 @@
       "title": "Conquest, Coexistence, and Change: Wales 1063-1415",
       "author": "Rees Davies",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Conquest%2C+Coexistence%2C+and+Change%3A+Wales+1063-1415%22+inauthor%3A%22Rees+Davies%22&maxResults=5&printType=books"
     },
     "book-courage-to-dissent-atlanta-and-the-long-history-of-the-civil-rights-movement-tomiko-brown-nagin": {
       "bookId": "book-courage-to-dissent-atlanta-and-the-long-history-of-the-civil-rights-movement-tomiko-brown-nagin",
@@ -15283,8 +15299,10 @@
       "title": "Culture and Anarchy in Ireland, 1890-1939",
       "author": "FSL Lyons",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -15301,7 +15319,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Culture+and+Anarchy+in+Ireland%2C+1890-1939%22+inauthor%3A%22FSL+Lyons%22&maxResults=5&printType=books"
     },
     "book-dance-in-the-renaissance-european-fashion-french-obsession-margaret-mcgowan": {
       "bookId": "book-dance-in-the-renaissance-european-fashion-french-obsession-margaret-mcgowan",
@@ -15658,15 +15676,17 @@
       "title": "Framing the Early Middle Ages: Europe and the Mediterranean 400-800",
       "author": "Christopher Wickham",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Framing+the+Early+Middle+Ages%3A+Europe+and+the+Mediterranean+400-800%22+inauthor%3A%22Christopher+Wickham%22&maxResults=5&printType=books"
     },
     "book-france-1848-1945-ambition-love-and-politics-theodore-zeldin": {
       "bookId": "book-france-1848-1945-ambition-love-and-politics-theodore-zeldin",
@@ -15674,8 +15694,10 @@
       "title": "France, 1848-1945: Ambition, Love & Politics",
       "author": "Theodore Zeldin",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -15692,7 +15714,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22France%2C+1848-1945%3A+Ambition%2C+Love+%26+Politics%22+inauthor%3A%22Theodore+Zeldin%22&maxResults=5&printType=books"
     },
     "book-franklin-d-roosevelt-and-the-new-deal-1932-1940-william-e-leuchtenburg": {
       "bookId": "book-franklin-d-roosevelt-and-the-new-deal-1932-1940-william-e-leuchtenburg",
@@ -15723,8 +15745,9 @@
       "title": "Frederick Jackson Turner: Historian, Scholar, Teacher",
       "author": "Ray Allen Billington",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary"
       ],
       "matches": [
@@ -15738,7 +15761,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Frederick+Jackson+Turner%3A+Historian%2C+Scholar%2C+Teacher%22+inauthor%3A%22Ray+Allen+Billington%22&maxResults=5&printType=books"
     },
     "book-freedom-bound-law-labor-and-civic-identity-in-colonizing-english-america-christopher-tomlins": {
       "bookId": "book-freedom-bound-law-labor-and-civic-identity-in-colonizing-english-america-christopher-tomlins",
@@ -15862,8 +15885,10 @@
       "title": "Gladstone, 1875-1898",
       "author": "HCG Matthew",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -15880,7 +15905,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Gladstone%2C+1875-1898%22+inauthor%3A%22HCG+Matthew%22&maxResults=5&printType=books"
     },
     "book-god-s-architect-pugin-and-the-building-of-romantic-britain-rosemary-hill": {
       "bookId": "book-god-s-architect-pugin-and-the-building-of-romantic-britain-rosemary-hill",
@@ -15934,15 +15959,17 @@
       "title": "Grand Strategy, vol. IV: August 1942 - September 1943",
       "author": "Michael Howard",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Grand+Strategy%2C+vol.+IV%3A+August+1942+-+September+1943%22+inauthor%3A%22Michael+Howard%22&maxResults=5&printType=books"
     },
     "book-henry-adams-the-middle-years-ernest-samuels": {
       "bookId": "book-henry-adams-the-middle-years-ernest-samuels",
@@ -16458,10 +16485,10 @@
       "slug": "king-george-v-kenneth-rose",
       "title": "King George V",
       "author": "Kenneth Rose",
-      "status": "enriched",
-      "attemptedAt": "2026-05-12T22:45:40.796Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "summary"
+        "isbn13"
       ],
       "matches": [
         {
@@ -16473,7 +16500,8 @@
           "accepted": true,
           "via": "search"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22King+George+V%22+inauthor%3A%22Kenneth+Rose%22&maxResults=5&printType=books"
     },
     "book-living-and-dying-in-england-1100-1540-the-monastic-experience-barbara-harvey": {
       "bookId": "book-living-and-dying-in-england-1100-1540-the-monastic-experience-barbara-harvey",
@@ -17231,8 +17259,10 @@
       "title": "Shopping in the Renaissance: Consumer Cultures in Italy 1400-1600",
       "author": "Evelyn Welch",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -17248,7 +17278,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Shopping+in+the+Renaissance%3A+Consumer+Cultures+in+Italy+1400-1600%22+inauthor%3A%22Evelyn+Welch%22&maxResults=5&printType=books"
     },
     "book-slave-population-and-economy-in-jamaica-1807-1834-barry-w-higman": {
       "bookId": "book-slave-population-and-economy-in-jamaica-1807-1834-barry-w-higman",
@@ -17256,15 +17286,17 @@
       "title": "Slave Population and Economy in Jamaica, 1807-1834",
       "author": "Barry W. Higman",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Slave+Population+and+Economy+in+Jamaica%2C+1807-1834%22+inauthor%3A%22Barry+W.+Higman%22&maxResults=5&printType=books"
     },
     "book-slavery-by-another-name-the-re-enslavement-of-black-americans-from-the-civil-war-to-world-war-ii": {
       "bookId": "book-slavery-by-another-name-the-re-enslavement-of-black-americans-from-the-civil-war-to-world-war-ii",
@@ -17388,8 +17420,9 @@
       "title": "The Age of the Democratic Revolution: Political History of Europe and America, 1760-1800",
       "author": "R. R. Palmer",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary",
         "thumbnailUrl"
@@ -17405,7 +17438,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Age+of+the+Democratic+Revolution%3A+Political+History+of+Europe+and+America%2C+1760-1800%22+inauthor%3A%22R.+R.+Palmer%22&maxResults=5&printType=books"
     },
     "book-the-americans-the-colonial-experience-daniel-j-boorstin": {
       "bookId": "book-the-americans-the-colonial-experience-daniel-j-boorstin",
@@ -17739,15 +17772,17 @@
       "title": "The Eastern Front 1914-17",
       "author": "Norman Stone",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Eastern+Front+1914-17%22+inauthor%3A%22Norman+Stone%22&maxResults=5&printType=books"
     },
     "book-the-european-discovery-of-america-the-northern-voyages-samuel-eliot-morison": {
       "bookId": "book-the-european-discovery-of-america-the-northern-voyages-samuel-eliot-morison",
@@ -17895,8 +17930,10 @@
       "title": "The Great War for the Empire",
       "author": "Lawrence H. Gipson",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -17913,7 +17950,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Great+War+for+the+Empire%22+inauthor%3A%22Lawrence+H.+Gipson%22&maxResults=5&printType=books"
     },
     "book-the-guns-of-august-barbara-w-tuchman": {
       "bookId": "book-the-guns-of-august-barbara-w-tuchman",
@@ -17944,15 +17981,17 @@
       "title": "The Hundred Years War, vol. III: Divided Houses",
       "author": "Jonathan Sumption",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Hundred+Years+War%2C+vol.+III%3A+Divided+Houses%22+inauthor%3A%22Jonathan+Sumption%22&maxResults=5&printType=books"
     },
     "book-the-image-empire-a-history-of-broadcasting-in-the-united-states-volume-iii-from-1953-erik-barnou": {
       "bookId": "book-the-image-empire-a-history-of-broadcasting-in-the-united-states-volume-iii-from-1953-erik-barnou",
@@ -18098,8 +18137,10 @@
       "title": "The Making of the Habsburg Monarchy, 1550-1700: An Interpretation",
       "author": "Robert Evans",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -18116,7 +18157,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Making+of+the+Habsburg+Monarchy%2C+1550-1700%3A+An+Interpretation%22+inauthor%3A%22Robert+Evans%22&maxResults=5&printType=books"
     },
     "book-the-making-of-the-middle-sea-a-history-of-the-mediterranean-from-the-beginning-to-the-emergence-": {
       "bookId": "book-the-making-of-the-middle-sea-a-history-of-the-mediterranean-from-the-beginning-to-the-emergence-",
@@ -18171,8 +18212,10 @@
       "title": "The Man on Devil's Island: Alfred Dreyfus and the Affair that Divided France",
       "author": "Ruth Harris",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -18188,7 +18231,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Man+on+Devil%27s+Island%3A+Alfred+Dreyfus+and+the+Affair+that+Divided+France%22+inauthor%3A%22Ruth+Harris%22&maxResults=5&printType=books"
     },
     "book-the-mathers-three-generations-of-puritan-intellectuals-1596-1728-robert-middlekauff": {
       "bookId": "book-the-mathers-three-generations-of-puritan-intellectuals-1596-1728-robert-middlekauff",
@@ -18265,8 +18308,9 @@
       "title": "The Mortal Sea: Fishing the Atlantic in the Age of Sail",
       "author": "W. Jeffrey Bolster",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -18280,7 +18324,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Mortal+Sea%3A+Fishing+the+Atlantic+in+the+Age+of+Sail%22+inauthor%3A%22W.+Jeffrey+Bolster%22&maxResults=5&printType=books"
     },
     "book-the-name-of-war-king-philip-s-war-and-the-origins-of-american-identity-jill-lepore": {
       "bookId": "book-the-name-of-war-king-philip-s-war-and-the-origins-of-american-identity-jill-lepore",
@@ -18288,8 +18332,10 @@
       "title": "The Name of War: King Philip's War and the Origins of American Identity",
       "author": "Jill Lepore",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
@@ -18305,7 +18351,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Name+of+War%3A+King+Philip%27s+War+and+the+Origins+of+American+Identity%22+inauthor%3A%22Jill+Lepore%22&maxResults=5&printType=books"
     },
     "book-the-origins-of-the-urban-crisis-race-and-inequality-in-postwar-detroit-thomas-j-sugrue": {
       "bookId": "book-the-origins-of-the-urban-crisis-race-and-inequality-in-postwar-detroit-thomas-j-sugrue",
@@ -18942,8 +18988,9 @@
       "title": "Vested Interests: Trusteeship and Native Dispossession in the United States",
       "author": "Emilie Connolly",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary",
         "thumbnailUrl"
@@ -18958,7 +19005,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Vested+Interests%3A+Trusteeship+and+Native+Dispossession+in+the+United+States%22+inauthor%3A%22Emilie+Connolly%22&maxResults=5&printType=books"
     },
     "book-virgin-land-henry-n-smith": {
       "bookId": "book-virgin-land-henry-n-smith",
@@ -18966,15 +19013,17 @@
       "title": "Virgin Land",
       "author": "Henry N. Smith",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Virgin+Land%22+inauthor%3A%22Henry+N.+Smith%22&maxResults=5&printType=books"
     },
     "book-white-mughals-love-and-betrayal-in-eighteenth-century-india-william-dalrymple": {
       "bookId": "book-white-mughals-love-and-betrayal-in-eighteenth-century-india-william-dalrymple",
@@ -19124,15 +19173,17 @@
       "title": "Winston S. Churchill, vol. VI: Finest Hour",
       "author": "Martin Gilbert",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "pageCount",
         "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Winston+S.+Churchill%2C+vol.+VI%3A+Finest+Hour%22+inauthor%3A%22Martin+Gilbert%22&maxResults=5&printType=books"
     },
     "book-women-at-work-the-transformation-of-work-and-community-in-lowell-massachusetts-1826-1860-thomas-": {
       "bookId": "book-women-at-work-the-transformation-of-work-and-community-in-lowell-massachusetts-1826-1860-thomas-",
@@ -19187,8 +19238,9 @@
       "title": "American Lion: Andrew Jackson in the White House",
       "author": "Jon Meacham",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary"
@@ -19203,7 +19255,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22American+Lion%3A+Andrew+Jackson+in+the+White+House%22+inauthor%3A%22Jon+Meacham%22&maxResults=5&printType=books"
     },
     "book-the-lost-a-search-for-six-of-six-million-daniel-mendelsohn": {
       "bookId": "book-the-lost-a-search-for-six-of-six-million-daniel-mendelsohn",
@@ -19351,7 +19403,7 @@
       "title": "Boswell's Presumptuous Task: The Making of the Life of Dr. Johnson",
       "author": "Adam Sisman",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId"
       ],
@@ -19366,7 +19418,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780142001752&maxResults=5&printType=books"
     },
     "book-every-living-thing-the-great-and-deadly-race-to-know-all-life-jason-roberts": {
       "bookId": "book-every-living-thing-the-great-and-deadly-race-to-know-all-life-jason-roberts",
@@ -19374,7 +19426,7 @@
       "title": "Every Living Thing: The Great and Deadly Race to Know All Life",
       "author": "Jason Roberts",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId",
         "summary"
@@ -19390,7 +19442,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780385666800&maxResults=5&printType=books"
     },
     "book-bearing-the-cross-martin-luther-king-jr-and-the-southern-christian-leadership-conference-david-j": {
       "bookId": "book-bearing-the-cross-martin-luther-king-jr-and-the-southern-christian-leadership-conference-david-j",
@@ -19398,7 +19450,7 @@
       "title": "Bearing The Cross: Martin Luther King Jr. and the Southern Christian Leadership Conference",
       "author": "David J. Garrow",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId"
       ],
@@ -19413,7 +19465,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780099302605&maxResults=5&printType=books"
     },
     "book-belonging-a-german-reckons-with-history-and-home-nora-krug": {
       "bookId": "book-belonging-a-german-reckons-with-history-and-home-nora-krug",
@@ -20109,7 +20161,7 @@
       "title": "Candy Darling: Dreamer, Icon, Superstar",
       "author": "Cynthia Carr",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "summary",
         "thumbnailUrl"
@@ -20125,7 +20177,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781250371744&maxResults=5&printType=books"
     },
     "book-how-to-end-a-story-collected-diaries-helen-garner": {
       "bookId": "book-how-to-end-a-story-collected-diaries-helen-garner",
@@ -20178,10 +20230,10 @@
       "slug": "the-content-of-our-character-a-new-vision-of-race-in-america-shelby-steele",
       "title": "The Content of Our Character: A New Vision of Race in America",
       "author": "Shelby Steele",
-      "status": "enriched",
-      "attemptedAt": "2026-05-12T22:45:40.796Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "summary"
+        "isbn13"
       ],
       "matches": [
         {
@@ -20193,7 +20245,8 @@
           "accepted": true,
           "via": "search"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Content+of+Our+Character%3A+A+New+Vision+of+Race+in+America%22+inauthor%3A%22Shelby+Steele%22&maxResults=5&printType=books"
     },
     "book-death-in-life-survivors-of-hiroshima-robert-jay-lifton": {
       "bookId": "book-death-in-life-survivors-of-hiroshima-robert-jay-lifton",
@@ -20434,8 +20487,9 @@
       "title": "John Keats: The Making of a Poet",
       "author": "Aileen Ward",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary"
       ],
       "matches": [
@@ -20449,7 +20503,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22John+Keats%3A+The+Making+of+a+Poet%22+inauthor%3A%22Aileen+Ward%22&maxResults=5&printType=books"
     },
     "book-a-virgil-thomson-reader-virgil-thomson": {
       "bookId": "book-a-virgil-thomson-reader-virgil-thomson",
@@ -20616,10 +20670,9 @@
       "slug": "our-man-richard-holbrooke-and-the-end-of-the-american-century-george-packer",
       "title": "Our Man: Richard Holbrooke and the End of the American Century",
       "author": "George Packer",
-      "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId",
         "summary"
       ],
       "matches": [
@@ -20632,7 +20685,8 @@
           "accepted": true,
           "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780307958020&maxResults=5&printType=books"
     },
     "book-the-dark-side-the-inside-story-of-how-the-war-on-terror-turned-into-a-war-on-american-ideals-jan": {
       "bookId": "book-the-dark-side-the-inside-story-of-how-the-war-on-terror-turned-into-a-war-on-american-ideals-jan",
@@ -20938,8 +20992,9 @@
       "title": "Mr. B: George Balanchine’s 20th Century",
       "author": "Jennifer Homans",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary"
@@ -20954,7 +21009,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Mr.+B%3A+George+Balanchine%E2%80%99s+20th+Century%22+inauthor%3A%22Jennifer+Homans%22&maxResults=5&printType=books"
     },
     "book-secrets-of-the-flesh-a-life-of-colette-judith-thurman": {
       "bookId": "book-secrets-of-the-flesh-a-life-of-colette-judith-thurman",
@@ -21128,7 +21183,7 @@
       "title": "Generation Kill: Devil Dogs, Iceman, Captain America and the New Face of American War",
       "author": "Evan Wright",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId"
       ],
@@ -21143,7 +21198,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780786547012&maxResults=5&printType=books"
     },
     "book-vanguard-how-black-women-broke-barriers-won-the-vote-and-insisted-on-equality-for-all-martha-s-j": {
       "bookId": "book-vanguard-how-black-women-broke-barriers-won-the-vote-and-insisted-on-equality-for-all-martha-s-j",
@@ -21220,8 +21275,9 @@
       "title": "Waldo Emerson: A Biography",
       "author": "Gay Wilson Allen",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary"
       ],
       "matches": [
@@ -21235,7 +21291,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Waldo+Emerson%3A+A+Biography%22+inauthor%3A%22Gay+Wilson+Allen%22&maxResults=5&printType=books"
     },
     "book-cultures-of-war-pearl-harbor-hiroshima-9-11-iraq-john-w-dower": {
       "bookId": "book-cultures-of-war-pearl-harbor-hiroshima-9-11-iraq-john-w-dower",
@@ -21524,8 +21580,9 @@
       "title": "Democracy in Chains: The Deep History of the Radical Right's Stealth Plan for America",
       "author": "Nancy MacLean",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary",
         "thumbnailUrl"
@@ -21540,7 +21597,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Democracy+in+Chains%3A+The+Deep+History+of+the+Radical+Right%27s+Stealth+Plan+for+America%22+inauthor%3A%22Nancy+MacLean%22&maxResults=5&printType=books"
     },
     "book-henry-david-thoreau-a-life-laura-dassow-walls": {
       "bookId": "book-henry-david-thoreau-a-life-laura-dassow-walls",
@@ -22163,8 +22220,8 @@
       "slug": "murder-in-amsterdam-the-death-of-theo-van-gogh-and-the-limits-of-tolerance-ian-buruma",
       "title": "Murder in Amsterdam: The Death of Theo Van Gogh and the Limits of Tolerance",
       "author": "Ian Buruma",
-      "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "status": "enriched",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "publisherId"
       ],
@@ -22178,18 +22235,16 @@
           "accepted": true,
           "via": "isbn"
         }
-      ],
-      "notes": ""
+      ]
     },
     "book-night-draws-near-iraq-s-people-in-the-shadow-of-america-s-war-anthony-shadid": {
       "bookId": "book-night-draws-near-iraq-s-people-in-the-shadow-of-america-s-war-anthony-shadid",
       "slug": "night-draws-near-iraq-s-people-in-the-shadow-of-america-s-war-anthony-shadid",
       "title": "Night Draws Near: Iraq’s People in the Shadow of America’s War",
       "author": "Anthony Shadid",
-      "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId",
         "pageCount"
       ],
       "matches": [
@@ -22202,7 +22257,8 @@
           "accepted": true,
           "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780805076028&maxResults=5&printType=books"
     },
     "book-ordinary-notes-christina-sharpe": {
       "bookId": "book-ordinary-notes-christina-sharpe",
@@ -22375,8 +22431,9 @@
       "title": "Galileo's Daughter: A Historical Memoir of Science, Faith and Love",
       "author": "Dava Sobel",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary"
@@ -22391,7 +22448,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Galileo%27s+Daughter%3A+A+Historical+Memoir+of+Science%2C+Faith+and+Love%22+inauthor%3A%22Dava+Sobel%22&maxResults=5&printType=books"
     },
     "book-going-clear-scientology-hollywood-and-the-prison-of-belief-lawrence-wright": {
       "bookId": "book-going-clear-scientology-hollywood-and-the-prison-of-belief-lawrence-wright",
@@ -23548,8 +23605,9 @@
       "title": "This Boy’s Life: A Memoir",
       "author": "Tobias Wolff",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary",
         "thumbnailUrl"
@@ -23565,7 +23623,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22This+Boy%E2%80%99s+Life%3A+A+Memoir%22+inauthor%3A%22Tobias+Wolff%22&maxResults=5&printType=books"
     },
     "book-constructing-a-nervous-system-a-memoir-margo-jefferson": {
       "bookId": "book-constructing-a-nervous-system-a-memoir-margo-jefferson",
@@ -24125,8 +24183,9 @@
       "title": "Nora: The Real Life of Molly Bloom",
       "author": "Brenda Maddox",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary"
       ],
       "matches": [
@@ -24140,7 +24199,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Nora%3A+The+Real+Life+of+Molly+Bloom%22+inauthor%3A%22Brenda+Maddox%22&maxResults=5&printType=books"
     },
     "book-the-deportation-machine-america-s-long-history-of-expelling-immigrants-adam-goodman": {
       "bookId": "book-the-deportation-machine-america-s-long-history-of-expelling-immigrants-adam-goodman",
@@ -24592,7 +24651,7 @@
       "title": "Look Homeward: A Life of Thomas Wolfe",
       "author": "David Herbert Donald",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "pageCount",
         "summary"
@@ -24608,7 +24667,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780517021910&maxResults=5&printType=books"
     },
     "book-de-kooning-an-american-master-mark-stevens-and-annalyn-swan": {
       "bookId": "book-de-kooning-an-american-master-mark-stevens-and-annalyn-swan",
@@ -24912,26 +24971,23 @@
       "slug": "agent-zigzag-ben-macintyre",
       "title": "Agent Zigzag",
       "author": "Ben Macintyre",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T21:33:14.907Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:53:30.020Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "publisherLink"
+        "thumbnailUrl"
       ],
       "matches": [
         {
           "provider": "open_library",
-          "title": "Agent Zigzag",
+          "title": "Agent Zigzag: The True Wartime Story of Eddie Chapman, Lover, Betrayer, Hero, Spy",
           "author": "Ben Macintyre",
-          "url": "https://openlibrary.org/works/OL2618447W",
+          "url": "https://openlibrary.org/books/OL28999487M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780747592839&maxResults=5&printType=books"
     },
     "book-airplane-mode-an-irrelevant-history-of-travel-shahnaz-habib": {
       "bookId": "book-airplane-mode-an-irrelevant-history-of-travel-shahnaz-habib",
@@ -25139,23 +25195,19 @@
       "title": "Anthony Blunt: His Lives",
       "author": "Miranda Carter",
       "status": "enriched",
-      "attemptedAt": "2026-05-11T21:33:14.907Z",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "publisherLink"
+        "summary"
       ],
       "matches": [
         {
           "provider": "open_library",
-          "title": "Anthony Blunt",
+          "title": "Anthony Blunt: His Lives",
           "author": "Miranda Carter",
-          "url": "https://openlibrary.org/works/OL6214604W",
-          "score": 0.65,
-          "accepted": true
+          "url": "https://openlibrary.org/books/OL9894848M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
         }
       ]
     },
@@ -25191,26 +25243,23 @@
       "slug": "appeasing-hitler-chamberlain-churchill-and-the-road-to-war-tim-bouverie",
       "title": "Appeasing Hitler: Chamberlain, Churchill and the Road to War",
       "author": "Tim Bouverie",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T21:33:14.907Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:53:30.020Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "publisherLink"
+        "thumbnailUrl"
       ],
       "matches": [
         {
           "provider": "open_library",
           "title": "Apaciguar a Hitler/ Appeasement Chamberlain, Hitler, Churchill, and the Road to War",
           "author": "Tim Bouverie",
-          "url": "https://openlibrary.org/works/OL27566127W",
-          "score": 0.86,
-          "accepted": true
+          "url": "https://openlibrary.org/books/OL37591928M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9786073810791&maxResults=5&printType=books"
     },
     "book-arguably-essays-christopher-hitchens": {
       "bookId": "book-arguably-essays-christopher-hitchens",
@@ -25243,26 +25292,23 @@
       "slug": "at-the-edge-of-empire-edward-wong",
       "title": "At the Edge of Empire",
       "author": "Edward Wong",
-      "status": "enriched",
-      "attemptedAt": "2026-05-11T21:33:14.907Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:53:30.020Z",
       "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "publisherId",
-        "imprintId",
-        "pageCount",
-        "publisherLink"
+        "thumbnailUrl"
       ],
       "matches": [
         {
           "provider": "open_library",
-          "title": "At the Edge of Empire",
+          "title": "At the Edge of Empire: A Family's Reckoning with China",
           "author": "Edward Wong",
-          "url": "https://openlibrary.org/works/OL37569082W",
+          "url": "https://openlibrary.org/books/OL57537585M",
           "score": 1,
-          "accepted": true
+          "accepted": true,
+          "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781788162661&maxResults=5&printType=books"
     },
     "book-george-f-kennan-an-american-life-john-lewis-gaddis": {
       "bookId": "book-george-f-kennan-an-american-life-john-lewis-gaddis",
@@ -25451,8 +25497,9 @@
       "title": "Red Famine: Stalin's War on Ukraine",
       "author": "Anne Applebaum",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary"
@@ -25467,7 +25514,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Red+Famine%3A+Stalin%27s+War+on+Ukraine%22+inauthor%3A%22Anne+Applebaum%22&maxResults=5&printType=books"
     },
     "book-chip-war-the-fight-for-the-world-s-most-critical-technology-chris-miller": {
       "bookId": "book-chip-war-the-fight-for-the-world-s-most-critical-technology-chris-miller",
@@ -25475,8 +25522,9 @@
       "title": "Chip War: The Fight for the World’s Most Critical Technology",
       "author": "Chris Miller",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -25490,7 +25538,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Chip+War%3A+The+Fight+for+the+World%E2%80%99s+Most+Critical+Technology%22+inauthor%3A%22Chris+Miller%22&maxResults=5&printType=books"
     },
     "book-this-republic-of-suffering-death-and-the-american-civil-war-drew-gilpin-faust": {
       "bookId": "book-this-republic-of-suffering-death-and-the-american-civil-war-drew-gilpin-faust",
@@ -25519,10 +25567,9 @@
       "slug": "private-empire-exxonmobil-and-american-power-steve-coll",
       "title": "Private Empire: ExxonMobil and American Power",
       "author": "Steve Coll",
-      "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId",
         "pageCount",
         "summary"
       ],
@@ -25536,7 +25583,8 @@
           "accepted": true,
           "via": "isbn"
         }
-      ]
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781846146596&maxResults=5&printType=books"
     },
     "book-the-life-and-times-of-hannah-crafts-the-true-story-of-the-bondwoman-s-narrative-gregg-hecimovich": {
       "bookId": "book-the-life-and-times-of-hannah-crafts-the-true-story-of-the-bondwoman-s-narrative-gregg-hecimovich",
@@ -25680,8 +25728,9 @@
       "title": "A Rage for Order: The Middle East in Turmoil, from Tahrir Square to ISIS",
       "author": "Robert F. Worth",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary"
@@ -25696,7 +25745,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22A+Rage+for+Order%3A+The+Middle+East+in+Turmoil%2C+from+Tahrir+Square+to+ISIS%22+inauthor%3A%22Robert+F.+Worth%22&maxResults=5&printType=books"
     },
     "book-john-maynard-keynes-fighting-for-britain-1937-1946-robert-skidelsky": {
       "bookId": "book-john-maynard-keynes-fighting-for-britain-1937-1946-robert-skidelsky",
@@ -25704,9 +25753,9 @@
       "title": "John Maynard Keynes, Fighting for Britain 1937-1946",
       "author": "Robert Skidelsky",
       "status": "enriched",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
-        "publisherId"
+        "publicationYear"
       ],
       "matches": [
         {
@@ -25726,8 +25775,10 @@
       "title": "The Years of Lyndon Johnson: The Path to Power",
       "author": "Robert A. Caro",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -25745,7 +25796,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Years+of+Lyndon+Johnson%3A+The+Path+to+Power%22+inauthor%3A%22Robert+A.+Caro%22&maxResults=5&printType=books"
     },
     "book-when-women-kill-four-crimes-retold-alia-trabucco-zeran": {
       "bookId": "book-when-women-kill-four-crimes-retold-alia-trabucco-zeran",
@@ -25753,8 +25804,10 @@
       "title": "When Women Kill: Four Crimes Retold",
       "author": "Alia Trabucco Zerán",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -25771,7 +25824,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22When+Women+Kill%3A+Four+Crimes+Retold%22+inauthor%3A%22Alia+Trabucco+Zer%C3%A1n%22&maxResults=5&printType=books"
     },
     "book-a-people-s-tragedy-a-history-of-the-russian-revolution-orlando-figes": {
       "bookId": "book-a-people-s-tragedy-a-history-of-the-russian-revolution-orlando-figes",
@@ -25825,8 +25878,9 @@
       "title": "Means of Ascent: Volume 2 of The Years of Lyndon Johnson",
       "author": "Robert A. Caro",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "pageCount",
         "summary"
       ],
@@ -25841,7 +25895,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Means+of+Ascent%3A+Volume+2+of+The+Years+of+Lyndon+Johnson%22+inauthor%3A%22Robert+A.+Caro%22&maxResults=5&printType=books"
     },
     "book-ida-a-sword-among-lions-ida-b-wells-and-the-campaign-against-lynching-paula-j-giddings": {
       "bookId": "book-ida-a-sword-among-lions-ida-b-wells-and-the-campaign-against-lynching-paula-j-giddings",
@@ -25944,8 +25998,9 @@
       "title": "A Great Wall: Six Presidents and China: An Investigative History",
       "author": "Patrick Tyler",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "publisherId",
         "pageCount",
         "summary"
@@ -25960,7 +26015,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22A+Great+Wall%3A+Six+Presidents+and+China%3A+An+Investigative+History%22+inauthor%3A%22Patrick+Tyler%22&maxResults=5&printType=books"
     },
     "book-aftermath-the-remnants-of-war-donovan-webster": {
       "bookId": "book-aftermath-the-remnants-of-war-donovan-webster",
@@ -26086,8 +26141,10 @@
       "title": "Crashed: How a Decade of Financial Crises Changed the World",
       "author": "Adam Tooze",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -26104,7 +26161,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Crashed%3A+How+a+Decade+of+Financial+Crises+Changed+the+World%22+inauthor%3A%22Adam+Tooze%22&maxResults=5&printType=books"
     },
     "book-cruelty-and-silence-war-tyranny-uprising-and-the-arab-world-kanan-makiya": {
       "bookId": "book-cruelty-and-silence-war-tyranny-uprising-and-the-arab-world-kanan-makiya",
@@ -26258,8 +26315,10 @@
       "title": "Overreach: How China Derailed Its Peaceful Rise",
       "author": "Susan L. Shirk",
       "status": "not_found",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -26267,7 +26326,7 @@
         "publisherLink"
       ],
       "matches": [],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Overreach%3A+How+China+Derailed+Its+Peaceful+Rise%22+inauthor%3A%22Susan+L.+Shirk%22&maxResults=5&printType=books"
     },
     "book-plutocrats-the-rise-of-the-new-global-super-rich-and-the-fall-of-everyone-else-chrystia-freeland": {
       "bookId": "book-plutocrats-the-rise-of-the-new-global-super-rich-and-the-fall-of-everyone-else-chrystia-freeland",
@@ -26445,8 +26504,10 @@
       "title": "The American War in Afghanistan: A History",
       "author": "Carter Malkasian",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -26463,7 +26524,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+American+War+in+Afghanistan%3A+A+History%22+inauthor%3A%22Carter+Malkasian%22&maxResults=5&printType=books"
     },
     "book-the-burning-earth-an-environmental-history-of-the-last-500-years-sunil-amrith": {
       "bookId": "book-the-burning-earth-an-environmental-history-of-the-last-500-years-sunil-amrith",
@@ -26471,8 +26532,10 @@
       "title": "The Burning Earth: An Environmental History of the Last 500 Years",
       "author": "Sunil Amrith",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -26489,7 +26552,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Burning+Earth%3A+An+Environmental+History+of+the+Last+500+Years%22+inauthor%3A%22Sunil+Amrith%22&maxResults=5&printType=books"
     },
     "book-the-everything-store-jeff-bezos-and-the-age-of-amazon-brad-stone": {
       "bookId": "book-the-everything-store-jeff-bezos-and-the-age-of-amazon-brad-stone",
@@ -26666,8 +26729,10 @@
       "title": "The Rise of the Robots: Technology and the Threat of Mass Unemployment]]",
       "author": "Martin Ford, [[Rise of the Robots (book)|",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -26684,7 +26749,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Rise+of+the+Robots%3A+Technology+and+the+Threat+of+Mass+Unemployment%5D%5D%22+inauthor%3A%22Martin+Ford%2C+%5B%5BRise+of+the+Robots+%28book%29%7C%22&maxResults=5&printType=books"
     },
     "book-the-thinking-machine-jensen-huang-nvidia-and-the-world-s-most-coveted-microchip-stephen-witt": {
       "bookId": "book-the-thinking-machine-jensen-huang-nvidia-and-the-world-s-most-coveted-microchip-stephen-witt",
@@ -26692,8 +26757,10 @@
       "title": "The Thinking Machine: Jensen Huang, Nvidia, and the World’s Most Coveted Microchip",
       "author": "Stephen Witt",
       "status": "low_confidence",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -26710,7 +26777,7 @@
           "accepted": false
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Thinking+Machine%3A+Jensen+Huang%2C+Nvidia%2C+and+the+World%E2%80%99s+Most+Coveted+Microchip%22+inauthor%3A%22Stephen+Witt%22&maxResults=5&printType=books"
     },
     "book-this-is-how-they-tell-me-the-world-ends-the-cyberweapons-arms-race-nicole-perlroth": {
       "bookId": "book-this-is-how-they-tell-me-the-world-ends-the-cyberweapons-arms-race-nicole-perlroth",
@@ -26718,8 +26785,10 @@
       "title": "This Is How They Tell Me the World Ends: The Cyberweapons Arms Race",
       "author": "Nicole Perlroth",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -26736,7 +26805,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22This+Is+How+They+Tell+Me+the+World+Ends%3A+The+Cyberweapons+Arms+Race%22+inauthor%3A%22Nicole+Perlroth%22&maxResults=5&printType=books"
     },
     "book-to-run-the-world-the-kremlin-s-cold-war-bid-for-global-power-sergey-radchenko": {
       "bookId": "book-to-run-the-world-the-kremlin-s-cold-war-bid-for-global-power-sergey-radchenko",
@@ -26816,8 +26885,10 @@
       "title": "Eleanor Roosevelt: Volume One, 1884–1933",
       "author": "Blanche Wiesen Cook",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
+        "publicationYear",
         "publisherId",
         "pageCount",
         "summary",
@@ -26833,7 +26904,7 @@
           "accepted": true
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Eleanor+Roosevelt%3A+Volume+One%2C+1884%E2%80%931933%22+inauthor%3A%22Blanche+Wiesen+Cook%22&maxResults=5&printType=books"
     },
     "book-burning-boy-the-life-and-work-of-stephen-crane-paul-auster": {
       "bookId": "book-burning-boy-the-life-and-work-of-stephen-crane-paul-auster",
@@ -27497,7 +27568,7 @@
       "title": "W.E.B. Du Bois: The Fight for Equality and the American Century, 1919–1963",
       "author": "David Levering Lewis",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
         "summary"
       ],
@@ -27512,7 +27583,7 @@
           "via": "isbn"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780805025347&maxResults=5&printType=books"
     },
     "book-naturalist-edward-o-wilson": {
       "bookId": "book-naturalist-edward-o-wilson",
@@ -27564,8 +27635,9 @@
       "title": "Bolivar: American Liberator",
       "author": "Marie Arana",
       "status": "no_new_fields",
-      "attemptedAt": "2026-05-12T23:45:50.397Z",
+      "attemptedAt": "2026-05-13T05:48:19.961Z",
       "missingFields": [
+        "isbn13",
         "summary",
         "thumbnailUrl"
       ],
@@ -27580,7 +27652,7 @@
           "via": "search"
         }
       ],
-      "notes": ""
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Bolivar%3A+American+Liberator%22+inauthor%3A%22Marie+Arana%22&maxResults=5&printType=books"
     },
     "book-jackson-pollock-an-american-saga-steven-naifeh-and-gregory-white-smith": {
       "bookId": "book-jackson-pollock-an-american-saga-steven-naifeh-and-gregory-white-smith",
@@ -30765,6 +30837,145 @@
         }
       ],
       "notes": ""
+    },
+    "book-solito-a-memoir-javier-zamora": {
+      "bookId": "book-solito-a-memoir-javier-zamora",
+      "slug": "solito-a-memoir-javier-zamora",
+      "title": "Solito: A Memoir",
+      "author": "Javier Zamora",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
+      "missingFields": [
+        "summary"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Solito: A Memoir",
+          "author": "Javier Zamora",
+          "url": "https://openlibrary.org/books/OL46844602M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780593498088&maxResults=5&printType=books"
+    },
+    "book-african-europeans-an-untold-history-olivette-otele": {
+      "bookId": "book-african-europeans-an-untold-history-olivette-otele",
+      "slug": "african-europeans-an-untold-history-olivette-otele",
+      "title": "African Europeans: An Untold History",
+      "author": "Olivette Otele",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
+      "missingFields": [
+        "summary"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "African Europeans: An Untold History",
+          "author": "Olivette Otele",
+          "url": "https://openlibrary.org/books/OL61173790M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781399804868&maxResults=5&printType=books"
+    },
+    "book-losing-earth-a-recent-history-nathaniel-rich": {
+      "bookId": "book-losing-earth-a-recent-history-nathaniel-rich",
+      "slug": "losing-earth-a-recent-history-nathaniel-rich",
+      "title": "Losing Earth: A Recent History",
+      "author": "Nathaniel Rich",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:53:30.020Z",
+      "missingFields": [
+        "thumbnailUrl"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Losing Earth: The Decade We Could Have Stopped Climate Change",
+          "author": "Nathaniel Rich",
+          "url": "https://openlibrary.org/books/OL29470646M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781529015843&maxResults=5&printType=books"
+    },
+    "book-spare-parts-four-undocumented-teenagers-one-ugly-robot-and-the-battle-for-the-american-dream-jos": {
+      "bookId": "book-spare-parts-four-undocumented-teenagers-one-ugly-robot-and-the-battle-for-the-american-dream-jos",
+      "slug": "spare-parts-four-undocumented-teenagers-one-ugly-robot-and-the-battle-for-the-american-dream-jos",
+      "title": "Spare Parts: Four Undocumented Teenagers, One Ugly Robot, and the Battle for the American Dream",
+      "author": "Joshua Davis",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
+      "missingFields": [
+        "summary"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Spare Parts: Four Undocumented Teenagers, One Ugly Robot, and the Battle for the American Dream",
+          "author": "Joshua Davis",
+          "url": "https://openlibrary.org/books/OL26759297M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780374534981&maxResults=5&printType=books"
+    },
+    "book-1861-the-civil-war-awakening-adam-goodheart": {
+      "bookId": "book-1861-the-civil-war-awakening-adam-goodheart",
+      "slug": "1861-the-civil-war-awakening-adam-goodheart",
+      "title": "1861: The Civil War Awakening",
+      "author": "Adam Goodheart",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:55:16.112Z",
+      "missingFields": [
+        "pageCount",
+        "summary"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "1861 The Civil War Awakening",
+          "author": "Adam Goodheart",
+          "url": "https://openlibrary.org/books/OL26077236M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9781400032198&maxResults=5&printType=books"
+    },
+    "book-a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead": {
+      "bookId": "book-a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
+      "slug": "a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
+      "title": "A Bold and Dangerous Family: The Rossellis and the Fight Against Mussolini",
+      "author": "Caroline Moorehead",
+      "status": "no_new_fields",
+      "attemptedAt": "2026-05-13T05:53:30.020Z",
+      "missingFields": [
+        "thumbnailUrl"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Bold and Dangerous Family: The Rossellis and the Fight Against Mussolini",
+          "author": "Caroline Moorehead",
+          "url": "https://openlibrary.org/books/OL30594107M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780099590156&maxResults=5&printType=books"
     }
   }
 }

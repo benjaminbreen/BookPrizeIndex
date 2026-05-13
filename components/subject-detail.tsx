@@ -4,9 +4,11 @@ import Link from "next/link";
 import { CornerDownLeft, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import type React from "react";
+import { BookDrawer } from "@/components/book-drawer";
 import { EntityMetricGrid, SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch } from "@/components/use-semantic-book-search";
 import type { BrowseBookRow } from "@/lib/browse-types";
+import { appearancesByBookId, booksById } from "@/lib/data";
 import type { SubjectSummary } from "@/lib/types";
 
 type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
@@ -28,6 +30,7 @@ export function SubjectDetail({
   const [semanticQuery, setSemanticQuery] = useState("");
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
   const [mode, setMode] = useState<"keyword" | "semantic">("keyword");
+  const [activeBookId, setActiveBookId] = useState<string | null>(null);
   const activeQuery = mode === "semantic" ? semanticQuery : query;
   const semanticCandidateBookIds = useMemo(() => books.map((book) => book.id), [books]);
   const awardsById = useMemo(() => new Map(awardOptions.map((award) => [award.id, award])), [awardOptions]);
@@ -59,6 +62,9 @@ export function SubjectDetail({
   const semanticActive = mode === "semantic" && semanticQuery.trim().length >= 3;
   const hasPendingSemanticQuery = mode === "semantic" && query.trim() !== semanticQuery.trim();
   const contextLine = `${subject.name} · ${semanticActive ? "Sorted by meaning match" : `Sorted by ${subjectSortLabel(sortKey).toLowerCase()}`} · Showing ${rows.length.toLocaleString()} of ${books.length.toLocaleString()} books${activeQuery.trim() ? ` · Search: ${activeQuery.trim()}` : ""}`;
+  const activeBook = activeBookId ? booksById.get(activeBookId) ?? null : null;
+  const activeBookAppearances = activeBookId ? appearancesByBookId.get(activeBookId) ?? [] : [];
+  const activeBookIndex = activeBookId ? rows.findIndex((book) => book.id === activeBookId) : -1;
   const semanticConceptLine = semanticActive && semanticSearch.interpretation
     ? [
         semanticSearch.interpretation.concepts.slice(0, 4).join(", "),
@@ -68,6 +74,7 @@ export function SubjectDetail({
     : "";
 
   return (
+    <>
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <section className="grid gap-6 lg:grid-cols-[1fr_0.5fr] lg:items-center">
         <div>
@@ -171,10 +178,11 @@ export function SubjectDetail({
               const imprint = book.imprint ?? "";
               const publisher = book.publisher ?? "";
               return (
-                <Link
-                  className="book-mobile-card book-mobile-card-compact block border-b hairline px-3 py-3 text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
-                  href={`/books/${book.slug}`}
+                <button
+                  className="book-mobile-card book-mobile-card-compact block w-full border-b hairline px-3 py-3 text-left text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
                   key={book.id}
+                  onClick={() => setActiveBookId(book.id)}
+                  type="button"
                 >
                   <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
                     <div className="min-w-0 overflow-hidden">
@@ -190,7 +198,7 @@ export function SubjectDetail({
                       {imprint || publisher || "Not yet sourced"}
                     </span>
                   </div>
-                </Link>
+                </button>
               );
             })}
           </div>
@@ -214,18 +222,31 @@ export function SubjectDetail({
                 const publisher = book.publisher ?? "";
                 return (
                   <tr
-                    className="book-table-row border-b hairline text-sm transition hover:bg-[var(--accent-soft)]"
+                    className="book-table-row cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)]"
                     key={book.id}
+                    onClick={() => setActiveBookId(book.id)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        setActiveBookId(book.id);
+                      }
+                    }}
+                    role="button"
+                    tabIndex={0}
                   >
                     <td className="plain-number px-4 py-3 text-xs">{book.publicationYear}</td>
                     <td className="px-4 py-3">
-                      <Link
+                      <button
                         className="focus-ring grid w-full grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-left text-base transition hover:text-[var(--accent)]"
-                        href={`/books/${book.slug}`}
+                        onClick={(event) => {
+                          event.stopPropagation();
+                          setActiveBookId(book.id);
+                        }}
+                        type="button"
                       >
                         <SubjectBookCover book={book} />
                         <span className="line-clamp-2">{book.title}</span>
-                      </Link>
+                      </button>
                     </td>
                     <td className="px-4 py-3">{book.author}</td>
                     <td className="plain-number px-4 py-3 text-xs">{book.wins}</td>
@@ -278,6 +299,15 @@ export function SubjectDetail({
         </aside>
       </section>
     </main>
+    <BookDrawer
+      appearances={activeBookAppearances}
+      book={activeBook}
+      currentLabel={activeBook && activeBookIndex >= 0 ? `${activeBookIndex + 1} of ${rows.length}` : undefined}
+      onClose={() => setActiveBookId(null)}
+      onNext={activeBookIndex >= 0 && activeBookIndex < rows.length - 1 ? () => setActiveBookId(rows[activeBookIndex + 1].id) : undefined}
+      onPrevious={activeBookIndex > 0 ? () => setActiveBookId(rows[activeBookIndex - 1].id) : undefined}
+    />
+    </>
   );
 }
 
@@ -342,10 +372,11 @@ function topCounts(values: string[], limit = 5) {
 }
 
 function SubjectBookCover({ book }: { book: BrowseBookRow }) {
-  if (book.thumbnailUrl) {
+  const [imageFailed, setImageFailed] = useState(false);
+  if (book.thumbnailUrl && !imageFailed) {
     return (
       <span className="subject-book-cover" aria-hidden="true">
-        <img src={book.thumbnailUrl} alt="" />
+        <img src={book.thumbnailUrl} alt="" onError={() => setImageFailed(true)} />
       </span>
     );
   }

@@ -372,6 +372,7 @@ input {
 
 .home-mode-tooltip {
   position: absolute;
+  --home-mode-tooltip-arrow-right: 2.25rem;
   right: 0;
   bottom: calc(100% + 0.9rem);
   z-index: 3;
@@ -398,7 +399,7 @@ input {
 
 .home-mode-tooltip::after {
   position: absolute;
-  right: 2.1rem;
+  right: var(--home-mode-tooltip-arrow-right);
   bottom: -0.34rem;
   width: 0.62rem;
   height: 0.62rem;
@@ -407,6 +408,15 @@ input {
   background: color-mix(in srgb, var(--paper) 94%, var(--panel));
   content: "";
   transform: rotate(45deg);
+  transition: right 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-mode-tooltip-keyword {
+  --home-mode-tooltip-arrow-right: 7.25rem;
+}
+
+.home-mode-tooltip-semantic {
+  --home-mode-tooltip-arrow-right: 2.25rem;
 }
 
 .home-mode-tooltip-label {
@@ -421,10 +431,7 @@ input {
   color: color-mix(in srgb, var(--muted) 82%, var(--ink));
 }
 
-.home-search-mode-button:nth-of-type(1):hover ~ .home-mode-tooltip-keyword,
-.home-search-mode-button:nth-of-type(1):focus-visible ~ .home-mode-tooltip-keyword,
-.home-search-mode-button:nth-of-type(2):hover ~ .home-mode-tooltip-semantic,
-.home-search-mode-button:nth-of-type(2):focus-visible ~ .home-mode-tooltip-semantic {
+.home-mode-tooltip-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -1184,6 +1191,195 @@ input {
   color: var(--ink);
   font-size: 0.83rem;
   text-align: right;
+}
+
+.experiment-chart {
+  display: block;
+  min-width: 48rem;
+  width: 100%;
+  height: auto;
+}
+
+.experiment-chart-bg {
+  fill: color-mix(in srgb, var(--paper) 90%, var(--panel));
+}
+
+.experiment-chart-grid {
+  stroke: color-mix(in srgb, var(--line) 76%, transparent);
+  stroke-width: 1;
+}
+
+.experiment-chart-axis {
+  fill: var(--muted);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+
+.experiment-series-line {
+  pointer-events: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+  opacity: 0.78;
+  transition:
+    opacity 180ms ease,
+    stroke-width 180ms ease;
+}
+
+.experiment-series-line-active {
+  stroke-width: 3.8;
+  opacity: 1;
+}
+
+.experiment-series-hit-area {
+  cursor: pointer;
+  pointer-events: stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 16;
+}
+
+.experiment-series-dot {
+  pointer-events: none;
+  stroke: var(--paper);
+  stroke-width: 1.5;
+}
+
+.experiment-series-label {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.experiment-series-dimmed {
+  opacity: 0.18;
+}
+
+.experiment-legend-row {
+  --series-color: var(--accent);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.35rem;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: color-mix(in srgb, var(--paper) 82%, var(--panel));
+  padding: 0.55rem 0.65rem;
+  color: var(--ink);
+  font-size: 0.9rem;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.experiment-legend-row:hover,
+.experiment-legend-row:focus-visible,
+.experiment-legend-row-active {
+  border-color: color-mix(in srgb, var(--series-color) 70%, var(--line));
+  background: color-mix(in srgb, var(--series-color) 14%, var(--paper));
+}
+
+.experiment-legend-row-pinned {
+  box-shadow: inset 3px 0 0 var(--series-color);
+}
+
+.experiment-legend-row:active {
+  transform: translateY(1px);
+}
+
+.experiment-legend-swatch {
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 999px;
+  background: var(--series-color);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
+}
+
+.experiment-range-control {
+  padding: 1rem;
+  background: color-mix(in srgb, var(--paper) 88%, var(--panel));
+}
+
+.experiment-range-track {
+  --range-start: 0%;
+  --range-end: 100%;
+  position: relative;
+  height: 2.5rem;
+  margin-top: 0.5rem;
+}
+
+.experiment-range-track::before,
+.experiment-range-track::after {
+  position: absolute;
+  top: 1.12rem;
+  right: 0;
+  left: 0;
+  height: 0.25rem;
+  border-radius: 999px;
+  content: "";
+}
+
+.experiment-range-track::before {
+  background: color-mix(in srgb, var(--line) 82%, var(--paper));
+}
+
+.experiment-range-track::after {
+  right: calc(100% - var(--range-end));
+  left: var(--range-start);
+  background: color-mix(in srgb, var(--focus) 72%, var(--ink));
+}
+
+.experiment-range-track input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 2.5rem;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+}
+
+.experiment-range-track input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 4px;
+}
+
+.experiment-range-track input::-webkit-slider-runnable-track {
+  height: 0.25rem;
+  background: transparent;
+}
+
+.experiment-range-track input::-webkit-slider-thumb {
+  width: 1rem;
+  height: 1rem;
+  margin-top: -0.38rem;
+  appearance: none;
+  border: 2px solid var(--paper);
+  border-radius: 999px;
+  background: var(--focus);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 20%, transparent);
+  cursor: grab;
+  pointer-events: auto;
+}
+
+.experiment-range-track input::-moz-range-track {
+  height: 0.25rem;
+  background: transparent;
+}
+
+.experiment-range-track input::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--paper);
+  border-radius: 999px;
+  background: var(--focus);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 20%, transparent);
+  cursor: grab;
+  pointer-events: auto;
 }
 
 @keyframes topic-mix-fill-in {

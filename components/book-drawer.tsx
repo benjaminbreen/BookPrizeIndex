@@ -359,10 +359,11 @@ function Meta({ label, value, missing }: { label: string; value: React.ReactNode
 }
 
 function MiniCover({ title, author, href, thumbnailUrl }: { title: string; author: string; href: string; thumbnailUrl?: string }) {
-  if (thumbnailUrl) {
+  const [imageFailed, setImageFailed] = useState(false);
+  if (thumbnailUrl && !imageFailed) {
     return (
       <Link className="book-cover-lift focus-ring block w-32" href={href} aria-label={`Open full record for ${title}`}>
-        <img className="book-cover-surface aspect-[0.72] w-full border hairline object-cover" src={thumbnailUrl} alt={`Cover of ${title}`} />
+        <img className="book-cover-surface aspect-[0.72] w-full border hairline object-cover" src={thumbnailUrl} alt={`Cover of ${title}`} onError={() => setImageFailed(true)} />
       </Link>
     );
   }
