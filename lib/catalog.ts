@@ -1,10 +1,24 @@
 import MiniSearch from "minisearch";
-import { data, awardProgramsById, awardsById, getBookStats, imprintsById, publishersById } from "@/lib/data";
+import {
+  data,
+  appearancesByBookId,
+  booksByImprintId,
+  booksByPublisherId,
+  booksBySubject,
+  subjectsBySlug,
+  awardProgramsById,
+  awardsById,
+  getBookStats,
+  imprintsById,
+  publishersById,
+} from "@/lib/data";
 import { matchesAwardRegion, awardRequiredPublicationRegion, type AwardRegionFilter } from "@/lib/award-region";
 import type { AwardStatus, Book, BookStats, Imprint, Publisher } from "@/lib/types";
 
 export type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
 const regionStatsCache = new Map<AwardRegionFilter, Map<string, BookStats>>();
+const publisherStatsCache = new Map<string, PublisherStats>();
+const imprintStatsCache = new Map<string, ImprintStats>();
 
 export type BookSearchDocument = {
   id: string;
@@ -35,8 +49,7 @@ export function makeBookSearch() {
 export function bookToSearchDocument(book: Book): BookSearchDocument {
   const publisher = book.publisherId ? publishersById.get(book.publisherId)?.name ?? "" : "";
   const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name ?? "" : "";
-  const awards = data.appearances
-    .filter((appearance) => appearance.bookId === book.id)
+  const awards = (appearancesByBookId.get(book.id) ?? [])
     .map((appearance) => awardsById.get(appearance.awardId)?.name)
     .filter(Boolean)
     .join(" ");
@@ -177,7 +190,7 @@ export function filterBooksByQuery(books: Book[], query: string) {
 }
 
 export function booksForImprint(imprintId: string) {
-  return data.books.filter((book) => book.imprintId === imprintId);
+  return booksByImprintId.get(imprintId) ?? [];
 }
 
 export function imprintsForPublisher(publisherId: string) {
@@ -187,7 +200,7 @@ export function imprintsForPublisher(publisherId: string) {
 }
 
 export function booksForPublisher(publisherId: string) {
-  return data.books.filter((book) => book.publisherId === publisherId);
+  return booksByPublisherId.get(publisherId) ?? [];
 }
 
 function isGlobalMajorAward(awardId: string, region: AwardRegionFilter = "all") {
@@ -202,12 +215,27 @@ function majorAppearanceWeight(status: string): number {
   return 0;
 }
 
+type PublisherStats = {
+  books: number;
+  imprints: number;
+  appearances: number;
+  majorAppearances: number;
+  score: number;
+  majorScore: number;
+  wins: number;
+  majorWins: number;
+};
+
+type ImprintStats = Omit<PublisherStats, "imprints">;
+
 export function publisherStats(publisherId: string, sinceYear?: number, region: AwardRegionFilter = "all") {
+  const cacheKey = `${publisherId}:${sinceYear ?? "all"}:${region}`;
+  const cached = publisherStatsCache.get(cacheKey);
+  if (cached) return cached;
+
   const publisherRegion = publishersById.get(publisherId)?.region;
   const books = booksForPublisher(publisherId);
-  const bookIds = new Set(books.map((book) => book.id));
-  const allAppearances = data.appearances.filter((appearance) => {
-    if (!bookIds.has(appearance.bookId)) return false;
+  const allAppearances = books.flatMap((book) => appearancesByBookId.get(book.id) ?? []).filter((appearance) => {
     if (publisherRegion) {
       const required = awardRequiredPublicationRegion(awardsById.get(appearance.awardId)?.geography);
       if (required && required !== publisherRegion) return false;
@@ -216,7 +244,7 @@ export function publisherStats(publisherId: string, sinceYear?: number, region: 
   });
   const appearances = sinceYear ? allAppearances.filter((a) => a.year >= sinceYear) : allAppearances;
   const majorAppearances = appearances.filter((appearance) => isGlobalMajorAward(appearance.awardId, region));
-  return {
+  const stats = {
     books: books.length,
     imprints: imprintsForPublisher(publisherId).length,
     appearances: appearances.length,
@@ -226,15 +254,19 @@ export function publisherStats(publisherId: string, sinceYear?: number, region: 
     wins: books.reduce((sum, book) => sum + getBookStats(book.id).wins, 0),
     majorWins: majorAppearances.filter((a) => a.status === "winner" || a.status === "co_winner").length,
   };
+  publisherStatsCache.set(cacheKey, stats);
+  return stats;
 }
 
 export function imprintStats(imprintId: string, sinceYear?: number, region: AwardRegionFilter = "all") {
+  const cacheKey = `${imprintId}:${sinceYear ?? "all"}:${region}`;
+  const cached = imprintStatsCache.get(cacheKey);
+  if (cached) return cached;
+
   const imprint = imprintsById.get(imprintId);
   const publisherRegion = imprint?.publisherId ? publishersById.get(imprint.publisherId)?.region : undefined;
   const books = booksForImprint(imprintId);
-  const bookIds = new Set(books.map((book) => book.id));
-  const allAppearances = data.appearances.filter((appearance) => {
-    if (!bookIds.has(appearance.bookId)) return false;
+  const allAppearances = books.flatMap((book) => appearancesByBookId.get(book.id) ?? []).filter((appearance) => {
     if (publisherRegion) {
       const required = awardRequiredPublicationRegion(awardsById.get(appearance.awardId)?.geography);
       if (required && required !== publisherRegion) return false;
@@ -243,7 +275,7 @@ export function imprintStats(imprintId: string, sinceYear?: number, region: Awar
   });
   const appearances = sinceYear ? allAppearances.filter((a) => a.year >= sinceYear) : allAppearances;
   const majorAppearances = appearances.filter((appearance) => isGlobalMajorAward(appearance.awardId, region));
-  return {
+  const stats = {
     books: books.length,
     appearances: appearances.length,
     majorAppearances: majorAppearances.length,
@@ -252,6 +284,8 @@ export function imprintStats(imprintId: string, sinceYear?: number, region: Awar
     wins: books.reduce((sum, book) => sum + getBookStats(book.id).wins, 0),
     majorWins: majorAppearances.filter((a) => a.status === "winner" || a.status === "co_winner").length,
   };
+  imprintStatsCache.set(cacheKey, stats);
+  return stats;
 }
 
 export function publisherSlug(publisher: Publisher) {
@@ -263,7 +297,7 @@ export function imprintSlug(imprint: Imprint) {
 }
 
 export function booksForSubject(slug: string) {
-  const subject = data.subjects.find((item) => item.slug === slug);
+  const subject = subjectsBySlug.get(slug);
   if (!subject) return [];
-  return data.books.filter((book) => book.subjects.includes(subject.name));
+  return booksBySubject.get(subject.name) ?? [];
 }

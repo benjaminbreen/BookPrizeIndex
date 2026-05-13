@@ -6,11 +6,17 @@ export type BrowseBookRow = {
   title: string;
   author: string;
   publicationYear?: number;
+  firstRecognitionYear?: number;
+  publisherId?: string;
   publisher?: string;
+  imprintId?: string;
   imprint?: string;
   thumbnailUrl?: string;
   primarySubject?: string;
   subjects: string[];
+  primaryTopic?: string;
+  topics: string[];
+  awardIds: string[];
   wins: number;
   lists: number;
   score: number;
@@ -19,6 +25,11 @@ export type BrowseBookRow = {
   normalShortlists: number;
   majorLonglists: number;
   normalLonglists: number;
+  hasIsbn: boolean;
+  hasPageCount: boolean;
+  hasCover: boolean;
+  hasSummary: boolean;
+  hasPublisher: boolean;
   searchText: string;
 };
 

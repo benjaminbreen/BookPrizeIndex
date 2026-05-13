@@ -1,7 +1,8 @@
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { BookCatalog } from "@/components/book-catalog";
-import { booksForTopic, topicNameForSlug, topicSummaries } from "@/lib/topics";
+import { browseBooksByTopic, browseData } from "@/lib/browse-data";
+import { topicNameForSlug, topicSummaries } from "@/lib/topics";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -22,11 +23,12 @@ export default async function TopicPage({ params }: PageProps) {
   const topic = topicNameForSlug(slug);
   if (!topic) notFound();
 
-  const books = booksForTopic(topic);
+  const books = browseBooksByTopic.get(topic) ?? [];
 
   return (
     <Suspense>
       <BookCatalog
+        awardOptions={browseData.awards}
         books={books}
         title={topic}
         deck={`Award-recognized books tagged under ${topic.toLowerCase()}, with sortable prize results, subjects, authors, and imprints.`}

@@ -4,8 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { awardsById, data } from "@/lib/data";
-import { topicNameForSlug } from "@/lib/topics";
 
 const navItems = [
   { href: "/books", label: "Books", match: ["/books"] },
@@ -160,21 +158,18 @@ function labelForPart(part: string, href: string) {
   if (part === "privacy") return "Privacy";
   if (part === "terms") return "Terms";
   if (part === "accessibility") return "Accessibility";
-  const award = data.awards.find((item) => href === `/awards/${item.slug}`);
-  if (award) return award.shortName ?? award.name;
-  const awardProgram = (data.awardPrograms ?? []).find((item) => href === `/awards/${item.slug}`);
-  if (awardProgram) return awardProgram.name;
-  const subject = data.subjects.find((item) => href === `/subjects/${item.slug}`);
-  if (subject) return subject.name;
-  if (href.startsWith("/topics/")) return topicNameForSlug(part) ?? part.replaceAll("-", " ");
-  const publisher = data.publishers.find((item) => href === `/publishers/${item.id.replace(/^publisher-/, "")}`);
-  if (publisher) return publisher.name;
-  const imprint = data.imprints.find((item) => href === `/imprints/${item.id.replace(/^imprint-/, "")}`);
-  if (imprint) return imprint.name;
-  const book = data.books.find((item) => href === `/books/${item.slug}`);
-  if (book) return book.title;
-  const mapped = awardsById.get(part);
-  return mapped?.shortName ?? part.replaceAll("-", " ");
+  return titleFromSlug(part);
+}
+
+function titleFromSlug(slug: string) {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((part) => {
+      if (/^(and|or|of|the|a|an|in|to|for|with)$/.test(part)) return part;
+      return part.slice(0, 1).toUpperCase() + part.slice(1);
+    })
+    .join(" ");
 }
 
 function SiteFooter() {

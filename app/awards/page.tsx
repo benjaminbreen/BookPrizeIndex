@@ -9,5 +9,5 @@ export const metadata = {
 
 export default async function AwardsPage() {
   const defaultRegion = normalizeAwardRegion((await cookies()).get(AWARD_REGION_COOKIE)?.value);
-  return <AwardsBrowser data={browseData} defaultRegion={defaultRegion} />;
+  return <AwardsBrowser data={{ ...browseData, books: [] }} defaultRegion={defaultRegion} />;
 }

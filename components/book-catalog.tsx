@@ -5,14 +5,14 @@ import type React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Info, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { BookDrawer } from "@/components/book-drawer";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
-import { filterBooksByQuery, getBookStatsForRegion, sortBooks, type BookSortKey } from "@/lib/catalog";
-import { data, imprintsById, publishersById, subjectsByName } from "@/lib/data";
+import type { BrowseBookRow } from "@/lib/browse-types";
 import type { SemanticQueryInterpretation } from "@/lib/semantic-search";
-import type { Book } from "@/lib/types";
+
+type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
+type AwardOption = { id: string; name: string; shortName?: string };
 
 type MetadataFilter = "all" | "complete" | "missing" | "has_cover" | "missing_cover" | "missing_publisher";
 
@@ -38,6 +38,7 @@ const bookSortLabels: Record<BookSortKey, string> = {
 };
 
 export function BookCatalog({
+  awardOptions,
   books,
   title = "Books",
   deck,
@@ -47,7 +48,8 @@ export function BookCatalog({
   wideLayout = false,
   defaultRegion = "us",
 }: {
-  books: Book[];
+  awardOptions: AwardOption[];
+  books: BrowseBookRow[];
   title?: string | null;
   deck?: React.ReactNode;
   secondaryDeck?: React.ReactNode;
@@ -69,7 +71,7 @@ export function BookCatalog({
   const [metadataFilter, setMetadataFilter] = useState<MetadataFilter>("all");
   const [showOptions, setShowOptions] = useState(false);
   const [page, setPage] = useState(1);
-  const [selectedBookId, setSelectedBookId] = useState<string | null>(null);
+  const [activeBookId, setActiveBookId] = useState<string | null>(null);
   const [density, setDensity] = useState<"compact" | "normal" | "roomy">("normal");
   const [showSemanticDetails, setShowSemanticDetails] = useState(false);
   const topicFilter = searchParams.get("topic");
@@ -80,12 +82,11 @@ export function BookCatalog({
   const pageSize = 100;
   const awardBookIds = useMemo(() => {
     if (!awardFilter) return null;
-    return new Set(data.appearances.filter((appearance) => appearance.awardId === awardFilter).map((appearance) => appearance.bookId));
+    return new Set(books.filter((book) => book.awardIds.includes(awardFilter)).map((book) => book.id));
   }, [awardFilter]);
   const publisherOptions = useMemo(
     () =>
-      data.publishers
-        .filter((publisher) => books.some((book) => book.publisherId === publisher.id))
+      [...new Map(books.filter((book) => book.publisherId && book.publisher).map((book) => [book.publisherId!, { id: book.publisherId!, name: book.publisher! }])).values()]
         .sort((a, b) => a.name.localeCompare(b.name)),
     [books],
   );
@@ -118,8 +119,8 @@ export function BookCatalog({
     if (mode === "semantic" && trimmedQuery.length >= 3 && !semanticSearch.loading && !semanticSearch.error) {
       return [];
     }
-    const filtered = filterBooksByQuery(structuredRows, activeQuery);
-    return sortBooks(filtered, sortKey, region);
+    const filtered = filterBookRowsByQuery(structuredRows, activeQuery);
+    return sortBookRows(filtered, sortKey);
   }, [activeQuery, mode, region, semanticResultByBookId, semanticSearch.error, semanticSearch.loading, semanticSearch.results.length, sortKey, structuredRows]);
 
   const totalRows = limit ? Math.min(filteredRows.length, limit) : filteredRows.length;
@@ -127,10 +128,6 @@ export function BookCatalog({
   const safePage = Math.min(page, totalPages);
   const rows = filteredRows.slice((safePage - 1) * pageSize, safePage * pageSize);
   const pageNumbers = paginationRange(safePage, totalPages);
-  const selectedBook = selectedBookId ? data.books.find((book) => book.id === selectedBookId) ?? null : null;
-  const selectedIndex = selectedBookId ? filteredRows.findIndex((book) => book.id === selectedBookId) : -1;
-  const goPrevious = selectedIndex > 0 ? () => openBook(filteredRows[selectedIndex - 1]) : undefined;
-  const goNext = selectedIndex >= 0 && selectedIndex < totalRows - 1 ? () => openBook(filteredRows[selectedIndex + 1]) : undefined;
   const rowPadding = density === "compact" ? "py-1.5" : density === "roomy" ? "py-4" : "py-2.5";
   const coverSize = density === "roomy" ? "large" : "standard";
   const showRowCovers = density !== "compact";
@@ -147,35 +144,12 @@ export function BookCatalog({
   }, [routeMode]);
 
   useEffect(() => {
-    const slug = searchParams.get("book");
-    if (!slug) {
-      setSelectedBookId(null);
-      return;
-    }
+    setActiveBookId(null);
+  }, [searchParams]);
 
-    const bookFromUrl = books.find((book) => book.slug === slug) ?? data.books.find((book) => book.slug === slug);
-    setSelectedBookId(bookFromUrl?.id ?? null);
-  }, [books, searchParams]);
-
-  function setBookParam(bookSlug: string | null) {
-    const nextParams = new URLSearchParams(searchParams.toString());
-    if (bookSlug) {
-      nextParams.set("book", bookSlug);
-    } else {
-      nextParams.delete("book");
-    }
-    const queryString = nextParams.toString();
-    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
-  }
-
-  function openBook(book: Book) {
-    setSelectedBookId(book.id);
-    setBookParam(book.slug);
-  }
-
-  function closeBook() {
-    setSelectedBookId(null);
-    setBookParam(null);
+  function openBook(book: BrowseBookRow) {
+    setActiveBookId(book.id);
+    router.push(`/books/${book.slug}`);
   }
 
   function resetFilters() {
@@ -261,7 +235,7 @@ export function BookCatalog({
     awardFilter
       ? {
           id: "award",
-          label: `Award: ${data.awards.find((award) => award.id === awardFilter)?.shortName ?? data.awards.find((award) => award.id === awardFilter)?.name ?? awardFilter}`,
+          label: `Award: ${awardOptions.find((award) => award.id === awardFilter)?.shortName ?? awardOptions.find((award) => award.id === awardFilter)?.name ?? awardFilter}`,
           onRemove: () => {
             setAwardFilter("");
             setPage(1);
@@ -271,7 +245,7 @@ export function BookCatalog({
     publisherFilter
       ? {
           id: "publisher",
-          label: `Publisher: ${data.publishers.find((publisher) => publisher.id === publisherFilter)?.name ?? publisherFilter}`,
+          label: `Publisher: ${publisherOptions.find((publisher) => publisher.id === publisherFilter)?.name ?? publisherFilter}`,
           onRemove: () => {
             setPublisherFilter("");
             setPage(1);
@@ -434,7 +408,7 @@ export function BookCatalog({
                     setSubjectFilter(value);
                     setPage(1);
                   }}
-                  options={data.subjects.map((subject) => ({ value: subject.name, label: subject.name }))}
+                  options={subjectOptions(books)}
                 />
                 <FilterSelect
                   label="Award"
@@ -443,7 +417,7 @@ export function BookCatalog({
                     setAwardFilter(value);
                     setPage(1);
                   }}
-                  options={data.awards.map((award) => ({ value: award.id, label: award.shortName ?? award.name }))}
+                  options={awardOptions.map((award) => ({ value: award.id, label: award.shortName ?? award.name }))}
                 />
                 <FilterSelect
                   label="Publisher"
@@ -499,7 +473,7 @@ export function BookCatalog({
               setSubjectFilter(value);
               setPage(1);
             }}
-            options={data.subjects.map((subject) => ({ value: subject.name, label: subject.name }))}
+            options={subjectOptions(books)}
           />
           <label className="filter-group flex-nowrap">
             <span className="filter-label">Sort</span>
@@ -563,7 +537,7 @@ export function BookCatalog({
                 setAwardFilter(value);
                 setPage(1);
               }}
-              options={data.awards.map((award) => ({ value: award.id, label: award.shortName ?? award.name }))}
+              options={awardOptions.map((award) => ({ value: award.id, label: award.shortName ?? award.name }))}
             />
             <FilterSelect
               label="Publisher"
@@ -676,7 +650,7 @@ export function BookCatalog({
                   {rows.map((book, index) => (
                     <BookMobileCard
                       book={book}
-                      isSelected={selectedBookId === book.id}
+                      isSelected={activeBookId === book.id}
                       key={book.id}
                       onOpen={() => openBook(book)}
                       region={region}
@@ -730,16 +704,15 @@ export function BookCatalog({
                 </thead>
                 <tbody>
                   {rows.map((book, index) => {
-                    const stats = getBookStatsForRegion(book.id, region);
-                    const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name : "";
-                    const publisher = book.publisherId ? publishersById.get(book.publisherId)?.name : "";
-                    const firstRecognitionYear = Math.min(...data.appearances.filter((appearance) => appearance.bookId === book.id).map((appearance) => appearance.year));
-                    const displayYear = book.publicationYear ?? (Number.isFinite(firstRecognitionYear) ? firstRecognitionYear : undefined);
+                    const stats = book;
+                    const imprint = book.imprint ?? "";
+                    const publisher = book.publisher ?? "";
+                    const displayYear = book.publicationYear ?? book.firstRecognitionYear;
                     return (
                       <tr
                         key={book.id}
                         className={`book-table-row fade-up cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)] ${
-                          selectedBookId === book.id ? "book-table-row-active" : ""
+                          activeBookId === book.id ? "book-table-row-active" : ""
                         }`}
                         style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
                         onClick={() => openBook(book)}
@@ -769,7 +742,7 @@ export function BookCatalog({
                           </button>
                         </td>
                         <td className={`px-3 ${rowPadding}`}>
-                          <span className="line-clamp-2">{book.authors.map((author) => author.name).join(", ")}</span>
+                          <span className="line-clamp-2">{book.author}</span>
                         </td>
                         <td className={`px-3 ${rowPadding}`}>
                           <BookPrimarySubject book={book} />
@@ -835,14 +808,6 @@ export function BookCatalog({
           </div>
         </div>
       </div>
-      <BookDrawer
-        book={selectedBook}
-        appearances={selectedBook ? data.appearances.filter((appearance) => appearance.bookId === selectedBook.id) : []}
-        currentLabel={selectedIndex >= 0 ? `${selectedIndex + 1} of ${totalRows}` : undefined}
-        onClose={closeBook}
-        onNext={goNext}
-        onPrevious={goPrevious}
-      />
     </section>
   );
 }
@@ -871,7 +836,7 @@ function CatalogSubjectPill({
   subject: string;
   onClick: React.MouseEventHandler<HTMLAnchorElement>;
 }) {
-  const subjectSlug = subjectsByName.get(subject.toLowerCase())?.slug;
+  const subjectSlug = slugify(subject);
   return (
     <Link
       className={`subject-chip ${subjectChipClass(subject)} focus-ring rounded-full border hairline px-2.5 py-[0.22rem] text-[0.72rem]`}
@@ -883,7 +848,7 @@ function CatalogSubjectPill({
   );
 }
 
-function BookRowCover({ book, size = "standard" }: { book: Book; size?: "standard" | "large" }) {
+function BookRowCover({ book, size = "standard" }: { book: BrowseBookRow; size?: "standard" | "large" }) {
   const className = `book-row-cover ${size === "large" ? "book-row-cover-large" : ""}`;
   if (book.thumbnailUrl) {
     return (
@@ -899,7 +864,7 @@ function BookRowCover({ book, size = "standard" }: { book: Book; size?: "standar
   );
 }
 
-function BookPrimarySubject({ book }: { book: Book }) {
+function BookPrimarySubject({ book }: { book: BrowseBookRow }) {
   if (!book.primarySubject) {
     return <span className="book-missing-value">Unknown</span>;
   }
@@ -918,16 +883,15 @@ function BookMobileCard({
   region,
   style,
 }: {
-  book: Book;
+  book: BrowseBookRow;
   isSelected: boolean;
   onOpen: () => void;
   region: AwardRegionFilter;
   style?: React.CSSProperties;
 }) {
-  const stats = getBookStatsForRegion(book.id, region);
-  const imprint = book.imprintId ? imprintsById.get(book.imprintId)?.name : "";
-  const firstRecognitionYear = Math.min(...data.appearances.filter((appearance) => appearance.bookId === book.id).map((appearance) => appearance.year));
-  const displayYear = book.publicationYear ?? (Number.isFinite(firstRecognitionYear) ? firstRecognitionYear : undefined);
+  const stats = book;
+  const imprint = book.imprint ?? "";
+  const displayYear = book.publicationYear ?? book.firstRecognitionYear;
   const firstTopic = book.topics.find((topic) => topic !== book.primaryTopic) ?? book.primaryTopic ?? book.topics[0];
 
   return (
@@ -950,7 +914,7 @@ function BookMobileCard({
         <BookRowCover book={book} />
         <span className="min-w-0 overflow-hidden">
           <span className="book-mobile-title text-base font-medium leading-snug">{book.title}</span>
-          <span className="mt-0.5 block truncate text-sm leading-5 muted">{book.authors.map((author) => author.name).join(", ")}</span>
+          <span className="mt-0.5 block truncate text-sm leading-5 muted">{book.author}</span>
         </span>
         <span className="grid justify-items-end gap-1 font-[var(--font-mono)] text-xs">
           <span className="plain-number text-[var(--ink)]">{displayYear ?? "-"}</span>
@@ -981,7 +945,7 @@ function BookMobileCard({
   );
 }
 
-function BookSubjectTags({ book, interactive = true }: { book: Book; interactive?: boolean }) {
+function BookSubjectTags({ book, interactive = true }: { book: BrowseBookRow; interactive?: boolean }) {
   return (
     <span className="grid max-w-full gap-2">
       {book.primarySubject ? (
@@ -1171,15 +1135,64 @@ function DetailItem({ label, value }: { label: string; value: string }) {
   );
 }
 
-function matchesMetadataFilter(book: Book, filter: MetadataFilter) {
-  const hasCompleteBasics = Boolean(book.isbn13.length && book.pageCount && book.thumbnailUrl && book.publisherId);
+function matchesMetadataFilter(book: BrowseBookRow, filter: MetadataFilter) {
+  const hasCompleteBasics = Boolean(book.hasIsbn && book.hasPageCount && book.hasCover && book.hasPublisher);
   if (filter === "all") return true;
   if (filter === "complete") return hasCompleteBasics;
   if (filter === "missing") return !hasCompleteBasics;
-  if (filter === "has_cover") return Boolean(book.thumbnailUrl);
-  if (filter === "missing_cover") return !book.thumbnailUrl;
-  if (filter === "missing_publisher") return !book.publisherId;
+  if (filter === "has_cover") return book.hasCover;
+  if (filter === "missing_cover") return !book.hasCover;
+  if (filter === "missing_publisher") return !book.hasPublisher;
   return true;
+}
+
+function filterBookRowsByQuery(books: BrowseBookRow[], query: string) {
+  const normalized = query.trim().toLowerCase();
+  if (!normalized) return books;
+  const terms = normalized.split(/\s+/).filter(Boolean);
+  return books.filter((book) => terms.every((term) => book.searchText.includes(term)));
+}
+
+function sortBookRows(books: BrowseBookRow[], sortKey: BookSortKey) {
+  return [...books].sort((a, b) => {
+    if (sortKey === "score") {
+      return (
+        b.score - a.score ||
+        b.majorWins - a.majorWins ||
+        b.wins - a.wins ||
+        b.majorShortlists - a.majorShortlists ||
+        b.normalShortlists - a.normalShortlists ||
+        b.majorLonglists - a.majorLonglists ||
+        b.normalLonglists - a.normalLonglists ||
+        (b.publicationYear ?? 0) - (a.publicationYear ?? 0) ||
+        a.title.localeCompare(b.title)
+      );
+    }
+    if (sortKey === "wins") return b.wins - a.wins || a.title.localeCompare(b.title);
+    if (sortKey === "lists") return b.lists - a.lists || a.title.localeCompare(b.title);
+    if (sortKey === "year") return (b.publicationYear ?? b.firstRecognitionYear ?? 0) - (a.publicationYear ?? a.firstRecognitionYear ?? 0) || a.title.localeCompare(b.title);
+    if (sortKey === "author") return a.author.localeCompare(b.author) || a.title.localeCompare(b.title);
+    if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "") || a.title.localeCompare(b.title);
+    if (sortKey === "publisher") return (a.publisher ?? "").localeCompare(b.publisher ?? "") || a.title.localeCompare(b.title);
+    if (sortKey === "subject") return (a.primarySubject ?? "").localeCompare(b.primarySubject ?? "") || a.title.localeCompare(b.title);
+    return a.title.localeCompare(b.title);
+  });
+}
+
+function subjectOptions(books: BrowseBookRow[]) {
+  return [...new Set(books.flatMap((book) => book.subjects))]
+    .sort((a, b) => a.localeCompare(b))
+    .map((subject) => ({ value: subject, label: subject }));
+}
+
+function slugify(input: string) {
+  return input
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function subjectChipClass(subject: string) {

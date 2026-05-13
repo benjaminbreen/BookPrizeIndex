@@ -2,11 +2,41 @@ import Link from "next/link";
 import type React from "react";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
-import { awardsById, booksById, data, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName, wikipediaEvidenceByBook } from "@/lib/data";
+import {
+  appearancesByBookId,
+  awardsById,
+  booksByAuthorName,
+  booksById,
+  booksBySlug,
+  data,
+  getBookStats,
+  imprintsById,
+  publishersById,
+  statusLabels,
+  subjectsByName,
+  wikipediaEvidenceByBook,
+} from "@/lib/data";
 import type { AwardAppearance, Book, WikipediaBookEvidence } from "@/lib/types";
 
+const STATIC_BOOK_PAGE_LIMIT = 250;
+
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return data.books.map((book) => ({ slug: book.slug }));
+  return [...data.books]
+    .sort((a, b) => {
+      const aStats = getBookStats(a.id);
+      const bStats = getBookStats(b.id);
+      return (
+        bStats.score - aStats.score ||
+        bStats.majorWins - aStats.majorWins ||
+        bStats.wins - aStats.wins ||
+        (b.publicationYear ?? 0) - (a.publicationYear ?? 0) ||
+        a.title.localeCompare(b.title)
+      );
+    })
+    .slice(0, STATIC_BOOK_PAGE_LIMIT)
+    .map((book) => ({ slug: book.slug }));
 }
 
 type PageProps = {
@@ -15,18 +45,16 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const book = data.books.find((item) => item.slug === slug);
+  const book = booksBySlug.get(slug);
   return { title: book ? `${book.title} / The Book Prize Index` : "Book / The Book Prize Index" };
 }
 
 export default async function BookPage({ params }: PageProps) {
   const { slug } = await params;
-  const book = data.books.find((item) => item.slug === slug);
+  const book = booksBySlug.get(slug);
   if (!book) notFound();
   const stats = getBookStats(book.id);
-  const appearances = data.appearances
-    .filter((appearance) => appearance.bookId === book.id)
-    .sort(compareAwardAppearances);
+  const appearances = [...(appearancesByBookId.get(book.id) ?? [])].sort(compareAwardAppearances);
   const winsCount = appearances.filter((appearance) => isWinningStatus(appearance.status)).length;
   const imprint = book.imprintId ? imprintsById.get(book.imprintId) : undefined;
   const publisher = book.publisherId ? publishersById.get(book.publisherId) : undefined;
@@ -34,10 +62,14 @@ export default async function BookPage({ params }: PageProps) {
   const firstAwardYear = appearances.length ? Math.min(...appearances.map((appearance) => appearance.year)) : undefined;
   const latestRecognition = appearances.length ? Math.max(...appearances.map((appearance) => appearance.year)) : undefined;
   const authorNames = new Set(book.authors.map((author) => author.name));
-  const booksByAuthor = data.books
-    .filter((candidate) => candidate.id !== book.id && candidate.authors.some((author) => authorNames.has(author.name)))
+  const booksByAuthor = [...authorNames]
+    .flatMap((authorName) => booksByAuthorName.get(authorName) ?? [])
+    .filter((candidate, index, candidates) => candidate.id !== book.id && candidates.findIndex((item) => item.id === candidate.id) === index)
     .slice(0, 1);
-  const relatedBooks = findRelatedBooks(book.id).slice(0, 4);
+  const relatedBooks = (book.relatedBookIds ?? [])
+    .map((bookId) => booksById.get(bookId))
+    .filter((candidate): candidate is Book => Boolean(candidate))
+    .slice(0, 4);
   const detailSummary = detailPageSummary(book);
   const wikipediaInfobox = wikipediaEvidence?.infobox;
 
@@ -418,23 +450,6 @@ function TopicTag({ topic, isPrimary }: { topic: string; isPrimary?: boolean }) 
   );
 }
 
-function findRelatedBooks(bookId: string) {
-  const book = booksById.get(bookId);
-  if (!book) return [];
-  const subjectSet = new Set(book.subjects);
-  const topicSet = new Set(book.topics);
-  const awardSet = new Set(data.appearances.filter((appearance) => appearance.bookId === book.id).map((appearance) => appearance.awardId));
-  return data.books
-    .filter((candidate) => candidate.id !== book.id)
-    .map((candidate) => ({
-      candidate,
-      score: relatedBookScore({ awardSet, book, candidate, subjectSet, topicSet }),
-    }))
-    .filter((item) => item.score >= 4)
-    .sort((a, b) => b.score - a.score || a.candidate.title.localeCompare(b.candidate.title))
-    .map((item) => item.candidate);
-}
-
 function subjectChipClass(subject: string) {
   const normalized = subject.toLowerCase();
   if (normalized.includes("american history") || normalized === "history") return "subject-chip-brick";
@@ -446,35 +461,6 @@ function subjectChipClass(subject: string) {
   if (normalized.includes("business") || normalized.includes("arts") || normalized.includes("sports")) return "subject-chip-ochre";
   if (normalized.includes("war") || normalized.includes("crime") || normalized.includes("justice")) return "subject-chip-forest";
   return "subject-chip-teal";
-}
-
-function relatedBookScore({
-  awardSet,
-  book,
-  candidate,
-  subjectSet,
-  topicSet,
-}: {
-  awardSet: Set<string>;
-  book: Book;
-  candidate: Book;
-  subjectSet: Set<string>;
-  topicSet: Set<string>;
-}) {
-  const candidateAwards = data.appearances.filter((appearance) => appearance.bookId === candidate.id).map((appearance) => appearance.awardId);
-  const sameAwardCount = candidateAwards.filter((awardId) => awardSet.has(awardId)).length;
-  const topicOverlap = candidate.topics.filter((topic) => topicSet.has(topic)).length;
-  const samePrimaryTopic = book.primaryTopic && candidate.primaryTopic === book.primaryTopic ? 1 : 0;
-  const sameSubject = candidate.subjects.filter((subject) => subjectSet.has(subject)).length;
-  const sameImprint = candidate.imprintId && candidate.imprintId === book.imprintId ? 1 : 0;
-  return (
-    samePrimaryTopic * 12 +
-    topicOverlap * 4 +
-    sameAwardCount * 2 +
-    sameSubject * 2 +
-    sameImprint +
-    getBookStats(candidate.id).score / 50
-  );
 }
 
 function slugify(input: string) {

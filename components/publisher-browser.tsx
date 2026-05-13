@@ -1,10 +1,8 @@
-"use client";
-
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { useMemo, useState } from "react";
 import { ImprintLogoMark } from "@/components/imprint-logo-mark";
-import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import type { AwardRegionFilter } from "@/lib/award-region";
+import { regionLabel } from "@/lib/award-region";
 import { imprintSlug, imprintsForPublisher, imprintStats, publisherSlug, publisherStats } from "@/lib/catalog";
 import { data } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
@@ -15,65 +13,41 @@ type TimeWindow = "recent" | "all";
 
 const RECENT_YEARS = 30;
 
-export function PublisherBrowser({ defaultRegion }: { defaultRegion: AwardRegionFilter }) {
-  const [sortKey, setSortKey] = useState<SortKey>("major_activity");
-  const [letter, setLetter] = useState<string | null>(null);
-  const [analysisView, setAnalysisView] = useState<AnalysisView>("imprints");
-  const [timeWindow, setTimeWindow] = useState<TimeWindow>("recent");
-  const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
-
+export function PublisherBrowser({
+  analysisView = "imprints",
+  letter = null,
+  region,
+  sortKey = "major_activity",
+  timeWindow = "recent",
+}: {
+  analysisView?: AnalysisView;
+  letter?: string | null;
+  region: AwardRegionFilter;
+  sortKey?: SortKey;
+  timeWindow?: TimeWindow;
+}) {
   const sinceYear = timeWindow === "recent" ? new Date().getFullYear() - RECENT_YEARS : undefined;
-
-  function setRegion(nextRegion: AwardRegionFilter) {
-    setRegionState(nextRegion);
-    document.cookie = `${AWARD_REGION_COOKIE}=${nextRegion}; path=/; max-age=31536000; samesite=lax`;
-  }
-
-  const allRows = useMemo(
-    () =>
-      data.publishers
-        .map((publisher) => ({
-          publisher,
-          stats: publisherStats(publisher.id, sinceYear, region),
-          imprints: imprintsForPublisher(publisher.id),
-        }))
-        .filter((row) => row.stats.books > 0),
-    [region, sinceYear],
-  );
-  const publishersById = useMemo(() => new Map(data.publishers.map((publisher) => [publisher.id, publisher])), []);
-
-  const publisherRows = useMemo(() => {
-    return allRows
-      .filter((row) => {
-        const first = row.publisher.name[0]?.toUpperCase() ?? "#";
-        return !letter || (letter === "#" ? !/[A-Z]/.test(first) : first === letter);
-      })
-      .sort((a, b) => {
-        if (sortKey === "name") return a.publisher.name.localeCompare(b.publisher.name);
-        if (sortKey === "imprints") return b.stats.imprints - a.stats.imprints || a.publisher.name.localeCompare(b.publisher.name);
-        if (sortKey === "all_activity") return b.stats.score - a.stats.score || b.stats.majorScore - a.stats.majorScore || a.publisher.name.localeCompare(b.publisher.name);
-        return b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name);
-      });
-  }, [allRows, letter, sortKey]);
-
-  const imprintRows = useMemo(() => {
-    return data.imprints
-      .map((imprint) => ({
-        imprint,
-        publisher: imprint.publisherId ? publishersById.get(imprint.publisherId) : undefined,
-        stats: imprintStats(imprint.id, sinceYear, region),
-      }))
-      .filter((row) => row.stats.books > 0)
-      .filter((row) => {
-        const first = (row.imprint.shortName ?? row.imprint.name)[0]?.toUpperCase() ?? "#";
-        return !letter || (letter === "#" ? !/[A-Z]/.test(first) : first === letter);
-      })
-      .sort((a, b) => {
-        if (sortKey === "name") return (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
-        if (sortKey === "all_activity") return b.stats.score - a.stats.score || b.stats.majorScore - a.stats.majorScore || (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
-        return b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || (a.imprint.shortName ?? a.imprint.name).localeCompare(b.imprint.shortName ?? b.imprint.name);
-      });
-  }, [letter, publishersById, region, sinceYear, sortKey]);
+  const queryState = { analysisView, letter, region, sortKey, timeWindow };
+  const allRows = data.publishers
+    .map((publisher) => ({
+      publisher,
+      stats: publisherStats(publisher.id, sinceYear, region),
+      imprints: imprintsForPublisher(publisher.id),
+    }))
+    .filter((row) => row.stats.books > 0);
+  const publishersById = new Map(data.publishers.map((publisher) => [publisher.id, publisher]));
+  const publisherRows = allRows
+    .filter((row) => matchesLetter(row.publisher.name, letter))
+    .sort((a, b) => comparePublisherRows(a, b, sortKey));
+  const imprintRows = data.imprints
+    .map((imprint) => ({
+      imprint,
+      publisher: imprint.publisherId ? publishersById.get(imprint.publisherId) : undefined,
+      stats: imprintStats(imprint.id, sinceYear, region),
+    }))
+    .filter((row) => row.stats.books > 0)
+    .filter((row) => matchesLetter(row.imprint.shortName ?? row.imprint.name, letter))
+    .sort((a, b) => compareImprintRows(a, b, sortKey));
 
   const totalAppearances = data.appearances.length;
   const years = data.appearances.map((appearance) => appearance.year);
@@ -109,17 +83,16 @@ export function PublisherBrowser({ defaultRegion }: { defaultRegion: AwardRegion
             <span className="filter-label">Analyze by</span>
             <div className="segmented-control">
               {(["publishers", "imprints"] as const).map((view) => (
-                <button
+                <Link
                   className={`segment-button focus-ring min-w-28 capitalize ${analysisView === view ? "segment-button-active" : ""}`}
+                  href={publisherBrowserHref(queryState, {
+                    analysisView: view,
+                    sortKey: view === "imprints" && sortKey === "imprints" ? "major_activity" : sortKey,
+                  })}
                   key={view}
-                  onClick={() => {
-                    setAnalysisView(view);
-                    if (view === "imprints" && sortKey === "imprints") setSortKey("major_activity");
-                  }}
-                  type="button"
                 >
                   {view}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -128,14 +101,13 @@ export function PublisherBrowser({ defaultRegion }: { defaultRegion: AwardRegion
             <span className="filter-label">Awards</span>
             <div className="segmented-control">
               {(["us", "international", "all"] as const).map((item) => (
-                <button
+                <Link
                   className={`segment-button focus-ring min-w-24 ${region === item ? "segment-button-active" : ""}`}
+                  href={publisherBrowserHref(queryState, { region: item })}
                   key={item}
-                  onClick={() => setRegion(item)}
-                  type="button"
                 >
                   {regionLabel(item)}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -143,32 +115,35 @@ export function PublisherBrowser({ defaultRegion }: { defaultRegion: AwardRegion
           <div className="filter-group flex-col items-start gap-2">
             <span className="filter-label">Period</span>
             <div className="segmented-control">
-              <button
+              <Link
                 className={`segment-button focus-ring ${timeWindow === "recent" ? "segment-button-active" : ""}`}
-                onClick={() => setTimeWindow("recent")}
-                type="button"
+                href={publisherBrowserHref(queryState, { timeWindow: "recent" })}
               >
                 Last {RECENT_YEARS} yrs
-              </button>
-              <button
+              </Link>
+              <Link
                 className={`segment-button focus-ring ${timeWindow === "all" ? "segment-button-active" : ""}`}
-                onClick={() => setTimeWindow("all")}
-                type="button"
+                href={publisherBrowserHref(queryState, { timeWindow: "all" })}
               >
                 All time
-              </button>
+              </Link>
             </div>
           </div>
 
-          <label className="filter-group flex-col items-start gap-2">
+          <div className="filter-group flex-col items-start gap-2">
             <span className="filter-label">Sort</span>
-            <select className="filter-select focus-ring min-w-0 flex-1 xl:min-w-[16rem]" value={sortKey} onChange={(event) => setSortKey(event.target.value as SortKey)}>
-              <option value="major_activity">Most-awarded (major awards)</option>
-              <option value="all_activity">Most-awarded (all awards)</option>
-              <option value="name">{analysisView === "publishers" ? "Publisher A-Z" : "Imprint A-Z"}</option>
-              {analysisView === "publishers" ? <option value="imprints">Most imprints</option> : null}
-            </select>
-          </label>
+            <div className="flex flex-wrap gap-1.5">
+              {sortOptions(analysisView).map((option) => (
+                <Link
+                  className={`filter-chip focus-ring px-3 py-1.5 ${sortKey === option.value ? "segment-button-active" : ""}`}
+                  href={publisherBrowserHref(queryState, { sortKey: option.value })}
+                  key={option.value}
+                >
+                  {option.label}
+                </Link>
+              ))}
+            </div>
+          </div>
 
           <Link className="filter-action focus-ring inline-flex items-center justify-center gap-2 px-4 text-sm" href="/imprints">
             All imprints
@@ -252,13 +227,13 @@ export function PublisherBrowser({ defaultRegion }: { defaultRegion: AwardRegion
             <h2 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Browse by letter</h2>
             <div className="mt-4 grid grid-cols-9 gap-2 font-[var(--font-mono)] text-xs">
               {"ABCDEFGHIJKLMNOPQRSTUVWXYZ#".split("").map((item) => (
-                <button
+                <Link
                   className={`filter-chip focus-ring grid h-8 place-items-center ${letter === item ? "segment-button-active" : ""}`}
+                  href={publisherBrowserHref(queryState, { letter: letter === item ? null : item })}
                   key={item}
-                  onClick={() => setLetter((current) => (current === item ? null : item))}
                 >
                   {item}
-                </button>
+                </Link>
               ))}
             </div>
           </div>
@@ -297,4 +272,57 @@ function RankingPanel({ title, rows, href }: { title: string; href: string; rows
       </Link>
     </div>
   );
+}
+
+function publisherBrowserHref(
+  current: { analysisView: AnalysisView; letter: string | null; region: AwardRegionFilter; sortKey: SortKey; timeWindow: TimeWindow },
+  updates: Partial<{ analysisView: AnalysisView; letter: string | null; region: AwardRegionFilter; sortKey: SortKey; timeWindow: TimeWindow }>,
+) {
+  const next = { ...current, ...updates };
+  const params = new URLSearchParams();
+  if (next.analysisView !== "imprints") params.set("view", next.analysisView);
+  if (next.region !== "all") params.set("awards", next.region);
+  if (next.timeWindow !== "recent") params.set("period", next.timeWindow);
+  if (next.sortKey !== "major_activity") params.set("sort", next.sortKey);
+  if (next.letter) params.set("letter", next.letter);
+  const query = params.toString();
+  return query ? `/publishers?${query}` : "/publishers";
+}
+
+function sortOptions(analysisView: AnalysisView): Array<{ value: SortKey; label: string }> {
+  return [
+    { value: "major_activity", label: "Major awards" },
+    { value: "all_activity", label: "All awards" },
+    { value: "name", label: analysisView === "publishers" ? "Publisher A-Z" : "Imprint A-Z" },
+    ...(analysisView === "publishers" ? [{ value: "imprints" as const, label: "Most imprints" }] : []),
+  ];
+}
+
+function matchesLetter(name: string, letter: string | null) {
+  if (!letter) return true;
+  const first = name[0]?.toUpperCase() ?? "#";
+  return letter === "#" ? !/[A-Z]/.test(first) : first === letter;
+}
+
+function comparePublisherRows(
+  a: { publisher: { name: string }; stats: ReturnType<typeof publisherStats> },
+  b: { publisher: { name: string }; stats: ReturnType<typeof publisherStats> },
+  sortKey: SortKey,
+) {
+  if (sortKey === "name") return a.publisher.name.localeCompare(b.publisher.name);
+  if (sortKey === "imprints") return b.stats.imprints - a.stats.imprints || a.publisher.name.localeCompare(b.publisher.name);
+  if (sortKey === "all_activity") return b.stats.score - a.stats.score || b.stats.majorScore - a.stats.majorScore || a.publisher.name.localeCompare(b.publisher.name);
+  return b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name);
+}
+
+function compareImprintRows(
+  a: { imprint: { name: string; shortName?: string }; stats: ReturnType<typeof imprintStats> },
+  b: { imprint: { name: string; shortName?: string }; stats: ReturnType<typeof imprintStats> },
+  sortKey: SortKey,
+) {
+  const aName = a.imprint.shortName ?? a.imprint.name;
+  const bName = b.imprint.shortName ?? b.imprint.name;
+  if (sortKey === "name") return aName.localeCompare(bName);
+  if (sortKey === "all_activity") return b.stats.score - a.stats.score || b.stats.majorScore - a.stats.majorScore || aName.localeCompare(bName);
+  return b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || aName.localeCompare(bName);
 }

@@ -899,6 +899,12 @@ async function main() {
     }))
     .sort((a, b) => (a.sortOrder ?? 999) - (b.sortOrder ?? 999) || b.bookCount - a.bookCount || a.name.localeCompare(b.name));
 
+  applyRelatedBookIds({
+    books,
+    appearances,
+    stats,
+  });
+
   const publicData: PublicData = {
     generatedAt,
     books: [...books.values()].sort((a, b) => a.title.localeCompare(b.title)),
@@ -961,6 +967,78 @@ async function main() {
   await fs.writeFile(path.join(publicDataDir, "import-report.json"), `${JSON.stringify(warnings, null, 2)}\n`);
   console.log(`Built ${publicData.books.length} books, ${publicData.appearances.length} appearances, ${publicData.awards.length} awards.`);
   console.log(`Warnings: ${JSON.stringify(warnings)}`);
+}
+
+function applyRelatedBookIds({
+  books,
+  appearances,
+  stats,
+}: {
+  books: Map<string, Book>;
+  appearances: Map<string, AwardAppearance>;
+  stats: Map<string, BookStats>;
+}) {
+  const booksBySubject = new Map<string, Set<string>>();
+  const booksByTopic = new Map<string, Set<string>>();
+  const booksByAward = new Map<string, Set<string>>();
+  const booksByImprint = new Map<string, Set<string>>();
+  const awardsByBook = new Map<string, Set<string>>();
+
+  for (const book of books.values()) {
+    for (const subject of book.subjects) addToSetMap(booksBySubject, subject, book.id);
+    for (const topic of book.topics) addToSetMap(booksByTopic, topic, book.id);
+    if (book.imprintId) addToSetMap(booksByImprint, book.imprintId, book.id);
+  }
+
+  for (const appearance of appearances.values()) {
+    addToSetMap(booksByAward, appearance.awardId, appearance.bookId);
+    addToSetMap(awardsByBook, appearance.bookId, appearance.awardId);
+  }
+
+  for (const book of books.values()) {
+    const scores = new Map<string, number>();
+
+    for (const topic of book.topics) {
+      addRelatedScores(scores, booksByTopic.get(topic), book.id, topic === book.primaryTopic ? 12 : 4);
+    }
+    for (const subject of book.subjects) {
+      addRelatedScores(scores, booksBySubject.get(subject), book.id, subject === book.primarySubject ? 4 : 2);
+    }
+    for (const awardId of awardsByBook.get(book.id) ?? []) {
+      addRelatedScores(scores, booksByAward.get(awardId), book.id, 2);
+    }
+    if (book.imprintId) {
+      addRelatedScores(scores, booksByImprint.get(book.imprintId), book.id, 1);
+    }
+
+    book.relatedBookIds = [...scores.entries()]
+      .map(([bookId, score]) => ({
+        bookId,
+        score: score + (stats.get(bookId)?.score ?? 0) / 50,
+      }))
+      .filter((item) => item.score >= 4)
+      .sort((a, b) => {
+        const bookA = books.get(a.bookId);
+        const bookB = books.get(b.bookId);
+        return b.score - a.score || (bookA?.title ?? "").localeCompare(bookB?.title ?? "");
+      })
+      .slice(0, 12)
+      .map((item) => item.bookId);
+  }
+}
+
+function addToSetMap(map: Map<string, Set<string>>, key: string, value: string) {
+  const current = map.get(key) ?? new Set<string>();
+  current.add(value);
+  map.set(key, current);
+}
+
+function addRelatedScores(scores: Map<string, number>, candidates: Set<string> | undefined, currentBookId: string, weight: number) {
+  if (!candidates) return;
+  for (const candidateId of candidates) {
+    if (candidateId === currentBookId) continue;
+    scores.set(candidateId, (scores.get(candidateId) ?? 0) + weight);
+  }
 }
 
 async function readSubjectDefinitions(): Promise<SubjectDefinition[]> {

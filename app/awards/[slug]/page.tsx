@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AwardBookList } from "@/components/award-book-list";
-import { booksById, data, getBookStats, imprintsById, publishersById } from "@/lib/data";
+import { appearancesByAwardId, awardProgramsBySlug, awardsBySlug, booksById, data, getBookStats, imprintsById, publishersById } from "@/lib/data";
 
 export function generateStaticParams() {
   return [...data.awards.map((award) => ({ slug: award.slug })), ...(data.awardPrograms ?? []).map((program) => ({ slug: program.slug }))];
@@ -14,21 +14,19 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const award = data.awards.find((item) => item.slug === slug);
-  const program = (data.awardPrograms ?? []).find((item) => item.slug === slug);
+  const award = awardsBySlug.get(slug);
+  const program = awardProgramsBySlug.get(slug);
   return { title: program && shouldRenderProgram(program) ? `${program.name} / The Book Prize Index` : award ? `${award.name} / The Book Prize Index` : "Award / The Book Prize Index" };
 }
 
 export default async function AwardPage({ params }: PageProps) {
   const { slug } = await params;
-  const award = data.awards.find((item) => item.slug === slug);
-  const program = (data.awardPrograms ?? []).find((item) => item.slug === slug);
+  const award = awardsBySlug.get(slug);
+  const program = awardProgramsBySlug.get(slug);
   if (program && shouldRenderProgram(program)) return <AwardProgramPage program={program} />;
   if (!award) notFound();
 
-  const appearances = data.appearances
-    .filter((appearance) => appearance.awardId === award.id)
-    .sort((a, b) => b.year - a.year || a.statusRank - b.statusRank);
+  const appearances = [...(appearancesByAwardId.get(award.id) ?? [])].sort((a, b) => b.year - a.year || a.statusRank - b.statusRank);
   const bookIds = new Set(appearances.map((appearance) => appearance.bookId));
   const books = [...bookIds].map((id) => booksById.get(id)).filter(Boolean);
   const years = appearances.map((appearance) => appearance.year);
@@ -145,7 +143,7 @@ function AwardProgramPage({ program }: { program: NonNullable<typeof data.awardP
   const categoryRows = data.awards
     .filter((award) => award.programId === program.id)
     .map((award) => {
-      const awardAppearances = data.appearances.filter((appearance) => appearance.awardId === award.id);
+      const awardAppearances = appearancesByAwardId.get(award.id) ?? [];
       const years = awardAppearances.map((appearance) => appearance.year);
       return {
         award,
@@ -157,7 +155,7 @@ function AwardProgramPage({ program }: { program: NonNullable<typeof data.awardP
     })
     .sort((a, b) => b.records - a.records || a.award.name.localeCompare(b.award.name));
   const awardIds = new Set(categoryRows.map((row) => row.award.id));
-  const appearances = data.appearances.filter((appearance) => awardIds.has(appearance.awardId));
+  const appearances = [...awardIds].flatMap((awardId) => appearancesByAwardId.get(awardId) ?? []);
   const years = appearances.map((appearance) => appearance.year);
   const bookIds = new Set(appearances.map((appearance) => appearance.bookId));
   const sourcedRecords = appearances.filter((appearance) => appearance.sourceUrl || appearance.sourceIds.length).length;

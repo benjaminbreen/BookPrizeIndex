@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { SubjectDetail } from "@/components/subject-detail";
-import { booksForSubject } from "@/lib/catalog";
-import { data } from "@/lib/data";
+import { browseBooksBySubject, browseData } from "@/lib/browse-data";
+import { data, subjectsBySlug } from "@/lib/data";
 
 export function generateStaticParams() {
   return data.subjects.map((subject) => ({ slug: subject.slug }));
@@ -13,13 +13,20 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const subject = data.subjects.find((item) => item.slug === slug);
+  const subject = subjectsBySlug.get(slug);
   return { title: subject ? `${subject.name} / The Book Prize Index` : "Subject / The Book Prize Index" };
 }
 
 export default async function SubjectPage({ params }: PageProps) {
   const { slug } = await params;
-  const subject = data.subjects.find((item) => item.slug === slug);
+  const subject = subjectsBySlug.get(slug);
   if (!subject) notFound();
-  return <SubjectDetail subject={subject} books={booksForSubject(subject.slug)} />;
+  return (
+    <SubjectDetail
+      awardOptions={browseData.awards}
+      books={browseBooksBySubject.get(subject.name) ?? []}
+      relatedSubjects={browseData.subjects["all:all"].filter((item) => item.id !== subject.id).slice(0, 6)}
+      subject={subject}
+    />
+  );
 }

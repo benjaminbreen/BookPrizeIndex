@@ -22,6 +22,7 @@ export function buildBrowseData(data: PublicData): BrowseData {
   const awardsById = new Map(data.awards.map((award) => [award.id, award]));
   const programsById = new Map((data.awardPrograms ?? []).map((program) => [program.id, program]));
   const appearancesByAwardId = groupBy(data.appearances, (appearance) => appearance.awardId);
+  const appearancesByBookId = groupBy(data.appearances, (appearance) => appearance.bookId);
   const awardRows = buildAwardRows(data, appearancesByAwardId);
 
   return {
@@ -34,17 +35,25 @@ export function buildBrowseData(data: PublicData): BrowseData {
     },
     books: data.books.map((book) => {
       const stats = statsByBookId.get(book.id);
+      const bookAppearances = appearancesByBookId.get(book.id) ?? [];
+      const years = bookAppearances.map((appearance) => appearance.year);
       return {
         id: book.id,
         slug: book.slug,
         title: book.title,
         author: book.authors.map((author) => author.name).join(", "),
         publicationYear: book.publicationYear,
+        firstRecognitionYear: years.length ? Math.min(...years) : undefined,
+        publisherId: book.publisherId,
         publisher: data.publishers.find((publisher) => publisher.id === book.publisherId)?.name,
+        imprintId: book.imprintId,
         imprint: data.imprints.find((imprint) => imprint.id === book.imprintId)?.name,
         thumbnailUrl: book.thumbnailUrl,
         primarySubject: book.primarySubject,
         subjects: book.subjects,
+        primaryTopic: book.primaryTopic,
+        topics: book.topics,
+        awardIds: [...new Set(bookAppearances.map((appearance) => appearance.awardId))],
         wins: stats?.wins ?? 0,
         lists: stats?.lists ?? 0,
         score: stats?.score ?? 0,
@@ -53,6 +62,11 @@ export function buildBrowseData(data: PublicData): BrowseData {
         normalShortlists: stats?.normalShortlists ?? 0,
         majorLonglists: stats?.majorLonglists ?? 0,
         normalLonglists: stats?.normalLonglists ?? 0,
+        hasIsbn: book.isbn13.length > 0,
+        hasPageCount: Boolean(book.pageCount),
+        hasCover: Boolean(book.thumbnailUrl),
+        hasSummary: Boolean(book.summary || book.displaySummary),
+        hasPublisher: Boolean(book.publisherId),
         searchText: bookSearchText(book, data, awardsById),
       };
     }),

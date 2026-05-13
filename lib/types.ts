@@ -101,6 +101,7 @@ export type Book = {
   subjectEvidence?: SubjectDecision;
   primaryTopic?: string;
   topics: string[];
+  relatedBookIds?: string[];
   centralFigures: string[];
   summary?: string;
   displaySummary?: string;

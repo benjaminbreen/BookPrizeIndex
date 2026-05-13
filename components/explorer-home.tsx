@@ -43,7 +43,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
     return [...filtered].sort((a, b) => {
       const primary = compareHomeBooks(a, b, sortKey);
       if (primary) return sortDirection === "asc" ? primary : -primary;
-      return b.score - a.score || b.wins - a.wins || a.title.localeCompare(b.title);
+      return compareHomeRecognitionTieBreak(a, b);
     });
   }, [data.books, query, rankedSubject, sortDirection, sortKey]);
 
@@ -75,9 +75,9 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
 
   return (
     <main>
-      <section className="bg-[var(--paper)]">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[1.04fr_0.96fr] lg:px-8 lg:pb-12 lg:pt-20">
-          <div>
+      <section className="home-hero-section bg-[var(--paper)]">
+        <div className="home-hero-inner mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[1.04fr_0.96fr] lg:px-8 lg:pb-12 lg:pt-20">
+          <div className="home-hero-copy">
             <h1 className="max-w-2xl font-[var(--font-serif)] text-4xl font-light leading-[1.02] sm:text-5xl lg:text-5xl">
               A searchable index of award-winning books.
             </h1>
@@ -135,13 +135,13 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                 </span>
                 <span className="home-mode-tooltip home-mode-tooltip-semantic" id="home-semantic-help" role="tooltip">
                   <span className="home-mode-tooltip-label">Semantic</span>
-                  <span>Uses machine learning to find books, awards, and subjects related to what you describe, even when the exact words do not appear.</span>
-                  <span className="home-mode-tooltip-note">Best for themes, eras, moods, comparisons, and open-ended ideas.</span>
+                  <span>Uses machine learning to find books, awards, and subjects related to what you describe.</span>
+                
                 </span>
               </div>
             </form>
             <div className="home-search-controls">
-              <div className="grid gap-4 lg:grid-cols-[auto_auto_auto_auto_minmax(9rem,1fr)] lg:items-end">
+              <div className="grid gap-4 lg:grid-cols-[auto_auto_auto] lg:items-end">
                 <FilterGroup label="Region">
                   {(["us", "international", "all"] as const).map((item) => (
                     <FilterButton key={item} active={region === item} onClick={() => setRegion(item)}>
@@ -157,26 +157,22 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                     </FilterButton>
                   ))}
                 </FilterGroup>
-                <div className="hidden h-10 w-px bg-[var(--line)] lg:block" />
-                <p className="home-search-note text-xs leading-5 muted">
-                  Lists update based on your selections.
-                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="border-y hairline" id="subjects">
+      <section className="home-browse-section border-y hairline" id="subjects">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 border-b hairline py-4 text-sm muted">
+          <div className="home-browse-status flex items-center gap-3 border-b hairline py-4 text-sm muted">
             <Filter size={16} />
             <span>
               Showing: <strong className="font-medium text-[var(--ink)]">{showingLabel}</strong>
             </span>
           </div>
         </div>
-        <div className="mx-auto grid max-w-7xl gap-0 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="home-browse-grid mx-auto grid max-w-7xl gap-0 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <BrowseList
             title="Browse by subject"
             seeAllHref="/subjects"
@@ -201,7 +197,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8" id="books">
+      <section className="home-ranked-section mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8" id="books">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Ranked catalog</p>
@@ -267,7 +263,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8" id="publishers">
+      <section className="home-stats-section mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8" id="publishers">
         <div className="grid gap-4 border-t hairline pt-8 font-[var(--font-mono)] text-xs muted sm:grid-cols-4">
           <Stat label="Books" value={data.stats.books} />
           <Stat label="Award appearances" value={data.stats.appearances} />
@@ -291,7 +287,7 @@ function BrowseList({
   seeAllHref: string;
 }) {
   return (
-    <div className="py-8 lg:px-8 lg:[&:first-child]:border-r lg:[&:first-child]:pl-0 lg:[&:last-child]:pr-0 hairline" id={id}>
+    <div className="home-browse-list py-8 lg:px-8 lg:[&:first-child]:border-r lg:[&:first-child]:pl-0 lg:[&:last-child]:pr-0 hairline" id={id}>
       <h2 className="mb-5 font-[var(--font-mono)] text-xs uppercase tracking-[0.22em] muted">{title}</h2>
       <div className="border-t hairline">
         {items.map((item) => (
@@ -400,6 +396,21 @@ function compareHomeBooks(a: BrowseData["books"][number], b: BrowseData["books"]
   if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "");
   if (sortKey === "publisher") return (a.publisher ?? "").localeCompare(b.publisher ?? "");
   return a.title.localeCompare(b.title);
+}
+
+function compareHomeRecognitionTieBreak(a: BrowseData["books"][number], b: BrowseData["books"][number]) {
+  return (
+    b.score - a.score ||
+    b.majorWins - a.majorWins ||
+    b.majorShortlists - a.majorShortlists ||
+    b.wins - a.wins ||
+    b.lists - a.lists ||
+    b.normalShortlists - a.normalShortlists ||
+    b.majorLonglists - a.majorLonglists ||
+    b.normalLonglists - a.normalLonglists ||
+    (b.publicationYear ?? b.firstRecognitionYear ?? 0) - (a.publicationYear ?? a.firstRecognitionYear ?? 0) ||
+    a.title.localeCompare(b.title)
+  );
 }
 
 function defaultSortDirection(sortKey: SortKey): SortDirection {

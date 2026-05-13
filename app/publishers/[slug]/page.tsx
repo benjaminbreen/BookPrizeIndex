@@ -4,12 +4,13 @@ import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { BookCatalog } from "@/components/book-catalog";
 import { ImprintLogoMark } from "@/components/imprint-logo-mark";
-import { booksForPublisher, imprintSlug, imprintsForPublisher, imprintStats, publisherSlug, publisherStats } from "@/lib/catalog";
-import { data } from "@/lib/data";
+import { imprintSlug, imprintsForPublisher, imprintStats, publisherSlug, publisherStats } from "@/lib/catalog";
+import { browseBooksByPublisherId, browseData } from "@/lib/browse-data";
+import { booksByPublisherId, data, publishersBySlug } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
 
 export function generateStaticParams() {
-  return data.publishers.filter((publisher) => publisherStats(publisher.id).books > 0).map((publisher) => ({ slug: publisherSlug(publisher) }));
+  return data.publishers.filter((publisher) => (booksByPublisherId.get(publisher.id)?.length ?? 0) > 0).map((publisher) => ({ slug: publisherSlug(publisher) }));
 }
 
 type PageProps = {
@@ -18,16 +19,17 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const publisher = data.publishers.find((item) => publisherSlug(item) === slug);
+  const publisher = publishersBySlug.get(slug);
   return { title: publisher ? `${publisher.name} / The Book Prize Index` : "Publisher / The Book Prize Index" };
 }
 
 export default async function PublisherPage({ params }: PageProps) {
   const { slug } = await params;
-  const publisher = data.publishers.find((item) => publisherSlug(item) === slug);
+  const publisher = publishersBySlug.get(slug);
   if (!publisher) notFound();
   const imprints = imprintsForPublisher(publisher.id);
   const stats = publisherStats(publisher.id);
+  const books = browseBooksByPublisherId.get(publisher.id) ?? [];
   if (!stats.books) notFound();
 
   return (
@@ -76,7 +78,7 @@ export default async function PublisherPage({ params }: PageProps) {
       </section>
 
       <Suspense>
-        <BookCatalog books={booksForPublisher(publisher.id)} title={`${publisher.name} books`} deck="Books grouped under this parent publisher across all current child imprints." />
+        <BookCatalog awardOptions={browseData.awards} books={books} title={`${publisher.name} books`} deck="Books grouped under this parent publisher across all current child imprints." />
       </Suspense>
     </main>
   );

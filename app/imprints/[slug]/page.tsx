@@ -4,8 +4,10 @@ import { notFound } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { BookCatalog } from "@/components/book-catalog";
 import { ImprintKeyboardNav } from "@/components/imprint-keyboard-nav";
-import { booksForImprint, imprintSlug, imprintStats } from "@/lib/catalog";
-import { data, publishersById } from "@/lib/data";
+import { imprintSlug, imprintStats } from "@/lib/catalog";
+import { browseBooksByImprintId, browseData } from "@/lib/browse-data";
+import type { BrowseBookRow } from "@/lib/browse-types";
+import { data, imprintsBySlug, publishersById } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
 
 export function generateStaticParams() {
@@ -18,16 +20,16 @@ type PageProps = {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const imprint = data.imprints.find((item) => imprintSlug(item) === slug);
+  const imprint = imprintsBySlug.get(slug);
   return { title: imprint ? `${imprint.name} / The Book Prize Index` : "Imprint / The Book Prize Index" };
 }
 
 export default async function ImprintPage({ params }: PageProps) {
   const { slug } = await params;
-  const imprint = data.imprints.find((item) => imprintSlug(item) === slug);
+  const imprint = imprintsBySlug.get(slug);
   if (!imprint) notFound();
   const publisher = imprint.publisherId ? publishersById.get(imprint.publisherId) : undefined;
-  const books = booksForImprint(imprint.id);
+  const books = browseBooksByImprintId.get(imprint.id) ?? [];
   const stats = imprintStats(imprint.id);
   const logo = getImprintLogo(imprint.id);
   const summary = imprintSummary(imprint.name, books);
@@ -84,6 +86,7 @@ export default async function ImprintPage({ params }: PageProps) {
 
       <Suspense>
         <BookCatalog
+          awardOptions={browseData.awards}
           books={books}
           title={null}
           deck={summary.description}
@@ -124,7 +127,7 @@ function HeroMetric({ value, label }: { value: string | number; label: string })
   );
 }
 
-function imprintSummary(imprintName: string, books: ReturnType<typeof booksForImprint>) {
+function imprintSummary(imprintName: string, books: BrowseBookRow[]) {
   const subjectCounts = new Map<string, number>();
   for (const book of books) {
     for (const subject of book.subjects.slice(0, 3)) {

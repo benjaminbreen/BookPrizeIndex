@@ -1,4 +1,4 @@
-import { data } from "@/lib/data";
+import { booksByTopic, data, statsByBookId } from "@/lib/data";
 import type { Book } from "@/lib/types";
 
 export type TopicSummary = {
@@ -7,6 +7,9 @@ export type TopicSummary = {
   bookCount: number;
   topBookId?: string;
 };
+
+let defaultTopicSummaries: TopicSummary[] | undefined;
+let defaultTopicNamesBySlug: Map<string, string> | undefined;
 
 export function topicSlug(topic: string) {
   return topic
@@ -19,16 +22,18 @@ export function topicSlug(topic: string) {
 }
 
 export function booksForTopic(topic: string, books: Book[] = data.books) {
+  if (books === data.books) return booksByTopic.get(topic) ?? [];
   return books.filter((book) => book.topics.includes(topic));
 }
 
 export function topicSummaries(books: Book[] = data.books): TopicSummary[] {
+  if (books === data.books && defaultTopicSummaries) return defaultTopicSummaries;
   const counts = new Map<string, { bookIds: Set<string>; topBookId?: string; topScore: number }>();
   for (const book of books) {
     for (const topic of book.topics) {
       const current = counts.get(topic) ?? { bookIds: new Set<string>(), topScore: -1 };
       current.bookIds.add(book.id);
-      const score = data.stats.find((stat) => stat.bookId === book.id)?.score ?? 0;
+      const score = statsByBookId.get(book.id)?.score ?? 0;
       if (score > current.topScore) {
         current.topScore = score;
         current.topBookId = book.id;
@@ -36,7 +41,7 @@ export function topicSummaries(books: Book[] = data.books): TopicSummary[] {
       counts.set(topic, current);
     }
   }
-  return [...counts.entries()]
+  const summaries = [...counts.entries()]
     .map(([name, value]) => ({
       name,
       slug: topicSlug(name),
@@ -44,8 +49,14 @@ export function topicSummaries(books: Book[] = data.books): TopicSummary[] {
       topBookId: value.topBookId,
     }))
     .sort((a, b) => b.bookCount - a.bookCount || a.name.localeCompare(b.name));
+  if (books === data.books) {
+    defaultTopicSummaries = summaries;
+    defaultTopicNamesBySlug = new Map(summaries.map((topic) => [topic.slug, topic.name]));
+  }
+  return summaries;
 }
 
 export function topicNameForSlug(slug: string) {
-  return topicSummaries().find((topic) => topic.slug === slug)?.name;
+  if (!defaultTopicNamesBySlug) topicSummaries();
+  return defaultTopicNamesBySlug?.get(slug);
 }
