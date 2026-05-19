@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-13T22:15:53.237Z",
-  "mappedBooks": 2558,
-  "mappedImprints": 254,
-  "unresolvedPublisherStrings": 27,
+  "generatedAt": "2026-05-18T17:29:28.121Z",
+  "mappedBooks": 2598,
+  "mappedImprints": 256,
+  "unresolvedPublisherStrings": 24,
   "validation": {
     "duplicateNormalizedRawNames": [
       {
@@ -711,7 +711,7 @@
         "imprint": "Macmillan",
         "publisher": "Macmillan",
         "confidence": "medium",
-        "matchedBookCount": 35
+        "matchedBookCount": 36
       },
       {
         "raw": "Harcourt Brace Jovanovich Inc.",
@@ -754,6 +754,13 @@
         "publisher": "Trafalgar Square Publishing",
         "confidence": "medium",
         "matchedBookCount": 2
+      },
+      {
+        "raw": "Penguin Publishing Group",
+        "imprint": "Penguin Publishing Group",
+        "publisher": "Penguin Random House",
+        "confidence": "medium",
+        "matchedBookCount": 8
       },
       {
         "raw": "Scientific American/Farrar, Straus and Giroux",
@@ -817,13 +824,6 @@
         "publisher": "William Sloane Associates",
         "confidence": "medium",
         "matchedBookCount": 1
-      },
-      {
-        "raw": "Penguin Publishing Group",
-        "imprint": "Penguin Publishing Group",
-        "publisher": "Penguin Random House",
-        "confidence": "medium",
-        "matchedBookCount": 7
       },
       {
         "raw": "Walker & Co",
@@ -931,13 +931,6 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "Russell Sage Foundation/Knopf",
-        "imprint": "Russell Sage Foundation",
-        "publisher": "Russell Sage Foundation",
-        "confidence": "medium",
-        "matchedBookCount": 1
-      },
-      {
         "raw": "Phoenix",
         "imprint": "Phoenix",
         "publisher": "Hachette UK",
@@ -1036,13 +1029,6 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "The Rockefeller Institute Press association with the Oxford University Press",
-        "imprint": "The Rockefeller Institute Press",
-        "publisher": "The Rockefeller Institute Press",
-        "confidence": "medium",
-        "matchedBookCount": 1
-      },
-      {
         "raw": "W. H. Freeman",
         "imprint": "W. H. Freeman",
         "publisher": "Macmillan",
@@ -1128,6 +1114,13 @@
         "imprint": "Anchor",
         "publisher": "Penguin Random House",
         "confidence": "medium"
+      },
+      {
+        "raw": "And Other Stories",
+        "imprint": "And Other Stories",
+        "publisher": "And Other Stories",
+        "confidence": "medium",
+        "note": "Independent publisher imprint with stable one-off string."
       },
       {
         "raw": "Appleton & Lange",
@@ -1490,6 +1483,18 @@
         "confidence": "high"
       },
       {
+        "raw": "Atlantic-Little, Brown",
+        "imprint": "Little, Brown",
+        "publisher": "Hachette Book Group",
+        "confidence": "high"
+      },
+      {
+        "raw": "Atlantic, Little, Brown and Company",
+        "imprint": "Little, Brown",
+        "publisher": "Hachette Book Group",
+        "confidence": "high"
+      },
+      {
         "raw": "Liveright Publishing Corporation",
         "imprint": "Liveright",
         "publisher": "W. W. Norton & Company",
@@ -1606,12 +1611,6 @@
         "confidence": "high"
       },
       {
-        "raw": "Nan A. Talese/Doubleday",
-        "imprint": "Nan A. Talese",
-        "publisher": "Penguin Random House",
-        "confidence": "high"
-      },
-      {
         "raw": "NYU Press",
         "imprint": "New York University Press",
         "publisher": "New York University Press",
@@ -1628,6 +1627,13 @@
         "imprint": "W. W. Norton",
         "publisher": "W. W. Norton & Company",
         "confidence": "high"
+      },
+      {
+        "raw": "Norton/Liveright",
+        "imprint": "Liveright",
+        "publisher": "W. W. Norton & Company",
+        "confidence": "high",
+        "note": "Normalize joint publisher notation used in source rows."
       },
       {
         "raw": "Oncology Nursing Society",
@@ -1798,9 +1804,21 @@
         "confidence": "high"
       },
       {
+        "raw": "Univ. of Notre Dame Press",
+        "imprint": "University of Notre Dame Press",
+        "publisher": "University of Notre Dame Press",
+        "confidence": "high"
+      },
+      {
         "raw": "Univ. of Pennsylvania Press",
         "imprint": "University of Pennsylvania Press",
         "publisher": "University of Pennsylvania Press",
+        "confidence": "high"
+      },
+      {
+        "raw": "Univ. of Toronto Press",
+        "imprint": "University of Toronto Press",
+        "publisher": "University of Toronto Press",
         "confidence": "high"
       },
       {
@@ -2008,9 +2026,21 @@
         "confidence": "medium"
       },
       {
+        "raw": "Russell Sage Foundation/Knopf",
+        "imprint": "Russell Sage Foundation",
+        "publisher": "Russell Sage Foundation",
+        "confidence": "medium"
+      },
+      {
         "raw": "Sloane",
         "imprint": "William Sloane Associates",
         "publisher": "William Sloane Associates",
+        "confidence": "medium"
+      },
+      {
+        "raw": "The Rockefeller Institute Press association with the Oxford University Press",
+        "imprint": "The Rockefeller Institute Press",
+        "publisher": "The Rockefeller Institute Press",
         "confidence": "medium"
       },
       {
@@ -2189,14 +2219,14 @@
         "imprint": "Harvard University Press",
         "publisher": "Harvard University Press",
         "confidence": "high",
-        "matchedBookCount": 140
+        "matchedBookCount": 141
       },
       {
         "raw": "University of Chicago Press",
         "imprint": "University of Chicago Press",
         "publisher": "University of Chicago Press",
         "confidence": "high",
-        "matchedBookCount": 65
+        "matchedBookCount": 67
       },
       {
         "raw": "Elsevier Inc.",
@@ -2224,7 +2254,7 @@
         "imprint": "Yale University Press",
         "publisher": "Yale University Press",
         "confidence": "high",
-        "matchedBookCount": 118
+        "matchedBookCount": 119
       },
       {
         "raw": "Wiley",
@@ -2238,14 +2268,14 @@
         "imprint": "Oxford University Press",
         "publisher": "Oxford University Press",
         "confidence": "high",
-        "matchedBookCount": 196
+        "matchedBookCount": 198
       },
       {
         "raw": "University of California Press",
         "imprint": "University of California Press",
         "publisher": "University of California Press",
         "confidence": "high",
-        "matchedBookCount": 26
+        "matchedBookCount": 27
       },
       {
         "raw": "The American University in Cairo Press",
@@ -2294,7 +2324,7 @@
         "imprint": "Macmillan",
         "publisher": "Macmillan",
         "confidence": "medium",
-        "matchedBookCount": 35
+        "matchedBookCount": 36
       },
       {
         "raw": "University of Arizona Press",
@@ -2322,7 +2352,7 @@
         "imprint": "University of Toronto Press",
         "publisher": "University of Toronto Press",
         "confidence": "high",
-        "matchedBookCount": 5
+        "matchedBookCount": 6
       },
       {
         "raw": "Milkweed Editions",
@@ -2350,7 +2380,7 @@
         "imprint": "Bloomsbury",
         "publisher": "Bloomsbury Publishing",
         "confidence": "high",
-        "matchedBookCount": 34
+        "matchedBookCount": 35
       },
       {
         "raw": "Brookings Institution Press",
@@ -2483,7 +2513,7 @@
         "imprint": "Graywolf Press",
         "publisher": "Graywolf Press",
         "confidence": "high",
-        "matchedBookCount": 5
+        "matchedBookCount": 6
       },
       {
         "raw": "David R. Godine",
@@ -2906,10 +2936,10 @@
         "matchedBookCount": 3
       },
       {
-        "raw": "Russell Sage Foundation/Knopf",
+        "raw": "Russell Sage Foundation",
         "imprint": "Russell Sage Foundation",
         "publisher": "Russell Sage Foundation",
-        "confidence": "medium",
+        "confidence": "high",
         "matchedBookCount": 1
       },
       {
@@ -3095,10 +3125,17 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "The Rockefeller Institute Press association with the Oxford University Press",
+        "raw": "The Rockefeller Institute Press",
         "imprint": "The Rockefeller Institute Press",
         "publisher": "The Rockefeller Institute Press",
-        "confidence": "medium",
+        "confidence": "high",
+        "matchedBookCount": 1
+      },
+      {
+        "raw": "University of Notre Dame Press",
+        "imprint": "University of Notre Dame Press",
+        "publisher": "University of Notre Dame Press",
+        "confidence": "high",
         "matchedBookCount": 1
       },
       {
@@ -3161,43 +3198,6 @@
     "publisherEvidenceConflicts": []
   },
   "review": [
-    {
-      "publisherId": "publisher-penguin-random-house",
-      "publisherName": "Penguin Random House",
-      "bookCount": 5,
-      "sampleBooks": [
-        {
-          "bookId": "book-a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
-          "title": "A Bold and Dangerous Family: The Rossellis and the Fight Against Mussolini",
-          "author": "Caroline Moorehead",
-          "year": 2017
-        },
-        {
-          "bookId": "book-an-american-summer-love-and-death-in-chicago-alex-kotlowitz",
-          "title": "An American Summer: Love and Death in Chicago",
-          "author": "Alex Kotlowitz",
-          "year": 2019
-        },
-        {
-          "bookId": "book-bringing-ben-home-a-murder-a-conviction-and-the-fight-to-redeem-american-justice-barbara-bradley",
-          "title": "Bringing Ben Home: A Murder, a Conviction, and the Fight to Redeem American Justice",
-          "author": "Barbara Bradley Hagerty"
-        },
-        {
-          "bookId": "book-patriot-a-memoir-alexei-navalny",
-          "title": "Patriot: A Memoir",
-          "author": "Alexei Navalny",
-          "year": 2024
-        },
-        {
-          "bookId": "book-will-in-the-world-how-shakespeare-became-shakespeare-stephen-greenblatt",
-          "title": "Will in the World: How Shakespeare Became Shakespeare",
-          "author": "Stephen Greenblatt"
-        }
-      ],
-      "recommendedAction": "parent_only",
-      "reason": "Publisher string is a broad parent or group; do not assign one imprint without book-level evidence."
-    },
     {
       "publisherId": "publisher-acls-history-e-book-project",
       "publisherName": "ACLS History E-Book Project",
@@ -3341,7 +3341,8 @@
         {
           "bookId": "book-freud-a-life-for-our-time-peter-gay",
           "title": "Freud: A Life for Our Time",
-          "author": "Peter Gay"
+          "author": "Peter Gay",
+          "year": 1989
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3519,34 +3520,6 @@
           "title": "The Broken Cord",
           "author": "Michael Dorris",
           "year": 1989
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
-      "publisherId": "publisher-univ-of-notre-dame-press",
-      "publisherName": "Univ. of Notre Dame Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-volunteer-army-and-the-revolution-in-south-russia-george-brinkley",
-          "title": "The Volunteer Army and the Revolution in South Russia",
-          "author": "George Brinkley"
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
-      "publisherId": "publisher-univ-of-toronto-press",
-      "publisherName": "Univ. of Toronto Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-land-and-power-british-and-allied-policy-on-germany-s-frontiers-1916-19-harold-nelson",
-          "title": "Land and Power: British and Allied Policy on Germany’s Frontiers, 1916-19",
-          "author": "Harold Nelson"
         }
       ],
       "recommendedAction": "manual_book_review",

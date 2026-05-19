@@ -1,0 +1,4149 @@
+{
+  "generatedAt": "2026-05-19T00:32:25.440Z",
+  "indexGeneratedAt": "2026-05-19T00:25:30.913Z",
+  "embeddingModel": "text-embedding-3-small",
+  "queryCount": 11,
+  "expectedCount": 55,
+  "expectedInTop10": 10,
+  "expectedInTop25": 14,
+  "rows": [
+    {
+      "query": "narrative histories that are fun to read",
+      "expected": [
+        {
+          "title": "All the Frequent Troubles of Our Days",
+          "rank": 20,
+          "inTop10": false,
+          "inTop25": true
+        },
+        {
+          "title": "The House of the Dead",
+          "rank": 218,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Fordlandia",
+          "rank": 497,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Age of Wonder",
+          "rank": 1313,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Swerve",
+          "rank": 49,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Metaphysical Club",
+          "rank": 89,
+          "inTop10": false,
+          "inTop25": false
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "A Summer of Hummingbirds: Love, Art, and Scandal in the Intersecting Worlds of Emily Dickinson, Mark Twain, Harriet Beecher Stowe, & Martin Johnson Heade",
+          "author": "Christopher Benfey",
+          "score": 1.305065,
+          "similarity": 0.468962,
+          "lexicalScore": 0.205809,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Remarkable Creatures: Epic Adventures in the Search for the Origins of Species",
+          "author": "Sean B. Carroll",
+          "score": 1.084336,
+          "similarity": 0.438464,
+          "lexicalScore": 0.190906,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "A Brief History of Everyone Who Ever Lived: The Human Story Retold Through Our Genes",
+          "author": "Adam Rutherford",
+          "score": 1.080684,
+          "similarity": 0.438832,
+          "lexicalScore": 0.185466,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Children's Literature: A Readers' History: Reader's History from Aesop to Harry Potter",
+          "author": "Seth Lerer",
+          "score": 1.0677,
+          "similarity": 0.449824,
+          "lexicalScore": 0.16,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Malcolm X: A Life of Reinvention",
+          "author": "Manning Marable",
+          "score": 1.04144,
+          "similarity": 0.189742,
+          "lexicalScore": 0.306139,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "Meetings with Remarkable Manuscripts",
+          "author": "Christopher de Hamel",
+          "score": 1.02459,
+          "similarity": 0.433896,
+          "lexicalScore": 0.168499,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "Annals of the Former World",
+          "author": "John McPhee",
+          "score": 1.000456,
+          "similarity": 0.434941,
+          "lexicalScore": 0.171393,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "Something Must Be Done about Prince Edward County: A Family, a Virginia Town, a Civil Rights Battle",
+          "author": "Kristen Green",
+          "score": 0.933835,
+          "similarity": 0.320189,
+          "lexicalScore": 0.307366,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "The Possessed: Adventures with Russian Books and the People Who Read Them",
+          "author": "Elif Batuman",
+          "score": 0.93221,
+          "similarity": 0.441391,
+          "lexicalScore": 0.098923,
+          "reasons": [
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "Truevine: Two Brothers, a Kidnapping, and a Mother's Quest: A True Story of the Jim Crow South",
+          "author": "Beth Macy",
+          "score": 0.927403,
+          "similarity": 0.40031,
+          "lexicalScore": 0.250345,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "Facing the Mountain: A True Story of Japanese American Heroes in World War II",
+          "author": "Daniel James Brown",
+          "score": 0.89997,
+          "similarity": 0.290721,
+          "lexicalScore": 0.305407,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "The Emperor of All Maladies: A Biography of Cancer",
+          "author": "Siddhartha Mukherjee",
+          "score": 0.89173,
+          "similarity": 0.29422,
+          "lexicalScore": 0.280183,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "Grand Pursuit: The Story of Economic Genius",
+          "author": "Sylvia Nasar",
+          "score": 0.887861,
+          "similarity": 0.397984,
+          "lexicalScore": 0.251096,
+          "reasons": [
+            "Matched terms: key",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "Molotov’s Magic Lantern: Travels in Russian History",
+          "author": "Rachel Polonsky",
+          "score": 0.88701,
+          "similarity": 0.419002,
+          "lexicalScore": 0.190345,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "Common People: The History of an English Family",
+          "author": "Alison Light",
+          "score": 0.885978,
+          "similarity": 0.420567,
+          "lexicalScore": 0.186058,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "How the World Moves: The Odyssey of an American Indian Family",
+          "author": "Peter Nabokov",
+          "score": 0.884208,
+          "similarity": 0.426174,
+          "lexicalScore": 0.171097,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "The Path Between the Seas: The Creation of the Panama Canal, 1870-1914",
+          "author": "David McCullough",
+          "score": 0.87142,
+          "similarity": 0.334117,
+          "lexicalScore": 0.295228,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "Bound to Please",
+          "author": "Michael Dirda",
+          "score": 0.862641,
+          "similarity": 0.455539,
+          "lexicalScore": 0.052077,
+          "reasons": [
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "All That She Carried: The Journey of Ashley's Sack, a Black Family Keepsake",
+          "author": "Tiya Miles",
+          "score": 0.858612,
+          "similarity": 0.328033,
+          "lexicalScore": 0.273733,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "All the Frequent Troubles of Our Days: The True Story of the American Woman at the Heart of the German Resistance to Hitler",
+          "author": "Rebecca Donner",
+          "score": 0.85415,
+          "similarity": 0.297744,
+          "lexicalScore": 0.281554,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "The Beauty in Breaking",
+          "author": "Michele Harper",
+          "score": 0.848124,
+          "similarity": 0.312725,
+          "lexicalScore": 0.297808,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "Fables of Abundance: A Cultural History of Advertising in America",
+          "author": "Jackson Lears",
+          "score": 0.827836,
+          "similarity": 0.447174,
+          "lexicalScore": 0.16,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "Everyone Who Is Gone Is Here: The United States, Central America and the Making of a Crisis",
+          "author": "Jonathan Blitzer",
+          "score": 0.823452,
+          "similarity": 0.301654,
+          "lexicalScore": 0.282619,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "Solito: A Memoir",
+          "author": "Javier Zamora",
+          "score": 0.822061,
+          "similarity": 0.403674,
+          "lexicalScore": 0.144819,
+          "reasons": [
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "Catherine the Great: Portrait of a Woman",
+          "author": "Robert K. Massie",
+          "score": 0.821842,
+          "similarity": 0.302954,
+          "lexicalScore": 0.277627,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "character-driven narrative history",
+      "expected": [
+        {
+          "title": "All the Frequent Troubles of Our Days",
+          "rank": 67,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The House of the Dead",
+          "rank": 347,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Fordlandia",
+          "rank": 366,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Age of Wonder",
+          "rank": 712,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Swerve",
+          "rank": 35,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Metaphysical Club",
+          "rank": 171,
+          "inTop10": false,
+          "inTop25": false
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "A Summer of Hummingbirds: Love, Art, and Scandal in the Intersecting Worlds of Emily Dickinson, Mark Twain, Harriet Beecher Stowe, & Martin Johnson Heade",
+          "author": "Christopher Benfey",
+          "score": 1.325439,
+          "similarity": 0.450964,
+          "lexicalScore": 0.20148,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Truevine: Two Brothers, a Kidnapping, and a Mother's Quest: A True Story of the Jim Crow South",
+          "author": "Beth Macy",
+          "score": 1.262411,
+          "similarity": 0.432069,
+          "lexicalScore": 0.21592,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "The Reinvention of Humanity: A Story of Race, Sex, Gender and the Discovery of Culture",
+          "author": "Charles King",
+          "score": 1.242736,
+          "similarity": 0.429212,
+          "lexicalScore": 0.217216,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "In Search of History: A Personal Adventure",
+          "author": "Theodore H. White",
+          "score": 1.232999,
+          "similarity": 0.470122,
+          "lexicalScore": 0.188272,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Remarkable Creatures: Epic Adventures in the Search for the Origins of Species",
+          "author": "Sean B. Carroll",
+          "score": 1.209391,
+          "similarity": 0.439865,
+          "lexicalScore": 0.206056,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "Imperial Intimacies: A Tale of Two Islands",
+          "author": "Hazel V. Carby",
+          "score": 1.208626,
+          "similarity": 0.42585,
+          "lexicalScore": 0.216352,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "Common People: The History of an English Family",
+          "author": "Alison Light",
+          "score": 1.179309,
+          "similarity": 0.439924,
+          "lexicalScore": 0.203608,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "How the World Moves: The Odyssey of an American Indian Family",
+          "author": "Peter Nabokov",
+          "score": 1.111637,
+          "similarity": 0.443874,
+          "lexicalScore": 0.193672,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "Other People's Countries: A Journey into Memory",
+          "author": "Patrick McGuinness",
+          "score": 1.036935,
+          "similarity": 0.425089,
+          "lexicalScore": 0.204544,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "Blood Royal: A True Tale of Crime and Detection in Medieval Paris",
+          "author": "Eric Jager",
+          "score": 1.023694,
+          "similarity": 0.421565,
+          "lexicalScore": 0.20944,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "American Transcendentalism",
+          "author": "Philip Gura",
+          "score": 0.956955,
+          "similarity": 0.432987,
+          "lexicalScore": 0.189496,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "Meetings with Remarkable Manuscripts",
+          "author": "Christopher de Hamel",
+          "score": 0.921808,
+          "similarity": 0.432533,
+          "lexicalScore": 0.164941,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "Children's Literature: A Readers' History: Reader's History from Aesop to Harry Potter",
+          "author": "Seth Lerer",
+          "score": 0.891897,
+          "similarity": 0.431181,
+          "lexicalScore": 0.1812,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "The World and All the Things upon It: Native Hawaiian Geographies of Exploration",
+          "author": "David Chang",
+          "score": 0.878849,
+          "similarity": 0.431035,
+          "lexicalScore": 0.178885,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "Kingdom of Characters: The Language Revolution That Made China Modern",
+          "author": "Jing Tsu",
+          "score": 0.873143,
+          "similarity": 0.479024,
+          "lexicalScore": 0.16,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "There Once Was a World: A 900-Year Chronicle of the Shtetl of Eishyshok",
+          "author": "Yaffa Eliach",
+          "score": 0.871266,
+          "similarity": 0.380098,
+          "lexicalScore": 0.29313,
+          "reasons": [
+            "Matched terms: terms",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "The Browns of California",
+          "author": "Miriam Pawel",
+          "score": 0.856849,
+          "similarity": 0.401888,
+          "lexicalScore": 0.211744,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "Paper: Paging through History",
+          "author": "Mark Kurlansky",
+          "score": 0.850147,
+          "similarity": 0.459014,
+          "lexicalScore": 0.16,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "Things I Have Withheld",
+          "author": "Kei Miller",
+          "score": 0.849324,
+          "similarity": 0.419631,
+          "lexicalScore": 0.19504,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "A History of Histories: Epics, Chronicles, Romances and Inquiries from Herodotus and Thucydides to the Twentieth Century",
+          "author": "John Burrow",
+          "score": 0.833294,
+          "similarity": 0.496344,
+          "lexicalScore": 0.238938,
+          "reasons": [
+            "Matched terms: terms",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "Oracle Bones: A Journey Between China's Past and Present",
+          "author": "Peter Hessler",
+          "score": 0.827793,
+          "similarity": 0.433267,
+          "lexicalScore": 0.054192,
+          "reasons": [
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "Malcolm X: A Life of Reinvention",
+          "author": "Manning Marable",
+          "score": 0.824949,
+          "similarity": 0.254599,
+          "lexicalScore": 0.223264,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "Kingdom of Characters: A Tale of Language, Obsession, and Genius in Modern China",
+          "author": "Jing Tsu",
+          "score": 0.822916,
+          "similarity": 0.449862,
+          "lexicalScore": 0.16,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "A Brief History of Everyone Who Ever Lived: The Human Story Retold Through Our Genes",
+          "author": "Adam Rutherford",
+          "score": 0.812804,
+          "similarity": 0.426997,
+          "lexicalScore": 0.182112,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "Encounters at the Heart of the World: A History of the Mandan People (Hill & Wang) Greg Grandin , The Empire of Necessity: Slavery, Freedom, and Deception in the New World",
+          "author": "Elizabeth Fenn",
+          "score": 0.804775,
+          "similarity": 0.420773,
+          "lexicalScore": 0.187453,
+          "reasons": [
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "big picture intellectual history",
+      "expected": [
+        {
+          "title": "The Metaphysical Club",
+          "rank": 8,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "The Swerve",
+          "rank": 191,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Age of Wonder",
+          "rank": 1843,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Information",
+          "rank": 76,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Gnostic Gospels",
+          "rank": 2472,
+          "inTop10": false,
+          "inTop25": false
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "A History of Histories: Epics, Chronicles, Romances and Inquiries from Herodotus and Thucydides to the Twentieth Century",
+          "author": "John Burrow",
+          "score": 1.597182,
+          "similarity": 0.544722,
+          "lexicalScore": 0.410253,
+          "reasons": [
+            "Matched terms: intellectual, history, terms",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Conjectures of Order: Intellectual Life and the American South, 1810-1860, volumes 1 & 2",
+          "author": "Michael O'Brien",
+          "score": 1.558033,
+          "similarity": 0.555289,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Revolutionary Ideas: An Intellectual History of the French Revolution from The Rights of Man to Robespierre",
+          "author": "Jonathan Israel",
+          "score": 1.540528,
+          "similarity": 0.520195,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "The Icon and the Axe: An Interpretative History of Russian Culture",
+          "author": "James H. Billington",
+          "score": 1.497838,
+          "similarity": 0.51469,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Philology: The Forgotten Origins of the Modern Humanities",
+          "author": "James Turner",
+          "score": 1.468376,
+          "similarity": 0.500538,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "The Intellectual Life of Edmund Burke: From the Sublime and Beautiful to American Independence",
+          "author": "David Bromwich",
+          "score": 1.457144,
+          "similarity": 0.511106,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "The Idea of the Brain: A History",
+          "author": "Matthew Cobb",
+          "score": 1.390517,
+          "similarity": 0.482608,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "The Metaphysical Club: A Story of Ideas in America",
+          "author": "Louis Menand",
+          "score": 1.38259,
+          "similarity": 0.477372,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "The Geography of the Imagination: Forty Essays",
+          "author": "Guy Davenport",
+          "score": 1.380568,
+          "similarity": 0.477585,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "Studies in the History of Philosophy and Religion, Vol. 1",
+          "author": "Harry Austryn Wolfson",
+          "score": 1.374063,
+          "similarity": 0.477858,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "Mathematical Thought from Ancient to Modern Times",
+          "author": "Morris Kline",
+          "score": 1.258958,
+          "similarity": 0.464664,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "A History of Christianity: The First Three Thousand Years",
+          "author": "Diarmaid MacCulloch",
+          "score": 1.247151,
+          "similarity": 0.463816,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "American Transcendentalism",
+          "author": "Philip Gura",
+          "score": 1.237255,
+          "similarity": 0.463889,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "From Dawn to Decadence: 500 Years of Western Cultural Life, 1500 to the Present",
+          "author": "Jacques Barzun",
+          "score": 1.212377,
+          "similarity": 0.463809,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "Time, Love, Memory: A Great Biologist and His Quest for the Origins of Behavior",
+          "author": "Jonathan Weiner",
+          "score": 1.199082,
+          "similarity": 0.459855,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "The Pleasures of the Imagination: English Culture in the Eighteenth Century",
+          "author": "John Brewer",
+          "score": 1.163722,
+          "similarity": 0.445723,
+          "lexicalScore": 0.504098,
+          "reasons": [
+            "Matched terms: picture, intellectual, history",
+            "Matched concepts: picture, intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "Basel in the Age of Burckhardt: A Study in Unseasonable Ideas",
+          "author": "Lionel Gossman",
+          "score": 1.156973,
+          "similarity": 0.45848,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "Empire and Revolution: The Political Life of Edmund Burke",
+          "author": "Richard Bourke",
+          "score": 1.152827,
+          "similarity": 0.449201,
+          "lexicalScore": 0.474098,
+          "reasons": [
+            "Matched terms: picture, intellectual, history",
+            "Matched concepts: picture, intellectual, history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "Liberty and Freedom: A Visual History of America's Founding Ideas",
+          "author": "David Hackett Fischer",
+          "score": 1.148883,
+          "similarity": 0.460037,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "Meetings with Remarkable Manuscripts",
+          "author": "Christopher de Hamel",
+          "score": 1.14886,
+          "similarity": 0.455756,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "How the World Thinks: A Global History of Philosophy",
+          "author": "Julian Baggini",
+          "score": 1.14525,
+          "similarity": 0.501285,
+          "lexicalScore": 0.230914,
+          "reasons": [
+            "Matched terms: history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "The Enlightenment Bible: Translation, Scholarship, Culture",
+          "author": "Jonathan Sheehan",
+          "score": 1.142161,
+          "similarity": 0.488105,
+          "lexicalScore": 0.321066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "The Rise of American Philosophy: Cambridge, Massachusetts, 1860-1930",
+          "author": "Bruce Kuklick",
+          "score": 1.12807,
+          "similarity": 0.489129,
+          "lexicalScore": 0.230914,
+          "reasons": [
+            "Matched terms: history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "American Genesis: A Century of Invention and Technological Enthusiasm 1870–1970",
+          "author": "Thomas P. Hughes",
+          "score": 1.093316,
+          "similarity": 0.456353,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "Anti-Intellectualism in American Life",
+          "author": "Richard Hofstadter",
+          "score": 1.075039,
+          "similarity": 0.449919,
+          "lexicalScore": 0.351066,
+          "reasons": [
+            "Matched terms: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched concepts: intellectual, history",
+            "Matched subject scope"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Great Depression era politics",
+      "expected": [
+        {
+          "title": "Fear Itself",
+          "rank": 189,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Worst Hard Time",
+          "rank": 156,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Voices of Protest",
+          "rank": 1,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "Franklin D. Roosevelt and American Foreign Policy",
+          "rank": 756,
+          "inTop10": false,
+          "inTop25": false
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "Voices of Protest: Huey Long, Father Coughlin and the Great Depression",
+          "author": "Alan Brinkley",
+          "score": 1.467275,
+          "similarity": 0.480831,
+          "lexicalScore": 0.318083,
+          "reasons": [
+            "Matched terms: great, depression, politics",
+            "Matched concepts: great, depression, politics"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Hall of Mirrors: The Great Depression, the Great Recession, and the Uses – and Misuses – of History",
+          "author": "Barry Eichengreen",
+          "score": 1.302395,
+          "similarity": 0.522415,
+          "lexicalScore": 0.235795,
+          "reasons": [
+            "Matched terms: great, depression",
+            "Matched concepts: great, depression"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Endangered Dreams: The Great Depression in California",
+          "author": "Kevin Starr",
+          "score": 1.278781,
+          "similarity": 0.481257,
+          "lexicalScore": 0.235795,
+          "reasons": [
+            "Matched terms: great, depression",
+            "Matched concepts: great, depression"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "The Crisis of the Old Order",
+          "author": "Arthur M. Schlesinger Jr.",
+          "score": 1.267856,
+          "similarity": 0.4728,
+          "lexicalScore": 0.235795,
+          "reasons": [
+            "Matched terms: great, depression",
+            "Matched concepts: great, depression"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Dancing in the Dark: A Cultural History of the Great Depression",
+          "author": "Morris Dickstein",
+          "score": 1.227701,
+          "similarity": 0.469833,
+          "lexicalScore": 0.235795,
+          "reasons": [
+            "Matched terms: great, depression",
+            "Matched concepts: great, depression"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "The Era of Good Feelings",
+          "author": "George Dangerfield",
+          "score": 1.209333,
+          "similarity": 0.441579,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "Freedom from Fear: The American People in Depression and War, 1929-1945",
+          "author": "David M. Kennedy",
+          "score": 1.198767,
+          "similarity": 0.439865,
+          "lexicalScore": 0.235795,
+          "reasons": [
+            "Matched terms: great, depression",
+            "Matched concepts: great, depression"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "Banks and Politics in America",
+          "author": "Bray Hammond",
+          "score": 1.184584,
+          "similarity": 0.452711,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "Tombstone: The Great Chinese Famine, 1958–1962",
+          "author": "Yang Jisheng",
+          "score": 1.18393,
+          "similarity": 0.423728,
+          "lexicalScore": 0.212701,
+          "reasons": [
+            "Matched terms: great, politics",
+            "Matched concepts: great, politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "John Maynard Keynes, vol. 2: the Economist as Saviour 1920-1937",
+          "author": "Robert Skidelsky",
+          "score": 1.183112,
+          "similarity": 0.432474,
+          "lexicalScore": 0.177108,
+          "reasons": [
+            "Matched terms: politics, key",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "The American Way",
+          "author": "Carville Earle",
+          "score": 1.179237,
+          "similarity": 0.462825,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "The Age of Reform",
+          "author": "Richard Hofstadter",
+          "score": 1.129735,
+          "similarity": 0.439058,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "Political Order and Political Decay: From the Industrial Revolution to the Globalization of Democracy",
+          "author": "Francis Fukuyama",
+          "score": 1.105064,
+          "similarity": 0.435815,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "The Age of Extremes: The Short 20th Century, 1914–1991",
+          "author": "Eric Hobsbawm",
+          "score": 1.066073,
+          "similarity": 0.400258,
+          "lexicalScore": 0.358083,
+          "reasons": [
+            "Matched terms: great, depression, politics",
+            "Matched concepts: great, depression, politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "Franklin D. Roosevelt and the New Deal: 1932-1940",
+          "author": "William E. Leuchtenburg",
+          "score": 1.06177,
+          "similarity": 0.423743,
+          "lexicalScore": 0.235795,
+          "reasons": [
+            "Matched terms: great, depression",
+            "Matched concepts: great, depression"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "The People's Choice",
+          "author": "Herbert Agar",
+          "score": 1.038308,
+          "similarity": 0.426729,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "Against the World: Anti-Globalism and Mass Politics Between the World Wars",
+          "author": "Tara Zahra",
+          "score": 1.001317,
+          "similarity": 0.398712,
+          "lexicalScore": 0.358083,
+          "reasons": [
+            "Matched terms: great, depression, politics",
+            "Matched concepts: great, depression, politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "A Public Empire: Property and the Quest for the Common Good in Imperial Russia",
+          "author": "Ekaterina Pravilova",
+          "score": 0.999976,
+          "similarity": 0.403845,
+          "lexicalScore": 0.212701,
+          "reasons": [
+            "Matched terms: great, politics",
+            "Matched concepts: great, politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "The Rise and Fall of the Great Powers: Economic Change and Military Control from 1500-2000",
+          "author": "Paul Kennedy",
+          "score": 0.993192,
+          "similarity": 0.440845,
+          "lexicalScore": 0.090413,
+          "reasons": [
+            "Matched terms: great",
+            "Matched concepts: great"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "The Growth Delusion: The Wealth and Well-Being of Nations",
+          "author": "David Pilling",
+          "score": 0.974461,
+          "similarity": 0.417964,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "The Age of the Democratic Revolution: Political History of Europe and America, 1760-1800",
+          "author": "R. R. Palmer",
+          "score": 0.974312,
+          "similarity": 0.43899,
+          "lexicalScore": 0.090413,
+          "reasons": [
+            "Matched terms: great",
+            "Matched concepts: great"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "Iron Curtain: The Crushing of Eastern Europe 1944-1956",
+          "author": "Anne Applebaum",
+          "score": 0.957748,
+          "similarity": 0.410938,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "Liberalism: The Life of an Idea",
+          "author": "Edmund Fawcett",
+          "score": 0.943281,
+          "similarity": 0.417834,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "The Gamble: Choice and Chance in the 2012 Presidential Election",
+          "author": "John Sides, Lynn Vavreck",
+          "score": 0.925829,
+          "similarity": 0.414326,
+          "lexicalScore": 0.122288,
+          "reasons": [
+            "Matched terms: politics",
+            "Matched concepts: politics",
+            "Matched concepts: politics"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "The Greenback Era: A Social and Political History of American Finance, 1865–1879",
+          "author": "Irwin Unger",
+          "score": 0.886889,
+          "similarity": 0.438383,
+          "lexicalScore": 0,
+          "reasons": []
+        }
+      ]
+    },
+    {
+      "query": "civil rights movement narrative history",
+      "expected": [
+        {
+          "title": "Parting the Waters",
+          "rank": 11,
+          "inTop10": false,
+          "inTop25": true
+        },
+        {
+          "title": "Bearing The Cross",
+          "rank": 48,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Carry Me Home",
+          "rank": 7,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "Blood in the Water",
+          "rank": 168,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Arc of Justice",
+          "rank": 20,
+          "inTop10": false,
+          "inTop25": true
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "Before the Movement: The Hidden History of Black Civil Rights",
+          "author": "Dylan C. Penningroth",
+          "score": 1.481347,
+          "similarity": 0.618616,
+          "lexicalScore": 0.574368,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Something Must Be Done about Prince Edward County: A Family, a Virginia Town, a Civil Rights Battle",
+          "author": "Kristen Green",
+          "score": 1.387063,
+          "similarity": 0.500904,
+          "lexicalScore": 0.491061,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "The Reinvention of Humanity: A Story of Race, Sex, Gender and the Discovery of Culture",
+          "author": "Charles King",
+          "score": 1.376789,
+          "similarity": 0.455234,
+          "lexicalScore": 0.607371,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Sweet Land of Liberty: The Forgotten Struggle for Civil Rights in the North",
+          "author": "Thomas J. Sugrue",
+          "score": 1.324726,
+          "similarity": 0.519192,
+          "lexicalScore": 0.558021,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Elizabeth and Hazel: Two Women of Little Rock",
+          "author": "David Margolick",
+          "score": 1.276292,
+          "similarity": 0.475832,
+          "lexicalScore": 0.587571,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "Some of My Best Friends Are Black: The Strange Story of Integration in America",
+          "author": "Tanner Colby",
+          "score": 1.259863,
+          "similarity": 0.458647,
+          "lexicalScore": 0.633907,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "Carry Me Home: Birmingham, Alabama, The Climactic Battle of the Civil Rights Movement",
+          "author": "Diane McWhorter",
+          "score": 1.123754,
+          "similarity": 0.461861,
+          "lexicalScore": 0.56706,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "Dark Journey: Black Mississippians in the Age of Jim Crow",
+          "author": "Neil R. McMillen",
+          "score": 1.121892,
+          "similarity": 0.498838,
+          "lexicalScore": 0.440946,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "The Race Beat: The Press, the Civil Rights Struggle, and the Awakening of a Nation",
+          "author": "Gene Roberts, Hank Klibanoff",
+          "score": 1.057678,
+          "similarity": 0.469577,
+          "lexicalScore": 0.461829,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "Freedom's Dominion: A Saga of White Resistance to Federal Power",
+          "author": "Jefferson Cowie",
+          "score": 1.028881,
+          "similarity": 0.470783,
+          "lexicalScore": 0.531323,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "Parting the Waters: America in the King Years, 1954-1963",
+          "author": "Taylor Branch",
+          "score": 1.012641,
+          "similarity": 0.456998,
+          "lexicalScore": 0.517427,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "Spell Freedom: The Underground Schools That Built the Civil Rights Movement",
+          "author": "Elaine Weiss",
+          "score": 1.010852,
+          "similarity": 0.542784,
+          "lexicalScore": 0.545355,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "Civil Rights Queen: Constance Baker Motley and the Struggle for Equality",
+          "author": "Tomiko Brown-Nagin",
+          "score": 0.975513,
+          "similarity": 0.454288,
+          "lexicalScore": 0.476373,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "Separate: The Story of Plessy v. Ferguson, and America's Journey from Slavery to Segregation",
+          "author": "Steve Luxenberg",
+          "score": 0.973489,
+          "similarity": 0.469625,
+          "lexicalScore": 0.446202,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "The Civil Rights Era: Origins and Development of National Policy",
+          "author": "Hugh Davis Graham",
+          "score": 0.970824,
+          "similarity": 0.549989,
+          "lexicalScore": 0.439245,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "No Right to an Honest Living: The Struggles of Boston's Black Workers in the Civil War Era",
+          "author": "Jacqueline Jones",
+          "score": 0.96815,
+          "similarity": 0.51334,
+          "lexicalScore": 0.439245,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "Malcolm X: A Life of Reinvention",
+          "author": "Manning Marable",
+          "score": 0.967442,
+          "similarity": 0.338182,
+          "lexicalScore": 0.533419,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "By Hands Now Known: Jim Crow's Legal Executioners",
+          "author": "Margaret A. Burnham",
+          "score": 0.962937,
+          "similarity": 0.472474,
+          "lexicalScore": 0.417173,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "Black-Owned",
+          "author": "Char Adams",
+          "score": 0.957687,
+          "similarity": 0.434546,
+          "lexicalScore": 0.585699,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "Arc of Justice: A Saga of Race, Civil Rights and Murder in the Jazz Age",
+          "author": "Kevin Boyle",
+          "score": 0.936224,
+          "similarity": 0.44797,
+          "lexicalScore": 0.470397,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "Local People: The Struggle for Civil Rights in Mississippi",
+          "author": "John Dittmer",
+          "score": 0.896825,
+          "similarity": 0.438581,
+          "lexicalScore": 0.550155,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "Simple Justice: The History of Brown v. Board of Education and Black America's Struggle for Equality",
+          "author": "Richard Kluger",
+          "score": 0.880726,
+          "similarity": 0.441301,
+          "lexicalScore": 0.470109,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "True South: Henry Hampton and Eyes on the Prize, the Landmark Television Series That Reframed the Civil Rights Movement",
+          "author": "Jon Else",
+          "score": 0.878353,
+          "similarity": 0.486132,
+          "lexicalScore": 0.545355,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "Black Folk",
+          "author": "Blair LM Kelley",
+          "score": 0.85981,
+          "similarity": 0.447385,
+          "lexicalScore": 0.470037,
+          "reasons": [
+            "Matched terms: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched concepts: civil, rights",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "Pillar of Fire",
+          "author": "Taylor Branch",
+          "score": 0.849307,
+          "similarity": 0.472191,
+          "lexicalScore": 0.545355,
+          "reasons": [
+            "Matched terms: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched concepts: civil, rights, movement",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "science books with a sense of wonder and discovery",
+      "expected": [
+        {
+          "title": "The Age of Wonder",
+          "rank": 1,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "An Immense World",
+          "rank": 2,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "The Beak of the Finch",
+          "rank": 160,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Making of the Atomic Bomb",
+          "rank": 214,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Invention of Nature",
+          "rank": 150,
+          "inTop10": false,
+          "inTop25": false
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "The Age of Wonder: How the Romantic Generation Discovered the Beauty and Terror of Science",
+          "author": "Richard Holmes",
+          "score": 1.735502,
+          "similarity": 0.599444,
+          "lexicalScore": 0.405635,
+          "reasons": [
+            "Matched terms: science, wonder, discovery",
+            "Matched concepts: science, wonder, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "An Immense World: How Animal Senses Reveal the Hidden Realms Around Us",
+          "author": "Ed Yong",
+          "score": 1.651879,
+          "similarity": 0.575405,
+          "lexicalScore": 0.395021,
+          "reasons": [
+            "Matched terms: science, sense, discovery",
+            "Matched concepts: science, sense, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Science and the Secrets of Nature: Books of Secrets in Medieval and Early Modern Culture",
+          "author": "William Eamon. Accepting Award: Mr. Walter Lippincott",
+          "score": 1.474111,
+          "similarity": 0.583162,
+          "lexicalScore": 0.372184,
+          "reasons": [
+            "Matched terms: science, books, discovery",
+            "Matched concepts: science, books, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "The Boundless Deep: Young Tennyson, Science and the Crisis of Belief",
+          "author": "Richard Holmes",
+          "score": 1.305852,
+          "similarity": 0.566983,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "The Possibility of Life: Science, Imagination, and Our Quest for Kinship in the Cosmos",
+          "author": "Jaime Green",
+          "score": 1.290276,
+          "similarity": 0.557042,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "Massive: The Missing Particle That Sparked the Greatest Hunt in Science",
+          "author": "Ian Sample",
+          "score": 1.275141,
+          "similarity": 0.55631,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "Where Does the Weirdness Go? Why Quantum Mechanics Is Strange, But Not as Strange as You Think, and Steel",
+          "author": "David Lindley",
+          "score": 1.26811,
+          "similarity": 0.52434,
+          "lexicalScore": 0.372184,
+          "reasons": [
+            "Matched terms: science, books, discovery",
+            "Matched concepts: science, books, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "Remarkable Creatures: Epic Adventures in the Search for the Origins of Species",
+          "author": "Sean B. Carroll",
+          "score": 1.263084,
+          "similarity": 0.589386,
+          "lexicalScore": 0.316538,
+          "reasons": [
+            "Matched terms: science, sense",
+            "Matched concepts: science, sense",
+            "Matched concepts: science",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "Cosmos",
+          "author": "Carl Sagan",
+          "score": 1.260425,
+          "similarity": 0.554776,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "Aeons: The Search for the Beginning of Time",
+          "author": "Martin Gorst",
+          "score": 1.246113,
+          "similarity": 0.553595,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "Making Sense of Science: Separating Substance from Spin",
+          "author": "Cornelia Dean",
+          "score": 1.237106,
+          "similarity": 0.515308,
+          "lexicalScore": 0.395021,
+          "reasons": [
+            "Matched terms: science, sense, discovery",
+            "Matched concepts: science, sense, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "Discovering: Inventing and Solving Problems at the Frontiers of Scientific Knowledge",
+          "author": "Robert Scott Root-Bernstein",
+          "score": 1.232187,
+          "similarity": 0.552195,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "The Hidden Reality",
+          "author": "Brian Greene",
+          "score": 1.205432,
+          "similarity": 0.546421,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "Lonely Hearts of the Cosmos: The Story of the Scientific Quest for the Secret of the Universe",
+          "author": "Dennis Overbye",
+          "score": 1.202617,
+          "similarity": 0.541125,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "The New Cosmos: Answering Astronomy's Big Questions",
+          "author": "David J. Eicher",
+          "score": 1.197458,
+          "similarity": 0.547704,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "To Explain the World: The Discovery of Modern Science",
+          "author": "Steven Weinberg",
+          "score": 1.179696,
+          "similarity": 0.543252,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "How Far the Light Reaches: A Life in Ten Sea Creatures",
+          "author": "Sabrina Imbler",
+          "score": 1.161906,
+          "similarity": 0.495313,
+          "lexicalScore": 0.46997,
+          "reasons": [
+            "Matched terms: science, books, wonder, discovery",
+            "Matched concepts: science, books, wonder",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "The Five Senses",
+          "author": "F. Gonzalez-Crussi",
+          "score": 1.156293,
+          "similarity": 0.508896,
+          "lexicalScore": 0.395021,
+          "reasons": [
+            "Matched terms: science, sense, discovery",
+            "Matched concepts: science, sense, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "Beyond Infinity: An Expedition to the Outer Limits of the Mathematical Universe",
+          "author": "Eugenia Cheng",
+          "score": 1.147047,
+          "similarity": 0.528931,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "Underland: A Deep Time Journey",
+          "author": "Robert Macfarlane",
+          "score": 1.137831,
+          "similarity": 0.506497,
+          "lexicalScore": 0.395021,
+          "reasons": [
+            "Matched terms: science, sense, discovery",
+            "Matched concepts: science, sense, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "Endless Forms Most Beautiful: The New Science of Evo Devo",
+          "author": "Sean B. Carroll",
+          "score": 1.135669,
+          "similarity": 0.526188,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "Parallel Worlds: The Science of Alternative Universes and our Future in the Cosmos",
+          "author": "Michio Kaku",
+          "score": 1.124562,
+          "similarity": 0.524778,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "How Sexual Desire Works: The Enigmatic Urge",
+          "author": "Frederick Toates",
+          "score": 1.116621,
+          "similarity": 0.522669,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "Eager: The Surprising, Secret Life of Beavers and Why They Matter",
+          "author": "Ben Goldfarb",
+          "score": 1.106472,
+          "similarity": 0.522389,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "Alex Through the Looking-Glass: How Life Reflects Numbers and Numbers Reflect Life",
+          "author": "Alex Bellos",
+          "score": 1.104458,
+          "similarity": 0.522853,
+          "lexicalScore": 0.307849,
+          "reasons": [
+            "Matched terms: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched concepts: science, discovery",
+            "Matched subject scope"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "reported books about poverty housing and inequality",
+      "expected": [
+        {
+          "title": "Evicted",
+          "rank": 6,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "Invisible Child",
+          "rank": 2,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "$2.00 a Day",
+          "rank": 3,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "Behind the Beautiful Forevers",
+          "rank": 21,
+          "inTop10": false,
+          "inTop25": true
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "There Is No Place for Us: Working and Homeless in America",
+          "author": "Brian Goldstone",
+          "score": 1.554169,
+          "similarity": 0.489011,
+          "lexicalScore": 0.562874,
+          "reasons": [
+            "Matched terms: reported, poverty, housing, inequality",
+            "Matched concepts: reported, poverty, housing",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Invisible Child: Poverty, Survival and Hope in an American City",
+          "author": "Andrea Elliott",
+          "score": 1.504215,
+          "similarity": 0.482533,
+          "lexicalScore": 0.486131,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "$2.00 a Day: Living on Almost Nothing in America",
+          "author": "Kathryn J. Edin, H. Luke Shaefer",
+          "score": 1.459233,
+          "similarity": 0.495765,
+          "lexicalScore": 0.549554,
+          "reasons": [
+            "Matched terms: reported, poverty, housing, inequality",
+            "Matched concepts: reported, poverty, housing",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "High-Risers: Cabrini-Green and the Fate of American Public Housing",
+          "author": "Ben Austen",
+          "score": 1.33488,
+          "similarity": 0.523125,
+          "lexicalScore": 0.464003,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "The Other America",
+          "author": "Michael Harrington",
+          "score": 1.222145,
+          "similarity": 0.473623,
+          "lexicalScore": 0.509135,
+          "reasons": [
+            "Matched terms: reported, books, poverty, inequality",
+            "Matched concepts: reported, books, poverty",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "Evicted: Poverty and Profit in the American City",
+          "author": "Matthew Desmond",
+          "score": 1.214766,
+          "similarity": 0.477664,
+          "lexicalScore": 0.50864,
+          "reasons": [
+            "Matched terms: books, poverty, housing, inequality",
+            "Matched concepts: books, poverty, housing",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "There Are No Children Here: The Story of Two Boys Growing Up in the Other America",
+          "author": "Alex Kotlowitz",
+          "score": 1.180207,
+          "similarity": 0.443893,
+          "lexicalScore": 0.476483,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "Give People Money: How a Universal Basic Income Would End Poverty, Revolutionize Work, and Remake the World",
+          "author": "Annie Lowrey",
+          "score": 1.164196,
+          "similarity": 0.452923,
+          "lexicalScore": 0.468851,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "The Integral Urban House: Self-Reliant Living in the City",
+          "author": "Farallones Institute",
+          "score": 1.138053,
+          "similarity": 0.444483,
+          "lexicalScore": 0.471155,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "On the Outside Looking In: A Year in an Inner-City High School",
+          "author": "Cristina Rathbone",
+          "score": 1.118428,
+          "similarity": 0.44227,
+          "lexicalScore": 0.471155,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "American Dream: Three Women, Ten Kids, and a Nation's Drive to End Welfare",
+          "author": "Jason DeParle",
+          "score": 1.109015,
+          "similarity": 0.473573,
+          "lexicalScore": 0.379307,
+          "reasons": [
+            "Matched terms: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "Poor Economics: A Radical Rethinking of the Way to Fight Global Poverty",
+          "author": "Abhijit V. Banerjee, Esther Duflo",
+          "score": 1.103429,
+          "similarity": 0.506809,
+          "lexicalScore": 0.356507,
+          "reasons": [
+            "Matched terms: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "Broke: Hardship and Resilience in a City of Broken Promises",
+          "author": "Jodie Adams Kirshner",
+          "score": 1.090356,
+          "similarity": 0.430176,
+          "lexicalScore": 0.479579,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "A Good Provider Is One Who Leaves: One Family and Migration in the 21st Century",
+          "author": "Jason DeParle",
+          "score": 1.054157,
+          "similarity": 0.406984,
+          "lexicalScore": 0.558986,
+          "reasons": [
+            "Matched terms: reported, poverty, housing, inequality",
+            "Matched concepts: reported, poverty, housing",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "City on a Hill: Testing the American Dream at City College",
+          "author": "James Traub",
+          "score": 1.036864,
+          "similarity": 0.421957,
+          "lexicalScore": 0.512249,
+          "reasons": [
+            "Matched terms: books, poverty, housing, inequality",
+            "Matched concepts: books, poverty, housing",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "No Shame in my Game: The Working Poor in the Inner City",
+          "author": "Katherine S. Newman",
+          "score": 1.022428,
+          "similarity": 0.485536,
+          "lexicalScore": 0.355062,
+          "reasons": [
+            "Matched terms: reported, housing",
+            "Matched concepts: reported, housing",
+            "Matched concepts: housing",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "The Undocumented Americans",
+          "author": "Karla Cornejo Villavicencio",
+          "score": 0.954649,
+          "similarity": 0.412031,
+          "lexicalScore": 0.477419,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "Orphans of Empire: The Fate of London's Foundlings",
+          "author": "Helen Berry",
+          "score": 0.953307,
+          "similarity": 0.45491,
+          "lexicalScore": 0.360808,
+          "reasons": [
+            "Matched terms: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "The Billionaire Raj: A Journey Through India's New Gilded Age",
+          "author": "James Crabtree",
+          "score": 0.939162,
+          "similarity": 0.4376,
+          "lexicalScore": 0.382403,
+          "reasons": [
+            "Matched terms: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "Fatal Misconception: The Struggle to Control World Population",
+          "author": "Matthew Connelly",
+          "score": 0.924588,
+          "similarity": 0.424262,
+          "lexicalScore": 0.455807,
+          "reasons": [
+            "Matched terms: reported, poverty, inequality",
+            "Matched concepts: reported, poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "Behind the Beautiful Forevers: Life, Death and Hope in a Mumbai Undercity",
+          "author": "Katherine Boo",
+          "score": 0.915465,
+          "similarity": 0.412561,
+          "lexicalScore": 0.50864,
+          "reasons": [
+            "Matched terms: books, poverty, housing, inequality",
+            "Matched concepts: books, poverty, housing",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "The Ungrateful Refugee: What Immigrants Never Tell You",
+          "author": "Dina Nayeri",
+          "score": 0.915368,
+          "similarity": 0.391961,
+          "lexicalScore": 0.487211,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "The Impossible City: A Hong Kong Memoir",
+          "author": "Karen Cheung",
+          "score": 0.913974,
+          "similarity": 0.406008,
+          "lexicalScore": 0.482531,
+          "reasons": [
+            "Matched terms: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched concepts: poverty, housing, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "Caste: The Origins of Our Discontent",
+          "author": "Isabel Wilkerson",
+          "score": 0.9023,
+          "similarity": 0.433264,
+          "lexicalScore": 0.377651,
+          "reasons": [
+            "Matched terms: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "Common People: The History of an English Family",
+          "author": "Alison Light",
+          "score": 0.898572,
+          "similarity": 0.421658,
+          "lexicalScore": 0.392843,
+          "reasons": [
+            "Matched terms: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched concepts: poverty, inequality",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "Cold War espionage and intelligence history",
+      "expected": [
+        {
+          "title": "Ghost Wars",
+          "rank": 43,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Legacy of Ashes",
+          "rank": 26,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Looming Tower",
+          "rank": 1015,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Dead Hand",
+          "rank": 78,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Cold War",
+          "rank": 2,
+          "inTop10": true,
+          "inTop25": true
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "In the Enemy's House: The Secret Saga of the FBI Agent and the Code Breaker Who Caught the Russian Spies",
+          "author": "Howard Blum",
+          "score": 1.647547,
+          "similarity": 0.527445,
+          "lexicalScore": 0.602677,
+          "reasons": [
+            "Matched terms: cold, war, espionage, intelligence",
+            "Matched concepts: cold, espionage, intelligence",
+            "Matched concepts: cold, war, intelligence",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "The Cold War and Soviet Insecurity: The Stalin Years",
+          "author": "Vojtech Mastny",
+          "score": 1.543983,
+          "similarity": 0.52416,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Iron Curtain: The Crushing of Eastern Europe 1944-1956",
+          "author": "Anne Applebaum",
+          "score": 1.517568,
+          "similarity": 0.507484,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "The Declassification Engine: What History Reveals About America's Top Secrets",
+          "author": "Matthew Connelly",
+          "score": 1.49515,
+          "similarity": 0.515217,
+          "lexicalScore": 0.357253,
+          "reasons": [
+            "Matched terms: war, intelligence, history",
+            "Matched concepts: intelligence, history",
+            "Matched concepts: war, intelligence, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "The Global Cold War: Third World Interventions and the Making of Our Times",
+          "author": "Odd Arne Westad",
+          "score": 1.451468,
+          "similarity": 0.497009,
+          "lexicalScore": 0.394936,
+          "reasons": [
+            "Matched terms: cold, war, history, key",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "Political Survivors: The Resistance, the Cold War, and the Fight against Concentration Camps after 1945",
+          "author": "Emma Kuby",
+          "score": 1.375071,
+          "similarity": 0.494001,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "The Marshall Plan: Dawn of the Cold War",
+          "author": "Benn Steil",
+          "score": 1.350256,
+          "similarity": 0.492476,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "British and American Commercial Relations with Soviet Russia, 1918-24",
+          "author": "Christine White",
+          "score": 1.326507,
+          "similarity": 0.492078,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "A Biography of No Place: From Ethnic Borderland to Soviet Heartland",
+          "author": "Kate Brown",
+          "score": 1.263624,
+          "similarity": 0.483436,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "For the Soul of Mankind: The United States, the Soviet Union, and the Cold War",
+          "author": "Melvyn Leffler",
+          "score": 1.250965,
+          "similarity": 0.480288,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "The Nuclear Delusion: Soviet-American Relations in the Atomic Age",
+          "author": "George F. Kennan",
+          "score": 1.237559,
+          "similarity": 0.492154,
+          "lexicalScore": 0.369236,
+          "reasons": [
+            "Matched terms: cold, war, intelligence",
+            "Matched concepts: cold, intelligence",
+            "Matched concepts: cold, war, intelligence",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "Watching the Jackals: Prague's Covert Liaisons with Cold War Terrorists and Revolutionaries",
+          "author": "Daniela Richterova",
+          "score": 1.231433,
+          "similarity": 0.473028,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "A Diplomatic Revolution: Algeria’s Fight for Independence and the Origins of the Post-Cold War Era",
+          "author": "Matthew Connelly",
+          "score": 1.228775,
+          "similarity": 0.460587,
+          "lexicalScore": 0.394936,
+          "reasons": [
+            "Matched terms: cold, war, history, key",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "The Cold War as History",
+          "author": "Louis J. Halle",
+          "score": 1.20846,
+          "similarity": 0.524992,
+          "lexicalScore": 0.284173,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "Between Churchill and Stalin. The Soviet Union, Great Britain, and the Origins of the Grand Alliance",
+          "author": "Steven Miner",
+          "score": 1.192884,
+          "similarity": 0.466033,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "Against the Liberal Order: The Soviet Union, Turkey, and Statist Internationalism, 1919–1939",
+          "author": "Samuel J. Hirst",
+          "score": 1.186629,
+          "similarity": 0.458454,
+          "lexicalScore": 0.394936,
+          "reasons": [
+            "Matched terms: cold, war, history, key",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "The Spy and the Traitor: The Greatest Espionage Story of the Cold War",
+          "author": "Ben Macintyre",
+          "score": 1.185449,
+          "similarity": 0.544674,
+          "lexicalScore": 0.342859,
+          "reasons": [
+            "Matched terms: cold, war, espionage, intelligence",
+            "Matched concepts: cold, espionage, intelligence",
+            "Matched concepts: intelligence"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "Against the World: Anti-Globalism and Mass Politics Between the World Wars",
+          "author": "Tara Zahra",
+          "score": 1.176841,
+          "similarity": 0.472454,
+          "lexicalScore": 0.397054,
+          "reasons": [
+            "Matched terms: cold, war, intelligence, history",
+            "Matched concepts: cold, intelligence, history",
+            "Matched concepts: cold, war, intelligence",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "Inside the Kremlin's Cold War: From Stalin to Khrushchev",
+          "author": "Vladislav Zubok, Constantine Pleshakov",
+          "score": 1.137414,
+          "similarity": 0.521508,
+          "lexicalScore": 0.256355,
+          "reasons": [
+            "Matched terms: cold, war",
+            "Matched concepts: cold",
+            "Matched concepts: cold, war",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "A Preponderance of Power: National Security, the Truman Administration, and the Cold War",
+          "author": "Melvyn P. Leffler",
+          "score": 1.13305,
+          "similarity": 0.445172,
+          "lexicalScore": 0.441854,
+          "reasons": [
+            "Matched terms: cold, war, intelligence, history",
+            "Matched concepts: cold, intelligence, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "Moral Combat: A History of World War II",
+          "author": "Michael Burleigh",
+          "score": 1.127075,
+          "similarity": 0.500513,
+          "lexicalScore": 0.244372,
+          "reasons": [
+            "Matched terms: war, history",
+            "Matched concepts: history",
+            "Matched concepts: war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "Distant Friends and Intimate Enemies: A History of American-Russian Relations",
+          "author": "David S. Foglesong, Ivan Kurilla,, Victoria I. Zhuravleva",
+          "score": 1.117438,
+          "similarity": 0.51186,
+          "lexicalScore": 0.220372,
+          "reasons": [
+            "Matched terms: war, history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "Brotherhood of the Bomb: The Tangled Lives and Loyalties of Robert Oppenheimer, Ernest Lawrence and Edward Teller",
+          "author": "Gregg Herken",
+          "score": 1.116055,
+          "similarity": 0.458836,
+          "lexicalScore": 0.352973,
+          "reasons": [
+            "Matched terms: cold, war, history",
+            "Matched concepts: cold, history",
+            "Matched concepts: cold, war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "The Peacemakers: The Great Powers and American Independence",
+          "author": "Richard B. Morris",
+          "score": 1.104755,
+          "similarity": 0.453546,
+          "lexicalScore": 0.381195,
+          "reasons": [
+            "Matched terms: war, espionage, history",
+            "Matched concepts: espionage, history",
+            "Matched concepts: war, history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "The World of the Cold War: 1945–1991",
+          "author": "Vladislav Zubok",
+          "score": 1.10094,
+          "similarity": 0.518005,
+          "lexicalScore": 0.256355,
+          "reasons": [
+            "Matched terms: cold, war",
+            "Matched concepts: cold",
+            "Matched concepts: cold, war",
+            "Matched subject scope"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "environmental history of capitalism and industry",
+      "expected": [
+        {
+          "title": "Fordlandia",
+          "rank": 275,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Cigarette Century",
+          "rank": 217,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Amity and Prosperity",
+          "rank": 1228,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Gulf",
+          "rank": 49,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Empire of Cotton",
+          "rank": 218,
+          "inTop10": false,
+          "inTop25": false
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "Deforesting the Earth: From Prehistory to Global Crisis",
+          "author": "Michael Williams",
+          "score": 1.548234,
+          "similarity": 0.496882,
+          "lexicalScore": 0.435317,
+          "reasons": [
+            "Matched terms: environmental, history, capitalism",
+            "Matched concepts: environmental, history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Europe Between the Oceans: 9000BC-AD1000",
+          "author": "Barry Cunliffe",
+          "score": 1.404216,
+          "similarity": 0.472869,
+          "lexicalScore": 0.390992,
+          "reasons": [
+            "Matched terms: history, capitalism, terms",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "Behemoth: A History of the Factory and the Making of the Modern World",
+          "author": "Joshua B. Freeman",
+          "score": 1.358998,
+          "similarity": 0.477156,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Diet for a Large Planet: Industrial Britain, Food Systems, and World Ecology",
+          "author": "Chris Otter",
+          "score": 1.291372,
+          "similarity": 0.516733,
+          "lexicalScore": 0.223199,
+          "reasons": [
+            "Matched terms: history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "The Corporate Eye: Photography and the Rationalization of American Commercial Culture, 1884-1929",
+          "author": "Elspeth H. Brown",
+          "score": 1.275322,
+          "similarity": 0.501465,
+          "lexicalScore": 0.223199,
+          "reasons": [
+            "Matched terms: history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "A Culture of Growth: The Origins of the Modern Economy",
+          "author": "Joel Mokyr",
+          "score": 1.235852,
+          "similarity": 0.462391,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "The History of Black Business in America: Capitalism, Race, Entrepreneurship",
+          "author": "Juliet E. K. Walker",
+          "score": 1.200264,
+          "similarity": 0.450435,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "Ecology and Power in the Age of Empire: Europe and the Transformation of the Tropical World",
+          "author": "Corey Ross",
+          "score": 1.191824,
+          "similarity": 0.487488,
+          "lexicalScore": 0.223199,
+          "reasons": [
+            "Matched terms: history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "The Columbia Gazetteer of the World",
+          "author": "Saul B. Cohen, Editor",
+          "score": 1.185894,
+          "similarity": 0.42837,
+          "lexicalScore": 0.551255,
+          "reasons": [
+            "Matched terms: environmental, history, capitalism, industry",
+            "Matched concepts: environmental, history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "When Markets Collide: Investment Strategies for the Age of Global Economic Change",
+          "author": "Mohamed El-Erian",
+          "score": 1.182534,
+          "similarity": 0.447524,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "Ecological Imperialism: The Biological Expansion of Europe, 900-1900",
+          "author": "Alfred W. Crosby",
+          "score": 1.178725,
+          "similarity": 0.485761,
+          "lexicalScore": 0.223199,
+          "reasons": [
+            "Matched terms: history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "Translating Empire: Emulation and the Origins of Political Economy",
+          "author": "Sophus A. Reinert",
+          "score": 1.158208,
+          "similarity": 0.451266,
+          "lexicalScore": 0.339137,
+          "reasons": [
+            "Matched terms: history, industry",
+            "Matched concepts: history, industry",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "A Splendid Exchange: How Trade Shaped the World]]",
+          "author": "William J. Bernstein, [[A Splendid Exchange|",
+          "score": 1.131169,
+          "similarity": 0.442266,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "Nature: An Economic History",
+          "author": "Geerat J. Vermeij",
+          "score": 1.116783,
+          "similarity": 0.524752,
+          "lexicalScore": 0.245317,
+          "reasons": [
+            "Matched terms: environmental, history, capitalism",
+            "Matched concepts: environmental, history, capitalism",
+            "Matched concepts: capitalism"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "Design with Nature",
+          "author": "Ian L. McHarg",
+          "score": 1.106362,
+          "similarity": 0.470464,
+          "lexicalScore": 0.327371,
+          "reasons": [
+            "Matched terms: environmental, history",
+            "Matched concepts: environmental, history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "Dust Bowl: The Southern Plains in the 1930s",
+          "author": "Donald Worster",
+          "score": 1.101685,
+          "similarity": 0.423848,
+          "lexicalScore": 0.503157,
+          "reasons": [
+            "Matched terms: environmental, history, industry, terms",
+            "Matched concepts: environmental, history, industry",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "Adam Smith’s America: How a Scottish Philosopher Became an Icon of American Capitalism",
+          "author": "Glory M. Liu",
+          "score": 1.072014,
+          "similarity": 0.434664,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "Profits in the Wilderness: Entrepreneurship and the Founding of New England Towns in the Seventeenth Century",
+          "author": "John Frederick Martin",
+          "score": 1.057901,
+          "similarity": 0.472333,
+          "lexicalScore": 0.223199,
+          "reasons": [
+            "Matched terms: history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "Guano and the Opening of the Pacific World: A Global Ecological History",
+          "author": "Gregory Cushman",
+          "score": 1.036865,
+          "similarity": 0.454669,
+          "lexicalScore": 0.327371,
+          "reasons": [
+            "Matched terms: environmental, history",
+            "Matched concepts: environmental, history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "Fables of Abundance: A Cultural History of Advertising in America",
+          "author": "Jackson Lears",
+          "score": 1.033897,
+          "similarity": 0.430994,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "American Genesis: A Century of Invention and Technological Enthusiasm 1870–1970",
+          "author": "Thomas P. Hughes",
+          "score": 1.024165,
+          "similarity": 0.431463,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "Worlds Before Adam: The Reconstruction of Geohistory in the Age of Reform",
+          "author": "Martin J. S. Rudwick",
+          "score": 1.000116,
+          "similarity": 0.443686,
+          "lexicalScore": 0.327371,
+          "reasons": [
+            "Matched terms: environmental, history",
+            "Matched concepts: environmental, history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "Cigarettes, Inc.: An Intimate History of Corporate Imperialism",
+          "author": "Nan C. Enstad",
+          "score": 0.994325,
+          "similarity": 0.45638,
+          "lexicalScore": 0.223199,
+          "reasons": [
+            "Matched terms: history",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "Class and Community: The Industrial Revolution in Lynn",
+          "author": "Alan Dawley",
+          "score": 0.988569,
+          "similarity": 0.406174,
+          "lexicalScore": 0.447082,
+          "reasons": [
+            "Matched terms: history, capitalism, industry",
+            "Matched concepts: history, capitalism, industry",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "Atlantic Wars: From the Fifteenth Century to the Age of Revolution",
+          "author": "Geoffrey Plank",
+          "score": 0.981426,
+          "similarity": 0.428189,
+          "lexicalScore": 0.331144,
+          "reasons": [
+            "Matched terms: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched concepts: history, capitalism",
+            "Matched subject scope"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "memoir about grief family and illness",
+      "expected": [
+        {
+          "title": "The Undying",
+          "rank": 29,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "H Is for Hawk",
+          "rank": 52,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Light of the World",
+          "rank": 198,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "When Breath Becomes Air",
+          "rank": 252,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Angela's Ashes",
+          "rank": 65,
+          "inTop10": false,
+          "inTop25": false
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "Grieving: Dispatches from a Wounded Country",
+          "author": "Cristina Rivera Garza",
+          "score": 1.547171,
+          "similarity": 0.528083,
+          "lexicalScore": 0.364418,
+          "reasons": [
+            "Matched terms: memoir, grief",
+            "Matched concepts: memoir, grief",
+            "Matched concepts: memoir, grief",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "Fi: A Memoir of My Son",
+          "author": "Alexandra Fuller",
+          "score": 1.537426,
+          "similarity": 0.5428,
+          "lexicalScore": 0.315375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "One Hundred Names for Love: A Stroke, a Marriage, and the Language of Healing",
+          "author": "Diane Ackerman",
+          "score": 1.440674,
+          "similarity": 0.516281,
+          "lexicalScore": 0.315375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "The Invisible Kingdom: Reimagining Chronic Illness",
+          "author": "Meghan O’Rourke",
+          "score": 1.436476,
+          "similarity": 0.529403,
+          "lexicalScore": 0.341609,
+          "reasons": [
+            "Matched terms: family, illness",
+            "Matched concepts: family, illness",
+            "Matched concepts: family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Mother Archive: A Dominican Family Memoir",
+          "author": "Erika Morillo",
+          "score": 1.400569,
+          "similarity": 0.510032,
+          "lexicalScore": 0.315375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "My Long Trip Home: A Family Memoir",
+          "author": "Mark Whitaker",
+          "score": 1.349232,
+          "similarity": 0.506211,
+          "lexicalScore": 0.315375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "The Day That Went Missing: A Family's Story",
+          "author": "Richard Beard",
+          "score": 1.293034,
+          "similarity": 0.495758,
+          "lexicalScore": 0.315375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "Clam Down: A Metamorphosis",
+          "author": "Anelise Chen",
+          "score": 1.269519,
+          "similarity": 0.493421,
+          "lexicalScore": 0.315375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "The Beginning of Everything",
+          "author": "Andrea Buchanan",
+          "score": 1.243878,
+          "similarity": 0.533466,
+          "lexicalScore": 0.226712,
+          "reasons": [
+            "Matched terms: family",
+            "Matched concepts: family",
+            "Matched concepts: family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "A Farewell To Gabo And Mercedes: A Son's Memoir of Gabriel García Márquez and Mercedes Barcha",
+          "author": "Rodrigo Garcia",
+          "score": 1.242288,
+          "similarity": 0.481548,
+          "lexicalScore": 0.368193,
+          "reasons": [
+            "Matched terms: memoir, family, terms",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "In Gratitude",
+          "author": "Jenny Diski",
+          "score": 1.238566,
+          "similarity": 0.488275,
+          "lexicalScore": 0.400272,
+          "reasons": [
+            "Matched terms: memoir, family, illness",
+            "Matched concepts: memoir, family, illness",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "On Chapel Sands: My Mother and Other Missing Persons",
+          "author": "Laura Cumming",
+          "score": 1.210738,
+          "similarity": 0.542658,
+          "lexicalScore": 0.224663,
+          "reasons": [
+            "Matched terms: memoir",
+            "Matched concepts: memoir",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "Live Through This: A Mother's Memoir of Runaway Daughters and Reclaimed Love",
+          "author": "Debra Gwartney",
+          "score": 1.157122,
+          "similarity": 0.454398,
+          "lexicalScore": 0.45513,
+          "reasons": [
+            "Matched terms: memoir, grief, family",
+            "Matched concepts: memoir, grief, family",
+            "Matched concepts: memoir, grief, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "Five Days Gone: The Mystery of My Mother's Disappearance as a Child",
+          "author": "Laura Cumming",
+          "score": 1.129286,
+          "similarity": 0.522443,
+          "lexicalScore": 0.224663,
+          "reasons": [
+            "Matched terms: memoir",
+            "Matched concepts: memoir",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "Bibliophobia: A Memoir",
+          "author": "Sarah Chihaya",
+          "score": 1.102333,
+          "similarity": 0.519586,
+          "lexicalScore": 0.224663,
+          "reasons": [
+            "Matched terms: memoir",
+            "Matched concepts: memoir",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "When Death Takes Something from You Give It Back",
+          "author": "Naja Marie Aidt, trans. Denise Newman",
+          "score": 1.093122,
+          "similarity": 0.45203,
+          "lexicalScore": 0.364418,
+          "reasons": [
+            "Matched terms: memoir, grief",
+            "Matched concepts: memoir, grief",
+            "Matched concepts: memoir, grief",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "A Truce That Is Not Peace",
+          "author": "Miriam Toews",
+          "score": 1.083358,
+          "similarity": 0.47929,
+          "lexicalScore": 0.334418,
+          "reasons": [
+            "Matched terms: memoir, grief",
+            "Matched concepts: memoir, grief",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "Another Word for Love: A Memoir",
+          "author": "Carvell Wallace",
+          "score": 1.064836,
+          "similarity": 0.510026,
+          "lexicalScore": 0.224663,
+          "reasons": [
+            "Matched terms: memoir",
+            "Matched concepts: memoir",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "Reading My Father: A Memoir",
+          "author": "Alexandra Styron",
+          "score": 1.057386,
+          "similarity": 0.45944,
+          "lexicalScore": 0.315375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "Wave",
+          "author": "Sonali Deraniyagala",
+          "score": 1.054654,
+          "similarity": 0.485056,
+          "lexicalScore": 0.285375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "The Suicide Index: Putting My Father's Death in Order",
+          "author": "Joan Wickersham",
+          "score": 1.052886,
+          "similarity": 0.507024,
+          "lexicalScore": 0.224663,
+          "reasons": [
+            "Matched terms: memoir",
+            "Matched concepts: memoir",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "The Memory Palace",
+          "author": "Mira Bartók",
+          "score": 1.04777,
+          "similarity": 0.503367,
+          "lexicalScore": 0.224663,
+          "reasons": [
+            "Matched terms: memoir",
+            "Matched concepts: memoir",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "On the Move",
+          "author": "Oliver Sacks",
+          "score": 1.047318,
+          "similarity": 0.49883,
+          "lexicalScore": 0.309561,
+          "reasons": [
+            "Matched terms: memoir, illness",
+            "Matched concepts: memoir, illness",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "Vanishing Point: Not a Memoir",
+          "author": "Ander Monson",
+          "score": 1.041258,
+          "similarity": 0.506253,
+          "lexicalScore": 0.224663,
+          "reasons": [
+            "Matched terms: memoir",
+            "Matched concepts: memoir",
+            "Matched concepts: memoir",
+            "Matched subject scope"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "All You Can Ever Know: A Memoir",
+          "author": "Nicole Chung",
+          "score": 1.038932,
+          "similarity": 0.458481,
+          "lexicalScore": 0.315375,
+          "reasons": [
+            "Matched terms: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched concepts: memoir, family",
+            "Matched subject scope"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "books about race medicine and public health",
+      "expected": [
+        {
+          "title": "Medical Apartheid",
+          "rank": 9,
+          "inTop10": true,
+          "inTop25": true
+        },
+        {
+          "title": "The Emperor of All Maladies",
+          "rank": 153,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "The Spirit Catches You and You Fall Down",
+          "rank": 90,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Dopesick",
+          "rank": 294,
+          "inTop10": false,
+          "inTop25": false
+        },
+        {
+          "title": "Blood",
+          "rank": 30,
+          "inTop10": false,
+          "inTop25": false
+        }
+      ],
+      "top": [
+        {
+          "rank": 1,
+          "title": "Diabetes: A History of Race and Disease",
+          "author": "Arleen Marcia Tuchman",
+          "score": 1.461185,
+          "similarity": 0.540374,
+          "lexicalScore": 0.341019,
+          "reasons": [
+            "Matched terms: race, medicine, public, health",
+            "Matched concepts: race, medicine, public",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 2,
+          "title": "The Troubled Dream of Genetic Medicine: Ethnicity and Innovation in Tay-Sachs, Cystic Fibrosis, and Sickle Cell Disease",
+          "author": "Keith Wailoo, Stephen Pemberton",
+          "score": 1.412492,
+          "similarity": 0.560988,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 3,
+          "title": "The Healing of America: A Global Quest for Better, Cheaper, and Fairer Health Care",
+          "author": "T.R. Reid",
+          "score": 1.369886,
+          "similarity": 0.545837,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 4,
+          "title": "Black Religion in the Madhouse: Race and Psychiatry in Slavery's Wake",
+          "author": "Judith Weisenfeld",
+          "score": 1.359757,
+          "similarity": 0.516552,
+          "lexicalScore": 0.341019,
+          "reasons": [
+            "Matched terms: race, medicine, public, health",
+            "Matched concepts: race, medicine, public",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 5,
+          "title": "Visible Empire: Botanical Expeditions and Visual Culture in the Hispanic Enlightenment",
+          "author": "Daniela Bleichmar",
+          "score": 1.358126,
+          "similarity": 0.540332,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 6,
+          "title": "Divided: Racism, Medicine and Why We Need to Decolonise Healthcare",
+          "author": "Annabel Sowemimo",
+          "score": 1.339708,
+          "similarity": 0.537077,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 7,
+          "title": "The Invisible Kingdom: Reimagining Chronic Illness",
+          "author": "Meghan O’Rourke",
+          "score": 1.333455,
+          "similarity": 0.503227,
+          "lexicalScore": 0.412974,
+          "reasons": [
+            "Matched terms: books, race, medicine, public",
+            "Matched concepts: books, race, medicine",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 8,
+          "title": "The Medical Detectives",
+          "author": "Berton Roueché",
+          "score": 1.307514,
+          "similarity": 0.515108,
+          "lexicalScore": 0.341019,
+          "reasons": [
+            "Matched terms: race, medicine, public, health",
+            "Matched concepts: race, medicine, public",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 9,
+          "title": "Medical Apartheid: The Dark History of Medical Experimentation on Black Americans From Colonial Times to the Present",
+          "author": "Harriet A. Washington",
+          "score": 1.304436,
+          "similarity": 0.5354,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 10,
+          "title": "The Cancer Chronicles: Unlocking Medicine's Deepest Mystery",
+          "author": "George Johnson",
+          "score": 1.299295,
+          "similarity": 0.535934,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 11,
+          "title": "The Immortal Life of Henrietta Lacks",
+          "author": "Rebecca Skloot",
+          "score": 1.290308,
+          "similarity": 0.512679,
+          "lexicalScore": 0.341019,
+          "reasons": [
+            "Matched terms: race, medicine, public, health",
+            "Matched concepts: race, medicine, public",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 12,
+          "title": "The Doctors Blackwell: How Two Pioneering Sisters Brought Medicine to Women and Women to Medicine",
+          "author": "Janice P. Nimura",
+          "score": 1.227737,
+          "similarity": 0.515784,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 13,
+          "title": "God's Hotel: A Doctor, a Hospital, and a Pilgrimage to the Heart of Medicine",
+          "author": "Victoria Sweet",
+          "score": 1.193401,
+          "similarity": 0.489294,
+          "lexicalScore": 0.345536,
+          "reasons": [
+            "Matched terms: books, medicine, public, health",
+            "Matched concepts: books, medicine, public",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 14,
+          "title": "Matters of Exchange: Commerce, Medicine, and Science in the Dutch Golden Age",
+          "author": "Harold J. Cook",
+          "score": 1.179014,
+          "similarity": 0.508187,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 15,
+          "title": "Risk, Chance, and Causation: Investigating the Origins and Treatment of Disease",
+          "author": "Michael B. Bracken",
+          "score": 1.143738,
+          "similarity": 0.507131,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 16,
+          "title": "Cure: A Journey Into the Science of Mind over Body",
+          "author": "Jo Marchant",
+          "score": 1.141169,
+          "similarity": 0.505176,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 17,
+          "title": "Bicycle: The History",
+          "author": "David V. Herlihy",
+          "score": 1.116038,
+          "similarity": 0.499149,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 18,
+          "title": "My Own Country: A Doctor's Story",
+          "author": "Abraham Verghese",
+          "score": 1.114919,
+          "similarity": 0.49238,
+          "lexicalScore": 0.341019,
+          "reasons": [
+            "Matched terms: race, medicine, public, health",
+            "Matched concepts: race, medicine, public",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 19,
+          "title": "X-Ray Vision: The Evolution of Medical Imaging and Its Human Implications",
+          "author": "Richard B. Gunderman",
+          "score": 1.106828,
+          "similarity": 0.503503,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 20,
+          "title": "Plagues Upon the Earth: Disease and the Course of Human History",
+          "author": "Kyle Harper",
+          "score": 1.103978,
+          "similarity": 0.498987,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 21,
+          "title": "The People’s Hospital: Hope and Peril in American Medicine",
+          "author": "Ricardo Nuila",
+          "score": 1.09301,
+          "similarity": 0.502779,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 22,
+          "title": "Exploring the Ancient Skies: An Encyclopedic Survey of Archeoastronomy",
+          "author": "David H. Kelley, Eugene F. Milone.",
+          "score": 1.048573,
+          "similarity": 0.498558,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 23,
+          "title": "Picturing the Book of Nature: Image, Text, and Argument in Sixteenth-Century Human Anatomy and Medical Botany",
+          "author": "Sachiko Kusukawa",
+          "score": 1.037066,
+          "similarity": 0.496884,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 24,
+          "title": "Caring for the Heart: Mayo Clinic and the Rise of Specialization",
+          "author": "W. Bruce Fye",
+          "score": 1.025814,
+          "similarity": 0.496447,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        },
+        {
+          "rank": 25,
+          "title": "In Pursuit of Memory: The Fight Against Alzheimer's",
+          "author": "Joseph Jebelli",
+          "score": 1.025215,
+          "similarity": 0.493879,
+          "lexicalScore": 0.273582,
+          "reasons": [
+            "Matched terms: medicine, public, health",
+            "Matched concepts: medicine, public, health",
+            "Matched concepts: medicine, public, health"
+          ]
+        }
+      ]
+    }
+  ]
+}

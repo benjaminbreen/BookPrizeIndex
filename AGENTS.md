@@ -24,6 +24,7 @@ The current app is a polished prototype with an expanded but still incomplete co
 - `scripts/build-semantic-index.ts`: Builds `data/public/book-semantic-index.json` from the public catalog using OpenAI embeddings.
 - `scripts/build/`: Shared build helpers for award programs, curation, paths, text normalization, title resolution, and browse-data generation.
 - `scripts/enrich-books.ts`: Book metadata completion from Open Library and Google Books, with persistent attempt tracking.
+- `scripts/enrich-summaries.ts`: Text-first summary/description enrichment from Open Library APIs, Google Books, and optional local Open Library dumps.
 - `scripts/book-enrichment-priority.ts`: Shared lane and priority scoring for book enrichment queues and runners.
 - `scripts/enrich-subject-categories.ts`: Captures raw Google Books/Open Library subject labels as evidence for subject scoring.
 - `scripts/classify-topics.ts`: Embedding/LLM-assisted topic classification that writes generated topic enrichment and review reports.
@@ -81,7 +82,15 @@ Current workflow:
 - `npm run data:enrich` rebuilds the catalog, runs `scripts/enrich-books.ts`, writes `sources/enrichment/books.generated.json`, then rebuilds the catalog again.
 - `scripts/enrich-books.ts` queries Open Library and Google Books for top-scoring books with missing fields, selected by `getBookStats`.
 - It writes ISBN, page count, summary, external thumbnail URL, Google Books publisher-style link, source IDs, and publisher patches where available.
+- `npm run summaries:enrich` runs focused description/summary enrichment for books still missing `summary`, without mixing in cover, imprint, or broad publisher normalization work.
+- `npm run data:summaries` wraps rebuild -> summary enrichment -> rebuild.
+- `scripts/enrich-summaries.ts` writes separate generated patches to `sources/enrichment/summaries.generated.json` and reports/cache/attempts files to `data/public/summary-enrichment-report.json`, `data/public/summary-enrichment-provider-cache.json`, and `data/public/summary-enrichment-attempts.json`. Keep it separate from `books.generated.json` so large text-completion passes do not trample general metadata work.
+- Summary enrichment supports `--provider open_library`, `--provider google_books`, `--provider all`, and `--provider open_library_dump`. It also supports `--isbn-only`, `--retry-failures`, `--retry-status <status>`, `--request-delay-ms`, `--concurrency`, `--checkpoint-every`, `--open-library-editions-dump`, and `--open-library-works-dump`.
+- Summary enrichment should write only conservative catalog text and closely related source-backed fields: `summary`, `subjectCategories`, `pageCount`, `publicationYear`, `isbn13`, `links.publisher`, and `sourceIds`. Avoid publisher/imprint/covers/Wikipedia in this pass unless the script has explicit high-confidence evidence and the workflow calls for it.
+- Current summary baseline after the 2026-05-18 checkpointed Google Books, Open Library, and ISBN discovery passes: 2389 of 5216 books have summaries (45.8%). Reaching 50% requires 219 additional summaries. `sources/enrichment/summaries.generated.json` currently contains 1935 generated summary patches from Open Library and Google Books passes.
+- The best near-term path to materially better semantic search is summary coverage, not query-specific ranking hacks. Run ISBN discovery first, then large summary batches, then rebuild semantic search after a material coverage jump.
 - `npm run isbn:discover` runs the ISBN-first discovery workflow. It matches books to Open Library works, fetches editions, and writes high-confidence ISBN patches to `sources/enrichment/isbn.generated.json`, plus `data/public/isbn-discovery-report.json`, `data/public/isbn-review-queue.json`, and a provider cache. Prefer the earliest plausible English trade edition with ISBN13; do not use award year as the primary selector because awards can lag publication.
+- ISBN discovery supports `--checkpoint-every <N>` and writes partial generated ISBN patches, attempts, reports, review queues, and provider cache while running. Use checkpointing for large runs so long Open Library passes can be interrupted without losing all progress.
 - ISBN discovery should filter out obvious ebooks, audiobooks, large-print editions, translations, excerpts, and school/library bindings before choosing the earliest publication date. If several plausible earliest editions conflict, leave the row in review instead of guessing.
 - It now writes `data/public/book-enrichment-attempts.json` so low-confidence, not-found, no-new-field, and error results are skipped on later batches when the missing-field state has not changed. Use `--retry-failures` only when intentionally retesting those rows.
 - It treats Wikipedia as deferred enrichment; Open Library / Google Books queues do not select books only missing Wikipedia links.
@@ -108,6 +117,7 @@ Semantic search is separate from topic classification:
 - Query interpretation may use the OpenAI Responses API for natural-language searches, then falls back to local generic term/period extraction if unavailable.
 - Ranking should remain generic: combine embedding similarity with corpus-aware exact-term, subject/topic, period, and recognition signals. Do not hard-code specific demo queries, phrases, titles, subjects, or eras into semantic ranking.
 - Rebuild the semantic index after catalog text, summaries, subjects, topics, central figures, imprints, publishers, or award recognition changes enough to affect discovery.
+- When summary coverage is still low, defer semantic index rebuilds until there is a material text change, for example +500 summaries or a milestone such as 1000, 1500, 2000, or 50% summary coverage. Rebuilding after tiny batches costs time without fixing the core retrieval-quality problem.
 
 Imprints are intentionally separate from generic catalog enrichment:
 
@@ -127,6 +137,11 @@ Important limitations:
 - `scripts/enrich-books.ts` merges generated patches, but do not run it casually while another agent is curating book metadata.
 - Google Books summaries and links are catalog metadata, not verified publisher summaries or publisher pages.
 - Google Books thumbnail URLs are external URLs, not locally cached cover assets.
+- Google Books API research: public volume search can use an API key by adding `key=...`; search supports fielded queries including `isbn:<isbn>`; volume resources can include `volumeInfo.description`, `publisher`, `publishedDate`, `industryIdentifiers`, `pageCount`, `categories`, and links. Official docs: https://developers.google.com/books/docs/v1/using, https://developers.google.com/books/docs/v1/reference/volumes/list, and https://developers.google.com/books/docs/v1/reference/volumes.
+- The enrichment scripts load `.env.local` / `.env`, read `GOOGLE_BOOKS_API_KEY` or `GOOGLE_API_KEY`, and append it to Google Books requests. Without a usable key/quota, unauthenticated requests may fail with 429 `RESOURCE_EXHAUSTED` and quota value 0, which was observed from this environment on 2026-05-15.
+- If the user already has a Google Books API key, prefer `GOOGLE_BOOKS_API_KEY=... npm run summaries:enrich -- --provider google_books ...` for focused Google passes. Use lower concurrency and request delay until quota behavior is understood.
+- Open Library dump enrichment is possible but disk-heavy. The current latest dump redirects observed on 2026-05-15 were roughly 11.5GB compressed for editions and 3.8GB compressed for works. Local free disk was about 12GB, so download to an external volume or other spacious path and pass it via `--open-library-editions-dump` / `--open-library-works-dump`.
+- The current Open Library dump matcher is ISBN-centered. It is useful after ISBN discovery, but it will not solve no-ISBN summary gaps unless enhanced with title/author dump matching.
 - Matching is heuristic. Review title/author matches before treating generated metadata as reliable.
 - The attempts ledger prevents repeated misses from blocking progress; delete or edit `data/public/book-enrichment-attempts.json` only when deliberately resetting enrichment attempts.
 - Subject/category and topic classifier output are evidence, not ground truth. Review `data/public/subject-review-report.json`, `data/public/suspicious-subject-topic-report.json`, and `data/public/topic-quality-report.json` before treating broad classifier output as reliable.
@@ -137,17 +152,20 @@ Preferred workflow:
 1. Run `npm run data:build` first so the latest award imports are reflected in book IDs.
 2. Run `npm run books:queue -- --limit 100` to generate a lane-prioritized missing-field queue for books lacking catalog metadata: ISBN, page count, summary, thumbnail, or publisher URL. Wikipedia appears as a deferred field for a separate pass.
 3. Run `npm run isbn:discover -- --lane high_value --limit 100` before broad metadata enrichment when ISBN coverage is low. Rebuild with `npm run data:build`, then use ISBNs for more reliable Open Library / Google Books metadata lookup.
-4. Prefer focused passes over one large mixed pass, for example `npm run books:queue -- --lane high_value --limit 100`, `npm run books:enrich -- --lane identity_needed --fields isbn13,publicationYear,publisherId,publisherLink --limit 50`, or `npm run books:enrich -- --lane cover_needed --fields thumbnailUrl --limit 50`.
-5. Inspect `data/public/book-enrichment-report.json`.
-6. Run `npm run data:build` so generated book patches are reflected in the catalog.
-7. Run `npm run subjects:enrich` or `npm run data:subjects` when raw catalog/library subject labels need refreshing.
-8. Run `npm run topics:classify` or `npm run data:topics` when topic definitions or book text have changed enough to justify reclassification.
-9. Run `npm run imprints:normalize` or `npm run data:imprints` to promote known raw publisher strings into `imprintId` and parent `publisherId`.
-10. Run `npm run imprints:resolve` when broad parent publishers need imprint drill-down, then inspect `data/public/imprint-resolution-report.json` before trusting new generated imprint patches.
-11. Inspect `data/public/imprint-review-queue.json` and add clear mappings to `sources/imprint-normalization.json`.
-12. Download usable cover thumbnails into `public/book-covers/` when license/source policy allows it, and point `thumbnailUrl` at the local asset.
-13. Keep provenance: each ISBN, summary, cover, publisher link, or Wikipedia link should have a source entry when practical.
-14. Rebuild with `npm run data:build` and inspect `data/public/enrichment-report.json`, `data/public/book-completion-report.json`, taxonomy reports, and `data/public/imprint-review-queue.json`.
+4. For summary coverage, prefer broad but conservative summary passes after ISBN discovery. Good first passes are Open Library API batches, then Google Books with an API key, then Open Library dumps if disk space is available.
+5. Inspect `data/public/summary-enrichment-report.json` after every large summary pass. If most rows are `no_new_fields`, `low_confidence`, or `not_found`, change provider strategy instead of blindly raising the limit.
+6. Prefer focused metadata passes over one large mixed pass, for example `npm run books:queue -- --lane high_value --limit 100`, `npm run books:enrich -- --lane identity_needed --fields isbn13,publicationYear,publisherId,publisherLink --limit 50`, or `npm run books:enrich -- --lane cover_needed --fields thumbnailUrl --limit 50`.
+7. Inspect `data/public/book-enrichment-report.json`.
+8. Run `npm run data:build` so generated book patches are reflected in the catalog.
+9. Rebuild semantic search only after material summary/text coverage gains, not after each small enrichment batch.
+10. Run `npm run subjects:enrich` or `npm run data:subjects` when raw catalog/library subject labels need refreshing.
+11. Run `npm run topics:classify` or `npm run data:topics` when topic definitions or book text have changed enough to justify reclassification.
+12. Run `npm run imprints:normalize` or `npm run data:imprints` to promote known raw publisher strings into `imprintId` and parent `publisherId`.
+13. Run `npm run imprints:resolve` when broad parent publishers need imprint drill-down, then inspect `data/public/imprint-resolution-report.json` before trusting new generated imprint patches.
+14. Inspect `data/public/imprint-review-queue.json` and add clear mappings to `sources/imprint-normalization.json`.
+15. Download usable cover thumbnails into `public/book-covers/` when license/source policy allows it, and point `thumbnailUrl` at the local asset.
+16. Keep provenance: each ISBN, summary, cover, publisher link, or Wikipedia link should have a source entry when practical.
+17. Rebuild with `npm run data:build` and inspect `data/public/enrichment-report.json`, `data/public/book-completion-report.json`, taxonomy reports, and `data/public/imprint-review-queue.json`.
 
 If an enrichment pass discovers that a book record is actually a duplicate, wrong edition, wrong author, or wrong publication year, stop and add a curation note rather than silently overwriting the generated record.
 
@@ -193,6 +211,13 @@ Historical winners-only coverage is acceptable where finalist/shortlist records 
 - `npm run books:enrich -- --lane identity_needed --fields isbn13,publicationYear,publisherId,publisherLink --limit 50`: run a focused identity/catalog pass.
 - `npm run books:enrich -- --lane cover_needed --fields thumbnailUrl --limit 50`: run a focused cover pass.
 - `npm run books:enrich -- --limit 25 --retry-failures`: retry books that the attempts ledger would otherwise skip.
+- `npm run isbn:discover -- --limit 2000 --request-delay-ms 250 --concurrency 3 --checkpoint-every 50`: run a large checkpointed ISBN discovery pass before another ISBN-only summary pass.
+- `npm run summaries:enrich -- --limit 500 --provider open_library --request-delay-ms 250 --concurrency 3`: run a broad Open Library summary pass.
+- `GOOGLE_BOOKS_API_KEY=... npm run summaries:enrich -- --limit 1000 --provider google_books --request-delay-ms 500 --concurrency 1 --checkpoint-every 50`: run a Google Books summary pass with a project API key and periodic checkpoint writes.
+- `npm run summaries:enrich -- --limit 1000 --provider google_books --isbn-only --request-delay-ms 500 --concurrency 1`: run a safer ISBN-only Google Books pass.
+- `npm run summaries:enrich -- --limit 250 --provider all --retry-failures --retry-status low_confidence --min-score 0.6 --request-delay-ms 250 --concurrency 2 --checkpoint-every 50`: narrowly retry low-confidence summary matches with a lower threshold.
+- `npm run summaries:enrich -- --limit 1500 --provider open_library_dump --open-library-editions-dump /path/to/ol_dump_editions.txt.gz --open-library-works-dump /path/to/ol_dump_works.txt.gz`: run summary enrichment from local Open Library dumps.
+- `npm run data:summaries`: rebuild, enrich summaries, and rebuild again.
 - `npm run subjects:enrich`: fetch raw Open Library / Google Books subject-category labels for subject evidence.
 - `npm run data:subjects`: rebuild, enrich subject-category labels, and rebuild again.
 - `npm run topics:classify`: classify books into curated topics and write generated topic enrichment/report files.
@@ -226,7 +251,7 @@ The normalized award-record foundation, importer framework, and several major-aw
 
 1. Continue source-backed award import coverage and QA, especially stable source URLs, result normalization, and category notes.
 2. Fix malformed imported rows at the raw-record or curation layer when enrichment reveals bad title/author/year data.
-3. Continue metadata completion in batches; inspect low-confidence matches and do not force metadata onto uncertain records.
+3. Raise summary/description coverage before tuning semantic search. Target at least 50% coverage, using ISBN discovery, Open Library API batches, Google Books with `GOOGLE_BOOKS_API_KEY` if available, and optionally Open Library dumps on a spacious disk.
 4. Grow `sources/imprint-normalization.json` from `data/public/imprint-review-queue.json`, prioritizing high-count and high-confidence raw publisher strings.
 5. Improve cover handling by caching usable cover thumbnails locally when source/license policy allows it.
 6. Keep topic classification and subject/category assignments reviewed through generated reports rather than treating LLM output as final truth.

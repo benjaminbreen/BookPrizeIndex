@@ -84,6 +84,24 @@ export type BookSubjectCategory = {
   sourceId?: string;
 };
 
+export type ReaderTraitConfidence = "high" | "medium" | "low";
+
+export type BookReaderTrait = {
+  id: string;
+  score: number;
+  confidence: ReaderTraitConfidence;
+  evidence: string[];
+};
+
+export type BookReaderProfile = {
+  readerLevel: "popular" | "crossover" | "academic" | "reference";
+  narrativeScore: number;
+  accessibilityScore: number;
+  scholarlyScore: number;
+  traits: BookReaderTrait[];
+  method?: string;
+};
+
 export type Book = {
   id: string;
   slug: string;
@@ -99,6 +117,7 @@ export type Book = {
   subjects: string[];
   subjectCategories?: BookSubjectCategory[];
   subjectEvidence?: SubjectDecision;
+  readerProfile?: BookReaderProfile;
   primaryTopic?: string;
   topics: string[];
   relatedBookIds?: string[];

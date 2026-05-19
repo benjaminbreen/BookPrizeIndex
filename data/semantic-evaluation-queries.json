@@ -1,0 +1,116 @@
+{
+  "generatedAt": "2026-05-18",
+  "notes": "Small hand-curated query set for checking semantic book discovery quality. Expected titles are not exhaustive; they are anchors that should rank reasonably well.",
+  "queries": [
+    {
+      "query": "narrative histories that are fun to read",
+      "expectedTitles": [
+        "All the Frequent Troubles of Our Days",
+        "The House of the Dead",
+        "Fordlandia",
+        "The Age of Wonder",
+        "The Swerve",
+        "The Metaphysical Club"
+      ]
+    },
+    {
+      "query": "character-driven narrative history",
+      "expectedTitles": [
+        "All the Frequent Troubles of Our Days",
+        "The House of the Dead",
+        "Fordlandia",
+        "The Age of Wonder",
+        "The Swerve",
+        "The Metaphysical Club"
+      ]
+    },
+    {
+      "query": "big picture intellectual history",
+      "expectedTitles": [
+        "The Metaphysical Club",
+        "The Swerve",
+        "The Age of Wonder",
+        "The Information",
+        "The Gnostic Gospels"
+      ]
+    },
+    {
+      "query": "Great Depression era politics",
+      "expectedTitles": [
+        "Fear Itself",
+        "The Worst Hard Time",
+        "Voices of Protest",
+        "Franklin D. Roosevelt and American Foreign Policy"
+      ]
+    },
+    {
+      "query": "civil rights movement narrative history",
+      "expectedTitles": [
+        "Parting the Waters",
+        "Bearing The Cross",
+        "Carry Me Home",
+        "Blood in the Water",
+        "Arc of Justice"
+      ]
+    },
+    {
+      "query": "science books with a sense of wonder and discovery",
+      "expectedTitles": [
+        "The Age of Wonder",
+        "An Immense World",
+        "The Beak of the Finch",
+        "The Making of the Atomic Bomb",
+        "The Invention of Nature"
+      ]
+    },
+    {
+      "query": "reported books about poverty housing and inequality",
+      "expectedTitles": [
+        "Evicted",
+        "Invisible Child",
+        "$2.00 a Day",
+        "Behind the Beautiful Forevers"
+      ]
+    },
+    {
+      "query": "Cold War espionage and intelligence history",
+      "expectedTitles": [
+        "Ghost Wars",
+        "Legacy of Ashes",
+        "The Looming Tower",
+        "The Dead Hand",
+        "The Cold War"
+      ]
+    },
+    {
+      "query": "environmental history of capitalism and industry",
+      "expectedTitles": [
+        "Fordlandia",
+        "The Cigarette Century",
+        "Amity and Prosperity",
+        "The Gulf",
+        "Empire of Cotton"
+      ]
+    },
+    {
+      "query": "memoir about grief family and illness",
+      "expectedTitles": [
+        "The Undying",
+        "H Is for Hawk",
+        "The Light of the World",
+        "When Breath Becomes Air",
+        "Angela's Ashes"
+      ]
+    },
+    {
+      "query": "books about race medicine and public health",
+      "expectedTitles": [
+        "Medical Apartheid",
+        "The Emperor of All Maladies",
+        "The Spirit Catches You and You Fall Down",
+        "Dopesick",
+        "Blood"
+      ]
+    }
+  ]
+}

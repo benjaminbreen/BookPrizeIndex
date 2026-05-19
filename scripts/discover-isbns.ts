@@ -114,8 +114,11 @@ const limit = positiveNumber(readArg("--limit") ?? process.env.ISBN_DISCOVERY_LI
 const minScore = Number(readArg("--min-score") ?? process.env.ISBN_DISCOVERY_MIN_SCORE ?? "0.72");
 const concurrency = positiveNumber(readArg("--concurrency") ?? process.env.ISBN_DISCOVERY_CONCURRENCY, 2);
 const requestDelayMs = positiveNumber(readArg("--request-delay-ms") ?? process.env.ISBN_DISCOVERY_REQUEST_DELAY_MS, 350);
+const checkpointEvery = positiveNumber(readArg("--checkpoint-every") ?? process.env.ISBN_DISCOVERY_CHECKPOINT_EVERY, 0);
 const requestedLane = parseLane(readArg("--lane") ?? process.env.ISBN_DISCOVERY_LANE);
 const retryFailures = process.argv.includes("--retry-failures") || process.env.ISBN_DISCOVERY_RETRY_FAILURES === "1";
+const allowEquivalentEditionTies =
+  process.argv.includes("--allow-equivalent-edition-ties") || process.env.ISBN_DISCOVERY_ALLOW_EQUIVALENT_EDITION_TIES === "1";
 let cache: NonNullable<CacheFile["entries"]> = {};
 let lastRequestAt = 0;
 
@@ -141,16 +144,66 @@ async function main() {
     .sort((a, b) => (b.stats?.score ?? 0) - (a.stats?.score ?? 0) || a.book.title.localeCompare(b.book.title))
     .slice(0, limit);
 
-  const report = await mapConcurrent(selected, concurrency, ({ book, stats, firstRecognitionYear }, index) =>
-    discoverBookIsbn(book, stats, firstRecognitionYear, index + 1, selected.length),
-  );
-  const patch = buildPatch(generatedAt, report, await readExistingPatch(), buildCatalogPatch(catalog));
-  const review = report.filter((row) => row.status !== "selected");
-  const nextIsbnAttempts = mergeIsbnAttempts(isbnAttempts, report, generatedAt);
+  const report: ReportRow[] = [];
+  const existingPatch = await readExistingPatch();
+  const catalogPatch = buildCatalogPatch(catalog);
+  let completedCount = 0;
+  let checkpointChain = Promise.resolve();
 
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
-  await fs.writeFile(outputPath, `${JSON.stringify(patch, null, 2)}\n`);
-  await fs.writeFile(isbnAttemptsPath, `${JSON.stringify({ generatedAt, attempts: nextIsbnAttempts }, null, 2)}\n`);
+
+  const checkpoint = async (force = false) => {
+    if (!force && (!checkpointEvery || completedCount % checkpointEvery !== 0)) return;
+    const patch = buildPatch(generatedAt, report, existingPatch, catalogPatch);
+    const review = report.filter((row) => row.status !== "selected");
+    const nextIsbnAttempts = mergeIsbnAttempts(isbnAttempts, report, generatedAt);
+    await fs.writeFile(outputPath, `${JSON.stringify(patch, null, 2)}\n`);
+    await fs.writeFile(isbnAttemptsPath, `${JSON.stringify({ generatedAt, attempts: nextIsbnAttempts }, null, 2)}\n`);
+    await fs.writeFile(
+      reportPath,
+      `${JSON.stringify({
+        generatedAt,
+        policy: "Select the earliest plausible English trade edition ISBN13 after filtering obvious ebooks, audiobooks, large-print editions, translations, excerpts, and school/library bindings. Award year is not used as the primary selector.",
+        limit,
+        minScore,
+        concurrency,
+        requestDelayMs,
+        checkpointEvery,
+        lane: requestedLane,
+        retryFailures,
+        allowEquivalentEditionTies,
+        skippedPreviousReviewCount: previousReviewBookIds.size,
+        skippedPreviousAttemptCount: laneCandidates.length - candidates.length,
+        selectedCount: selected.length,
+        completedCount,
+        summary: summarize(report),
+        report,
+      }, null, 2)}\n`,
+    );
+    await fs.writeFile(
+      reviewPath,
+      `${JSON.stringify({
+        generatedAt,
+        count: review.length,
+        review,
+      }, null, 2)}\n`,
+    );
+    await writeCache();
+  };
+
+  await mapConcurrent(selected, concurrency, async ({ book, stats, firstRecognitionYear }, index) => {
+    const row = await discoverBookIsbn(book, stats, firstRecognitionYear, index + 1, selected.length);
+    checkpointChain = checkpointChain.then(async () => {
+      report.push(row);
+      completedCount += 1;
+      await checkpoint();
+    });
+    await checkpointChain;
+    return row;
+  });
+  await checkpointChain;
+  await checkpoint(true);
+
   await fs.writeFile(
     reportPath,
     `${JSON.stringify({
@@ -160,24 +213,18 @@ async function main() {
       minScore,
       concurrency,
       requestDelayMs,
+      checkpointEvery,
       lane: requestedLane,
       retryFailures,
+      allowEquivalentEditionTies,
       skippedPreviousReviewCount: previousReviewBookIds.size,
       skippedPreviousAttemptCount: laneCandidates.length - candidates.length,
       selectedCount: selected.length,
+      completedCount,
       summary: summarize(report),
       report,
     }, null, 2)}\n`,
   );
-  await fs.writeFile(
-    reviewPath,
-    `${JSON.stringify({
-      generatedAt,
-      count: review.length,
-      review,
-    }, null, 2)}\n`,
-  );
-  await writeCache();
 
   console.log(`Discovered ISBNs for ${report.filter((row) => row.status === "selected").length}/${selected.length} books.`);
   console.log("Report written to data/public/isbn-discovery-report.json.");
@@ -212,7 +259,13 @@ async function discoverBookIsbn(book: Book, stats: BookStats | undefined, firstR
     if (best.score < minScore) {
       return { ...base, status: "low_confidence", candidates: candidates.slice(0, 8), notes: "Best candidate did not meet minimum score." };
     }
-    if (second && best.publishYear === second.publishYear && Math.abs(best.score - second.score) < 0.08 && best.isbn13 !== second.isbn13) {
+    if (
+      second &&
+      best.publishYear === second.publishYear &&
+      Math.abs(best.score - second.score) < 0.08 &&
+      best.isbn13 !== second.isbn13 &&
+      !(allowEquivalentEditionTies && isEquivalentEditionTie(best, second))
+    ) {
       return { ...base, status: "ambiguous", candidates: candidates.slice(0, 8), notes: "Multiple earliest plausible ISBN candidates are too close to choose safely." };
     }
     return { ...base, status: "selected", selected: best, candidates: candidates.slice(0, 8) };
@@ -361,6 +414,23 @@ function candidateFromEdition(book: Book, work: OpenLibrarySearchDoc, edition: O
     reasons,
     warnings,
   };
+}
+
+function isEquivalentEditionTie(best: Candidate, second: Candidate) {
+  return (
+    best.score >= 0.76 &&
+    second.score >= 0.76 &&
+    titleMatchReason(best) >= 0.95 &&
+    titleMatchReason(second) >= 0.9 &&
+    !best.warnings.length &&
+    !second.warnings.some((warning) => warning !== "paperback_like")
+  );
+}
+
+function titleMatchReason(candidate: Candidate) {
+  const reason = candidate.reasons.find((item) => item.startsWith("title_match:"));
+  const value = reason ? Number(reason.split(":")[1]) : 0;
+  return Number.isFinite(value) ? value : 0;
 }
 
 function firstRecognitionYearForBook(catalog: CatalogData, bookId: string) {

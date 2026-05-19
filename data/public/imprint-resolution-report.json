@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-05-13T22:15:30.762Z",
+  "generatedAt": "2026-05-18T17:27:10.374Z",
   "policy": "First US/UK trade edition imprint when supported by strong catalog evidence. Ambiguous edition/reprint conflicts remain manual review items.",
   "limit": 250,
   "minScore": 0.74,
-  "concurrency": 1,
-  "provider": "open_library",
-  "requestDelayMs": 900,
-  "providerCacheEntries": 14,
+  "concurrency": 3,
+  "provider": "all",
+  "requestDelayMs": 300,
+  "providerCacheEntries": 15,
   "selectedCount": 4,
   "summary": {
     "not_found": 3,
@@ -24,7 +24,7 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found."
+      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22A%20Bold%20and%20Dangerous%20Family%3A%20The%20Rossellis%20and%20the%20Fight%20Against%20Mussolini%22%20inauthor%3A%22Caroline%20Moorehead%22%202017&maxResults=10&printType=books"
     },
     {
       "bookId": "book-bringing-ben-home-a-murder-a-conviction-and-the-fight-to-redeem-american-justice-barbara-bradley",
@@ -36,7 +36,7 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found."
+      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Bringing%20Ben%20Home%3A%20A%20Murder%2C%20a%20Conviction%2C%20and%20the%20Fight%20to%20Redeem%20American%20Justice%22%20inauthor%3A%22Barbara%20Bradley%20Hagerty%22&maxResults=10&printType=books"
     },
     {
       "bookId": "book-patriot-a-memoir-alexei-navalny",
@@ -49,13 +49,14 @@
       "reason": "broad_penguin_random_house_parent",
       "status": "not_found",
       "candidates": [],
-      "notes": "No usable catalog publisher candidates found."
+      "notes": "No usable catalog publisher candidates found. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Patriot%3A%20A%20Memoir%22%20inauthor%3A%22Alexei%20Navalny%22%202024&maxResults=10&printType=books"
     },
     {
       "bookId": "book-will-in-the-world-how-shakespeare-became-shakespeare-stephen-greenblatt",
       "slug": "will-in-the-world-how-shakespeare-became-shakespeare-stephen-greenblatt",
       "title": "Will in the World: How Shakespeare Became Shakespeare",
       "author": "Stephen Greenblatt",
+      "year": 2004,
       "publisherId": "publisher-penguin-random-house",
       "publisherName": "Penguin Random House",
       "reason": "broad_penguin_random_house_parent",
@@ -73,7 +74,7 @@
           "yearCompatible": true
         }
       ],
-      "notes": "Catalog sources returned publisher strings that are not in sources/imprint-normalization.json."
+      "notes": "Catalog sources returned publisher strings that are not in sources/imprint-normalization.json. Provider errors: 429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Will%20in%20the%20World%3A%20How%20Shakespeare%20Became%20Shakespeare%22%20inauthor%3A%22Stephen%20Greenblatt%22%202004&maxResults=10&printType=books"
     }
   ]
 }

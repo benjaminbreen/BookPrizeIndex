@@ -6,6 +6,7 @@ import {
   inferPeriodRanges,
   semanticHybridScore,
   semanticQueryText,
+  semanticRankFusion,
   searchTerms,
   type SemanticBookIndex,
   type SemanticQueryInterpretation,
@@ -67,11 +68,12 @@ export async function POST(request: Request) {
   const queryEmbedding = await embedQuery(embeddingInput, index);
   const rankingTerms = searchTerms(embeddingInput);
   const termWeights = corpusTermWeights(rankingTerms, candidates);
-  const results = candidates
+  const scored = candidates
     .map((row): SemanticSearchResult => ({
       bookId: row.bookId,
       ...semanticHybridScore({ interpretation, query, queryEmbedding, row, termWeights }),
-    }))
+    }));
+  const results = semanticRankFusion(scored)
     .sort((a, b) => b.score - a.score || b.similarity - a.similarity)
     .slice(0, limit);
 

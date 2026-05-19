@@ -1915,6 +1915,44 @@ time,
   border-top: 1px solid var(--line);
 }
 
+.book-description {
+  position: relative;
+}
+
+.book-description-text {
+  color: var(--ink);
+}
+
+.book-description-text-clamped {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 9;
+  line-clamp: 9;
+}
+
+.book-description-toggle {
+  margin-top: 0.7rem;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+  background: transparent;
+  color: color-mix(in srgb, var(--ink) 72%, var(--accent));
+  cursor: pointer;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  line-height: 1.1;
+  padding: 0 0 0.12rem;
+  text-transform: uppercase;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.book-description-toggle:hover,
+.book-description-toggle:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .book-retailer-links {
   margin-top: 1.35rem;
   padding-top: 1rem;

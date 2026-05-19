@@ -1,65 +1,59 @@
 {
-  "generatedAt": "2026-05-13T22:08:46.312Z",
-  "count": 7,
+  "generatedAt": "2026-05-18T17:21:24.243Z",
+  "count": 12,
   "note": "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
   "review": [
     {
-      "rawPublisher": "And Other Stories",
-      "bookCount": 1,
+      "rawPublisher": "Bloomsbury Publishing USA",
+      "bookCount": 2,
       "sampleBooks": [
         {
-          "bookId": "book-this-part-is-silent-a-life-between-cultures-sj-kim",
-          "title": "This Part Is Silent: A Life between Cultures",
-          "author": "SJ Kim",
+          "bookId": "book-galileo-s-daughter-a-historical-memoir-of-science-faith-and-love-dava-sobel",
+          "title": "Galileo's Daughter: A Historical Memoir of Science, Faith and Love",
+          "author": "Dava Sobel",
           "status": "enriched",
-          "matchTitle": "This Part Is Silent",
-          "matchAuthor": "SJ Kim",
-          "matchScore": 0.7
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Canongate Books Ltd",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-trip-to-echo-spring-why-writers-drink-olivia-laing",
-          "title": "The Trip to Echo Spring: Why Writers Drink",
-          "author": "Olivia Laing",
-          "status": "enriched",
-          "matchTitle": "The Trip To Echo Spring On Writers And Drinking",
-          "matchAuthor": "Olivia Laing",
-          "matchScore": 0.767
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Center Point",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-there-will-be-no-miracles-here-casey-gerald",
-          "title": "There Will Be No Miracles Here",
-          "author": "Casey Gerald",
-          "status": "enriched",
-          "matchTitle": "There will be no miracles here",
-          "matchAuthor": "Casey Gerald",
+          "matchTitle": "Galileo's Daughter: A Historical Memoir of Science, Faith and Love",
+          "matchAuthor": "Dava Sobel",
           "matchScore": 1
+        },
+        {
+          "bookId": "book-before-the-fallout-from-marie-curie-to-hiroshima-diana-preston",
+          "title": "Before the Fallout: From Marie Curie to Hiroshima",
+          "author": "Diana Preston",
+          "status": "enriched",
+          "matchTitle": "Before the Fallout",
+          "matchAuthor": "Diana Preston",
+          "matchScore": 0.563
         }
       ]
     },
     {
-      "rawPublisher": "Ecco, an imprint of HarperCollins Publishers",
+      "rawPublisher": "Coffee House Press",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-story-of-the-jews-finding-the-words-1000-bc-1492-ad-simon-schama",
-          "title": "The Story of the Jews: Finding the Words, 1000 BC-1492 AD",
-          "author": "Simon Schama",
+          "bookId": "book-when-women-kill-four-crimes-retold-alia-trabucco-zeran",
+          "title": "When Women Kill: Four Crimes Retold",
+          "author": "Alia Trabucco Zerán",
           "status": "enriched",
-          "matchTitle": "The Story of the Jews",
-          "matchAuthor": "Simon Schama",
-          "matchScore": 0.58
+          "matchTitle": "When Women Kill",
+          "matchAuthor": "Alia Trabucco Zerán",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Hachette UK",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-you-play-the-girl-on-playboy-bunnies-stepford-wives-train-wrecks-and-other-mixed-messages-carina",
+          "title": "You Play the Girl: On Playboy Bunnies, Stepford Wives, Train Wrecks, & Other Mixed Messages",
+          "author": "Carina Chocano",
+          "status": "enriched",
+          "matchTitle": "You Play The Girl",
+          "matchAuthor": "Carina Chocano",
+          "matchScore": 0.5
         }
       ]
     },
@@ -68,43 +62,133 @@
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-to-explain-the-world-the-discovery-of-modern-science-steven-weinberg",
-          "title": "To Explain the World: The Discovery of Modern Science",
-          "author": "Steven Weinberg",
+          "bookId": "book-under-my-skin-volume-one-of-my-autobiography-to-1949-doris-lessing",
+          "title": "Under My Skin: Volume One of My Autobiography, to 1949",
+          "author": "Doris Lessing",
           "status": "enriched",
-          "matchTitle": "To Explain the World",
-          "matchAuthor": "Steven Weinberg",
-          "matchScore": 0.65
+          "matchTitle": "Under My Skin",
+          "matchAuthor": "Doris Lessing",
+          "matchScore": 0.533
         }
       ]
     },
     {
-      "rawPublisher": "Houghton Mifflin Harcourt Trade & Reference Publishers",
+      "rawPublisher": "Macmillan + ORM",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-to-the-end-of-june-the-intimate-life-of-american-foster-care-cris-beam",
-          "title": "To the End of June: The Intimate Life of American Foster Care",
-          "author": "Cris Beam",
+          "bookId": "book-making-waves-mario-vargas-llosa",
+          "title": "Making Waves",
+          "author": "Mario Vargas Llosa",
           "status": "enriched",
-          "matchTitle": "To the end of June",
-          "matchAuthor": "Cris Beam",
-          "matchScore": 0.65
+          "matchTitle": "Making Waves",
+          "matchAuthor": "Mario Vargas Llosa",
+          "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Paul Mellon Centre BA",
+      "rawPublisher": "New York : Knopf",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-stranger-from-paradise-a-biography-of-william-blake-g-e-bentley-jr",
-          "title": "The Stranger from Paradise: A Biography of William Blake",
-          "author": "G.E. Bentley Jr.",
+          "bookId": "book-the-years-of-lyndon-johnson-the-path-to-power-robert-a-caro",
+          "title": "The Years of Lyndon Johnson: The Path to Power",
+          "author": "Robert A. Caro",
           "status": "enriched",
-          "matchTitle": "The stranger from paradise",
-          "matchAuthor": "G. E. Bentley, Jr.",
-          "matchScore": 0.65
+          "matchTitle": "The Years of Lyndon Johnson: The path to power",
+          "matchAuthor": "Robert A. Caro",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin Random House",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-stranger-magic-charmed-states-and-the-arabian-nights-marina-warner",
+          "title": "Stranger Magic: Charmed States and the Arabian Nights",
+          "author": "Marina Warner",
+          "status": "enriched",
+          "matchTitle": "Stranger Magic: Charmed States and the Arabian Nights",
+          "matchAuthor": "Marina Warner",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Random House Large Print",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-american-lion-andrew-jackson-in-the-white-house-jon-meacham",
+          "title": "American Lion: Andrew Jackson in the White House",
+          "author": "Jon Meacham",
+          "status": "enriched",
+          "matchTitle": "American lion: Andrew Jackson in the White House",
+          "matchAuthor": "Jon Meacham",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Random House, India",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-poor-economics-a-radical-rethinking-of-the-way-to-fight-global-poverty-abhijit-v-banerjee-and-es",
+          "title": "Poor Economics: A Radical Rethinking of the Way to Fight Global Poverty",
+          "author": "Abhijit V. Banerjee Esther Duflo",
+          "status": "enriched",
+          "matchTitle": "Poor Economics : Rethinking Poverty & The Ways To End It",
+          "matchAuthor": "Abhijit V. Banerjee Esther Duflo",
+          "matchScore": 0.682
+        }
+      ]
+    },
+    {
+      "rawPublisher": "RH Canada UK Dist",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-bearing-the-cross-martin-luther-king-jr-and-the-southern-christian-leadership-conference-david-j",
+          "title": "Bearing The Cross: Martin Luther King Jr. and the Southern Christian Leadership Conference",
+          "author": "David J. Garrow",
+          "status": "enriched",
+          "matchTitle": "Bearing the Cross : Martin Luther King and the Southern Christian Leadership Conference",
+          "matchAuthor": "David J. Garrow",
+          "matchScore": 0.942
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Signal Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-red-famine-stalin-s-war-on-ukraine-anne-applebaum",
+          "title": "Red Famine: Stalin's War on Ukraine",
+          "author": "Anne Applebaum",
+          "status": "enriched",
+          "matchTitle": "Red Famine",
+          "matchAuthor": "Anne Applebaum",
+          "matchScore": 0.533
+        }
+      ]
+    },
+    {
+      "rawPublisher": "中国财政经济出版社",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-thinking-machine-jensen-huang-nvidia-and-the-world-s-most-coveted-microchip-stephen-witt",
+          "title": "The Thinking Machine: Jensen Huang, Nvidia, and the World’s Most Coveted Microchip",
+          "author": "Stephen Witt",
+          "status": "enriched",
+          "matchTitle": "Thinking Machine",
+          "matchAuthor": "Stephen Witt",
+          "matchScore": 1
         }
       ]
     }

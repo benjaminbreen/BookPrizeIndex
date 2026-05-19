@@ -80,13 +80,16 @@ const concurrency = positiveNumber(readArg("--concurrency") ?? process.env.WIKIP
 const minRequestInterval = positiveNumber(readArg("--request-delay") ?? process.env.WIKIPEDIA_ENRICH_REQUEST_DELAY, 900);
 const minScore = Number(readArg("--min-score") ?? process.env.WIKIPEDIA_ENRICH_MIN_SCORE ?? "0.74");
 const retry = hasArg("--retry") || process.env.WIKIPEDIA_ENRICH_RETRY === "1";
+const writeSummary = hasArg("--write-summary") || process.env.WIKIPEDIA_ENRICH_WRITE_SUMMARY === "1";
+const missingSummaryOnly = hasArg("--missing-summary-only") || process.env.WIKIPEDIA_ENRICH_MISSING_SUMMARY_ONLY === "1";
 const requestedBookIds = new Set((readArg("--book-ids") ?? process.env.WIKIPEDIA_ENRICH_BOOK_IDS ?? "").split(",").map((item) => item.trim()).filter(Boolean));
 let lastRequestAt = 0;
 
 async function main() {
   const generatedAt = new Date().toISOString();
   const patch = await readExistingPatch(generatedAt);
-  const selected = selectBooks(patch).slice(0, limit);
+  const previousReviewBookIds = retry ? new Set<string>() : await readPreviousReviewBookIds();
+  const selected = selectBooks(patch, previousReviewBookIds).slice(0, limit);
   const results = await mapConcurrent(selected, concurrency, (book, index) => enrichBook(book, index + 1, selected.length, generatedAt, patch));
   const report = results.map((row) => row.report);
 
@@ -101,6 +104,7 @@ async function main() {
       concurrency,
       minScore,
       requestDelay: minRequestInterval,
+      skippedPreviousReviewCount: previousReviewBookIds.size,
       selectedCount: selected.length,
       enrichedCount: report.filter((row) => row.status === "enriched").length,
       cachedEvidenceCount: Object.keys(patch.wikipediaEvidence).length,
@@ -148,6 +152,7 @@ async function enrichBook(
         wikipedia: pageUrl,
         ...(wikidataUrl ? { wikidata: wikidataUrl } : {}),
       },
+      ...(!book.summary && writeSummary && cleanExtract(best.page.extract) ? { summary: cleanExtract(best.page.extract) } : {}),
       sourceIds: [...sourceIds],
     });
     patch.sources[sourceId] = {
@@ -157,7 +162,9 @@ async function enrichBook(
       accessedAt: generatedAt,
       confidence: "catalog",
       field: "book",
-      note: best.page.revisionId ? `Matched by ${best.matchedBy}; revision ${best.page.revisionId}.` : `Matched by ${best.matchedBy}.`,
+      note: best.page.revisionId
+        ? `Matched by ${best.matchedBy}; revision ${best.page.revisionId}.${writeSummary && !book.summary ? " Wikipedia extract also used as summary text." : ""}`
+        : `Matched by ${best.matchedBy}.${writeSummary && !book.summary ? " Wikipedia extract also used as summary text." : ""}`,
     };
 
     const publisherEvidenceId = best.page.infobox?.publisher
@@ -213,14 +220,29 @@ async function enrichBook(
   }
 }
 
-function selectBooks(patch: WikipediaGeneratedPatch) {
+function selectBooks(patch: WikipediaGeneratedPatch, previousReviewBookIds: Set<string>) {
   const books = requestedBookIds.size
     ? data.books.filter((book) => requestedBookIds.has(book.id) || requestedBookIds.has(book.slug))
     : data.books;
   return books
+    .filter((book) => !missingSummaryOnly || !book.summary)
+    .filter((book) => !previousReviewBookIds.has(book.id))
     .filter((book) => retry || !book.links.wikipedia || !patch.wikipediaEvidence[book.id])
     .filter((book) => retry || !patch.wikipediaEvidence[book.id])
     .sort((a, b) => wikipediaPriorityScore(b) - wikipediaPriorityScore(a) || a.title.localeCompare(b.title));
+}
+
+async function readPreviousReviewBookIds() {
+  try {
+    const parsed = JSON.parse(await fs.readFile(reportPath, "utf8")) as { report?: Array<{ bookId?: string; status?: ReportRow["status"] }> };
+    return new Set(
+      (parsed.report ?? [])
+        .filter((row) => row.bookId && row.status !== "enriched")
+        .map((row) => row.bookId as string),
+    );
+  } catch {
+    return new Set<string>();
+  }
 }
 
 function wikipediaPriorityScore(book: Book) {

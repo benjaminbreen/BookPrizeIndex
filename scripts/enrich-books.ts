@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -146,6 +147,9 @@ const root = path.resolve(__dirname, "..");
 const outputDir = path.join(root, "sources", "enrichment");
 const publicDataDir = path.join(root, "data", "public");
 const attemptsPath = path.join(publicDataDir, "book-enrichment-attempts.json");
+
+loadEnvLocal();
+
 const limit = Number(process.env.BOOK_COMPLETION_LIMIT ?? process.env.ENRICH_LIMIT ?? readArg("--limit") ?? "25");
 const minimumScore = Number(process.env.BOOK_COMPLETION_MIN_SCORE ?? process.env.ENRICH_MIN_SCORE ?? readArg("--min-score") ?? "0.58");
 const provider = process.env.BOOK_COMPLETION_PROVIDER ?? process.env.ENRICH_PROVIDER ?? "all";
@@ -555,14 +559,14 @@ async function fetchGoogleBooks(book: Book, author: string): Promise<{ item: Goo
   for (const isbn of book.isbn13) {
     const normalized = isbn.replaceAll("-", "");
     if (!/^\d{13}$/.test(normalized)) continue;
-    const params = new URLSearchParams({ q: `isbn:${normalized}`, maxResults: "5", printType: "books" });
+    const params = googleVolumeParams(`isbn:${normalized}`);
     const json = await fetchJson<{ items?: GoogleVolume[] }>(`https://www.googleapis.com/books/v1/volumes?${params}`);
     const isbnItems = dedupeGoogleVolumes(json.items ?? []);
     const isbnMatch = bestGoogleMatch(book, author, isbnItems);
     if (isbnMatch?.score && isbnMatch.score >= 0.5) return { ...isbnMatch, via: "isbn" };
   }
   for (const query of googleQueries(book, author)) {
-    const params = new URLSearchParams({ q: query, maxResults: "5", printType: "books" });
+    const params = googleVolumeParams(query);
     const json = await fetchJson<{ items?: GoogleVolume[] }>(`https://www.googleapis.com/books/v1/volumes?${params}`);
     items.push(...(json.items ?? []));
     const earlyMatch = bestGoogleMatch(book, author, items);
@@ -571,6 +575,13 @@ async function fetchGoogleBooks(book: Book, author: string): Promise<{ item: Goo
   }
   const match = bestGoogleMatch(book, author, dedupeGoogleVolumes(items));
   return match ? { ...match, via: "search" } : undefined;
+}
+
+function googleVolumeParams(query: string) {
+  const params = new URLSearchParams({ q: query, maxResults: "5", printType: "books" });
+  const apiKey = process.env.GOOGLE_BOOKS_API_KEY ?? process.env.GOOGLE_API_KEY;
+  if (apiKey) params.set("key", apiKey);
+  return params;
 }
 
 async function fetchJson<T>(url: string, retries = 2): Promise<T> {
@@ -582,8 +593,12 @@ async function fetchJson<T>(url: string, retries = 2): Promise<T> {
     await delay(1200 * (3 - retries));
     return fetchJson<T>(url, retries - 1);
   }
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${url}`);
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText} for ${redactUrlSecrets(url)}`);
   return (await response.json()) as T;
+}
+
+function redactUrlSecrets(url: string) {
+  return url.replace(/([?&]key=)[^&]+/gi, "$1[REDACTED]");
 }
 
 async function fetchOpenLibraryEditions(workKey: string): Promise<OpenLibraryEdition[]> {
@@ -598,6 +613,25 @@ async function fetchOpenLibraryWork(workKey: string): Promise<OpenLibraryWork> {
 
 function delay(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function loadEnvLocal() {
+  for (const filename of [".env.local", ".env"]) {
+    try {
+      const content = readFileSync(path.join(root, filename), "utf8");
+      for (const line of content.split(/\r?\n/)) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith("#")) continue;
+        const match = trimmed.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
+        if (!match) continue;
+        const [, key, rawValue] = match;
+        if (process.env[key]) continue;
+        process.env[key] = rawValue.trim().replace(/^['"]|['"]$/g, "");
+      }
+    } catch {
+      // Optional local env file.
+    }
+  }
 }
 
 function bestOpenLibraryMatch(book: Book, author: string, docs: OpenLibraryDoc[]) {

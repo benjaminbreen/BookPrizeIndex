@@ -2,6 +2,7 @@ import Link from "next/link";
 import type React from "react";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
+import { ExpandableBookDescription } from "@/components/expandable-book-description";
 import {
   appearancesByBookId,
   awardsById,
@@ -70,7 +71,7 @@ export default async function BookPage({ params }: PageProps) {
     .map((bookId) => booksById.get(bookId))
     .filter((candidate): candidate is Book => Boolean(candidate))
     .slice(0, 4);
-  const detailSummary = detailPageSummary(book);
+  const detailDescription = detailPageDescription(book);
   const wikipediaInfobox = wikipediaEvidence?.infobox;
 
   return (
@@ -97,8 +98,8 @@ export default async function BookPage({ params }: PageProps) {
           <p className="mt-3 text-lg muted">{book.authors.map((author) => author.name).join(", ")}</p>
 
           <div className="mt-6 max-w-3xl space-y-4 text-base leading-7">
-            {detailSummary ? (
-              <p className="line-clamp-7">{detailSummary}</p>
+            {detailDescription ? (
+              <ExpandableBookDescription text={detailDescription} />
             ) : (
               <>
                 <p className="muted">
@@ -320,24 +321,10 @@ function metadataValue(primary: string | undefined, fallback: string | undefined
   );
 }
 
-function detailPageSummary(book: Book) {
+function detailPageDescription(book: Book) {
   const source = book.summary ?? book.displaySummary;
   if (!source) return undefined;
-  const cleaned = source
-    .replace(/\s+/g, " ")
-    .replace(/\b(?:pulitzer prize winner|national book award winner|new york times bestseller)\b\s*[•:,-]?\s*/gi, " ")
-    .replace(/[“"][^”"]{20,260}[”"]\s*\([^)]{3,120}\),?\s*/g, " ")
-    .replace(/^from\b[\s\S]{20,420}?\b(long before|in this|this)\b/i, (_match, start: string) => start[0].toUpperCase() + start.slice(1))
-    .replace(/\b(?:winner|finalist|shortlisted|longlisted)\s+of\s+[^.?!]+[.?!]/gi, " ")
-    .trim();
-  const sentences = cleaned.match(/[^.!?]+[.!?]+(?:["”])?/g) ?? [];
-  const descriptiveSentences = sentences
-    .map((sentence) => sentence.trim())
-    .filter((sentence) => sentence.length > 35 && !/^(winner|finalist|shortlisted|longlisted|recipient)\b/i.test(sentence));
-  const excerpt = descriptiveSentences.slice(0, 3).join(" ");
-  if (excerpt.length >= 260) return excerpt;
-  const fallback = cleaned.slice(0, 620).trim();
-  return fallback.length > 180 ? fallback : book.displaySummary;
+  return source.replace(/\s+/g, " ").trim();
 }
 
 function BookCover({ title, author, thumbnailUrl }: { title: string; author: string; thumbnailUrl?: string }) {
