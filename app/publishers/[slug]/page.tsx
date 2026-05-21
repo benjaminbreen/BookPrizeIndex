@@ -2,15 +2,23 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
-import { BookCatalog } from "@/components/book-catalog";
 import { ImprintLogoMark } from "@/components/imprint-logo-mark";
+import { ProgressiveBookCatalog } from "@/components/progressive-book-catalog";
 import { imprintSlug, imprintsForPublisher, imprintStats, publisherSlug, publisherStats } from "@/lib/catalog";
 import { browseBooksByPublisherId, browseData } from "@/lib/browse-data";
+import { sortBrowseBooksByRecognition } from "@/lib/browse-ranking";
 import { booksByPublisherId, data, publishersBySlug } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
 
+const STATIC_PUBLISHER_PAGE_LIMIT = 80;
+const INITIAL_PUBLISHER_BOOK_LIMIT = 100;
+
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return data.publishers.filter((publisher) => (booksByPublisherId.get(publisher.id)?.length ?? 0) > 0).map((publisher) => ({ slug: publisherSlug(publisher) }));
+  return rankedPublishers()
+    .slice(0, STATIC_PUBLISHER_PAGE_LIMIT)
+    .map((publisher) => ({ slug: publisherSlug(publisher) }));
 }
 
 type PageProps = {
@@ -29,7 +37,7 @@ export default async function PublisherPage({ params }: PageProps) {
   if (!publisher) notFound();
   const imprints = imprintsForPublisher(publisher.id);
   const stats = publisherStats(publisher.id);
-  const books = browseBooksByPublisherId.get(publisher.id) ?? [];
+  const books = sortBrowseBooksByRecognition(browseBooksByPublisherId.get(publisher.id) ?? []);
   if (!stats.books) notFound();
 
   return (
@@ -78,7 +86,15 @@ export default async function PublisherPage({ params }: PageProps) {
       </section>
 
       <Suspense>
-        <BookCatalog awardOptions={browseData.awards} books={books} title={`${publisher.name} books`} deck="Books grouped under this parent publisher across all current child imprints." />
+        <ProgressiveBookCatalog
+          awardOptions={browseData.awards}
+          books={books.slice(0, INITIAL_PUBLISHER_BOOK_LIMIT)}
+          entityId={publisher.id}
+          entityType="publisher"
+          title={`${publisher.name} books`}
+          deck="Books grouped under this parent publisher across all current child imprints."
+          totalBooks={books.length}
+        />
       </Suspense>
     </main>
   );
@@ -91,4 +107,13 @@ function HeroMetric({ value, label }: { value: string | number; label: string })
       <p className="mt-2 font-[var(--font-mono)] text-xs uppercase tracking-[0.16em] muted">{label}</p>
     </div>
   );
+}
+
+let rankedPublishersCache: typeof data.publishers | undefined;
+
+function rankedPublishers() {
+  rankedPublishersCache ??= data.publishers
+    .filter((publisher) => (booksByPublisherId.get(publisher.id)?.length ?? 0) > 0)
+    .sort((a, b) => publisherStats(b.id).score - publisherStats(a.id).score || a.name.localeCompare(b.name));
+  return rankedPublishersCache;
 }

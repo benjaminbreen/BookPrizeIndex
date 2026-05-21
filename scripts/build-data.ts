@@ -959,15 +959,44 @@ async function main() {
   );
   await fs.writeFile(path.join(publicDataDir, "topic-summary.json"), `${JSON.stringify(topicSummary, null, 2)}\n`);
 
+  const appearanceSourceUrlGaps = publicData.appearances.filter(
+    (appearance) => !hasAppearanceUrl(appearance, publicData.sources),
+  );
   const warnings = {
     missingPublisherCount: publicData.books.filter((book) => !book.publisherId).length,
     missingImprintCount: publicData.books.filter((book) => !book.imprintId).length,
-    missingSourceUrlsForAppearances: publicData.appearances.filter((appearance) => !appearance.sourceUrl).length,
+    missingSourceUrlsForAppearanceSources: appearanceSourceUrlGaps.length,
+    appearanceSourceUrlGaps: summarizeAppearanceSourceUrlGaps(appearanceSourceUrlGaps, publicData.sources),
+    appearancesWithoutSourceIds: publicData.appearances.filter((appearance) => !appearance.sourceIds.length).length,
     unknownStatusCount: publicData.appearances.filter((appearance) => appearance.status === "unknown").length,
   };
   await fs.writeFile(path.join(publicDataDir, "import-report.json"), `${JSON.stringify(warnings, null, 2)}\n`);
   console.log(`Built ${publicData.books.length} books, ${publicData.appearances.length} appearances, ${publicData.awards.length} awards.`);
   console.log(`Warnings: ${JSON.stringify(warnings)}`);
+}
+
+function hasAppearanceUrl(appearance: AwardAppearance, sources: SourceRef[]) {
+  if (appearance.sourceUrl) return true;
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  return appearance.sourceIds.some((sourceId) => Boolean(sourceById.get(sourceId)?.url));
+}
+
+function summarizeAppearanceSourceUrlGaps(appearances: AwardAppearance[], sources: SourceRef[]) {
+  const sourceById = new Map(sources.map((source) => [source.id, source]));
+  const counts = new Map<string, number>();
+  for (const appearance of appearances) {
+    const sourceIds = appearance.sourceIds.length ? appearance.sourceIds : ["missing-source-id"];
+    for (const sourceId of sourceIds) counts.set(sourceId, (counts.get(sourceId) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .map(([sourceId, count]) => ({
+      sourceId,
+      count,
+      label: sourceById.get(sourceId)?.label,
+      confidence: sourceById.get(sourceId)?.confidence,
+      note: sourceById.get(sourceId)?.note,
+    }))
+    .sort((a, b) => b.count - a.count || a.sourceId.localeCompare(b.sourceId));
 }
 
 function dropImplausiblePublicationYears(books: Map<string, Book>, appearances: Map<string, AwardAppearance>) {

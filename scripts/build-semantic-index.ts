@@ -19,15 +19,16 @@ type Args = {
   dryRun: boolean;
   embeddingModel: string;
   force: boolean;
+  outputPath: string;
+  reportPath: string;
   limit?: number;
 };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "public", "catalog.json");
-const outputPath = path.join(root, "data", "public", "book-semantic-index.json");
-const reportPath = path.join(root, "data", "public", "book-semantic-index-report.json");
-const EMBEDDING_PRICE_PER_MILLION = 0.02;
+const defaultOutputPath = path.join(root, "data", "public", "book-semantic-index.json");
+const defaultReportPath = path.join(root, "data", "public", "book-semantic-index-report.json");
 const INPUT_VERSION = 1;
 
 function parseArgs(): Args {
@@ -42,6 +43,8 @@ function parseArgs(): Args {
     dryRun: args.includes("--dry-run"),
     embeddingModel: value("embedding-model") ?? DEFAULT_SEMANTIC_EMBEDDING_MODEL,
     force: args.includes("--force"),
+    outputPath: resolveRootPath(value("output") ?? path.relative(root, defaultOutputPath)),
+    reportPath: resolveRootPath(value("report") ?? path.relative(root, defaultReportPath)),
     limit: value("limit") ? Number(value("limit")) : undefined,
   };
 }
@@ -50,7 +53,7 @@ async function main() {
   await loadEnvLocal();
   const args = parseArgs();
   const catalog = JSON.parse(await fs.readFile(catalogPath, "utf8")) as PublicData;
-  const existing = await readExistingIndex();
+  const existing = await readExistingIndex(args.outputPath);
   const existingByBook = new Map(
     existing?.embeddingModel === args.embeddingModel && existing.dimensions === args.dimensions && existing.inputVersion === INPUT_VERSION
       ? existing.books.map((row) => [row.bookId, row])
@@ -66,7 +69,7 @@ async function main() {
     const cached = existingByBook.get(row.bookId);
     return !cached || cached.inputHash !== row.inputHash || cached.embedding.length !== args.dimensions;
   });
-  const estimatedCost = missing.reduce((sum, row) => sum + costEmbedding(estimateTokens(row.text)), 0);
+  const estimatedCost = missing.reduce((sum, row) => sum + costEmbedding(estimateTokens(row.text), args.embeddingModel), 0);
   if (estimatedCost > args.budgetUsd) {
     throw new Error(`Semantic index embeddings would exceed budget: $${estimatedCost.toFixed(4)} > $${args.budgetUsd}.`);
   }
@@ -109,11 +112,13 @@ async function main() {
     embedded: missing.length,
     reused: prepared.length - missing.length,
     estimatedSpendUsd: Number(estimatedCost.toFixed(4)),
-    outputPath: path.relative(root, outputPath),
+    outputPath: path.relative(root, args.outputPath),
   };
 
-  await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-  if (!args.dryRun) await fs.writeFile(outputPath, `${JSON.stringify(index)}\n`);
+  await fs.mkdir(path.dirname(args.reportPath), { recursive: true });
+  await fs.mkdir(path.dirname(args.outputPath), { recursive: true });
+  await fs.writeFile(args.reportPath, `${JSON.stringify(report, null, 2)}\n`);
+  if (!args.dryRun) await fs.writeFile(args.outputPath, `${JSON.stringify(index)}\n`);
   console.log(`Semantic index ready: ${report.books} books, embedded ${report.embedded}, reused ${report.reused}, estimated spend $${report.estimatedSpendUsd}.`);
 }
 
@@ -187,7 +192,7 @@ function statusLabel(status: AwardAppearance["status"]) {
   return status.replaceAll("_", "-");
 }
 
-async function readExistingIndex() {
+async function readExistingIndex(outputPath: string) {
   try {
     return JSON.parse(await fs.readFile(outputPath, "utf8")) as SemanticBookIndex;
   } catch {
@@ -242,16 +247,22 @@ async function fetchWithRetry(url: string, init: RequestInit, attempts = 4) {
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const response = await fetch(url, { ...init, signal: AbortSignal.timeout(60000) });
-      if (response.ok || response.status < 500 || attempt === attempts) return response;
+      if (response.ok || (response.status < 500 && response.status !== 429) || attempt === attempts) return response;
       lastResponse = response;
     } catch (error) {
       lastError = error;
       if (attempt === attempts) throw error;
     }
-    await new Promise((resolve) => setTimeout(resolve, 750 * attempt));
+    await new Promise((resolve) => setTimeout(resolve, responseRetryDelayMs(lastResponse, attempt)));
   }
   if (lastResponse) return lastResponse;
   throw lastError;
+}
+
+function responseRetryDelayMs(response: Response | undefined, attempt: number) {
+  const retryAfter = response?.headers.get("retry-after");
+  const retryAfterMs = retryAfter ? Number(retryAfter) * 1000 : 0;
+  return Number.isFinite(retryAfterMs) && retryAfterMs > 0 ? retryAfterMs : 1500 * attempt;
 }
 
 function hash(input: string) {
@@ -262,8 +273,17 @@ function estimateTokens(input: string) {
   return Math.ceil(input.length / 4);
 }
 
-function costEmbedding(tokens: number) {
-  return (tokens / 1_000_000) * EMBEDDING_PRICE_PER_MILLION;
+function costEmbedding(tokens: number, model: string) {
+  return (tokens / 1_000_000) * embeddingPricePerMillion(model);
+}
+
+function embeddingPricePerMillion(model: string) {
+  if (model.includes("large")) return 0.13;
+  return 0.02;
+}
+
+function resolveRootPath(value: string) {
+  return path.isAbsolute(value) ? value : path.join(root, value);
 }
 
 function chunks<T>(items: T[], size: number) {

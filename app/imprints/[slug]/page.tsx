@@ -2,16 +2,24 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { BookCatalog } from "@/components/book-catalog";
 import { ImprintKeyboardNav } from "@/components/imprint-keyboard-nav";
+import { ProgressiveBookCatalog } from "@/components/progressive-book-catalog";
 import { imprintSlug, imprintStats } from "@/lib/catalog";
 import { browseBooksByImprintId, browseData } from "@/lib/browse-data";
 import type { BrowseBookRow } from "@/lib/browse-types";
+import { sortBrowseBooksByRecognition } from "@/lib/browse-ranking";
 import { data, imprintsBySlug, publishersById } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
 
+const STATIC_IMPRINT_PAGE_LIMIT = 80;
+const INITIAL_IMPRINT_BOOK_LIMIT = 100;
+
+export const dynamicParams = true;
+
 export function generateStaticParams() {
-  return data.imprints.map((imprint) => ({ slug: imprintSlug(imprint) }));
+  return rankedImprints()
+    .slice(0, STATIC_IMPRINT_PAGE_LIMIT)
+    .map((imprint) => ({ slug: imprintSlug(imprint) }));
 }
 
 type PageProps = {
@@ -29,11 +37,11 @@ export default async function ImprintPage({ params }: PageProps) {
   const imprint = imprintsBySlug.get(slug);
   if (!imprint) notFound();
   const publisher = imprint.publisherId ? publishersById.get(imprint.publisherId) : undefined;
-  const books = browseBooksByImprintId.get(imprint.id) ?? [];
+  const books = sortBrowseBooksByRecognition(browseBooksByImprintId.get(imprint.id) ?? []);
   const stats = imprintStats(imprint.id);
   const logo = getImprintLogo(imprint.id);
   const summary = imprintSummary(imprint.name, books);
-  const sortedImprints = [...data.imprints].sort((a, b) => imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name));
+  const sortedImprints = rankedImprints();
   const imprintRoutes = sortedImprints.map((item) => `/imprints/${imprintSlug(item)}`);
   const currentRoute = `/imprints/${imprintSlug(imprint)}`;
   const currentIndex = imprintRoutes.indexOf(currentRoute);
@@ -85,9 +93,12 @@ export default async function ImprintPage({ params }: PageProps) {
       </section>
 
       <Suspense>
-        <BookCatalog
+        <ProgressiveBookCatalog
           awardOptions={browseData.awards}
-          books={books}
+          books={books.slice(0, INITIAL_IMPRINT_BOOK_LIMIT)}
+          entityId={imprint.id}
+          entityType="imprint"
+          totalBooks={books.length}
           title={null}
           deck={summary.description}
           secondaryDeck={summary.topicSentence}
@@ -254,3 +265,10 @@ const imprintDescriptions: Record<string, string> = {
   "William Morrow": "William Morrow is a HarperCollins imprint publishing commercial fiction and nonfiction, including memoir, history, biography, and popular culture.",
   "Yale University Press": "Yale University Press publishes scholarly and trade nonfiction in history, biography, art, politics, religion, and the humanities.",
 };
+
+let rankedImprintsCache: typeof data.imprints | undefined;
+
+function rankedImprints() {
+  rankedImprintsCache ??= [...data.imprints].sort((a, b) => imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name));
+  return rankedImprintsCache;
+}

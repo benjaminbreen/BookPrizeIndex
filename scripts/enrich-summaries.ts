@@ -138,6 +138,7 @@ loadEnvLocal();
 
 const args = parseArgs();
 const requestDelayMs = positiveNumber(args["request-delay-ms"], args.provider === "google_books" ? 1200 : 350);
+const refreshCacheProviders = new Set((args["refresh-cache-provider"] ?? "").split(",").map((item) => item.trim()).filter(Boolean));
 let lastRequestAt = 0;
 
 async function main() {
@@ -148,11 +149,13 @@ async function main() {
     for (const bookId of await readSelectedIsbnReportBookIds()) requestedBookIds.add(bookId);
   }
   const retryStatuses = new Set((args["retry-status"] ?? "").split(",").map((item) => item.trim()).filter(Boolean));
+  const excludedAttemptProviders = new Set((args["exclude-attempt-provider"] ?? "").split(",").map((item) => item.trim()).filter(Boolean));
   const retryFailures = Boolean(args["retry-failures"]);
   const selected = data.books
     .filter((book) => !book.summary)
     .filter((book) => !args["isbn-only"] || normalizedIsbns(book).length > 0)
     .filter((book) => !requestedBookIds.size || requestedBookIds.has(book.id) || requestedBookIds.has(book.slug))
+    .filter((book) => !excludedAttemptProviders.has(attempts[book.id]?.provider ?? ""))
     .map((book) => selectionRow(book, attempts[book.id]))
     .filter((row) => !existingPatch.books[row.book.id]?.summary)
     .filter((row) => !retryStatuses.size || retryStatuses.has(attempts[row.book.id]?.status ?? ""))
@@ -308,11 +311,15 @@ async function enrichRow(
 async function fetchBestCandidate(book: Book, author: string, cache: CacheFile) {
   const candidates: Candidate[] = [];
   if (args.provider === "all" || args.provider === "open_library") {
-    const openLibrary = await fetchOpenLibraryCandidate(book, author, cache).catch(() => undefined);
+    const openLibrary = args.provider === "open_library"
+      ? await fetchOpenLibraryCandidate(book, author, cache)
+      : await fetchOpenLibraryCandidate(book, author, cache).catch(() => undefined);
     if (openLibrary) candidates.push(openLibrary);
   }
   if (!candidates.some((candidate) => candidate.description) && (args.provider === "all" || args.provider === "google_books")) {
-    const google = await fetchGoogleCandidate(book, author, cache).catch(() => undefined);
+    const google = args.provider === "google_books"
+      ? await fetchGoogleCandidate(book, author, cache)
+      : await fetchGoogleCandidate(book, author, cache).catch(() => undefined);
     if (google) candidates.push(google);
   }
   return candidates.sort((a, b) => candidateRank(b) - candidateRank(a))[0];
@@ -563,7 +570,7 @@ async function fetchJson<T>(url: string, cache: CacheFile, retries = 2): Promise
   cache.entries ??= {};
   const cacheKey = redactUrlSecrets(url);
   const cached = cache.entries[cacheKey];
-  if (cached) return cached.json as T;
+  if (cached && !shouldRefreshCache(url)) return cached.json as T;
   await throttle();
   const response = await fetch(url, {
     headers: { "User-Agent": "book-prize-index-summary-enrichment/0.1" },
@@ -577,6 +584,12 @@ async function fetchJson<T>(url: string, cache: CacheFile, retries = 2): Promise
   const json = await response.json() as T;
   cache.entries[cacheKey] = { fetchedAt: new Date().toISOString(), json };
   return json;
+}
+
+function shouldRefreshCache(url: string) {
+  if (refreshCacheProviders.has("google_books") && url.includes("www.googleapis.com/books/")) return true;
+  if (refreshCacheProviders.has("open_library") && url.includes("openlibrary.org/")) return true;
+  return false;
 }
 
 function redactUrlSecrets(url: string) {
@@ -945,6 +958,8 @@ function parseArgs() {
     "checkpoint-every": positiveNumber(value("checkpoint-every"), 0),
     concurrency: positiveNumber(value("concurrency"), 2),
     "dry-run": raw.includes("--dry-run"),
+    "exclude-attempt-provider": value("exclude-attempt-provider"),
+    "refresh-cache-provider": value("refresh-cache-provider"),
     "isbn-only": raw.includes("--isbn-only"),
     limit: positiveNumber(value("limit"), 200),
     "local-only": raw.includes("--local-only") || provider === "open_library_dump",

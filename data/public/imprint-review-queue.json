@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-18T17:29:28.121Z",
-  "mappedBooks": 2598,
-  "mappedImprints": 256,
-  "unresolvedPublisherStrings": 24,
+  "generatedAt": "2026-05-21T06:11:56.590Z",
+  "mappedBooks": 2720,
+  "mappedImprints": 254,
+  "unresolvedPublisherStrings": 52,
   "validation": {
     "duplicateNormalizedRawNames": [
       {
@@ -683,35 +683,35 @@
         "imprint": "Houghton Mifflin Harcourt",
         "publisher": "Houghton Mifflin Harcourt",
         "confidence": "medium",
-        "matchedBookCount": 17
-      },
-      {
-        "raw": "HarperCollins Publishers",
-        "imprint": "HarperCollins",
-        "publisher": "HarperCollins",
-        "confidence": "medium",
-        "matchedBookCount": 33
+        "matchedBookCount": 1
       },
       {
         "raw": "Doubleday & Company, Inc.",
         "imprint": "Doubleday",
         "publisher": "Penguin Random House",
         "confidence": "medium",
-        "matchedBookCount": 28
+        "matchedBookCount": 6
       },
       {
         "raw": "Harper & Row",
         "imprint": "Harper & Row",
         "publisher": "HarperCollins",
         "confidence": "medium",
-        "matchedBookCount": 7
+        "matchedBookCount": 1
       },
       {
         "raw": "Macmillan",
         "imprint": "Macmillan",
         "publisher": "Macmillan",
         "confidence": "medium",
-        "matchedBookCount": 36
+        "matchedBookCount": 1
+      },
+      {
+        "raw": "Houghton Mifflin Company",
+        "imprint": "Houghton Mifflin",
+        "publisher": "Houghton Mifflin Harcourt",
+        "confidence": "medium",
+        "matchedBookCount": 8
       },
       {
         "raw": "Harcourt Brace Jovanovich Inc.",
@@ -719,6 +719,20 @@
         "publisher": "Harcourt Brace Jovanovich",
         "confidence": "medium",
         "matchedBookCount": 1
+      },
+      {
+        "raw": "Mariner Books",
+        "imprint": "Mariner Books",
+        "publisher": "HarperCollins",
+        "confidence": "medium",
+        "matchedBookCount": 1
+      },
+      {
+        "raw": "HarperCollins Publishers",
+        "imprint": "HarperCollins",
+        "publisher": "HarperCollins",
+        "confidence": "medium",
+        "matchedBookCount": 4
       },
       {
         "raw": "Blackwell Publishing Limited",
@@ -733,6 +747,13 @@
         "publisher": "Macmillan",
         "confidence": "medium",
         "matchedBookCount": 3
+      },
+      {
+        "raw": "Charles Scribner's Sons",
+        "imprint": "Scribner",
+        "publisher": "Simon & Schuster",
+        "confidence": "medium",
+        "matchedBookCount": 1
       },
       {
         "raw": "McClelland & Stewart",
@@ -760,7 +781,7 @@
         "imprint": "Penguin Publishing Group",
         "publisher": "Penguin Random House",
         "confidence": "medium",
-        "matchedBookCount": 8
+        "matchedBookCount": 10
       },
       {
         "raw": "Scientific American/Farrar, Straus and Giroux",
@@ -768,13 +789,6 @@
         "publisher": "Macmillan",
         "confidence": "medium",
         "matchedBookCount": 2
-      },
-      {
-        "raw": "Houghton Mifflin Company",
-        "imprint": "Houghton Mifflin",
-        "publisher": "Houghton Mifflin Harcourt",
-        "confidence": "medium",
-        "matchedBookCount": 8
       },
       {
         "raw": "Perseus Books",
@@ -847,13 +861,6 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "Mariner Books",
-        "imprint": "Mariner Books",
-        "publisher": "HarperCollins",
-        "confidence": "medium",
-        "matchedBookCount": 7
-      },
-      {
         "raw": "Penguin Putnam~trade",
         "imprint": "Penguin Putnam",
         "publisher": "Penguin Random House",
@@ -893,7 +900,7 @@
         "imprint": "Knopf Doubleday Publishing Group",
         "publisher": "Penguin Random House",
         "confidence": "medium",
-        "matchedBookCount": 2
+        "matchedBookCount": 4
       },
       {
         "raw": "Methuen",
@@ -959,13 +966,6 @@
         "matchedBookCount": 2
       },
       {
-        "raw": "World",
-        "imprint": "World Publishing Company",
-        "publisher": "World Publishing Company",
-        "confidence": "medium",
-        "matchedBookCount": 1
-      },
-      {
         "raw": "Flamingo",
         "imprint": "Flamingo",
         "publisher": "HarperCollins",
@@ -990,13 +990,6 @@
         "raw": "Bobbs-Merrill",
         "imprint": "Bobbs-Merrill",
         "publisher": "Bobbs-Merrill",
-        "confidence": "medium",
-        "matchedBookCount": 1
-      },
-      {
-        "raw": "Three Leaves",
-        "imprint": "Three Leaves Press",
-        "publisher": "Penguin Random House",
         "confidence": "medium",
         "matchedBookCount": 1
       },
@@ -1029,6 +1022,14 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "And Other Stories",
+        "imprint": "And Other Stories",
+        "publisher": "And Other Stories",
+        "confidence": "medium",
+        "note": "Independent publisher imprint with stable one-off string.",
+        "matchedBookCount": 1
+      },
+      {
         "raw": "W. H. Freeman",
         "imprint": "W. H. Freeman",
         "publisher": "Macmillan",
@@ -1056,19 +1057,7 @@
         "confidence": "high"
       },
       {
-        "raw": "Alfred A. Knopf",
-        "imprint": "Knopf",
-        "publisher": "Penguin Random House",
-        "confidence": "high"
-      },
-      {
         "raw": "Alfred A. Knopf, PRH",
-        "imprint": "Knopf",
-        "publisher": "Penguin Random House",
-        "confidence": "high"
-      },
-      {
-        "raw": "Alfred A. Knopf, Inc.",
         "imprint": "Knopf",
         "publisher": "Penguin Random House",
         "confidence": "high"
@@ -1116,13 +1105,6 @@
         "confidence": "medium"
       },
       {
-        "raw": "And Other Stories",
-        "imprint": "And Other Stories",
-        "publisher": "And Other Stories",
-        "confidence": "medium",
-        "note": "Independent publisher imprint with stable one-off string."
-      },
-      {
         "raw": "Appleton & Lange",
         "imprint": "Appleton & Lange",
         "publisher": "McGraw-Hill",
@@ -1155,12 +1137,6 @@
       {
         "raw": "Ballantine",
         "imprint": "Ballantine Books",
-        "publisher": "Penguin Random House",
-        "confidence": "high"
-      },
-      {
-        "raw": "Bantam",
-        "imprint": "Bantam Books",
         "publisher": "Penguin Random House",
         "confidence": "high"
       },
@@ -1246,12 +1222,6 @@
         "raw": "Chapman & Hall",
         "imprint": "Chapman & Hall",
         "publisher": "Taylor & Francis",
-        "confidence": "medium"
-      },
-      {
-        "raw": "Charles Scribner's Sons",
-        "imprint": "Scribner",
-        "publisher": "Simon & Schuster",
         "confidence": "medium"
       },
       {
@@ -1402,12 +1372,6 @@
         "raw": "Godine",
         "imprint": "David R. Godine",
         "publisher": "David R. Godine",
-        "confidence": "high"
-      },
-      {
-        "raw": "GRANTA",
-        "imprint": "Granta Books",
-        "publisher": "Granta Books",
         "confidence": "high"
       },
       {
@@ -1614,12 +1578,6 @@
         "raw": "NYU Press",
         "imprint": "New York University Press",
         "publisher": "New York University Press",
-        "confidence": "high"
-      },
-      {
-        "raw": "Norton",
-        "imprint": "W. W. Norton",
-        "publisher": "W. W. Norton & Company",
         "confidence": "high"
       },
       {
@@ -1948,12 +1906,6 @@
         "confidence": "high"
       },
       {
-        "raw": "William Collins",
-        "imprint": "William Collins",
-        "publisher": "HarperCollins",
-        "confidence": "high"
-      },
-      {
         "raw": "William Morrow, an imprint of HarperCollins Publishers",
         "imprint": "William Morrow",
         "publisher": "HarperCollins",
@@ -2020,6 +1972,12 @@
         "confidence": "medium"
       },
       {
+        "raw": "Philippine Graphic Arts",
+        "imprint": "Philippine Graphic Arts",
+        "publisher": "Philippine Graphic Arts",
+        "confidence": "high"
+      },
+      {
         "raw": "Published by the National Gallery of Art, Washington, and the Brooklyn Museum, New York, in association with the University of Chicago Press",
         "imprint": "University of Chicago Press",
         "publisher": "University of Chicago Press",
@@ -2044,6 +2002,12 @@
         "confidence": "medium"
       },
       {
+        "raw": "Three Leaves",
+        "imprint": "Three Leaves Press",
+        "publisher": "Penguin Random House",
+        "confidence": "medium"
+      },
+      {
         "raw": "Univ. of Michigan Press",
         "imprint": "University of Michigan Press",
         "publisher": "University of Michigan Press",
@@ -2065,6 +2029,12 @@
         "raw": "University of North Carolina Press for the Omohundro Institute of Early American History and Culture",
         "imprint": "University of North Carolina Press",
         "publisher": "University of North Carolina Press",
+        "confidence": "high"
+      },
+      {
+        "raw": "University of Virginia Press",
+        "imprint": "University of Virginia Press",
+        "publisher": "University of Virginia Press",
         "confidence": "high"
       },
       {
@@ -2107,6 +2077,12 @@
         "raw": "Whittlesey House and the University of New Mexico Press",
         "imprint": "University of New Mexico Press",
         "publisher": "University of New Mexico Press",
+        "confidence": "medium"
+      },
+      {
+        "raw": "World",
+        "imprint": "World Publishing Company",
+        "publisher": "World Publishing Company",
         "confidence": "medium"
       },
       {
@@ -2170,21 +2146,21 @@
         "imprint": "W. W. Norton",
         "publisher": "W. W. Norton & Company",
         "confidence": "high",
-        "matchedBookCount": 1
+        "matchedBookCount": 13
       },
       {
         "raw": "University of North Carolina Press",
         "imprint": "University of North Carolina Press",
         "publisher": "University of North Carolina Press",
         "confidence": "high",
-        "matchedBookCount": 45
+        "matchedBookCount": 1
       },
       {
         "raw": "Houghton Mifflin Harcourt",
         "imprint": "Houghton Mifflin Harcourt",
         "publisher": "Houghton Mifflin Harcourt",
         "confidence": "medium",
-        "matchedBookCount": 17
+        "matchedBookCount": 1
       },
       {
         "raw": "CQ Press",
@@ -2194,39 +2170,39 @@
         "matchedBookCount": 5
       },
       {
-        "raw": "HarperCollins Publishers",
-        "imprint": "HarperCollins",
-        "publisher": "HarperCollins",
-        "confidence": "medium",
-        "matchedBookCount": 33
+        "raw": "Faber and Faber",
+        "imprint": "Faber & Faber",
+        "publisher": "Faber & Faber",
+        "confidence": "high",
+        "matchedBookCount": 9
       },
       {
         "raw": "Princeton University Press",
         "imprint": "Princeton University Press",
         "publisher": "Princeton University Press",
         "confidence": "high",
-        "matchedBookCount": 192
+        "matchedBookCount": 1
       },
       {
         "raw": "Simon and Schuster",
         "imprint": "Simon & Schuster",
         "publisher": "Simon & Schuster",
         "confidence": "high",
-        "matchedBookCount": 2
+        "matchedBookCount": 8
       },
       {
         "raw": "Harvard University Press",
         "imprint": "Harvard University Press",
         "publisher": "Harvard University Press",
         "confidence": "high",
-        "matchedBookCount": 141
+        "matchedBookCount": 1
       },
       {
         "raw": "University of Chicago Press",
         "imprint": "University of Chicago Press",
         "publisher": "University of Chicago Press",
         "confidence": "high",
-        "matchedBookCount": 67
+        "matchedBookCount": 1
       },
       {
         "raw": "Elsevier Inc.",
@@ -2247,14 +2223,14 @@
         "imprint": "Cambridge University Press",
         "publisher": "Cambridge University Press",
         "confidence": "high",
-        "matchedBookCount": 103
+        "matchedBookCount": 106
       },
       {
         "raw": "Yale University Press",
         "imprint": "Yale University Press",
         "publisher": "Yale University Press",
         "confidence": "high",
-        "matchedBookCount": 119
+        "matchedBookCount": 2
       },
       {
         "raw": "Wiley",
@@ -2268,14 +2244,14 @@
         "imprint": "Oxford University Press",
         "publisher": "Oxford University Press",
         "confidence": "high",
-        "matchedBookCount": 198
+        "matchedBookCount": 7
       },
       {
         "raw": "University of California Press",
         "imprint": "University of California Press",
         "publisher": "University of California Press",
         "confidence": "high",
-        "matchedBookCount": 27
+        "matchedBookCount": 28
       },
       {
         "raw": "The American University in Cairo Press",
@@ -2289,21 +2265,21 @@
         "imprint": "Thames & Hudson",
         "publisher": "Thames & Hudson",
         "confidence": "high",
-        "matchedBookCount": 3
+        "matchedBookCount": 1
       },
       {
         "raw": "University of Pennsylvania Press",
         "imprint": "University of Pennsylvania Press",
         "publisher": "University of Pennsylvania Press",
         "confidence": "high",
-        "matchedBookCount": 17
+        "matchedBookCount": 18
       },
       {
         "raw": "The MIT Press",
         "imprint": "MIT Press",
         "publisher": "MIT Press",
         "confidence": "high",
-        "matchedBookCount": 51
+        "matchedBookCount": 1
       },
       {
         "raw": "The Johns Hopkins University Press",
@@ -2324,7 +2300,7 @@
         "imprint": "Macmillan",
         "publisher": "Macmillan",
         "confidence": "medium",
-        "matchedBookCount": 36
+        "matchedBookCount": 1
       },
       {
         "raw": "University of Arizona Press",
@@ -2380,7 +2356,7 @@
         "imprint": "Bloomsbury",
         "publisher": "Bloomsbury Publishing",
         "confidence": "high",
-        "matchedBookCount": 35
+        "matchedBookCount": 38
       },
       {
         "raw": "Brookings Institution Press",
@@ -2408,6 +2384,13 @@
         "imprint": "University of Minnesota Press",
         "publisher": "University of Minnesota Press",
         "confidence": "high",
+        "matchedBookCount": 4
+      },
+      {
+        "raw": "HarperCollins Publishers",
+        "imprint": "HarperCollins",
+        "publisher": "HarperCollins",
+        "confidence": "medium",
         "matchedBookCount": 4
       },
       {
@@ -2506,14 +2489,14 @@
         "imprint": "The New Press",
         "publisher": "The New Press",
         "confidence": "high",
-        "matchedBookCount": 5
+        "matchedBookCount": 6
       },
       {
         "raw": "Graywolf Press",
         "imprint": "Graywolf Press",
         "publisher": "Graywolf Press",
         "confidence": "high",
-        "matchedBookCount": 6
+        "matchedBookCount": 1
       },
       {
         "raw": "David R. Godine",
@@ -2576,7 +2559,7 @@
         "imprint": "Atlantic Books",
         "publisher": "Atlantic Books",
         "confidence": "high",
-        "matchedBookCount": 1
+        "matchedBookCount": 2
       },
       {
         "raw": "Perseus Books",
@@ -2659,6 +2642,13 @@
         "raw": "Northwestern University Press",
         "imprint": "Northwestern University Press",
         "publisher": "Northwestern University Press",
+        "confidence": "high",
+        "matchedBookCount": 1
+      },
+      {
+        "raw": "Norton",
+        "imprint": "W. W. Norton",
+        "publisher": "W. W. Norton & Company",
         "confidence": "high",
         "matchedBookCount": 1
       },
@@ -2768,13 +2758,6 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "Faber and Faber",
-        "imprint": "Faber & Faber",
-        "publisher": "Faber & Faber",
-        "confidence": "high",
-        "matchedBookCount": 9
-      },
-      {
         "raw": "The Independent Institute",
         "imprint": "The Independent Institute",
         "publisher": "The Independent Institute",
@@ -2831,18 +2814,18 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "Philippine Graphic Arts",
-        "imprint": "Philippine Graphic Arts",
-        "publisher": "Philippine Graphic Arts",
-        "confidence": "high",
-        "matchedBookCount": 1
-      },
-      {
         "raw": "R. Brunner",
         "imprint": "R. Brunner",
         "publisher": "R. Brunner",
         "confidence": "medium",
         "matchedBookCount": 1
+      },
+      {
+        "raw": "Pegasus Books",
+        "imprint": "Pegasus Books",
+        "publisher": "Pegasus Books",
+        "confidence": "high",
+        "matchedBookCount": 5
       },
       {
         "raw": "Woodward/White, Incorporated",
@@ -2855,13 +2838,6 @@
         "raw": "D. Appleton and Company",
         "imprint": "D. Appleton and Company",
         "publisher": "D. Appleton and Company",
-        "confidence": "high",
-        "matchedBookCount": 1
-      },
-      {
-        "raw": "University of Virginia Press",
-        "imprint": "University of Virginia Press",
-        "publisher": "University of Virginia Press",
         "confidence": "high",
         "matchedBookCount": 1
       },
@@ -2897,6 +2873,13 @@
         "raw": "Dodd, Mead & Company",
         "imprint": "Dodd, Mead & Company",
         "publisher": "Dodd, Mead & Company",
+        "confidence": "high",
+        "matchedBookCount": 2
+      },
+      {
+        "raw": "Harcourt, Brace and Company, Inc.",
+        "imprint": "Harcourt, Brace and Company",
+        "publisher": "Harcourt, Brace and Company",
         "confidence": "high",
         "matchedBookCount": 2
       },
@@ -3006,13 +2989,6 @@
         "matchedBookCount": 3
       },
       {
-        "raw": "Harcourt, Brace and Company, Inc.",
-        "imprint": "Harcourt, Brace and Company",
-        "publisher": "Harcourt, Brace and Company",
-        "confidence": "high",
-        "matchedBookCount": 2
-      },
-      {
         "raw": "Rutgers University Press",
         "imprint": "Rutgers University Press",
         "publisher": "Rutgers University Press",
@@ -3023,6 +2999,13 @@
         "raw": "Sourcebooks",
         "imprint": "Sourcebooks",
         "publisher": "Sourcebooks",
+        "confidence": "high",
+        "matchedBookCount": 1
+      },
+      {
+        "raw": "GRANTA",
+        "imprint": "Granta Books",
+        "publisher": "Granta Books",
         "confidence": "high",
         "matchedBookCount": 1
       },
@@ -3041,25 +3024,11 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "World",
-        "imprint": "World Publishing Company",
-        "publisher": "World Publishing Company",
-        "confidence": "medium",
-        "matchedBookCount": 1
-      },
-      {
         "raw": "Aquila Polonica Publishing",
         "imprint": "Aquila Polonica Publishing",
         "publisher": "Aquila Polonica Publishing",
         "confidence": "high",
         "matchedBookCount": 1
-      },
-      {
-        "raw": "Pegasus Books",
-        "imprint": "Pegasus Books",
-        "publisher": "Pegasus Books",
-        "confidence": "high",
-        "matchedBookCount": 4
       },
       {
         "raw": "InsideClimate News",
@@ -3146,6 +3115,14 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "And Other Stories",
+        "imprint": "And Other Stories",
+        "publisher": "And Other Stories",
+        "confidence": "medium",
+        "note": "Independent publisher imprint with stable one-off string.",
+        "matchedBookCount": 1
+      },
+      {
         "raw": "Ohio University Press",
         "imprint": "Ohio University Press",
         "publisher": "Ohio University Press",
@@ -3195,34 +3172,191 @@
         "matchedBookCount": 1
       }
     ],
-    "publisherEvidenceConflicts": []
+    "publisherEvidenceConflicts": [
+      {
+        "bookId": "book-angela-s-ashes-a-memoir-frank-mccourt",
+        "title": "Angela's Ashes: A Memoir",
+        "author": "Frank McCourt",
+        "currentPublisher": "Simon & Schuster",
+        "currentImprint": "Touchstone",
+        "evidenceRawName": "Scribner",
+        "evidenceSource": "wikipedia_infobox",
+        "evidenceSourceUrl": "https://en.wikipedia.org/wiki/Angela's_Ashes",
+        "mappedPublisher": "Simon & Schuster",
+        "mappedImprint": "Scribner"
+      },
+      {
+        "bookId": "book-can-t-we-talk-about-something-more-pleasant-roz-chast",
+        "title": "Can't We Talk About Something More Pleasant?",
+        "author": "Roz Chast",
+        "currentPublisher": "Bloomsbury Publishing",
+        "currentImprint": "Bloomsbury USA",
+        "evidenceRawName": "Bloomsbury",
+        "evidenceSource": "wikipedia_infobox",
+        "evidenceSourceUrl": "https://en.wikipedia.org/wiki/Can't_We_Talk_About_Something_More_Pleasant%3F",
+        "mappedPublisher": "Bloomsbury Publishing",
+        "mappedImprint": "Bloomsbury"
+      },
+      {
+        "bookId": "book-challenger-a-true-story-of-heroism-and-disaster-on-the-edge-of-space-adam-higginbotham",
+        "title": "Challenger: A True Story of Heroism and Disaster on the Edge of Space",
+        "author": "Adam Higginbotham",
+        "currentPublisher": "Simon & Schuster",
+        "currentImprint": "Avid Reader Press",
+        "evidenceRawName": "Simon & Schuster",
+        "evidenceSource": "wikipedia_infobox",
+        "evidenceSourceUrl": "https://en.wikipedia.org/wiki/Challenger%3A_A_True_Story_of_Heroism_and_Disaster_on_the_Edge_of_Space",
+        "mappedPublisher": "Simon & Schuster",
+        "mappedImprint": "Simon & Schuster"
+      },
+      {
+        "bookId": "book-the-soul-of-a-new-machine-tracy-kidder",
+        "title": "The Soul of a New Machine",
+        "author": "Tracy Kidder",
+        "currentPublisher": "Grove Atlantic",
+        "currentImprint": "Atlantic Monthly Press",
+        "evidenceRawName": "Little, Brown and Company",
+        "evidenceSource": "wikipedia_infobox",
+        "evidenceSourceUrl": "https://en.wikipedia.org/wiki/The_Soul_of_a_New_Machine",
+        "mappedPublisher": "Hachette Book Group",
+        "mappedImprint": "Little, Brown"
+      }
+    ]
   },
   "review": [
     {
-      "publisherId": "publisher-acls-history-e-book-project",
-      "publisherName": "ACLS History E-Book Project",
+      "publisherId": "publisher-evidence:crown group",
+      "publisherName": "Crown Publishing Group",
+      "bookCount": 3,
+      "sampleBooks": [
+        {
+          "bookId": "book-backlash-the-undeclared-war-against-american-women-susan-faludi",
+          "title": "Backlash: The Undeclared War Against American Women",
+          "author": "Susan Faludi",
+          "year": 1981
+        },
+        {
+          "bookId": "book-five-days-at-memorial-life-and-death-in-a-storm-ravaged-hospital-sheri-fink",
+          "title": "Five Days at Memorial: Life and Death in a Storm-Ravaged Hospital",
+          "author": "Sheri Fink",
+          "year": 2013
+        },
+        {
+          "bookId": "book-the-black-count-glory-revolution-betrayal-and-the-real-count-of-monte-cristo-tom-reiss",
+          "title": "The Black Count: Glory, Revolution, Betrayal, and the Real Count of Monte Cristo",
+          "author": "Tom Reiss",
+          "year": 2012
+        }
+      ],
+      "recommendedAction": "parent_only",
+      "reason": "Publisher string is a broad parent or group; do not assign one imprint without book-level evidence."
+    },
+    {
+      "publisherId": "publisher-evidence:putnam group",
+      "publisherName": "Putnam Publishing Group",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-wilson-the-new-freedom-arthur-s-link",
+          "title": "Wilson: the New Freedom",
+          "author": "Arthur S. Link",
+          "year": 1956
+        },
+        {
+          "bookId": "book-wilson-the-struggle-for-neutrality-1914-1915-arthur-s-link",
+          "title": "Wilson: The Struggle for Neutrality, 1914-1915",
+          "author": "Arthur S. Link",
+          "year": 1960
+        }
+      ],
+      "recommendedAction": "parent_only",
+      "reason": "Publisher string is a broad parent or group; do not assign one imprint without book-level evidence."
+    },
+    {
+      "publisherId": "publisher-evidence:alfred a knopf us",
+      "publisherName": "Alfred A. Knopf (US)",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-launching-of-modern-american-science-1846-1876-robert-v-bruce",
-          "title": "The Launching of Modern American Science, 1846–1876",
-          "author": "Robert V. Bruce",
-          "year": 1987
+          "bookId": "book-the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+          "title": "The Looming Tower: Al-Qaeda and the Road to 9/11",
+          "author": "Lawrence Wright",
+          "year": 2006
         }
       ],
       "recommendedAction": "manual_book_review",
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-arrow-rand",
-      "publisherName": "ARROW (RAND)",
+      "publisherId": "publisher-evidence:alfred a knopf new york",
+      "publisherName": "Alfred A. Knopf, New-York",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-rise-and-fall-of-the-third-reich-william-l-shirer",
-          "title": "The Rise and Fall of the Third Reich",
-          "author": "William L. Shirer",
-          "year": 1901
+          "bookId": "book-peter-the-great-his-life-and-world-robert-k-massie",
+          "title": "Peter the Great: His Life and World",
+          "author": "Robert K. Massie",
+          "year": 1982
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:allen lane uk penguin books us",
+      "publisherName": "Allen Lane (UK); Penguin Books (US)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-plutocrats-the-rise-of-the-new-global-super-rich-and-the-fall-of-everyone-else-chrystia-freeland",
+          "title": "Plutocrats: The Rise of the New Global Super-Rich and the Fall of Everyone Else",
+          "author": "Chrystia Freeland",
+          "year": 2012
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:allen lane doubleday penguin random house",
+      "publisherName": "Allen Lane, Doubleday, Penguin Random House",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-red-famine-stalin-s-war-on-ukraine-anne-applebaum",
+          "title": "Red Famine: Stalin's War on Ukraine",
+          "author": "Anne Applebaum",
+          "year": 2017
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:atlantic monthly",
+      "publisherName": "Atlantic Monthly Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-house-of-morgan-an-american-banking-dynasty-and-the-rise-of-modern-finance-ron-chernow",
+          "title": "The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance",
+          "author": "Ron Chernow",
+          "year": 1990
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:bbc books",
+      "publisherName": "BBC Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-rough-crossings-britain-the-slaves-and-the-american-revolution-simon-schama",
+          "title": "Rough Crossings: Britain, the Slaves and the American Revolution",
+          "author": "Simon Schama",
+          "year": 2005
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3274,6 +3408,51 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
+      "publisherId": "publisher-evidence:coward mccann geoghegan",
+      "publisherName": "Coward, McCann & Geoghegan",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-rise-of-theodore-roosevelt-edmund-morris",
+          "title": "The Rise of Theodore Roosevelt",
+          "author": "Edmund Morris",
+          "year": 1979
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:dutton children s books",
+      "publisherName": "Dutton Children's Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-hold-still-a-memoir-with-photographs-sally-mann",
+          "title": "Hold Still: A Memoir with Photographs",
+          "author": "Sally Mann",
+          "year": 2016
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:farrar straus giroux anchor books 1990",
+      "publisherName": "Farrar, Straus & Giroux ; Anchor Books (1990)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-from-beirut-to-jerusalem-thomas-l-friedman",
+          "title": "From Beirut to Jerusalem",
+          "author": "Thomas L. Friedman",
+          "year": 1988
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
       "publisherId": "publisher-gallimard",
       "publisherName": "Gallimard",
       "bookCount": 1,
@@ -3289,45 +3468,44 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-guangxi-normal-university-press",
-      "publisherName": "Guangxi Normal University Press",
+      "publisherId": "publisher-evidence:granta publications",
+      "publisherName": "Granta Publications",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-arctic-dreams-imagination-and-desire-in-a-northern-landscape-barry-lopez",
-          "title": "Arctic Dreams: Imagination and Desire in a Northern Landscape",
-          "author": "Barry Lopez",
-          "year": 1986
+          "bookId": "book-to-be-a-machine-adventures-among-cyborgs-utopians-hackers-and-the-futurists-solving-the-modest-p",
+          "title": "To Be a Machine: Adventures Among Cyborgs, Utopians, Hackers, and the Futurists Solving the Modest Problem of Death",
+          "author": "Mark O'Connell",
+          "year": 2017
         }
       ],
       "recommendedAction": "manual_book_review",
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-heyne",
-      "publisherName": "Heyne",
+      "publisherId": "publisher-evidence:henry holt jonathan cape",
+      "publisherName": "Henry Holt and Company; Jonathan Cape",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-from-beirut-to-jerusalem-thomas-l-friedman",
-          "title": "From Beirut to Jerusalem",
-          "author": "Thomas L. Friedman",
-          "year": 1988
+          "bookId": "book-footnotes-in-gaza-joe-sacco",
+          "title": "Footnotes in Gaza",
+          "author": "Joe Sacco"
         }
       ],
       "recommendedAction": "manual_book_review",
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-history-book-club",
-      "publisherName": "History Book Club",
+      "publisherId": "publisher-evidence:houghton mifflin harcourt hardcover mariner books paperback",
+      "publisherName": "Houghton Mifflin Harcourt (hardcover); Mariner Books (paperback)",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-roosevelt-the-soldier-of-freedom-james-macgregor-burns",
-          "title": "Roosevelt: The Soldier Of Freedom",
-          "author": "James MacGregor Burns",
-          "year": 1970
+          "bookId": "book-the-worst-hard-time-the-untold-story-of-those-who-survived-the-great-american-dust-bowl-timothy-",
+          "title": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl",
+          "author": "Timothy Egan",
+          "year": 2006
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3364,15 +3542,29 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-international-collectors",
-      "publisherName": "International Collectors",
+      "publisherId": "publisher-evidence:hutchinson radius",
+      "publisherName": "Hutchinson Radius",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-eleanor-and-franklin-the-story-of-their-relationship-based-on-eleanor-roosevelt-s-private-papers",
-          "title": "Eleanor and Franklin: The Story of Their Relationship, Based on Eleanor Roosevelt's Private Papers",
-          "author": "Joseph P. Lash",
-          "year": 1971
+          "bookId": "book-the-third-chimpanzee-the-evolution-and-future-of-the-human-animal-jared-diamond",
+          "title": "The Third Chimpanzee: The Evolution and Future of the Human Animal",
+          "author": "Jared Diamond",
+          "year": 1992
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:jaico books",
+      "publisherName": "Jaico Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-continent-of-circe-nirad-c-chaudhuri",
+          "title": "The Continent of Circe",
+          "author": "Nirad C. Chaudhuri"
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3388,6 +3580,21 @@
           "title": "Who Walk Alone",
           "author": "Perry Burgess",
           "year": 1940
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:knopf us john murray uk",
+      "publisherName": "Knopf (US); John Murray (UK)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+          "title": "The Invention of Nature: The Adventures of Alexander von Humboldt, the Lost Hero of Science",
+          "author": "Andrea Wulf",
+          "year": 2016
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3422,6 +3629,35 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
+      "publisherId": "publisher-evidence:little brown back bay",
+      "publisherName": "Little, Brown and Company and Back Bay Publishing",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-fire-in-the-lake-the-vietnamese-and-the-americans-in-vietnam-frances-fitzgerald",
+          "title": "Fire in the Lake: The Vietnamese and the Americans in Vietnam",
+          "author": "Frances FitzGerald"
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:little brown book group",
+      "publisherName": "Little, Brown Book Group",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-kl-a-history-of-the-nazi-concentration-camps-nikolaus-wachsmann",
+          "title": "KL: A History of the Nazi Concentration Camps",
+          "author": "Nikolaus Wachsmann",
+          "year": 2016
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
       "publisherId": "publisher-melia-publishing-services-limited",
       "publisherName": "Melia Publishing Services Limited",
       "bookCount": 1,
@@ -3431,6 +3667,94 @@
           "title": "Candy Darling: Dreamer, Icon, Superstar",
           "author": "Cynthia Carr",
           "year": 2024
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:new american library",
+      "publisherName": "New American Library",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-armies-of-the-night-history-as-a-novel-the-novel-as-history-norman-mailer",
+          "title": "The Armies of the Night: History as a Novel, The Novel as History",
+          "author": "Norman Mailer",
+          "year": 1968
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:ostozh e",
+      "publisherName": "Ostozhʹe",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-voices-from-chernobyl-the-oral-history-of-a-nuclear-disaster-svetlana-alexievich",
+          "title": "Voices from Chernobyl: The Oral History of a Nuclear Disaster",
+          "author": "Svetlana Alexievich"
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:pantheon books us fourth estate uk",
+      "publisherName": "Pantheon Books (US), Fourth Estate (UK)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-information-a-history-a-theory-a-flood-james-gleick",
+          "title": "The Information: A History, a Theory, a Flood",
+          "author": "James Gleick",
+          "year": 2011
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:penguin u s",
+      "publisherName": "Penguin Press (U.S.)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-empire-of-ai-dreams-and-nightmares-in-sam-altman-s-openai-karen-hao",
+          "title": "Empire of AI: Dreams and Nightmares in Sam Altman’s OpenAI",
+          "author": "Karen Hao",
+          "year": 2025
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:penguin random house",
+      "publisherName": "Penguin Random House",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-liliana-s-invincible-summer-a-sister-s-search-for-justice-cristina-rivera-garza",
+          "title": "Liliana's Invincible Summer: A Sister's Search for Justice",
+          "author": "Cristina Rivera Garza",
+          "year": 2023
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:penguin random house print digital recorded books audiobook",
+      "publisherName": "Penguin Random House (print and digital), Recorded Books (audiobook)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-stalin-paradoxes-of-power-1878-1928-stephen-kotkin",
+          "title": "Stalin: Paradoxes of Power, 1878–1928",
+          "author": "Stephen Kotkin"
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3467,6 +3791,65 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
+      "publisherId": "publisher-evidence:public affairs",
+      "publisherName": "Public Affairs",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-a-great-wall-six-presidents-and-china-an-investigative-history-patrick-tyler",
+          "title": "A Great Wall: Six Presidents and China: An Investigative History",
+          "author": "Patrick Tyler",
+          "year": 1999
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:putnam adult",
+      "publisherName": "Putnam Adult",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-generation-kill-devil-dogs-iceman-captain-america-and-the-new-face-of-american-war-evan-wright",
+          "title": "Generation Kill: Devil Dogs, Iceman, Captain America and the New Face of American War",
+          "author": "Evan Wright",
+          "year": 2004
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:random editores",
+      "publisherName": "Random Editores",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-prisoner-without-a-name-cell-without-a-number-jacobo-timerman",
+          "title": "Prisoner Without a Name, Cell Without a Number",
+          "author": "Jacobo Timerman"
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:random house us allen lane uk",
+      "publisherName": "Random House (US); Allen Lane (UK)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-caste-the-origins-of-our-discontents-isabel-wilkerson",
+          "title": "Caste: The Origins of Our Discontents",
+          "author": "Isabel Wilkerson",
+          "year": 2021
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
       "publisherId": "publisher-random-house-espanol",
       "publisherName": "Random House Espanol",
       "bookCount": 1,
@@ -3475,6 +3858,35 @@
           "bookId": "book-appeasing-hitler-chamberlain-churchill-and-the-road-to-war-tim-bouverie",
           "title": "Appeasing Hitler: Chamberlain, Churchill and the Road to War",
           "author": "Tim Bouverie"
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:random house new york city",
+      "publisherName": "Random House, New York City",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-death-and-life-of-great-american-cities-jane-jacobs",
+          "title": "Death and Life of Great American Cities",
+          "author": "Jane Jacobs"
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:shanghai literature art house",
+      "publisherName": "Shanghai Literature and Art Publishing House",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-generalissimo-chiang-kai-shek-and-the-struggle-for-modern-china-jay-taylor",
+          "title": "The Generalissimo: Chiang Kai-shek and the Struggle for Modern China",
+          "author": "Jay Taylor",
+          "year": 2009
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3526,15 +3938,44 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-wheeler-publishing",
-      "publisherName": "Wheeler Publishing",
+      "publisherId": "publisher-evidence:university of virginia little brown",
+      "publisherName": "University of Virginia Press; Little, Brown and Company",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-founding-brothers-the-revolutionary-generation-joseph-j-ellis",
-          "title": "Founding Brothers: The Revolutionary Generation",
-          "author": "Joseph J. Ellis",
-          "year": 2000
+          "bookId": "book-jefferson-and-his-time-the-sage-of-monticello-dumas-malone",
+          "title": "Jefferson and His Time: The Sage of Monticello",
+          "author": "Dumas Malone"
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:w w norton hardcover bodley head uk",
+      "publisherName": "W. W. Norton & Company (hardcover); The Bodley Head (UK)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-swerve-how-the-world-became-modern-stephen-greenblatt",
+          "title": "The Swerve: How the World Became Modern",
+          "author": "Stephen Greenblatt",
+          "year": 2012
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:walker us fourth estate uk",
+      "publisherName": "Walker & Company (US); Fourth Estate (UK)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-galileo-s-daughter-a-historical-memoir-of-science-faith-and-love-dava-sobel",
+          "title": "Galileo's Daughter: A Historical Memoir of Science, Faith and Love",
+          "author": "Dava Sobel",
+          "year": 1999
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3550,6 +3991,21 @@
           "title": "Somewhere Towards the End",
           "author": "Diana Athill",
           "year": 2008
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:ww norton",
+      "publisherName": "WW Norton & Co Inc",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-perilous-times-free-speech-in-wartime-from-the-sedition-act-of-1798-to-the-war-on-terrorism-geof",
+          "title": "Perilous Times: Free Speech in Wartime from the Sedition Act of 1798 to the War on Terrorism",
+          "author": "Geoffrey R. Stone",
+          "year": 2005
         }
       ],
       "recommendedAction": "manual_book_review",

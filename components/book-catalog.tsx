@@ -11,7 +11,7 @@ import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/compone
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import { appearancesByBookId, booksById } from "@/lib/data";
 import type { BrowseBookRow } from "@/lib/browse-types";
-import type { SemanticQueryInterpretation } from "@/lib/semantic-search";
+import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryExpansionModel, type SemanticQueryInterpretation } from "@/lib/semantic-search";
 
 type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
 type AwardOption = { id: string; name: string; shortName?: string };
@@ -64,9 +64,11 @@ export function BookCatalog({
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const routeMode = searchParamsMode(searchParams.get("mode"));
+  const routeQueryExpansionModel = searchParamsQueryExpansionModel(searchParams.get("queryModel"));
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
   const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
   const [mode, setModeState] = useState<"keyword" | "semantic">(() => routeMode);
+  const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>(() => routeQueryExpansionModel);
   const [subjectFilter, setSubjectFilter] = useState("");
   const [awardFilter, setAwardFilter] = useState("");
   const [publisherFilter, setPublisherFilter] = useState("");
@@ -85,7 +87,7 @@ export function BookCatalog({
   const awardBookIds = useMemo(() => {
     if (!awardFilter) return null;
     return new Set(books.filter((book) => book.awardIds.includes(awardFilter)).map((book) => book.id));
-  }, [awardFilter]);
+  }, [awardFilter, books]);
   const publisherOptions = useMemo(
     () =>
       [...new Map(books.filter((book) => book.publisherId && book.publisher).map((book) => [book.publisherId!, { id: book.publisherId!, name: book.publisher! }])).values()]
@@ -109,6 +111,7 @@ export function BookCatalog({
     enabled: mode === "semantic",
     limit: 500,
     query: semanticQuery,
+    queryExpansionModel,
   });
   const semanticResultByBookId = useMemo(() => new Map(semanticSearch.results.map((result, index) => [result.bookId, { ...result, index }])), [semanticSearch.results]);
   const filteredRows = useMemo(() => {
@@ -149,6 +152,10 @@ export function BookCatalog({
   }, [routeMode]);
 
   useEffect(() => {
+    setQueryExpansionModel(routeQueryExpansionModel);
+  }, [routeQueryExpansionModel]);
+
+  useEffect(() => {
     setActiveBookId(null);
   }, [searchParams]);
 
@@ -172,8 +179,13 @@ export function BookCatalog({
     if (nextMode === "semantic") setSemanticQuery("");
     setPage(1);
     const nextParams = new URLSearchParams(searchParams.toString());
-    if (nextMode === "semantic") nextParams.set("mode", "semantic");
-    else nextParams.delete("mode");
+    if (nextMode === "semantic") {
+      nextParams.set("mode", "semantic");
+      nextParams.set("queryModel", queryExpansionModel);
+    } else {
+      nextParams.delete("mode");
+      nextParams.delete("queryModel");
+    }
     const queryString = nextParams.toString();
     router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
   }
@@ -275,7 +287,8 @@ export function BookCatalog({
     : `${regionLabel(region)} awards · ${topicFilter ? `Topic: ${titleCaseLabel(topicFilter)} · ` : ""}${semanticActive ? "Sorted by meaning match" : `Sorted by ${bookSortLabels[sortKey].toLowerCase()}`} · ${totalRows.toLocaleString()} books${hasActiveFilters ? " · filtered" : ""}`;
   const semanticConceptLine = semanticActive && semanticSearch.interpretation
     ? [
-        semanticSearch.interpretation.concepts.slice(0, 4).join(", "),
+        semanticCoreConcepts(semanticSearch.interpretation).slice(0, 4).join(", "),
+        semanticAdventurousConcepts(semanticSearch.interpretation).slice(0, 3).join(", "),
         semanticSearch.interpretation.eras.slice(0, 2).join(", "),
         semanticSearch.interpretation.subjects.slice(0, 3).join(", "),
       ].filter(Boolean).join(" · ")
@@ -843,6 +856,10 @@ function searchParamsMode(value: string | null): "keyword" | "semantic" {
   return value === "semantic" ? "semantic" : "keyword";
 }
 
+function searchParamsQueryExpansionModel(value: string | null): SemanticQueryExpansionModel {
+  return value === "gemini-3.5-flash" || value === "gpt-5.4-mini" ? value : "gemini-3.5-flash";
+}
+
 function CatalogSubjectPill({
   subject,
   onClick,
@@ -1102,6 +1119,18 @@ function SemanticDetailsModal({
             <div className="grid gap-2">
               <p className="filter-label">Expanded Intent</p>
               <p className="semantic-details-box">{interpretation.expandedQuery}</p>
+            </div>
+          ) : null}
+          {interpretation && semanticCoreConcepts(interpretation).length ? (
+            <div className="grid gap-2">
+              <p className="filter-label">Core Concepts</p>
+              <p className="semantic-details-box">{semanticCoreConcepts(interpretation).join(", ")}</p>
+            </div>
+          ) : null}
+          {interpretation && semanticAdventurousConcepts(interpretation).length ? (
+            <div className="grid gap-2">
+              <p className="filter-label">Adventurous Adjacent Concepts</p>
+              <p className="semantic-details-box">{semanticAdventurousConcepts(interpretation).join(", ")}</p>
             </div>
           ) : null}
           {rankingTerms.length ? (

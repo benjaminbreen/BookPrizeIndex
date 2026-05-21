@@ -374,8 +374,8 @@ input {
   position: absolute;
   --home-mode-tooltip-arrow-right: 2.25rem;
   right: 0;
-  bottom: calc(100% + 0.9rem);
-  z-index: 3;
+  top: calc(100% + 0.9rem);
+  z-index: 30;
   display: grid;
   width: min(24rem, 72vw);
   gap: 0.38rem;
@@ -400,11 +400,11 @@ input {
 .home-mode-tooltip::after {
   position: absolute;
   right: var(--home-mode-tooltip-arrow-right);
-  bottom: -0.34rem;
+  top: -0.34rem;
   width: 0.62rem;
   height: 0.62rem;
-  border-right: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
-  border-bottom: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
+  border-left: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
   background: color-mix(in srgb, var(--paper) 94%, var(--panel));
   content: "";
   transform: rotate(45deg);

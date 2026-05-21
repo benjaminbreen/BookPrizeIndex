@@ -1,193 +1,220 @@
 {
-  "generatedAt": "2026-05-18T17:21:24.243Z",
+  "generatedAt": "2026-05-21T05:59:49.756Z",
   "count": 12,
   "note": "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
   "review": [
     {
-      "rawPublisher": "Bloomsbury Publishing USA",
-      "bookCount": 2,
+      "rawPublisher": "Penguin Random House",
+      "bookCount": 3,
       "sampleBooks": [
         {
-          "bookId": "book-galileo-s-daughter-a-historical-memoir-of-science-faith-and-love-dava-sobel",
-          "title": "Galileo's Daughter: A Historical Memoir of Science, Faith and Love",
-          "author": "Dava Sobel",
+          "bookId": "book-cold-crematorium-reporting-from-the-land-of-auschwitz-jozsef-debreczeni",
+          "title": "Cold Crematorium: Reporting from the Land of Auschwitz",
+          "author": "József Debreczeni",
           "status": "enriched",
-          "matchTitle": "Galileo's Daughter: A Historical Memoir of Science, Faith and Love",
-          "matchAuthor": "Dava Sobel",
+          "matchTitle": "Cold Crematorium: Reporting from the Land of Auschwitz",
+          "matchAuthor": "József Debreczeni",
           "matchScore": 1
         },
         {
-          "bookId": "book-before-the-fallout-from-marie-curie-to-hiroshima-diana-preston",
-          "title": "Before the Fallout: From Marie Curie to Hiroshima",
-          "author": "Diana Preston",
+          "bookId": "book-margaret-thatcher-volume-two-the-iron-lady-john-campbell",
+          "title": "Margaret Thatcher - Volume Two: The Iron Lady",
+          "author": "John Campbell",
           "status": "enriched",
-          "matchTitle": "Before the Fallout",
-          "matchAuthor": "Diana Preston",
-          "matchScore": 0.563
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Coffee House Press",
-      "bookCount": 1,
-      "sampleBooks": [
+          "matchTitle": "Margaret Thatcher Volume Two Vol. 2: The Iron Lady",
+          "matchAuthor": "John Campbell",
+          "matchScore": 1
+        },
         {
-          "bookId": "book-when-women-kill-four-crimes-retold-alia-trabucco-zeran",
-          "title": "When Women Kill: Four Crimes Retold",
-          "author": "Alia Trabucco Zerán",
+          "bookId": "book-one-minute-to-midnight-kennedy-khrushchev-and-castro-on-the-brink-of-nuclear-war-michael-dobbs",
+          "title": "One Minute to Midnight: Kennedy, Khrushchev, and Castro on the Brink of Nuclear War",
+          "author": "Michael Dobbs",
           "status": "enriched",
-          "matchTitle": "When Women Kill",
-          "matchAuthor": "Alia Trabucco Zerán",
-          "matchScore": 0.65
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Hachette UK",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-you-play-the-girl-on-playboy-bunnies-stepford-wives-train-wrecks-and-other-mixed-messages-carina",
-          "title": "You Play the Girl: On Playboy Bunnies, Stepford Wives, Train Wrecks, & Other Mixed Messages",
-          "author": "Carina Chocano",
-          "status": "enriched",
-          "matchTitle": "You Play The Girl",
-          "matchAuthor": "Carina Chocano",
-          "matchScore": 0.5
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Harper Perennial",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-under-my-skin-volume-one-of-my-autobiography-to-1949-doris-lessing",
-          "title": "Under My Skin: Volume One of My Autobiography, to 1949",
-          "author": "Doris Lessing",
-          "status": "enriched",
-          "matchTitle": "Under My Skin",
-          "matchAuthor": "Doris Lessing",
-          "matchScore": 0.533
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Macmillan + ORM",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-making-waves-mario-vargas-llosa",
-          "title": "Making Waves",
-          "author": "Mario Vargas Llosa",
-          "status": "enriched",
-          "matchTitle": "Making Waves",
-          "matchAuthor": "Mario Vargas Llosa",
+          "matchTitle": "One Minute to Midnight",
+          "matchAuthor": "Michael Dobbs",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "New York : Knopf",
-      "bookCount": 1,
+      "rawPublisher": "imusti",
+      "bookCount": 2,
       "sampleBooks": [
         {
-          "bookId": "book-the-years-of-lyndon-johnson-the-path-to-power-robert-a-caro",
-          "title": "The Years of Lyndon Johnson: The Path to Power",
-          "author": "Robert A. Caro",
+          "bookId": "book-the-innovators-how-a-group-of-hackers-geniuses-and-geeks-created-the-digital-revolution-walter-i",
+          "title": "The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution",
+          "author": "Walter Isaacson",
           "status": "enriched",
-          "matchTitle": "The Years of Lyndon Johnson: The path to power",
-          "matchAuthor": "Robert A. Caro",
+          "matchTitle": "The Innovators",
+          "matchAuthor": "Walter Isaacson",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-innovators-how-a-group-of-inventors-hackers-geniuses-and-geeks-created-the-digital-revolutio",
+          "title": "The Innovators: How a Group of Inventors, Hackers, Geniuses, and Geeks Created the Digital Revolution",
+          "author": "Walter Isaacson",
+          "status": "enriched",
+          "matchTitle": "The Innovators",
+          "matchAuthor": "Walter Isaacson",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Penguin Random House",
-      "bookCount": 1,
+      "rawPublisher": "Little, Brown Book Group Limited",
+      "bookCount": 2,
       "sampleBooks": [
         {
-          "bookId": "book-stranger-magic-charmed-states-and-the-arabian-nights-marina-warner",
-          "title": "Stranger Magic: Charmed States and the Arabian Nights",
-          "author": "Marina Warner",
+          "bookId": "book-behind-closed-doors-polly-curtis",
+          "title": "Behind Closed Doors",
+          "author": "Polly Curtis",
           "status": "enriched",
-          "matchTitle": "Stranger Magic: Charmed States and the Arabian Nights",
-          "matchAuthor": "Marina Warner",
+          "matchTitle": "Behind Closed Doors",
+          "matchAuthor": "Polly Curtis",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-let-s-explore-diabetes-with-owls-david-sedaris",
+          "title": "Let's Explore Diabetes With Owls",
+          "author": "David Sedaris",
+          "status": "enriched",
+          "matchTitle": "Let's Explore Diabetes with Owls",
+          "matchAuthor": "David Sedaris",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Random House Large Print",
+      "rawPublisher": "Abacus Uk",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-american-lion-andrew-jackson-in-the-white-house-jon-meacham",
-          "title": "American Lion: Andrew Jackson in the White House",
-          "author": "Jon Meacham",
+          "bookId": "book-iris-a-memoir-of-iris-murdoch-john-bayley",
+          "title": "Iris, A memoir of Iris Murdoch",
+          "author": "John Bayley",
           "status": "enriched",
-          "matchTitle": "American lion: Andrew Jackson in the White House",
-          "matchAuthor": "Jon Meacham",
+          "matchTitle": "Iris a Memoir of Iris Murdoch",
+          "matchAuthor": "John Bayley",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Random House, India",
+      "rawPublisher": "ALLEN LANE (PENG)",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-poor-economics-a-radical-rethinking-of-the-way-to-fight-global-poverty-abhijit-v-banerjee-and-es",
-          "title": "Poor Economics: A Radical Rethinking of the Way to Fight Global Poverty",
-          "author": "Abhijit V. Banerjee Esther Duflo",
+          "bookId": "book-the-third-reich-in-power-volume-2-of-the-third-reich-series-richard-j-evans",
+          "title": "The Third Reich in Power: Volume 2 of The Third Reich Series",
+          "author": "Richard J. Evans",
           "status": "enriched",
-          "matchTitle": "Poor Economics : Rethinking Poverty & The Ways To End It",
-          "matchAuthor": "Abhijit V. Banerjee Esther Duflo",
-          "matchScore": 0.682
+          "matchTitle": "Third Reich in Power",
+          "matchAuthor": "Richard J. Evans",
+          "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "RH Canada UK Dist",
+      "rawPublisher": "Avalon Publishing",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-bearing-the-cross-martin-luther-king-jr-and-the-southern-christian-leadership-conference-david-j",
-          "title": "Bearing The Cross: Martin Luther King Jr. and the Southern Christian Leadership Conference",
-          "author": "David J. Garrow",
+          "bookId": "book-byzantium-the-surprising-life-of-a-medieval-empire-judith-herrin",
+          "title": "Byzantium: The Surprising Life of a Medieval Empire",
+          "author": "Judith Herrin",
           "status": "enriched",
-          "matchTitle": "Bearing the Cross : Martin Luther King and the Southern Christian Leadership Conference",
-          "matchAuthor": "David J. Garrow",
-          "matchScore": 0.942
+          "matchTitle": "Byzantium: The Surprising Life of a Medieval Empire",
+          "matchAuthor": "Judith Herrin",
+          "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Signal Books",
+      "rawPublisher": "Bloomsbury UK",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-red-famine-stalin-s-war-on-ukraine-anne-applebaum",
-          "title": "Red Famine: Stalin's War on Ukraine",
-          "author": "Anne Applebaum",
+          "bookId": "book-the-anatomy-of-a-moment-thirty-five-minutes-in-history-and-imagination-javier-cercas",
+          "title": "The Anatomy of a Moment: Thirty-Five Minutes in History and Imagination",
+          "author": "Javier Cercas",
           "status": "enriched",
-          "matchTitle": "Red Famine",
-          "matchAuthor": "Anne Applebaum",
-          "matchScore": 0.533
+          "matchTitle": "The Anatomy of a Moment",
+          "matchAuthor": "Javier Cercas",
+          "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "中国财政经济出版社",
+      "rawPublisher": "Celadon Books",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-thinking-machine-jensen-huang-nvidia-and-the-world-s-most-coveted-microchip-stephen-witt",
-          "title": "The Thinking Machine: Jensen Huang, Nvidia, and the World’s Most Coveted Microchip",
-          "author": "Stephen Witt",
+          "bookId": "book-the-viral-underclass-the-human-toll-when-inequality-and-disease-collide-steven-thrasher",
+          "title": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
+          "author": "Steven Thrasher",
           "status": "enriched",
-          "matchTitle": "Thinking Machine",
-          "matchAuthor": "Stephen Witt",
+          "matchTitle": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
+          "matchAuthor": "Steven Thrasher",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Crown Publishing Group, The",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-infernal-machine-a-true-story-of-dynamite-terror-and-the-rise-of-the-modern-detective-steven",
+          "title": "The Infernal Machine: A True Story of Dynamite, Terror, and the Rise of the Modern Detective",
+          "author": "Steven Johnson",
+          "status": "enriched",
+          "matchTitle": "Infernal Machine: A True Story of Dynamite, Terror, and the Rise of the Modern Detective",
+          "matchAuthor": "Steven Johnson",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Foxtopus Ink",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-vortex-a-true-story-of-history-s-deadliest-storm-an-unspeakable-war-and-liberation-scott-carney-",
+          "title": "Vortex: A True Story of History's Deadliest Storm, an Unspeakable War, and Liberation",
+          "author": "Scott Carney Jason Miklian",
+          "status": "enriched",
+          "matchTitle": "The Vortex: A True Story of History's Deadliest Storm, An Unspeakable War and Liberation",
+          "matchAuthor": "Scott Carney Jason Miklian",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "New York Review of Books, Incorporated, The",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-i-used-to-be-charming-the-rest-of-eve-babitz-eve-babitz",
+          "title": "I Used to Be Charming: The Rest of Eve Babitz",
+          "author": "Eve Babitz",
+          "status": "enriched",
+          "matchTitle": "I Used to Be Charming: The Rest of Eve Babitz",
+          "matchAuthor": "Eve Babitz",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Tim Duggan Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-i-am-dynamite-a-life-of-friedrich-nietzsche-sue-prideaux",
+          "title": "I Am Dynamite! A Life of Friedrich Nietzsche",
+          "author": "Sue Prideaux",
+          "status": "enriched",
+          "matchTitle": "I am dynamite!: a life of Nietzsche",
+          "matchAuthor": "Sue Prideaux",
           "matchScore": 1
         }
       ]

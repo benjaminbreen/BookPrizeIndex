@@ -4,16 +4,43 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown, ChevronUp, ChevronsUpDown, CornerDownLeft, Filter, Search } from "lucide-react";
 import { useMemo, useState } from "react";
-import { BookDrawer } from "@/components/book-drawer";
 import type { SearchMode } from "@/components/ui/design-primitives";
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
-import { appearancesByBookId, booksById } from "@/lib/data";
-import type { BrowseData } from "@/lib/browse-types";
+import type { BrowseData, BrowseLinkRow } from "@/lib/browse-types";
+import type { SemanticQueryExpansionModel } from "@/lib/semantic-search";
 
 type SortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher";
 type SortDirection = "asc" | "desc";
 type TypeFilter = "fiction" | "nonfiction" | "all";
 type RankedSubjectFilter = "all" | "biography" | "history" | "science" | "politics";
+
+export type HomeBookRow = Pick<
+  BrowseData["books"][number],
+  | "id"
+  | "slug"
+  | "title"
+  | "author"
+  | "publicationYear"
+  | "firstRecognitionYear"
+  | "publisher"
+  | "imprint"
+  | "thumbnailUrl"
+  | "subjects"
+  | "wins"
+  | "lists"
+  | "score"
+  | "majorWins"
+  | "majorShortlists"
+  | "normalShortlists"
+  | "majorLonglists"
+  | "normalLonglists"
+  | "searchText"
+>;
+
+export type HomeBrowseData = Pick<BrowseData, "generatedAt" | "stats"> & {
+  books: HomeBookRow[];
+  home: Record<string, { subjects: BrowseLinkRow[]; awards: BrowseLinkRow[] }>;
+};
 
 const rankedSubjectFilters: Array<{ key: RankedSubjectFilter; label: string; subjects: string[] }> = [
   { key: "all", label: "All", subjects: [] },
@@ -23,17 +50,17 @@ const rankedSubjectFilters: Array<{ key: RankedSubjectFilter; label: string; sub
   { key: "politics", label: "Politics", subjects: ["Politics & Government"] },
 ];
 
-export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaultRegion: AwardRegionFilter }) {
+export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; defaultRegion: AwardRegionFilter }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
   const [searchMode, setSearchMode] = useState<SearchMode>("keyword");
+  const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>("gemini-3.5-flash");
   const [tooltipMode, setTooltipMode] = useState<SearchMode | null>(null);
   const [type, setType] = useState<TypeFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("score");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [rankedSubject, setRankedSubject] = useState<RankedSubjectFilter>("all");
-  const [activeBookId, setActiveBookId] = useState<string | null>(null);
 
   const rankedBooks = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -52,9 +79,6 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
   }, [data.books, query, rankedSubject, sortDirection, sortKey]);
 
   const topBooks = rankedBooks.slice(0, 12);
-  const activeBook = activeBookId ? booksById.get(activeBookId) ?? null : null;
-  const activeBookAppearances = activeBookId ? appearancesByBookId.get(activeBookId) ?? [] : [];
-  const activeBookIndex = activeBookId ? topBooks.findIndex((book) => book.id === activeBookId) : -1;
   const browseData = useMemo(() => getBrowseData(data, region, type), [data, region, type]);
   const showingLabel = `${regionLabel(region)} · ${type === "all" ? "All" : titleCase(type)}`;
 
@@ -67,8 +91,16 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
     event.preventDefault();
     const q = query.trim();
     if (!q) return;
-    const mode = searchMode === "semantic" ? "&mode=semantic" : "";
+    const mode = searchMode === "semantic" ? `&mode=semantic&queryModel=${encodeURIComponent(queryExpansionModel)}` : "";
     router.push(`/books?q=${encodeURIComponent(q)}${mode}`);
+  }
+
+  function selectSemanticMode() {
+    if (searchMode === "semantic") {
+      setQueryExpansionModel((model) => (model === "gpt-5.4-mini" ? "gemini-3.5-flash" : "gpt-5.4-mini"));
+      return;
+    }
+    setSearchMode("semantic");
   }
 
   function sortByColumn(nextSortKey: SortKey) {
@@ -136,7 +168,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                   aria-label="Semantic search"
                   className={`home-search-mode-button focus-ring ${searchMode === "semantic" ? "home-search-mode-button-active" : ""}`}
                   onBlur={() => setTooltipMode(null)}
-                  onClick={() => setSearchMode("semantic")}
+                  onClick={selectSemanticMode}
                   onFocus={() => setTooltipMode("semantic")}
                   onMouseEnter={() => setTooltipMode("semantic")}
                   type="button"
@@ -152,7 +184,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                     <>
                       <span className="home-mode-tooltip-label">Semantic</span>
                       <span>Uses machine learning to find books, awards, and subjects related to what you describe, even when the exact words do not appear.</span>
-                      <span className="home-mode-tooltip-note">Best for themes, eras, moods, comparisons, and open-ended ideas.</span>
+                      <span className="home-mode-tooltip-note">{`Query expander: ${queryExpansionModelLabel(queryExpansionModel)}. Click Semantic again to switch.`}</span>
                     </>
                   ) : (
                     <>
@@ -260,31 +292,18 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
                 return (
                   <tr
                     key={book.id}
-                    className="book-table-row fade-up cursor-pointer border-b hairline transition hover:bg-[var(--accent-soft)]"
-                    onClick={() => setActiveBookId(book.id)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault();
-                        setActiveBookId(book.id);
-                      }
-                    }}
-                    role="button"
+                    className="book-table-row fade-up border-b hairline transition hover:bg-[var(--accent-soft)]"
                     style={{ animationDelay: `${Math.min(index * 18, 140)}ms` }}
-                    tabIndex={0}
                   >
                     <td className="plain-number px-4 py-4 text-sm muted">{book.publicationYear}</td>
                     <td className="px-4 py-4">
-                      <button
+                      <Link
                         className="focus-ring grid w-full grid-cols-[2.15rem_minmax(0,1fr)] items-center gap-3 text-left font-[var(--font-serif)] text-xl font-light transition hover:text-[var(--accent)]"
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          setActiveBookId(book.id);
-                        }}
-                        type="button"
+                        href={`/books/${book.slug}`}
                       >
                         <HomeBookCover book={book} />
                         <span className="line-clamp-2">{book.title}</span>
-                      </button>
+                      </Link>
                     </td>
                     <td className="px-4 py-4 text-sm">{book.author}</td>
                     <td className="plain-number px-4 py-4 text-sm">{book.wins}</td>
@@ -308,14 +327,6 @@ export function ExplorerHome({ data, defaultRegion }: { data: BrowseData; defaul
         </div>
       </section>
     </main>
-    <BookDrawer
-      appearances={activeBookAppearances}
-      book={activeBook}
-      currentLabel={activeBook && activeBookIndex >= 0 ? `${activeBookIndex + 1} of ${topBooks.length}` : undefined}
-      onClose={() => setActiveBookId(null)}
-      onNext={activeBookIndex >= 0 && activeBookIndex < topBooks.length - 1 ? () => setActiveBookId(topBooks[activeBookIndex + 1].id) : undefined}
-      onPrevious={activeBookIndex > 0 ? () => setActiveBookId(topBooks[activeBookIndex - 1].id) : undefined}
-    />
     </>
   );
 }
@@ -417,7 +428,7 @@ function FilterButton({
   );
 }
 
-function HomeBookCover({ book }: { book: BrowseData["books"][number] }) {
+function HomeBookCover({ book }: { book: HomeBookRow }) {
   const [imageFailed, setImageFailed] = useState(false);
   if (book.thumbnailUrl && !imageFailed) {
     return (
@@ -433,7 +444,7 @@ function HomeBookCover({ book }: { book: BrowseData["books"][number] }) {
   );
 }
 
-function compareHomeBooks(a: BrowseData["books"][number], b: BrowseData["books"][number], sortKey: SortKey) {
+function compareHomeBooks(a: HomeBookRow, b: HomeBookRow, sortKey: SortKey) {
   if (sortKey === "score") return a.score - b.score;
   if (sortKey === "wins") return a.wins - b.wins;
   if (sortKey === "lists") return a.lists - b.lists;
@@ -444,7 +455,7 @@ function compareHomeBooks(a: BrowseData["books"][number], b: BrowseData["books"]
   return a.title.localeCompare(b.title);
 }
 
-function compareHomeRecognitionTieBreak(a: BrowseData["books"][number], b: BrowseData["books"][number]) {
+function compareHomeRecognitionTieBreak(a: HomeBookRow, b: HomeBookRow) {
   return (
     b.score - a.score ||
     b.majorWins - a.majorWins ||
@@ -463,12 +474,16 @@ function defaultSortDirection(sortKey: SortKey): SortDirection {
   return sortKey === "year" || sortKey === "wins" || sortKey === "lists" || sortKey === "score" ? "desc" : "asc";
 }
 
-function getBrowseData(data: BrowseData, region: AwardRegionFilter, type: TypeFilter) {
+function getBrowseData(data: HomeBrowseData, region: AwardRegionFilter, type: TypeFilter) {
   return data.home[`${region}:${type}`];
 }
 
 function titleCase(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
+}
+
+function queryExpansionModelLabel(model: SemanticQueryExpansionModel) {
+  return model === "gemini-3.5-flash" ? "Gemini 3.5 Flash" : "GPT-5.4 Mini";
 }
 
 function Stat({ label, value }: { label: string; value: number }) {

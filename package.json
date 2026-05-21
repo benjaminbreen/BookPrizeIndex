@@ -65,9 +65,13 @@
     "data:import:ny-history-book-prize": "tsx scripts/import-award-records/ny-history-book-prize.ts",
     "data:import:british-academy-book-prize": "tsx scripts/import-award-records/british-academy-book-prize.ts",
     "data:import:aha-book-prizes": "tsx scripts/import-award-records/aha-book-prizes.ts",
+    "data:import:duff-cooper": "tsx scripts/import-award-records/duff-cooper.ts",
+    "data:import:lionel-gelber": "tsx scripts/import-award-records/lionel-gelber.ts",
+    "data:import:ft-business-book": "tsx scripts/import-award-records/ft-business-book.ts",
     "data:validate:raw": "tsx scripts/import-award-records/validate.ts",
     "logos:imprints": "tsx scripts/fetch-imprint-logos.ts",
-    "lint": "next lint"
+    "lint": "tsc --noEmit",
+    "payload:check": "tsx scripts/check-page-payloads.ts"
   },
   "keywords": [],
   "author": "",

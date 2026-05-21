@@ -1,115 +1,231 @@
 {
-  "generatedAt": "2026-05-18",
-  "notes": "Small hand-curated query set for checking semantic book discovery quality. Expected titles are not exhaustive; they are anchors that should rank reasonably well.",
+  "generatedAt": "2026-05-21",
+  "notes": "Graded semantic-search evaluation set. Ratings: 3 = canonical/excellent result for the query, 2 = clearly relevant result, 1 = adjacent or acceptable but not central. The evaluator reports graded top-result quality and anchor recall; this is not an exhaustive relevance set.",
   "queries": [
     {
       "query": "narrative histories that are fun to read",
-      "expectedTitles": [
-        "All the Frequent Troubles of Our Days",
-        "The House of the Dead",
-        "Fordlandia",
-        "The Age of Wonder",
-        "The Swerve",
-        "The Metaphysical Club"
+      "description": "Reader-intent query for accessible, story-driven nonfiction history. Should reward narrative craft and broad readability, not only the word history.",
+      "relevantTitles": [
+        { "title": "The Age of Wonder", "rating": 3, "rationale": "Canonical readable narrative history of Romantic science." },
+        { "title": "The Swerve", "rating": 3, "rationale": "Prize-winning, accessible intellectual/cultural history built around a story." },
+        { "title": "The Metaphysical Club", "rating": 3, "rationale": "Idea history with strong biographical narrative structure." },
+        { "title": "Fordlandia", "rating": 3, "rationale": "Readable narrative history of an ambitious failed industrial project." },
+        { "title": "All the Frequent Troubles of Our Days", "rating": 3, "rationale": "Character-driven wartime history." },
+        { "title": "The House of the Dead", "rating": 3, "rationale": "Narrative history with strong setting and human stakes." },
+        { "title": "Annals of the Former World", "rating": 2, "rationale": "Highly readable narrative nonfiction, though more geology than conventional history." },
+        { "title": "Truevine", "rating": 2, "rationale": "Character-driven reported history." },
+        { "title": "A Summer of Hummingbirds", "rating": 2, "rationale": "Readable cultural history with a cast of characters." },
+        { "title": "Remarkable Creatures", "rating": 2, "rationale": "Accessible narrative history of scientific discovery." },
+        { "title": "The Warmth of Other Suns", "rating": 2, "rationale": "Narrative social history with strong character arcs." },
+        { "title": "Blood Royal", "rating": 1, "rationale": "Narrative history, but narrower and more genre-specific." }
       ]
     },
     {
       "query": "character-driven narrative history",
-      "expectedTitles": [
-        "All the Frequent Troubles of Our Days",
-        "The House of the Dead",
-        "Fordlandia",
-        "The Age of Wonder",
-        "The Swerve",
-        "The Metaphysical Club"
+      "description": "Tests whether reader-profile and summary text surface histories organized around people, scenes, and narrative momentum.",
+      "relevantTitles": [
+        { "title": "Parting the Waters", "rating": 3, "rationale": "Large-scale narrative history centered on Martin Luther King Jr. and movement figures." },
+        { "title": "The Warmth of Other Suns", "rating": 3, "rationale": "Character-driven account of the Great Migration." },
+        { "title": "All the Frequent Troubles of Our Days", "rating": 3, "rationale": "Biographical wartime narrative." },
+        { "title": "Fordlandia", "rating": 3, "rationale": "History told through a vivid place and cast." },
+        { "title": "The Age of Wonder", "rating": 3, "rationale": "History of science told through linked biographies." },
+        { "title": "The House of the Dead", "rating": 3, "rationale": "Narrative history focused on human experience." },
+        { "title": "Truevine", "rating": 2, "rationale": "Strongly character-driven reported history." },
+        { "title": "Blood in the Water", "rating": 2, "rationale": "Narrative history of Attica with institutional and human stakes." },
+        { "title": "The Swerve", "rating": 2, "rationale": "Readable narrative of an intellectual/cultural turning point." },
+        { "title": "Common People", "rating": 2, "rationale": "Family-centered social history." },
+        { "title": "Imperial Intimacies", "rating": 1, "rationale": "Character-centered history but more scholarly." }
       ]
     },
     {
       "query": "big picture intellectual history",
-      "expectedTitles": [
-        "The Metaphysical Club",
-        "The Swerve",
-        "The Age of Wonder",
-        "The Information",
-        "The Gnostic Gospels"
+      "description": "Conceptual history query. Should reward books about ideas, knowledge systems, intellectual movements, and cultural explanation.",
+      "relevantTitles": [
+        { "title": "The Metaphysical Club", "rating": 3, "rationale": "Canonical American intellectual history." },
+        { "title": "The Swerve", "rating": 3, "rationale": "Big-picture history of ideas and textual transmission." },
+        { "title": "The Information", "rating": 3, "rationale": "Broad intellectual history of information theory and communication." },
+        { "title": "The Gnostic Gospels", "rating": 3, "rationale": "Major intellectual/religious history." },
+        { "title": "The Age of Wonder", "rating": 2, "rationale": "History of ideas in science and Romantic culture." },
+        { "title": "A History of Histories", "rating": 2, "rationale": "Meta-history of historical writing." },
+        { "title": "Philology", "rating": 2, "rationale": "History of a foundational humanistic discipline." },
+        { "title": "Revolutionary Ideas", "rating": 2, "rationale": "Explicit intellectual history of the French Revolution." },
+        { "title": "The Geography of the Imagination", "rating": 1, "rationale": "Essayistic intellectual/cultural criticism; adjacent rather than central." },
+        { "title": "The Idea of the Brain", "rating": 1, "rationale": "History of a scientific idea, but less canonical for broad intellectual history." }
       ]
     },
     {
       "query": "Great Depression era politics",
-      "expectedTitles": [
-        "Fear Itself",
-        "The Worst Hard Time",
-        "Voices of Protest",
-        "Franklin D. Roosevelt and American Foreign Policy"
+      "description": "Specific period/topic query. Should retrieve New Deal, Depression-era political conflict, Dust Bowl, and state-power books.",
+      "relevantTitles": [
+        { "title": "Voices of Protest", "rating": 3, "rationale": "Direct hit on Depression-era political movements." },
+        { "title": "Fear Itself", "rating": 3, "rationale": "New Deal political history." },
+        { "title": "Freedom from Fear", "rating": 3, "rationale": "Canonical account of the Depression and wartime period." },
+        { "title": "The Worst Hard Time", "rating": 2, "rationale": "Dust Bowl history tied to the Depression era." },
+        { "title": "Hall of Mirrors", "rating": 2, "rationale": "Compares the Great Depression with the Great Recession." },
+        { "title": "Dancing in the Dark", "rating": 2, "rationale": "Cultural history of the Great Depression." },
+        { "title": "The Crisis of the Old Order", "rating": 2, "rationale": "New Deal-era political history." },
+        { "title": "Roosevelt’s Purge", "rating": 2, "rationale": "FDR and Democratic Party politics." },
+        { "title": "Franklin D. Roosevelt and American Foreign Policy", "rating": 1, "rationale": "Relevant figure/period but less directly about Depression politics." }
       ]
     },
     {
       "query": "civil rights movement narrative history",
-      "expectedTitles": [
-        "Parting the Waters",
-        "Bearing The Cross",
-        "Carry Me Home",
-        "Blood in the Water",
-        "Arc of Justice"
+      "description": "Movement-history query where canonical movement histories should rank, but good local or thematic civil-rights histories are also relevant.",
+      "relevantTitles": [
+        { "title": "Parting the Waters", "rating": 3, "rationale": "Canonical narrative history of the King years." },
+        { "title": "Bearing The Cross", "rating": 3, "rationale": "Major King/SCLC history." },
+        { "title": "Carry Me Home", "rating": 3, "rationale": "Narrative history of Birmingham and the civil rights movement." },
+        { "title": "Arc of Justice", "rating": 3, "rationale": "Civil rights history through a narrative legal case." },
+        { "title": "Blood in the Water", "rating": 2, "rationale": "Civil-rights adjacent prison/uprising history with racial justice stakes." },
+        { "title": "Sweet Land of Liberty", "rating": 2, "rationale": "Strong civil rights history outside the standard southern frame." },
+        { "title": "Before the Movement", "rating": 2, "rationale": "Relevant pre-movement Black civil rights history." },
+        { "title": "Dark Journey", "rating": 2, "rationale": "Jim Crow Mississippi history relevant to movement context." },
+        { "title": "Elizabeth and Hazel", "rating": 1, "rationale": "Civil-rights episode, narrower and more biographical." },
+        { "title": "The Reinvention of Humanity", "rating": 1, "rationale": "Race and anthropology history; adjacent but not a civil rights movement book." }
       ]
     },
     {
       "query": "science books with a sense of wonder and discovery",
-      "expectedTitles": [
-        "The Age of Wonder",
-        "An Immense World",
-        "The Beak of the Finch",
-        "The Making of the Atomic Bomb",
-        "The Invention of Nature"
+      "description": "Reader-intent science query. Should reward accessible science writing about discovery, perception, exploration, and big scientific ideas.",
+      "relevantTitles": [
+        { "title": "The Age of Wonder", "rating": 3, "rationale": "Canonical science discovery narrative with explicit wonder theme." },
+        { "title": "An Immense World", "rating": 3, "rationale": "Accessible science writing centered on sensory wonder." },
+        { "title": "The Beak of the Finch", "rating": 3, "rationale": "Classic narrative of scientific discovery in evolution." },
+        { "title": "The Invention of Nature", "rating": 3, "rationale": "Science biography with exploration and discovery." },
+        { "title": "The Making of the Atomic Bomb", "rating": 2, "rationale": "Major science history; more grave than wonder-driven." },
+        { "title": "Cosmos", "rating": 2, "rationale": "Classic wonder-oriented science writing." },
+        { "title": "Remarkable Creatures", "rating": 2, "rationale": "Discovery-centered science history." },
+        { "title": "The Possibility of Life", "rating": 2, "rationale": "Accessible cosmic science with imagination and discovery." },
+        { "title": "Aeons", "rating": 2, "rationale": "Search for deep time; discovery-oriented." },
+        { "title": "Massive", "rating": 1, "rationale": "Scientific hunt narrative; narrower physics focus." }
       ]
     },
     {
       "query": "reported books about poverty housing and inequality",
-      "expectedTitles": [
-        "Evicted",
-        "Invisible Child",
-        "$2.00 a Day",
-        "Behind the Beautiful Forevers"
+      "description": "Reported social nonfiction query. Should retrieve poverty, housing, homelessness, low-wage work, and inequality reporting.",
+      "relevantTitles": [
+        { "title": "Evicted", "rating": 3, "rationale": "Canonical poverty/housing reporting." },
+        { "title": "Invisible Child", "rating": 3, "rationale": "Reported poverty/homelessness narrative." },
+        { "title": "$2.00 a Day", "rating": 3, "rationale": "Direct poverty and inequality book." },
+        { "title": "Behind the Beautiful Forevers", "rating": 3, "rationale": "Reported poverty and inequality narrative." },
+        { "title": "There Are No Children Here", "rating": 2, "rationale": "Classic reported urban poverty book." },
+        { "title": "The Other America", "rating": 2, "rationale": "Foundational poverty book, less reported narrative." },
+        { "title": "High-Risers", "rating": 2, "rationale": "Public housing history and reporting." },
+        { "title": "There Is No Place for Us", "rating": 2, "rationale": "Direct homelessness and working poverty relevance." },
+        { "title": "Poor Economics", "rating": 1, "rationale": "Poverty and inequality, but more policy/economics than reported narrative." },
+        { "title": "Give People Money", "rating": 1, "rationale": "Poverty-policy adjacent." }
       ]
     },
     {
       "query": "Cold War espionage and intelligence history",
-      "expectedTitles": [
-        "Ghost Wars",
-        "Legacy of Ashes",
-        "The Looming Tower",
-        "The Dead Hand",
-        "The Cold War"
+      "description": "Mixed topical/genre query. Should retrieve spy, CIA, intelligence, arms race, and Cold War security histories.",
+      "relevantTitles": [
+        { "title": "Legacy of Ashes", "rating": 3, "rationale": "Canonical CIA history." },
+        { "title": "Ghost Wars", "rating": 3, "rationale": "CIA/Afghanistan intelligence history rooted in late Cold War consequences." },
+        { "title": "The Dead Hand", "rating": 3, "rationale": "Cold War arms race and secret state history." },
+        { "title": "The Spy and the Traitor", "rating": 3, "rationale": "Direct Cold War espionage narrative." },
+        { "title": "The Cold War as History", "rating": 2, "rationale": "Direct Cold War history, less espionage-focused." },
+        { "title": "The Global Cold War", "rating": 2, "rationale": "Major Cold War history, broader than espionage." },
+        { "title": "In the Enemy's House", "rating": 2, "rationale": "Direct spy/codebreaker history." },
+        { "title": "Inside the Kremlin's Cold War", "rating": 2, "rationale": "Cold War Soviet leadership/security context." },
+        { "title": "The Looming Tower", "rating": 1, "rationale": "Intelligence failure and terrorism, but post-Cold War/9-11 focus." },
+        { "title": "Iron Curtain", "rating": 1, "rationale": "Cold War political history, not espionage-centered." }
       ]
     },
     {
       "query": "environmental history of capitalism and industry",
-      "expectedTitles": [
-        "Fordlandia",
-        "The Cigarette Century",
-        "Amity and Prosperity",
-        "The Gulf",
-        "Empire of Cotton"
+      "description": "Cross-domain query joining environmental history, business/capitalism, extraction, agriculture, pollution, and industrial systems.",
+      "relevantTitles": [
+        { "title": "Fordlandia", "rating": 3, "rationale": "Capitalist industry, environment, and failed plantation/industrial project." },
+        { "title": "The Cigarette Century", "rating": 3, "rationale": "Industry, capitalism, public health, and environmental/social harm." },
+        { "title": "Amity and Prosperity", "rating": 3, "rationale": "Extraction, industry, pollution, and community harm." },
+        { "title": "The Gulf", "rating": 3, "rationale": "Environmental history shaped by economic development." },
+        { "title": "Empire of Cotton", "rating": 3, "rationale": "Capitalism, commodity systems, land, labor, and environment." },
+        { "title": "Floating Coast", "rating": 2, "rationale": "Strong environmental history with political economy." },
+        { "title": "Diet for a Large Planet", "rating": 2, "rationale": "Food systems, ecology, and industrial capitalism." },
+        { "title": "Carbon Colonialism", "rating": 2, "rationale": "Climate, capitalism, and colonial/extractive systems." },
+        { "title": "Fighting King Coal", "rating": 2, "rationale": "Industry, environment, labor/community politics." },
+        { "title": "Deforesting the Earth", "rating": 1, "rationale": "Environmental history, but capitalism/industry emphasis may be weaker." },
+        { "title": "Nature: An Economic History", "rating": 1, "rationale": "Economic framing of nature, but not necessarily industrial history." }
       ]
     },
     {
       "query": "memoir about grief family and illness",
-      "expectedTitles": [
-        "The Undying",
-        "H Is for Hawk",
-        "The Light of the World",
-        "When Breath Becomes Air",
-        "Angela's Ashes"
+      "description": "Reader-intent memoir query. Should retrieve personal illness, grief, caregiving, death, family, and bereavement memoirs.",
+      "relevantTitles": [
+        { "title": "The Undying", "rating": 3, "rationale": "Canonical illness/cancer memoir with grief and care." },
+        { "title": "H Is for Hawk", "rating": 3, "rationale": "Canonical grief memoir." },
+        { "title": "The Light of the World", "rating": 3, "rationale": "Direct grief/family memoir." },
+        { "title": "When Breath Becomes Air", "rating": 3, "rationale": "Canonical illness and mortality memoir." },
+        { "title": "The Year of Magical Thinking", "rating": 3, "rationale": "Canonical grief memoir." },
+        { "title": "Angela's Ashes", "rating": 2, "rationale": "Family memoir; less centrally illness/grief." },
+        { "title": "The Invisible Kingdom", "rating": 2, "rationale": "Illness memoir/essayistic nonfiction." },
+        { "title": "Fi", "rating": 2, "rationale": "Memoir of losing a child." },
+        { "title": "In Gratitude", "rating": 2, "rationale": "Illness/mortality memoir." },
+        { "title": "One Hundred Names for Love", "rating": 2, "rationale": "Family/caregiving illness memoir." },
+        { "title": "Mother Archive", "rating": 1, "rationale": "Family memoir, less centrally grief/illness." }
       ]
     },
     {
       "query": "books about race medicine and public health",
-      "expectedTitles": [
-        "Medical Apartheid",
-        "The Emperor of All Maladies",
-        "The Spirit Catches You and You Fall Down",
-        "Dopesick",
-        "Blood"
+      "description": "Cross-topic query for medical racism, public health, disease, care systems, and medicine in society.",
+      "relevantTitles": [
+        { "title": "Medical Apartheid", "rating": 3, "rationale": "Direct medical racism history." },
+        { "title": "The Immortal Life of Henrietta Lacks", "rating": 3, "rationale": "Race, medicine, research ethics, and public understanding." },
+        { "title": "The Spirit Catches You and You Fall Down", "rating": 3, "rationale": "Medicine, culture, race/ethnicity, and care systems." },
+        { "title": "Dopesick", "rating": 3, "rationale": "Public health crisis and medical/pharmaceutical systems." },
+        { "title": "The Emperor of All Maladies", "rating": 2, "rationale": "Major medical history, less race-centered." },
+        { "title": "Diabetes: A History of Race and Disease", "rating": 2, "rationale": "Direct race/disease history." },
+        { "title": "Black Religion in the Madhouse", "rating": 2, "rationale": "Race, psychiatry, and institutional medicine." },
+        { "title": "Divided: Racism, Medicine and Why We Need to Decolonise Healthcare", "rating": 2, "rationale": "Direct race and medicine topic." },
+        { "title": "The Troubled Dream of Genetic Medicine", "rating": 2, "rationale": "Genetic medicine and ethnicity." },
+        { "title": "The Healing of America", "rating": 1, "rationale": "Health-care systems, less race-specific." }
+      ]
+    },
+    {
+      "query": "books about technology power and modern society",
+      "description": "Broad contemporary technology/social power query. Should retrieve AI, digital platforms, surveillance, data, and technology political economy.",
+      "relevantTitles": [
+        { "title": "The Age of Surveillance Capitalism", "rating": 3, "rationale": "Canonical technology, power, and society book." },
+        { "title": "The Coming Wave", "rating": 3, "rationale": "AI and technology governance." },
+        { "title": "The Rise of Big Data Policing", "rating": 3, "rationale": "Technology, state power, policing, and society." },
+        { "title": "We, The Data", "rating": 2, "rationale": "Digital technology, human rights, and governance." },
+        { "title": "The Information", "rating": 2, "rationale": "History of information and society." },
+        { "title": "Big Data", "rating": 2, "rationale": "Data-driven technology and social transformation." },
+        { "title": "Invisible Women", "rating": 2, "rationale": "Data bias, design, and social power." },
+        { "title": "Life 3.0", "rating": 1, "rationale": "AI and society, more speculative." },
+        { "title": "New Power", "rating": 1, "rationale": "Digital/social organization, somewhat adjacent." }
+      ]
+    },
+    {
+      "query": "global histories of empire trade and commodities",
+      "description": "Global history query for empire, trade, commodity chains, capitalism, and colonial systems.",
+      "relevantTitles": [
+        { "title": "Empire of Cotton", "rating": 3, "rationale": "Canonical global commodity/capitalism history." },
+        { "title": "The Anarchy", "rating": 3, "rationale": "East India Company, empire, and trade power." },
+        { "title": "A Thirst for Empire", "rating": 3, "rationale": "Tea, empire, and global commodity history." },
+        { "title": "A Splendid Exchange", "rating": 2, "rationale": "Global history of trade." },
+        { "title": "Sugar and Slaves", "rating": 2, "rationale": "Sugar, slavery, and Atlantic colonial capitalism." },
+        { "title": "Atlantic Crossings", "rating": 1, "rationale": "Transnational history, less commodity-centered." },
+        { "title": "The World for Sale", "rating": 2, "rationale": "Commodity traders and global power." },
+        { "title": "Captives and Companions", "rating": 2, "rationale": "Slavery and trade in the Islamic world." },
+        { "title": "A Fistful of Shells", "rating": 2, "rationale": "West Africa, trade, slavery, and global history." }
+      ]
+    },
+    {
+      "query": "accessible books about ancient history and archaeology",
+      "description": "Discovery query for readable ancient-world, classical, archaeology, and material culture books.",
+      "relevantTitles": [
+        { "title": "SPQR", "rating": 3, "rationale": "Accessible ancient Roman history." },
+        { "title": "The Making of the Middle Sea", "rating": 3, "rationale": "Accessible large-scale ancient Mediterranean history." },
+        { "title": "The Fate of Rome", "rating": 2, "rationale": "Ancient history through climate and disease." },
+        { "title": "The World of Thought in Ancient China", "rating": 2, "rationale": "Ancient intellectual history, somewhat more scholarly." },
+        { "title": "Persia: Ancient Iran and the Classical World", "rating": 2, "rationale": "Ancient world/material culture." },
+        { "title": "Archaeology From Space", "rating": 2, "rationale": "Accessible archaeology and discovery." },
+        { "title": "The Five-Million-Year Odyssey", "rating": 1, "rationale": "Deep human past, adjacent to archaeology." },
+        { "title": "Mesopotamia: Civilization Begins", "rating": 2, "rationale": "Ancient Mesopotamia and material culture." },
+        { "title": "Julius Caesar and the Roman People", "rating": 2, "rationale": "Ancient Roman history." },
+        { "title": "Democracy and Knowledge", "rating": 1, "rationale": "Classical Greek political/intellectual history, somewhat more scholarly." }
       ]
     }
   ]

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { SemanticQueryInterpretation, SemanticSearchResult } from "@/lib/semantic-search";
+import type { SemanticQueryExpansionModel, SemanticQueryInterpretation, SemanticSearchResult } from "@/lib/semantic-search";
 
 export type SemanticBookSearchState = {
   diagnostics: SemanticSearchDiagnostics | null;
@@ -21,6 +21,7 @@ export type SemanticSearchDiagnostics = {
   indexGeneratedAt?: string;
   interpretationModel?: string;
   rankingTerms?: string[];
+  queryExpansionModel?: SemanticQueryExpansionModel;
   resultCount?: number;
   usedModelInterpretation?: boolean;
 };
@@ -30,11 +31,13 @@ export function useSemanticBookSearch({
   enabled,
   limit = 250,
   query,
+  queryExpansionModel = "gemini-3.5-flash",
 }: {
   candidateBookIds: string[];
   enabled: boolean;
   limit?: number;
   query: string;
+  queryExpansionModel?: SemanticQueryExpansionModel;
 }) {
   const [state, setState] = useState<SemanticBookSearchState>({
     diagnostics: null,
@@ -60,7 +63,7 @@ export function useSemanticBookSearch({
         const response = await fetch("/api/search/semantic", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ candidateBookIds, limit, query: trimmed }),
+          body: JSON.stringify({ candidateBookIds, limit, query: trimmed, queryExpansionModel }),
           signal: controller.signal,
         });
         const json = await response.json().catch(() => ({}));
@@ -93,7 +96,7 @@ export function useSemanticBookSearch({
       window.clearTimeout(timeout);
       controller.abort();
     };
-  }, [candidateBookIds, candidateKey, enabled, limit, query]);
+  }, [candidateBookIds, candidateKey, enabled, limit, query, queryExpansionModel]);
 
   return state;
 }

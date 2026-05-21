@@ -1,6 +1,16 @@
 {
-  "missingPublisherCount": 2545,
-  "missingImprintCount": 2569,
-  "missingSourceUrlsForAppearances": 42,
+  "missingPublisherCount": 2405,
+  "missingImprintCount": 2430,
+  "missingSourceUrlsForAppearanceSources": 42,
+  "appearanceSourceUrlGaps": [
+    {
+      "sourceId": "source-nonfiction-history-awards-by-imprint",
+      "count": 42,
+      "label": "Nonfiction history awards by imprint seed workbook",
+      "confidence": "manual",
+      "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+    }
+  ],
+  "appearancesWithoutSourceIds": 0,
   "unknownStatusCount": 0
 }
