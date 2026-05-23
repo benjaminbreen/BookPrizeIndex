@@ -287,12 +287,20 @@ export function semanticHybridScore({
   const hitTermWeight = hits.reduce((sum, term) => sum + (termWeights?.get(term) ?? 1), 0);
   const keywordBoost = totalTermWeight ? Math.min(1, hitTermWeight / totalTermWeight) : 0;
   const fieldBoost = fieldAwareTermScore(row, terms, termWeights, readerExperienceQuery);
-  const conceptNeedles = uniqueNormalized([...coreConcepts, ...adventurousConcepts.map((concept) => `adventurous ${concept}`), ...(interpretation?.subjects ?? [])])
+  const coreConceptNeedles = uniqueNormalized([...coreConcepts, ...(interpretation?.subjects ?? [])])
     .filter((needle) => needle.length >= 4)
     .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+  const adventurousConceptNeedles = uniqueNormalized(adventurousConcepts)
+    .filter((needle) => needle.length >= 4)
+    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+  const conceptNeedles = uniqueNormalized([...coreConceptNeedles, ...adventurousConceptNeedles]);
   const conceptHits = conceptNeedles.filter((needle) => rowSearch.includes(needle));
-  const totalConceptWeight = conceptNeedles.reduce((sum, needle) => sum + conceptWeight(needle, termWeights), 0);
-  const hitConceptWeight = conceptHits.reduce((sum, needle) => sum + conceptWeight(needle, termWeights), 0);
+  const totalConceptWeight =
+    coreConceptNeedles.reduce((sum, needle) => sum + conceptWeight(needle, termWeights), 0) +
+    adventurousConceptNeedles.reduce((sum, needle) => sum + conceptWeight(needle, termWeights) * 0.65, 0);
+  const hitConceptWeight =
+    coreConceptNeedles.filter((needle) => rowSearch.includes(needle)).reduce((sum, needle) => sum + conceptWeight(needle, termWeights), 0) +
+    adventurousConceptNeedles.filter((needle) => rowSearch.includes(needle)).reduce((sum, needle) => sum + conceptWeight(needle, termWeights) * 0.65, 0);
   const conceptBoost = totalConceptWeight ? Math.min(1, hitConceptWeight / totalConceptWeight) : 0;
   const topicNeedles = uniqueNormalized([...(interpretation?.subjects ?? []), ...coreConcepts, ...adventurousConcepts, ...inferredSubjectNeedles(query, interpretation)])
     .filter(Boolean)

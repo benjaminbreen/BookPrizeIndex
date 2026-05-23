@@ -79,6 +79,7 @@ const limit = positiveNumber(readArg("--limit") ?? process.env.WIKIPEDIA_ENRICH_
 const concurrency = positiveNumber(readArg("--concurrency") ?? process.env.WIKIPEDIA_ENRICH_CONCURRENCY, 1);
 const minRequestInterval = positiveNumber(readArg("--request-delay") ?? process.env.WIKIPEDIA_ENRICH_REQUEST_DELAY, 900);
 const minScore = Number(readArg("--min-score") ?? process.env.WIKIPEDIA_ENRICH_MIN_SCORE ?? "0.74");
+const checkpointEvery = positiveNumber(readArg("--checkpoint-every") ?? process.env.WIKIPEDIA_ENRICH_CHECKPOINT_EVERY, 0);
 const retry = hasArg("--retry") || process.env.WIKIPEDIA_ENRICH_RETRY === "1";
 const writeSummary = hasArg("--write-summary") || process.env.WIKIPEDIA_ENRICH_WRITE_SUMMARY === "1";
 const missingSummaryOnly = hasArg("--missing-summary-only") || process.env.WIKIPEDIA_ENRICH_MISSING_SUMMARY_ONLY === "1";
@@ -90,11 +91,41 @@ async function main() {
   const patch = await readExistingPatch(generatedAt);
   const previousReviewBookIds = retry ? new Set<string>() : await readPreviousReviewBookIds();
   const selected = selectBooks(patch, previousReviewBookIds).slice(0, limit);
-  const results = await mapConcurrent(selected, concurrency, (book, index) => enrichBook(book, index + 1, selected.length, generatedAt, patch));
-  const report = results.map((row) => row.report);
+  const report: ReportRow[] = [];
+  let completedCount = 0;
+  let checkpointChain = Promise.resolve();
 
   await fs.mkdir(outputDir, { recursive: true });
   await fs.mkdir(publicDataDir, { recursive: true });
+
+  const checkpoint = async (force = false) => {
+    if (!force && (!checkpointEvery || completedCount % checkpointEvery !== 0)) return;
+    await writeOutputs(generatedAt, patch, report, previousReviewBookIds.size, selected.length);
+  };
+
+  await mapConcurrent(selected, concurrency, async (book, index) => {
+    const result = await enrichBook(book, index + 1, selected.length, generatedAt, patch);
+    checkpointChain = checkpointChain.then(async () => {
+      report.push(result.report);
+      completedCount += 1;
+      await checkpoint();
+    });
+    await checkpointChain;
+  });
+  await checkpointChain;
+  await checkpoint(true);
+
+  console.log(`Enriched ${report.filter((row) => row.status === "enriched").length}/${selected.length} books with Wikipedia evidence.`);
+}
+
+async function writeOutputs(
+  generatedAt: string,
+  patch: WikipediaGeneratedPatch,
+  report: ReportRow[],
+  skippedPreviousReviewCount: number,
+  selectedCount: number,
+) {
+  patch.generatedAt = generatedAt;
   await fs.writeFile(outputPath, `${JSON.stringify(sortPatch(patch), null, 2)}\n`);
   await fs.writeFile(
     reportPath,
@@ -104,16 +135,16 @@ async function main() {
       concurrency,
       minScore,
       requestDelay: minRequestInterval,
-      skippedPreviousReviewCount: previousReviewBookIds.size,
-      selectedCount: selected.length,
+      checkpointEvery,
+      skippedPreviousReviewCount,
+      selectedCount,
+      completedCount: report.length,
       enrichedCount: report.filter((row) => row.status === "enriched").length,
       cachedEvidenceCount: Object.keys(patch.wikipediaEvidence).length,
       cachedPublisherEvidenceBooks: Object.keys(patch.publisherEvidence).length,
       report,
     }, null, 2)}\n`,
   );
-
-  console.log(`Enriched ${report.filter((row) => row.status === "enriched").length}/${selected.length} books with Wikipedia evidence.`);
 }
 
 async function enrichBook(
@@ -333,8 +364,11 @@ function scoreCandidate(book: Book, page: CandidatePage): MatchResult {
   const isbnScore = book.isbn13.some((isbn) => page.infobox?.isbn?.replace(/[^0-9X]/gi, "").includes(isbn.replace(/[^0-9X]/gi, ""))) ? 0.12 : 0;
   const bookness = isBookPage(page) ? 0.12 : 0;
   const score = Number(Math.min(1, titleScore * 0.64 + authorScore * 0.24 + yearScore + isbnScore + bookness).toFixed(3));
-  const accepted = score >= minScore && titleScore >= 0.72 && (authorScore >= 0.35 || bookness > 0);
   const confidence = score >= 0.9 && authorScore >= 0.5 ? "high" : score >= minScore ? "medium" : "low";
+  const accepted = score >= minScore
+    && titleScore >= 0.72
+    && (authorScore >= 0.35 || bookness > 0)
+    && (bookness > 0 || confidence === "high");
   return {
     page,
     score,

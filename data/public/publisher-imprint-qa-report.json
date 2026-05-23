@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-13T05:22:06.433Z",
+  "generatedAt": "2026-05-21T22:39:05.380Z",
   "summary": {
-    "publisherIssues": 583,
-    "highSeverityPublisherIssues": 8,
-    "imprintDuplicateGroups": 155,
-    "zeroBookPublishers": 306
+    "publisherIssues": 687,
+    "highSeverityPublisherIssues": 10,
+    "imprintDuplicateGroups": 187,
+    "zeroBookPublishers": 364
   },
   "notes": [
     "This report preserves imprint-level granularity. Fix mapped raw publisher strings by adding or refining sources/imprint-normalization.json entries, then run npm run data:imprints.",
@@ -26,23 +26,6 @@
           "author": "Kate Summerscale",
           "year": 2008,
           "publisherId": "publisher-clipper-large-print"
-        }
-      ]
-    },
-    {
-      "publisherId": "publisher-kessinger-publishing",
-      "publisherName": "Kessinger Publishing",
-      "issue": "retailer_or_edition_noise",
-      "severity": "high",
-      "reason": "Publisher string looks like a retailer, school/library binding, audiobook, large-print, or reprint edition source. Review the affected books and curate the original or award-relevant imprint.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-as-i-remember-him-the-biography-of-r-s-hans-zinsser",
-          "title": "As I Remember Him: The Biography of R.S.",
-          "author": "Hans Zinsser",
-          "year": 2005,
-          "publisherId": "publisher-kessinger-publishing"
         }
       ]
     },
@@ -91,6 +74,7 @@
           "bookId": "book-for-the-soul-of-mankind-the-united-states-the-soviet-union-and-the-cold-war-melvyn-leffler",
           "title": "For the Soul of Mankind: The United States, the Soviet Union, and the Cold War",
           "author": "Melvyn Leffler",
+          "year": 2007,
           "publisherId": "publisher-farrar-straus-and-giroux",
           "imprintId": "imprint-hill-and-wang"
         },
@@ -150,6 +134,7 @@
           "bookId": "book-a-companion-to-classical-receptions-lorna-hardwick-and-christopher-stray",
           "title": "A Companion to Classical Receptions",
           "author": "Lorna Hardwick, Christopher Stray",
+          "year": 2007,
           "publisherId": "publisher-john-wiley-and-sons",
           "imprintId": "imprint-wiley-blackwell"
         },
@@ -164,6 +149,7 @@
           "bookId": "book-happiness-unlocking-the-mysteries-of-psychological-wealth-ed-diener-and-robert-biswas-diener",
           "title": "Happiness: Unlocking the Mysteries of Psychological Wealth",
           "author": "Ed Diener, Robert Biswas-Diener",
+          "year": 2008,
           "publisherId": "publisher-john-wiley-and-sons",
           "imprintId": "imprint-wiley-blackwell"
         },
@@ -171,6 +157,7 @@
           "bookId": "book-the-worldwide-history-of-telecommunications-anton-a-huurdeman",
           "title": "The Worldwide History of Telecommunications",
           "author": "Anton A. Huurdeman",
+          "year": 2003,
           "publisherId": "publisher-john-wiley-and-sons",
           "imprintId": "imprint-wiley-ieee-press"
         },
@@ -184,104 +171,150 @@
       ]
     },
     {
-      "publisherId": "publisher-appleton",
-      "publisherName": "Appleton",
+      "publisherId": "publisher-princeton-university-press",
+      "publisherName": "Princeton University Press",
       "issue": "mapped_raw_publisher_still_present",
       "severity": "high",
       "reason": "Publisher name already has a raw-string to imprint mapping, but some books still lack the canonical imprint.",
-      "bookCount": 1,
-      "suggestedImprintName": "D. Appleton and Company",
-      "suggestedPublisherName": "D. Appleton and Company",
+      "bookCount": 2,
+      "suggestedImprintId": "imprint-princeton-university-press",
+      "suggestedImprintName": "Princeton University Press",
+      "suggestedPublisherId": "publisher-princeton-university-press",
+      "suggestedPublisherName": "Princeton University Press",
       "mappedRawNames": [
-        "Appleton"
+        "Princeton University Press"
       ],
       "sampleBooks": [
         {
-          "bookId": "book-james-kent-a-study-in-conservatism-john-horton",
-          "title": "James Kent: A Study in Conservatism",
-          "author": "John Horton",
-          "publisherId": "publisher-appleton"
+          "bookId": "book-wilson-the-new-freedom-arthur-s-link",
+          "title": "Wilson: the New Freedom",
+          "author": "Arthur S. Link",
+          "year": 1956,
+          "publisherId": "publisher-princeton-university-press"
+        },
+        {
+          "bookId": "book-wilson-the-struggle-for-neutrality-1914-1915-arthur-s-link",
+          "title": "Wilson: The Struggle for Neutrality, 1914-1915",
+          "author": "Arthur S. Link",
+          "year": 1960,
+          "publisherId": "publisher-princeton-university-press"
         }
       ]
     },
     {
-      "publisherId": "publisher-godine",
-      "publisherName": "Godine",
+      "publisherId": "publisher-ballantine-books",
+      "publisherName": "Ballantine Books",
       "issue": "mapped_raw_publisher_still_present",
       "severity": "high",
       "reason": "Publisher name already has a raw-string to imprint mapping, but some books still lack the canonical imprint.",
       "bookCount": 1,
-      "suggestedImprintName": "David R. Godine",
-      "suggestedPublisherName": "David R. Godine",
-      "mappedRawNames": [
-        "Godine"
-      ],
-      "sampleBooks": [
-        {
-          "bookId": "book-broken-vessels-andre-dubus",
-          "title": "Broken Vessels",
-          "author": "Andre Dubus",
-          "publisherId": "publisher-godine"
-        }
-      ]
-    },
-    {
-      "publisherId": "publisher-nan-a-talese-doubleday",
-      "publisherName": "Nan A. Talese/Doubleday",
-      "issue": "mapped_raw_publisher_still_present",
-      "severity": "high",
-      "reason": "Publisher name already has a raw-string to imprint mapping, but some books still lack the canonical imprint.",
-      "bookCount": 1,
-      "suggestedImprintName": "Nan A. Talese",
+      "suggestedImprintId": "imprint-ballantine-books",
+      "suggestedImprintName": "Ballantine Books",
       "suggestedPublisherId": "publisher-penguin-random-house",
       "suggestedPublisherName": "Penguin Random House",
       "mappedRawNames": [
-        "Nan A. Talese/Doubleday"
+        "Ballantine Books"
       ],
       "sampleBooks": [
         {
-          "bookId": "book-an-american-summer-love-and-death-in-chicago-alex-kotlowitz",
-          "title": "An American Summer: Love and Death in Chicago",
-          "author": "Alex Kotlowitz",
-          "year": 2019,
-          "publisherId": "publisher-nan-a-talese-doubleday"
+          "bookId": "book-peter-the-great-his-life-and-world-robert-k-massie",
+          "title": "Peter the Great: His Life and World",
+          "author": "Robert K. Massie",
+          "year": 1982,
+          "publisherId": "publisher-ballantine-books"
         }
       ]
     },
     {
-      "publisherId": "publisher-penguin-random-house",
-      "publisherName": "Penguin Random House",
-      "issue": "parent_without_imprint",
-      "severity": "medium",
-      "reason": "Book is attached to a broad parent publisher without a specific imprint. Imprint-level curation should fill these where source evidence supports it.",
-      "bookCount": 407,
+      "publisherId": "publisher-fourth-estate",
+      "publisherName": "Fourth Estate",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "high",
+      "reason": "Publisher name already has a raw-string to imprint mapping, but some books still lack the canonical imprint.",
+      "bookCount": 1,
+      "suggestedImprintId": "imprint-fourth-estate",
+      "suggestedImprintName": "Fourth Estate",
+      "suggestedPublisherId": "publisher-harpercollins",
+      "suggestedPublisherName": "HarperCollins",
+      "mappedRawNames": [
+        "Fourth Estate"
+      ],
       "sampleBooks": [
         {
-          "bookId": "book-a-bold-and-dangerous-family-the-rossellis-and-the-fight-against-mussolini-caroline-moorehead",
-          "title": "A Bold and Dangerous Family: The Rossellis and the Fight Against Mussolini",
-          "author": "Caroline Moorehead",
-          "year": 2017,
-          "publisherId": "publisher-penguin-random-house"
-        },
+          "bookId": "book-the-information-a-history-a-theory-a-flood-james-gleick",
+          "title": "The Information: A History, a Theory, a Flood",
+          "author": "James Gleick",
+          "year": 2011,
+          "publisherId": "publisher-fourth-estate"
+        }
+      ]
+    },
+    {
+      "publisherId": "publisher-mariner-books",
+      "publisherName": "Mariner Books",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "high",
+      "reason": "Publisher name already has a raw-string to imprint mapping, but some books still lack the canonical imprint.",
+      "bookCount": 1,
+      "suggestedImprintId": "imprint-mariner-books",
+      "suggestedImprintName": "Mariner Books",
+      "suggestedPublisherId": "publisher-harpercollins",
+      "suggestedPublisherName": "HarperCollins",
+      "mappedRawNames": [
+        "Mariner Books"
+      ],
+      "sampleBooks": [
         {
-          "bookId": "book-bringing-ben-home-a-murder-a-conviction-and-the-fight-to-redeem-american-justice-barbara-bradley",
-          "title": "Bringing Ben Home: A Murder, a Conviction, and the Fight to Redeem American Justice",
-          "author": "Barbara Bradley Hagerty",
-          "publisherId": "publisher-penguin-random-house"
-        },
+          "bookId": "book-the-worst-hard-time-the-untold-story-of-those-who-survived-the-great-american-dust-bowl-timothy-",
+          "title": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl",
+          "author": "Timothy Egan",
+          "year": 2006,
+          "publisherId": "publisher-mariner-books"
+        }
+      ]
+    },
+    {
+      "publisherId": "publisher-university-of-virginia-press",
+      "publisherName": "University of Virginia Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "high",
+      "reason": "Publisher name already has a raw-string to imprint mapping, but some books still lack the canonical imprint.",
+      "bookCount": 1,
+      "suggestedImprintName": "University of Virginia Press",
+      "suggestedPublisherId": "publisher-university-of-virginia-press",
+      "suggestedPublisherName": "University of Virginia Press",
+      "mappedRawNames": [
+        "University of Virginia Press"
+      ],
+      "sampleBooks": [
         {
-          "bookId": "book-patriot-a-memoir-alexei-navalny",
-          "title": "Patriot: A Memoir",
-          "author": "Alexei Navalny",
-          "year": 2024,
-          "publisherId": "publisher-penguin-random-house"
-        },
+          "bookId": "book-jefferson-and-his-time-the-sage-of-monticello-dumas-malone",
+          "title": "Jefferson and His Time: The Sage of Monticello",
+          "author": "Dumas Malone",
+          "publisherId": "publisher-university-of-virginia-press"
+        }
+      ]
+    },
+    {
+      "publisherId": "publisher-world",
+      "publisherName": "World",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "high",
+      "reason": "Publisher name already has a raw-string to imprint mapping, but some books still lack the canonical imprint.",
+      "bookCount": 1,
+      "suggestedImprintName": "World Publishing Company",
+      "suggestedPublisherId": "publisher-world",
+      "suggestedPublisherName": "World Publishing Company",
+      "mappedRawNames": [
+        "World"
+      ],
+      "sampleBooks": [
         {
-          "bookId": "book-will-in-the-world-how-shakespeare-became-shakespeare-stephen-greenblatt",
-          "title": "Will in the World: How Shakespeare Became Shakespeare",
-          "author": "Stephen Greenblatt",
-          "year": 2007,
-          "publisherId": "publisher-penguin-random-house"
+          "bookId": "book-the-armies-of-the-night-history-as-a-novel-the-novel-as-history-norman-mailer",
+          "title": "The Armies of the Night: History as a Novel, The Novel as History",
+          "author": "Norman Mailer",
+          "year": 1968,
+          "publisherId": "publisher-world"
         }
       ]
     },
@@ -297,45 +330,7 @@
           "bookId": "book-appeasing-hitler-chamberlain-churchill-and-the-road-to-war-tim-bouverie",
           "title": "Appeasing Hitler: Chamberlain, Churchill and the Road to War",
           "author": "Tim Bouverie",
-          "year": 2022,
           "publisherId": "publisher-random-house-espanol"
-        }
-      ]
-    },
-    {
-      "publisherId": "publisher-random-house-value-publishing",
-      "publisherName": "Random House Value Publishing",
-      "issue": "parent_without_imprint",
-      "severity": "medium",
-      "reason": "Book is attached to a broad parent publisher without a specific imprint. Imprint-level curation should fill these where source evidence supports it.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-look-homeward-a-life-of-thomas-wolfe-david-herbert-donald",
-          "title": "Look Homeward: A Life of Thomas Wolfe",
-          "author": "David Herbert Donald",
-          "year": 1989,
-          "publisherId": "publisher-random-house-value-publishing"
-        }
-      ]
-    },
-    {
-      "publisherId": "publisher-pegasus-books",
-      "publisherName": "Pegasus Books",
-      "issue": "possible_duplicate_of_imprint",
-      "severity": "medium",
-      "reason": "Publisher name matches an existing imprint. If this string came from catalog metadata, map it to the canonical imprint rather than keeping a separate publisher row.",
-      "bookCount": 1,
-      "suggestedImprintId": "imprint-pegasus-books",
-      "suggestedImprintName": "Pegasus Books",
-      "suggestedPublisherId": "publisher-pegasus-books",
-      "suggestedPublisherName": "Pegasus Books",
-      "sampleBooks": [
-        {
-          "bookId": "book-the-light-that-failed-a-reckoning-ivan-krastev-and-stephen-holmes",
-          "title": "The Light that Failed: A Reckoning",
-          "author": "Ivan Krastev, Stephen Holmes",
-          "publisherId": "publisher-pegasus-books"
         }
       ]
     },
@@ -362,69 +357,48 @@
       ]
     },
     {
-      "publisherId": "publisher-secker-and-warburg",
-      "publisherName": "Secker & Warburg",
+      "publisherId": "publisher-taylor-and-francis",
+      "publisherName": "Taylor & Francis",
       "issue": "possible_duplicate_of_imprint",
       "severity": "medium",
       "reason": "Publisher name matches an existing imprint. If this string came from catalog metadata, map it to the canonical imprint rather than keeping a separate publisher row.",
       "bookCount": 1,
-      "suggestedImprintId": "imprint-secker-and-warburg",
-      "suggestedImprintName": "Secker & Warburg",
-      "suggestedPublisherId": "publisher-penguin-random-house",
-      "suggestedPublisherName": "Penguin Random House",
+      "suggestedImprintId": "imprint-taylor-and-francis",
+      "suggestedImprintName": "Taylor & Francis",
+      "suggestedPublisherId": "publisher-taylor-and-francis",
+      "suggestedPublisherName": "Taylor & Francis",
       "sampleBooks": [
         {
-          "bookId": "book-john-keats-the-making-of-a-poet-aileen-ward",
-          "title": "John Keats: The Making of a Poet",
-          "author": "Aileen Ward",
-          "year": 1963,
-          "publisherId": "publisher-secker-and-warburg"
+          "bookId": "book-solzhenitsyn-a-biography-michael-scammell",
+          "title": "Solzhenitsyn: A Biography",
+          "author": "Michael Scammell",
+          "year": 1984,
+          "publisherId": "publisher-taylor-and-francis",
+          "imprintId": "imprint-routledge"
         }
       ]
     },
     {
-      "publisherId": "publisher-times-books",
-      "publisherName": "Times Books",
-      "issue": "possible_duplicate_of_imprint",
+      "publisherId": "publisher-acls-history-e-book-project",
+      "publisherName": "ACLS History E-Book Project",
+      "issue": "zero_book_publisher",
       "severity": "medium",
-      "reason": "Publisher name matches an existing imprint. If this string came from catalog metadata, map it to the canonical imprint rather than keeping a separate publisher row.",
-      "bookCount": 1,
-      "suggestedImprintId": "imprint-times-books",
-      "suggestedImprintName": "Times Books",
-      "suggestedPublisherId": "publisher-macmillan",
-      "suggestedPublisherName": "Macmillan",
-      "sampleBooks": [
-        {
-          "bookId": "book-waltzing-with-a-dictator-raymond-bonner",
-          "title": "Waltzing With a Dictator",
-          "author": "Raymond Bonner",
-          "publisherId": "publisher-times-books"
-        }
-      ]
-    },
-    {
-      "publisherId": "publisher-university-of-washington-press",
-      "publisherName": "University of Washington Press",
-      "issue": "possible_duplicate_of_imprint",
-      "severity": "medium",
-      "reason": "Publisher name matches an existing imprint. If this string came from catalog metadata, map it to the canonical imprint rather than keeping a separate publisher row.",
-      "bookCount": 1,
-      "suggestedImprintId": "imprint-university-of-washington-press",
-      "suggestedImprintName": "University of Washington Press",
-      "suggestedPublisherId": "publisher-university-of-washington-press",
-      "suggestedPublisherName": "University of Washington Press",
-      "sampleBooks": [
-        {
-          "bookId": "book-the-ways-of-the-world-comedy-and-society-robert-b-heilman",
-          "title": "The Ways of the World: Comedy and Society",
-          "author": "Robert B. Heilman",
-          "publisherId": "publisher-university-of-washington-press"
-        }
-      ]
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
     },
     {
       "publisherId": "publisher-allen-lane-penguin",
       "publisherName": "Allen Lane - Penguin",
+      "issue": "zero_book_publisher",
+      "severity": "medium",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-arrow-rand",
+      "publisherName": "ARROW (RAND)",
       "issue": "zero_book_publisher",
       "severity": "medium",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -461,6 +435,15 @@
     {
       "publisherId": "publisher-barnes-and-noble",
       "publisherName": "Barnes & Noble",
+      "issue": "zero_book_publisher",
+      "severity": "medium",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-bibliobazaar",
+      "publisherName": "BiblioBazaar",
       "issue": "zero_book_publisher",
       "severity": "medium",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -513,6 +496,24 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-guangxi-normal-university-press",
+      "publisherName": "Guangxi Normal University Press",
+      "issue": "zero_book_publisher",
+      "severity": "medium",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-history-book-club",
+      "publisherName": "History Book Club",
+      "issue": "zero_book_publisher",
+      "severity": "medium",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-holt",
       "publisherName": "Holt",
       "issue": "zero_book_publisher",
@@ -524,6 +525,24 @@
     {
       "publisherId": "publisher-holt-and-company-henry",
       "publisherName": "Holt & Company, Henry",
+      "issue": "zero_book_publisher",
+      "severity": "medium",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-international-collectors",
+      "publisherName": "International Collectors",
+      "issue": "zero_book_publisher",
+      "severity": "medium",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-kessinger-publishing",
+      "publisherName": "Kessinger Publishing",
       "issue": "zero_book_publisher",
       "severity": "medium",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -702,6 +721,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-random-house-value-publishing",
+      "publisherName": "Random House Value Publishing",
+      "issue": "zero_book_publisher",
+      "severity": "medium",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-rb-large-print",
       "publisherName": "RB Large Print",
       "issue": "zero_book_publisher",
@@ -821,6 +849,15 @@
     {
       "publisherId": "publisher-w-w-norton-and-company-and-the-new-press",
       "publisherName": "W. W. Norton & Company and The New Press",
+      "issue": "zero_book_publisher",
+      "severity": "medium",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-wheeler-publishing",
+      "publisherName": "Wheeler Publishing",
       "issue": "zero_book_publisher",
       "severity": "medium",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -973,6 +1010,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-american-univ-press",
+      "publisherName": "American Univ. Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-american-university-press",
+      "suggestedImprintName": "American University Press",
+      "suggestedPublisherId": "publisher-american-university-press",
+      "suggestedPublisherName": "American University Press",
+      "mappedRawNames": [
+        "American Univ. Press"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-american-university-in-cairo-press",
       "publisherName": "American University in Cairo Press",
       "issue": "mapped_raw_publisher_still_present",
@@ -1021,6 +1074,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-appleton",
+      "publisherName": "Appleton",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-d-appleton-and-company",
+      "suggestedImprintName": "D. Appleton and Company",
+      "suggestedPublisherId": "publisher-d-appleton-and-company",
+      "suggestedPublisherName": "D. Appleton and Company",
+      "mappedRawNames": [
+        "Appleton"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-atheneum",
       "publisherName": "Atheneum",
       "issue": "mapped_raw_publisher_still_present",
@@ -1037,6 +1106,40 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-atlantic-little-brown",
+      "publisherName": "Atlantic-Little, Brown",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-little-brown",
+      "suggestedImprintName": "Little, Brown",
+      "suggestedPublisherId": "publisher-hachette-book-group",
+      "suggestedPublisherName": "Hachette Book Group",
+      "mappedRawNames": [
+        "Atlantic-Little, Brown",
+        "Atlantic, Little, Brown and Company"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-atlantic-little-brown-and-company",
+      "publisherName": "Atlantic, Little, Brown and Company",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-little-brown",
+      "suggestedImprintName": "Little, Brown",
+      "suggestedPublisherId": "publisher-hachette-book-group",
+      "suggestedPublisherName": "Hachette Book Group",
+      "mappedRawNames": [
+        "Atlantic-Little, Brown",
+        "Atlantic, Little, Brown and Company"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-back-bay-books",
       "publisherName": "Back Bay Books",
       "issue": "mapped_raw_publisher_still_present",
@@ -1049,22 +1152,6 @@
       "suggestedPublisherName": "Hachette Book Group",
       "mappedRawNames": [
         "Back Bay Books"
-      ],
-      "sampleBooks": []
-    },
-    {
-      "publisherId": "publisher-ballantine-books",
-      "publisherName": "Ballantine Books",
-      "issue": "mapped_raw_publisher_still_present",
-      "severity": "low",
-      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
-      "bookCount": 0,
-      "suggestedImprintId": "imprint-ballantine-books",
-      "suggestedImprintName": "Ballantine Books",
-      "suggestedPublisherId": "publisher-penguin-random-house",
-      "suggestedPublisherName": "Penguin Random House",
-      "mappedRawNames": [
-        "Ballantine Books"
       ],
       "sampleBooks": []
     },
@@ -1542,6 +1629,7 @@
       "severity": "low",
       "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
       "bookCount": 0,
+      "suggestedImprintId": "imprint-william-collins",
       "suggestedImprintName": "William Collins",
       "suggestedPublisherId": "publisher-harpercollins",
       "suggestedPublisherName": "HarperCollins",
@@ -1939,22 +2027,6 @@
       "sampleBooks": []
     },
     {
-      "publisherId": "publisher-fourth-estate",
-      "publisherName": "Fourth Estate",
-      "issue": "mapped_raw_publisher_still_present",
-      "severity": "low",
-      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
-      "bookCount": 0,
-      "suggestedImprintId": "imprint-fourth-estate",
-      "suggestedImprintName": "Fourth Estate",
-      "suggestedPublisherId": "publisher-harpercollins",
-      "suggestedPublisherName": "HarperCollins",
-      "mappedRawNames": [
-        "Fourth Estate"
-      ],
-      "sampleBooks": []
-    },
-    {
       "publisherId": "publisher-fourth-estate-ltd",
       "publisherName": "Fourth Estate Ltd",
       "issue": "mapped_raw_publisher_still_present",
@@ -1984,6 +2056,70 @@
       "mappedRawNames": [
         "Free Press",
         "The Free Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-g-braziller",
+      "publisherName": "G. Braziller",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-george-braziller",
+      "suggestedImprintName": "George Braziller",
+      "suggestedPublisherId": "publisher-george-braziller",
+      "suggestedPublisherName": "George Braziller",
+      "mappedRawNames": [
+        "G. Braziller"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-g-k-hall-and-co",
+      "publisherName": "G.K. Hall and Co.",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-g-k-hall",
+      "suggestedImprintName": "G.K. Hall",
+      "suggestedPublisherId": "publisher-g-k-hall",
+      "suggestedPublisherName": "G.K. Hall",
+      "mappedRawNames": [
+        "G.K. Hall and Co."
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-g-p-putnam-s-sons",
+      "publisherName": "G.P. Putnam's Sons",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-g-p-putnam-s-sons",
+      "suggestedImprintName": "G. P. Putnam's Sons",
+      "suggestedPublisherId": "publisher-penguin-random-house",
+      "suggestedPublisherName": "Penguin Random House",
+      "mappedRawNames": [
+        "G.P. Putnam's Sons"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-godine",
+      "publisherName": "Godine",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-david-r-godine",
+      "suggestedImprintName": "David R. Godine",
+      "suggestedPublisherId": "publisher-david-r-godine",
+      "suggestedPublisherName": "David R. Godine",
+      "mappedRawNames": [
+        "Godine"
       ],
       "sampleBooks": []
     },
@@ -2036,6 +2172,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-greystone-books-david-suzuki-foundation",
+      "publisherName": "Greystone Books / David Suzuki Foundation",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-greystone-books",
+      "suggestedImprintName": "Greystone Books",
+      "suggestedPublisherId": "publisher-greystone-books",
+      "suggestedPublisherName": "Greystone Books",
+      "mappedRawNames": [
+        "Greystone Books / David Suzuki Foundation"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-grove",
       "publisherName": "Grove",
       "issue": "mapped_raw_publisher_still_present",
@@ -2064,6 +2216,22 @@
       "suggestedPublisherName": "Grove Atlantic",
       "mappedRawNames": [
         "Grove Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-h-holt",
+      "publisherName": "H. Holt",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-henry-holt",
+      "suggestedImprintName": "Henry Holt and Company",
+      "suggestedPublisherId": "publisher-macmillan",
+      "suggestedPublisherName": "Macmillan",
+      "mappedRawNames": [
+        "H. Holt"
       ],
       "sampleBooks": []
     },
@@ -2176,6 +2344,22 @@
       "suggestedPublisherName": "HarperCollins",
       "mappedRawNames": [
         "Harper Wave"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-harper-collins-publishers",
+      "publisherName": "Harper-collins Publishers",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-harpercollins",
+      "suggestedImprintName": "HarperCollins",
+      "suggestedPublisherId": "publisher-harpercollins",
+      "suggestedPublisherName": "HarperCollins",
+      "mappedRawNames": [
+        "Harper-collins Publishers"
       ],
       "sampleBooks": []
     },
@@ -2379,7 +2563,7 @@
     },
     {
       "publisherId": "publisher-hill-and-wang",
-      "publisherName": "Hill and Wang",
+      "publisherName": "Hill & Wang",
       "issue": "mapped_raw_publisher_still_present",
       "severity": "low",
       "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
@@ -2922,18 +3106,18 @@
       "sampleBooks": []
     },
     {
-      "publisherId": "publisher-mariner-books",
-      "publisherName": "Mariner Books",
+      "publisherId": "publisher-matthew-bender-and-co-inc",
+      "publisherName": "Matthew Bender & Co., Inc.",
       "issue": "mapped_raw_publisher_still_present",
       "severity": "low",
       "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
       "bookCount": 0,
-      "suggestedImprintId": "imprint-mariner-books",
-      "suggestedImprintName": "Mariner Books",
-      "suggestedPublisherId": "publisher-harpercollins",
-      "suggestedPublisherName": "HarperCollins",
+      "suggestedImprintId": "imprint-matthew-bender",
+      "suggestedImprintName": "Matthew Bender",
+      "suggestedPublisherId": "publisher-matthew-bender",
+      "suggestedPublisherName": "Matthew Bender",
       "mappedRawNames": [
-        "Mariner Books"
+        "Matthew Bender & Co., Inc."
       ],
       "sampleBooks": []
     },
@@ -3083,6 +3267,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-nan-a-talese-doubleday",
+      "publisherName": "Nan A. Talese/Doubleday",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-nan-a-talese",
+      "suggestedImprintName": "Nan A. Talese",
+      "suggestedPublisherId": "publisher-penguin-random-house",
+      "suggestedPublisherName": "Penguin Random House",
+      "mappedRawNames": [
+        "Nan A. Talese/Doubleday"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-nation-books",
       "publisherName": "Nation Books",
       "issue": "mapped_raw_publisher_still_present",
@@ -3207,6 +3407,22 @@
       "suggestedPublisherName": "W. W. Norton & Company",
       "mappedRawNames": [
         "Norton & Company Limited, W. W."
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-norton-liveright",
+      "publisherName": "Norton/Liveright",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-liveright",
+      "suggestedImprintName": "Liveright",
+      "suggestedPublisherId": "publisher-w-w-norton-and-company",
+      "suggestedPublisherName": "W. W. Norton & Company",
+      "mappedRawNames": [
+        "Norton/Liveright"
       ],
       "sampleBooks": []
     },
@@ -3670,6 +3886,21 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-philippine-graphic-arts",
+      "publisherName": "Philippine Graphic Arts",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintName": "Philippine Graphic Arts",
+      "suggestedPublisherId": "publisher-philippine-graphic-arts",
+      "suggestedPublisherName": "Philippine Graphic Arts",
+      "mappedRawNames": [
+        "Philippine Graphic Arts"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-phoenix",
       "publisherName": "Phoenix",
       "issue": "mapped_raw_publisher_still_present",
@@ -3862,6 +4093,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-published-by-the-national-gallery-of-art-washington-and-the-brooklyn-museum-new-york-in-associat",
+      "publisherName": "Published by the National Gallery of Art, Washington, and the Brooklyn Museum, New York, in association with the University of Chicago Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-chicago-press",
+      "suggestedImprintName": "University of Chicago Press",
+      "suggestedPublisherId": "publisher-university-of-chicago-press",
+      "suggestedPublisherName": "University of Chicago Press",
+      "mappedRawNames": [
+        "Published by the National Gallery of Art, Washington, and the Brooklyn Museum, New York, in association with the University of Chicago Press"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-random-house",
       "publisherName": "Random House",
       "issue": "mapped_raw_publisher_still_present",
@@ -3958,6 +4205,38 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-redwood-press",
+      "publisherName": "Redwood Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-redwood-press",
+      "suggestedImprintName": "Redwood Press",
+      "suggestedPublisherId": "publisher-stanford-university-press",
+      "suggestedPublisherName": "Stanford University Press",
+      "mappedRawNames": [
+        "Redwood Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-rinehart-and-company-inc",
+      "publisherName": "Rinehart & Company, Inc.",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-rinehart-and-company",
+      "suggestedImprintName": "Rinehart & Company",
+      "suggestedPublisherId": "publisher-rinehart-and-company",
+      "suggestedPublisherName": "Rinehart & Company",
+      "mappedRawNames": [
+        "Rinehart & Company, Inc."
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-riverhead-books",
       "publisherName": "Riverhead Books",
       "issue": "mapped_raw_publisher_still_present",
@@ -4006,6 +4285,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-russell-sage-foundation-knopf",
+      "publisherName": "Russell Sage Foundation/Knopf",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-russell-sage-foundation",
+      "suggestedImprintName": "Russell Sage Foundation",
+      "suggestedPublisherId": "publisher-russell-sage-foundation",
+      "suggestedPublisherName": "Russell Sage Foundation",
+      "mappedRawNames": [
+        "Russell Sage Foundation/Knopf"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-scientific-american-farrar-straus-and-giroux",
       "publisherName": "Scientific American/Farrar, Straus and Giroux",
       "issue": "mapped_raw_publisher_still_present",
@@ -4038,6 +4333,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-secker-and-warburg",
+      "publisherName": "Secker & Warburg",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-secker-and-warburg",
+      "suggestedImprintName": "Secker & Warburg",
+      "suggestedPublisherId": "publisher-penguin-random-house",
+      "suggestedPublisherName": "Penguin Random House",
+      "mappedRawNames": [
+        "Secker & Warburg"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-simon-and-schuester",
       "publisherName": "Simon & Schuester",
       "issue": "mapped_raw_publisher_still_present",
@@ -4054,6 +4365,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-sloane",
+      "publisherName": "Sloane",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-william-sloane-associates",
+      "suggestedImprintName": "William Sloane Associates",
+      "suggestedPublisherId": "publisher-william-sloane-associates",
+      "suggestedPublisherName": "William Sloane Associates",
+      "mappedRawNames": [
+        "Sloane"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-smithsonian-institution-press",
       "publisherName": "Smithsonian Institution Press",
       "issue": "mapped_raw_publisher_still_present",
@@ -4066,6 +4393,38 @@
       "suggestedPublisherName": "Smithsonian Institution",
       "mappedRawNames": [
         "Smithsonian Institution Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-souvenir-press-limited",
+      "publisherName": "Souvenir Press Limited",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-souvenir-press",
+      "suggestedImprintName": "Souvenir Press",
+      "suggestedPublisherId": "publisher-souvenir-press",
+      "suggestedPublisherName": "Souvenir Press",
+      "mappedRawNames": [
+        "Souvenir Press Limited"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-spiegel-and-grau",
+      "publisherName": "Spiegel and Grau",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-spiegel-and-grau",
+      "suggestedImprintName": "Spiegel & Grau",
+      "suggestedPublisherId": "publisher-penguin-random-house",
+      "suggestedPublisherName": "Penguin Random House",
+      "mappedRawNames": [
+        "Spiegel & Grau"
       ],
       "sampleBooks": []
     },
@@ -4132,6 +4491,54 @@
       "suggestedPublisherName": "Macmillan",
       "mappedRawNames": [
         "Straus and Giroux"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-summit-books-1983",
+      "publisherName": "Summit Books, 1983",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-summit-books",
+      "suggestedImprintName": "Summit Books",
+      "suggestedPublisherId": "publisher-simon-and-schuster",
+      "suggestedPublisherName": "Simon & Schuster",
+      "mappedRawNames": [
+        "Summit Books, 1983"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-taylor-and-francis-group",
+      "publisherName": "Taylor & Francis Group",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-taylor-and-francis",
+      "suggestedImprintName": "Taylor & Francis",
+      "suggestedPublisherId": "publisher-taylor-and-francis",
+      "suggestedPublisherName": "Taylor & Francis",
+      "mappedRawNames": [
+        "Taylor & Francis Group"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-text-publishing-company",
+      "publisherName": "Text Publishing Company",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-text-publishing",
+      "suggestedImprintName": "Text Publishing",
+      "suggestedPublisherId": "publisher-text-publishing",
+      "suggestedPublisherName": "Text Publishing",
+      "mappedRawNames": [
+        "Text Publishing Company"
       ],
       "sampleBooks": []
     },
@@ -4285,6 +4692,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-the-rockefeller-institute-press-association-with-the-oxford-university-press",
+      "publisherName": "The Rockefeller Institute Press association with the Oxford University Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-the-rockefeller-institute-press",
+      "suggestedImprintName": "The Rockefeller Institute Press",
+      "suggestedPublisherId": "publisher-the-rockefeller-institute-press",
+      "suggestedPublisherName": "The Rockefeller Institute Press",
+      "mappedRawNames": [
+        "The Rockefeller Institute Press association with the Oxford University Press"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-the-university-of-arizona-press",
       "publisherName": "The University of Arizona Press",
       "issue": "mapped_raw_publisher_still_present",
@@ -4334,6 +4757,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-the-university-of-kansas-press",
+      "publisherName": "the University of Kansas Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-press-of-kansas",
+      "suggestedImprintName": "University Press of Kansas",
+      "suggestedPublisherId": "publisher-university-press-of-kansas",
+      "suggestedPublisherName": "University Press of Kansas",
+      "mappedRawNames": [
+        "the University of Kansas Press"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-the-university-of-north-carolina-press",
       "publisherName": "The University of North Carolina Press",
       "issue": "mapped_raw_publisher_still_present",
@@ -4366,6 +4805,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-the-university-of-north-carolina-press-for-the-omohundro-institute-of-early-american-history-and",
+      "publisherName": "The University of North Carolina Press for the Omohundro Institute of Early American History and Culture",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-north-carolina-press",
+      "suggestedImprintName": "University of North Carolina Press",
+      "suggestedPublisherId": "publisher-university-of-north-carolina-press",
+      "suggestedPublisherName": "University of North Carolina Press",
+      "mappedRawNames": [
+        "University of North Carolina Press for the Omohundro Institute of Early American History and Culture"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-the-university-of-texas-press",
       "publisherName": "The University of Texas Press",
       "issue": "mapped_raw_publisher_still_present",
@@ -4378,6 +4833,23 @@
       "suggestedPublisherName": "University of Texas Press",
       "mappedRawNames": [
         "University of Texas Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-the-university-of-the-west-indies-press",
+      "publisherName": "The University of the West Indies Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-the-west-indies-press",
+      "suggestedImprintName": "University of the West Indies Press",
+      "suggestedPublisherId": "publisher-university-of-the-west-indies-press",
+      "suggestedPublisherName": "University of the West Indies Press",
+      "mappedRawNames": [
+        "The University of the West Indies Press",
+        "University of the West Indies Press"
       ],
       "sampleBooks": []
     },
@@ -4400,6 +4872,53 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-the-white-house-historical-association",
+      "publisherName": "The White House Historical Association",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-white-house-historical-association",
+      "suggestedImprintName": "White House Historical Association",
+      "suggestedPublisherId": "publisher-white-house-historical-association",
+      "suggestedPublisherName": "White House Historical Association",
+      "mappedRawNames": [
+        "The White House Historical Association"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-three-leaves",
+      "publisherName": "Three Leaves",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintName": "Three Leaves Press",
+      "suggestedPublisherId": "publisher-penguin-random-house",
+      "suggestedPublisherName": "Penguin Random House",
+      "mappedRawNames": [
+        "Three Leaves"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-times-books",
+      "publisherName": "Times Books",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-times-books",
+      "suggestedImprintName": "Times Books",
+      "suggestedPublisherId": "publisher-macmillan",
+      "suggestedPublisherName": "Macmillan",
+      "mappedRawNames": [
+        "Times Books"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-trafalgar-square",
       "publisherName": "Trafalgar Square",
       "issue": "mapped_raw_publisher_still_present",
@@ -4412,6 +4931,22 @@
       "suggestedPublisherName": "Trafalgar Square Publishing",
       "mappedRawNames": [
         "Trafalgar Square"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-transworld-pub",
+      "publisherName": "Transworld Pub",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-transworld",
+      "suggestedImprintName": "Transworld",
+      "suggestedPublisherId": "publisher-penguin-random-house",
+      "suggestedPublisherName": "Penguin Random House",
+      "mappedRawNames": [
+        "Transworld Pub"
       ],
       "sampleBooks": []
     },
@@ -4479,6 +5014,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-univ-of-michigan-press",
+      "publisherName": "Univ. of Michigan Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-michigan-press",
+      "suggestedImprintName": "University of Michigan Press",
+      "suggestedPublisherId": "publisher-university-of-michigan-press",
+      "suggestedPublisherName": "University of Michigan Press",
+      "mappedRawNames": [
+        "Univ. of Michigan Press"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-univ-of-minnesota-press",
       "publisherName": "Univ. of Minnesota Press",
       "issue": "mapped_raw_publisher_still_present",
@@ -4527,6 +5078,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-univ-of-notre-dame-press",
+      "publisherName": "Univ. of Notre Dame Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-notre-dame-press",
+      "suggestedImprintName": "University of Notre Dame Press",
+      "suggestedPublisherId": "publisher-university-of-notre-dame-press",
+      "suggestedPublisherName": "University of Notre Dame Press",
+      "mappedRawNames": [
+        "Univ. of Notre Dame Press"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-univ-of-pennsylvania-press",
       "publisherName": "Univ. of Pennsylvania Press",
       "issue": "mapped_raw_publisher_still_present",
@@ -4539,6 +5106,54 @@
       "suggestedPublisherName": "University of Pennsylvania Press",
       "mappedRawNames": [
         "Univ. of Pennsylvania Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-univ-of-toronto-press",
+      "publisherName": "Univ. of Toronto Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-toronto-press",
+      "suggestedImprintName": "University of Toronto Press",
+      "suggestedPublisherId": "publisher-university-of-toronto-press",
+      "suggestedPublisherName": "University of Toronto Press",
+      "mappedRawNames": [
+        "Univ. of Toronto Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-univ-of-wisconsin-press",
+      "publisherName": "Univ. of Wisconsin Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-wisconsin-press",
+      "suggestedImprintName": "University of Wisconsin Press",
+      "suggestedPublisherId": "publisher-university-of-wisconsin-press",
+      "suggestedPublisherName": "University of Wisconsin Press",
+      "mappedRawNames": [
+        "Univ. of Wisconsin Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-university-of-north-carolina-press-and-the-omohundro-institute-for-early-american-history-and-cu",
+      "publisherName": "University of North Carolina Press and the Omohundro Institute for Early American History and Culture",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-north-carolina-press",
+      "suggestedImprintName": "University of North Carolina Press",
+      "suggestedPublisherId": "publisher-university-of-north-carolina-press",
+      "suggestedPublisherName": "University of North Carolina Press",
+      "mappedRawNames": [
+        "University of North Carolina Press and the Omohundro Institute for Early American History and Culture"
       ],
       "sampleBooks": []
     },
@@ -4559,6 +5174,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-university-of-north-carolina-press-for-the-omohundro-institute-of-early-american-history-and-cul",
+      "publisherName": "University of North Carolina Press for the Omohundro Institute of Early American History and Culture",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-north-carolina-press",
+      "suggestedImprintName": "University of North Carolina Press",
+      "suggestedPublisherId": "publisher-university-of-north-carolina-press",
+      "suggestedPublisherName": "University of North Carolina Press",
+      "mappedRawNames": [
+        "University of North Carolina Press for the Omohundro Institute of Early American History and Culture"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-university-of-texas",
       "publisherName": "University of Texas",
       "issue": "mapped_raw_publisher_still_present",
@@ -4571,6 +5202,22 @@
       "suggestedPublisherName": "University of Texas Press",
       "mappedRawNames": [
         "University of Texas Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-verso",
+      "publisherName": "Verso",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-verso-books",
+      "suggestedImprintName": "Verso Books",
+      "suggestedPublisherId": "publisher-verso-books",
+      "suggestedPublisherName": "Verso Books",
+      "mappedRawNames": [
+        "Verso"
       ],
       "sampleBooks": []
     },
@@ -4643,6 +5290,22 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-viking-uk",
+      "publisherName": "Viking UK",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-viking",
+      "suggestedImprintName": "Viking",
+      "suggestedPublisherId": "publisher-penguin-random-house",
+      "suggestedPublisherName": "Penguin Random House",
+      "mappedRawNames": [
+        "Viking UK"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-vintage",
       "publisherName": "Vintage",
       "issue": "mapped_raw_publisher_still_present",
@@ -4671,6 +5334,38 @@
       "suggestedPublisherName": "Penguin Random House",
       "mappedRawNames": [
         "Vintage Books"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-vintage-books-usa",
+      "publisherName": "Vintage Books USA",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-vintage-books",
+      "suggestedImprintName": "Vintage Books",
+      "suggestedPublisherId": "publisher-penguin-random-house",
+      "suggestedPublisherName": "Penguin Random House",
+      "mappedRawNames": [
+        "Vintage Books USA"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-w-h-freeman",
+      "publisherName": "W. H. Freeman",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-w-h-freeman",
+      "suggestedImprintName": "W. H. Freeman",
+      "suggestedPublisherId": "publisher-macmillan",
+      "suggestedPublisherName": "Macmillan",
+      "mappedRawNames": [
+        "W. H. Freeman"
       ],
       "sampleBooks": []
     },
@@ -4729,6 +5424,70 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-walker",
+      "publisherName": "Walker",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-walker-and-company",
+      "suggestedImprintName": "Walker & Company",
+      "suggestedPublisherId": "publisher-bloomsbury-publishing",
+      "suggestedPublisherName": "Bloomsbury Publishing",
+      "mappedRawNames": [
+        "Walker & Co"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-walker-and-co",
+      "publisherName": "Walker & Co",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-walker-and-company",
+      "suggestedImprintName": "Walker & Company",
+      "suggestedPublisherId": "publisher-bloomsbury-publishing",
+      "suggestedPublisherName": "Bloomsbury Publishing",
+      "mappedRawNames": [
+        "Walker & Co"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-warner-books",
+      "publisherName": "Warner Books",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-warner-books",
+      "suggestedImprintName": "Warner Books",
+      "suggestedPublisherId": "publisher-hachette-book-group",
+      "suggestedPublisherName": "Hachette Book Group",
+      "mappedRawNames": [
+        "Warner Books"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-weidenfeld-and-nicholson-history",
+      "publisherName": "Weidenfeld & Nicholson history",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-weidenfeld-and-nicolson",
+      "suggestedImprintName": "Weidenfeld & Nicolson",
+      "suggestedPublisherId": "publisher-hachette-uk",
+      "suggestedPublisherName": "Hachette UK",
+      "mappedRawNames": [
+        "Weidenfeld & Nicholson history"
+      ],
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-weidenfeld-and-nicolson",
       "publisherName": "Weidenfeld & Nicolson",
       "issue": "mapped_raw_publisher_still_present",
@@ -4741,6 +5500,70 @@
       "suggestedPublisherName": "Hachette UK",
       "mappedRawNames": [
         "Weidenfeld & Nicolson"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-wesleyan-unv-press",
+      "publisherName": "Wesleyan Unv. Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-wesleyan-university-press",
+      "suggestedImprintName": "Wesleyan University Press",
+      "suggestedPublisherId": "publisher-wesleyan-university-press",
+      "suggestedPublisherName": "Wesleyan University Press",
+      "mappedRawNames": [
+        "Wesleyan Unv. Press"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-west-group",
+      "publisherName": "West Group",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-west-publishing",
+      "suggestedImprintName": "West Publishing",
+      "suggestedPublisherId": "publisher-thomson-reuters",
+      "suggestedPublisherName": "Thomson Reuters",
+      "mappedRawNames": [
+        "West Group"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-west-publishing-co",
+      "publisherName": "West Publishing Co.",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-west-publishing",
+      "suggestedImprintName": "West Publishing",
+      "suggestedPublisherId": "publisher-thomson-reuters",
+      "suggestedPublisherName": "Thomson Reuters",
+      "mappedRawNames": [
+        "West Publishing Co."
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-whittlesey-house-and-the-university-of-new-mexico-press",
+      "publisherName": "Whittlesey House and the University of New Mexico Press",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-university-of-new-mexico-press",
+      "suggestedImprintName": "University of New Mexico Press",
+      "suggestedPublisherId": "publisher-university-of-new-mexico-press",
+      "suggestedPublisherName": "University of New Mexico Press",
+      "mappedRawNames": [
+        "Whittlesey House and the University of New Mexico Press"
       ],
       "sampleBooks": []
     },
@@ -4767,6 +5590,7 @@
       "severity": "low",
       "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
       "bookCount": 0,
+      "suggestedImprintId": "imprint-william-collins",
       "suggestedImprintName": "William Collins",
       "suggestedPublisherId": "publisher-harpercollins",
       "suggestedPublisherName": "HarperCollins",
@@ -4804,6 +5628,22 @@
       "suggestedPublisherName": "HarperCollins",
       "mappedRawNames": [
         "William Morrow"
+      ],
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-woodward-white-incorporated",
+      "publisherName": "Woodward/White, Incorporated",
+      "issue": "mapped_raw_publisher_still_present",
+      "severity": "low",
+      "reason": "Publisher name has a raw-string to imprint mapping that points at a different canonical imprint or parent.",
+      "bookCount": 0,
+      "suggestedImprintId": "imprint-woodward-white",
+      "suggestedImprintName": "Woodward/White",
+      "suggestedPublisherId": "publisher-woodward-white",
+      "suggestedPublisherName": "Woodward/White",
+      "mappedRawNames": [
+        "Woodward/White, Incorporated"
       ],
       "sampleBooks": []
     },
@@ -4983,19 +5823,6 @@
       "sampleBooks": []
     },
     {
-      "publisherId": "publisher-spiegel-and-grau",
-      "publisherName": "Spiegel and Grau",
-      "issue": "possible_duplicate_of_imprint",
-      "severity": "low",
-      "reason": "Publisher name matches an existing imprint. If this string came from catalog metadata, map it to the canonical imprint rather than keeping a separate publisher row.",
-      "bookCount": 0,
-      "suggestedImprintId": "imprint-spiegel-and-grau",
-      "suggestedImprintName": "Spiegel & Grau",
-      "suggestedPublisherId": "publisher-penguin-random-house",
-      "suggestedPublisherName": "Penguin Random House",
-      "sampleBooks": []
-    },
-    {
       "publisherId": "publisher-summit-books",
       "publisherName": "Summit Books",
       "issue": "possible_duplicate_of_imprint",
@@ -5112,6 +5939,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-american-univ-press",
+      "publisherName": "American Univ. Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-american-university-in-cairo-press",
       "publisherName": "American University in Cairo Press",
       "issue": "zero_book_publisher",
@@ -5132,6 +5968,15 @@
     {
       "publisherId": "publisher-anchor-science-study-series",
       "publisherName": "Anchor Science Study Series",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-appleton",
+      "publisherName": "Appleton",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -5166,6 +6011,24 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-atlantic-little-brown",
+      "publisherName": "Atlantic-Little, Brown",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-atlantic-little-brown-and-company",
+      "publisherName": "Atlantic, Little, Brown and Company",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-avid-reader-press",
       "publisherName": "Avid Reader Press",
       "issue": "zero_book_publisher",
@@ -5177,15 +6040,6 @@
     {
       "publisherId": "publisher-back-bay-books",
       "publisherName": "Back Bay Books",
-      "issue": "zero_book_publisher",
-      "severity": "low",
-      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
-      "bookCount": 0,
-      "sampleBooks": []
-    },
-    {
-      "publisherId": "publisher-ballantine-books",
-      "publisherName": "Ballantine Books",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -5697,15 +6551,6 @@
       "sampleBooks": []
     },
     {
-      "publisherId": "publisher-fourth-estate",
-      "publisherName": "Fourth Estate",
-      "issue": "zero_book_publisher",
-      "severity": "low",
-      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
-      "bookCount": 0,
-      "sampleBooks": []
-    },
-    {
       "publisherId": "publisher-fourth-estate-ltd",
       "publisherName": "Fourth Estate Ltd",
       "issue": "zero_book_publisher",
@@ -5717,6 +6562,42 @@
     {
       "publisherId": "publisher-free-press",
       "publisherName": "Free Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-g-braziller",
+      "publisherName": "G. Braziller",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-g-k-hall-and-co",
+      "publisherName": "G.K. Hall and Co.",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-g-p-putnam-s-sons",
+      "publisherName": "G.P. Putnam's Sons",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-godine",
+      "publisherName": "Godine",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -5751,6 +6632,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-greystone-books-david-suzuki-foundation",
+      "publisherName": "Greystone Books / David Suzuki Foundation",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-grove",
       "publisherName": "Grove",
       "issue": "zero_book_publisher",
@@ -5762,6 +6652,15 @@
     {
       "publisherId": "publisher-grove-press",
       "publisherName": "Grove Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-h-holt",
+      "publisherName": "H. Holt",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -5834,6 +6733,15 @@
     {
       "publisherId": "publisher-harper-wave",
       "publisherName": "Harper Wave",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-harper-collins-publishers",
+      "publisherName": "Harper-collins Publishers",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -5950,7 +6858,7 @@
     },
     {
       "publisherId": "publisher-hill-and-wang",
-      "publisherName": "Hill and Wang",
+      "publisherName": "Hill & Wang",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -6255,8 +7163,8 @@
       "sampleBooks": []
     },
     {
-      "publisherId": "publisher-mariner-books",
-      "publisherName": "Mariner Books",
+      "publisherId": "publisher-matthew-bender-and-co-inc",
+      "publisherName": "Matthew Bender & Co., Inc.",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -6345,6 +7253,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-nan-a-talese-doubleday",
+      "publisherName": "Nan A. Talese/Doubleday",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-nation-books",
       "publisherName": "Nation Books",
       "issue": "zero_book_publisher",
@@ -6419,6 +7336,15 @@
     {
       "publisherId": "publisher-norton-and-company-incorporated-w-w",
       "publisherName": "Norton & Company, Incorporated, W. W.",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-norton-liveright",
+      "publisherName": "Norton/Liveright",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -6678,6 +7604,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-philippine-graphic-arts",
+      "publisherName": "Philippine Graphic Arts",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-phoenix",
       "publisherName": "Phoenix",
       "issue": "zero_book_publisher",
@@ -6786,6 +7721,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-published-by-the-national-gallery-of-art-washington-and-the-brooklyn-museum-new-york-in-associat",
+      "publisherName": "Published by the National Gallery of Art, Washington, and the Brooklyn Museum, New York, in association with the University of Chicago Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-putnam",
       "publisherName": "Putnam",
       "issue": "zero_book_publisher",
@@ -6849,6 +7793,24 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-redwood-press",
+      "publisherName": "Redwood Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-rinehart-and-company-inc",
+      "publisherName": "Rinehart & Company, Inc.",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-riverhead-books",
       "publisherName": "Riverhead Books",
       "issue": "zero_book_publisher",
@@ -6876,6 +7838,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-russell-sage-foundation-knopf",
+      "publisherName": "Russell Sage Foundation/Knopf",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-scientific-american-farrar-straus-and-giroux",
       "publisherName": "Scientific American/Farrar, Straus and Giroux",
       "issue": "zero_book_publisher",
@@ -6887,6 +7858,15 @@
     {
       "publisherId": "publisher-scribner",
       "publisherName": "Scribner",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-secker-and-warburg",
+      "publisherName": "Secker & Warburg",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -6912,8 +7892,26 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-sloane",
+      "publisherName": "Sloane",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-smithsonian-institution-press",
       "publisherName": "Smithsonian Institution Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-souvenir-press-limited",
+      "publisherName": "Souvenir Press Limited",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -6968,6 +7966,33 @@
     {
       "publisherId": "publisher-summit-books",
       "publisherName": "Summit Books",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-summit-books-1983",
+      "publisherName": "Summit Books, 1983",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-taylor-and-francis-group",
+      "publisherName": "Taylor & Francis Group",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-text-publishing-company",
+      "publisherName": "Text Publishing Company",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -7056,6 +8081,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-the-rockefeller-institute-press-association-with-the-oxford-university-press",
+      "publisherName": "The Rockefeller Institute Press association with the Oxford University Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-the-university-of-arizona-press",
       "publisherName": "The University of Arizona Press",
       "issue": "zero_book_publisher",
@@ -7083,6 +8117,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-the-university-of-kansas-press",
+      "publisherName": "the University of Kansas Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-the-university-of-north-carolina-press",
       "publisherName": "The University of North Carolina Press",
       "issue": "zero_book_publisher",
@@ -7101,8 +8144,26 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-the-university-of-north-carolina-press-for-the-omohundro-institute-of-early-american-history-and",
+      "publisherName": "The University of North Carolina Press for the Omohundro Institute of Early American History and Culture",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-the-university-of-texas-press",
       "publisherName": "The University of Texas Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-the-university-of-the-west-indies-press",
+      "publisherName": "The University of the West Indies Press",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -7119,8 +8180,44 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-the-white-house-historical-association",
+      "publisherName": "The White House Historical Association",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-three-leaves",
+      "publisherName": "Three Leaves",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-times-books",
+      "publisherName": "Times Books",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-trafalgar-square",
       "publisherName": "Trafalgar Square",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-transworld-pub",
+      "publisherName": "Transworld Pub",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -7164,6 +8261,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-univ-of-michigan-press",
+      "publisherName": "Univ. of Michigan Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-univ-of-minnesota-press",
       "publisherName": "Univ. of Minnesota Press",
       "issue": "zero_book_publisher",
@@ -7191,8 +8297,44 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-univ-of-notre-dame-press",
+      "publisherName": "Univ. of Notre Dame Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-univ-of-pennsylvania-press",
       "publisherName": "Univ. of Pennsylvania Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-univ-of-toronto-press",
+      "publisherName": "Univ. of Toronto Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-univ-of-wisconsin-press",
+      "publisherName": "Univ. of Wisconsin Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-university-of-north-carolina-press-and-the-omohundro-institute-for-early-american-history-and-cu",
+      "publisherName": "University of North Carolina Press and the Omohundro Institute for Early American History and Culture",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -7209,8 +8351,26 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-university-of-north-carolina-press-for-the-omohundro-institute-of-early-american-history-and-cul",
+      "publisherName": "University of North Carolina Press for the Omohundro Institute of Early American History and Culture",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-university-of-texas",
       "publisherName": "University of Texas",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-verso",
+      "publisherName": "Verso",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -7254,6 +8414,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-viking-uk",
+      "publisherName": "Viking UK",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-villard",
       "publisherName": "Villard",
       "issue": "zero_book_publisher",
@@ -7274,6 +8443,24 @@
     {
       "publisherId": "publisher-vintage-books",
       "publisherName": "Vintage Books",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-vintage-books-usa",
+      "publisherName": "Vintage Books USA",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-w-h-freeman",
+      "publisherName": "W. H. Freeman",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -7308,8 +8495,80 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-walker",
+      "publisherName": "Walker",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-walker-and-co",
+      "publisherName": "Walker & Co",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-warner-books",
+      "publisherName": "Warner Books",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-weidenfeld-and-nicholson-history",
+      "publisherName": "Weidenfeld & Nicholson history",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-weidenfeld-and-nicolson",
       "publisherName": "Weidenfeld & Nicolson",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-wesleyan-unv-press",
+      "publisherName": "Wesleyan Unv. Press",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-west-group",
+      "publisherName": "West Group",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-west-publishing-co",
+      "publisherName": "West Publishing Co.",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "publisherId": "publisher-whittlesey-house-and-the-university-of-new-mexico-press",
+      "publisherName": "Whittlesey House and the University of New Mexico Press",
       "issue": "zero_book_publisher",
       "severity": "low",
       "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
@@ -7353,6 +8612,15 @@
       "sampleBooks": []
     },
     {
+      "publisherId": "publisher-woodward-white-incorporated",
+      "publisherName": "Woodward/White, Incorporated",
+      "issue": "zero_book_publisher",
+      "severity": "low",
+      "reason": "Publisher entity has no books in the built catalog. It may be a stale raw catalog string after normalization or an unused generated record.",
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "publisherId": "publisher-yale-univ-press",
       "publisherName": "Yale Univ. Press",
       "issue": "zero_book_publisher",
@@ -7372,6 +8640,87 @@
     }
   ],
   "imprintDuplicateGroups": [
+    {
+      "canonicalImprintId": "imprint-princeton-university-press",
+      "canonicalImprintName": "Princeton University Press",
+      "publisherId": "publisher-princeton-university-press",
+      "publisherName": "Princeton University Press",
+      "variantPublisherIds": [
+        "publisher-princeton-university-press",
+        "publisher-princeton-uniersity-press",
+        "publisher-princeton-univ-press"
+      ],
+      "variantPublisherNames": [
+        "Princeton University Press",
+        "Princeton Uniersity Press",
+        "Princeton Univ. Press"
+      ],
+      "bookCount": 195,
+      "sampleBooks": [
+        {
+          "bookId": "book-24-7-politics-cable-television-and-the-fragmenting-of-america-from-watergate-to-fox-news-kathryn",
+          "title": "24/7 Politics: Cable Television and the Fragmenting of America from Watergate to Fox News",
+          "author": "Kathryn Cramer Brownell",
+          "year": 2023,
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press"
+        },
+        {
+          "bookId": "book-a-constructed-peace-the-making-of-the-european-settlement-1945-63-marc-trachtenberg",
+          "title": "A Constructed Peace: The Making of the European Settlement, 1945-63",
+          "author": "Marc Trachtenberg",
+          "year": 1999,
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press"
+        },
+        {
+          "bookId": "book-a-culture-of-growth-the-origins-of-the-modern-economy-joel-mokyr",
+          "title": "A Culture of Growth: The Origins of the Modern Economy",
+          "author": "Joel Mokyr",
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press"
+        },
+        {
+          "bookId": "book-a-new-world-order-anne-marie-slaughter",
+          "title": "A New World Order",
+          "author": "Anne- Marie Slaughter",
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press"
+        },
+        {
+          "bookId": "book-a-public-empire-property-and-the-quest-for-the-common-good-in-imperial-russia-ekaterina-pravilov",
+          "title": "A Public Empire: Property and the Quest for the Common Good in Imperial Russia",
+          "author": "Ekaterina Pravilova",
+          "year": 2014,
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press"
+        },
+        {
+          "bookId": "book-a-thirst-for-empire-how-tea-shaped-the-modern-world-erika-rappaport",
+          "title": "A Thirst for Empire: How Tea Shaped the Modern World",
+          "author": "Erika Rappaport",
+          "year": 2017,
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press"
+        },
+        {
+          "bookId": "book-adam-smith-s-america-how-a-scottish-philosopher-became-an-icon-of-american-capitalism-glory-m-li",
+          "title": "Adam Smith’s America: How a Scottish Philosopher Became an Icon of American Capitalism",
+          "author": "Glory M. Liu",
+          "year": 2022,
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press"
+        },
+        {
+          "bookId": "book-adaptive-markets-financial-evolution-at-the-speed-of-thought-andrew-w-lo",
+          "title": "Adaptive Markets: Financial Evolution at the Speed of Thought",
+          "author": "Andrew W. Lo",
+          "year": 2017,
+          "publisherId": "publisher-princeton-university-press",
+          "imprintId": "imprint-princeton-university-press"
+        }
+      ]
+    },
     {
       "canonicalImprintId": "imprint-farrar-straus-and-giroux",
       "canonicalImprintName": "Farrar, Straus and Giroux",
@@ -7403,6 +8752,7 @@
           "bookId": "book-for-the-soul-of-mankind-the-united-states-the-soviet-union-and-the-cold-war-melvyn-leffler",
           "title": "For the Soul of Mankind: The United States, the Soviet Union, and the Cold War",
           "author": "Melvyn Leffler",
+          "year": 2007,
           "publisherId": "publisher-farrar-straus-and-giroux",
           "imprintId": "imprint-hill-and-wang"
         },
@@ -7459,6 +8809,7 @@
           "bookId": "book-a-companion-to-classical-receptions-lorna-hardwick-and-christopher-stray",
           "title": "A Companion to Classical Receptions",
           "author": "Lorna Hardwick, Christopher Stray",
+          "year": 2007,
           "publisherId": "publisher-john-wiley-and-sons",
           "imprintId": "imprint-wiley-blackwell"
         },
@@ -7473,6 +8824,7 @@
           "bookId": "book-happiness-unlocking-the-mysteries-of-psychological-wealth-ed-diener-and-robert-biswas-diener",
           "title": "Happiness: Unlocking the Mysteries of Psychological Wealth",
           "author": "Ed Diener, Robert Biswas-Diener",
+          "year": 2008,
           "publisherId": "publisher-john-wiley-and-sons",
           "imprintId": "imprint-wiley-blackwell"
         },
@@ -7480,6 +8832,7 @@
           "bookId": "book-the-worldwide-history-of-telecommunications-anton-a-huurdeman",
           "title": "The Worldwide History of Telecommunications",
           "author": "Anton A. Huurdeman",
+          "year": 2003,
           "publisherId": "publisher-john-wiley-and-sons",
           "imprintId": "imprint-wiley-ieee-press"
         },
@@ -7493,68 +8846,103 @@
       ]
     },
     {
-      "canonicalImprintId": "imprint-pegasus-books",
-      "canonicalImprintName": "Pegasus Books",
-      "publisherId": "publisher-pegasus-books",
-      "publisherName": "Pegasus Books",
+      "canonicalImprintId": "imprint-taylor-and-francis",
+      "canonicalImprintName": "Taylor & Francis",
+      "publisherId": "publisher-taylor-and-francis",
+      "publisherName": "Taylor & Francis",
       "variantPublisherIds": [
-        "publisher-pegasus-books"
+        "publisher-taylor-and-francis",
+        "publisher-taylor-and-francis-group"
       ],
       "variantPublisherNames": [
-        "Pegasus Books"
-      ],
-      "bookCount": 3,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-light-that-failed-a-reckoning-ivan-krastev-and-stephen-holmes",
-          "title": "The Light that Failed: A Reckoning",
-          "author": "Ivan Krastev, Stephen Holmes",
-          "publisherId": "publisher-pegasus-books"
-        },
-        {
-          "bookId": "book-the-war-of-nerves-inside-the-cold-war-mind-martin-sixsmith",
-          "title": "The War of Nerves: Inside the Cold War Mind",
-          "author": "Martin Sixsmith",
-          "year": 2023,
-          "publisherId": "publisher-pegasus-books",
-          "imprintId": "imprint-pegasus-books"
-        },
-        {
-          "bookId": "book-travelers-in-the-third-reich-the-rise-of-fascism-1919-1945-julia-boyd",
-          "title": "Travelers in the Third Reich: The Rise of Fascism: 1919–1945",
-          "author": "Julia Boyd",
-          "year": 2018,
-          "publisherId": "publisher-pegasus-books",
-          "imprintId": "imprint-pegasus-books"
-        }
-      ]
-    },
-    {
-      "canonicalImprintId": "imprint-university-of-washington-press",
-      "canonicalImprintName": "University of Washington Press",
-      "publisherId": "publisher-university-of-washington-press",
-      "publisherName": "University of Washington Press",
-      "variantPublisherIds": [
-        "publisher-university-of-washington-press"
-      ],
-      "variantPublisherNames": [
-        "University of Washington Press"
+        "Taylor & Francis",
+        "Taylor & Francis Group"
       ],
       "bookCount": 2,
       "sampleBooks": [
         {
-          "bookId": "book-charged-a-history-of-batteries-and-lessons-for-a-clean-energy-future-james-morton-turner",
-          "title": "Charged: A History of Batteries and Lessons for a Clean Energy Future",
-          "author": "James Morton Turner",
-          "year": 2023,
-          "publisherId": "publisher-university-of-washington-press",
-          "imprintId": "imprint-university-of-washington-press"
+          "bookId": "book-solzhenitsyn-a-biography-michael-scammell",
+          "title": "Solzhenitsyn: A Biography",
+          "author": "Michael Scammell",
+          "year": 1984,
+          "publisherId": "publisher-taylor-and-francis",
+          "imprintId": "imprint-routledge"
         },
         {
-          "bookId": "book-the-ways-of-the-world-comedy-and-society-robert-b-heilman",
-          "title": "The Ways of the World: Comedy and Society",
-          "author": "Robert B. Heilman",
-          "publisherId": "publisher-university-of-washington-press"
+          "bookId": "book-walter-lippmann-and-the-american-century-ronald-steel",
+          "title": "Walter Lippmann and the American Century",
+          "author": "Ronald Steel",
+          "year": 1980,
+          "publisherId": "publisher-taylor-and-francis",
+          "imprintId": "imprint-taylor-and-francis"
+        }
+      ]
+    },
+    {
+      "canonicalImprintId": "imprint-ballantine-books",
+      "canonicalImprintName": "Ballantine Books",
+      "publisherId": "publisher-penguin-random-house",
+      "publisherName": "Penguin Random House",
+      "variantPublisherIds": [
+        "publisher-ballantine-books"
+      ],
+      "variantPublisherNames": [
+        "Ballantine Books"
+      ],
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-peter-the-great-his-life-and-world-robert-k-massie",
+          "title": "Peter the Great: His Life and World",
+          "author": "Robert K. Massie",
+          "year": 1982,
+          "publisherId": "publisher-ballantine-books"
+        }
+      ]
+    },
+    {
+      "canonicalImprintId": "imprint-fourth-estate",
+      "canonicalImprintName": "Fourth Estate",
+      "publisherId": "publisher-harpercollins",
+      "publisherName": "HarperCollins",
+      "variantPublisherIds": [
+        "publisher-fourth-estate",
+        "publisher-fourth-estate-ltd"
+      ],
+      "variantPublisherNames": [
+        "Fourth Estate",
+        "Fourth Estate Ltd"
+      ],
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-information-a-history-a-theory-a-flood-james-gleick",
+          "title": "The Information: A History, a Theory, a Flood",
+          "author": "James Gleick",
+          "year": 2011,
+          "publisherId": "publisher-fourth-estate"
+        }
+      ]
+    },
+    {
+      "canonicalImprintId": "imprint-mariner-books",
+      "canonicalImprintName": "Mariner Books",
+      "publisherId": "publisher-harpercollins",
+      "publisherName": "HarperCollins",
+      "variantPublisherIds": [
+        "publisher-mariner-books"
+      ],
+      "variantPublisherNames": [
+        "Mariner Books"
+      ],
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-worst-hard-time-the-untold-story-of-those-who-survived-the-great-american-dust-bowl-timothy-",
+          "title": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl",
+          "author": "Timothy Egan",
+          "year": 2006,
+          "publisherId": "publisher-mariner-books"
         }
       ]
     },
@@ -7580,49 +8968,6 @@
           "year": 1972,
           "publisherId": "publisher-routledge",
           "imprintId": "imprint-routledge-and-kegan-paul"
-        }
-      ]
-    },
-    {
-      "canonicalImprintId": "imprint-secker-and-warburg",
-      "canonicalImprintName": "Secker & Warburg",
-      "publisherId": "publisher-penguin-random-house",
-      "publisherName": "Penguin Random House",
-      "variantPublisherIds": [
-        "publisher-secker-and-warburg"
-      ],
-      "variantPublisherNames": [
-        "Secker & Warburg"
-      ],
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-john-keats-the-making-of-a-poet-aileen-ward",
-          "title": "John Keats: The Making of a Poet",
-          "author": "Aileen Ward",
-          "year": 1963,
-          "publisherId": "publisher-secker-and-warburg"
-        }
-      ]
-    },
-    {
-      "canonicalImprintId": "imprint-times-books",
-      "canonicalImprintName": "Times Books",
-      "publisherId": "publisher-macmillan",
-      "publisherName": "Macmillan",
-      "variantPublisherIds": [
-        "publisher-times-books"
-      ],
-      "variantPublisherNames": [
-        "Times Books"
-      ],
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-waltzing-with-a-dictator-raymond-bonner",
-          "title": "Waltzing With a Dictator",
-          "author": "Raymond Bonner",
-          "publisherId": "publisher-times-books"
         }
       ]
     },
@@ -7680,6 +9025,20 @@
       "variantPublisherNames": [
         "Allen Lane",
         "Allen Lane Penguin Random House UK"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-american-university-press",
+      "canonicalImprintName": "American University Press",
+      "publisherId": "publisher-american-university-press",
+      "publisherName": "American University Press",
+      "variantPublisherIds": [
+        "publisher-american-univ-press"
+      ],
+      "variantPublisherNames": [
+        "American Univ. Press"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -7766,20 +9125,6 @@
       ],
       "variantPublisherNames": [
         "Back Bay Books"
-      ],
-      "bookCount": 0,
-      "sampleBooks": []
-    },
-    {
-      "canonicalImprintId": "imprint-ballantine-books",
-      "canonicalImprintName": "Ballantine Books",
-      "publisherId": "publisher-penguin-random-house",
-      "publisherName": "Penguin Random House",
-      "variantPublisherIds": [
-        "publisher-ballantine-books"
-      ],
-      "variantPublisherNames": [
-        "Ballantine Books"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -8121,6 +9466,34 @@
       "sampleBooks": []
     },
     {
+      "canonicalImprintId": "imprint-d-appleton-and-company",
+      "canonicalImprintName": "D. Appleton and Company",
+      "publisherId": "publisher-d-appleton-and-company",
+      "publisherName": "D. Appleton and Company",
+      "variantPublisherIds": [
+        "publisher-appleton"
+      ],
+      "variantPublisherNames": [
+        "Appleton"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-david-r-godine",
+      "canonicalImprintName": "David R. Godine",
+      "publisherId": "publisher-david-r-godine",
+      "publisherName": "David R. Godine",
+      "variantPublisherIds": [
+        "publisher-godine"
+      ],
+      "variantPublisherNames": [
+        "Godine"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "canonicalImprintId": "imprint-dodd-mead-and-company",
       "canonicalImprintName": "Dodd, Mead & Company",
       "publisherId": "publisher-dodd-mead-and-company",
@@ -8255,22 +9628,6 @@
       "sampleBooks": []
     },
     {
-      "canonicalImprintId": "imprint-fourth-estate",
-      "canonicalImprintName": "Fourth Estate",
-      "publisherId": "publisher-harpercollins",
-      "publisherName": "HarperCollins",
-      "variantPublisherIds": [
-        "publisher-fourth-estate",
-        "publisher-fourth-estate-ltd"
-      ],
-      "variantPublisherNames": [
-        "Fourth Estate",
-        "Fourth Estate Ltd"
-      ],
-      "bookCount": 0,
-      "sampleBooks": []
-    },
-    {
       "canonicalImprintId": "imprint-free-press",
       "canonicalImprintName": "Free Press",
       "publisherId": "publisher-simon-and-schuster",
@@ -8282,6 +9639,48 @@
       "variantPublisherNames": [
         "Free Press",
         "The Free Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-g-p-putnam-s-sons",
+      "canonicalImprintName": "G. P. Putnam's Sons",
+      "publisherId": "publisher-penguin-random-house",
+      "publisherName": "Penguin Random House",
+      "variantPublisherIds": [
+        "publisher-g-p-putnam-s-sons"
+      ],
+      "variantPublisherNames": [
+        "G.P. Putnam's Sons"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-g-k-hall",
+      "canonicalImprintName": "G.K. Hall",
+      "publisherId": "publisher-g-k-hall",
+      "publisherName": "G.K. Hall",
+      "variantPublisherIds": [
+        "publisher-g-k-hall-and-co"
+      ],
+      "variantPublisherNames": [
+        "G.K. Hall and Co."
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-george-braziller",
+      "canonicalImprintName": "George Braziller",
+      "publisherId": "publisher-george-braziller",
+      "publisherName": "George Braziller",
+      "variantPublisherIds": [
+        "publisher-g-braziller"
+      ],
+      "variantPublisherNames": [
+        "G. Braziller"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -8340,6 +9739,20 @@
       ],
       "variantPublisherNames": [
         "Greenwood Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-greystone-books",
+      "canonicalImprintName": "Greystone Books",
+      "publisherId": "publisher-greystone-books",
+      "publisherName": "Greystone Books",
+      "variantPublisherIds": [
+        "publisher-greystone-books-david-suzuki-foundation"
+      ],
+      "variantPublisherNames": [
+        "Greystone Books / David Suzuki Foundation"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -8454,11 +9867,13 @@
       "publisherId": "publisher-harpercollins",
       "publisherName": "HarperCollins",
       "variantPublisherIds": [
+        "publisher-harper-collins-publishers",
         "publisher-harpercollins-publisher",
         "publisher-harpercollins-publishers",
         "publisher-harpercollins-publishers-limited"
       ],
       "variantPublisherNames": [
+        "Harper-collins Publishers",
         "HarperCollins Publisher",
         "HarperCollins Publishers",
         "HarperCollins Publishers Limited"
@@ -8514,11 +9929,13 @@
       "publisherId": "publisher-macmillan",
       "publisherName": "Macmillan",
       "variantPublisherIds": [
+        "publisher-h-holt",
         "publisher-henry-holt-and-co",
         "publisher-henry-holt-and-company",
         "publisher-henry-holt-and-company-inc"
       ],
       "variantPublisherNames": [
+        "H. Holt",
         "Henry Holt and Co.",
         "Henry Holt and Company",
         "Henry Holt and Company, Inc."
@@ -8536,7 +9953,7 @@
         "publisher-hill-and-wang-a-division-of-farrar-straus-and-giroux"
       ],
       "variantPublisherNames": [
-        "Hill and Wang",
+        "Hill & Wang",
         "Hill and Wang, a division of Farrar, Straus and Giroux"
       ],
       "bookCount": 0,
@@ -8732,11 +10149,15 @@
       "publisherId": "publisher-hachette-book-group",
       "publisherName": "Hachette Book Group",
       "variantPublisherIds": [
+        "publisher-atlantic-little-brown",
+        "publisher-atlantic-little-brown-and-company",
         "publisher-little-brown-and-company",
         "publisher-little-brown",
         "publisher-little-brown-and-co"
       ],
       "variantPublisherNames": [
+        "Atlantic-Little, Brown",
+        "Atlantic, Little, Brown and Company",
         "Little Brown and Company",
         "Little, Brown",
         "Little, Brown & Co."
@@ -8768,14 +10189,16 @@
         "publisher-liveright-publishing",
         "publisher-liveright-publishing-corporation",
         "publisher-liveright-publishing-corporation-w-w-norton-and-company-inc",
-        "publisher-liveright-publishing-an-imprint-of-w-w-norton-and-company"
+        "publisher-liveright-publishing-an-imprint-of-w-w-norton-and-company",
+        "publisher-norton-liveright"
       ],
       "variantPublisherNames": [
         "Liveright",
         "Liveright Publishing",
         "Liveright Publishing Corporation",
         "Liveright Publishing Corporation/W.W. Norton & Company, Inc.",
-        "Liveright Publishing, an imprint of W.W. Norton & Company"
+        "Liveright Publishing, an imprint of W.W. Norton & Company",
+        "Norton/Liveright"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -8853,15 +10276,15 @@
       "sampleBooks": []
     },
     {
-      "canonicalImprintId": "imprint-mariner-books",
-      "canonicalImprintName": "Mariner Books",
-      "publisherId": "publisher-harpercollins",
-      "publisherName": "HarperCollins",
+      "canonicalImprintId": "imprint-matthew-bender",
+      "canonicalImprintName": "Matthew Bender",
+      "publisherId": "publisher-matthew-bender",
+      "publisherName": "Matthew Bender",
       "variantPublisherIds": [
-        "publisher-mariner-books"
+        "publisher-matthew-bender-and-co-inc"
       ],
       "variantPublisherNames": [
-        "Mariner Books"
+        "Matthew Bender & Co., Inc."
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -8940,6 +10363,20 @@
       ],
       "variantPublisherNames": [
         "Modern Library"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-nan-a-talese",
+      "canonicalImprintName": "Nan A. Talese",
+      "publisherId": "publisher-penguin-random-house",
+      "publisherName": "Penguin Random House",
+      "variantPublisherIds": [
+        "publisher-nan-a-talese-doubleday"
+      ],
+      "variantPublisherNames": [
+        "Nan A. Talese/Doubleday"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9277,22 +10714,6 @@
       "sampleBooks": []
     },
     {
-      "canonicalImprintId": "imprint-princeton-university-press",
-      "canonicalImprintName": "Princeton University Press",
-      "publisherId": "publisher-princeton-university-press",
-      "publisherName": "Princeton University Press",
-      "variantPublisherIds": [
-        "publisher-princeton-uniersity-press",
-        "publisher-princeton-univ-press"
-      ],
-      "variantPublisherNames": [
-        "Princeton Uniersity Press",
-        "Princeton Univ. Press"
-      ],
-      "bookCount": 0,
-      "sampleBooks": []
-    },
-    {
       "canonicalImprintId": "imprint-profile-books",
       "canonicalImprintName": "Profile Books",
       "publisherId": "publisher-profile-books",
@@ -9385,6 +10806,34 @@
       "sampleBooks": []
     },
     {
+      "canonicalImprintId": "imprint-redwood-press",
+      "canonicalImprintName": "Redwood Press",
+      "publisherId": "publisher-stanford-university-press",
+      "publisherName": "Stanford University Press",
+      "variantPublisherIds": [
+        "publisher-redwood-press"
+      ],
+      "variantPublisherNames": [
+        "Redwood Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-rinehart-and-company",
+      "canonicalImprintName": "Rinehart & Company",
+      "publisherId": "publisher-rinehart-and-company",
+      "publisherName": "Rinehart & Company",
+      "variantPublisherIds": [
+        "publisher-rinehart-and-company-inc"
+      ],
+      "variantPublisherNames": [
+        "Rinehart & Company, Inc."
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "canonicalImprintId": "imprint-riverhead-books",
       "canonicalImprintName": "Riverhead Books",
       "publisherId": "publisher-penguin-random-house",
@@ -9408,6 +10857,20 @@
       ],
       "variantPublisherNames": [
         "Routledge & Kegan Paul"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-russell-sage-foundation",
+      "canonicalImprintName": "Russell Sage Foundation",
+      "publisherId": "publisher-russell-sage-foundation",
+      "publisherName": "Russell Sage Foundation",
+      "variantPublisherIds": [
+        "publisher-russell-sage-foundation-knopf"
+      ],
+      "variantPublisherNames": [
+        "Russell Sage Foundation/Knopf"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9442,6 +10905,20 @@
         "Charles Scribner and Sons",
         "Charles Scribner's Sons",
         "Scribner"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-secker-and-warburg",
+      "canonicalImprintName": "Secker & Warburg",
+      "publisherId": "publisher-penguin-random-house",
+      "publisherName": "Penguin Random House",
+      "variantPublisherIds": [
+        "publisher-secker-and-warburg"
+      ],
+      "variantPublisherNames": [
+        "Secker & Warburg"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9484,6 +10961,20 @@
       ],
       "variantPublisherNames": [
         "Smithsonian Institution Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-souvenir-press",
+      "canonicalImprintName": "Souvenir Press",
+      "publisherId": "publisher-souvenir-press",
+      "publisherName": "Souvenir Press",
+      "variantPublisherIds": [
+        "publisher-souvenir-press-limited"
+      ],
+      "variantPublisherNames": [
+        "Souvenir Press Limited"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9550,10 +11041,26 @@
       "publisherId": "publisher-simon-and-schuster",
       "publisherName": "Simon & Schuster",
       "variantPublisherIds": [
+        "publisher-summit-books-1983",
         "publisher-summit-books"
       ],
       "variantPublisherNames": [
+        "Summit Books, 1983",
         "Summit Books"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-text-publishing",
+      "canonicalImprintName": "Text Publishing",
+      "publisherId": "publisher-text-publishing",
+      "publisherName": "Text Publishing",
+      "variantPublisherIds": [
+        "publisher-text-publishing-company"
+      ],
+      "variantPublisherNames": [
+        "Text Publishing Company"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9601,6 +11108,34 @@
       "sampleBooks": []
     },
     {
+      "canonicalImprintId": "imprint-the-rockefeller-institute-press",
+      "canonicalImprintName": "The Rockefeller Institute Press",
+      "publisherId": "publisher-the-rockefeller-institute-press",
+      "publisherName": "The Rockefeller Institute Press",
+      "variantPublisherIds": [
+        "publisher-the-rockefeller-institute-press-association-with-the-oxford-university-press"
+      ],
+      "variantPublisherNames": [
+        "The Rockefeller Institute Press association with the Oxford University Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-times-books",
+      "canonicalImprintName": "Times Books",
+      "publisherId": "publisher-macmillan",
+      "publisherName": "Macmillan",
+      "variantPublisherIds": [
+        "publisher-times-books"
+      ],
+      "variantPublisherNames": [
+        "Times Books"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "canonicalImprintId": "imprint-trafalgar-square-publishing",
       "canonicalImprintName": "Trafalgar Square Publishing",
       "publisherId": "publisher-trafalgar-square-publishing",
@@ -9610,6 +11145,20 @@
       ],
       "variantPublisherNames": [
         "Trafalgar Square"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-transworld",
+      "canonicalImprintName": "Transworld",
+      "publisherId": "publisher-penguin-random-house",
+      "publisherName": "Penguin Random House",
+      "variantPublisherIds": [
+        "publisher-transworld-pub"
+      ],
+      "variantPublisherNames": [
+        "Transworld Pub"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9664,12 +11213,28 @@
       "publisherId": "publisher-university-of-chicago-press",
       "publisherName": "University of Chicago Press",
       "variantPublisherIds": [
+        "publisher-published-by-the-national-gallery-of-art-washington-and-the-brooklyn-museum-new-york-in-associat",
         "publisher-the-university-of-chicago-press",
         "publisher-univ-of-chicago-press"
       ],
       "variantPublisherNames": [
+        "Published by the National Gallery of Art, Washington, and the Brooklyn Museum, New York, in association with the University of Chicago Press",
         "The University of Chicago Press",
         "Univ. of Chicago Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-university-of-michigan-press",
+      "canonicalImprintName": "University of Michigan Press",
+      "publisherId": "publisher-university-of-michigan-press",
+      "publisherName": "University of Michigan Press",
+      "variantPublisherIds": [
+        "publisher-univ-of-michigan-press"
+      ],
+      "variantPublisherNames": [
+        "Univ. of Michigan Press"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9689,6 +11254,20 @@
       "sampleBooks": []
     },
     {
+      "canonicalImprintId": "imprint-university-of-new-mexico-press",
+      "canonicalImprintName": "University of New Mexico Press",
+      "publisherId": "publisher-university-of-new-mexico-press",
+      "publisherName": "University of New Mexico Press",
+      "variantPublisherIds": [
+        "publisher-whittlesey-house-and-the-university-of-new-mexico-press"
+      ],
+      "variantPublisherNames": [
+        "Whittlesey House and the University of New Mexico Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "canonicalImprintId": "imprint-university-of-north-carolina-press",
       "canonicalImprintName": "University of North Carolina Press",
       "publisherId": "publisher-university-of-north-carolina-press",
@@ -9700,9 +11279,12 @@
         "publisher-omohundro-institute-of-early-american-history-and-culture-and-univ-of-north-carolina-press",
         "publisher-the-university-of-north-carolina-press",
         "publisher-the-university-of-north-carolina-press-for-the-institute-of-early-american-history-and-culture",
+        "publisher-the-university-of-north-carolina-press-for-the-omohundro-institute-of-early-american-history-and",
         "publisher-univ-of-north-carolina-press",
         "publisher-univ-of-north-carolina-press-for-the-omohundro-inst-of-early-american-history-and-culture",
-        "publisher-university-of-north-carolina-press-for-the-institute-of-early-american-history-and-culture"
+        "publisher-university-of-north-carolina-press-and-the-omohundro-institute-for-early-american-history-and-cu",
+        "publisher-university-of-north-carolina-press-for-the-institute-of-early-american-history-and-culture",
+        "publisher-university-of-north-carolina-press-for-the-omohundro-institute-of-early-american-history-and-cul"
       ],
       "variantPublisherNames": [
         "Omohundro Inst. of Early American History and Culture and the Univ. of North Carolina Press",
@@ -9711,9 +11293,26 @@
         "Omohundro Institute of Early American History and Culture and Univ. of North Carolina Press",
         "The University of North Carolina Press",
         "the University of North Carolina Press for the Institute of Early American History and Culture",
+        "The University of North Carolina Press for the Omohundro Institute of Early American History and Culture",
         "Univ. of North Carolina Press",
         "Univ. of North Carolina Press for the Omohundro Inst. of Early American History and Culture",
-        "University of North Carolina Press for the Institute of Early American History and Culture"
+        "University of North Carolina Press and the Omohundro Institute for Early American History and Culture",
+        "University of North Carolina Press for the Institute of Early American History and Culture",
+        "University of North Carolina Press for the Omohundro Institute of Early American History and Culture"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-university-of-notre-dame-press",
+      "canonicalImprintName": "University of Notre Dame Press",
+      "publisherId": "publisher-university-of-notre-dame-press",
+      "publisherName": "University of Notre Dame Press",
+      "variantPublisherIds": [
+        "publisher-univ-of-notre-dame-press"
+      ],
+      "variantPublisherNames": [
+        "Univ. of Notre Dame Press"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9749,6 +11348,76 @@
       "sampleBooks": []
     },
     {
+      "canonicalImprintId": "imprint-university-of-the-west-indies-press",
+      "canonicalImprintName": "University of the West Indies Press",
+      "publisherId": "publisher-university-of-the-west-indies-press",
+      "publisherName": "University of the West Indies Press",
+      "variantPublisherIds": [
+        "publisher-the-university-of-the-west-indies-press"
+      ],
+      "variantPublisherNames": [
+        "The University of the West Indies Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-university-of-toronto-press",
+      "canonicalImprintName": "University of Toronto Press",
+      "publisherId": "publisher-university-of-toronto-press",
+      "publisherName": "University of Toronto Press",
+      "variantPublisherIds": [
+        "publisher-univ-of-toronto-press"
+      ],
+      "variantPublisherNames": [
+        "Univ. of Toronto Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-university-of-wisconsin-press",
+      "canonicalImprintName": "University of Wisconsin Press",
+      "publisherId": "publisher-university-of-wisconsin-press",
+      "publisherName": "University of Wisconsin Press",
+      "variantPublisherIds": [
+        "publisher-univ-of-wisconsin-press"
+      ],
+      "variantPublisherNames": [
+        "Univ. of Wisconsin Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-university-press-of-kansas",
+      "canonicalImprintName": "University Press of Kansas",
+      "publisherId": "publisher-university-press-of-kansas",
+      "publisherName": "University Press of Kansas",
+      "variantPublisherIds": [
+        "publisher-the-university-of-kansas-press"
+      ],
+      "variantPublisherNames": [
+        "the University of Kansas Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-verso-books",
+      "canonicalImprintName": "Verso Books",
+      "publisherId": "publisher-verso-books",
+      "publisherName": "Verso Books",
+      "variantPublisherIds": [
+        "publisher-verso"
+      ],
+      "variantPublisherNames": [
+        "Verso"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "canonicalImprintId": "imprint-viking",
       "canonicalImprintName": "Viking",
       "publisherId": "publisher-penguin-random-house",
@@ -9758,14 +11427,16 @@
         "publisher-viking",
         "publisher-viking-adult",
         "publisher-viking-penguin",
-        "publisher-viking-press"
+        "publisher-viking-press",
+        "publisher-viking-uk"
       ],
       "variantPublisherNames": [
         "The Viking Press",
         "Viking",
         "Viking Adult",
         "Viking Penguin",
-        "Viking Press"
+        "Viking Press",
+        "Viking UK"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9791,11 +11462,27 @@
       "publisherName": "Penguin Random House",
       "variantPublisherIds": [
         "publisher-vintage",
-        "publisher-vintage-books"
+        "publisher-vintage-books",
+        "publisher-vintage-books-usa"
       ],
       "variantPublisherNames": [
         "Vintage",
-        "Vintage Books"
+        "Vintage Books",
+        "Vintage Books USA"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-w-h-freeman",
+      "canonicalImprintName": "W. H. Freeman",
+      "publisherId": "publisher-macmillan",
+      "publisherName": "Macmillan",
+      "variantPublisherIds": [
+        "publisher-w-h-freeman"
+      ],
+      "variantPublisherNames": [
+        "W. H. Freeman"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9827,15 +11514,91 @@
       "sampleBooks": []
     },
     {
+      "canonicalImprintId": "imprint-walker-and-company",
+      "canonicalImprintName": "Walker & Company",
+      "publisherId": "publisher-bloomsbury-publishing",
+      "publisherName": "Bloomsbury Publishing",
+      "variantPublisherIds": [
+        "publisher-walker",
+        "publisher-walker-and-co"
+      ],
+      "variantPublisherNames": [
+        "Walker",
+        "Walker & Co"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-warner-books",
+      "canonicalImprintName": "Warner Books",
+      "publisherId": "publisher-hachette-book-group",
+      "publisherName": "Hachette Book Group",
+      "variantPublisherIds": [
+        "publisher-warner-books"
+      ],
+      "variantPublisherNames": [
+        "Warner Books"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
       "canonicalImprintId": "imprint-weidenfeld-and-nicolson",
       "canonicalImprintName": "Weidenfeld & Nicolson",
       "publisherId": "publisher-hachette-uk",
       "publisherName": "Hachette UK",
       "variantPublisherIds": [
+        "publisher-weidenfeld-and-nicholson-history",
         "publisher-weidenfeld-and-nicolson"
       ],
       "variantPublisherNames": [
+        "Weidenfeld & Nicholson history",
         "Weidenfeld & Nicolson"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-wesleyan-university-press",
+      "canonicalImprintName": "Wesleyan University Press",
+      "publisherId": "publisher-wesleyan-university-press",
+      "publisherName": "Wesleyan University Press",
+      "variantPublisherIds": [
+        "publisher-wesleyan-unv-press"
+      ],
+      "variantPublisherNames": [
+        "Wesleyan Unv. Press"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-west-publishing",
+      "canonicalImprintName": "West Publishing",
+      "publisherId": "publisher-thomson-reuters",
+      "publisherName": "Thomson Reuters",
+      "variantPublisherIds": [
+        "publisher-west-group",
+        "publisher-west-publishing-co"
+      ],
+      "variantPublisherNames": [
+        "West Group",
+        "West Publishing Co."
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-white-house-historical-association",
+      "canonicalImprintName": "White House Historical Association",
+      "publisherId": "publisher-white-house-historical-association",
+      "publisherName": "White House Historical Association",
+      "variantPublisherIds": [
+        "publisher-the-white-house-historical-association"
+      ],
+      "variantPublisherNames": [
+        "The White House Historical Association"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9850,6 +11613,22 @@
       ],
       "variantPublisherNames": [
         "Wiley-Blackwell"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-william-collins",
+      "canonicalImprintName": "William Collins",
+      "publisherId": "publisher-harpercollins",
+      "publisherName": "HarperCollins",
+      "variantPublisherIds": [
+        "publisher-collins",
+        "publisher-william-collins"
+      ],
+      "variantPublisherNames": [
+        "Collins",
+        "William Collins"
       ],
       "bookCount": 0,
       "sampleBooks": []
@@ -9880,6 +11659,34 @@
       ],
       "variantPublisherNames": [
         "William Morrow"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-william-sloane-associates",
+      "canonicalImprintName": "William Sloane Associates",
+      "publisherId": "publisher-william-sloane-associates",
+      "publisherName": "William Sloane Associates",
+      "variantPublisherIds": [
+        "publisher-sloane"
+      ],
+      "variantPublisherNames": [
+        "Sloane"
+      ],
+      "bookCount": 0,
+      "sampleBooks": []
+    },
+    {
+      "canonicalImprintId": "imprint-woodward-white",
+      "canonicalImprintName": "Woodward/White",
+      "publisherId": "publisher-woodward-white",
+      "publisherName": "Woodward/White",
+      "variantPublisherIds": [
+        "publisher-woodward-white-incorporated"
+      ],
+      "variantPublisherNames": [
+        "Woodward/White, Incorporated"
       ],
       "bookCount": 0,
       "sampleBooks": []

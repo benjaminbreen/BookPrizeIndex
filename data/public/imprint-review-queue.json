@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-05-21T06:11:56.590Z",
-  "mappedBooks": 2720,
+  "generatedAt": "2026-05-23T18:36:32.703Z",
+  "mappedBooks": 2801,
   "mappedImprints": 254,
   "unresolvedPublisherStrings": 52,
   "validation": {
@@ -690,7 +690,7 @@
         "imprint": "Doubleday",
         "publisher": "Penguin Random House",
         "confidence": "medium",
-        "matchedBookCount": 6
+        "matchedBookCount": 7
       },
       {
         "raw": "Harper & Row",
@@ -732,7 +732,7 @@
         "imprint": "HarperCollins",
         "publisher": "HarperCollins",
         "confidence": "medium",
-        "matchedBookCount": 4
+        "matchedBookCount": 5
       },
       {
         "raw": "Blackwell Publishing Limited",
@@ -740,6 +740,13 @@
         "publisher": "Wiley",
         "confidence": "medium",
         "matchedBookCount": 2
+      },
+      {
+        "raw": "Phoenix",
+        "imprint": "Phoenix",
+        "publisher": "Hachette UK",
+        "confidence": "medium",
+        "matchedBookCount": 4
       },
       {
         "raw": "Times Books",
@@ -774,14 +781,14 @@
         "imprint": "Trafalgar Square Publishing",
         "publisher": "Trafalgar Square Publishing",
         "confidence": "medium",
-        "matchedBookCount": 2
+        "matchedBookCount": 3
       },
       {
         "raw": "Penguin Publishing Group",
         "imprint": "Penguin Publishing Group",
         "publisher": "Penguin Random House",
         "confidence": "medium",
-        "matchedBookCount": 10
+        "matchedBookCount": 12
       },
       {
         "raw": "Scientific American/Farrar, Straus and Giroux",
@@ -936,13 +943,6 @@
         "publisher": "Pearson",
         "confidence": "medium",
         "matchedBookCount": 1
-      },
-      {
-        "raw": "Phoenix",
-        "imprint": "Phoenix",
-        "publisher": "Hachette UK",
-        "confidence": "medium",
-        "matchedBookCount": 3
       },
       {
         "raw": "Routledge, Chapman & Hall, Incorporated",
@@ -1519,12 +1519,6 @@
         "confidence": "high"
       },
       {
-        "raw": "McGraw-Hill Professional",
-        "imprint": "McGraw-Hill Professional",
-        "publisher": "McGraw-Hill",
-        "confidence": "high"
-      },
-      {
         "raw": "McClelland & Stuwart",
         "imprint": "McClelland & Stewart",
         "publisher": "Penguin Random House Canada",
@@ -1572,6 +1566,12 @@
         "raw": "Oneworld Publications",
         "imprint": "Oneworld",
         "publisher": "Oneworld Publications",
+        "confidence": "high"
+      },
+      {
+        "raw": "Nan A. Talese/Doubleday",
+        "imprint": "Nan A. Talese",
+        "publisher": "Penguin Random House",
         "confidence": "high"
       },
       {
@@ -2142,18 +2142,11 @@
     ],
     "parentPublisherMappings": [
       {
-        "raw": "W. W. Norton & Company",
-        "imprint": "W. W. Norton",
-        "publisher": "W. W. Norton & Company",
+        "raw": "Oxford University Press",
+        "imprint": "Oxford University Press",
+        "publisher": "Oxford University Press",
         "confidence": "high",
-        "matchedBookCount": 13
-      },
-      {
-        "raw": "University of North Carolina Press",
-        "imprint": "University of North Carolina Press",
-        "publisher": "University of North Carolina Press",
-        "confidence": "high",
-        "matchedBookCount": 1
+        "matchedBookCount": 7
       },
       {
         "raw": "Houghton Mifflin Harcourt",
@@ -2181,7 +2174,7 @@
         "imprint": "Princeton University Press",
         "publisher": "Princeton University Press",
         "confidence": "high",
-        "matchedBookCount": 1
+        "matchedBookCount": 3
       },
       {
         "raw": "Simon and Schuster",
@@ -2205,6 +2198,20 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "W. W. Norton & Company",
+        "imprint": "W. W. Norton",
+        "publisher": "W. W. Norton & Company",
+        "confidence": "high",
+        "matchedBookCount": 14
+      },
+      {
+        "raw": "University of North Carolina Press",
+        "imprint": "University of North Carolina Press",
+        "publisher": "University of North Carolina Press",
+        "confidence": "high",
+        "matchedBookCount": 1
+      },
+      {
         "raw": "Elsevier Inc.",
         "imprint": "Elsevier",
         "publisher": "Elsevier",
@@ -2223,7 +2230,7 @@
         "imprint": "Cambridge University Press",
         "publisher": "Cambridge University Press",
         "confidence": "high",
-        "matchedBookCount": 106
+        "matchedBookCount": 108
       },
       {
         "raw": "Yale University Press",
@@ -2240,18 +2247,11 @@
         "matchedBookCount": 21
       },
       {
-        "raw": "Oxford University Press",
-        "imprint": "Oxford University Press",
-        "publisher": "Oxford University Press",
-        "confidence": "high",
-        "matchedBookCount": 7
-      },
-      {
         "raw": "University of California Press",
         "imprint": "University of California Press",
         "publisher": "University of California Press",
         "confidence": "high",
-        "matchedBookCount": 28
+        "matchedBookCount": 29
       },
       {
         "raw": "The American University in Cairo Press",
@@ -2317,11 +2317,18 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "Harcourt, Brace and Company, Inc.",
+        "imprint": "Harcourt, Brace and Company",
+        "publisher": "Harcourt, Brace and Company",
+        "confidence": "high",
+        "matchedBookCount": 2
+      },
+      {
         "raw": "Cornell University Press",
         "imprint": "Cornell University Press",
         "publisher": "Cornell University Press",
         "confidence": "high",
-        "matchedBookCount": 30
+        "matchedBookCount": 31
       },
       {
         "raw": "University of Toronto Press",
@@ -2356,7 +2363,7 @@
         "imprint": "Bloomsbury",
         "publisher": "Bloomsbury Publishing",
         "confidence": "high",
-        "matchedBookCount": 38
+        "matchedBookCount": 39
       },
       {
         "raw": "Brookings Institution Press",
@@ -2370,7 +2377,7 @@
         "imprint": "New York University Press",
         "publisher": "New York University Press",
         "confidence": "high",
-        "matchedBookCount": 13
+        "matchedBookCount": 14
       },
       {
         "raw": "J.B. Lippincott",
@@ -2391,7 +2398,7 @@
         "imprint": "HarperCollins",
         "publisher": "HarperCollins",
         "confidence": "medium",
-        "matchedBookCount": 4
+        "matchedBookCount": 5
       },
       {
         "raw": "Granta Books",
@@ -2412,7 +2419,7 @@
         "imprint": "Columbia University Press",
         "publisher": "Columbia University Press",
         "confidence": "high",
-        "matchedBookCount": 34
+        "matchedBookCount": 35
       },
       {
         "raw": "Getty Publications",
@@ -2429,16 +2436,30 @@
         "matchedBookCount": 4
       },
       {
+        "raw": "Rinehart & Company, Inc.",
+        "imprint": "Rinehart & Company",
+        "publisher": "Rinehart & Company",
+        "confidence": "high",
+        "matchedBookCount": 2
+      },
+      {
         "raw": "Profile Books",
         "imprint": "Profile Books",
         "publisher": "Profile Books",
         "confidence": "high",
-        "matchedBookCount": 3
+        "matchedBookCount": 4
       },
       {
         "raw": "American Geophysical Union",
         "imprint": "American Geophysical Union",
         "publisher": "American Geophysical Union",
+        "confidence": "high",
+        "matchedBookCount": 3
+      },
+      {
+        "raw": "Atlantic Books",
+        "imprint": "Atlantic Books",
+        "publisher": "Atlantic Books",
         "confidence": "high",
         "matchedBookCount": 3
       },
@@ -2475,7 +2496,7 @@
         "imprint": "Trafalgar Square Publishing",
         "publisher": "Trafalgar Square Publishing",
         "confidence": "medium",
-        "matchedBookCount": 2
+        "matchedBookCount": 3
       },
       {
         "raw": "University of Michigan Press",
@@ -2555,11 +2576,11 @@
         "matchedBookCount": 2
       },
       {
-        "raw": "Atlantic Books",
-        "imprint": "Atlantic Books",
-        "publisher": "Atlantic Books",
+        "raw": "Verso Books",
+        "imprint": "Verso Books",
+        "publisher": "Verso Books",
         "confidence": "high",
-        "matchedBookCount": 2
+        "matchedBookCount": 3
       },
       {
         "raw": "Perseus Books",
@@ -2625,13 +2646,6 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "Verso Books",
-        "imprint": "Verso Books",
-        "publisher": "Verso Books",
-        "confidence": "high",
-        "matchedBookCount": 3
-      },
-      {
         "raw": "Penn State University Press",
         "imprint": "Penn State University Press",
         "publisher": "Penn State University Press",
@@ -2695,6 +2709,13 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "the University of Kansas Press",
+        "imprint": "University Press of Kansas",
+        "publisher": "University Press of Kansas",
+        "confidence": "high",
+        "matchedBookCount": 2
+      },
+      {
         "raw": "Fordham University Press",
         "imprint": "Fordham University Press",
         "publisher": "Fordham University Press",
@@ -2705,13 +2726,6 @@
         "raw": "McSweeney's",
         "imprint": "McSweeney's",
         "publisher": "McSweeney's",
-        "confidence": "high",
-        "matchedBookCount": 1
-      },
-      {
-        "raw": "the University of Kansas Press",
-        "imprint": "University Press of Kansas",
-        "publisher": "University Press of Kansas",
         "confidence": "high",
         "matchedBookCount": 1
       },
@@ -2775,13 +2789,6 @@
         "raw": "HMSO",
         "imprint": "HMSO",
         "publisher": "HMSO",
-        "confidence": "high",
-        "matchedBookCount": 1
-      },
-      {
-        "raw": "Rinehart & Company, Inc.",
-        "imprint": "Rinehart & Company",
-        "publisher": "Rinehart & Company",
         "confidence": "high",
         "matchedBookCount": 1
       },
@@ -2873,13 +2880,6 @@
         "raw": "Dodd, Mead & Company",
         "imprint": "Dodd, Mead & Company",
         "publisher": "Dodd, Mead & Company",
-        "confidence": "high",
-        "matchedBookCount": 2
-      },
-      {
-        "raw": "Harcourt, Brace and Company, Inc.",
-        "imprint": "Harcourt, Brace and Company",
-        "publisher": "Harcourt, Brace and Company",
         "confidence": "high",
         "matchedBookCount": 2
       },
@@ -3230,10 +3230,9 @@
       "bookCount": 3,
       "sampleBooks": [
         {
-          "bookId": "book-backlash-the-undeclared-war-against-american-women-susan-faludi",
-          "title": "Backlash: The Undeclared War Against American Women",
-          "author": "Susan Faludi",
-          "year": 1981
+          "bookId": "book-begin-again-james-baldwin-s-america-and-its-urgent-lessons-for-today-professor-eddie-s-glaude-jr",
+          "title": "Begin Again: James Baldwin’s America and Its Urgent Lessons for Today",
+          "author": "Professor Eddie S. Glaude Jr"
         },
         {
           "bookId": "book-five-days-at-memorial-life-and-death-in-a-storm-ravaged-hospital-sheri-fink",
@@ -3303,21 +3302,6 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-evidence:allen lane uk penguin books us",
-      "publisherName": "Allen Lane (UK); Penguin Books (US)",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-plutocrats-the-rise-of-the-new-global-super-rich-and-the-fall-of-everyone-else-chrystia-freeland",
-          "title": "Plutocrats: The Rise of the New Global Super-Rich and the Fall of Everyone Else",
-          "author": "Chrystia Freeland",
-          "year": 2012
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
       "publisherId": "publisher-evidence:allen lane doubleday penguin random house",
       "publisherName": "Allen Lane, Doubleday, Penguin Random House",
       "bookCount": 1,
@@ -3342,21 +3326,6 @@
           "title": "The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance",
           "author": "Ron Chernow",
           "year": 1990
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
-      "publisherId": "publisher-evidence:bbc books",
-      "publisherName": "BBC Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-rough-crossings-britain-the-slaves-and-the-american-revolution-simon-schama",
-          "title": "Rough Crossings: Britain, the Slaves and the American Revolution",
-          "author": "Simon Schama",
-          "year": 2005
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3658,6 +3627,21 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
+      "publisherId": "publisher-evidence:liveright profile books",
+      "publisherName": "Liveright & Company; Profile Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-spqr-a-history-of-ancient-rome-mary-beard",
+          "title": "SPQR: A History of Ancient Rome",
+          "author": "Mary Beard",
+          "year": 2016
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
       "publisherId": "publisher-melia-publishing-services-limited",
       "publisherName": "Melia Publishing Services Limited",
       "bookCount": 1,
@@ -3726,6 +3710,21 @@
           "title": "Empire of AI: Dreams and Nightmares in Sam Altman’s OpenAI",
           "author": "Karen Hao",
           "year": 2025
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-penguin-random-house",
+      "publisherName": "Penguin Random House",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-an-american-summer-love-and-death-in-chicago-alex-kotlowitz",
+          "title": "An American Summer: Love and Death in Chicago",
+          "author": "Alex Kotlowitz",
+          "year": 2019
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3945,7 +3944,8 @@
         {
           "bookId": "book-jefferson-and-his-time-the-sage-of-monticello-dumas-malone",
           "title": "Jefferson and His Time: The Sage of Monticello",
-          "author": "Dumas Malone"
+          "author": "Dumas Malone",
+          "year": 1948
         }
       ],
       "recommendedAction": "manual_book_review",

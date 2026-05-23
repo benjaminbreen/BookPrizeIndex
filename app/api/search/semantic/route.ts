@@ -241,18 +241,13 @@ async function interpretQueryWithGemini(
   const model = process.env.GEMINI_SEMANTIC_QUERY_MODEL ?? "gemini-3.5-flash";
   const apiKey = process.env.GEMINI_API_KEY ?? process.env.GOOGLE_GENERATIVE_AI_API_KEY;
   if (!apiKey) {
-    return {
-      interpretation: fallback,
-      model,
-      usedModelInterpretation: false,
-      warning: "Gemini query expansion unavailable; GEMINI_API_KEY is not configured. Used local interpretation.",
-    };
+    return fallbackToOpenAIAfterGeminiFailure(query, fallback, "Gemini query expansion unavailable; GEMINI_API_KEY is not configured.");
   }
   try {
     const first = await fetchGeminiInterpretation({ apiKey, model, prompt: QUERY_INTERPRETATION_PROMPT, query });
     if (!first.response.ok) {
       const detail = summarizeProviderError(await first.response.text());
-      return { interpretation: fallback, model, usedModelInterpretation: false, warning: `Gemini query expansion unavailable (${first.response.status}${detail ? `: ${detail}` : ""}); used local interpretation.` };
+      return fallbackToOpenAIAfterGeminiFailure(query, fallback, `Gemini query expansion unavailable (${first.response.status}${detail ? `: ${detail}` : ""}).`);
     }
     const firstParsed = await parseGeminiInterpretation(first.response);
     if (!isShallowInterpretation(query, firstParsed)) {
@@ -276,13 +271,16 @@ async function interpretQueryWithGemini(
       warning: isShallowInterpretation(query, retryParsed) ? "Gemini query expansion may be conservative for this query." : undefined,
     };
   } catch (error) {
-    return {
-      interpretation: fallback,
-      model,
-      usedModelInterpretation: false,
-      warning: `Gemini query expansion unavailable; used local interpretation. ${error instanceof Error ? error.message.slice(0, 120) : ""}`.trim(),
-    };
+    return fallbackToOpenAIAfterGeminiFailure(query, fallback, `Gemini query expansion unavailable. ${error instanceof Error ? error.message.slice(0, 120) : ""}`.trim());
   }
+}
+
+async function fallbackToOpenAIAfterGeminiFailure(query: string, fallback: SemanticQueryInterpretation, reason: string) {
+  const openAiResult = await interpretQueryWithOpenAI(query, fallback);
+  return {
+    ...openAiResult,
+    warning: `${reason} ${openAiResult.usedModelInterpretation ? "Used OpenAI query expansion instead." : "Used local interpretation."}`,
+  };
 }
 
 async function fetchGeminiInterpretation({

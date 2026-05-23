@@ -1,221 +1,170 @@
 {
-  "generatedAt": "2026-05-21T05:59:49.756Z",
-  "count": 12,
+  "generatedAt": "2026-05-23T18:29:49.692Z",
+  "count": 11,
   "note": "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
   "review": [
     {
-      "rawPublisher": "Penguin Random House",
-      "bookCount": 3,
-      "sampleBooks": [
-        {
-          "bookId": "book-cold-crematorium-reporting-from-the-land-of-auschwitz-jozsef-debreczeni",
-          "title": "Cold Crematorium: Reporting from the Land of Auschwitz",
-          "author": "József Debreczeni",
-          "status": "enriched",
-          "matchTitle": "Cold Crematorium: Reporting from the Land of Auschwitz",
-          "matchAuthor": "József Debreczeni",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-margaret-thatcher-volume-two-the-iron-lady-john-campbell",
-          "title": "Margaret Thatcher - Volume Two: The Iron Lady",
-          "author": "John Campbell",
-          "status": "enriched",
-          "matchTitle": "Margaret Thatcher Volume Two Vol. 2: The Iron Lady",
-          "matchAuthor": "John Campbell",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-one-minute-to-midnight-kennedy-khrushchev-and-castro-on-the-brink-of-nuclear-war-michael-dobbs",
-          "title": "One Minute to Midnight: Kennedy, Khrushchev, and Castro on the Brink of Nuclear War",
-          "author": "Michael Dobbs",
-          "status": "enriched",
-          "matchTitle": "One Minute to Midnight",
-          "matchAuthor": "Michael Dobbs",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "imusti",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-innovators-how-a-group-of-hackers-geniuses-and-geeks-created-the-digital-revolution-walter-i",
-          "title": "The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution",
-          "author": "Walter Isaacson",
-          "status": "enriched",
-          "matchTitle": "The Innovators",
-          "matchAuthor": "Walter Isaacson",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-the-innovators-how-a-group-of-inventors-hackers-geniuses-and-geeks-created-the-digital-revolutio",
-          "title": "The Innovators: How a Group of Inventors, Hackers, Geniuses, and Geeks Created the Digital Revolution",
-          "author": "Walter Isaacson",
-          "status": "enriched",
-          "matchTitle": "The Innovators",
-          "matchAuthor": "Walter Isaacson",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Little, Brown Book Group Limited",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-behind-closed-doors-polly-curtis",
-          "title": "Behind Closed Doors",
-          "author": "Polly Curtis",
-          "status": "enriched",
-          "matchTitle": "Behind Closed Doors",
-          "matchAuthor": "Polly Curtis",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-let-s-explore-diabetes-with-owls-david-sedaris",
-          "title": "Let's Explore Diabetes With Owls",
-          "author": "David Sedaris",
-          "status": "enriched",
-          "matchTitle": "Let's Explore Diabetes with Owls",
-          "matchAuthor": "David Sedaris",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Abacus Uk",
+      "rawPublisher": "Bellevue Literary Press",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-iris-a-memoir-of-iris-murdoch-john-bayley",
-          "title": "Iris, A memoir of Iris Murdoch",
-          "author": "John Bayley",
+          "bookId": "book-a-perfect-turmoil-walter-e-fernald-and-the-struggle-to-care-for-america-s-disabled-alex-green",
+          "title": "A Perfect Turmoil: Walter E. Fernald and the Struggle to Care for America’s Disabled",
+          "author": "Alex Green",
           "status": "enriched",
-          "matchTitle": "Iris a Memoir of Iris Murdoch",
-          "matchAuthor": "John Bayley",
-          "matchScore": 1
+          "matchTitle": "A Perfect Turmoil",
+          "matchAuthor": "Alex Green",
+          "matchScore": 0.417
         }
       ]
     },
     {
-      "rawPublisher": "ALLEN LANE (PENG)",
+      "rawPublisher": "Canongate Books",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-third-reich-in-power-volume-2-of-the-third-reich-series-richard-j-evans",
-          "title": "The Third Reich in Power: Volume 2 of The Third Reich Series",
-          "author": "Richard J. Evans",
+          "bookId": "book-our-brains-our-selves-what-a-neurologist-s-patients-taught-him-about-the-brain-masud-husain",
+          "title": "Our Brains, Our Selves: What a Neurologist's Patients Taught Him About the Brain",
+          "author": "Masud Husain",
           "status": "enriched",
-          "matchTitle": "Third Reich in Power",
-          "matchAuthor": "Richard J. Evans",
-          "matchScore": 1
+          "matchTitle": "Our Brains, Our Selves",
+          "matchAuthor": "Masud Husain",
+          "matchScore": 0.491
         }
       ]
     },
     {
-      "rawPublisher": "Avalon Publishing",
+      "rawPublisher": "E. P. Dutton Co.",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-byzantium-the-surprising-life-of-a-medieval-empire-judith-herrin",
-          "title": "Byzantium: The Surprising Life of a Medieval Empire",
-          "author": "Judith Herrin",
+          "bookId": "book-the-briar-patch-the-people-of-the-state-of-new-york-versus-lumumba-shakur-et-al-murray-kempton",
+          "title": "The Briar Patch: The People of the State of New York versus Lumumba Shakur, et al.",
+          "author": "Murray Kempton",
           "status": "enriched",
-          "matchTitle": "Byzantium: The Surprising Life of a Medieval Empire",
-          "matchAuthor": "Judith Herrin",
-          "matchScore": 1
+          "matchTitle": "The Briar Patch ; the People of the State of New York",
+          "matchAuthor": "Murray Kempton",
+          "matchScore": 0.731
         }
       ]
     },
     {
-      "rawPublisher": "Bloomsbury UK",
+      "rawPublisher": "Eastbridge Books",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-anatomy-of-a-moment-thirty-five-minutes-in-history-and-imagination-javier-cercas",
-          "title": "The Anatomy of a Moment: Thirty-Five Minutes in History and Imagination",
-          "author": "Javier Cercas",
+          "bookId": "book-four-hundred-million-customers-the-experiences-some-happy-some-sad-of-an-american-living-in-chin",
+          "title": "Four Hundred Million Customers: The Experiences—Some Happy, Some Sad, of an American Living in China, and What They Taught Him",
+          "author": "Carl Crow",
           "status": "enriched",
-          "matchTitle": "The Anatomy of a Moment",
-          "matchAuthor": "Javier Cercas",
-          "matchScore": 1
+          "matchTitle": "Four Hundred Million Customers",
+          "matchAuthor": "Carl Crow",
+          "matchScore": 0.44
         }
       ]
     },
     {
-      "rawPublisher": "Celadon Books",
+      "rawPublisher": "Ediciones JC",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-viral-underclass-the-human-toll-when-inequality-and-disease-collide-steven-thrasher",
-          "title": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
-          "author": "Steven Thrasher",
+          "bookId": "book-an-unfinished-woman-a-memoir-lillian-hellman",
+          "title": "An Unfinished Woman: A Memoir",
+          "author": "Lillian Hellman",
           "status": "enriched",
-          "matchTitle": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
-          "matchAuthor": "Steven Thrasher",
-          "matchScore": 1
+          "matchTitle": "An Unfinished Woman",
+          "matchAuthor": "Lillian Hellman",
+          "matchScore": 0.825
         }
       ]
     },
     {
-      "rawPublisher": "Crown Publishing Group, The",
+      "rawPublisher": "HarpPeren",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-infernal-machine-a-true-story-of-dynamite-terror-and-the-rise-of-the-modern-detective-steven",
-          "title": "The Infernal Machine: A True Story of Dynamite, Terror, and the Rise of the Modern Detective",
-          "author": "Steven Johnson",
+          "bookId": "book-the-third-chimpanzee-the-evolution-and-future-of-the-human-animal-jared-diamond",
+          "title": "The Third Chimpanzee: The Evolution and Future of the Human Animal",
+          "author": "Jared Diamond",
           "status": "enriched",
-          "matchTitle": "Infernal Machine: A True Story of Dynamite, Terror, and the Rise of the Modern Detective",
-          "matchAuthor": "Steven Johnson",
-          "matchScore": 1
+          "matchTitle": "The Third Chimpanzee",
+          "matchAuthor": "Jared M. Diamond",
+          "matchScore": 0.533
         }
       ]
     },
     {
-      "rawPublisher": "Foxtopus Ink",
+      "rawPublisher": "Harvill Press",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-vortex-a-true-story-of-history-s-deadliest-storm-an-unspeakable-war-and-liberation-scott-carney-",
-          "title": "Vortex: A True Story of History's Deadliest Storm, an Unspeakable War, and Liberation",
-          "author": "Scott Carney Jason Miklian",
+          "bookId": "book-not-by-fact-alone-essays-on-the-writing-and-reading-of-history-john-clive",
+          "title": "Not by Fact Alone: Essays on the Writing and Reading of History",
+          "author": "John Clive",
           "status": "enriched",
-          "matchTitle": "The Vortex: A True Story of History's Deadliest Storm, An Unspeakable War and Liberation",
-          "matchAuthor": "Scott Carney Jason Miklian",
-          "matchScore": 1
+          "matchTitle": "Not by Fact Alone",
+          "matchAuthor": "John Leonard Clive",
+          "matchScore": 0.433
         }
       ]
     },
     {
-      "rawPublisher": "New York Review of Books, Incorporated, The",
+      "rawPublisher": "Nan A. Talese",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-i-used-to-be-charming-the-rest-of-eve-babitz-eve-babitz",
-          "title": "I Used to Be Charming: The Rest of Eve Babitz",
-          "author": "Eve Babitz",
+          "bookId": "book-loosing-the-bonds-the-united-states-and-south-africa-in-the-apartheid-years-robert-kinloch-massi",
+          "title": "Loosing the Bonds: The United States and South Africa In the Apartheid Years",
+          "author": "Robert Kinloch Massie",
           "status": "enriched",
-          "matchTitle": "I Used to Be Charming: The Rest of Eve Babitz",
-          "matchAuthor": "Eve Babitz",
-          "matchScore": 1
+          "matchTitle": "Loosing the Bonds",
+          "matchAuthor": "Robert Massie",
+          "matchScore": 0.391
         }
       ]
     },
     {
-      "rawPublisher": "Tim Duggan Books",
+      "rawPublisher": "Pimlico",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-i-am-dynamite-a-life-of-friedrich-nietzsche-sue-prideaux",
-          "title": "I Am Dynamite! A Life of Friedrich Nietzsche",
-          "author": "Sue Prideaux",
+          "bookId": "book-the-last-cowboy-europeans-and-the-politics-of-memory-jane-kramer",
+          "title": "The Last Cowboy: Europeans and The Politics of Memory",
+          "author": "Jane Kramer",
           "status": "enriched",
-          "matchTitle": "I am dynamite!: a life of Nietzsche",
-          "matchAuthor": "Sue Prideaux",
-          "matchScore": 1
+          "matchTitle": "The Last Cowboy",
+          "matchAuthor": "Jane Kramer",
+          "matchScore": 0.563
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Random House Digital, Inc.",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-charles-darwin-the-power-of-place-vol-ii-janet-browne",
+          "title": "Charles Darwin: The Power of Place, Vol. II",
+          "author": "Janet Browne",
+          "status": "enriched",
+          "matchTitle": "Charles Darwin: The power of place",
+          "matchAuthor": "E. Janet Browne",
+          "matchScore": 0.825
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Touchstone",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-bones-of-contention-controversies-in-the-search-for-human-origins-roger-lewin",
+          "title": "Bones of Contention: Controversies in the Search for Human Origins",
+          "author": "Roger Lewin",
+          "status": "enriched",
+          "matchTitle": "Bones of Contention",
+          "matchAuthor": "Roger Lewin",
+          "matchScore": 0.51
         }
       ]
     }

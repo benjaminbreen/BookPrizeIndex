@@ -1,26 +1,14 @@
 {
-  "generatedAt": "2026-05-21T02:08:55.544Z",
+  "generatedAt": "2026-05-23T18:29:34.606Z",
   "dryRun": false,
-  "limit": 1,
-  "selectedCount": 1,
+  "limit": 500,
+  "selectedCount": 0,
   "provider": "google_books",
   "concurrency": 1,
   "localDump": {
     "matches": 0
   },
-  "summary": {
-    "error": 1
-  },
-  "report": [
-    {
-      "bookId": "book-the-age-of-turbulence-adventures-in-a-new-world-alan-greenspan",
-      "slug": "the-age-of-turbulence-adventures-in-a-new-world-alan-greenspan",
-      "title": "The Age of Turbulence: Adventures in a New World",
-      "author": "Alan Greenspan",
-      "status": "error",
-      "fields": [],
-      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=isbn%3A9780713999822&maxResults=5&printType=books&fields=items%28id%2CvolumeInfo%28title%2Cauthors%2Cdescription%2CpageCount%2CpublishedDate%2CindustryIdentifiers%2Ccategories%2CcanonicalVolumeLink%2CinfoLink%29%29&key=[REDACTED]"
-    }
-  ],
+  "summary": {},
+  "report": [],
   "outputPath": "sources/enrichment/summaries.generated.json"
 }
