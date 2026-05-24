@@ -728,20 +728,6 @@
     "candidates": []
   },
   {
-    "bookId": "book-essays-in-economics-wassily-w-leontief",
-    "title": "Essays in Economics",
-    "author": "Wassily W. Leontief",
-    "subjects": [
-      "General Nonfiction"
-    ],
-    "confidence": "low",
-    "reasons": [
-      "no specific subject keyword matched"
-    ],
-    "reviewReason": "Only the General Nonfiction fallback matched.",
-    "candidates": []
-  },
-  {
     "bookId": "book-europeans-jane-kramer",
     "title": "Europeans",
     "author": "Jane Kramer",
@@ -2691,20 +2677,6 @@
     "bookId": "book-the-garden-against-time-in-search-of-a-common-paradise-olivia-laing",
     "title": "The Garden Against Time: In Search of a Common Paradise",
     "author": "Olivia Laing",
-    "subjects": [
-      "General Nonfiction"
-    ],
-    "confidence": "low",
-    "reasons": [
-      "no specific subject keyword matched"
-    ],
-    "reviewReason": "Only the General Nonfiction fallback matched.",
-    "candidates": []
-  },
-  {
-    "bookId": "book-the-genius-of-the-people-charles-mee",
-    "title": "The Genius of the People",
-    "author": "Charles Mee",
     "subjects": [
       "General Nonfiction"
     ],
@@ -5712,12 +5684,17 @@
       "American history keyword",
       "world history keyword",
       "history keyword or history prize",
-      "war/military keyword"
+      "war/military keyword",
+      "business/economics keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, War & Military, World History.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Business & Economics, War & Military, World History.",
     "candidates": [
       {
         "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Business & Economics",
         "score": 3
       },
       {
@@ -6081,13 +6058,24 @@
       "American history keyword",
       "world history keyword",
       "history keyword or history prize",
+      "war/military keyword",
       "society/culture keyword",
-      "race/ethnicity keyword"
+      "business/economics keyword",
+      "race/ethnicity keyword",
+      "travel/place keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, Race & Ethnicity, Society & Culture, World History.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Business & Economics, War & Military, Race & Ethnicity, Society & Culture, Travel & Place, World History.",
     "candidates": [
       {
         "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
         "score": 3
       },
       {
@@ -6096,6 +6084,10 @@
       },
       {
         "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "Travel & Place",
         "score": 2
       },
       {
@@ -14992,6 +14984,51 @@
     ]
   },
   {
+    "bookId": "book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence",
+    "title": "City of Thorns: Nine Lives in the World's Largest Refugee Camp",
+    "author": "Ben Rawlence",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "American history keyword",
+      "world history keyword",
+      "history keyword or history prize",
+      "war/military keyword",
+      "society/culture keyword",
+      "race/ethnicity keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, War & Military, Biography, Race & Ethnicity, Society & Culture, World History.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "Race & Ethnicity",
+        "score": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2
+      }
+    ]
+  },
+  {
     "bookId": "book-city-on-a-hill-testing-the-american-dream-at-city-college-james-traub",
     "title": "City on a Hill: Testing the American Dream at City College",
     "author": "James Traub",
@@ -20296,6 +20333,61 @@
     ]
   },
   {
+    "bookId": "book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears",
+    "title": "Fables of Abundance: A Cultural History of Advertising in America",
+    "author": "Jackson Lears",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "American history keyword",
+      "world history keyword",
+      "history keyword or history prize",
+      "politics/government keyword",
+      "society/culture keyword",
+      "medicine/public health keyword",
+      "business/economics keyword",
+      "arts/criticism keyword",
+      "religion keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Arts & Criticism, Business & Economics, Medicine & Public Health, Politics & Government, Religion, Society & Culture, World History.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Arts & Criticism",
+        "score": 3
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "Medicine & Public Health",
+        "score": 3
+      },
+      {
+        "subject": "Politics & Government",
+        "score": 3
+      },
+      {
+        "subject": "Religion",
+        "score": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2
+      }
+    ]
+  },
+  {
     "bookId": "book-facing-the-mountain-a-true-story-of-japanese-american-heroes-in-world-war-ii-daniel-james-brown",
     "title": "Facing the Mountain: A True Story of Japanese American Heroes in World War II",
     "author": "Daniel James Brown",
@@ -21308,6 +21400,30 @@
     ]
   },
   {
+    "bookId": "book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm",
+    "title": "Forty-One False Starts: Essays on Artists and Writers",
+    "author": "Janet Malcolm",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "American history keyword",
+      "arts/criticism keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Arts & Criticism.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Arts & Criticism",
+        "score": 3
+      }
+    ]
+  },
+  {
     "bookId": "book-founding-brothers-the-revolutionary-generation-joseph-j-ellis",
     "title": "Founding Brothers: The Revolutionary Generation",
     "author": "Joseph J. Ellis",
@@ -21482,6 +21598,36 @@
       {
         "subject": "World History",
         "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris-",
+    "title": "Fragile by Design: The Political Origins of Banking Crises and Scarce Credit",
+    "author": "Charles W. Calomiris, Stephen H. Haber",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "American history keyword",
+      "history keyword or history prize",
+      "politics/government keyword",
+      "business/economics keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Business & Economics, Politics & Government.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "Politics & Government",
+        "score": 3
       }
     ]
   },
@@ -22868,9 +23014,10 @@
     "reasons": [
       "American history keyword",
       "history keyword or history prize",
+      "war/military keyword",
       "politics/government keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, Politics & Government.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Politics & Government, War & Military.",
     "candidates": [
       {
         "subject": "American History",
@@ -22878,6 +23025,10 @@
       },
       {
         "subject": "Politics & Government",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
         "score": 3
       }
     ]
@@ -25323,6 +25474,36 @@
     ]
   },
   {
+    "bookId": "book-huey-long-thomas-harry-williams",
+    "title": "Huey Long",
+    "author": "Thomas Harry Williams",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "American history keyword",
+      "history keyword or history prize",
+      "business/economics keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Business & Economics, Biography.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      }
+    ]
+  },
+  {
     "bookId": "book-hugo-black-a-biography-roger-k-newman",
     "title": "Hugo Black: A Biography",
     "author": "Roger K. Newman",
@@ -26387,13 +26568,23 @@
     "reasons": [
       "American history keyword",
       "world history keyword",
-      "history keyword or history prize"
+      "history keyword or history prize",
+      "society/culture keyword",
+      "race/ethnicity keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, World History.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Race & Ethnicity, Society & Culture, World History.",
     "candidates": [
       {
         "subject": "American History",
         "score": 3
+      },
+      {
+        "subject": "Race & Ethnicity",
+        "score": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
       },
       {
         "subject": "World History",
@@ -26956,6 +27147,31 @@
       },
       {
         "subject": "Society & Culture",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-james-russell-lowell-martin-duberman",
+    "title": "James Russell Lowell",
+    "author": "Martin Duberman",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "American history keyword",
+      "history keyword or history prize"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Biography.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
         "score": 2
       }
     ]
@@ -27567,6 +27783,36 @@
       },
       {
         "subject": "World History",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-john-paul-jones-samuel-eliot-morison",
+    "title": "John Paul Jones",
+    "author": "Samuel Eliot Morison",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "American history keyword",
+      "history keyword or history prize",
+      "travel/place keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Biography, Travel & Place.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "Travel & Place",
         "score": 2
       }
     ]
@@ -31550,12 +31796,17 @@
     "reasons": [
       "American history keyword",
       "world history keyword",
-      "history keyword or history prize"
+      "history keyword or history prize",
+      "business/economics keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, World History.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Business & Economics, World History.",
     "candidates": [
       {
         "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Business & Economics",
         "score": 3
       },
       {
@@ -37835,13 +38086,23 @@
     "reasons": [
       "American history keyword",
       "world history keyword",
-      "history keyword or history prize"
+      "history keyword or history prize",
+      "war/military keyword",
+      "travel/place keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, World History.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, War & Military, Travel & Place, World History.",
     "candidates": [
       {
         "subject": "American History",
         "score": 3
+      },
+      {
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2
       },
       {
         "subject": "World History",
@@ -39094,6 +39355,41 @@
     ]
   },
   {
+    "bookId": "book-stories-of-scottsboro-james-goodman",
+    "title": "Stories of Scottsboro",
+    "author": "James Goodman",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "American history keyword",
+      "history keyword or history prize",
+      "race/ethnicity keyword",
+      "gender/sexuality keyword",
+      "crime/justice keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, True Crime & Justice, Gender & Sexuality, Race & Ethnicity.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "True Crime & Justice",
+        "score": 3
+      },
+      {
+        "subject": "Gender & Sexuality",
+        "score": 2
+      },
+      {
+        "subject": "Race & Ethnicity",
+        "score": 2
+      }
+    ]
+  },
+  {
     "bookId": "book-strangers-in-their-own-land-anger-and-mourning-on-the-american-right-arlie-russell-hochschild",
     "title": "Strangers in Their Own Land: Anger and Mourning on the American Right",
     "author": "Arlie Russell Hochschild",
@@ -39995,6 +40291,35 @@
       },
       {
         "subject": "Religion",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "bookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman",
+    "title": "The Abandonment of the Jews: America and the Holocaust 1941–1945",
+    "author": "David Wyman",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "American history keyword",
+      "war/military keyword",
+      "religion keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Religion, War & Military.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Religion",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
         "score": 3
       }
     ]
@@ -41693,6 +42018,41 @@
       },
       {
         "subject": "Travel & Place",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-the-career-of-theophile-delcasse-charles-porter",
+    "title": "The Career of Théophile Delcassé",
+    "author": "Charles Porter",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "American history keyword",
+      "world history keyword",
+      "history keyword or history prize",
+      "war/military keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, War & Military, Biography, World History.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "World History",
         "score": 2
       }
     ]
@@ -44362,13 +44722,28 @@
     "reasons": [
       "American history keyword",
       "world history keyword",
-      "history keyword or history prize"
+      "history keyword or history prize",
+      "business/economics keyword",
+      "race/ethnicity keyword",
+      "travel/place keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: American History, World History.",
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Business & Economics, Race & Ethnicity, Travel & Place, World History.",
     "candidates": [
       {
         "subject": "American History",
         "score": 3
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "Race & Ethnicity",
+        "score": 2
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2
       },
       {
         "subject": "World History",
@@ -47230,6 +47605,41 @@
     ]
   },
   {
+    "bookId": "book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield",
+    "title": "The Loss of Sadness",
+    "author": "Allan V. Horwitz, Jerome Wakefield",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "American history keyword",
+      "history keyword or history prize",
+      "society/culture keyword",
+      "science keyword",
+      "medicine/public health keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Medicine & Public Health, Science, Society & Culture.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Medicine & Public Health",
+        "score": 3
+      },
+      {
+        "subject": "Science",
+        "score": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      }
+    ]
+  },
+  {
     "bookId": "book-the-lost-children-reconstructing-europe-s-families-after-world-war-ii-tara-zahra",
     "title": "The Lost Children: Reconstructing Europe’s Families after World War II",
     "author": "Tara Zahra",
@@ -47674,6 +48084,41 @@
       },
       {
         "subject": "World History",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop",
+    "title": "The Mistral: A Windswept History of Modern France",
+    "author": "Catherine Tatiana Dunlop",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "American history keyword",
+      "history keyword or history prize",
+      "society/culture keyword",
+      "nature/environment keyword",
+      "travel/place keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Nature & Environment, Society & Culture, Travel & Place.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Nature & Environment",
+        "score": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "Travel & Place",
         "score": 2
       }
     ]
@@ -53997,6 +54442,31 @@
     ]
   },
   {
+    "bookId": "book-tombee-portrait-of-a-cotton-planter-theodore-rosengarten",
+    "title": "Tombee: Portrait of a Cotton Planter",
+    "author": "Theodore Rosengarten",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "American history keyword",
+      "history keyword or history prize"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Biography.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      }
+    ]
+  },
+  {
     "bookId": "book-tomorrow-a-new-world-the-new-deal-community-program-paul-conkin",
     "title": "Tomorrow a New World: The New Deal Community Program",
     "author": "Paul Conkin",
@@ -55687,6 +56157,35 @@
       },
       {
         "subject": "World History",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-waltzing-with-a-dictator-raymond-bonner",
+    "title": "Waltzing With a Dictator",
+    "author": "Raymond Bonner",
+    "subjects": [
+      "American History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "American history keyword",
+      "politics/government keyword",
+      "journalism/reportage keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: American History, Politics & Government, Journalism & Reportage.",
+    "candidates": [
+      {
+        "subject": "American History",
+        "score": 3
+      },
+      {
+        "subject": "Politics & Government",
+        "score": 3
+      },
+      {
+        "subject": "Journalism & Reportage",
         "score": 2
       }
     ]
@@ -63550,6 +64049,40 @@
     ]
   },
   {
+    "bookId": "book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep",
+    "title": "Furious Hours: Murder, Fraud and the Last Trial of Harper Lee",
+    "author": "Casey Cep",
+    "subjects": [
+      "Arts & Criticism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "society/culture keyword",
+      "business/economics keyword",
+      "arts/criticism keyword",
+      "crime/justice keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Arts & Criticism, Business & Economics, True Crime & Justice, Society & Culture.",
+    "candidates": [
+      {
+        "subject": "Arts & Criticism",
+        "score": 3
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "True Crime & Justice",
+        "score": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      }
+    ]
+  },
+  {
     "bookId": "book-gather-at-the-river-notes-from-the-post-millennial-south-hal-crowther",
     "title": "Gather at the River: Notes From the Post-Millennial South",
     "author": "Hal Crowther",
@@ -63832,6 +64365,40 @@
       {
         "subject": "Gender & Sexuality",
         "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib",
+    "title": "Go Ahead in the Rain: Notes to A Tribe Called Quest",
+    "author": "Hanif Abdurraqib",
+    "subjects": [
+      "Arts & Criticism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "history keyword or history prize",
+      "politics/government keyword",
+      "arts/criticism keyword",
+      "race/ethnicity keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Arts & Criticism, Politics & Government, Race & Ethnicity, History.",
+    "candidates": [
+      {
+        "subject": "Arts & Criticism",
+        "score": 3
+      },
+      {
+        "subject": "Politics & Government",
+        "score": 3
+      },
+      {
+        "subject": "Race & Ethnicity",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
       }
     ]
   },
@@ -67233,15 +67800,35 @@
     ],
     "confidence": "medium",
     "reasons": [
+      "biography/title pattern",
       "world history keyword",
       "history keyword or history prize",
-      "arts/criticism keyword"
+      "society/culture keyword",
+      "arts/criticism keyword",
+      "religion keyword",
+      "travel/place keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: Arts & Criticism, World History, History.",
+    "reviewReason": "Primary subject selected from multiple candidates: Arts & Criticism, Religion, Biography, Society & Culture, Travel & Place, World History, History.",
     "candidates": [
       {
         "subject": "Arts & Criticism",
         "score": 3
+      },
+      {
+        "subject": "Religion",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2
       },
       {
         "subject": "World History",
@@ -68046,6 +68633,41 @@
       {
         "subject": "History",
         "score": 1
+      }
+    ]
+  },
+  {
+    "bookId": "book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans",
+    "title": "Mr. B: George Balanchine's Twentieth Century",
+    "author": "Jennifer Homans",
+    "subjects": [
+      "Arts & Criticism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "world history keyword",
+      "history keyword or history prize",
+      "war/military keyword",
+      "arts/criticism keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Arts & Criticism, War & Military, Biography, World History.",
+    "candidates": [
+      {
+        "subject": "Arts & Criticism",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2
       }
     ]
   },
@@ -75655,6 +76277,50 @@
     ]
   },
   {
+    "bookId": "book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden",
+    "title": "The Power of Place : Urban Landscapes as Public History",
+    "author": "Dolores Hayden",
+    "subjects": [
+      "Arts & Criticism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "history keyword or history prize",
+      "society/culture keyword",
+      "arts/criticism keyword",
+      "race/ethnicity keyword",
+      "gender/sexuality keyword",
+      "travel/place keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Arts & Criticism, Gender & Sexuality, Race & Ethnicity, Society & Culture, Travel & Place, History.",
+    "candidates": [
+      {
+        "subject": "Arts & Criticism",
+        "score": 3
+      },
+      {
+        "subject": "Gender & Sexuality",
+        "score": 2
+      },
+      {
+        "subject": "Race & Ethnicity",
+        "score": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
+      }
+    ]
+  },
+  {
     "bookId": "book-the-presence-of-the-present-topics-of-the-day-in-the-victorian-novel-richard-d-altick",
     "title": "The Presence of the Present: Topics of the Day in the Victorian Novel",
     "author": "Richard D. Altick",
@@ -80438,30 +81104,6 @@
       },
       {
         "subject": "World History",
-        "score": 2
-      },
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
-    "bookId": "book-james-russell-lowell-martin-duberman",
-    "title": "James Russell Lowell",
-    "author": "Martin Duberman",
-    "subjects": [
-      "Biography"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "biography/title pattern",
-      "history keyword or history prize"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: Biography, History.",
-    "candidates": [
-      {
-        "subject": "Biography",
         "score": 2
       },
       {
@@ -87153,30 +87795,6 @@
     ]
   },
   {
-    "bookId": "book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris-",
-    "title": "Fragile by Design: The Political Origins of Banking Crises and Scarce Credit",
-    "author": "Charles W. Calomiris, Stephen H. Haber",
-    "subjects": [
-      "Business & Economics"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "politics/government keyword",
-      "business/economics keyword"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: Business & Economics, Politics & Government.",
-    "candidates": [
-      {
-        "subject": "Business & Economics",
-        "score": 3
-      },
-      {
-        "subject": "Politics & Government",
-        "score": 3
-      }
-    ]
-  },
-  {
     "bookId": "book-freakonomics-a-rogue-economist-explores-the-hidden-side-of-everything-steven-levitt-and-stephen-",
     "title": "Freakonomics: A Rogue Economist Explores the Hidden Side of Everything",
     "author": "Steven Levitt, Stephen Dubner",
@@ -90062,6 +90680,30 @@
     ]
   },
   {
+    "bookId": "book-money-whence-it-came-where-it-went-john-kenneth-galbraith",
+    "title": "Money: Whence It Came, Where It Went",
+    "author": "John Kenneth Galbraith",
+    "subjects": [
+      "Business & Economics"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "history keyword or history prize",
+      "business/economics keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Business & Economics, History.",
+    "candidates": [
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "History",
+        "score": 1
+      }
+    ]
+  },
+  {
     "bookId": "book-more-money-than-god-hedge-funds-and-the-making-of-a-new-elite-sebastian-mallaby",
     "title": "More Money Than God: Hedge Funds and the Making of a New Elite",
     "author": "Sebastian Mallaby",
@@ -90911,6 +91553,46 @@
       {
         "subject": "History",
         "score": 1
+      }
+    ]
+  },
+  {
+    "bookId": "book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires-",
+    "title": "Pacific: Silicon Chips and Surfboards, Coral Reefs and Atom Bombs, Brutal Dictators, Fading Empires, and the Coming Collision of the World's Superpowers",
+    "author": "Simon Winchester",
+    "subjects": [
+      "Business & Economics"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "world history keyword",
+      "history keyword or history prize",
+      "war/military keyword",
+      "medicine/public health keyword",
+      "nature/environment keyword",
+      "business/economics keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Business & Economics, Medicine & Public Health, Nature & Environment, War & Military, World History.",
+    "candidates": [
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "Medicine & Public Health",
+        "score": 3
+      },
+      {
+        "subject": "Nature & Environment",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
+        "subject": "World History",
+        "score": 2
       }
     ]
   },
@@ -91918,6 +92600,61 @@
       {
         "subject": "History",
         "score": 1
+      }
+    ]
+  },
+  {
+    "bookId": "book-rules-a-short-history-of-what-we-live-by-lorraine-daston",
+    "title": "Rules: A Short History of What We Live By",
+    "author": "Lorraine Daston",
+    "subjects": [
+      "Business & Economics"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "world history keyword",
+      "history keyword or history prize",
+      "war/military keyword",
+      "society/culture keyword",
+      "science keyword",
+      "medicine/public health keyword",
+      "technology keyword",
+      "business/economics keyword",
+      "crime/justice keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Business & Economics, Medicine & Public Health, Science, Technology, True Crime & Justice, War & Military, Society & Culture, World History.",
+    "candidates": [
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "Medicine & Public Health",
+        "score": 3
+      },
+      {
+        "subject": "Science",
+        "score": 3
+      },
+      {
+        "subject": "Technology",
+        "score": 3
+      },
+      {
+        "subject": "True Crime & Justice",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2
       }
     ]
   },
@@ -93199,6 +93936,50 @@
       {
         "subject": "Business & Economics",
         "score": 3
+      },
+      {
+        "subject": "World History",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "bookId": "book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash",
+    "title": "The Baton and The Cross: Russia's Church from Pagans to Putin",
+    "author": "Lucy Ash",
+    "subjects": [
+      "Business & Economics"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "world history keyword",
+      "history keyword or history prize",
+      "politics/government keyword",
+      "journalism/reportage keyword",
+      "business/economics keyword",
+      "religion keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Business & Economics, Politics & Government, Religion, Journalism & Reportage, World History, History.",
+    "candidates": [
+      {
+        "subject": "Business & Economics",
+        "score": 3
+      },
+      {
+        "subject": "Politics & Government",
+        "score": 3
+      },
+      {
+        "subject": "Religion",
+        "score": 3
+      },
+      {
+        "subject": "Journalism & Reportage",
+        "score": 2
       },
       {
         "subject": "World History",
@@ -99700,25 +100481,6 @@
     ]
   },
   {
-    "bookId": "book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears",
-    "title": "Fables of Abundance: A Cultural History of Advertising in America",
-    "author": "Jackson Lears",
-    "subjects": [
-      "History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "history keyword or history prize"
-    ],
-    "reviewReason": "History matched, but no more specific history subject matched.",
-    "candidates": [
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
     "bookId": "book-father-time-a-natural-history-of-men-and-babies-sarah-blaffer-hrdy",
     "title": "Father Time: A Natural History of Men and Babies",
     "author": "Sarah Blaffer Hrdy",
@@ -100216,25 +100978,6 @@
     "bookId": "book-modern-painting-and-the-northern-romantic-tradition-friedrich-to-rothko-robert-rosenblum",
     "title": "Modern Painting and the Northern Romantic Tradition: Friedrich to Rothko",
     "author": "Robert Rosenblum",
-    "subjects": [
-      "History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "history keyword or history prize"
-    ],
-    "reviewReason": "History matched, but no more specific history subject matched.",
-    "candidates": [
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
-    "bookId": "book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans",
-    "title": "Mr. B: George Balanchine's Twentieth Century",
-    "author": "Jennifer Homans",
     "subjects": [
       "History"
     ],
@@ -100916,25 +101659,6 @@
     ]
   },
   {
-    "bookId": "book-stories-of-scottsboro-james-goodman",
-    "title": "Stories of Scottsboro",
-    "author": "James Goodman",
-    "subjects": [
-      "History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "history keyword or history prize"
-    ],
-    "reviewReason": "History matched, but no more specific history subject matched.",
-    "candidates": [
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
     "bookId": "book-strikes-in-france-1830-1968-edward-shorter-and-charles-tilly",
     "title": "Strikes in France, 1830–1968",
     "author": "Edward Shorter, Charles Tilly",
@@ -101299,6 +102023,25 @@
     "bookId": "book-the-gate-of-heavenly-peace-the-chinese-and-their-revolution-1895-1980-jonathan-d-spence",
     "title": "The Gate of Heavenly Peace: The Chinese and Their Revolution, 1895–1980",
     "author": "Jonathan D. Spence",
+    "subjects": [
+      "History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "history keyword or history prize"
+    ],
+    "reviewReason": "History matched, but no more specific history subject matched.",
+    "candidates": [
+      {
+        "subject": "History",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "bookId": "book-the-genius-of-the-people-charles-mee",
+    "title": "The Genius of the People",
+    "author": "Charles Mee",
     "subjects": [
       "History"
     ],
@@ -105432,40 +106175,6 @@
     ]
   },
   {
-    "bookId": "book-rules-a-short-history-of-what-we-live-by-lorraine-daston",
-    "title": "Rules: A Short History of What We Live By",
-    "author": "Lorraine Daston",
-    "subjects": [
-      "Medicine & Public Health"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "history keyword or history prize",
-      "science keyword",
-      "medicine/public health keyword",
-      "technology keyword"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: Medicine & Public Health, Science, Technology, History.",
-    "candidates": [
-      {
-        "subject": "Medicine & Public Health",
-        "score": 3
-      },
-      {
-        "subject": "Science",
-        "score": 3
-      },
-      {
-        "subject": "Technology",
-        "score": 3
-      },
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
     "bookId": "book-sam-phillips-the-man-who-invented-rock-n-roll-peter-guralnick",
     "title": "Sam Phillips: The Man Who Invented Rock 'n' Roll",
     "author": "Peter Guralnick",
@@ -107865,9 +108574,12 @@
     "confidence": "medium",
     "reasons": [
       "memoir/autobiography keyword",
-      "biography/title pattern"
+      "biography/title pattern",
+      "history keyword or history prize",
+      "society/culture keyword",
+      "gender/sexuality keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: Memoir & Autobiography, Biography.",
+    "reviewReason": "Primary subject selected from multiple candidates: Memoir & Autobiography, Biography, Gender & Sexuality, Society & Culture, History.",
     "candidates": [
       {
         "subject": "Memoir & Autobiography",
@@ -107876,6 +108588,18 @@
       {
         "subject": "Biography",
         "score": 2
+      },
+      {
+        "subject": "Gender & Sexuality",
+        "score": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
       }
     ]
   },
@@ -110121,16 +110845,37 @@
     "confidence": "medium",
     "reasons": [
       "memoir/autobiography keyword",
-      "biography/title pattern"
+      "biography/title pattern",
+      "world history keyword",
+      "history keyword or history prize",
+      "war/military keyword",
+      "society/culture keyword",
+      "nature/environment keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: Memoir & Autobiography, Biography.",
+    "reviewReason": "Primary subject selected from multiple candidates: Memoir & Autobiography, Nature & Environment, War & Military, Biography, Society & Culture, World History.",
     "candidates": [
       {
         "subject": "Memoir & Autobiography",
         "score": 3
       },
       {
+        "subject": "Nature & Environment",
+        "score": 3
+      },
+      {
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
         "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "World History",
         "score": 2
       }
     ]
@@ -115378,10 +116123,11 @@
     ],
     "confidence": "medium",
     "reasons": [
+      "history keyword or history prize",
       "science keyword",
       "nature/environment keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: Nature & Environment, Science.",
+    "reviewReason": "Primary subject selected from multiple candidates: Nature & Environment, Science, History.",
     "candidates": [
       {
         "subject": "Nature & Environment",
@@ -115390,6 +116136,10 @@
       {
         "subject": "Science",
         "score": 3
+      },
+      {
+        "subject": "History",
+        "score": 1
       }
     ]
   },
@@ -120613,6 +121363,40 @@
     ]
   },
   {
+    "bookId": "book-gladstone-roy-jenkins",
+    "title": "Gladstone",
+    "author": "Roy Jenkins",
+    "subjects": [
+      "Politics & Government"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "history keyword or history prize",
+      "politics/government keyword",
+      "religion keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Politics & Government, Religion, Biography, History.",
+    "candidates": [
+      {
+        "subject": "Politics & Government",
+        "score": 3
+      },
+      {
+        "subject": "Religion",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
+      }
+    ]
+  },
+  {
     "bookId": "book-henry-ii-wl-warren",
     "title": "Henry II",
     "author": "WL Warren",
@@ -121177,10 +121961,12 @@
     ],
     "confidence": "medium",
     "reasons": [
+      "world history keyword",
+      "history keyword or history prize",
       "politics/government keyword",
       "society/culture keyword"
     ],
-    "reviewReason": "Primary subject selected from multiple candidates: Politics & Government, Society & Culture.",
+    "reviewReason": "Primary subject selected from multiple candidates: Politics & Government, Society & Culture, World History, History.",
     "candidates": [
       {
         "subject": "Politics & Government",
@@ -121189,6 +121975,14 @@
       {
         "subject": "Society & Culture",
         "score": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
       }
     ]
   },
@@ -122242,35 +123036,6 @@
       {
         "subject": "Travel & Place",
         "score": 2
-      },
-      {
-        "subject": "World History",
-        "score": 2
-      }
-    ]
-  },
-  {
-    "bookId": "book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash",
-    "title": "The Baton and The Cross: Russia's Church from Pagans to Putin",
-    "author": "Lucy Ash",
-    "subjects": [
-      "Politics & Government"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "world history keyword",
-      "politics/government keyword",
-      "religion keyword"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: Politics & Government, Religion, World History.",
-    "candidates": [
-      {
-        "subject": "Politics & Government",
-        "score": 3
-      },
-      {
-        "subject": "Religion",
-        "score": 3
       },
       {
         "subject": "World History",
@@ -123387,40 +124152,6 @@
     "candidates": [
       {
         "subject": "Race & Ethnicity",
-        "score": 2
-      },
-      {
-        "subject": "World History",
-        "score": 2
-      },
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
-    "bookId": "book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence",
-    "title": "City of Thorns: Nine Lives in the World's Largest Refugee Camp",
-    "author": "Ben Rawlence",
-    "subjects": [
-      "Race & Ethnicity"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "world history keyword",
-      "history keyword or history prize",
-      "society/culture keyword",
-      "race/ethnicity keyword"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: Race & Ethnicity, Society & Culture, World History, History.",
-    "candidates": [
-      {
-        "subject": "Race & Ethnicity",
-        "score": 2
-      },
-      {
-        "subject": "Society & Culture",
         "score": 2
       },
       {
@@ -127318,6 +128049,35 @@
     ]
   },
   {
+    "bookId": "book-the-victorian-frame-of-mind-1830-1870-walter-e-houghton",
+    "title": "The Victorian Frame of Mind: 1830-1870",
+    "author": "Walter E. Houghton",
+    "subjects": [
+      "Religion"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "history keyword or history prize",
+      "society/culture keyword",
+      "religion keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Religion, Society & Culture, History.",
+    "candidates": [
+      {
+        "subject": "Religion",
+        "score": 3
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
+      }
+    ]
+  },
+  {
     "bookId": "book-the-voices-of-morebath-reformation-and-rebellion-in-an-english-village-eamon-duffy",
     "title": "The Voices of Morebath: Reformation and Rebellion in an English Village",
     "author": "Eamon Duffy",
@@ -128868,6 +129628,30 @@
     ]
   },
   {
+    "bookId": "book-darwin-s-dangerous-idea-evolution-and-the-meaning-of-life-daniel-c-dennett",
+    "title": "Darwin's Dangerous Idea: Evolution and the Meaning of Life",
+    "author": "Daniel C. Dennett",
+    "subjects": [
+      "Science"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "science keyword",
+      "travel/place keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Science, Travel & Place.",
+    "candidates": [
+      {
+        "subject": "Science",
+        "score": 3
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2
+      }
+    ]
+  },
+  {
     "bookId": "book-deadly-feasts-tracking-the-secrets-of-a-terrifying-new-plague-richard-rhodes",
     "title": "Deadly Feasts: Tracking the Secrets of a Terrifying New Plague",
     "author": "Richard Rhodes",
@@ -130284,6 +131068,30 @@
       },
       {
         "subject": "Society & Culture",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann",
+    "title": "Marcello Malpighi and the Evolution of Embryology",
+    "author": "Howard B. Adelmann",
+    "subjects": [
+      "Science"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "biography/title pattern",
+      "science keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Science, Biography.",
+    "candidates": [
+      {
+        "subject": "Science",
+        "score": 3
+      },
+      {
+        "subject": "Biography",
         "score": 2
       }
     ]
@@ -134874,35 +135682,6 @@
     ]
   },
   {
-    "bookId": "book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden",
-    "title": "The Power of Place : Urban Landscapes as Public History",
-    "author": "Dolores Hayden",
-    "subjects": [
-      "Society & Culture"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "history keyword or history prize",
-      "society/culture keyword",
-      "travel/place keyword"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: Society & Culture, Travel & Place, History.",
-    "candidates": [
-      {
-        "subject": "Society & Culture",
-        "score": 2
-      },
-      {
-        "subject": "Travel & Place",
-        "score": 2
-      },
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
     "bookId": "book-the-son-also-rises-surnames-and-the-history-of-social-mobility-gregory-clark",
     "title": "The Son Also Rises: Surnames and the History of Social Mobility",
     "author": "Gregory Clark",
@@ -136274,6 +137053,35 @@
     "bookId": "book-sea-of-storms-a-history-of-hurricanes-in-the-greater-caribbean-from-columbus-to-katrina-stuart-b",
     "title": "Sea of Storms: A History of Hurricanes in the Greater Caribbean from Columbus to Katrina",
     "author": "Stuart B. Schwartz",
+    "subjects": [
+      "Travel & Place"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "world history keyword",
+      "history keyword or history prize",
+      "travel/place keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: Travel & Place, World History, History.",
+    "candidates": [
+      {
+        "subject": "Travel & Place",
+        "score": 2
+      },
+      {
+        "subject": "World History",
+        "score": 2
+      },
+      {
+        "subject": "History",
+        "score": 1
+      }
+    ]
+  },
+  {
+    "bookId": "book-tears-of-rangi-experiments-across-worlds-anne-salmond",
+    "title": "Tears of Rangi: Experiments Across Worlds",
+    "author": "Anne Salmond",
     "subjects": [
       "Travel & Place"
     ],
@@ -138772,6 +139580,31 @@
     "bookId": "book-a-mad-catastrophe-the-outbreak-of-world-war-i-and-the-collapse-of-the-habsburg-empire-geoffrey-w",
     "title": "A Mad Catastrophe: The Outbreak of World War I and the Collapse of the Habsburg Empire",
     "author": "Geoffrey Wawro",
+    "subjects": [
+      "War & Military"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "world history keyword",
+      "history keyword or history prize",
+      "war/military keyword"
+    ],
+    "reviewReason": "Primary subject selected from multiple candidates: War & Military, World History.",
+    "candidates": [
+      {
+        "subject": "War & Military",
+        "score": 3
+      },
+      {
+        "subject": "World History",
+        "score": 2
+      }
+    ]
+  },
+  {
+    "bookId": "book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin",
+    "title": "A Peace to End All Peace: Creating the Modern Middle East, 1914–1922",
+    "author": "David Fromkin",
     "subjects": [
       "War & Military"
     ],
@@ -141502,30 +142335,6 @@
     ]
   },
   {
-    "bookId": "book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin",
-    "title": "A Peace to End All Peace: Creating the Modern Middle East, 1914–1922",
-    "author": "David Fromkin",
-    "subjects": [
-      "World History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "world history keyword",
-      "history keyword or history prize"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: World History, History.",
-    "candidates": [
-      {
-        "subject": "World History",
-        "score": 2
-      },
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
     "bookId": "book-a-zapotec-natural-history-eugene-hunn",
     "title": "A Zapotec Natural History",
     "author": "Eugene Hunn",
@@ -142510,30 +143319,6 @@
     ]
   },
   {
-    "bookId": "book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires-",
-    "title": "Pacific: Silicon Chips and Surfboards, Coral Reefs and Atom Bombs, Brutal Dictators, Fading Empires, and the Coming Collision of the World's Superpowers",
-    "author": "Simon Winchester",
-    "subjects": [
-      "World History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "world history keyword",
-      "history keyword or history prize"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: World History, History.",
-    "candidates": [
-      {
-        "subject": "World History",
-        "score": 2
-      },
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
     "bookId": "book-papyrus-the-invention-of-books-in-the-ancient-world-irene-vallejo",
     "title": "Papyrus: The Invention of Books in the Ancient World",
     "author": "Irene Vallejo",
@@ -142845,30 +143630,6 @@
     "bookId": "book-tamta-s-world-the-life-and-encounters-of-a-medieval-noblewoman-from-the-middle-east-to-mongolia-",
     "title": "Tamta’s World: The Life and Encounters of a Medieval Noblewoman from the Middle East to Mongolia",
     "author": "Antony Eastmond",
-    "subjects": [
-      "World History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "world history keyword",
-      "history keyword or history prize"
-    ],
-    "reviewReason": "Primary subject selected from multiple candidates: World History, History.",
-    "candidates": [
-      {
-        "subject": "World History",
-        "score": 2
-      },
-      {
-        "subject": "History",
-        "score": 1
-      }
-    ]
-  },
-  {
-    "bookId": "book-tears-of-rangi-experiments-across-worlds-anne-salmond",
-    "title": "Tears of Rangi: Experiments Across Worlds",
-    "author": "Anne Salmond",
     "subjects": [
       "World History"
     ],

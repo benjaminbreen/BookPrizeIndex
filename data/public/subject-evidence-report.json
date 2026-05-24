@@ -4598,28 +4598,28 @@
     "bookId": "book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin",
     "title": "A Peace to End All Peace: Creating the Modern Middle East, 1914–1922",
     "author": "David Fromkin",
-    "primarySubject": "World History",
+    "primarySubject": "War & Military",
     "confidence": "low",
     "candidates": [
+      {
+        "subject": "War & Military",
+        "score": 4,
+        "evidenceCount": 3
+      },
       {
         "subject": "World History",
         "score": 3,
         "evidenceCount": 2
       },
       {
-        "subject": "History",
-        "score": 3,
-        "evidenceCount": 3
-      },
-      {
-        "subject": "War & Military",
-        "score": 2,
-        "evidenceCount": 2
-      },
-      {
         "subject": "American History",
         "score": 2,
         "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 2,
+        "evidenceCount": 2
       }
     ],
     "evidence": [
@@ -4634,12 +4634,21 @@
       },
       {
         "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword",
+        "id": "subject-evidence-book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin-4"
+      },
+      {
+        "source": "keyword_classifier",
         "rawLabel": "World History",
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin-4"
+        "note": "world history keyword; history keyword or history prize; war/military keyword",
+        "id": "subject-evidence-book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin-5"
       },
       {
         "source": "award_category",
@@ -4667,15 +4676,6 @@
         "confidence": "low",
         "sourceId": "source-award-record-latimes-history-wikipedia-los-angeles-times-book-prize-for-history",
         "id": "subject-evidence-book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin-2"
-      },
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin-5"
       },
       {
         "source": "topic_classifier",
@@ -6250,6 +6250,11 @@
         "subject": "History",
         "score": 4,
         "evidenceCount": 4
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 3,
+        "evidenceCount": 2
       }
     ],
     "evidence": [
@@ -6268,8 +6273,17 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; business/economics keyword",
         "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; business/economics keyword",
+        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-7"
       },
       {
         "source": "keyword_classifier",
@@ -6277,8 +6291,8 @@
         "mappedSubject": "War & Military",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword",
-        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-7"
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; business/economics keyword",
+        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-8"
       },
       {
         "source": "topic_classifier",
@@ -6286,8 +6300,8 @@
         "mappedSubject": "War & Military",
         "score": 2,
         "confidence": "low",
-        "note": "war/military keyword; World War II keyword; subject fallback",
-        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-9"
+        "note": "war/military keyword; World War II keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-10"
       },
       {
         "source": "award_category",
@@ -6304,8 +6318,17 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword",
-        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-8"
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; business/economics keyword",
+        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-9"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Money, Markets & Economic Policy",
+        "mappedSubject": "Business & Economics",
+        "score": 1,
+        "confidence": "low",
+        "note": "war/military keyword; World War II keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-11"
       },
       {
         "source": "award_category",
@@ -6340,17 +6363,8 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "war/military keyword; World War II keyword; subject fallback",
-        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-11"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "War & Military Strategy",
-        "mappedSubject": "War & Military",
-        "score": 1,
-        "confidence": "low",
-        "note": "war/military keyword; World War II keyword; subject fallback",
-        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-10"
+        "note": "war/military keyword; World War II keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-a-world-at-arms-a-global-history-of-world-war-ii-gerhard-weinberg-13"
       }
     ]
   },
@@ -7313,31 +7327,46 @@
     "bookId": "book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo",
     "title": "Advertising Empire: Race and Visual Culture in Imperial Germany",
     "author": "David Ciarlo",
-    "primarySubject": "World History",
+    "primarySubject": "American History",
     "confidence": "low",
     "candidates": [
       {
-        "subject": "World History",
+        "subject": "American History",
         "score": 6,
         "evidenceCount": 3
       },
       {
-        "subject": "American History",
-        "score": 4,
-        "evidenceCount": 2
-      },
-      {
-        "subject": "History",
-        "score": 4,
+        "subject": "World History",
+        "score": 6,
         "evidenceCount": 4
       },
       {
         "subject": "Race & Ethnicity",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "History",
+        "score": 3,
+        "evidenceCount": 3
+      },
+      {
+        "subject": "War & Military",
         "score": 2,
         "evidenceCount": 1
       },
       {
         "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Travel & Place",
         "score": 2,
         "evidenceCount": 1
       }
@@ -7358,8 +7387,26 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; business/economics keyword; race/ethnicity keyword; travel/place keyword",
         "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-6"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Indigenous History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "war/military keyword; empire/colonial keyword; Indigenous history keyword; Black history/culture keyword; Africa/diaspora keyword; media/journalism keyword; money/markets keyword; settler colonialism keyword; subject fallback",
+        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-13"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-7"
       },
       {
         "source": "keyword_classifier",
@@ -7367,8 +7414,8 @@
         "mappedSubject": "Race & Ethnicity",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
-        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-7"
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-9"
       },
       {
         "source": "keyword_classifier",
@@ -7376,7 +7423,25 @@
         "mappedSubject": "Society & Culture",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-10"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-11"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; business/economics keyword; race/ethnicity keyword; travel/place keyword",
         "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-8"
       },
       {
@@ -7394,17 +7459,8 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
-        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-9"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Empire & Colonialism",
-        "mappedSubject": "World History",
-        "score": 2,
-        "confidence": "low",
-        "note": "empire/colonial keyword; subject fallback",
-        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-10"
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-12"
       },
       {
         "source": "award_category",
@@ -7423,24 +7479,6 @@
         "confidence": "low",
         "sourceId": "source-award-record-aha-european-international-history-aha-prize-in-european-international-history-official-page",
         "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-3"
-      },
-      {
-        "source": "award_category",
-        "rawLabel": "American History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "sourceId": "source-award-record-aha-european-international-history-aha-prize-in-european-international-history-official-page",
-        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-5"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Regional & Local History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "empire/colonial keyword; subject fallback",
-        "id": "subject-evidence-book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo-11"
       }
     ]
   },
@@ -33507,7 +33545,22 @@
         "evidenceCount": 4
       },
       {
+        "subject": "Biography",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "Race & Ethnicity",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "War & Military",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "American History",
         "score": 2,
         "evidenceCount": 1
       },
@@ -33515,22 +33568,35 @@
         "subject": "World History",
         "score": 2,
         "evidenceCount": 1
-      },
-      {
-        "subject": "History",
-        "score": 1,
-        "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-1"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Biography",
+        "mappedSubject": "Biography",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-3"
+      },
       {
         "source": "keyword_classifier",
         "rawLabel": "Race & Ethnicity",
         "mappedSubject": "Race & Ethnicity",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
-        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-1"
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-4"
       },
       {
         "source": "keyword_classifier",
@@ -33538,8 +33604,8 @@
         "mappedSubject": "Society & Culture",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
-        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-2"
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-5"
       },
       {
         "source": "topic_classifier",
@@ -33548,7 +33614,16 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-5"
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-2"
       },
       {
         "source": "keyword_classifier",
@@ -33556,17 +33631,8 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
-        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-3"
-      },
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
-        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-4"
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-6"
       },
       {
         "source": "topic_classifier",
@@ -33575,7 +33641,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-6"
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-8"
       },
       {
         "source": "topic_classifier",
@@ -33584,7 +33650,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-7"
+        "id": "subject-evidence-book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence-9"
       }
     ]
   },
@@ -38611,17 +38677,17 @@
         "evidenceCount": 3
       },
       {
+        "subject": "Business & Economics",
+        "score": 5,
+        "evidenceCount": 3
+      },
+      {
         "subject": "History",
         "score": 4,
         "evidenceCount": 4
       },
       {
         "subject": "Society & Culture",
-        "score": 4,
-        "evidenceCount": 2
-      },
-      {
-        "subject": "Business & Economics",
         "score": 4,
         "evidenceCount": 2
       }
@@ -38665,11 +38731,11 @@
       },
       {
         "source": "topic_classifier",
-        "rawLabel": "Money, Markets & Economic Policy",
+        "rawLabel": "Business, Capitalism & Corporations",
         "mappedSubject": "Business & Economics",
         "score": 2,
         "confidence": "low",
-        "note": "money/markets keyword; regional/local keyword; subject fallback",
+        "note": "business/capitalism keyword; money/markets keyword; regional/local keyword; subject fallback",
         "id": "subject-evidence-book-creating-the-commonwealth-the-economic-culture-of-puritan-new-england-stephen-innes-10"
       },
       {
@@ -38689,6 +38755,15 @@
         "confidence": "low",
         "note": "American history keyword; history keyword or history prize; society/culture keyword; business/economics keyword",
         "id": "subject-evidence-book-creating-the-commonwealth-the-economic-culture-of-puritan-new-england-stephen-innes-9"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Money, Markets & Economic Policy",
+        "mappedSubject": "Business & Economics",
+        "score": 1,
+        "confidence": "low",
+        "note": "business/capitalism keyword; money/markets keyword; regional/local keyword; subject fallback",
+        "id": "subject-evidence-book-creating-the-commonwealth-the-economic-culture-of-puritan-new-england-stephen-innes-11"
       },
       {
         "source": "award_category",
@@ -38723,8 +38798,8 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "money/markets keyword; regional/local keyword; subject fallback",
-        "id": "subject-evidence-book-creating-the-commonwealth-the-economic-culture-of-puritan-new-england-stephen-innes-11"
+        "note": "business/capitalism keyword; money/markets keyword; regional/local keyword; subject fallback",
+        "id": "subject-evidence-book-creating-the-commonwealth-the-economic-culture-of-puritan-new-england-stephen-innes-12"
       }
     ]
   },
@@ -41072,6 +41147,11 @@
         "evidenceCount": 1
       },
       {
+        "subject": "Travel & Place",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "Nature & Environment",
         "score": 1,
         "evidenceCount": 1
@@ -41085,7 +41165,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-darwin-s-dangerous-idea-evolution-and-the-meaning-of-life-daniel-c-dennett-3"
+        "id": "subject-evidence-book-darwin-s-dangerous-idea-evolution-and-the-meaning-of-life-daniel-c-dennett-4"
       },
       {
         "source": "keyword_classifier",
@@ -41093,8 +41173,17 @@
         "mappedSubject": "Science",
         "score": 2,
         "confidence": "low",
-        "note": "science keyword",
+        "note": "science keyword; travel/place keyword",
         "id": "subject-evidence-book-darwin-s-dangerous-idea-evolution-and-the-meaning-of-life-daniel-c-dennett-2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "science keyword; travel/place keyword",
+        "id": "subject-evidence-book-darwin-s-dangerous-idea-evolution-and-the-meaning-of-life-daniel-c-dennett-3"
       },
       {
         "source": "award_category",
@@ -41112,7 +41201,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-darwin-s-dangerous-idea-evolution-and-the-meaning-of-life-daniel-c-dennett-4"
+        "id": "subject-evidence-book-darwin-s-dangerous-idea-evolution-and-the-meaning-of-life-daniel-c-dennett-5"
       }
     ]
   },
@@ -51720,18 +51809,18 @@
     "bookId": "book-essays-in-economics-wassily-w-leontief",
     "title": "Essays in Economics",
     "author": "Wassily W. Leontief",
-    "primarySubject": "Biography",
+    "primarySubject": "Business & Economics",
     "confidence": "low",
     "candidates": [
+      {
+        "subject": "Business & Economics",
+        "score": 4,
+        "evidenceCount": 3
+      },
       {
         "subject": "Biography",
         "score": 2,
         "evidenceCount": 1
-      },
-      {
-        "subject": "Business & Economics",
-        "score": 2,
-        "evidenceCount": 2
       }
     ],
     "evidence": [
@@ -51742,6 +51831,15 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-essays-in-economics-wassily-w-leontief-2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "business/economics keyword",
         "id": "subject-evidence-book-essays-in-economics-wassily-w-leontief-1"
       },
       {
@@ -51751,7 +51849,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-essays-in-economics-wassily-w-leontief-2"
+        "id": "subject-evidence-book-essays-in-economics-wassily-w-leontief-3"
       },
       {
         "source": "topic_classifier",
@@ -51760,7 +51858,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-essays-in-economics-wassily-w-leontief-3"
+        "id": "subject-evidence-book-essays-in-economics-wassily-w-leontief-4"
       }
     ]
   },
@@ -53959,31 +54057,74 @@
     "bookId": "book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears",
     "title": "Fables of Abundance: A Cultural History of Advertising in America",
     "author": "Jackson Lears",
-    "primarySubject": "History",
+    "primarySubject": "Arts & Criticism",
     "confidence": "low",
     "candidates": [
       {
-        "subject": "History",
-        "score": 3,
-        "evidenceCount": 3
+        "subject": "Arts & Criticism",
+        "score": 4,
+        "evidenceCount": 2
       },
       {
-        "subject": "Arts & Criticism",
+        "subject": "Society & Culture",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Medicine & Public Health",
         "score": 2,
         "evidenceCount": 1
       },
       {
-        "subject": "Society & Culture",
-        "score": 1,
+        "subject": "American History",
+        "score": 2,
         "evidenceCount": 1
       },
       {
-        "subject": "Business & Economics",
-        "score": 1,
+        "subject": "World History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 2,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Politics & Government",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Religion",
+        "score": 2,
         "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword; medicine/public health keyword; business/economics keyword; arts/criticism keyword; religion keyword",
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-3"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Arts & Criticism",
+        "mappedSubject": "Arts & Criticism",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword; medicine/public health keyword; business/economics keyword; arts/criticism keyword; religion keyword",
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-4"
+      },
       {
         "source": "topic_classifier",
         "rawLabel": "Literature & Writers",
@@ -53991,7 +54132,61 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-4"
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-11"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword; medicine/public health keyword; business/economics keyword; arts/criticism keyword; religion keyword",
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Medicine & Public Health",
+        "mappedSubject": "Medicine & Public Health",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword; medicine/public health keyword; business/economics keyword; arts/criticism keyword; religion keyword",
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Politics & Government",
+        "mappedSubject": "Politics & Government",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword; medicine/public health keyword; business/economics keyword; arts/criticism keyword; religion keyword",
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Religion",
+        "mappedSubject": "Religion",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword; medicine/public health keyword; business/economics keyword; arts/criticism keyword; religion keyword",
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword; medicine/public health keyword; business/economics keyword; arts/criticism keyword; religion keyword",
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-9"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword; medicine/public health keyword; business/economics keyword; arts/criticism keyword; religion keyword",
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-10"
       },
       {
         "source": "topic_classifier",
@@ -54000,7 +54195,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-5"
+        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-12"
       },
       {
         "source": "award_category",
@@ -54019,24 +54214,6 @@
         "confidence": "low",
         "sourceId": "source-award-record-latimes-history-wikipedia-los-angeles-times-book-prize-for-history",
         "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-2"
-      },
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "history keyword or history prize",
-        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-3"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Family, Childhood & Adoption",
-        "mappedSubject": "Society & Culture",
-        "score": 1,
-        "confidence": "low",
-        "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears-6"
       }
     ]
   },
@@ -57933,12 +58110,26 @@
         "evidenceCount": 1
       },
       {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "Memoir & Autobiography",
         "score": 1,
         "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm-2"
+      },
       {
         "source": "award_category",
         "rawLabel": "PEN/Diamonstein-Spielvogel Award for the Art of the Essay",
@@ -57954,8 +58145,8 @@
         "mappedSubject": "Arts & Criticism",
         "score": 2,
         "confidence": "low",
-        "note": "arts/criticism keyword",
-        "id": "subject-evidence-book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm-2"
+        "note": "American history keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm-3"
       },
       {
         "source": "topic_classifier",
@@ -57964,7 +58155,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm-3"
+        "id": "subject-evidence-book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm-4"
       },
       {
         "source": "topic_classifier",
@@ -57973,7 +58164,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm-4"
+        "id": "subject-evidence-book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm-5"
       }
     ]
   },
@@ -58137,12 +58328,36 @@
         "evidenceCount": 3
       },
       {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "Politics & Government",
         "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "World History",
+        "score": 1,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 1,
         "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; politics/government keyword; business/economics keyword",
+        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--2"
+      },
       {
         "source": "award_category",
         "rawLabel": "PROSE Award for Business, Finance, and Management",
@@ -58158,8 +58373,8 @@
         "mappedSubject": "Business & Economics",
         "score": 2,
         "confidence": "low",
-        "note": "politics/government keyword; business/economics keyword",
-        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--2"
+        "note": "American history keyword; history keyword or history prize; politics/government keyword; business/economics keyword",
+        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--3"
       },
       {
         "source": "topic_classifier",
@@ -58167,8 +58382,8 @@
         "mappedSubject": "Business & Economics",
         "score": 2,
         "confidence": "low",
-        "note": "business/capitalism keyword; subject fallback",
-        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--4"
+        "note": "Latin America/Caribbean keyword; business/capitalism keyword; subject fallback",
+        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--5"
       },
       {
         "source": "keyword_classifier",
@@ -58176,8 +58391,26 @@
         "mappedSubject": "Politics & Government",
         "score": 2,
         "confidence": "low",
-        "note": "politics/government keyword; business/economics keyword",
-        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--3"
+        "note": "American history keyword; history keyword or history prize; politics/government keyword; business/economics keyword",
+        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--4"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Regional & Local History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "Latin America/Caribbean keyword; business/capitalism keyword; subject fallback",
+        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--7"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Latin America & the Caribbean",
+        "mappedSubject": "World History",
+        "score": 1,
+        "confidence": "low",
+        "note": "Latin America/Caribbean keyword; business/capitalism keyword; subject fallback",
+        "id": "subject-evidence-book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris--6"
       }
     ]
   },
@@ -59768,18 +60001,18 @@
     "candidates": [
       {
         "subject": "World History",
-        "score": 8,
+        "score": 7,
         "evidenceCount": 4
+      },
+      {
+        "subject": "American History",
+        "score": 6,
+        "evidenceCount": 3
       },
       {
         "subject": "History",
         "score": 6,
         "evidenceCount": 6
-      },
-      {
-        "subject": "American History",
-        "score": 4,
-        "evidenceCount": 2
       }
     ],
     "evidence": [
@@ -59800,6 +60033,15 @@
         "confidence": "low",
         "note": "American history keyword; world history keyword; history keyword or history prize",
         "id": "subject-evidence-book-freedom-s-mirror-cuba-and-haiti-in-the-age-of-revolution-ada-ferrer-9"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Slavery & Emancipation",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "slavery/emancipation keyword; Latin America/Caribbean keyword; subject fallback",
+        "id": "subject-evidence-book-freedom-s-mirror-cuba-and-haiti-in-the-age-of-revolution-ada-ferrer-11"
       },
       {
         "source": "award_category",
@@ -59827,15 +60069,6 @@
         "confidence": "low",
         "note": "American history keyword; world history keyword; history keyword or history prize",
         "id": "subject-evidence-book-freedom-s-mirror-cuba-and-haiti-in-the-age-of-revolution-ada-ferrer-10"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Latin America & the Caribbean",
-        "mappedSubject": "World History",
-        "score": 2,
-        "confidence": "low",
-        "note": "Latin America/Caribbean keyword; subject fallback",
-        "id": "subject-evidence-book-freedom-s-mirror-cuba-and-haiti-in-the-age-of-revolution-ada-ferrer-11"
       },
       {
         "source": "award_category",
@@ -59888,8 +60121,8 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "Latin America/Caribbean keyword; subject fallback",
-        "id": "subject-evidence-book-freedom-s-mirror-cuba-and-haiti-in-the-age-of-revolution-ada-ferrer-12"
+        "note": "slavery/emancipation keyword; Latin America/Caribbean keyword; subject fallback",
+        "id": "subject-evidence-book-freedom-s-mirror-cuba-and-haiti-in-the-age-of-revolution-ada-ferrer-13"
       }
     ]
   },
@@ -61436,6 +61669,21 @@
         "evidenceCount": 1
       },
       {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Arts & Criticism",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "Memoir & Autobiography",
         "score": 1,
         "evidenceCount": 1
@@ -61443,13 +61691,40 @@
     ],
     "evidence": [
       {
+        "source": "keyword_classifier",
+        "rawLabel": "Arts & Criticism",
+        "mappedSubject": "Arts & Criticism",
+        "score": 2,
+        "confidence": "low",
+        "note": "society/culture keyword; business/economics keyword; arts/criticism keyword; crime/justice keyword",
+        "id": "subject-evidence-book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep-1"
+      },
+      {
         "source": "topic_classifier",
         "rawLabel": "Literary Biography",
         "mappedSubject": "Biography",
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "society/culture keyword; business/economics keyword; arts/criticism keyword; crime/justice keyword",
         "id": "subject-evidence-book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep-2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "society/culture keyword; business/economics keyword; arts/criticism keyword; crime/justice keyword",
+        "id": "subject-evidence-book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep-4"
       },
       {
         "source": "keyword_classifier",
@@ -61457,8 +61732,8 @@
         "mappedSubject": "True Crime & Justice",
         "score": 2,
         "confidence": "low",
-        "note": "crime/justice keyword",
-        "id": "subject-evidence-book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep-1"
+        "note": "society/culture keyword; business/economics keyword; arts/criticism keyword; crime/justice keyword",
+        "id": "subject-evidence-book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep-3"
       },
       {
         "source": "topic_classifier",
@@ -61467,7 +61742,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep-3"
+        "id": "subject-evidence-book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep-6"
       }
     ]
   },
@@ -63848,12 +64123,17 @@
         "evidenceCount": 4
       },
       {
-        "subject": "World History",
-        "score": 2,
-        "evidenceCount": 1
+        "subject": "Politics & Government",
+        "score": 4,
+        "evidenceCount": 2
       },
       {
-        "subject": "Politics & Government",
+        "subject": "War & Military",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "World History",
         "score": 2,
         "evidenceCount": 1
       }
@@ -63874,7 +64154,7 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; history keyword or history prize; politics/government keyword",
+        "note": "American history keyword; history keyword or history prize; war/military keyword; politics/government keyword",
         "id": "subject-evidence-book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett-6"
       },
       {
@@ -63883,8 +64163,26 @@
         "mappedSubject": "Politics & Government",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; history keyword or history prize; politics/government keyword",
+        "note": "American history keyword; history keyword or history prize; war/military keyword; politics/government keyword",
         "id": "subject-evidence-book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett-7"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Presidency & Executive Power",
+        "mappedSubject": "Politics & Government",
+        "score": 2,
+        "confidence": "low",
+        "note": "presidency/executive keyword; war/military keyword; subject fallback",
+        "id": "subject-evidence-book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett-9"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; war/military keyword; politics/government keyword",
+        "id": "subject-evidence-book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett-8"
       },
       {
         "source": "award_category",
@@ -63928,8 +64226,17 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett-8"
+        "note": "presidency/executive keyword; war/military keyword; subject fallback",
+        "id": "subject-evidence-book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett-11"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "War & Military Strategy",
+        "mappedSubject": "War & Military",
+        "score": 1,
+        "confidence": "low",
+        "note": "presidency/executive keyword; war/military keyword; subject fallback",
+        "id": "subject-evidence-book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett-10"
       }
     ]
   },
@@ -64592,8 +64899,23 @@
     "candidates": [
       {
         "subject": "Biography",
-        "score": 8,
-        "evidenceCount": 4
+        "score": 6,
+        "evidenceCount": 3
+      },
+      {
+        "subject": "Religion",
+        "score": 4,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Politics & Government",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "History",
+        "score": 1,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -64621,17 +64943,53 @@
         "mappedSubject": "Biography",
         "score": 2,
         "confidence": "low",
-        "note": "biography/title pattern",
+        "note": "biography/title pattern; history keyword or history prize; politics/government keyword; religion keyword",
+        "id": "subject-evidence-book-gladstone-roy-jenkins-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Politics & Government",
+        "mappedSubject": "Politics & Government",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; history keyword or history prize; politics/government keyword; religion keyword",
         "id": "subject-evidence-book-gladstone-roy-jenkins-3"
       },
       {
-        "source": "topic_classifier",
-        "rawLabel": "Biography & Public Lives",
-        "mappedSubject": "Biography",
+        "source": "keyword_classifier",
+        "rawLabel": "Religion",
+        "mappedSubject": "Religion",
         "score": 2,
         "confidence": "low",
-        "note": "biography fallback; subject fallback",
+        "note": "biography/title pattern; history keyword or history prize; politics/government keyword; religion keyword",
         "id": "subject-evidence-book-gladstone-roy-jenkins-4"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Religion & Religious Movements",
+        "mappedSubject": "Religion",
+        "score": 2,
+        "confidence": "low",
+        "note": "religion keyword; subject fallback",
+        "id": "subject-evidence-book-gladstone-roy-jenkins-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "biography/title pattern; history keyword or history prize; politics/government keyword; religion keyword",
+        "id": "subject-evidence-book-gladstone-roy-jenkins-6"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "American Politics",
+        "mappedSubject": "Politics & Government",
+        "score": 1,
+        "confidence": "low",
+        "note": "religion keyword; subject fallback",
+        "id": "subject-evidence-book-gladstone-roy-jenkins-8"
       }
     ]
   },
@@ -65083,8 +65441,18 @@
         "evidenceCount": 3
       },
       {
+        "subject": "Race & Ethnicity",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "History",
-        "score": 1,
+        "score": 2,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Politics & Government",
+        "score": 2,
         "evidenceCount": 1
       }
     ],
@@ -65095,7 +65463,7 @@
         "mappedSubject": "Arts & Criticism",
         "score": 2,
         "confidence": "low",
-        "note": "arts/criticism keyword",
+        "note": "history keyword or history prize; politics/government keyword; arts/criticism keyword; race/ethnicity keyword",
         "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-2"
       },
       {
@@ -65105,7 +65473,25 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Politics & Government",
+        "mappedSubject": "Politics & Government",
+        "score": 2,
+        "confidence": "low",
+        "note": "history keyword or history prize; politics/government keyword; arts/criticism keyword; race/ethnicity keyword",
         "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-3"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Race & Ethnicity",
+        "mappedSubject": "Race & Ethnicity",
+        "score": 2,
+        "confidence": "low",
+        "note": "history keyword or history prize; politics/government keyword; arts/criticism keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-4"
       },
       {
         "source": "topic_classifier",
@@ -65114,7 +65500,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-4"
+        "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-7"
       },
       {
         "source": "award_category",
@@ -65126,13 +65512,22 @@
         "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-1"
       },
       {
+        "source": "keyword_classifier",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "history keyword or history prize; politics/government keyword; arts/criticism keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-5"
+      },
+      {
         "source": "topic_classifier",
         "rawLabel": "Intellectual History & Ideas",
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-5"
+        "id": "subject-evidence-book-go-ahead-in-the-rain-notes-to-a-tribe-called-quest-hanif-abdurraqib-8"
       }
     ]
   },
@@ -75197,12 +75592,31 @@
         "evidenceCount": 1
       },
       {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "Arts & Criticism",
         "score": 1,
         "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; history keyword or history prize; business/economics keyword",
+        "id": "subject-evidence-book-huey-long-thomas-harry-williams-4"
+      },
       {
         "source": "award_category",
         "rawLabel": "Pulitzer Prize in Biography or Autobiography",
@@ -75227,8 +75641,8 @@
         "mappedSubject": "Biography",
         "score": 2,
         "confidence": "low",
-        "note": "biography/title pattern",
-        "id": "subject-evidence-book-huey-long-thomas-harry-williams-4"
+        "note": "biography/title pattern; American history keyword; history keyword or history prize; business/economics keyword",
+        "id": "subject-evidence-book-huey-long-thomas-harry-williams-6"
       },
       {
         "source": "topic_classifier",
@@ -75237,6 +75651,15 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-huey-long-thomas-harry-williams-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; history keyword or history prize; business/economics keyword",
         "id": "subject-evidence-book-huey-long-thomas-harry-williams-5"
       },
       {
@@ -75255,7 +75678,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-huey-long-thomas-harry-williams-6"
+        "id": "subject-evidence-book-huey-long-thomas-harry-williams-8"
       }
     ]
   },
@@ -78380,8 +78803,8 @@
     "candidates": [
       {
         "subject": "American History",
-        "score": 4,
-        "evidenceCount": 2
+        "score": 6,
+        "evidenceCount": 3
       },
       {
         "subject": "History",
@@ -78389,7 +78812,17 @@
         "evidenceCount": 4
       },
       {
+        "subject": "Race & Ethnicity",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "World History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Society & Culture",
         "score": 2,
         "evidenceCount": 1
       }
@@ -78410,8 +78843,35 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
+        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
         "id": "subject-evidence-book-indians-and-english-facing-off-in-early-america-karen-kupperman-5"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Indigenous History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "Indigenous history keyword; subject fallback",
+        "id": "subject-evidence-book-indians-and-english-facing-off-in-early-america-karen-kupperman-9"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Race & Ethnicity",
+        "mappedSubject": "Race & Ethnicity",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-indians-and-english-facing-off-in-early-america-karen-kupperman-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-indians-and-english-facing-off-in-early-america-karen-kupperman-7"
       },
       {
         "source": "keyword_classifier",
@@ -78419,8 +78879,8 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-indians-and-english-facing-off-in-early-america-karen-kupperman-6"
+        "note": "American history keyword; world history keyword; history keyword or history prize; society/culture keyword; race/ethnicity keyword",
+        "id": "subject-evidence-book-indians-and-english-facing-off-in-early-america-karen-kupperman-8"
       },
       {
         "source": "award_category",
@@ -78455,8 +78915,8 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-indians-and-english-facing-off-in-early-america-karen-kupperman-7"
+        "note": "Indigenous history keyword; subject fallback",
+        "id": "subject-evidence-book-indians-and-english-facing-off-in-early-america-karen-kupperman-10"
       }
     ]
   },
@@ -81796,9 +82256,14 @@
         "evidenceCount": 4
       },
       {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "History",
-        "score": 3,
-        "evidenceCount": 3
+        "score": 2,
+        "evidenceCount": 2
       },
       {
         "subject": "Arts & Criticism",
@@ -81807,6 +82272,15 @@
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; history keyword or history prize",
+        "id": "subject-evidence-book-james-russell-lowell-martin-duberman-5"
+      },
       {
         "source": "award_category",
         "rawLabel": "National Book Award for History and Biography",
@@ -81831,8 +82305,8 @@
         "mappedSubject": "Biography",
         "score": 2,
         "confidence": "low",
-        "note": "biography/title pattern; history keyword or history prize",
-        "id": "subject-evidence-book-james-russell-lowell-martin-duberman-5"
+        "note": "biography/title pattern; American history keyword; history keyword or history prize",
+        "id": "subject-evidence-book-james-russell-lowell-martin-duberman-6"
       },
       {
         "source": "topic_classifier",
@@ -81869,15 +82343,6 @@
         "confidence": "low",
         "sourceId": "source-award-record-national-book-awards-history-and-biography-wikipedia-national-book-award-for-nonfiction",
         "id": "subject-evidence-book-james-russell-lowell-martin-duberman-3"
-      },
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "biography/title pattern; history keyword or history prize",
-        "id": "subject-evidence-book-james-russell-lowell-martin-duberman-6"
       }
     ]
   },
@@ -83796,9 +84261,28 @@
         "subject": "Memoir & Autobiography",
         "score": 2,
         "evidenceCount": 1
+      },
+      {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; history keyword or history prize; travel/place keyword",
+        "id": "subject-evidence-book-john-paul-jones-samuel-eliot-morison-4"
+      },
       {
         "source": "award_category",
         "rawLabel": "Pulitzer Prize in Biography or Autobiography",
@@ -83823,8 +84307,8 @@
         "mappedSubject": "Biography",
         "score": 2,
         "confidence": "low",
-        "note": "biography/title pattern",
-        "id": "subject-evidence-book-john-paul-jones-samuel-eliot-morison-4"
+        "note": "biography/title pattern; American history keyword; history keyword or history prize; travel/place keyword",
+        "id": "subject-evidence-book-john-paul-jones-samuel-eliot-morison-5"
       },
       {
         "source": "topic_classifier",
@@ -83833,7 +84317,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-john-paul-jones-samuel-eliot-morison-5"
+        "id": "subject-evidence-book-john-paul-jones-samuel-eliot-morison-7"
       },
       {
         "source": "award_category",
@@ -83843,6 +84327,15 @@
         "confidence": "low",
         "sourceId": "source-award-record-pulitzer-biography-or-autobiography-wikipedia-pulitzer-prize-for-biography",
         "id": "subject-evidence-book-john-paul-jones-samuel-eliot-morison-2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; history keyword or history prize; travel/place keyword",
+        "id": "subject-evidence-book-john-paul-jones-samuel-eliot-morison-6"
       }
     ]
   },
@@ -93343,6 +93836,26 @@
         "subject": "History",
         "score": 4,
         "evidenceCount": 4
+      },
+      {
+        "subject": "Religion",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Biography",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -93352,7 +93865,7 @@
         "mappedSubject": "Arts & Criticism",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize; arts/criticism keyword",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; arts/criticism keyword; religion keyword; travel/place keyword",
         "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-6"
       },
       {
@@ -93361,8 +93874,44 @@
         "mappedSubject": "Arts & Criticism",
         "score": 2,
         "confidence": "low",
-        "note": "art/music/performance keyword; essays/cultural criticism keyword; subject fallback",
+        "note": "Europe/Russia keyword; religion keyword; intellectual history keyword; art/music/performance keyword; travel/place keyword; essays/cultural criticism keyword; subject fallback",
+        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-13"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Biography",
+        "mappedSubject": "Biography",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; arts/criticism keyword; religion keyword; travel/place keyword",
+        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Religion",
+        "mappedSubject": "Religion",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; arts/criticism keyword; religion keyword; travel/place keyword",
+        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; arts/criticism keyword; religion keyword; travel/place keyword",
         "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-9"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; arts/criticism keyword; religion keyword; travel/place keyword",
+        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-10"
       },
       {
         "source": "award_category",
@@ -93388,8 +93937,8 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize; arts/criticism keyword",
-        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-7"
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; society/culture keyword; arts/criticism keyword; religion keyword; travel/place keyword",
+        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-11"
       },
       {
         "source": "topic_classifier",
@@ -93397,8 +93946,8 @@
         "mappedSubject": "Arts & Criticism",
         "score": 1,
         "confidence": "low",
-        "note": "art/music/performance keyword; essays/cultural criticism keyword; subject fallback",
-        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-10"
+        "note": "Europe/Russia keyword; religion keyword; intellectual history keyword; art/music/performance keyword; travel/place keyword; essays/cultural criticism keyword; subject fallback",
+        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-14"
       },
       {
         "source": "award_category",
@@ -93417,24 +93966,6 @@
         "confidence": "low",
         "sourceId": "source-award-record-prose-world-history-prose-awards-2024-winners-archive",
         "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-3"
-      },
-      {
-        "source": "award_category",
-        "rawLabel": "World History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "sourceId": "source-award-record-prose-world-history-prose-awards-2024-winners-archive",
-        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-5"
-      },
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "world history keyword; history keyword or history prize; arts/criticism keyword",
-        "id": "subject-evidence-book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton-8"
       }
     ]
   },
@@ -94772,6 +95303,11 @@
         "evidenceCount": 2
       },
       {
+        "subject": "Biography",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "Medicine & Public Health",
         "score": 1,
         "evidenceCount": 1
@@ -94780,11 +95316,20 @@
     "evidence": [
       {
         "source": "keyword_classifier",
+        "rawLabel": "Biography",
+        "mappedSubject": "Biography",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; science keyword",
+        "id": "subject-evidence-book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann-2"
+      },
+      {
+        "source": "keyword_classifier",
         "rawLabel": "Science",
         "mappedSubject": "Science",
         "score": 2,
         "confidence": "low",
-        "note": "science keyword",
+        "note": "biography/title pattern; science keyword",
         "id": "subject-evidence-book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann-1"
       },
       {
@@ -94794,7 +95339,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann-2"
+        "id": "subject-evidence-book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann-3"
       },
       {
         "source": "topic_classifier",
@@ -94803,7 +95348,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann-3"
+        "id": "subject-evidence-book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann-4"
       }
     ]
   },
@@ -100748,6 +101293,11 @@
         "subject": "Business & Economics",
         "score": 6,
         "evidenceCount": 4
+      },
+      {
+        "subject": "History",
+        "score": 1,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -100757,7 +101307,7 @@
         "mappedSubject": "Business & Economics",
         "score": 2,
         "confidence": "low",
-        "note": "business/economics keyword",
+        "note": "history keyword or history prize; business/economics keyword",
         "id": "subject-evidence-book-money-whence-it-came-where-it-went-john-kenneth-galbraith-1"
       },
       {
@@ -100767,7 +101317,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-money-whence-it-came-where-it-went-john-kenneth-galbraith-2"
+        "id": "subject-evidence-book-money-whence-it-came-where-it-went-john-kenneth-galbraith-3"
       },
       {
         "source": "topic_classifier",
@@ -100776,7 +101326,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-money-whence-it-came-where-it-went-john-kenneth-galbraith-3"
+        "id": "subject-evidence-book-money-whence-it-came-where-it-went-john-kenneth-galbraith-4"
       },
       {
         "source": "topic_classifier",
@@ -100785,7 +101335,16 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-money-whence-it-came-where-it-went-john-kenneth-galbraith-4"
+        "id": "subject-evidence-book-money-whence-it-came-where-it-went-john-kenneth-galbraith-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "history keyword or history prize; business/economics keyword",
+        "id": "subject-evidence-book-money-whence-it-came-where-it-went-john-kenneth-galbraith-2"
       }
     ]
   },
@@ -101018,13 +101577,23 @@
         "evidenceCount": 2
       },
       {
+        "subject": "World History",
+        "score": 4,
+        "evidenceCount": 2
+      },
+      {
         "subject": "History",
         "score": 4,
         "evidenceCount": 4
       },
       {
-        "subject": "World History",
-        "score": 2,
+        "subject": "Business & Economics",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 1,
         "evidenceCount": 1
       }
     ],
@@ -101044,8 +101613,17 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
+        "note": "American history keyword; world history keyword; history keyword or history prize; business/economics keyword",
         "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; business/economics keyword",
+        "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-6"
       },
       {
         "source": "keyword_classifier",
@@ -101053,8 +101631,26 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-6"
+        "note": "American history keyword; world history keyword; history keyword or history prize; business/economics keyword",
+        "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-7"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Empire & Colonialism",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "empire/colonial keyword; social movements keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-8"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Money, Markets & Economic Policy",
+        "mappedSubject": "Business & Economics",
+        "score": 1,
+        "confidence": "low",
+        "note": "empire/colonial keyword; social movements keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-9"
       },
       {
         "source": "award_category",
@@ -101089,8 +101685,17 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-7"
+        "note": "empire/colonial keyword; social movements keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-11"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Social Movements & Activism",
+        "mappedSubject": "Society & Culture",
+        "score": 1,
+        "confidence": "low",
+        "note": "empire/colonial keyword; social movements keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-moral-capital-foundations-of-british-abolitionism-christopher-brown-10"
       }
     ]
   },
@@ -101388,8 +101993,23 @@
         "evidenceCount": 4
       },
       {
+        "subject": "World History",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
         "subject": "Society & Culture",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "War & Military",
         "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 1,
         "evidenceCount": 1
       }
     ],
@@ -101418,7 +102038,7 @@
         "mappedSubject": "Politics & Government",
         "score": 2,
         "confidence": "low",
-        "note": "politics/government keyword; society/culture keyword",
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword",
         "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-3"
       },
       {
@@ -101427,8 +102047,35 @@
         "mappedSubject": "Society & Culture",
         "score": 2,
         "confidence": "low",
-        "note": "politics/government keyword; society/culture keyword",
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword",
         "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-4"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Cold War & Nuclear Politics",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; housing/cities keyword; subject fallback",
+        "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword",
+        "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; society/culture keyword",
+        "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-6"
       },
       {
         "source": "topic_classifier",
@@ -101436,8 +102083,26 @@
         "mappedSubject": "Politics & Government",
         "score": 1,
         "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-5"
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; housing/cities keyword; subject fallback",
+        "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-10"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Housing, Cities & Urban Life",
+        "mappedSubject": "Society & Culture",
+        "score": 1,
+        "confidence": "low",
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; housing/cities keyword; subject fallback",
+        "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-8"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Europe & Russia",
+        "mappedSubject": "World History",
+        "score": 1,
+        "confidence": "low",
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; housing/cities keyword; subject fallback",
+        "id": "subject-evidence-book-moscow-governing-the-socialist-metropolis-timothy-j-colton-9"
       }
     ]
   },
@@ -102411,16 +103076,44 @@
     "candidates": [
       {
         "subject": "Biography",
+        "score": 4,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "War & Military",
         "score": 2,
         "evidenceCount": 1
       },
       {
-        "subject": "History",
-        "score": 1,
+        "subject": "World History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Arts & Criticism",
+        "score": 2,
         "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Arts & Criticism",
+        "mappedSubject": "Arts & Criticism",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans-2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Biography",
+        "mappedSubject": "Biography",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans-4"
+      },
       {
         "source": "topic_classifier",
         "rawLabel": "Artistic Biography",
@@ -102428,7 +103121,25 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; arts/criticism keyword",
         "id": "subject-evidence-book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans-3"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; arts/criticism keyword",
+        "id": "subject-evidence-book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans-5"
       },
       {
         "source": "award_category",
@@ -102438,15 +103149,6 @@
         "confidence": "low",
         "sourceId": "source-nonfiction-history-awards-by-imprint",
         "id": "subject-evidence-book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans-1"
-      },
-      {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "history keyword or history prize",
-        "id": "subject-evidence-book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans-2"
       }
     ]
   },
@@ -113948,8 +114650,18 @@
     "candidates": [
       {
         "subject": "War & Military",
-        "score": 4,
-        "evidenceCount": 3
+        "score": 6,
+        "evidenceCount": 4
+      },
+      {
+        "subject": "Medicine & Public Health",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Nature & Environment",
+        "score": 2,
+        "evidenceCount": 1
       },
       {
         "subject": "World History",
@@ -113957,12 +114669,48 @@
         "evidenceCount": 1
       },
       {
-        "subject": "History",
-        "score": 1,
+        "subject": "Business & Economics",
+        "score": 2,
         "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; medicine/public health keyword; nature/environment keyword; business/economics keyword",
+        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Medicine & Public Health",
+        "mappedSubject": "Medicine & Public Health",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; medicine/public health keyword; nature/environment keyword; business/economics keyword",
+        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--3"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Nature & Environment",
+        "mappedSubject": "Nature & Environment",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; medicine/public health keyword; nature/environment keyword; business/economics keyword",
+        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--4"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; medicine/public health keyword; nature/environment keyword; business/economics keyword",
+        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--5"
+      },
       {
         "source": "topic_classifier",
         "rawLabel": "War & Military Strategy",
@@ -113970,7 +114718,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--4"
+        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--7"
       },
       {
         "source": "keyword_classifier",
@@ -113978,8 +114726,8 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--2"
+        "note": "world history keyword; history keyword or history prize; war/military keyword; medicine/public health keyword; nature/environment keyword; business/economics keyword",
+        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--6"
       },
       {
         "source": "award_category",
@@ -113991,22 +114739,13 @@
         "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--1"
       },
       {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--3"
-      },
-      {
         "source": "topic_classifier",
         "rawLabel": "Cold War & Nuclear Politics",
         "mappedSubject": "War & Military",
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--5"
+        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--8"
       },
       {
         "source": "topic_classifier",
@@ -114015,7 +114754,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--6"
+        "id": "subject-evidence-book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires--9"
       }
     ]
   },
@@ -118203,13 +118942,23 @@
     "candidates": [
       {
         "subject": "Science",
-        "score": 6,
-        "evidenceCount": 3
+        "score": 7,
+        "evidenceCount": 4
       },
       {
         "subject": "Nature & Environment",
         "score": 5,
         "evidenceCount": 3
+      },
+      {
+        "subject": "History",
+        "score": 1,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 1,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -118219,7 +118968,7 @@
         "mappedSubject": "Nature & Environment",
         "score": 2,
         "confidence": "low",
-        "note": "science keyword; nature/environment keyword",
+        "note": "history keyword or history prize; science keyword; nature/environment keyword",
         "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-3"
       },
       {
@@ -118228,8 +118977,8 @@
         "mappedSubject": "Nature & Environment",
         "score": 2,
         "confidence": "low",
-        "note": "climate/weather/disaster keyword; environment keyword; subject fallback",
-        "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-5"
+        "note": "food/agriculture/land keyword; science/discovery keyword; climate/weather/disaster keyword; environment keyword; energy/extraction keyword; subject fallback",
+        "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-6"
       },
       {
         "source": "award_category",
@@ -118255,8 +119004,26 @@
         "mappedSubject": "Science",
         "score": 2,
         "confidence": "low",
-        "note": "science keyword; nature/environment keyword",
+        "note": "history keyword or history prize; science keyword; nature/environment keyword",
         "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-4"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Energy, Extraction & Resources",
+        "mappedSubject": "Business & Economics",
+        "score": 1,
+        "confidence": "low",
+        "note": "food/agriculture/land keyword; science/discovery keyword; climate/weather/disaster keyword; environment keyword; energy/extraction keyword; subject fallback",
+        "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "history keyword or history prize; science keyword; nature/environment keyword",
+        "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-5"
       },
       {
         "source": "topic_classifier",
@@ -118264,8 +119031,17 @@
         "mappedSubject": "Nature & Environment",
         "score": 1,
         "confidence": "low",
-        "note": "climate/weather/disaster keyword; environment keyword; subject fallback",
-        "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-6"
+        "note": "food/agriculture/land keyword; science/discovery keyword; climate/weather/disaster keyword; environment keyword; energy/extraction keyword; subject fallback",
+        "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-9"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Science & Discovery",
+        "mappedSubject": "Science",
+        "score": 1,
+        "confidence": "low",
+        "note": "food/agriculture/land keyword; science/discovery keyword; climate/weather/disaster keyword; environment keyword; energy/extraction keyword; subject fallback",
+        "id": "subject-evidence-book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman-7"
       }
     ]
   },
@@ -125422,13 +126198,13 @@
         "evidenceCount": 3
       },
       {
-        "subject": "Arts & Criticism",
+        "subject": "History",
         "score": 2,
-        "evidenceCount": 1
+        "evidenceCount": 2
       },
       {
-        "subject": "History",
-        "score": 1,
+        "subject": "Arts & Criticism",
+        "score": 2,
         "evidenceCount": 1
       }
     ],
@@ -125493,7 +126269,7 @@
         "mappedSubject": "Science",
         "score": 2,
         "confidence": "low",
-        "note": "science/discovery keyword; environment keyword; subject fallback",
+        "note": "science/discovery keyword; environment keyword; death/memory keyword; subject fallback",
         "id": "subject-evidence-book-remnants-of-ancient-life-the-new-science-of-old-fossils-dale-greenwalt-8"
       },
       {
@@ -125507,12 +126283,21 @@
       },
       {
         "source": "topic_classifier",
+        "rawLabel": "Death, Memory & Commemoration",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "science/discovery keyword; environment keyword; death/memory keyword; subject fallback",
+        "id": "subject-evidence-book-remnants-of-ancient-life-the-new-science-of-old-fossils-dale-greenwalt-9"
+      },
+      {
+        "source": "topic_classifier",
         "rawLabel": "Environment, Conservation & Pollution",
         "mappedSubject": "Nature & Environment",
         "score": 1,
         "confidence": "low",
-        "note": "science/discovery keyword; environment keyword; subject fallback",
-        "id": "subject-evidence-book-remnants-of-ancient-life-the-new-science-of-old-fossils-dale-greenwalt-9"
+        "note": "science/discovery keyword; environment keyword; death/memory keyword; subject fallback",
+        "id": "subject-evidence-book-remnants-of-ancient-life-the-new-science-of-old-fossils-dale-greenwalt-10"
       }
     ]
   },
@@ -127218,6 +128003,11 @@
         "evidenceCount": 2
       },
       {
+        "subject": "Medicine & Public Health",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "American History",
         "score": 2,
         "evidenceCount": 1
@@ -127251,6 +128041,15 @@
         "confidence": "low",
         "sourceId": "source-award-record-prose-earth-and-environmental-sciences-prose-awards-1994-winners-archive",
         "id": "subject-evidence-book-rivers-of-the-united-states-volume-i-estuaries-ruth-patrick-3"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Drugs, Addiction & Treatment",
+        "mappedSubject": "Medicine & Public Health",
+        "score": 2,
+        "confidence": "low",
+        "note": "drugs/addiction keyword; subject fallback",
+        "id": "subject-evidence-book-rivers-of-the-united-states-volume-i-estuaries-ruth-patrick-8"
       },
       {
         "source": "award_category",
@@ -127303,8 +128102,8 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-rivers-of-the-united-states-volume-i-estuaries-ruth-patrick-8"
+        "note": "drugs/addiction keyword; subject fallback",
+        "id": "subject-evidence-book-rivers-of-the-united-states-volume-i-estuaries-ruth-patrick-9"
       }
     ]
   },
@@ -128899,17 +129698,22 @@
     "bookId": "book-rules-a-short-history-of-what-we-live-by-lorraine-daston",
     "title": "Rules: A Short History of What We Live By",
     "author": "Lorraine Daston",
-    "primarySubject": "Medicine & Public Health",
+    "primarySubject": "Science",
     "confidence": "low",
     "candidates": [
       {
-        "subject": "Medicine & Public Health",
-        "score": 9,
-        "evidenceCount": 5
-      },
-      {
         "subject": "Science",
         "score": 6,
+        "evidenceCount": 3
+      },
+      {
+        "subject": "Medicine & Public Health",
+        "score": 6,
+        "evidenceCount": 3
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 5,
         "evidenceCount": 3
       },
       {
@@ -128918,12 +129722,50 @@
         "evidenceCount": 2
       },
       {
+        "subject": "War & Military",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
         "subject": "History",
         "score": 3,
         "evidenceCount": 3
+      },
+      {
+        "subject": "True Crime & Justice",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "World History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; science keyword; medicine/public health keyword; technology keyword; business/economics keyword; crime/justice keyword",
+        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-8"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Business, Capitalism & Corporations",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "law/legal keyword; war/military keyword; labor/work keyword; business/capitalism keyword; death/memory keyword; subject fallback",
+        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-16"
+      },
       {
         "source": "award_category",
         "rawLabel": "PROSE Award for History of Science, Medicine, and Technology",
@@ -128948,17 +129790,8 @@
         "mappedSubject": "Medicine & Public Health",
         "score": 2,
         "confidence": "low",
-        "note": "history keyword or history prize; science keyword; medicine/public health keyword; technology keyword",
-        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-8"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Medicine, Health & the Body",
-        "mappedSubject": "Medicine & Public Health",
-        "score": 2,
-        "confidence": "low",
-        "note": "medicine/health keyword; public health systems keyword; subject fallback",
-        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-12"
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; science keyword; medicine/public health keyword; technology keyword; business/economics keyword; crime/justice keyword",
+        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-9"
       },
       {
         "source": "award_category",
@@ -128984,8 +129817,17 @@
         "mappedSubject": "Science",
         "score": 2,
         "confidence": "low",
-        "note": "history keyword or history prize; science keyword; medicine/public health keyword; technology keyword",
-        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-9"
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; science keyword; medicine/public health keyword; technology keyword; business/economics keyword; crime/justice keyword",
+        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-10"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; science keyword; medicine/public health keyword; technology keyword; business/economics keyword; crime/justice keyword",
+        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-14"
       },
       {
         "source": "award_category",
@@ -129002,35 +129844,17 @@
         "mappedSubject": "Technology",
         "score": 2,
         "confidence": "low",
-        "note": "history keyword or history prize; science keyword; medicine/public health keyword; technology keyword",
-        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-10"
-      },
-      {
-        "source": "award_category",
-        "rawLabel": "PROSE Award for History of Science, Medicine, and Technology",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "sourceId": "source-award-record-prose-history-of-science-medicine-and-technology-prose-awards-2023-winners-archive",
-        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-1"
-      },
-      {
-        "source": "award_category",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "sourceId": "source-award-record-prose-history-of-science-medicine-and-technology-prose-awards-2023-winners-archive",
-        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-5"
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; science keyword; medicine/public health keyword; technology keyword; business/economics keyword; crime/justice keyword",
+        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-11"
       },
       {
         "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
+        "rawLabel": "True Crime & Justice",
+        "mappedSubject": "True Crime & Justice",
+        "score": 2,
         "confidence": "low",
-        "note": "history keyword or history prize; science keyword; medicine/public health keyword; technology keyword",
-        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-11"
+        "note": "world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; science keyword; medicine/public health keyword; technology keyword; business/economics keyword; crime/justice keyword",
+        "id": "subject-evidence-book-rules-a-short-history-of-what-we-live-by-lorraine-daston-12"
       }
     ]
   },
@@ -130355,18 +131179,18 @@
     "bookId": "book-scenarios-of-power-myth-and-ceremony-in-russian-monarchy-from-alexander-ii-to-the-abdication-of-",
     "title": "Scenarios of Power: Myth and Ceremony in Russian Monarchy: From Alexander II to the Abdication of Nicholas II, vol. 2",
     "author": "Richard Wortman",
-    "primarySubject": "American History",
+    "primarySubject": "History",
     "confidence": "low",
     "candidates": [
+      {
+        "subject": "History",
+        "score": 6,
+        "evidenceCount": 5
+      },
       {
         "subject": "American History",
         "score": 4,
         "evidenceCount": 2
-      },
-      {
-        "subject": "History",
-        "score": 4,
-        "evidenceCount": 4
       },
       {
         "subject": "World History",
@@ -130392,6 +131216,15 @@
         "confidence": "low",
         "note": "American history keyword; history keyword or history prize",
         "id": "subject-evidence-book-scenarios-of-power-myth-and-ceremony-in-russian-monarchy-from-alexander-ii-to-the-abdication-of--6"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Death, Memory & Commemoration",
+        "mappedSubject": "History",
+        "score": 2,
+        "confidence": "low",
+        "note": "death/memory keyword; subject fallback",
+        "id": "subject-evidence-book-scenarios-of-power-myth-and-ceremony-in-russian-monarchy-from-alexander-ii-to-the-abdication-of--7"
       },
       {
         "source": "award_category",
@@ -130435,8 +131268,8 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-scenarios-of-power-myth-and-ceremony-in-russian-monarchy-from-alexander-ii-to-the-abdication-of--7"
+        "note": "death/memory keyword; subject fallback",
+        "id": "subject-evidence-book-scenarios-of-power-myth-and-ceremony-in-russian-monarchy-from-alexander-ii-to-the-abdication-of--8"
       }
     ]
   },
@@ -132786,12 +133619,17 @@
     "bookId": "book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey",
     "title": "Shattering Empires: The Clash and Collapse of the Ottoman and Russian Empires, 1908-18",
     "author": "Michael Reynolds",
-    "primarySubject": "World History",
+    "primarySubject": "War & Military",
     "confidence": "low",
     "candidates": [
       {
+        "subject": "War & Military",
+        "score": 5,
+        "evidenceCount": 3
+      },
+      {
         "subject": "World History",
-        "score": 6,
+        "score": 5,
         "evidenceCount": 3
       },
       {
@@ -132803,6 +133641,11 @@
         "subject": "History",
         "score": 4,
         "evidenceCount": 4
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -132821,8 +133664,35 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; travel/place keyword",
         "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; travel/place keyword",
+        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; travel/place keyword",
+        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-7"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "World War I",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "war/military keyword; World War I keyword; Middle East/North Africa keyword; subject fallback",
+        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-10"
       },
       {
         "source": "award_category",
@@ -132839,17 +133709,8 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-7"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Middle East & North Africa",
-        "mappedSubject": "World History",
-        "score": 2,
-        "confidence": "low",
-        "note": "Middle East/North Africa keyword; subject fallback",
-        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-8"
+        "note": "American history keyword; world history keyword; history keyword or history prize; war/military keyword; travel/place keyword",
+        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-9"
       },
       {
         "source": "award_category",
@@ -132884,8 +133745,17 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "Middle East/North Africa keyword; subject fallback",
-        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-9"
+        "note": "war/military keyword; World War I keyword; Middle East/North Africa keyword; subject fallback",
+        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-13"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "War & Military Strategy",
+        "mappedSubject": "War & Military",
+        "score": 1,
+        "confidence": "low",
+        "note": "war/military keyword; World War I keyword; Middle East/North Africa keyword; subject fallback",
+        "id": "subject-evidence-book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey-11"
       }
     ]
   },
@@ -138332,21 +139202,58 @@
     "candidates": [
       {
         "subject": "Race & Ethnicity",
-        "score": 3,
-        "evidenceCount": 2
-      },
-      {
-        "subject": "History",
-        "score": 3,
+        "score": 5,
         "evidenceCount": 3
       },
       {
         "subject": "American History",
-        "score": 1,
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Gender & Sexuality",
+        "score": 2,
         "evidenceCount": 1
+      },
+      {
+        "subject": "True Crime & Justice",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 2,
+        "evidenceCount": 2
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; race/ethnicity keyword; gender/sexuality keyword; crime/justice keyword",
+        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-3"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Gender & Sexuality",
+        "mappedSubject": "Gender & Sexuality",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; race/ethnicity keyword; gender/sexuality keyword; crime/justice keyword",
+        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Race & Ethnicity",
+        "mappedSubject": "Race & Ethnicity",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; race/ethnicity keyword; gender/sexuality keyword; crime/justice keyword",
+        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-6"
+      },
       {
         "source": "topic_classifier",
         "rawLabel": "Black History & Culture",
@@ -138354,6 +139261,15 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "True Crime & Justice",
+        "mappedSubject": "True Crime & Justice",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; race/ethnicity keyword; gender/sexuality keyword; crime/justice keyword",
         "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-4"
       },
       {
@@ -138363,7 +139279,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-6"
+        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-9"
       },
       {
         "source": "award_category",
@@ -138384,22 +139300,13 @@
         "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-2"
       },
       {
-        "source": "keyword_classifier",
-        "rawLabel": "History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "history keyword or history prize",
-        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-3"
-      },
-      {
         "source": "topic_classifier",
         "rawLabel": "Civil Rights & Racial Justice",
         "mappedSubject": "Race & Ethnicity",
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-5"
+        "id": "subject-evidence-book-stories-of-scottsboro-james-goodman-8"
       }
     ]
   },
@@ -140782,11 +141689,21 @@
     "bookId": "book-tears-of-rangi-experiments-across-worlds-anne-salmond",
     "title": "Tears of Rangi: Experiments Across Worlds",
     "author": "Anne Salmond",
-    "primarySubject": "World History",
+    "primarySubject": "Nature & Environment",
     "confidence": "low",
     "candidates": [
       {
+        "subject": "Nature & Environment",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
         "subject": "World History",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Travel & Place",
         "score": 3,
         "evidenceCount": 2
       },
@@ -140798,13 +141715,31 @@
     ],
     "evidence": [
       {
+        "source": "topic_classifier",
+        "rawLabel": "Natural History & Animals",
+        "mappedSubject": "Nature & Environment",
+        "score": 2,
+        "confidence": "low",
+        "note": "Europe/Russia keyword; natural history/animals keyword; water keyword; travel/place keyword; subject fallback",
+        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-4"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; travel/place keyword",
+        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-1"
+      },
+      {
         "source": "keyword_classifier",
         "rawLabel": "World History",
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-1"
+        "note": "world history keyword; history keyword or history prize; travel/place keyword",
+        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-2"
       },
       {
         "source": "keyword_classifier",
@@ -140812,17 +141747,35 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-2"
+        "note": "world history keyword; history keyword or history prize; travel/place keyword",
+        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-3"
       },
       {
         "source": "topic_classifier",
-        "rawLabel": "Empire & Colonialism",
+        "rawLabel": "Oceans, Rivers & Water",
+        "mappedSubject": "Nature & Environment",
+        "score": 1,
+        "confidence": "low",
+        "note": "Europe/Russia keyword; natural history/animals keyword; water keyword; travel/place keyword; subject fallback",
+        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-5"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Travel, Exploration & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 1,
+        "confidence": "low",
+        "note": "Europe/Russia keyword; natural history/animals keyword; water keyword; travel/place keyword; subject fallback",
+        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-6"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Europe & Russia",
         "mappedSubject": "World History",
         "score": 1,
         "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-3"
+        "note": "Europe/Russia keyword; natural history/animals keyword; water keyword; travel/place keyword; subject fallback",
+        "id": "subject-evidence-book-tears-of-rangi-experiments-across-worlds-anne-salmond-7"
       }
     ]
   },
@@ -142168,17 +143121,45 @@
         "subject": "War & Military",
         "score": 6,
         "evidenceCount": 4
+      },
+      {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Religion",
+        "score": 2,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; war/military keyword; religion keyword",
+        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-1"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Religion",
+        "mappedSubject": "Religion",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; war/military keyword; religion keyword",
+        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-2"
+      },
       {
         "source": "keyword_classifier",
         "rawLabel": "War & Military",
         "mappedSubject": "War & Military",
         "score": 2,
         "confidence": "low",
-        "note": "war/military keyword",
-        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-1"
+        "note": "American history keyword; war/military keyword; religion keyword",
+        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-3"
       },
       {
         "source": "topic_classifier",
@@ -142187,7 +143168,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-2"
+        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-4"
       },
       {
         "source": "topic_classifier",
@@ -142196,7 +143177,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-3"
+        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-5"
       },
       {
         "source": "topic_classifier",
@@ -142205,7 +143186,7 @@
         "score": 1,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-4"
+        "id": "subject-evidence-book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman-6"
       }
     ]
   },
@@ -146361,26 +147342,78 @@
     "bookId": "book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash",
     "title": "The Baton and The Cross: Russia's Church from Pagans to Putin",
     "author": "Lucy Ash",
-    "primarySubject": "Politics & Government",
+    "primarySubject": "Business & Economics",
     "confidence": "low",
     "candidates": [
       {
-        "subject": "Politics & Government",
+        "subject": "Business & Economics",
         "score": 5,
         "evidenceCount": 3
       },
       {
-        "subject": "Religion",
+        "subject": "Politics & Government",
         "score": 4,
         "evidenceCount": 2
       },
       {
         "subject": "World History",
-        "score": 3,
-        "evidenceCount": 2
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Journalism & Reportage",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Religion",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "War & Military",
+        "score": 1,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 1,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 1,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; journalism/reportage keyword; business/economics keyword; religion keyword",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-2"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Business, Capitalism & Corporations",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; religion keyword; housing/cities keyword; business/capitalism keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Journalism & Reportage",
+        "mappedSubject": "Journalism & Reportage",
+        "score": 2,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; journalism/reportage keyword; business/economics keyword; religion keyword",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-5"
+      },
       {
         "source": "award_category",
         "rawLabel": "Politics & Government",
@@ -146396,8 +147429,8 @@
         "mappedSubject": "Politics & Government",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; politics/government keyword; religion keyword",
-        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-2"
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; journalism/reportage keyword; business/economics keyword; religion keyword",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-3"
       },
       {
         "source": "keyword_classifier",
@@ -146405,17 +147438,8 @@
         "mappedSubject": "Religion",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; politics/government keyword; religion keyword",
-        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-3"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Religion & Religious Movements",
-        "mappedSubject": "Religion",
-        "score": 2,
-        "confidence": "low",
-        "note": "Europe/Russia keyword; religion keyword; subject fallback",
-        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-5"
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; journalism/reportage keyword; business/economics keyword; religion keyword",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-4"
       },
       {
         "source": "keyword_classifier",
@@ -146423,26 +147447,44 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "world history keyword; politics/government keyword; religion keyword",
-        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-4"
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; journalism/reportage keyword; business/economics keyword; religion keyword",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-6"
       },
       {
         "source": "topic_classifier",
-        "rawLabel": "American Politics",
-        "mappedSubject": "Politics & Government",
+        "rawLabel": "Money, Markets & Economic Policy",
+        "mappedSubject": "Business & Economics",
         "score": 1,
         "confidence": "low",
-        "note": "Europe/Russia keyword; religion keyword; subject fallback",
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; religion keyword; housing/cities keyword; business/capitalism keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-11"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "world history keyword; history keyword or history prize; politics/government keyword; journalism/reportage keyword; business/economics keyword; religion keyword",
         "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-7"
       },
       {
         "source": "topic_classifier",
-        "rawLabel": "Europe & Russia",
-        "mappedSubject": "World History",
+        "rawLabel": "Housing, Cities & Urban Life",
+        "mappedSubject": "Society & Culture",
         "score": 1,
         "confidence": "low",
-        "note": "Europe/Russia keyword; religion keyword; subject fallback",
-        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-6"
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; religion keyword; housing/cities keyword; business/capitalism keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-10"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Cold War & Nuclear Politics",
+        "mappedSubject": "War & Military",
+        "score": 1,
+        "confidence": "low",
+        "note": "cold war/nuclear keyword; Europe/Russia keyword; religion keyword; housing/cities keyword; business/capitalism keyword; money/markets keyword; subject fallback",
+        "id": "subject-evidence-book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash-9"
       }
     ]
   },
@@ -151072,9 +152114,19 @@
     "bookId": "book-the-career-of-theophile-delcasse-charles-porter",
     "title": "The Career of Théophile Delcassé",
     "author": "Charles Porter",
-    "primarySubject": "American History",
+    "primarySubject": "War & Military",
     "confidence": "low",
     "candidates": [
+      {
+        "subject": "War & Military",
+        "score": 5,
+        "evidenceCount": 3
+      },
+      {
+        "subject": "World History",
+        "score": 5,
+        "evidenceCount": 3
+      },
       {
         "subject": "American History",
         "score": 4,
@@ -151086,7 +152138,7 @@
         "evidenceCount": 4
       },
       {
-        "subject": "World History",
+        "subject": "Biography",
         "score": 2,
         "evidenceCount": 1
       }
@@ -151107,8 +152159,35 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; history keyword or history prize",
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword",
         "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Biography",
+        "mappedSubject": "Biography",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword",
+        "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword",
+        "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-7"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "World War I",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "war/military keyword; World War I keyword; Europe/Russia keyword; subject fallback",
+        "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-10"
       },
       {
         "source": "award_category",
@@ -151118,6 +152197,15 @@
         "confidence": "low",
         "sourceId": "source-award-record-aha-european-international-history-aha-prize-in-european-international-history-official-page",
         "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-1"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; world history keyword; history keyword or history prize; war/military keyword",
+        "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-9"
       },
       {
         "source": "award_category",
@@ -151152,8 +152240,17 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-7"
+        "note": "war/military keyword; World War I keyword; Europe/Russia keyword; subject fallback",
+        "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-13"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "War & Military Strategy",
+        "mappedSubject": "War & Military",
+        "score": 1,
+        "confidence": "low",
+        "note": "war/military keyword; World War I keyword; Europe/Russia keyword; subject fallback",
+        "id": "subject-evidence-book-the-career-of-theophile-delcasse-charles-porter-11"
       }
     ]
   },
@@ -157668,6 +158765,26 @@
         "evidenceCount": 4
       },
       {
+        "subject": "Nature & Environment",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "War & Military",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "World History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "Travel & Place",
         "score": 1,
         "evidenceCount": 1
@@ -157707,8 +158824,8 @@
         "mappedSubject": "Biography",
         "score": 2,
         "confidence": "low",
-        "note": "memoir/autobiography keyword; biography/title pattern",
-        "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-7"
+        "note": "memoir/autobiography keyword; biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; nature/environment keyword",
+        "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-9"
       },
       {
         "source": "topic_classifier",
@@ -157717,7 +158834,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-8"
+        "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-12"
       },
       {
         "source": "award_category",
@@ -157743,26 +158860,44 @@
         "mappedSubject": "Memoir & Autobiography",
         "score": 2,
         "confidence": "low",
-        "note": "memoir/autobiography keyword; biography/title pattern",
+        "note": "memoir/autobiography keyword; biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; nature/environment keyword",
         "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-6"
       },
       {
-        "source": "topic_classifier",
-        "rawLabel": "Memoir & Personal History",
-        "mappedSubject": "Memoir & Autobiography",
-        "score": 1,
+        "source": "keyword_classifier",
+        "rawLabel": "Nature & Environment",
+        "mappedSubject": "Nature & Environment",
+        "score": 2,
         "confidence": "low",
-        "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-9"
+        "note": "memoir/autobiography keyword; biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; nature/environment keyword",
+        "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-7"
       },
       {
-        "source": "topic_classifier",
-        "rawLabel": "Travel, Exploration & Place",
-        "mappedSubject": "Travel & Place",
-        "score": 1,
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
         "confidence": "low",
-        "note": "generated topic enrichment: embedding",
+        "note": "memoir/autobiography keyword; biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; nature/environment keyword",
         "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-10"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "War & Military",
+        "mappedSubject": "War & Military",
+        "score": 2,
+        "confidence": "low",
+        "note": "memoir/autobiography keyword; biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; nature/environment keyword",
+        "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "World History",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "memoir/autobiography keyword; biography/title pattern; world history keyword; history keyword or history prize; war/military keyword; society/culture keyword; nature/environment keyword",
+        "id": "subject-evidence-book-the-eaves-of-heaven-andrew-x-pham-11"
       }
     ]
   },
@@ -161158,18 +162293,38 @@
     "candidates": [
       {
         "subject": "World History",
-        "score": 6,
-        "evidenceCount": 3
-      },
-      {
-        "subject": "History",
-        "score": 5,
+        "score": 9,
         "evidenceCount": 5
       },
       {
         "subject": "American History",
         "score": 4,
         "evidenceCount": 2
+      },
+      {
+        "subject": "History",
+        "score": 4,
+        "evidenceCount": 4
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 3,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Race & Ethnicity",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 1,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -161188,8 +162343,35 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
+        "note": "American history keyword; world history keyword; history keyword or history prize; business/economics keyword; race/ethnicity keyword; travel/place keyword",
         "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Business & Economics",
+        "mappedSubject": "Business & Economics",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-9"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Race & Ethnicity",
+        "mappedSubject": "Race & Ethnicity",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-10"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; world history keyword; history keyword or history prize; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-11"
       },
       {
         "source": "award_category",
@@ -161215,8 +162397,17 @@
         "mappedSubject": "World History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; world history keyword; history keyword or history prize",
-        "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-9"
+        "note": "American history keyword; world history keyword; history keyword or history prize; business/economics keyword; race/ethnicity keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-12"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Empire & Colonialism",
+        "mappedSubject": "World History",
+        "score": 2,
+        "confidence": "low",
+        "note": "empire/colonial keyword; Latin America/Caribbean keyword; Europe/Russia keyword; social movements keyword; travel/place keyword; subject fallback",
+        "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-13"
       },
       {
         "source": "award_category",
@@ -161244,24 +162435,6 @@
         "confidence": "low",
         "sourceId": "source-award-record-aha-jerry-bentley-aha-jerry-bentley-prize-official-page",
         "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-5"
-      },
-      {
-        "source": "award_category",
-        "rawLabel": "World History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "sourceId": "source-award-record-aha-jerry-bentley-aha-jerry-bentley-prize-official-page",
-        "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-7"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Regional & Local History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis-10"
       }
     ]
   },
@@ -163504,8 +164677,8 @@
       },
       {
         "subject": "History",
-        "score": 1,
-        "evidenceCount": 1
+        "score": 2,
+        "evidenceCount": 2
       }
     ],
     "evidence": [
@@ -163551,7 +164724,7 @@
         "mappedSubject": "Science",
         "score": 2,
         "confidence": "low",
-        "note": "science/discovery keyword; subject fallback",
+        "note": "intellectual history keyword; science/discovery keyword; subject fallback",
         "id": "subject-evidence-book-the-gene-an-intimate-history-siddhartha-mukherjee-9"
       },
       {
@@ -163589,6 +164762,15 @@
         "confidence": "low",
         "note": "history keyword or history prize; society/culture keyword; science keyword",
         "id": "subject-evidence-book-the-gene-an-intimate-history-siddhartha-mukherjee-8"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Intellectual History & Ideas",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "intellectual history keyword; science/discovery keyword; subject fallback",
+        "id": "subject-evidence-book-the-gene-an-intimate-history-siddhartha-mukherjee-10"
       }
     ]
   },
@@ -163679,6 +164861,11 @@
         "subject": "Biography",
         "score": 2,
         "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 1,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -163689,6 +164876,15 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
+        "id": "subject-evidence-book-the-genius-of-the-people-charles-mee-2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "history keyword or history prize",
         "id": "subject-evidence-book-the-genius-of-the-people-charles-mee-1"
       }
     ]
@@ -174526,21 +175722,45 @@
     "bookId": "book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield",
     "title": "The Loss of Sadness",
     "author": "Allan V. Horwitz, Jerome Wakefield",
-    "primarySubject": "Science",
+    "primarySubject": "Medicine & Public Health",
     "confidence": "low",
     "candidates": [
       {
-        "subject": "Science",
-        "score": 4,
-        "evidenceCount": 2
+        "subject": "Medicine & Public Health",
+        "score": 7,
+        "evidenceCount": 4
       },
       {
-        "subject": "Medicine & Public Health",
+        "subject": "Science",
         "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "History",
+        "score": 1,
         "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; society/culture keyword; science keyword; medicine/public health keyword",
+        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-2"
+      },
       {
         "source": "award_category",
         "rawLabel": "PROSE Award for Psychology",
@@ -174552,21 +175772,57 @@
       },
       {
         "source": "keyword_classifier",
+        "rawLabel": "Medicine & Public Health",
+        "mappedSubject": "Medicine & Public Health",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; society/culture keyword; science keyword; medicine/public health keyword",
+        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-3"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Disease, Epidemics & Drugs",
+        "mappedSubject": "Medicine & Public Health",
+        "score": 2,
+        "confidence": "low",
+        "note": "disease/drugs keyword; mental health/psychology keyword; subject fallback",
+        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-6"
+      },
+      {
+        "source": "keyword_classifier",
         "rawLabel": "Science",
         "mappedSubject": "Science",
         "score": 2,
         "confidence": "low",
-        "note": "science keyword",
-        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-2"
+        "note": "American history keyword; history keyword or history prize; society/culture keyword; science keyword; medicine/public health keyword",
+        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-4"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; society/culture keyword; science keyword; medicine/public health keyword",
+        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-5"
       },
       {
         "source": "topic_classifier",
-        "rawLabel": "Science & Discovery",
-        "mappedSubject": "Science",
-        "score": 2,
+        "rawLabel": "Regional & Local History",
+        "mappedSubject": "History",
+        "score": 1,
         "confidence": "low",
-        "note": "science/discovery keyword; subject fallback",
-        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-3"
+        "note": "disease/drugs keyword; mental health/psychology keyword; subject fallback",
+        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-8"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Mental Health & Psychology",
+        "mappedSubject": "Medicine & Public Health",
+        "score": 1,
+        "confidence": "low",
+        "note": "disease/drugs keyword; mental health/psychology keyword; subject fallback",
+        "id": "subject-evidence-book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield-7"
       }
     ]
   },
@@ -177884,9 +179140,14 @@
     "bookId": "book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop",
     "title": "The Mistral: A Windswept History of Modern France",
     "author": "Catherine Tatiana Dunlop",
-    "primarySubject": "American History",
+    "primarySubject": "Nature & Environment",
     "confidence": "low",
     "candidates": [
+      {
+        "subject": "Nature & Environment",
+        "score": 4,
+        "evidenceCount": 2
+      },
       {
         "subject": "American History",
         "score": 4,
@@ -177900,6 +179161,26 @@
       {
         "subject": "World History",
         "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Arts & Criticism",
+        "score": 1,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Business & Economics",
+        "score": 1,
         "evidenceCount": 1
       }
     ],
@@ -177919,8 +179200,44 @@
         "mappedSubject": "American History",
         "score": 2,
         "confidence": "low",
-        "note": "American history keyword; history keyword or history prize",
+        "note": "American history keyword; history keyword or history prize; society/culture keyword; nature/environment keyword; travel/place keyword",
         "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-6"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Nature & Environment",
+        "mappedSubject": "Nature & Environment",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; society/culture keyword; nature/environment keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-7"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Oceans, Rivers & Water",
+        "mappedSubject": "Nature & Environment",
+        "score": 2,
+        "confidence": "low",
+        "note": "literature/writers keyword; food/agriculture/land keyword; water keyword; regional/local keyword; subject fallback",
+        "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-10"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; society/culture keyword; nature/environment keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-8"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Travel & Place",
+        "mappedSubject": "Travel & Place",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; history keyword or history prize; society/culture keyword; nature/environment keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-9"
       },
       {
         "source": "award_category",
@@ -177930,6 +179247,24 @@
         "confidence": "low",
         "sourceId": "source-award-record-aha-george-l-mosse-aha-george-l-mosse-prize-official-page",
         "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-1"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Literature & Writers",
+        "mappedSubject": "Arts & Criticism",
+        "score": 1,
+        "confidence": "low",
+        "note": "literature/writers keyword; food/agriculture/land keyword; water keyword; regional/local keyword; subject fallback",
+        "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-12"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Food, Agriculture & Land",
+        "mappedSubject": "Business & Economics",
+        "score": 1,
+        "confidence": "low",
+        "note": "literature/writers keyword; food/agriculture/land keyword; water keyword; regional/local keyword; subject fallback",
+        "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-11"
       },
       {
         "source": "award_category",
@@ -177957,15 +179292,6 @@
         "confidence": "low",
         "sourceId": "source-award-record-aha-george-l-mosse-aha-george-l-mosse-prize-official-page",
         "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-5"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Regional & Local History",
-        "mappedSubject": "History",
-        "score": 1,
-        "confidence": "low",
-        "note": "subject fallback",
-        "id": "subject-evidence-book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop-7"
       }
     ]
   },
@@ -183799,42 +185125,84 @@
     "bookId": "book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden",
     "title": "The Power of Place : Urban Landscapes as Public History",
     "author": "Dolores Hayden",
-    "primarySubject": "Society & Culture",
+    "primarySubject": "Arts & Criticism",
     "confidence": "low",
     "candidates": [
       {
-        "subject": "Society & Culture",
+        "subject": "Arts & Criticism",
         "score": 5,
         "evidenceCount": 3
       },
       {
-        "subject": "Travel & Place",
+        "subject": "Gender & Sexuality",
         "score": 3,
         "evidenceCount": 2
       },
       {
+        "subject": "Race & Ethnicity",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
         "subject": "History",
-        "score": 1,
+        "score": 2,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "Travel & Place",
+        "score": 2,
         "evidenceCount": 1
       }
     ],
     "evidence": [
       {
         "source": "keyword_classifier",
-        "rawLabel": "Society & Culture",
-        "mappedSubject": "Society & Culture",
+        "rawLabel": "Arts & Criticism",
+        "mappedSubject": "Arts & Criticism",
         "score": 2,
         "confidence": "low",
-        "note": "history keyword or history prize; society/culture keyword; travel/place keyword",
+        "note": "history keyword or history prize; society/culture keyword; arts/criticism keyword; race/ethnicity keyword; gender/sexuality keyword; travel/place keyword",
         "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-1"
       },
       {
         "source": "topic_classifier",
-        "rawLabel": "Housing, Cities & Urban Life",
+        "rawLabel": "Art, Music & Performance",
+        "mappedSubject": "Arts & Criticism",
+        "score": 2,
+        "confidence": "low",
+        "note": "gender/feminism keyword; art/music/performance keyword; housing/cities keyword; travel/place keyword; death/memory keyword; essays/cultural criticism keyword; subject fallback",
+        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-7"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Gender & Sexuality",
+        "mappedSubject": "Gender & Sexuality",
+        "score": 2,
+        "confidence": "low",
+        "note": "history keyword or history prize; society/culture keyword; arts/criticism keyword; race/ethnicity keyword; gender/sexuality keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-2"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Race & Ethnicity",
+        "mappedSubject": "Race & Ethnicity",
+        "score": 2,
+        "confidence": "low",
+        "note": "history keyword or history prize; society/culture keyword; arts/criticism keyword; race/ethnicity keyword; gender/sexuality keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-3"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
         "mappedSubject": "Society & Culture",
         "score": 2,
         "confidence": "low",
-        "note": "housing/cities keyword; travel/place keyword; subject fallback",
+        "note": "history keyword or history prize; society/culture keyword; arts/criticism keyword; race/ethnicity keyword; gender/sexuality keyword; travel/place keyword",
         "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-4"
       },
       {
@@ -183843,8 +185211,26 @@
         "mappedSubject": "Travel & Place",
         "score": 2,
         "confidence": "low",
-        "note": "history keyword or history prize; society/culture keyword; travel/place keyword",
-        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-2"
+        "note": "history keyword or history prize; society/culture keyword; arts/criticism keyword; race/ethnicity keyword; gender/sexuality keyword; travel/place keyword",
+        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-5"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Essays & Cultural Criticism",
+        "mappedSubject": "Arts & Criticism",
+        "score": 1,
+        "confidence": "low",
+        "note": "gender/feminism keyword; art/music/performance keyword; housing/cities keyword; travel/place keyword; death/memory keyword; essays/cultural criticism keyword; subject fallback",
+        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-9"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Gender & Feminism",
+        "mappedSubject": "Gender & Sexuality",
+        "score": 1,
+        "confidence": "low",
+        "note": "gender/feminism keyword; art/music/performance keyword; housing/cities keyword; travel/place keyword; death/memory keyword; essays/cultural criticism keyword; subject fallback",
+        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-10"
       },
       {
         "source": "keyword_classifier",
@@ -183852,26 +185238,17 @@
         "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "history keyword or history prize; society/culture keyword; travel/place keyword",
-        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-3"
-      },
-      {
-        "source": "topic_classifier",
-        "rawLabel": "Class, Poverty & Inequality",
-        "mappedSubject": "Society & Culture",
-        "score": 1,
-        "confidence": "low",
-        "note": "housing/cities keyword; travel/place keyword; subject fallback",
+        "note": "history keyword or history prize; society/culture keyword; arts/criticism keyword; race/ethnicity keyword; gender/sexuality keyword; travel/place keyword",
         "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-6"
       },
       {
         "source": "topic_classifier",
-        "rawLabel": "Travel, Exploration & Place",
-        "mappedSubject": "Travel & Place",
+        "rawLabel": "Death, Memory & Commemoration",
+        "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "housing/cities keyword; travel/place keyword; subject fallback",
-        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-5"
+        "note": "gender/feminism keyword; art/music/performance keyword; housing/cities keyword; travel/place keyword; death/memory keyword; essays/cultural criticism keyword; subject fallback",
+        "id": "subject-evidence-book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden-8"
       }
     ]
   },
@@ -196988,6 +198365,16 @@
         "subject": "Religion",
         "score": 6,
         "evidenceCount": 3
+      },
+      {
+        "subject": "History",
+        "score": 2,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "Society & Culture",
+        "score": 2,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
@@ -197006,7 +198393,7 @@
         "mappedSubject": "Religion",
         "score": 2,
         "confidence": "low",
-        "note": "religion keyword",
+        "note": "history keyword or history prize; society/culture keyword; religion keyword",
         "id": "subject-evidence-book-the-victorian-frame-of-mind-1830-1870-walter-e-houghton-2"
       },
       {
@@ -197015,8 +198402,35 @@
         "mappedSubject": "Religion",
         "score": 2,
         "confidence": "low",
-        "note": "religion keyword; subject fallback",
+        "note": "religion keyword; intellectual history keyword; subject fallback",
+        "id": "subject-evidence-book-the-victorian-frame-of-mind-1830-1870-walter-e-houghton-5"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "Society & Culture",
+        "mappedSubject": "Society & Culture",
+        "score": 2,
+        "confidence": "low",
+        "note": "history keyword or history prize; society/culture keyword; religion keyword",
         "id": "subject-evidence-book-the-victorian-frame-of-mind-1830-1870-walter-e-houghton-3"
+      },
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "History",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "history keyword or history prize; society/culture keyword; religion keyword",
+        "id": "subject-evidence-book-the-victorian-frame-of-mind-1830-1870-walter-e-houghton-4"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Intellectual History & Ideas",
+        "mappedSubject": "History",
+        "score": 1,
+        "confidence": "low",
+        "note": "religion keyword; intellectual history keyword; subject fallback",
+        "id": "subject-evidence-book-the-victorian-frame-of-mind-1830-1870-walter-e-houghton-6"
       }
     ]
   },
@@ -204532,9 +205946,23 @@
         "subject": "Biography",
         "score": 8,
         "evidenceCount": 4
+      },
+      {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "biography/title pattern; American history keyword; history keyword or history prize",
+        "id": "subject-evidence-book-tombee-portrait-of-a-cotton-planter-theodore-rosengarten-3"
+      },
       {
         "source": "award_category",
         "rawLabel": "National Book Critics Circle Award for Biography",
@@ -204559,8 +205987,8 @@
         "mappedSubject": "Biography",
         "score": 2,
         "confidence": "low",
-        "note": "biography/title pattern",
-        "id": "subject-evidence-book-tombee-portrait-of-a-cotton-planter-theodore-rosengarten-3"
+        "note": "biography/title pattern; American history keyword; history keyword or history prize",
+        "id": "subject-evidence-book-tombee-portrait-of-a-cotton-planter-theodore-rosengarten-4"
       },
       {
         "source": "topic_classifier",
@@ -204569,7 +205997,7 @@
         "score": 2,
         "confidence": "low",
         "note": "generated topic enrichment: embedding",
-        "id": "subject-evidence-book-tombee-portrait-of-a-cotton-planter-theodore-rosengarten-4"
+        "id": "subject-evidence-book-tombee-portrait-of-a-cotton-planter-theodore-rosengarten-5"
       }
     ]
   },
@@ -211364,21 +212792,40 @@
     "bookId": "book-waltzing-with-a-dictator-raymond-bonner",
     "title": "Waltzing With a Dictator",
     "author": "Raymond Bonner",
-    "primarySubject": "Journalism & Reportage",
+    "primarySubject": "Politics & Government",
     "confidence": "low",
     "candidates": [
       {
-        "subject": "Journalism & Reportage",
-        "score": 6,
+        "subject": "Politics & Government",
+        "score": 5,
         "evidenceCount": 3
       },
       {
-        "subject": "Politics & Government",
+        "subject": "Journalism & Reportage",
+        "score": 4,
+        "evidenceCount": 2
+      },
+      {
+        "subject": "American History",
+        "score": 2,
+        "evidenceCount": 1
+      },
+      {
+        "subject": "History",
         "score": 1,
         "evidenceCount": 1
       }
     ],
     "evidence": [
+      {
+        "source": "keyword_classifier",
+        "rawLabel": "American History",
+        "mappedSubject": "American History",
+        "score": 2,
+        "confidence": "low",
+        "note": "American history keyword; politics/government keyword; journalism/reportage keyword",
+        "id": "subject-evidence-book-waltzing-with-a-dictator-raymond-bonner-2"
+      },
       {
         "source": "award_category",
         "rawLabel": "Hillman Prize for Book Journalism",
@@ -211394,26 +212841,44 @@
         "mappedSubject": "Journalism & Reportage",
         "score": 2,
         "confidence": "low",
-        "note": "journalism/reportage keyword",
-        "id": "subject-evidence-book-waltzing-with-a-dictator-raymond-bonner-2"
+        "note": "American history keyword; politics/government keyword; journalism/reportage keyword",
+        "id": "subject-evidence-book-waltzing-with-a-dictator-raymond-bonner-4"
       },
       {
-        "source": "topic_classifier",
-        "rawLabel": "Media, Journalism & Public Opinion",
-        "mappedSubject": "Journalism & Reportage",
+        "source": "keyword_classifier",
+        "rawLabel": "Politics & Government",
+        "mappedSubject": "Politics & Government",
         "score": 2,
         "confidence": "low",
-        "note": "media/journalism keyword; nationalism/authoritarianism keyword; subject fallback",
+        "note": "American history keyword; politics/government keyword; journalism/reportage keyword",
         "id": "subject-evidence-book-waltzing-with-a-dictator-raymond-bonner-3"
       },
       {
         "source": "topic_classifier",
         "rawLabel": "Nationalism & Authoritarianism",
         "mappedSubject": "Politics & Government",
+        "score": 2,
+        "confidence": "low",
+        "note": "presidency/executive keyword; nationalism/authoritarianism keyword; subject fallback",
+        "id": "subject-evidence-book-waltzing-with-a-dictator-raymond-bonner-5"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Regional & Local History",
+        "mappedSubject": "History",
         "score": 1,
         "confidence": "low",
-        "note": "media/journalism keyword; nationalism/authoritarianism keyword; subject fallback",
-        "id": "subject-evidence-book-waltzing-with-a-dictator-raymond-bonner-4"
+        "note": "presidency/executive keyword; nationalism/authoritarianism keyword; subject fallback",
+        "id": "subject-evidence-book-waltzing-with-a-dictator-raymond-bonner-7"
+      },
+      {
+        "source": "topic_classifier",
+        "rawLabel": "Presidency & Executive Power",
+        "mappedSubject": "Politics & Government",
+        "score": 1,
+        "confidence": "low",
+        "note": "presidency/executive keyword; nationalism/authoritarianism keyword; subject fallback",
+        "id": "subject-evidence-book-waltzing-with-a-dictator-raymond-bonner-6"
       }
     ]
   },

@@ -10,7 +10,7 @@ import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import { appearancesByBookId, booksById } from "@/lib/data";
-import type { BrowseBookRow } from "@/lib/browse-types";
+import type { BrowseBookRecognitionStats, BrowseBookRow } from "@/lib/browse-types";
 import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryExpansionModel, type SemanticQueryInterpretation } from "@/lib/semantic-search";
 
 type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
@@ -86,8 +86,8 @@ export function BookCatalog({
   const pageSize = 100;
   const awardBookIds = useMemo(() => {
     if (!awardFilter) return null;
-    return new Set(books.filter((book) => book.awardIds.includes(awardFilter)).map((book) => book.id));
-  }, [awardFilter, books]);
+    return new Set(books.filter((book) => bookRecognition(book, region).awardIds.includes(awardFilter)).map((book) => book.id));
+  }, [awardFilter, books, region]);
   const publisherOptions = useMemo(
     () =>
       [...new Map(books.filter((book) => book.publisherId && book.publisher).map((book) => [book.publisherId!, { id: book.publisherId!, name: book.publisher! }])).values()]
@@ -97,6 +97,7 @@ export function BookCatalog({
   const hasActiveFilters = Boolean(query || topicFilter || subjectFilter || awardFilter || publisherFilter || metadataFilter !== "all");
   const structuredRows = useMemo(() => {
     return books.filter((book) => {
+      if (bookRecognition(book, region).lists === 0) return false;
       if (topicFilter && !book.topics.includes(topicFilter)) return false;
       if (subjectFilter && !book.subjects.includes(subjectFilter)) return false;
       if (awardBookIds && !awardBookIds.has(book.id)) return false;
@@ -104,7 +105,7 @@ export function BookCatalog({
       if (!matchesMetadataFilter(book, metadataFilter)) return false;
       return true;
     });
-  }, [awardBookIds, books, metadataFilter, publisherFilter, subjectFilter, topicFilter]);
+  }, [awardBookIds, books, metadataFilter, publisherFilter, region, subjectFilter, topicFilter]);
   const semanticCandidateBookIds = useMemo(() => structuredRows.map((book) => book.id), [structuredRows]);
   const semanticSearch = useSemanticBookSearch({
     candidateBookIds: semanticCandidateBookIds,
@@ -125,7 +126,7 @@ export function BookCatalog({
       return [];
     }
     const filtered = filterBookRowsByQuery(structuredRows, activeQuery);
-    return sortBookRows(filtered, sortKey);
+    return sortBookRows(filtered, sortKey, region);
   }, [activeQuery, mode, region, semanticResultByBookId, semanticSearch.error, semanticSearch.loading, semanticSearch.results.length, sortKey, structuredRows]);
 
   const totalRows = limit ? Math.min(filteredRows.length, limit) : filteredRows.length;
@@ -722,10 +723,10 @@ export function BookCatalog({
                 </thead>
                 <tbody>
                   {rows.map((book, index) => {
-                    const stats = book;
+                    const stats = bookRecognition(book, region);
                     const imprint = book.imprint ?? "";
                     const publisher = book.publisher ?? "";
-                    const displayYear = book.publicationYear ?? book.firstRecognitionYear;
+                    const displayYear = book.publicationYear ?? stats.firstRecognitionYear ?? book.firstRecognitionYear;
                     return (
                       <tr
                         key={book.id}
@@ -921,9 +922,9 @@ function BookMobileCard({
   region: AwardRegionFilter;
   style?: React.CSSProperties;
 }) {
-  const stats = book;
+  const stats = bookRecognition(book, region);
   const imprint = book.imprint ?? "";
-  const displayYear = book.publicationYear ?? book.firstRecognitionYear;
+  const displayYear = book.publicationYear ?? stats.firstRecognitionYear ?? book.firstRecognitionYear;
   const firstTopic = book.topics.find((topic) => topic !== book.primaryTopic) ?? book.primaryTopic ?? book.topics[0];
 
   return (
@@ -1197,30 +1198,47 @@ function filterBookRowsByQuery(books: BrowseBookRow[], query: string) {
   return books.filter((book) => terms.every((term) => book.searchText.includes(term)));
 }
 
-function sortBookRows(books: BrowseBookRow[], sortKey: BookSortKey) {
+function sortBookRows(books: BrowseBookRow[], sortKey: BookSortKey, region: AwardRegionFilter) {
   return [...books].sort((a, b) => {
+    const aStats = bookRecognition(a, region);
+    const bStats = bookRecognition(b, region);
     if (sortKey === "score") {
       return (
-        b.score - a.score ||
-        b.majorWins - a.majorWins ||
-        b.wins - a.wins ||
-        b.majorShortlists - a.majorShortlists ||
-        b.normalShortlists - a.normalShortlists ||
-        b.majorLonglists - a.majorLonglists ||
-        b.normalLonglists - a.normalLonglists ||
+        bStats.score - aStats.score ||
+        bStats.majorWins - aStats.majorWins ||
+        bStats.wins - aStats.wins ||
+        bStats.majorShortlists - aStats.majorShortlists ||
+        bStats.normalShortlists - aStats.normalShortlists ||
+        bStats.majorLonglists - aStats.majorLonglists ||
+        bStats.normalLonglists - aStats.normalLonglists ||
         (b.publicationYear ?? 0) - (a.publicationYear ?? 0) ||
         a.title.localeCompare(b.title)
       );
     }
-    if (sortKey === "wins") return b.wins - a.wins || a.title.localeCompare(b.title);
-    if (sortKey === "lists") return b.lists - a.lists || a.title.localeCompare(b.title);
-    if (sortKey === "year") return (b.publicationYear ?? b.firstRecognitionYear ?? 0) - (a.publicationYear ?? a.firstRecognitionYear ?? 0) || a.title.localeCompare(b.title);
+    if (sortKey === "wins") return bStats.wins - aStats.wins || a.title.localeCompare(b.title);
+    if (sortKey === "lists") return bStats.lists - aStats.lists || a.title.localeCompare(b.title);
+    if (sortKey === "year") return (b.publicationYear ?? bStats.firstRecognitionYear ?? b.firstRecognitionYear ?? 0) - (a.publicationYear ?? aStats.firstRecognitionYear ?? a.firstRecognitionYear ?? 0) || a.title.localeCompare(b.title);
     if (sortKey === "author") return a.author.localeCompare(b.author) || a.title.localeCompare(b.title);
     if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "") || a.title.localeCompare(b.title);
     if (sortKey === "publisher") return (a.publisher ?? "").localeCompare(b.publisher ?? "") || a.title.localeCompare(b.title);
     if (sortKey === "subject") return (a.primarySubject ?? "").localeCompare(b.primarySubject ?? "") || a.title.localeCompare(b.title);
     return a.title.localeCompare(b.title);
   });
+}
+
+function bookRecognition(book: BrowseBookRow, region: AwardRegionFilter): BrowseBookRecognitionStats {
+  return book.recognitionByRegion?.[region] ?? {
+    awardIds: book.awardIds,
+    firstRecognitionYear: book.firstRecognitionYear,
+    lists: book.lists,
+    majorLonglists: book.majorLonglists,
+    majorShortlists: book.majorShortlists,
+    majorWins: book.majorWins,
+    normalLonglists: book.normalLonglists,
+    normalShortlists: book.normalShortlists,
+    score: book.score,
+    wins: book.wins,
+  };
 }
 
 function subjectOptions(books: BrowseBookRow[]) {

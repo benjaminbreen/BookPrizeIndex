@@ -3631,20 +3631,6 @@
     ]
   },
   {
-    "bookId": "book-moscow-governing-the-socialist-metropolis-timothy-j-colton",
-    "title": "Moscow: Governing The Socialist Metropolis",
-    "author": "Timothy J. Colton",
-    "primarySubject": "Politics & Government",
-    "primaryTopic": "American Politics",
-    "topics": [
-      "American Politics"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-new-poems-roy-fuller",
     "title": "New Poems",
     "author": "Roy Fuller",
@@ -4767,6 +4753,30 @@
     "reviewReason": "Primary topic selected from multiple candidates: Art, Music & Performance, Crime, Policing & Violence, Essays & Cultural Criticism, Grief, Trauma & Recovery."
   },
   {
+    "bookId": "book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton",
+    "title": "Magus: The Art of Magic from Faustus to Agrippa",
+    "author": "Anthony Grafton",
+    "primarySubject": "Arts & Criticism",
+    "primaryTopic": "Art, Music & Performance",
+    "topics": [
+      "Art, Music & Performance",
+      "Essays & Cultural Criticism",
+      "Religion & Religious Movements",
+      "Travel, Exploration & Place"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Europe/Russia keyword",
+      "religion keyword",
+      "intellectual history keyword",
+      "art/music/performance keyword",
+      "travel/place keyword",
+      "essays/cultural criticism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Art, Music & Performance, Essays & Cultural Criticism, Religion & Religious Movements, Travel, Exploration & Place."
+  },
+  {
     "bookId": "book-modern-art-19th-and-20th-centuries-selected-papers-volume-2-meyer-schapiro",
     "title": "Modern Art: 19th and 20th Centuries (Selected Papers, Volume 2)",
     "author": "Meyer Schapiro",
@@ -5499,6 +5509,30 @@
     "reviewReason": "Primary topic selected from multiple candidates: Art, Music & Performance, Essays & Cultural Criticism, Law & Legal Change."
   },
   {
+    "bookId": "book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden",
+    "title": "The Power of Place : Urban Landscapes as Public History",
+    "author": "Dolores Hayden",
+    "primarySubject": "Arts & Criticism",
+    "primaryTopic": "Art, Music & Performance",
+    "topics": [
+      "Art, Music & Performance",
+      "Death, Memory & Commemoration",
+      "Essays & Cultural Criticism",
+      "Gender & Feminism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "gender/feminism keyword",
+      "art/music/performance keyword",
+      "housing/cities keyword",
+      "travel/place keyword",
+      "death/memory keyword",
+      "essays/cultural criticism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Art, Music & Performance, Death, Memory & Commemoration, Essays & Cultural Criticism, Gender & Feminism."
+  },
+  {
     "bookId": "book-the-romantic-generation-charles-rosen",
     "title": "The Romantic Generation",
     "author": "Charles Rosen",
@@ -5990,7 +6024,7 @@
     "bookId": "book-mr-b-george-balanchine-s-twentieth-century-jennifer-homans",
     "title": "Mr. B: George Balanchine's Twentieth Century",
     "author": "Jennifer Homans",
-    "primarySubject": "History",
+    "primarySubject": "Arts & Criticism",
     "primaryTopic": "Artistic Biography",
     "topics": [
       "Artistic Biography"
@@ -6731,21 +6765,6 @@
     "bookId": "book-gilbert-white-richard-mabey",
     "title": "Gilbert White",
     "author": "Richard Mabey",
-    "primarySubject": "Biography",
-    "primaryTopic": "Biography & Public Lives",
-    "topics": [
-      "Biography & Public Lives"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "biography fallback",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-gladstone-roy-jenkins",
-    "title": "Gladstone",
-    "author": "Roy Jenkins",
     "primarySubject": "Biography",
     "primaryTopic": "Biography & Public Lives",
     "topics": [
@@ -8042,7 +8061,7 @@
     "bookId": "book-stories-of-scottsboro-james-goodman",
     "title": "Stories of Scottsboro",
     "author": "James Goodman",
-    "primarySubject": "History",
+    "primarySubject": "American History",
     "primaryTopic": "Black History & Culture",
     "topics": [
       "Black History & Culture",
@@ -8879,7 +8898,7 @@
     "bookId": "book-essays-in-economics-wassily-w-leontief",
     "title": "Essays in Economics",
     "author": "Wassily W. Leontief",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "Business Biography",
     "topics": [
       "Business Biography",
@@ -10087,7 +10106,7 @@
     "bookId": "book-tombee-portrait-of-a-cotton-planter-theodore-rosengarten",
     "title": "Tombee: Portrait of a Cotton Planter",
     "author": "Theodore Rosengarten",
-    "primarySubject": "Biography",
+    "primarySubject": "American History",
     "primaryTopic": "Business Biography",
     "topics": [
       "Business Biography"
@@ -10631,6 +10650,26 @@
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Crime, Policing & Violence, Human Rights & International Law."
   },
   {
+    "bookId": "book-creating-the-commonwealth-the-economic-culture-of-puritan-new-england-stephen-innes",
+    "title": "Creating the Commonwealth: The Economic Culture of Puritan New England",
+    "author": "Stephen Innes",
+    "primarySubject": "American History",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Money, Markets & Economic Policy",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "business/capitalism keyword",
+      "money/markets keyword",
+      "regional/local keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Money, Markets & Economic Policy, Regional & Local History."
+  },
+  {
     "bookId": "book-crude-volatility-robert-mcnally",
     "title": "Crude Volatility",
     "author": "Robert McNally",
@@ -10905,6 +10944,25 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Energy, Extraction & Resources, Gender & Feminism, Labor, Work & Organizing."
+  },
+  {
+    "bookId": "book-fragile-by-design-the-political-origins-of-banking-crises-and-scarce-credit-charles-w-calomiris-",
+    "title": "Fragile by Design: The Political Origins of Banking Crises and Scarce Credit",
+    "author": "Charles W. Calomiris, Stephen H. Haber",
+    "primarySubject": "American History",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Latin America & the Caribbean",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Latin America/Caribbean keyword",
+      "business/capitalism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Latin America & the Caribbean, Regional & Local History."
   },
   {
     "bookId": "book-from-higher-aims-to-hired-hands-rakesh-khurana",
@@ -11720,6 +11778,29 @@
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Labor, Work & Organizing, Travel, Exploration & Place."
   },
   {
+    "bookId": "book-rules-a-short-history-of-what-we-live-by-lorraine-daston",
+    "title": "Rules: A Short History of What We Live By",
+    "author": "Lorraine Daston",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Death, Memory & Commemoration",
+      "Labor, Work & Organizing",
+      "War & Military Strategy"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "law/legal keyword",
+      "war/military keyword",
+      "labor/work keyword",
+      "business/capitalism keyword",
+      "death/memory keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Death, Memory & Commemoration, Labor, Work & Organizing, War & Military Strategy."
+  },
+  {
     "bookId": "book-shakespeare-after-all-marjorie-garber",
     "title": "Shakespeare After All",
     "author": "Marjorie Garber",
@@ -12014,6 +12095,30 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Education & Universities, Labor, Work & Organizing, Money, Markets & Economic Policy."
+  },
+  {
+    "bookId": "book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash",
+    "title": "The Baton and The Cross: Russia's Church from Pagans to Putin",
+    "author": "Lucy Ash",
+    "primarySubject": "Business & Economics",
+    "primaryTopic": "Business, Capitalism & Corporations",
+    "topics": [
+      "Business, Capitalism & Corporations",
+      "Cold War & Nuclear Politics",
+      "Housing, Cities & Urban Life",
+      "Money, Markets & Economic Policy"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "cold war/nuclear keyword",
+      "Europe/Russia keyword",
+      "religion keyword",
+      "housing/cities keyword",
+      "business/capitalism keyword",
+      "money/markets keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Business, Capitalism & Corporations, Cold War & Nuclear Politics, Housing, Cities & Urban Life, Money, Markets & Economic Policy."
   },
   {
     "bookId": "book-the-billionaire-raj-a-journey-through-india-s-new-gilded-age-james-crabtree",
@@ -16123,6 +16228,29 @@
     "reviewReason": "Primary topic selected from multiple candidates: Climate, Weather & Disaster, Indigenous History, Business, Capitalism & Corporations, Class, Poverty & Inequality."
   },
   {
+    "bookId": "book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman",
+    "title": "Plows, Plagues, and Petroleum: How Humans Control of Climate",
+    "author": "William F. Ruddiman",
+    "primarySubject": "Nature & Environment",
+    "primaryTopic": "Climate, Weather & Disaster",
+    "topics": [
+      "Climate, Weather & Disaster",
+      "Science & Discovery",
+      "Energy, Extraction & Resources",
+      "Environment, Conservation & Pollution"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "food/agriculture/land keyword",
+      "science/discovery keyword",
+      "climate/weather/disaster keyword",
+      "environment keyword",
+      "energy/extraction keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Climate, Weather & Disaster, Science & Discovery, Energy, Extraction & Resources, Environment, Conservation & Pollution."
+  },
+  {
     "bookId": "book-polar-imperative-a-history-of-arctic-sovereignty-in-north-america-shelagh-grant",
     "title": "Polar Imperative: A History of Arctic Sovereignty in North America",
     "author": "Shelagh Grant",
@@ -17185,6 +17313,27 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Cold War & Nuclear Politics, Soldiers, Veterans & Combat Experience, War & Military Strategy, Asia & the Pacific."
+  },
+  {
+    "bookId": "book-moscow-governing-the-socialist-metropolis-timothy-j-colton",
+    "title": "Moscow: Governing The Socialist Metropolis",
+    "author": "Timothy J. Colton",
+    "primarySubject": "Politics & Government",
+    "primaryTopic": "Cold War & Nuclear Politics",
+    "topics": [
+      "Cold War & Nuclear Politics",
+      "Housing, Cities & Urban Life",
+      "Europe & Russia",
+      "American Politics"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "cold war/nuclear keyword",
+      "Europe/Russia keyword",
+      "housing/cities keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Cold War & Nuclear Politics, Housing, Cities & Urban Life, Europe & Russia, American Politics."
   },
   {
     "bookId": "book-nagasaki-life-after-nuclear-war-susan-southard",
@@ -22241,6 +22390,25 @@
     "reviewReason": "Primary topic selected from multiple candidates: Disease, Epidemics & Drugs, Drugs, Addiction & Treatment, Natural History & Animals, Science & Discovery."
   },
   {
+    "bookId": "book-the-loss-of-sadness-allan-v-horwitz-and-jerome-wakefield",
+    "title": "The Loss of Sadness",
+    "author": "Allan V. Horwitz, Jerome Wakefield",
+    "primarySubject": "American History",
+    "primaryTopic": "Disease, Epidemics & Drugs",
+    "topics": [
+      "Disease, Epidemics & Drugs",
+      "Mental Health & Psychology",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "disease/drugs keyword",
+      "mental health/psychology keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Disease, Epidemics & Drugs, Mental Health & Psychology, Regional & Local History."
+  },
+  {
     "bookId": "book-the-narrow-edge-a-tiny-bird-an-ancient-crab-and-an-epic-journey-deborah-cramer",
     "title": "The Narrow Edge: A Tiny Bird, an Ancient Crab, and an Epic Journey",
     "author": "Deborah Cramer",
@@ -23474,6 +23642,27 @@
     "reviewReason": "Primary topic selected from multiple candidates: Empire & Colonialism, War & Military Strategy, Regional & Local History."
   },
   {
+    "bookId": "book-moral-capital-foundations-of-british-abolitionism-christopher-brown",
+    "title": "Moral Capital: Foundations of British Abolitionism",
+    "author": "Christopher Brown",
+    "primarySubject": "American History",
+    "primaryTopic": "Empire & Colonialism",
+    "topics": [
+      "Empire & Colonialism",
+      "Money, Markets & Economic Policy",
+      "Social Movements & Activism",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "empire/colonial keyword",
+      "social movements keyword",
+      "money/markets keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Empire & Colonialism, Money, Markets & Economic Policy, Social Movements & Activism, Regional & Local History."
+  },
+  {
     "bookId": "book-national-service-conscription-in-britain-1945-1963-richard-vinen",
     "title": "National Service: Conscription in Britain, 1945-1963",
     "author": "Richard Vinen",
@@ -23595,20 +23784,6 @@
     ]
   },
   {
-    "bookId": "book-tears-of-rangi-experiments-across-worlds-anne-salmond",
-    "title": "Tears of Rangi: Experiments Across Worlds",
-    "author": "Anne Salmond",
-    "primarySubject": "World History",
-    "primaryTopic": "Empire & Colonialism",
-    "topics": [
-      "Empire & Colonialism"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-age-of-the-vikings-anders-winroth",
     "title": "The Age of the Vikings",
     "author": "Anders Winroth",
@@ -23706,6 +23881,29 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Empire & Colonialism, Nationalism & Authoritarianism, Middle East & North Africa, Regional & Local History."
+  },
+  {
+    "bookId": "book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis",
+    "title": "The First Asians in the Americas: A Transpacific History",
+    "author": "Diego Javier Luis",
+    "primarySubject": "American History",
+    "primaryTopic": "Empire & Colonialism",
+    "topics": [
+      "Empire & Colonialism",
+      "Latin America & the Caribbean",
+      "Social Movements & Activism",
+      "Travel, Exploration & Place"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "empire/colonial keyword",
+      "Latin America/Caribbean keyword",
+      "Europe/Russia keyword",
+      "social movements keyword",
+      "travel/place keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Empire & Colonialism, Latin America & the Caribbean, Social Movements & Activism, Travel, Exploration & Place."
   },
   {
     "bookId": "book-the-last-colony-a-tale-of-exile-justice-and-britain-s-colonial-legacy-philippe-sands",
@@ -29317,7 +29515,7 @@
     "bookId": "book-city-of-thorns-nine-lives-in-the-world-s-largest-refugee-camp-ben-rawlence",
     "title": "City of Thorns: Nine Lives in the World's Largest Refugee Camp",
     "author": "Ben Rawlence",
-    "primarySubject": "Race & Ethnicity",
+    "primarySubject": "American History",
     "primaryTopic": "Housing, Cities & Urban Life",
     "topics": [
       "Housing, Cities & Urban Life",
@@ -29616,25 +29814,6 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
-  },
-  {
-    "bookId": "book-the-power-of-place-urban-landscapes-as-public-history-dolores-hayden",
-    "title": "The Power of Place : Urban Landscapes as Public History",
-    "author": "Dolores Hayden",
-    "primarySubject": "Society & Culture",
-    "primaryTopic": "Housing, Cities & Urban Life",
-    "topics": [
-      "Housing, Cities & Urban Life",
-      "Travel, Exploration & Place",
-      "Class, Poverty & Inequality"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "housing/cities keyword",
-      "travel/place keyword",
-      "subject fallback"
-    ],
-    "reviewReason": "Primary topic selected from multiple candidates: Housing, Cities & Urban Life, Travel, Exploration & Place, Class, Poverty & Inequality."
   },
   {
     "bookId": "book-the-private-city-philadelphia-in-three-periods-of-its-growth-sam-warner-jr",
@@ -30729,6 +30908,32 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Indigenous History, Business, Capitalism & Corporations, Education & Universities, Labor, Work & Organizing."
+  },
+  {
+    "bookId": "book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo",
+    "title": "Advertising Empire: Race and Visual Culture in Imperial Germany",
+    "author": "David Ciarlo",
+    "primarySubject": "American History",
+    "primaryTopic": "Indigenous History",
+    "topics": [
+      "Indigenous History",
+      "Settler Colonialism",
+      "Black History & Culture",
+      "Empire & Colonialism"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "empire/colonial keyword",
+      "Indigenous history keyword",
+      "Black history/culture keyword",
+      "Africa/diaspora keyword",
+      "media/journalism keyword",
+      "money/markets keyword",
+      "settler colonialism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Indigenous History, Settler Colonialism, Black History & Culture, Empire & Colonialism."
   },
   {
     "bookId": "book-american-pentimento-the-invention-of-indians-and-the-pursuit-of-riches-patricia-seed",
@@ -34358,7 +34563,7 @@
     "bookId": "book-the-genius-of-the-people-charles-mee",
     "title": "The Genius of the People",
     "author": "Charles Mee",
-    "primarySubject": "General Nonfiction",
+    "primarySubject": "History",
     "primaryTopic": "Intellectual Biography",
     "topics": [
       "Intellectual Biography"
@@ -37321,7 +37526,7 @@
     "bookId": "book-forty-one-false-starts-essays-on-artists-and-writers-janet-malcolm",
     "title": "Forty-One False Starts: Essays on Artists and Writers",
     "author": "Janet Malcolm",
-    "primarySubject": "Arts & Criticism",
+    "primarySubject": "American History",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography",
@@ -37351,7 +37556,7 @@
     "bookId": "book-furious-hours-murder-fraud-and-the-last-trial-of-harper-lee-casey-cep",
     "title": "Furious Hours: Murder, Fraud and the Last Trial of Harper Lee",
     "author": "Casey Cep",
-    "primarySubject": "True Crime & Justice",
+    "primarySubject": "Arts & Criticism",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography",
@@ -37578,7 +37783,7 @@
     "bookId": "book-huey-long-thomas-harry-williams",
     "title": "Huey Long",
     "author": "Thomas Harry Williams",
-    "primarySubject": "Biography",
+    "primarySubject": "American History",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography",
@@ -40216,7 +40421,7 @@
     "bookId": "book-fables-of-abundance-a-cultural-history-of-advertising-in-america-jackson-lears",
     "title": "Fables of Abundance: A Cultural History of Advertising in America",
     "author": "Jackson Lears",
-    "primarySubject": "History",
+    "primarySubject": "American History",
     "primaryTopic": "Literature & Writers",
     "topics": [
       "Literature & Writers",
@@ -45715,7 +45920,7 @@
     "bookId": "book-john-paul-jones-samuel-eliot-morison",
     "title": "John Paul Jones",
     "author": "Samuel Eliot Morison",
-    "primarySubject": "Biography",
+    "primarySubject": "American History",
     "primaryTopic": "Military Biography",
     "topics": [
       "Military Biography"
@@ -46417,6 +46622,25 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Nationalism & Authoritarianism, Europe & Russia, Biography & Public Lives."
+  },
+  {
+    "bookId": "book-waltzing-with-a-dictator-raymond-bonner",
+    "title": "Waltzing With a Dictator",
+    "author": "Raymond Bonner",
+    "primarySubject": "American History",
+    "primaryTopic": "Nationalism & Authoritarianism",
+    "topics": [
+      "Nationalism & Authoritarianism",
+      "Presidency & Executive Power",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "presidency/executive keyword",
+      "nationalism/authoritarianism keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Nationalism & Authoritarianism, Presidency & Executive Power, Regional & Local History."
   },
   {
     "bookId": "book-a-most-remarkable-creature-the-hidden-life-and-epic-journey-of-the-world-s-smartest-birds-of-pre",
@@ -47277,6 +47501,28 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-tears-of-rangi-experiments-across-worlds-anne-salmond",
+    "title": "Tears of Rangi: Experiments Across Worlds",
+    "author": "Anne Salmond",
+    "primarySubject": "Travel & Place",
+    "primaryTopic": "Natural History & Animals",
+    "topics": [
+      "Natural History & Animals",
+      "Oceans, Rivers & Water",
+      "Travel, Exploration & Place",
+      "Europe & Russia"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "Europe/Russia keyword",
+      "natural history/animals keyword",
+      "water keyword",
+      "travel/place keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Natural History & Animals, Oceans, Rivers & Water, Travel, Exploration & Place, Europe & Russia."
   },
   {
     "bookId": "book-the-blank-slate-the-modern-denial-of-human-nature-steven-pinker",
@@ -48558,6 +48804,28 @@
     "reviewReason": "Primary topic selected from multiple candidates: Oceans, Rivers & Water, Reconstruction, Class, Poverty & Inequality, Travel, Exploration & Place."
   },
   {
+    "bookId": "book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop",
+    "title": "The Mistral: A Windswept History of Modern France",
+    "author": "Catherine Tatiana Dunlop",
+    "primarySubject": "American History",
+    "primaryTopic": "Oceans, Rivers & Water",
+    "topics": [
+      "Oceans, Rivers & Water",
+      "Food, Agriculture & Land",
+      "Literature & Writers",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "literature/writers keyword",
+      "food/agriculture/land keyword",
+      "water keyword",
+      "regional/local keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Oceans, Rivers & Water, Food, Agriculture & Land, Literature & Writers, Regional & Local History."
+  },
+  {
     "bookId": "book-the-mortal-sea-fishing-the-atlantic-in-the-age-of-sail-w-jeffrey-bolster",
     "title": "The Mortal Sea: Fishing the Atlantic in the Age of Sail",
     "author": "W. Jeffrey Bolster",
@@ -49101,6 +49369,25 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
+  },
+  {
+    "bookId": "book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett",
+    "title": "Germany and the Diplomacy of the Financial Crisis, 1931",
+    "author": "Edward Bennett",
+    "primarySubject": "American History",
+    "primaryTopic": "Presidency & Executive Power",
+    "topics": [
+      "Presidency & Executive Power",
+      "War & Military Strategy",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "presidency/executive keyword",
+      "war/military keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Presidency & Executive Power, War & Military Strategy, Regional & Local History."
   },
   {
     "bookId": "book-history-of-the-american-frontier-frederic-l-paxson",
@@ -52052,20 +52339,6 @@
     ]
   },
   {
-    "bookId": "book-germany-and-the-diplomacy-of-the-financial-crisis-1931-edward-bennett",
-    "title": "Germany and the Diplomacy of the Financial Crisis, 1931",
-    "author": "Edward Bennett",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-germany-and-the-diplomatic-revolution-a-study-in-diplomacy-and-the-press-1904-06-oron-hale",
     "title": "Germany and the Diplomatic Revolution: A Study in Diplomacy and the Press, 1904-06",
     "author": "Oron Hale",
@@ -52209,20 +52482,6 @@
     "bookId": "book-in-search-of-human-nature-the-decline-and-revival-of-darwinism-in-american-social-thought-carl-n",
     "title": "In Search of Human Nature: The Decline and Revival of Darwinism in American Social Thought",
     "author": "Carl N. Degler",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-indians-and-english-facing-off-in-early-america-karen-kupperman",
-    "title": "Indians and English: Facing Off in Early America",
-    "author": "Karen Kupperman",
     "primarySubject": "American History",
     "primaryTopic": "Regional & Local History",
     "topics": [
@@ -52406,20 +52665,6 @@
     "title": "Maya Calendar Origins: Monuments, Mythistory, and the Materialization of Time",
     "author": "Prudence M. Rice",
     "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-moral-capital-foundations-of-british-abolitionism-christopher-brown",
-    "title": "Moral Capital: Foundations of British Abolitionism",
-    "author": "Christopher Brown",
-    "primarySubject": "American History",
     "primaryTopic": "Regional & Local History",
     "topics": [
       "Regional & Local History"
@@ -52696,20 +52941,6 @@
     ]
   },
   {
-    "bookId": "book-rivers-of-the-united-states-volume-i-estuaries-ruth-patrick",
-    "title": "Rivers of the United States, Volume I, ESTUARIES",
-    "author": "Ruth Patrick",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-robert-morris-revolutionary-financier-clarence-ver-steeg",
     "title": "Robert Morris, Revolutionary Financier",
     "author": "Clarence Ver Steeg",
@@ -52749,20 +52980,6 @@
     "confidence": "medium",
     "reasons": [
       "generated topic enrichment: embedding"
-    ]
-  },
-  {
-    "bookId": "book-scenarios-of-power-myth-and-ceremony-in-russian-monarchy-from-alexander-ii-to-the-abdication-of-",
-    "title": "Scenarios of Power: Myth and Ceremony in Russian Monarchy: From Alexander II to the Abdication of Nicholas II, vol. 2",
-    "author": "Richard Wortman",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
     ]
   },
   {
@@ -53004,20 +53221,6 @@
     ]
   },
   {
-    "bookId": "book-the-career-of-theophile-delcasse-charles-porter",
-    "title": "The Career of Théophile Delcassé",
-    "author": "Charles Porter",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-cigarette-century-the-rise-fall-and-deadly-persistence-of-the-product-that-defined-america-a",
     "title": "The Cigarette Century: The Rise, Fall, and Deadly Persistence of the Product that Defined America",
     "author": "Allan Brandt",
@@ -53119,20 +53322,6 @@
     "bookId": "book-the-expanding-blaze-how-the-american-revolution-ignited-the-world-1775-1848-jonathan-israel",
     "title": "The Expanding Blaze: How the American Revolution Ignited the World, 1775-1848",
     "author": "Jonathan Israel",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-the-first-asians-in-the-americas-a-transpacific-history-diego-javier-luis",
-    "title": "The First Asians in the Americas: A Transpacific History",
-    "author": "Diego Javier Luis",
     "primarySubject": "American History",
     "primaryTopic": "Regional & Local History",
     "topics": [
@@ -53288,20 +53477,6 @@
     "title": "The Martians: The True Story of an Alien Craze that Captured Turn-of-the-Century America",
     "author": "David Baron",
     "primarySubject": "History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-the-mistral-a-windswept-history-of-modern-france-catherine-tatiana-dunlop",
-    "title": "The Mistral: A Windswept History of Modern France",
-    "author": "Catherine Tatiana Dunlop",
-    "primarySubject": "American History",
     "primaryTopic": "Regional & Local History",
     "topics": [
       "Regional & Local History"
@@ -53973,25 +54148,6 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
-  },
-  {
-    "bookId": "book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash",
-    "title": "The Baton and The Cross: Russia's Church from Pagans to Putin",
-    "author": "Lucy Ash",
-    "primarySubject": "Politics & Government",
-    "primaryTopic": "Religion & Religious Movements",
-    "topics": [
-      "Religion & Religious Movements",
-      "Europe & Russia",
-      "American Politics"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "Europe/Russia keyword",
-      "religion keyword",
-      "subject fallback"
-    ],
-    "reviewReason": "Primary topic selected from multiple candidates: Religion & Religious Movements, Europe & Russia, American Politics."
   },
   {
     "bookId": "book-the-helper-catherine-marshall",
@@ -56303,6 +56459,26 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Science & Discovery, Religion & Religious Movements, Intellectual History & Ideas."
+  },
+  {
+    "bookId": "book-remnants-of-ancient-life-the-new-science-of-old-fossils-dale-greenwalt",
+    "title": "Remnants of Ancient Life: The New Science of Old Fossils",
+    "author": "Dale Greenwalt",
+    "primarySubject": "Nature & Environment",
+    "primaryTopic": "Science & Discovery",
+    "topics": [
+      "Science & Discovery",
+      "Death, Memory & Commemoration",
+      "Environment, Conservation & Pollution"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "science/discovery keyword",
+      "environment keyword",
+      "death/memory keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Science & Discovery, Death, Memory & Commemoration, Environment, Conservation & Pollution."
   },
   {
     "bookId": "book-republic-of-capital-buenos-aires-and-the-legal-transformation-of-atlantic-world-jeremy-adelman",
@@ -59759,6 +59935,25 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Slavery & Emancipation, Courts & Trials, Essays & Cultural Criticism, Africa & the African Diaspora."
+  },
+  {
+    "bookId": "book-freedom-s-mirror-cuba-and-haiti-in-the-age-of-revolution-ada-ferrer",
+    "title": "Freedom’s Mirror: Cuba and Haiti in the Age of Revolution",
+    "author": "Ada Ferrer",
+    "primarySubject": "American History",
+    "primaryTopic": "Slavery & Emancipation",
+    "topics": [
+      "Slavery & Emancipation",
+      "Latin America & the Caribbean",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "slavery/emancipation keyword",
+      "Latin America/Caribbean keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Slavery & Emancipation, Latin America & the Caribbean, Regional & Local History."
   },
   {
     "bookId": "book-insurgent-empire-anticolonial-resistance-and-british-dissent-priyamvada-gopal",
@@ -63544,7 +63739,7 @@
     "bookId": "book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires-",
     "title": "Pacific: Silicon Chips and Surfboards, Coral Reefs and Atom Bombs, Brutal Dictators, Fading Empires, and the Coming Collision of the World's Superpowers",
     "author": "Simon Winchester",
-    "primarySubject": "World History",
+    "primarySubject": "Business & Economics",
     "primaryTopic": "War & Military Strategy",
     "topics": [
       "War & Military Strategy",
@@ -64258,6 +64453,27 @@
     "reviewReason": "Primary topic selected from multiple candidates: World War I, Oceans, Rivers & Water, Food, Agriculture & Land, Soldiers, Veterans & Combat Experience."
   },
   {
+    "bookId": "book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey",
+    "title": "Shattering Empires: The Clash and Collapse of the Ottoman and Russian Empires, 1908-18",
+    "author": "Michael Reynolds",
+    "primarySubject": "American History",
+    "primaryTopic": "World War I",
+    "topics": [
+      "World War I",
+      "War & Military Strategy",
+      "Middle East & North Africa",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "World War I keyword",
+      "Middle East/North Africa keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: World War I, War & Military Strategy, Middle East & North Africa, Regional & Local History."
+  },
+  {
     "bookId": "book-the-age-of-extremes-the-short-20th-century-1914-1991-eric-hobsbawm",
     "title": "The Age of Extremes: The Short 20th Century, 1914–1991",
     "author": "Eric Hobsbawm",
@@ -64309,6 +64525,27 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: World War I, Drugs, Addiction & Treatment, Art, Music & Performance, Business, Capitalism & Corporations."
+  },
+  {
+    "bookId": "book-the-career-of-theophile-delcasse-charles-porter",
+    "title": "The Career of Théophile Delcassé",
+    "author": "Charles Porter",
+    "primarySubject": "American History",
+    "primaryTopic": "World War I",
+    "topics": [
+      "World War I",
+      "War & Military Strategy",
+      "Europe & Russia",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "war/military keyword",
+      "World War I keyword",
+      "Europe/Russia keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: World War I, War & Military Strategy, Europe & Russia, Regional & Local History."
   },
   {
     "bookId": "book-the-franco-prussian-war-michael-howard",
@@ -64560,6 +64797,7 @@
     "primaryTopic": "World War II",
     "topics": [
       "World War II",
+      "Money, Markets & Economic Policy",
       "War & Military Strategy",
       "Regional & Local History"
     ],
@@ -64567,9 +64805,10 @@
     "reasons": [
       "war/military keyword",
       "World War II keyword",
+      "money/markets keyword",
       "subject fallback"
     ],
-    "reviewReason": "Primary topic selected from multiple candidates: World War II, War & Military Strategy, Regional & Local History."
+    "reviewReason": "Primary topic selected from multiple candidates: World War II, Money, Markets & Economic Policy, War & Military Strategy, Regional & Local History."
   },
   {
     "bookId": "book-albert-speer-his-battle-with-truth-gitta-sereny",
@@ -66067,7 +66306,7 @@
     "bookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman",
     "title": "The Abandonment of the Jews: America and the Holocaust 1941–1945",
     "author": "David Wyman",
-    "primarySubject": "War & Military",
+    "primarySubject": "American History",
     "primaryTopic": "World War II",
     "topics": [
       "World War II",
@@ -68270,23 +68509,6 @@
     "confidence": "high",
     "reasons": [
       "art/music/performance keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-magus-the-art-of-magic-from-faustus-to-agrippa-anthony-grafton",
-    "title": "Magus: The Art of Magic from Faustus to Agrippa",
-    "author": "Anthony Grafton",
-    "primarySubject": "Arts & Criticism",
-    "primaryTopic": "Art, Music & Performance",
-    "topics": [
-      "Art, Music & Performance",
-      "Essays & Cultural Criticism"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "art/music/performance keyword",
-      "essays/cultural criticism keyword",
       "subject fallback"
     ]
   },
@@ -70764,23 +70986,6 @@
     ]
   },
   {
-    "bookId": "book-plows-plagues-and-petroleum-how-humans-control-of-climate-william-f-ruddiman",
-    "title": "Plows, Plagues, and Petroleum: How Humans Control of Climate",
-    "author": "William F. Ruddiman",
-    "primarySubject": "Nature & Environment",
-    "primaryTopic": "Climate, Weather & Disaster",
-    "topics": [
-      "Climate, Weather & Disaster",
-      "Environment, Conservation & Pollution"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "climate/weather/disaster keyword",
-      "environment keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-statistical-downscaling-and-bias-correction-for-climate-research-douglas-maraun-martin-widmann",
     "title": "Statistical Downscaling and Bias Correction for Climate Research",
     "author": "Douglas Maraun, Martin Widmann",
@@ -71095,7 +71300,7 @@
     "bookId": "book-a-peace-to-end-all-peace-creating-the-modern-middle-east-1914-1922-david-fromkin",
     "title": "A Peace to End All Peace: Creating the Modern Middle East, 1914–1922",
     "author": "David Fromkin",
-    "primarySubject": "World History",
+    "primarySubject": "War & Military",
     "primaryTopic": "Constitutional History",
     "topics": [
       "Constitutional History",
@@ -71916,6 +72121,22 @@
     ]
   },
   {
+    "bookId": "book-scenarios-of-power-myth-and-ceremony-in-russian-monarchy-from-alexander-ii-to-the-abdication-of-",
+    "title": "Scenarios of Power: Myth and Ceremony in Russian Monarchy: From Alexander II to the Abdication of Nicholas II, vol. 2",
+    "author": "Richard Wortman",
+    "primarySubject": "American History",
+    "primaryTopic": "Death, Memory & Commemoration",
+    "topics": [
+      "Death, Memory & Commemoration",
+      "Regional & Local History"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "death/memory keyword",
+      "subject fallback"
+    ]
+  },
+  {
     "bookId": "book-the-age-of-acquiescence-the-life-and-death-of-american-resistance-to-organized-wealth-and-power-",
     "title": "The Age of Acquiescence: The Life and Death of American Resistance to Organized Wealth and Power",
     "author": "Steve Fraser",
@@ -72337,6 +72558,22 @@
     ]
   },
   {
+    "bookId": "book-rivers-of-the-united-states-volume-i-estuaries-ruth-patrick",
+    "title": "Rivers of the United States, Volume I, ESTUARIES",
+    "author": "Ruth Patrick",
+    "primarySubject": "American History",
+    "primaryTopic": "Drugs, Addiction & Treatment",
+    "topics": [
+      "Drugs, Addiction & Treatment",
+      "Regional & Local History"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "drugs/addiction keyword",
+      "subject fallback"
+    ]
+  },
+  {
     "bookId": "book-the-printing-press-as-an-agent-of-change-volumes-i-and-ii-elizabeth-l-eisenstein",
     "title": "The Printing Press As An Agent of Change, Volumes I and II",
     "author": "Elizabeth L. Eisenstein",
@@ -72477,22 +72714,6 @@
     "confidence": "high",
     "reasons": [
       "war/military keyword",
-      "empire/colonial keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-advertising-empire-race-and-visual-culture-in-imperial-germany-david-ciarlo",
-    "title": "Advertising Empire: Race and Visual Culture in Imperial Germany",
-    "author": "David Ciarlo",
-    "primarySubject": "American History",
-    "primaryTopic": "Empire & Colonialism",
-    "topics": [
-      "Empire & Colonialism",
-      "Regional & Local History"
-    ],
-    "confidence": "high",
-    "reasons": [
       "empire/colonial keyword",
       "subject fallback"
     ]
@@ -75156,6 +75377,22 @@
     ]
   },
   {
+    "bookId": "book-indians-and-english-facing-off-in-early-america-karen-kupperman",
+    "title": "Indians and English: Facing Off in Early America",
+    "author": "Karen Kupperman",
+    "primarySubject": "American History",
+    "primaryTopic": "Indigenous History",
+    "topics": [
+      "Indigenous History",
+      "Regional & Local History"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "Indigenous history keyword",
+      "subject fallback"
+    ]
+  },
+  {
     "bookId": "book-inside-qatar-hidden-stories-from-one-of-the-richest-nations-on-earth-john-mcmanus",
     "title": "Inside Qatar: Hidden Stories from One of the Richest Nations on Earth",
     "author": "John McManus",
@@ -76019,22 +76256,6 @@
     ]
   },
   {
-    "bookId": "book-freedom-s-mirror-cuba-and-haiti-in-the-age-of-revolution-ada-ferrer",
-    "title": "Freedom’s Mirror: Cuba and Haiti in the Age of Revolution",
-    "author": "Ada Ferrer",
-    "primarySubject": "American History",
-    "primaryTopic": "Latin America & the Caribbean",
-    "topics": [
-      "Latin America & the Caribbean",
-      "Regional & Local History"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "Latin America/Caribbean keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-mexico-and-american-modernism-ellen-g-landau",
     "title": "Mexico and American Modernism",
     "author": "Ellen G. Landau",
@@ -76567,7 +76788,7 @@
     "bookId": "book-james-russell-lowell-martin-duberman",
     "title": "James Russell Lowell",
     "author": "Martin Duberman",
-    "primarySubject": "Biography",
+    "primarySubject": "American History",
     "primaryTopic": "Literary Biography",
     "topics": [
       "Literary Biography",
@@ -77268,23 +77489,6 @@
     ]
   },
   {
-    "bookId": "book-waltzing-with-a-dictator-raymond-bonner",
-    "title": "Waltzing With a Dictator",
-    "author": "Raymond Bonner",
-    "primarySubject": "Journalism & Reportage",
-    "primaryTopic": "Media, Journalism & Public Opinion",
-    "topics": [
-      "Media, Journalism & Public Opinion",
-      "Nationalism & Authoritarianism"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "media/journalism keyword",
-      "nationalism/authoritarianism keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-a-fortunate-woman-a-country-doctor-s-story-polly-morland",
     "title": "A Fortunate Woman: A Country Doctor’s Story",
     "author": "Polly Morland",
@@ -77596,23 +77800,6 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding"
-    ]
-  },
-  {
-    "bookId": "book-rules-a-short-history-of-what-we-live-by-lorraine-daston",
-    "title": "Rules: A Short History of What We Live By",
-    "author": "Lorraine Daston",
-    "primarySubject": "Medicine & Public Health",
-    "primaryTopic": "Medicine, Health & the Body",
-    "topics": [
-      "Medicine, Health & the Body",
-      "Public Health Systems"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "medicine/health keyword",
-      "public health systems keyword",
-      "subject fallback"
     ]
   },
   {
@@ -78382,22 +78569,6 @@
     ]
   },
   {
-    "bookId": "book-shattering-empires-the-clash-and-collapse-of-the-ottoman-and-russian-empires-1908-18-michael-rey",
-    "title": "Shattering Empires: The Clash and Collapse of the Ottoman and Russian Empires, 1908-18",
-    "author": "Michael Reynolds",
-    "primarySubject": "American History",
-    "primaryTopic": "Middle East & North Africa",
-    "topics": [
-      "Middle East & North Africa",
-      "Regional & Local History"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "Middle East/North Africa keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-tamta-s-world-the-life-and-encounters-of-a-medieval-noblewoman-from-the-middle-east-to-mongolia-",
     "title": "Tamta’s World: The Life and Encounters of a Medieval Noblewoman from the Middle East to Mongolia",
     "author": "Antony Eastmond",
@@ -78790,23 +78961,6 @@
     "confidence": "high",
     "reasons": [
       "money/markets keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-creating-the-commonwealth-the-economic-culture-of-puritan-new-england-stephen-innes",
-    "title": "Creating the Commonwealth: The Economic Culture of Puritan New England",
-    "author": "Stephen Innes",
-    "primarySubject": "American History",
-    "primaryTopic": "Money, Markets & Economic Policy",
-    "topics": [
-      "Money, Markets & Economic Policy",
-      "Regional & Local History"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "money/markets keyword",
-      "regional/local keyword",
       "subject fallback"
     ]
   },
@@ -80366,6 +80520,22 @@
     ]
   },
   {
+    "bookId": "book-gladstone-roy-jenkins",
+    "title": "Gladstone",
+    "author": "Roy Jenkins",
+    "primarySubject": "Politics & Government",
+    "primaryTopic": "Religion & Religious Movements",
+    "topics": [
+      "Religion & Religious Movements",
+      "American Politics"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "religion keyword",
+      "subject fallback"
+    ]
+  },
+  {
     "bookId": "book-heretics-and-believers-a-history-of-the-english-reformation-peter-marshall",
     "title": "Heretics and Believers: A History of the English Reformation",
     "author": "Peter Marshall",
@@ -80495,6 +80665,23 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding"
+    ]
+  },
+  {
+    "bookId": "book-the-victorian-frame-of-mind-1830-1870-walter-e-houghton",
+    "title": "The Victorian Frame of Mind: 1830-1870",
+    "author": "Walter E. Houghton",
+    "primarySubject": "Religion",
+    "primaryTopic": "Religion & Religious Movements",
+    "topics": [
+      "Religion & Religious Movements",
+      "Intellectual History & Ideas"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "religion keyword",
+      "intellectual history keyword",
+      "subject fallback"
     ]
   },
   {
@@ -81620,23 +81807,6 @@
     ]
   },
   {
-    "bookId": "book-remnants-of-ancient-life-the-new-science-of-old-fossils-dale-greenwalt",
-    "title": "Remnants of Ancient Life: The New Science of Old Fossils",
-    "author": "Dale Greenwalt",
-    "primarySubject": "Nature & Environment",
-    "primaryTopic": "Science & Discovery",
-    "topics": [
-      "Science & Discovery",
-      "Environment, Conservation & Pollution"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "science/discovery keyword",
-      "environment keyword",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-rosalind-franklin-the-dark-lady-of-dna-brenda-maddox",
     "title": "Rosalind Franklin: The Dark Lady of DNA",
     "author": "Brenda Maddox",
@@ -81902,6 +82072,23 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding"
+    ]
+  },
+  {
+    "bookId": "book-the-gene-an-intimate-history-siddhartha-mukherjee",
+    "title": "The Gene: An Intimate History",
+    "author": "Siddhartha Mukherjee",
+    "primarySubject": "Science",
+    "primaryTopic": "Science & Discovery",
+    "topics": [
+      "Science & Discovery",
+      "Intellectual History & Ideas"
+    ],
+    "confidence": "high",
+    "reasons": [
+      "intellectual history keyword",
+      "science/discovery keyword",
+      "subject fallback"
     ]
   },
   {

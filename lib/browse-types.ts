@@ -31,6 +31,20 @@ export type BrowseBookRow = {
   hasSummary: boolean;
   hasPublisher: boolean;
   searchText: string;
+  recognitionByRegion?: Record<AwardRegionFilter, BrowseBookRecognitionStats>;
+};
+
+export type BrowseBookRecognitionStats = {
+  awardIds: string[];
+  firstRecognitionYear?: number;
+  lists: number;
+  majorLonglists: number;
+  majorShortlists: number;
+  majorWins: number;
+  normalLonglists: number;
+  normalShortlists: number;
+  score: number;
+  wins: number;
 };
 
 export type BrowseLinkRow = {

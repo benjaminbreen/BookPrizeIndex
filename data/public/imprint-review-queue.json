@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-05-23T18:36:32.703Z",
-  "mappedBooks": 2801,
-  "mappedImprints": 254,
-  "unresolvedPublisherStrings": 52,
+  "generatedAt": "2026-05-24T15:48:23.717Z",
+  "mappedBooks": 2998,
+  "mappedImprints": 256,
+  "unresolvedPublisherStrings": 49,
   "validation": {
     "duplicateNormalizedRawNames": [
       {
@@ -679,6 +679,13 @@
     ],
     "nonHighMappingsApplied": [
       {
+        "raw": "Harper & Row",
+        "imprint": "Harper & Row",
+        "publisher": "HarperCollins",
+        "confidence": "medium",
+        "matchedBookCount": 1
+      },
+      {
         "raw": "Houghton Mifflin Harcourt",
         "imprint": "Houghton Mifflin Harcourt",
         "publisher": "Houghton Mifflin Harcourt",
@@ -693,13 +700,6 @@
         "matchedBookCount": 7
       },
       {
-        "raw": "Harper & Row",
-        "imprint": "Harper & Row",
-        "publisher": "HarperCollins",
-        "confidence": "medium",
-        "matchedBookCount": 1
-      },
-      {
         "raw": "Macmillan",
         "imprint": "Macmillan",
         "publisher": "Macmillan",
@@ -711,7 +711,7 @@
         "imprint": "Houghton Mifflin",
         "publisher": "Houghton Mifflin Harcourt",
         "confidence": "medium",
-        "matchedBookCount": 8
+        "matchedBookCount": 11
       },
       {
         "raw": "Harcourt Brace Jovanovich Inc.",
@@ -746,7 +746,7 @@
         "imprint": "Phoenix",
         "publisher": "Hachette UK",
         "confidence": "medium",
-        "matchedBookCount": 4
+        "matchedBookCount": 5
       },
       {
         "raw": "Times Books",
@@ -812,11 +812,18 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "W. H. Freeman",
+        "imprint": "W. H. Freeman",
+        "publisher": "Macmillan",
+        "confidence": "medium",
+        "matchedBookCount": 3
+      },
+      {
         "raw": "Warner Books",
         "imprint": "Warner Books",
         "publisher": "Hachette Book Group",
         "confidence": "medium",
-        "matchedBookCount": 1
+        "matchedBookCount": 2
       },
       {
         "raw": "Diane Books Publishing Company",
@@ -847,6 +854,13 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "Greenwood Press",
+        "imprint": "Greenwood Press",
+        "publisher": "Greenwood Publishing Group",
+        "confidence": "medium",
+        "matchedBookCount": 2
+      },
+      {
         "raw": "Walker & Co",
         "imprint": "Walker & Company",
         "publisher": "Bloomsbury Publishing",
@@ -857,13 +871,6 @@
         "raw": "Eyre & Spottiswoode",
         "imprint": "Eyre & Spottiswoode",
         "publisher": "Eyre & Spottiswoode",
-        "confidence": "medium",
-        "matchedBookCount": 1
-      },
-      {
-        "raw": "Greenwood Press",
-        "imprint": "Greenwood Press",
-        "publisher": "Greenwood Publishing Group",
         "confidence": "medium",
         "matchedBookCount": 1
       },
@@ -945,6 +952,13 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "North Point Press",
+        "imprint": "North Point Press",
+        "publisher": "Farrar, Straus and Giroux",
+        "confidence": "medium",
+        "matchedBookCount": 3
+      },
+      {
         "raw": "Routledge, Chapman & Hall, Incorporated",
         "imprint": "Routledge",
         "publisher": "Taylor & Francis",
@@ -952,16 +966,16 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "North Point Press",
-        "imprint": "North Point Press",
-        "publisher": "Farrar, Straus and Giroux",
+        "raw": "West Publishing Co.",
+        "imprint": "West Publishing",
+        "publisher": "Thomson Reuters",
         "confidence": "medium",
         "matchedBookCount": 2
       },
       {
-        "raw": "West Publishing Co.",
-        "imprint": "West Publishing",
-        "publisher": "Thomson Reuters",
+        "raw": "Bobbs-Merrill",
+        "imprint": "Bobbs-Merrill",
+        "publisher": "Bobbs-Merrill",
         "confidence": "medium",
         "matchedBookCount": 2
       },
@@ -983,13 +997,6 @@
         "raw": "Transworld Pub",
         "imprint": "Transworld",
         "publisher": "Penguin Random House",
-        "confidence": "medium",
-        "matchedBookCount": 1
-      },
-      {
-        "raw": "Bobbs-Merrill",
-        "imprint": "Bobbs-Merrill",
-        "publisher": "Bobbs-Merrill",
         "confidence": "medium",
         "matchedBookCount": 1
       },
@@ -1027,13 +1034,6 @@
         "publisher": "And Other Stories",
         "confidence": "medium",
         "note": "Independent publisher imprint with stable one-off string.",
-        "matchedBookCount": 1
-      },
-      {
-        "raw": "W. H. Freeman",
-        "imprint": "W. H. Freeman",
-        "publisher": "Macmillan",
-        "confidence": "medium",
         "matchedBookCount": 1
       }
     ],
@@ -1569,12 +1569,6 @@
         "confidence": "high"
       },
       {
-        "raw": "Nan A. Talese/Doubleday",
-        "imprint": "Nan A. Talese",
-        "publisher": "Penguin Random House",
-        "confidence": "high"
-      },
-      {
         "raw": "NYU Press",
         "imprint": "New York University Press",
         "publisher": "New York University Press",
@@ -1777,12 +1771,6 @@
         "raw": "Univ. of Toronto Press",
         "imprint": "University of Toronto Press",
         "publisher": "University of Toronto Press",
-        "confidence": "high"
-      },
-      {
-        "raw": "Virago",
-        "imprint": "Virago",
-        "publisher": "Hachette UK",
         "confidence": "high"
       },
       {
@@ -2163,11 +2151,18 @@
         "matchedBookCount": 5
       },
       {
+        "raw": "Yale University Press",
+        "imprint": "Yale University Press",
+        "publisher": "Yale University Press",
+        "confidence": "high",
+        "matchedBookCount": 2
+      },
+      {
         "raw": "Faber and Faber",
         "imprint": "Faber & Faber",
         "publisher": "Faber & Faber",
         "confidence": "high",
-        "matchedBookCount": 9
+        "matchedBookCount": 11
       },
       {
         "raw": "Princeton University Press",
@@ -2230,14 +2225,7 @@
         "imprint": "Cambridge University Press",
         "publisher": "Cambridge University Press",
         "confidence": "high",
-        "matchedBookCount": 108
-      },
-      {
-        "raw": "Yale University Press",
-        "imprint": "Yale University Press",
-        "publisher": "Yale University Press",
-        "confidence": "high",
-        "matchedBookCount": 2
+        "matchedBookCount": 109
       },
       {
         "raw": "Wiley",
@@ -2251,7 +2239,7 @@
         "imprint": "University of California Press",
         "publisher": "University of California Press",
         "confidence": "high",
-        "matchedBookCount": 29
+        "matchedBookCount": 31
       },
       {
         "raw": "The American University in Cairo Press",
@@ -2286,7 +2274,7 @@
         "imprint": "Johns Hopkins University Press",
         "publisher": "Johns Hopkins University Press",
         "confidence": "high",
-        "matchedBookCount": 28
+        "matchedBookCount": 29
       },
       {
         "raw": "University of Texas Press",
@@ -2328,7 +2316,7 @@
         "imprint": "Cornell University Press",
         "publisher": "Cornell University Press",
         "confidence": "high",
-        "matchedBookCount": 31
+        "matchedBookCount": 33
       },
       {
         "raw": "University of Toronto Press",
@@ -2363,7 +2351,7 @@
         "imprint": "Bloomsbury",
         "publisher": "Bloomsbury Publishing",
         "confidence": "high",
-        "matchedBookCount": 39
+        "matchedBookCount": 40
       },
       {
         "raw": "Brookings Institution Press",
@@ -2482,14 +2470,14 @@
         "imprint": "Open Road Integrated Media",
         "publisher": "Open Road Integrated Media",
         "confidence": "high",
-        "matchedBookCount": 1
+        "matchedBookCount": 3
       },
       {
         "raw": "Beacon Press",
         "imprint": "Beacon Press",
         "publisher": "Beacon Press",
         "confidence": "high",
-        "matchedBookCount": 6
+        "matchedBookCount": 8
       },
       {
         "raw": "Trafalgar Square",
@@ -2510,7 +2498,7 @@
         "imprint": "The New Press",
         "publisher": "The New Press",
         "confidence": "high",
-        "matchedBookCount": 6
+        "matchedBookCount": 7
       },
       {
         "raw": "Graywolf Press",
@@ -2608,7 +2596,7 @@
         "imprint": "University of Massachusetts Press",
         "publisher": "University of Massachusetts Press",
         "confidence": "high",
-        "matchedBookCount": 2
+        "matchedBookCount": 3
       },
       {
         "raw": "University Press of Florida",
@@ -2671,7 +2659,7 @@
         "imprint": "Holt, Rinehart and Winston",
         "publisher": "Holt, Rinehart and Winston",
         "confidence": "high",
-        "matchedBookCount": 1
+        "matchedBookCount": 2
       },
       {
         "raw": "Texere",
@@ -2769,7 +2757,7 @@
         "imprint": "Freundlich Books",
         "publisher": "Freundlich Books",
         "confidence": "high",
-        "matchedBookCount": 1
+        "matchedBookCount": 2
       },
       {
         "raw": "The Independent Institute",
@@ -2791,6 +2779,13 @@
         "publisher": "HMSO",
         "confidence": "high",
         "matchedBookCount": 1
+      },
+      {
+        "raw": "Dodd, Mead & Company",
+        "imprint": "Dodd, Mead & Company",
+        "publisher": "Dodd, Mead & Company",
+        "confidence": "high",
+        "matchedBookCount": 3
       },
       {
         "raw": "Eyre & Spottiswoode",
@@ -2819,6 +2814,13 @@
         "publisher": "Enslow Publishers",
         "confidence": "high",
         "matchedBookCount": 1
+      },
+      {
+        "raw": "Grove Atlantic",
+        "imprint": "Grove Atlantic",
+        "publisher": "Grove Atlantic",
+        "confidence": "high",
+        "matchedBookCount": 8
       },
       {
         "raw": "R. Brunner",
@@ -2863,11 +2865,18 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "Grove Atlantic",
-        "imprint": "Grove Atlantic",
-        "publisher": "Grove Atlantic",
+        "raw": "Wesleyan University Press",
+        "imprint": "Wesleyan University Press",
+        "publisher": "Wesleyan University Press",
         "confidence": "high",
-        "matchedBookCount": 7
+        "matchedBookCount": 2
+      },
+      {
+        "raw": "Indiana University Press",
+        "imprint": "Indiana University Press",
+        "publisher": "Indiana University Press",
+        "confidence": "high",
+        "matchedBookCount": 2
       },
       {
         "raw": "Souvenir Press Limited",
@@ -2875,13 +2884,6 @@
         "publisher": "Souvenir Press",
         "confidence": "high",
         "matchedBookCount": 1
-      },
-      {
-        "raw": "Dodd, Mead & Company",
-        "imprint": "Dodd, Mead & Company",
-        "publisher": "Dodd, Mead & Company",
-        "confidence": "high",
-        "matchedBookCount": 2
       },
       {
         "raw": "Methuen",
@@ -2947,13 +2949,6 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "Indiana University Press",
-        "imprint": "Indiana University Press",
-        "publisher": "Indiana University Press",
-        "confidence": "high",
-        "matchedBookCount": 1
-      },
-      {
         "raw": "Harper's Magazine Press",
         "imprint": "Harper's Magazine Press",
         "publisher": "Harper's Magazine Press",
@@ -2975,13 +2970,6 @@
         "matchedBookCount": 1
       },
       {
-        "raw": "Wesleyan University Press",
-        "imprint": "Wesleyan University Press",
-        "publisher": "Wesleyan University Press",
-        "confidence": "high",
-        "matchedBookCount": 1
-      },
-      {
         "raw": "Rowman and Littlefield",
         "imprint": "Rowman and Littlefield",
         "publisher": "Rowman and Littlefield",
@@ -2993,7 +2981,7 @@
         "imprint": "Rutgers University Press",
         "publisher": "Rutgers University Press",
         "confidence": "high",
-        "matchedBookCount": 1
+        "matchedBookCount": 2
       },
       {
         "raw": "Sourcebooks",
@@ -3031,6 +3019,13 @@
         "matchedBookCount": 1
       },
       {
+        "raw": "Bobbs-Merrill",
+        "imprint": "Bobbs-Merrill",
+        "publisher": "Bobbs-Merrill",
+        "confidence": "medium",
+        "matchedBookCount": 2
+      },
+      {
         "raw": "InsideClimate News",
         "imprint": "InsideClimate News",
         "publisher": "InsideClimate News",
@@ -3056,13 +3051,6 @@
         "imprint": "Welcome Rain",
         "publisher": "Welcome Rain",
         "confidence": "high",
-        "matchedBookCount": 1
-      },
-      {
-        "raw": "Bobbs-Merrill",
-        "imprint": "Bobbs-Merrill",
-        "publisher": "Bobbs-Merrill",
-        "confidence": "medium",
         "matchedBookCount": 1
       },
       {
@@ -3227,8 +3215,14 @@
     {
       "publisherId": "publisher-evidence:crown group",
       "publisherName": "Crown Publishing Group",
-      "bookCount": 3,
+      "bookCount": 4,
       "sampleBooks": [
+        {
+          "bookId": "book-backlash-the-undeclared-war-against-american-women-susan-faludi",
+          "title": "Backlash: The Undeclared War Against American Women",
+          "author": "Susan Faludi",
+          "year": 1981
+        },
         {
           "bookId": "book-begin-again-james-baldwin-s-america-and-its-urgent-lessons-for-today-professor-eddie-s-glaude-jr",
           "title": "Begin Again: James Baldwin’s America and Its Urgent Lessons for Today",
@@ -3302,6 +3296,21 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
+      "publisherId": "publisher-evidence:allen lane uk penguin books us",
+      "publisherName": "Allen Lane (UK); Penguin Books (US)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-plutocrats-the-rise-of-the-new-global-super-rich-and-the-fall-of-everyone-else-chrystia-freeland",
+          "title": "Plutocrats: The Rise of the New Global Super-Rich and the Fall of Everyone Else",
+          "author": "Chrystia Freeland",
+          "year": 2012
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
       "publisherId": "publisher-evidence:allen lane doubleday penguin random house",
       "publisherName": "Allen Lane, Doubleday, Penguin Random House",
       "bookCount": 1,
@@ -3326,6 +3335,21 @@
           "title": "The House of Morgan: An American Banking Dynasty and the Rise of Modern Finance",
           "author": "Ron Chernow",
           "year": 1990
+        }
+      ],
+      "recommendedAction": "manual_book_review",
+      "reason": "Only one book currently uses this publisher string."
+    },
+    {
+      "publisherId": "publisher-evidence:bbc books",
+      "publisherName": "BBC Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-rough-crossings-britain-the-slaves-and-the-american-revolution-simon-schama",
+          "title": "Rough Crossings: Britain, the Slaves and the American Revolution",
+          "author": "Simon Schama",
+          "year": 2005
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3437,35 +3461,6 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-evidence:granta publications",
-      "publisherName": "Granta Publications",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-to-be-a-machine-adventures-among-cyborgs-utopians-hackers-and-the-futurists-solving-the-modest-p",
-          "title": "To Be a Machine: Adventures Among Cyborgs, Utopians, Hackers, and the Futurists Solving the Modest Problem of Death",
-          "author": "Mark O'Connell",
-          "year": 2017
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
-      "publisherId": "publisher-evidence:henry holt jonathan cape",
-      "publisherName": "Henry Holt and Company; Jonathan Cape",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-footnotes-in-gaza-joe-sacco",
-          "title": "Footnotes in Gaza",
-          "author": "Joe Sacco"
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
       "publisherId": "publisher-evidence:houghton mifflin harcourt hardcover mariner books paperback",
       "publisherName": "Houghton Mifflin Harcourt (hardcover); Mariner Books (paperback)",
       "bookCount": 1,
@@ -3533,7 +3528,8 @@
         {
           "bookId": "book-the-continent-of-circe-nirad-c-chaudhuri",
           "title": "The Continent of Circe",
-          "author": "Nirad C. Chaudhuri"
+          "author": "Nirad C. Chaudhuri",
+          "year": 1966
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3577,7 +3573,8 @@
         {
           "bookId": "book-neither-black-nor-white-wilma-dykeman-and-james-stokely",
           "title": "Neither Black Nor White",
-          "author": "Wilma Dykeman, James Stokely"
+          "author": "Wilma Dykeman, James Stokely",
+          "year": 1958
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3591,7 +3588,8 @@
         {
           "bookId": "book-the-discovery-of-the-asylum-social-order-and-disorder-in-the-new-republic-david-rothman",
           "title": "The Discovery of the Asylum: Social Order and Disorder in the New Republic",
-          "author": "David Rothman"
+          "author": "David Rothman",
+          "year": 1971
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3716,21 +3714,6 @@
       "reason": "Only one book currently uses this publisher string."
     },
     {
-      "publisherId": "publisher-penguin-random-house",
-      "publisherName": "Penguin Random House",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-an-american-summer-love-and-death-in-chicago-alex-kotlowitz",
-          "title": "An American Summer: Love and Death in Chicago",
-          "author": "Alex Kotlowitz",
-          "year": 2019
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
       "publisherId": "publisher-evidence:penguin random house",
       "publisherName": "Penguin Random House",
       "bookCount": 1,
@@ -3740,20 +3723,6 @@
           "title": "Liliana's Invincible Summer: A Sister's Search for Justice",
           "author": "Cristina Rivera Garza",
           "year": 2023
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
-      "publisherId": "publisher-evidence:penguin random house print digital recorded books audiobook",
-      "publisherName": "Penguin Random House (print and digital), Recorded Books (audiobook)",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-stalin-paradoxes-of-power-1878-1928-stephen-kotkin",
-          "title": "Stalin: Paradoxes of Power, 1878–1928",
-          "author": "Stephen Kotkin"
         }
       ],
       "recommendedAction": "manual_book_review",
@@ -3857,20 +3826,6 @@
           "bookId": "book-appeasing-hitler-chamberlain-churchill-and-the-road-to-war-tim-bouverie",
           "title": "Appeasing Hitler: Chamberlain, Churchill and the Road to War",
           "author": "Tim Bouverie"
-        }
-      ],
-      "recommendedAction": "manual_book_review",
-      "reason": "Only one book currently uses this publisher string."
-    },
-    {
-      "publisherId": "publisher-evidence:random house new york city",
-      "publisherName": "Random House, New York City",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-death-and-life-of-great-american-cities-jane-jacobs",
-          "title": "Death and Life of Great American Cities",
-          "author": "Jane Jacobs"
         }
       ],
       "recommendedAction": "manual_book_review",

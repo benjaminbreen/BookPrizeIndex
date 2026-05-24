@@ -1,8 +1,9 @@
 import type { Award, AwardAppearance, AwardProgram, Book, BookStats, PublicData, SubjectSummary } from "../../lib/types";
-import type { BrowseAwardRow, BrowseData, BrowseFilterKey, BrowseSubjectRow } from "../../lib/browse-types";
+import type { BrowseAwardRow, BrowseBookRecognitionStats, BrowseData, BrowseFilterKey, BrowseSubjectRow } from "../../lib/browse-types";
 
 type TypeFilter = "all" | "fiction" | "nonfiction";
 type RegionFilter = "us" | "international" | "all";
+const regionFilters = ["us", "international", "all"] as const satisfies readonly RegionFilter[];
 
 const filterKeys = [
   "us:all",
@@ -37,6 +38,7 @@ export function buildBrowseData(data: PublicData): BrowseData {
       const stats = statsByBookId.get(book.id);
       const bookAppearances = appearancesByBookId.get(book.id) ?? [];
       const years = bookAppearances.map((appearance) => appearance.year);
+      const recognitionByRegion = buildBookRecognitionByRegion(bookAppearances, awardsById, programsById);
       return {
         id: book.id,
         slug: book.slug,
@@ -68,12 +70,65 @@ export function buildBrowseData(data: PublicData): BrowseData {
         hasSummary: Boolean(book.summary || book.displaySummary),
         hasPublisher: Boolean(book.publisherId),
         searchText: bookSearchText(book, data, awardsById),
+        recognitionByRegion,
       };
     }),
     home: Object.fromEntries(filterKeys.map((key) => [key, buildHomeFilterData(key, data, awardsById, programsById, awardRows)])) as BrowseData["home"],
     awards: awardRows,
     subjects: Object.fromEntries(filterKeys.map((key) => [key, buildSubjectRows(key, data, booksById, statsByBookId, awardsById, programsById)])) as BrowseData["subjects"],
   };
+}
+
+function buildBookRecognitionByRegion(
+  appearances: AwardAppearance[],
+  awardsById: Map<string, Award>,
+  programsById: Map<string, AwardProgram>,
+): Record<RegionFilter, BrowseBookRecognitionStats> {
+  return Object.fromEntries(
+    regionFilters.map((region) => [region, buildBookRecognitionStats(appearances, awardsById, programsById, region)]),
+  ) as Record<RegionFilter, BrowseBookRecognitionStats>;
+}
+
+function buildBookRecognitionStats(
+  appearances: AwardAppearance[],
+  awardsById: Map<string, Award>,
+  programsById: Map<string, AwardProgram>,
+  region: RegionFilter,
+): BrowseBookRecognitionStats {
+  const matched = appearances.filter((appearance) => {
+    const award = awardsById.get(appearance.awardId);
+    return Boolean(award && matchesAward(award, region, "all", programsById));
+  });
+  const stats: BrowseBookRecognitionStats = {
+    awardIds: [...new Set(matched.map((appearance) => appearance.awardId))],
+    lists: 0,
+    majorLonglists: 0,
+    majorShortlists: 0,
+    majorWins: 0,
+    normalLonglists: 0,
+    normalShortlists: 0,
+    score: 0,
+    wins: 0,
+  };
+  const years = matched.map((appearance) => appearance.year);
+  if (years.length) stats.firstRecognitionYear = Math.min(...years);
+  for (const appearance of matched) {
+    const award = awardsById.get(appearance.awardId);
+    const isMajorAward = award?.awardType === "major_award";
+    stats.lists += 1;
+    stats.score += recognitionWeight(appearance.status, isMajorAward);
+    if (appearance.status === "winner" || appearance.status === "co_winner") {
+      stats.wins += 1;
+      if (isMajorAward) stats.majorWins += 1;
+    } else if (appearance.status === "finalist" || appearance.status === "shortlist") {
+      if (isMajorAward) stats.majorShortlists += 1;
+      else stats.normalShortlists += 1;
+    } else if (appearance.status === "longlist") {
+      if (isMajorAward) stats.majorLonglists += 1;
+      else stats.normalLonglists += 1;
+    }
+  }
+  return stats;
 }
 
 function buildHomeFilterData(
@@ -269,6 +324,13 @@ function appearanceScore(statusRank: number) {
   if (statusRank <= 1) return 10;
   if (statusRank <= 3) return 5;
   return 2;
+}
+
+function recognitionWeight(status: AwardAppearance["status"], isMajorAward: boolean) {
+  if (status === "winner" || status === "co_winner") return isMajorAward ? 10 : 4;
+  if (status === "finalist" || status === "shortlist") return isMajorAward ? 4 : 2;
+  if (status === "longlist") return isMajorAward ? 2 : 1;
+  return 0;
 }
 
 function unique(values: string[]) {
