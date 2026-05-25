@@ -102,7 +102,7 @@ export default async function AwardPage({ params }: PageProps) {
           <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 lg:grid-cols-[1fr_1fr_2fr]">
             <AdminMeta label="Deadline" numberValue value={award.deadline ?? "Not yet sourced"} />
             <AdminMeta label="Prize amount" numberValue value={award.prizeAmount ?? "Not yet sourced"} />
-            <AdminMeta label="Criteria" value={award.criteria ?? "Not yet sourced"} />
+            <AdminMeta label="Criteria / coverage" value={award.criteria ?? "Not yet sourced"} />
           </div>
           <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 md:grid-cols-4">
             <AdminMeta label="Source coverage" numberValue value={sourceCoverage} />

@@ -662,6 +662,7 @@ async function main() {
         confidence: "official",
       });
     }
+    const seedAwardSourceIds = seedAwardSourceIdsByAward(source.id, sourceRows);
 
     for (const row of appearanceRows) {
       const authorText = clean(row.Author);
@@ -679,7 +680,10 @@ async function main() {
       const awardId = `award-${awardSlug}`;
       const editionId = `edition-${awardSlug}-${year}`;
       const imprintId = imprintName ? `imprint-${slugify(imprintName)}` : undefined;
-      const sourceIds = [manifestSourceId];
+      const sourceIds = [
+        manifestSourceId,
+        ...seedAwardSourceIds(awardName, clean(row["Award short"])),
+      ];
 
       if (imprintId && !imprints.has(imprintId)) {
         imprints.set(imprintId, {
@@ -979,6 +983,43 @@ function hasAppearanceUrl(appearance: AwardAppearance, sources: SourceRef[]) {
   if (appearance.sourceUrl) return true;
   const sourceById = new Map(sources.map((source) => [source.id, source]));
   return appearance.sourceIds.some((sourceId) => Boolean(sourceById.get(sourceId)?.url));
+}
+
+function seedAwardSourceIdsByAward(sourceId: string, sourceRows: Record<string, string>[]) {
+  const sourceIdsByKind = new Map<string, string>();
+  for (const [index, row] of sourceRows.entries()) {
+    const label = clean(row.Source).toLowerCase();
+    const url = clean(row.URL);
+    if (!url) continue;
+    const id = `source-${sourceId}-${index + 1}`;
+    if (label.includes("national book foundation")) sourceIdsByKind.set("nba", id);
+    if (label.includes("pulitzer")) sourceIdsByKind.set("pulitzer", id);
+    if (label.includes("national book critics circle")) sourceIdsByKind.set("nbcc", id);
+    if (label.includes("cundill")) sourceIdsByKind.set("cundill", id);
+    if (label.includes("bancroft")) sourceIdsByKind.set("bancroft", id);
+    if (label.includes("lukas")) sourceIdsByKind.set("mark-lynton", id);
+    if (label.includes("los angeles times")) sourceIdsByKind.set("lat", id);
+    if (label.includes("galbraith")) sourceIdsByKind.set("galbraith", id);
+    if (label.includes("kirkus")) sourceIdsByKind.set("kirkus", id);
+    if (label.includes("carnegie")) sourceIdsByKind.set("carnegie", id);
+  }
+
+  return (awardName: string, awardShort: string) => {
+    const normalized = `${awardName} ${awardShort}`.toLowerCase();
+    const keys = [
+      normalized.includes("national book award") || normalized.includes("nba") ? "nba" : "",
+      normalized.includes("pulitzer") ? "pulitzer" : "",
+      normalized.includes("national book critics circle") || normalized.includes("nbcc") ? "nbcc" : "",
+      normalized.includes("cundill") ? "cundill" : "",
+      normalized.includes("bancroft") ? "bancroft" : "",
+      normalized.includes("mark lynton") ? "mark-lynton" : "",
+      normalized.includes("los angeles times") || normalized.includes("lat ") ? "lat" : "",
+      normalized.includes("galbraith") ? "galbraith" : "",
+      normalized.includes("kirkus") ? "kirkus" : "",
+      normalized.includes("carnegie") ? "carnegie" : "",
+    ].filter(Boolean);
+    return [...new Set(keys.map((key) => sourceIdsByKind.get(key)).filter((id): id is string => Boolean(id)))];
+  };
 }
 
 function summarizeAppearanceSourceUrlGaps(appearances: AwardAppearance[], sources: SourceRef[]) {

@@ -199,7 +199,7 @@ function buildAwardRows(data: PublicData, appearancesByAwardId: Map<string, Awar
     .map((award) => {
       const appearances = appearancesByAwardId.get(award.id) ?? [];
       const years = appearances.map((appearance) => appearance.year);
-      const description = award.criteria ?? "Pending official criteria import";
+      const description = award.criteria ?? award.description ?? awardBrowseDescription(award);
       return {
         id: award.id,
         slug: award.slug,
@@ -335,6 +335,34 @@ function recognitionWeight(status: AwardAppearance["status"], isMajorAward: bool
 
 function unique(values: string[]) {
   return [...new Set(values.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+}
+
+function awardBrowseDescription(award: Award) {
+  const programDescriptions: Record<string, string> = {
+    "baillie-gifford-prize": "Recognizes outstanding nonfiction books published in English, with an emphasis on ambitious, well-researched writing for general readers.",
+    "new-york-historical-american-history-book-prize": "Recognizes distinguished books on American history, including works that bring new scholarship to a broad readership.",
+    "british-academy-book-prize": "Recognizes nonfiction that deepens public understanding of people, cultures, and societies across the world.",
+    "costa-book-awards": "The Biography category recognized life-writing published for a general readership as part of the former Costa Book Awards.",
+    "duff-cooper-prize": "Recognizes nonfiction in history, biography, politics, and related fields, with an emphasis on literary distinction and public interest.",
+    "ft-business-book-of-the-year": "Recognizes books that offer compelling and significant insight into business, finance, economics, and management.",
+    "helen-bernstein-book-award": "Recognizes works of journalism that bring clarity, depth, and public value to important contemporary issues.",
+    "hillman-prize-book-journalism": "Recognizes book-length journalism in the public interest, especially reporting connected to social justice and public affairs.",
+    "j-anthony-lukas-book-prize": "Recognizes nonfiction on an American topic that combines serious research, literary quality, and social or political insight.",
+    "lionel-gelber-prize": "Recognizes major English-language books on international affairs and global public policy.",
+    "orwell-prize": "Recognizes political writing that turns public issues into compelling, clear, and artful nonfiction.",
+    "pen-diamonstein-spielvogel-award": "Recognizes essay collections distinguished by literary craft, originality, and sustained critical or personal insight.",
+    "pen-eo-wilson-award": "Recognizes literary nonfiction that communicates scientific ideas with clarity, narrative power, and broad appeal.",
+    "pen-weld-biography-award": "Recognizes biographies of exceptional literary, narrative, and research quality.",
+    "plutarch-award": "Recognizes biographies selected by biographers, honoring excellence in life-writing and biographical craft.",
+    "rachel-carson-environment-book-award": "Recognizes books that illuminate environmental issues through reporting, research, and public-facing nonfiction.",
+    "ridenhour-book-prize": "Recognizes books that advance truth-telling, civic courage, and public accountability.",
+    "royal-society-science-book-prize": "Recognizes science books written for non-specialist readers that make scientific ideas accessible and engaging.",
+  };
+  if (award.programId && programDescriptions[award.programId]) return programDescriptions[award.programId];
+
+  const subjects = award.subjectAreas.filter((subject) => subject !== "Nonfiction").slice(0, 2);
+  const scope = subjects.length ? subjects.join(" and ").toLowerCase() : "nonfiction";
+  return `${award.name} recognizes award-listed ${scope} books in the current prize corpus.`;
 }
 
 function groupBy<T>(items: T[], keyFor: (item: T) => string) {

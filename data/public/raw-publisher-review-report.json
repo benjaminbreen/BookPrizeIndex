@@ -1,625 +1,331 @@
 {
-  "generatedAt": "2026-05-24T15:07:21.862Z",
-  "count": 139,
+  "generatedAt": "2026-05-25T16:16:25.417Z",
+  "count": 52,
   "note": "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
   "review": [
     {
-      "rawPublisher": "Anchor Books",
+      "rawPublisher": "Algonquin Books",
       "bookCount": 3,
       "sampleBooks": [
         {
-          "bookId": "book-children-of-war-roger-rosenblatt",
-          "title": "Children of War",
-          "author": "Roger Rosenblatt",
+          "bookId": "book-made-in-china-a-prisoner-an-sos-letter-and-the-hidden-cost-of-america-s-cheap-goods-amelia-pang",
+          "title": "Made in China: A Prisoner, an SOS Letter, and the Hidden Cost of America’s Cheap Goods",
+          "author": "Amelia Pang",
           "status": "enriched",
-          "matchTitle": "Children of war",
-          "matchAuthor": "Roger Rosenblatt",
-          "matchScore": 1
+          "matchTitle": "Made in China",
+          "matchAuthor": "Amelia Pang",
+          "matchScore": 0.44
         },
         {
-          "bookId": "book-the-body-a-guide-for-occupants-bill-bryson",
-          "title": "The Body: A Guide for Occupants",
-          "author": "Bill Bryson",
+          "bookId": "book-paper-bullets-two-artists-who-risked-their-lives-to-defy-the-nazis-jeffrey-h-jackson",
+          "title": "Paper Bullets: Two Artists Who Risked Their Lives to Defy the Nazis",
+          "author": "Jeffrey H. Jackson",
           "status": "enriched",
-          "matchTitle": "The Body",
-          "matchAuthor": "Bill Bryson",
-          "matchScore": 0.58
+          "matchTitle": "Paper Bullets",
+          "matchAuthor": "Jeffrey H. Jackson",
+          "matchScore": 0.417
         },
         {
-          "bookId": "book-the-first-new-nation-the-united-states-in-historical-and-comparative-perspective-seymour-martin-",
-          "title": "The First New Nation: The United States in Historical and Comparative Perspective",
-          "author": "Seymour Martin Lipset",
+          "bookId": "book-burning-down-the-haus-punk-rock-revolution-and-the-fall-of-the-berlin-wall-tim-mohr",
+          "title": "Burning Down the Haus: Punk Rock, Revolution, and the Fall of the Berlin Wall",
+          "author": "Tim Mohr",
           "status": "enriched",
-          "matchTitle": "First New Nation, The The United States in Historical and Comparative Perspective",
-          "matchAuthor": "Seymour Martin Lipset",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Books on Tape, Inc.",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-americans-and-the-california-dream-1850-1915-kevin-starr",
-          "title": "Americans and the California Dream, 1850–1915",
-          "author": "Kevin Starr",
-          "status": "enriched",
-          "matchTitle": "Americans and the California dream, 1850-1915",
-          "matchAuthor": "Kevin Starr",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-the-duke-of-deception-geoffrey-wolff",
-          "title": "The Duke of Deception",
-          "author": "Geoffrey Wolff",
-          "status": "enriched",
-          "matchTitle": "The Duke of deception",
-          "matchAuthor": "Geoffrey Wolff",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Cape",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-henry-viii-the-mask-of-royalty-lacey-baldwin-smith",
-          "title": "Henry VIII: The Mask of Royalty",
-          "author": "Lacey Baldwin Smith",
-          "status": "enriched",
-          "matchTitle": "Henry VIII: the mask of royalty",
-          "matchAuthor": "Lacey Baldwin Smith",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-lawrence-and-oppenheimer-nuel-pharr-davis",
-          "title": "Lawrence and Oppenheimer",
-          "author": "Nuel Pharr Davis",
-          "status": "enriched",
-          "matchTitle": "Lawrence and Oppenheimer",
-          "matchAuthor": "Nuel Pharr Davis",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "CreateSpace Independent Publishing Platform",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-9-11-commission-report-9-11-commission",
-          "title": "9/11 Commission Report",
-          "author": "9/11 Commission",
-          "status": "enriched",
-          "matchTitle": "9/11 Commission Report",
-          "matchAuthor": "The 9-11 Commission",
-          "matchScore": 0.9
-        },
-        {
-          "bookId": "book-the-americanization-of-edward-bok-the-autobiography-of-a-dutch-boy-fifty-years-after-edward-bok",
-          "title": "The Americanization of Edward Bok: The Autobiography of a Dutch Boy Fifty Years After",
-          "author": "Edward Bok",
-          "status": "enriched",
-          "matchTitle": "The Americanization of Edward Bok : The Autobiography of a Dutch Boy Fifty Years After",
-          "matchAuthor": "Edward William Bok",
-          "matchScore": 0.9
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Doubleday Books",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-cry-of-the-people-penny-lernoux",
-          "title": "Cry of the People",
-          "author": "Penny Lernoux",
-          "status": "enriched",
-          "matchTitle": "Cry of the People",
-          "matchAuthor": "Penny Lernoux",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-traitor-to-his-class-the-privileged-life-and-radical-presidency-of-franklin-delano-roosevelt-h-w",
-          "title": "Traitor to His Class: The Privileged Life and Radical Presidency of Franklin Delano Roosevelt",
-          "author": "H.W. Brands",
-          "status": "enriched",
-          "matchTitle": "Traitor to His Class",
-          "matchAuthor": "H. W. Brands",
-          "matchScore": 0.5
+          "matchTitle": "Burning Down the Haus",
+          "matchAuthor": "Tim Mohr",
+          "matchScore": 0.533
         }
       ]
     },
     {
       "rawPublisher": "HarperCollins UK",
-      "bookCount": 2,
+      "bookCount": 3,
       "sampleBooks": [
         {
-          "bookId": "book-the-restless-republic-britain-without-a-crown-anna-keay",
-          "title": "The Restless Republic: Britain Without a Crown",
-          "author": "Anna Keay",
+          "bookId": "book-the-incarcerations-alpa-shah",
+          "title": "The Incarcerations",
+          "author": "Alpa Shah",
           "status": "enriched",
-          "matchTitle": "The Restless Republic: Britain without a Crown",
-          "matchAuthor": "Anna Keay",
+          "matchTitle": "The Incarcerations",
+          "matchAuthor": "Alpa Shah",
           "matchScore": 1
         },
         {
-          "bookId": "book-pacific-silicon-chips-and-surfboards-coral-reefs-and-atom-bombs-brutal-dictators-fading-empires-",
-          "title": "Pacific: Silicon Chips and Surfboards, Coral Reefs and Atom Bombs, Brutal Dictators, Fading Empires, and the Coming Collision of the World's Superpowers",
-          "author": "Simon Winchester",
+          "bookId": "book-hitler-stalin-mum-and-dad-a-family-memoir-of-miraculous-survival-daniel-finkelstein",
+          "title": "Hitler, Stalin, Mum and Dad: A Family Memoir of Miraculous Survival",
+          "author": "Daniel Finkelstein",
           "status": "enriched",
-          "matchTitle": "Pacific: The Ocean of the Future",
-          "matchAuthor": "Simon Winchester",
-          "matchScore": 0.411
+          "matchTitle": "Hitler, Stalin, Mum and Dad: A Family Memoir of Miraculous Survival",
+          "matchAuthor": "Daniel Finkelstein",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-moral-combat-a-history-of-world-war-ii-michael-burleigh",
+          "title": "Moral Combat: A History of World War II",
+          "author": "Michael Burleigh",
+          "status": "enriched",
+          "matchTitle": "Moral Combat",
+          "matchAuthor": "Michael Burleigh",
+          "matchScore": 0.5
         }
       ]
     },
     {
-      "rawPublisher": "Hart-Davis",
+      "rawPublisher": "Amistad",
       "bookCount": 2,
       "sampleBooks": [
         {
-          "bookId": "book-henrik-ibsen-michael-meyer",
-          "title": "Henrik Ibsen",
-          "author": "Michael Meyer",
+          "bookId": "book-toni-at-random-the-iconic-writer-s-legendary-editorship-dana-a-williams",
+          "title": "Toni at Random: The Iconic Writer’s Legendary Editorship",
+          "author": "Dana A. Williams",
           "status": "enriched",
-          "matchTitle": "Henrik Ibsen",
-          "matchAuthor": "Michael Meyer",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-main-currents-in-american-thought-vernon-louis-parrington",
-          "title": "Main Currents in American Thought",
-          "author": "Vernon Louis Parrington",
-          "status": "enriched",
-          "matchTitle": "Main currents in American thought",
-          "matchAuthor": "Parrington, Vernon Louis",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Horizon Press",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-a-decade-of-music-b-h-haggin",
-          "title": "A Decade of Music",
-          "author": "B. H. Haggin",
-          "status": "enriched",
-          "matchTitle": "A decade of music",
-          "matchAuthor": "B. H. Haggin",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-ballet-chronicle-b-h-haggin",
-          "title": "Ballet Chronicle",
-          "author": "B. H. Haggin",
-          "status": "enriched",
-          "matchTitle": "Ballet Chronicle",
-          "matchAuthor": "B. H. Haggin",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Macmillan + ORM",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-queen-s-bed-an-intimate-history-of-elizabeth-s-court-anna-whitelock",
-          "title": "The Queen's Bed: An Intimate History of Elizabeth's Court",
-          "author": "Anna Whitelock",
-          "status": "enriched",
-          "matchTitle": "The Queen's Bed",
-          "matchAuthor": "Anna Whitelock",
-          "matchScore": 0.533
-        },
-        {
-          "bookId": "book-thank-you-for-your-service-david-finkel",
-          "title": "Thank You for Your Service",
-          "author": "David Finkel",
-          "status": "enriched",
-          "matchTitle": "Thank You for Your Service",
-          "matchAuthor": "David Finkel",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "New American Library",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-not-so-rich-as-you-think-george-r-stewart",
-          "title": "Not So Rich As You Think",
-          "author": "George R. Stewart",
-          "status": "enriched",
-          "matchTitle": "Not So Rich as You Think",
-          "matchAuthor": "George R. Stewart",
-          "matchScore": 1
-        },
-        {
-          "bookId": "book-technological-man-victor-c-ferkiss",
-          "title": "Technological Man",
-          "author": "Victor C. Ferkiss",
-          "status": "enriched",
-          "matchTitle": "Technological man",
-          "matchAuthor": "Victor C. Ferkiss",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "New York Review of Books",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-theater-of-cruelty-art-film-and-the-shadow-of-war-ian-buruma",
-          "title": "Theater of Cruelty: Art, Film, and the Shadow of War",
-          "author": "Ian Buruma",
-          "status": "enriched",
-          "matchTitle": "Theater of Cruelty",
-          "matchAuthor": "Ian Buruma",
-          "matchScore": 0.533
-        },
-        {
-          "bookId": "book-waiting-for-the-barbarians-essays-from-the-classics-to-pop-culture-daniel-mendelsohn",
-          "title": "Waiting for the Barbarians: Essays from the Classics to Pop Culture",
-          "author": "Daniel Mendelsohn",
-          "status": "enriched",
-          "matchTitle": "Waiting for the Barbarians: Essays from the Classics to Pop Culture",
-          "matchAuthor": "Daniel Mendelsohn",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Replica Books",
-      "bookCount": 2,
-      "sampleBooks": [
-        {
-          "bookId": "book-alfred-i-du-pont-the-man-and-his-family-joseph-frazier-wall",
-          "title": "Alfred I. Du Pont: The Man and His Family",
-          "author": "Joseph Frazier Wall",
-          "status": "enriched",
-          "matchTitle": "Alfred I. Du Pont",
-          "matchAuthor": "Joseph Frazier Wall",
+          "matchTitle": "Toni at Random",
+          "matchAuthor": "Dana A. Williams",
           "matchScore": 0.563
         },
         {
-          "bookId": "book-the-civil-rights-era-origins-and-development-of-national-policy-hugh-davis-graham",
-          "title": "The Civil Rights Era: Origins and Development of National Policy",
-          "author": "Hugh Davis Graham",
+          "bookId": "book-american-tapestry-the-story-of-the-black-white-and-multiracial-ancestors-of-michelle-obama-rache",
+          "title": "American Tapestry: The Story of the Black, White and Multiracial Ancestors of Michelle Obama",
+          "author": "Rachel L. Swarns",
           "status": "enriched",
-          "matchTitle": "The civil rights era",
-          "matchAuthor": "Hugh Davis Graham",
-          "matchScore": 0.58
+          "matchTitle": "American tapestry: the story of the black, white, and multiracial ancestors of Michelle Obama",
+          "matchAuthor": "Rachel L. Swarns",
+          "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Transaction Publishers",
+      "rawPublisher": "Catapult",
       "bookCount": 2,
       "sampleBooks": [
         {
-          "bookId": "book-einstein-and-the-generation-of-science-lewis-feuer",
-          "title": "Einstein and the Generation of Science",
-          "author": "Lewis Feuer",
+          "bookId": "book-the-age-of-deer-trouble-and-kinship-with-our-wild-neighbors-erika-howsare",
+          "title": "The Age of Deer: Trouble and Kinship with Our Wild Neighbors",
+          "author": "Erika Howsare",
           "status": "enriched",
-          "matchTitle": "Einstein and the Generations of Science",
-          "matchAuthor": "Lewis S. Feuer",
-          "matchScore": 0.883
+          "matchTitle": "The Age of Deer",
+          "matchAuthor": "Erika Howsare",
+          "matchScore": 0.555
         },
         {
-          "bookId": "book-essays-in-economics-wassily-w-leontief",
-          "title": "Essays in Economics",
-          "author": "Wassily W. Leontief",
+          "bookId": "book-airplane-mode-an-irrelevant-history-of-travel-shahnaz-habib",
+          "title": "Airplane Mode: An Irrelevant History of Travel",
+          "author": "Shahnaz Habib",
           "status": "enriched",
-          "matchTitle": "Essays in Economics",
-          "matchAuthor": "Wassily Leontief Wassily W. Leontief",
+          "matchTitle": "Airplane Mode",
+          "matchAuthor": "Shahnaz Habib",
+          "matchScore": 0.5
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Drawn & Quarterly",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-third-person-emma-grove",
+          "title": "The Third Person",
+          "author": "Emma Grove",
+          "status": "enriched",
+          "matchTitle": "The Third Person",
+          "matchAuthor": "Emma Grove",
           "matchScore": 1
+        },
+        {
+          "bookId": "book-ducks-two-years-on-the-oil-sands-kate-beaton",
+          "title": "Ducks: Two Years on the Oil Sands",
+          "author": "Kate Beaton",
+          "status": "enriched",
+          "matchTitle": "Ducks",
+          "matchAuthor": "Kate Beaton",
+          "matchScore": 0.4
         }
       ]
     },
     {
-      "rawPublisher": "A.A. Knopf",
-      "bookCount": 1,
+      "rawPublisher": "HarperLuxe",
+      "bookCount": 2,
       "sampleBooks": [
         {
-          "bookId": "book-the-american-leonardo-the-life-of-samuel-f-b-morse-carleton-mabee",
-          "title": "The American Leonardo: The Life of Samuel F. B. Morse",
-          "author": "Carleton Mabee",
+          "bookId": "book-jerry-lee-lewis-his-own-story-rick-bragg",
+          "title": "Jerry Lee Lewis: His Own Story",
+          "author": "Rick Bragg",
           "status": "enriched",
-          "matchTitle": "The American Leonardo, a life of Samuel F. B. Morse",
-          "matchAuthor": "Carleton Mabee",
+          "matchTitle": "Jerry Lee Lewis: His Own Story",
+          "matchAuthor": "Rick Bragg",
           "matchScore": 1
+        },
+        {
+          "bookId": "book-john-quincy-adams-american-visionary-fred-kaplan",
+          "title": "John Quincy Adams: American Visionary",
+          "author": "Fred Kaplan",
+          "status": "enriched",
+          "matchTitle": "John Quincy Adams",
+          "matchAuthor": "Fred Kaplan",
+          "matchScore": 0.72
         }
       ]
     },
     {
-      "rawPublisher": "Aldine Pub. Co.",
+      "rawPublisher": "Abacus Uk",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-behavior-the-control-of-perception-william-t-powers",
-          "title": "Behavior: The Control of Perception",
-          "author": "William T. Powers",
+          "bookId": "book-iris-a-memoir-of-iris-murdoch-john-bayley",
+          "title": "Iris, A memoir of Iris Murdoch",
+          "author": "John Bayley",
           "status": "enriched",
-          "matchTitle": "Behavior, the control of perception",
-          "matchAuthor": "William T. Powers",
-          "matchScore": 1
+          "matchTitle": "Iris",
+          "matchAuthor": "John Bayley",
+          "matchScore": 0.475
         }
       ]
     },
     {
-      "rawPublisher": "Allen Lane the Penguin Press",
+      "rawPublisher": "Abrams",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-run-through-john-houseman",
-          "title": "Run-Through",
-          "author": "John Houseman",
+          "bookId": "book-mother-of-invention-how-good-ideas-get-ignored-in-an-economy-built-for-men-katrine-marcal",
+          "title": "Mother of Invention: How Good Ideas Get Ignored in an Economy Built for Men",
+          "author": "Katrine Marçal",
           "status": "enriched",
-          "matchTitle": "Run-through",
-          "matchAuthor": "John Houseman",
-          "matchScore": 1
+          "matchTitle": "Mother of Invention",
+          "matchAuthor": "Katrine Marçal",
+          "matchScore": 0.45
         }
       ]
     },
     {
-      "rawPublisher": "American Political Biography Press",
+      "rawPublisher": "ALLEN LANE (PENG)",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-james-madison-a-biography-ralph-ketcham",
-          "title": "James Madison: A Biography",
-          "author": "Ralph Ketcham",
+          "bookId": "book-the-third-reich-in-power-volume-2-of-the-third-reich-series-richard-j-evans",
+          "title": "The Third Reich in Power: Volume 2 of The Third Reich Series",
+          "author": "Richard J. Evans",
           "status": "enriched",
-          "matchTitle": "James Madison",
-          "matchAuthor": "Ralph Ketcham",
-          "matchScore": 0.767
+          "matchTitle": "The Third Reich in Power, 1933-1939",
+          "matchAuthor": "Richard J. Evans",
+          "matchScore": 0.738
         }
       ]
     },
     {
-      "rawPublisher": "Atlantic Monthly Press",
+      "rawPublisher": "Astra Publishing House",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-my-traitor-s-heart-a-south-african-exile-returns-to-face-his-country-his-tribe-and-his-conscienc",
-          "title": "My Traitor's Heart: A South African Exile Returns to Face His Country, His Tribe, and His Conscience",
-          "author": "Rian Malan",
+          "bookId": "book-the-bathysphere-book-effects-of-the-luminous-ocean-depths-brad-fox",
+          "title": "The Bathysphere Book: Effects of the Luminous Ocean Depths",
+          "author": "Brad Fox",
           "status": "enriched",
-          "matchTitle": "My traitor's heart : a South African exile returns to face his country, his tribe, and his conscience",
-          "matchAuthor": "Rian Malan",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Auckland University Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-tears-of-rangi-experiments-across-worlds-anne-salmond",
-          "title": "Tears of Rangi: Experiments Across Worlds",
-          "author": "Anne Salmond",
-          "status": "enriched",
-          "matchTitle": "Tears of Rangi",
-          "matchAuthor": "Anne Salmond",
-          "matchScore": 0.65
-        }
-      ]
-    },
-    {
-      "rawPublisher": "avon books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-dream-and-the-deal-the-federal-writers-project-1935-43-jerre-mangione",
-          "title": "The Dream and the Deal: The Federal Writers Project, 1935–43",
-          "author": "Jerre Mangione",
-          "status": "enriched",
-          "matchTitle": "the dream and the deal the federal writer's project, 1935-1943",
-          "matchAuthor": "jerre mangione",
-          "matchScore": 0.844
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Bantam Doubleday Dell",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-making-of-jazz-a-comprehensive-history-james-lincoln-collier",
-          "title": "The Making of Jazz: A Comprehensive History",
-          "author": "James Lincoln Collier",
-          "status": "enriched",
-          "matchTitle": "The making of jazz",
-          "matchAuthor": "James Lincoln Collier",
-          "matchScore": 0.767
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Barnes & Noble",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-mathematics-the-loss-of-certainty-morris-kline",
-          "title": "Mathematics: The Loss of Certainty",
-          "author": "Morris Kline",
-          "status": "enriched",
-          "matchTitle": "Mathematics, the loss of certainty",
-          "matchAuthor": "Morris Kline",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Barnes & Noble Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-damnable-question-a-study-in-anglo-irish-relations-george-dangerfield",
-          "title": "The Damnable Question: A Study in Anglo-Irish Relations",
-          "author": "George Dangerfield",
-          "status": "enriched",
-          "matchTitle": "The damnable question",
-          "matchAuthor": "George Dangerfield",
+          "matchTitle": "The Bathysphere Book",
+          "matchAuthor": "Brad Fox",
           "matchScore": 0.563
         }
       ]
     },
     {
-      "rawPublisher": "Barrie & Jenkins",
+      "rawPublisher": "ATLANTIC",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-is-science-necessary-essays-on-science-and-scientists-max-f-perutz",
-          "title": "Is Science Necessary?: Essays on Science and Scientists",
-          "author": "Max F. Perutz",
+          "bookId": "book-jabez-the-rise-and-fall-of-a-victorian-rogue-david-mckie",
+          "title": "Jabez: The Rise and Fall of a Victorian Rogue",
+          "author": "David McKie",
           "status": "enriched",
-          "matchTitle": "Is science necessary?",
-          "matchAuthor": "Max F. Perutz",
-          "matchScore": 0.6
+          "matchTitle": "Jabez",
+          "matchAuthor": "David McKie",
+          "matchScore": 0.387
         }
       ]
     },
     {
-      "rawPublisher": "Barrie and Rockliff",
+      "rawPublisher": "Bloomsbury Publishing USA",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-fabulous-life-of-diego-rivera-bertram-d-wolfe",
-          "title": "The Fabulous Life of Diego Rivera",
-          "author": "Bertram D. Wolfe",
+          "bookId": "book-the-searchers-the-making-of-an-american-legend-glenn-frankel",
+          "title": "The Searchers: The Making of an American Legend",
+          "author": "Glenn Frankel",
           "status": "enriched",
-          "matchTitle": "The fabulous life of Diego Rivera",
-          "matchAuthor": "Bertram D. Wolfe",
+          "matchTitle": "The Searchers",
+          "matchAuthor": "Glenn Frankel",
+          "matchScore": 0.5
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Bloomsbury UK",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-anatomy-of-a-moment-thirty-five-minutes-in-history-and-imagination-javier-cercas",
+          "title": "The Anatomy of a Moment: Thirty-Five Minutes in History and Imagination",
+          "author": "Javier Cercas",
+          "status": "enriched",
+          "matchTitle": "The Anatomy of a Moment",
+          "matchAuthor": "Javier Cercas",
+          "matchScore": 0.555
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Canongate Books Ltd",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-trip-to-echo-spring-why-writers-drink-olivia-laing",
+          "title": "The Trip to Echo Spring: Why Writers Drink",
+          "author": "Olivia Laing",
+          "status": "enriched",
+          "matchTitle": "The Trip to Echo Spring",
+          "matchAuthor": "Olivia Laing",
+          "matchScore": 0.738
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Capitán Swing",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-glass-universe-how-the-ladies-of-the-harvard-observatory-took-the-measure-of-the-stars-dava-",
+          "title": "The Glass Universe: How the Ladies of the Harvard Observatory Took the Measure of the Stars",
+          "author": "Dava Sobel",
+          "status": "enriched",
+          "matchTitle": "El universo de cristal : la historia de las mujeres de Harvard que nos acercaron a las estrellas",
+          "matchAuthor": "Dava Sobel",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "BasicBooks",
+      "rawPublisher": "Celadon Books",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-crime-and-punishment-in-american-history-lawrence-m-friedman",
-          "title": "Crime and Punishment in American History",
-          "author": "Lawrence M. Friedman",
+          "bookId": "book-the-viral-underclass-the-human-toll-when-inequality-and-disease-collide-steven-thrasher",
+          "title": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
+          "author": "Steven Thrasher",
           "status": "enriched",
-          "matchTitle": "Crime and punishment in American history",
-          "matchAuthor": "Lawrence M. Friedman",
-          "matchScore": 1
+          "matchTitle": "The Viral Underclass",
+          "matchAuthor": "Steven W. Thrasher",
+          "matchScore": 0.51
         }
       ]
     },
     {
-      "rawPublisher": "Birkhäuser",
+      "rawPublisher": "Center Point",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-mathematical-experience-philip-j-davis-and-reuben-hersh",
-          "title": "The Mathematical Experience",
-          "author": "Philip J. Davis Reuben Hersh",
+          "bookId": "book-there-will-be-no-miracles-here-casey-gerald",
+          "title": "There Will Be No Miracles Here",
+          "author": "Casey Gerald",
           "status": "enriched",
-          "matchTitle": "The Mathematical Experience",
-          "matchAuthor": "Philip J. Davis Reuben Hersh Elena Anne Marchisotto",
-          "matchScore": 0.871
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Book Club Associates",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-supership-noel-mostert",
-          "title": "Supership",
-          "author": "Noel Mostert",
-          "status": "enriched",
-          "matchTitle": "Supership",
-          "matchAuthor": "Noël Mostert",
-          "matchScore": 0.85
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Boston : Houghton Mifflin",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-mythmakers-bernard-d-nossiter",
-          "title": "The Mythmakers",
-          "author": "Bernard D. Nossiter",
-          "status": "enriched",
-          "matchTitle": "The Mythmakers",
-          "matchAuthor": "Bernard D. Nossiter",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "BRITISH MUSEUM PRESS",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-rome-before-avignon-robert-brentano",
-          "title": "Rome Before Avignon",
-          "author": "Robert Brentano",
-          "status": "enriched",
-          "matchTitle": "Rome before Avignon",
-          "matchAuthor": "Robert Brentano Robert Brentano Brentano",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Chelsea Green Publishing",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-eager-the-surprising-secret-life-of-beavers-and-why-they-matter-ben-goldfarb",
-          "title": "Eager: The Surprising, Secret Life of Beavers and Why They Matter",
-          "author": "Ben Goldfarb",
-          "status": "enriched",
-          "matchTitle": "Eager",
-          "matchAuthor": "Ben Goldfarb",
-          "matchScore": 0.364
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Cherokee Pub",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-history-of-the-american-frontier-frederic-l-paxson",
-          "title": "History of the American Frontier",
-          "author": "Frederic L. Paxson",
-          "status": "enriched",
-          "matchTitle": "A History of the American Frontier, 1763-1893",
-          "matchAuthor": "Frederic L. Paxson",
-          "matchScore": 0.8
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Chosen Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-helper-catherine-marshall",
-          "title": "The Helper",
-          "author": "Catherine Marshall",
-          "status": "enriched",
-          "matchTitle": "The helper",
-          "matchAuthor": "Catherine Marshall",
+          "matchTitle": "There Will be No Miracles Here",
+          "matchAuthor": "Casey Gerald",
           "matchScore": 1
         }
       ]
@@ -629,567 +335,177 @@
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-tell-me-how-it-ends-an-essay-in-forty-questions-valeria-luiselli",
-          "title": "Tell Me How It Ends: An Essay in Forty Questions",
-          "author": "Valeria Luiselli",
+          "bookId": "book-out-of-the-sierra-a-story-of-raramuri-resistance-victoria-blanco",
+          "title": "Out of the Sierra: A Story of Rarámuri Resistance",
+          "author": "Victoria Blanco",
           "status": "enriched",
-          "matchTitle": "Tell Me how it Ends",
-          "matchAuthor": "Valeria Luiselli",
+          "matchTitle": "Out of the Sierra",
+          "matchAuthor": "Victoria Blanco",
           "matchScore": 0.65
         }
       ]
     },
     {
-      "rawPublisher": "Collier Books",
+      "rawPublisher": "Custom House",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-disruption-of-american-democracy-roy-franklin-nichols",
-          "title": "The Disruption of American Democracy",
-          "author": "Roy Franklin Nichols",
+          "bookId": "book-we-crossed-a-bridge-and-it-trembled-voices-from-syria-wendy-pearlman",
+          "title": "We Crossed a Bridge and It Trembled: Voices from Syria",
+          "author": "Wendy Pearlman",
           "status": "enriched",
-          "matchTitle": "The disruption of American democracy",
-          "matchAuthor": "Roy Franklin Nichols",
+          "matchTitle": "We Crossed a Bridge and It Trembled",
+          "matchAuthor": "Wendy Pearlman",
+          "matchScore": 0.767
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Diversion Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-blood-farm-the-explosive-big-pharma-scandal-that-altered-the-aids-crisis-cara-mcgoogan",
+          "title": "Blood Farm: The Explosive Big Pharma Scandal that Altered the AIDS Crisis",
+          "author": "Cara McGoogan",
+          "status": "enriched",
+          "matchTitle": "Blood Farm",
+          "matchAuthor": "Cara McGoogan",
+          "matchScore": 0.427
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Ecco, an imprint of HarperCollins Publishers",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-story-of-the-jews-finding-the-words-1000-bc-1492-ad-simon-schama",
+          "title": "The Story of the Jews: Finding the Words, 1000 BC-1492 AD",
+          "author": "Simon Schama",
+          "status": "enriched",
+          "matchTitle": "The story of the Jews: finding the words : 1000 BC-1492 AD",
+          "matchAuthor": "Simon Schama",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Colliers",
+      "rawPublisher": "Farrar Straus & Giroux (T)",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-de-definition-of-art-action-art-to-pop-to-earthworks-harold-rosenberg",
-          "title": "The De-Definition of Art: Action Art to Pop to Earthworks",
-          "author": "Harold Rosenberg",
+          "bookId": "book-citizen-lord-stella-tillyard",
+          "title": "Citizen Lord",
+          "author": "Stella Tillyard",
           "status": "enriched",
-          "matchTitle": "The De-Definition of Art, Action Art to Pop to Earthworks",
-          "matchAuthor": "Harold Rosenberg",
+          "matchTitle": "Citizen Lord",
+          "matchAuthor": "Stella TILLYARD",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Constable",
+      "rawPublisher": "Guardian Faber Publishing",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-cb-a-life-of-sir-henry-campbell-bannerman-john-wilson",
-          "title": "CB: A Life of Sir Henry Campbell-Bannerman",
-          "author": "John Wilson",
+          "bookId": "book-invasion-russia-s-bloody-war-and-ukraine-s-fight-for-survival-luke-harding",
+          "title": "Invasion: Russia's Bloody War and Ukraine's Fight for Survival",
+          "author": "Luke Harding",
           "status": "enriched",
-          "matchTitle": "CB. A life of Sir Henry Cambell-Bannerman",
-          "matchAuthor": "John Wilson",
-          "matchScore": 0.9
+          "matchTitle": "Invasion",
+          "matchAuthor": "Luke Harding",
+          "matchScore": 0.378
         }
       ]
     },
     {
-      "rawPublisher": "Continuum",
+      "rawPublisher": "Hachette Go",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-stolen-lightning-daniel-lawrence-o-keefe",
-          "title": "Stolen Lightning",
-          "author": "Daniel Lawrence O’Keefe",
+          "bookId": "book-he-she-they-how-we-talk-about-gender-and-why-it-matters-schuyler-bailar",
+          "title": "He/She/They: How We Talk about Gender and Why It Matters",
+          "author": "Schuyler Bailar",
           "status": "enriched",
-          "matchTitle": "Stolen lightning",
-          "matchAuthor": "Daniel Lawrence O'Keefe",
+          "matchTitle": "He/She/They",
+          "matchAuthor": "Schuyler Bailar",
+          "matchScore": 0.475
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Hachette+ORM",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-no-one-cares-about-crazy-people-the-chaos-and-heartbreak-of-mental-health-in-america-ron-powers",
+          "title": "No One Cares About Crazy People: The Chaos and Heartbreak of Mental Health in America",
+          "author": "Ron Powers",
+          "status": "enriched",
+          "matchTitle": "No One Cares About Crazy People",
+          "matchAuthor": "Ron Powers",
+          "matchScore": 0.58
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Harper Perennial",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-to-explain-the-world-the-discovery-of-modern-science-steven-weinberg",
+          "title": "To Explain the World: The Discovery of Modern Science",
+          "author": "Steven Weinberg",
+          "status": "enriched",
+          "matchTitle": "To Explain the World",
+          "matchAuthor": "Steven Weinberg",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Harper, an imprint of HarperCollins Publishers",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-high-risers-cabrini-green-and-the-fate-of-american-public-housing-ben-austen",
+          "title": "High-Risers: Cabrini-Green and the Fate of American Public Housing",
+          "author": "Ben Austen",
+          "status": "enriched",
+          "matchTitle": "High-risers: Cabrini-Green and the fate of American public housing",
+          "matchAuthor": "Ben Austen",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Creative Arts Book Co",
+      "rawPublisher": "Harvill, HarperCollins Publishers, Limited",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-obituaries-william-saroyan",
-          "title": "Obituaries",
-          "author": "William Saroyan",
+          "bookId": "book-violet-the-life-and-loves-of-violet-gordon-woodhouse-jessica-douglas-home",
+          "title": "Violet: The Life and Loves of Violet Gordon Woodhouse",
+          "author": "Jessica Douglas-Home",
           "status": "enriched",
-          "matchTitle": "Obituaries",
-          "matchAuthor": "William Saroyan",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "D. C. Heath",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-riches-class-and-power-before-the-civil-war-edward-pessen",
-          "title": "Riches, Class and Power Before the Civil War",
-          "author": "Edward Pessen",
-          "status": "enriched",
-          "matchTitle": "Riches, class, and power before the Civil War. --",
-          "matchAuthor": "Edward Pessen",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "D. McKay Co.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-limits-of-intervention-townsend-hoopes",
-          "title": "The Limits of Intervention",
-          "author": "Townsend Hoopes",
-          "status": "enriched",
-          "matchTitle": "The limits of intervention",
-          "matchAuthor": "Townsend Hoopes",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "de Gruyter GmbH, Walter",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-stable-peace-kenneth-e-boulding",
-          "title": "Stable Peace",
-          "author": "Kenneth E. Boulding",
-          "status": "enriched",
-          "matchTitle": "Stable Peace",
-          "matchAuthor": "Kenneth E. Boulding",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Deutsch",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-tenebrae-geoffrey-hill",
-          "title": "Tenebrae",
-          "author": "Geoffrey Hill",
-          "status": "enriched",
-          "matchTitle": "Tenebrae",
-          "matchAuthor": "Geoffrey Hill",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Dreamscape Media",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-islamic-enlightenment-the-modern-struggle-between-faith-and-reason-christopher-de-bellaigue",
-          "title": "The Islamic Enlightenment The Modern Struggle Between Faith and Reason",
-          "author": "Christopher de Bellaigue",
-          "status": "enriched",
-          "matchTitle": "The Islamic Enlightenment",
-          "matchAuthor": "Christopher De Bellaigue",
-          "matchScore": 0.533
-        }
-      ]
-    },
-    {
-      "rawPublisher": "E. P. Dutton and Co",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-almanac-of-american-politics-michael-barone-grant-ujifusa-and-douglas-matthews",
-          "title": "The Almanac of American Politics",
-          "author": "Michael Barone, Grant Ujifusa Douglas Matthews",
-          "status": "enriched",
-          "matchTitle": "The Almanac of American Politics 1976",
-          "matchAuthor": "Michael; Ujifusa, Grant; Matthews, Douglas Barone",
-          "matchScore": 0.883
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Eakins Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-elie-nadelman-lincoln-kirstein",
-          "title": "Elie Nadelman",
-          "author": "Lincoln Kirstein",
-          "status": "enriched",
-          "matchTitle": "Elie Nadelman",
-          "matchAuthor": "Lincoln Kirstein",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Ediciones JC",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-an-unfinished-woman-a-memoir-lillian-hellman",
-          "title": "An Unfinished Woman: A Memoir",
-          "author": "Lillian Hellman",
-          "status": "enriched",
-          "matchTitle": "An Unfinished Woman",
-          "matchAuthor": "Lillian Hellman",
-          "matchScore": 0.825
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Fireside",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-kids-day-in-and-day-out-a-parents-manual-elisabeth-l-scharlatt",
-          "title": "Kids: Day In and Day Out: a parents' manual",
-          "author": "Elisabeth L. Scharlatt",
-          "status": "enriched",
-          "matchTitle": "Kids - Day In and Day Out",
-          "matchAuthor": "Elisabeth L. (ed) Scharlatt",
-          "matchScore": 0.7
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Fontana Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-sideshow-kissinger-nixon-and-the-destruction-of-cambodia-william-shawcross",
-          "title": "Sideshow - Kissinger, Nixon and the Destruction of Cambodia",
-          "author": "William Shawcross",
-          "status": "enriched",
-          "matchTitle": "Sideshow",
-          "matchAuthor": "William Shawcross",
+          "matchTitle": "Violet",
+          "matchAuthor": "Jessica Douglas-Home",
           "matchScore": 0.387
         }
       ]
     },
     {
-      "rawPublisher": "Freeman",
+      "rawPublisher": "Houghton Mifflin Harcourt New Harvest",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-language-of-nature-an-essay-on-the-philosophy-of-science-david-hawkins",
-          "title": "The Language of Nature: An Essay on the Philosophy of Science",
-          "author": "David Hawkins",
+          "bookId": "book-hannah-arendt-a-life-in-dark-times-anne-heller",
+          "title": "Hannah Arendt: A Life in Dark Times",
+          "author": "Anne Heller",
           "status": "enriched",
-          "matchTitle": "The Language of Nature An Essay in The Philsophy of Science",
-          "matchAuthor": "David Hawkins",
-          "matchScore": 0.844
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Freeman, Cooper",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-abyss-of-time-changing-conceptions-of-the-earth-s-antiquity-after-the-sixteenth-century-clau",
-          "title": "The Abyss of Time: Changing Conceptions of the Earth's Antiquity after the Sixteenth Century",
-          "author": "Claude C. Albritton",
-          "status": "enriched",
-          "matchTitle": "The abyss of time, changing conceptions of the earth's antiquity after the sixteenth century",
-          "matchAuthor": "Claude C. Albritton",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Garden City, NY: Doubleday & Company, Inc., 1966",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-language-of-life-an-introduction-to-the-science-of-genetics-george-beadle-and-muriel-beadle",
-          "title": "The Language of Life: An Introduction to the Science of Genetics",
-          "author": "George Beadle Muriel Beadle,",
-          "status": "enriched",
-          "matchTitle": "The Language of Life. An Introduction to the Science of Genetics",
-          "matchAuthor": "George and Muriel Beadle",
-          "matchScore": 0.925
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Graymalkin Media",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-strange-justice-the-selling-of-clarence-thomas-jane-mayer-and-jill-abramson",
-          "title": "Strange Justice: The Selling of Clarence Thomas",
-          "author": "Jane Mayer Jill Abramson",
-          "status": "enriched",
-          "matchTitle": "Strange Justice",
-          "matchAuthor": "Jane Mayer Jill Abramson",
-          "matchScore": 0.5
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Grossman Publishers",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-herblock-s-state-of-the-union-herbert-block",
-          "title": "Herblock's State of the Union",
-          "author": "Herbert Block",
-          "status": "enriched",
-          "matchTitle": "Herblock's state of the Union",
-          "matchAuthor": "Herbert Block",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "H. Fertig",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-coming-of-the-war-1914-bernadotte-e-schmitt",
-          "title": "The Coming of the War, 1914",
-          "author": "Bernadotte E. Schmitt",
-          "status": "enriched",
-          "matchTitle": "The coming of the war, 1914",
-          "matchAuthor": "Bernadotte E. Schmitt",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "H. N. Abrams",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-16-studies-h-w-janson",
-          "title": "16 Studies",
-          "author": "H. W. Janson",
-          "status": "enriched",
-          "matchTitle": "16 studies",
-          "matchAuthor": "H. W. Janson",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "H. W. Wilson Co.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-index-to-children-s-songs-carolyn-sue-peterson-and-ann-d-fenton",
-          "title": "Index to Children's Songs",
-          "author": "Carolyn Sue Peterson Ann D. Fenton",
-          "status": "enriched",
-          "matchTitle": "Index to children's songs",
-          "matchAuthor": "Carolyn Sue Peterson",
-          "matchScore": 0.88
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Harcourt, Brace & World",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-a-primer-of-ignorance-r-p-blackmur",
-          "title": "A Primer of Ignorance",
-          "author": "R. P. Blackmur",
-          "status": "enriched",
-          "matchTitle": "A primer of ignorance",
-          "matchAuthor": "R. P. Blackmur",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Harper & Bros.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-growth-of-american-thought-merle-curti",
-          "title": "The Growth of American Thought",
-          "author": "Merle Curti",
-          "status": "enriched",
-          "matchTitle": "The growth of American thought",
-          "matchAuthor": "Merle Curti",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "harper perennial a division of harper collins publishers",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-mozart-a-life-maynard-solomon",
-          "title": "Mozart: A Life",
-          "author": "Maynard Solomon",
-          "status": "enriched",
-          "matchTitle": "mozart a life",
-          "matchAuthor": "maynard solomon",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "HarperCollins Publishers Australia",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-in-the-days-of-rain-rebecca-stott",
-          "title": "In the Days of Rain",
-          "author": "Rebecca Stott",
-          "status": "enriched",
-          "matchTitle": "In the Days of Rain",
-          "matchAuthor": "Rebecca Stott",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "HarperPerennial",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-savage-inequalities-children-in-america-s-schools-jonathan-kozol",
-          "title": "Savage Inequalities: Children in America’s Schools",
-          "author": "Jonathan Kozol",
-          "status": "enriched",
-          "matchTitle": "Savage inequalities : children in America's schools",
-          "matchAuthor": "Jonathan Kozol",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "HarperSanFrancisco",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-a-different-person-james-merrill",
-          "title": "A Different Person",
-          "author": "James Merrill",
-          "status": "enriched",
-          "matchTitle": "A different person",
-          "matchAuthor": "James Ingram Merrill",
-          "matchScore": 0.9
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Harvest Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-life-of-the-mind-in-america-perry-miller",
-          "title": "The Life of the Mind in America",
-          "author": "Perry Miller",
-          "status": "enriched",
-          "matchTitle": "The Life of the Mind in America",
-          "matchAuthor": "Perry Miller",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "henry holt and company new york",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-black-wave-saudi-arabia-iran-and-the-forty-year-rivalry-that-unraveled-culture-religion-and-coll",
-          "title": "Black Wave: Saudi Arabia, Iran, and the Forty-Year Rivalry That Unraveled Culture, Religion, and Collective Memory in the Middle East",
-          "author": "Kim Ghattas",
-          "status": "enriched",
-          "matchTitle": "black wave saudi arabia,iran, and the forty-year rivalry that unraveled culture, religion, and collective memory in the middle east",
-          "matchAuthor": "kim ghattas",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Herder and Herder, Inc.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-alternative-society-essays-from-the-other-world-kenneth-rexroth",
-          "title": "The Alternative Society: Essays from the Other World",
-          "author": "Kenneth Rexroth",
-          "status": "enriched",
-          "matchTitle": "The Alternative Society; essays from the other world",
-          "matchAuthor": "Kenneth Rexroth",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "HewesHeiser",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-story-of-a-poem-a-memoir-matthew-zapruder",
-          "title": "Story of a Poem: A Memoir",
-          "author": "Matthew Zapruder",
-          "status": "enriched",
-          "matchTitle": "Story of a Poem",
-          "matchAuthor": "Matthew Zapruder",
-          "matchScore": 0.825
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Heyday Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-california-against-the-sea-visions-for-our-vanishing-coastline-rosanna-xia",
-          "title": "California Against the Sea: Visions for Our Vanishing Coastline",
-          "author": "Rosanna Xia",
-          "status": "enriched",
-          "matchTitle": "California Against the Sea",
-          "matchAuthor": "Rosanna Xia",
-          "matchScore": 0.611
-        }
-      ]
-    },
-    {
-      "rawPublisher": "History Book Club",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-fdr-the-beckoning-of-destiny-1882-1928-kenneth-s-davis",
-          "title": "FDR: The Beckoning of Destiny, 1882–1928",
-          "author": "Kenneth S. Davis",
-          "status": "enriched",
-          "matchTitle": "FDR : the beckoning of destiny, 1882-1928 : a history",
-          "matchAuthor": "Kenneth Sydney Davis",
-          "matchScore": 0.812
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Hunter Publishing+inc",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-virginia-woolf-quentin-bell",
-          "title": "Virginia Woolf",
-          "author": "Quentin Bell",
-          "status": "enriched",
-          "matchTitle": "Virginia Woolf",
-          "matchAuthor": "Quentin Bell",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "I B Tauris & Co Ltd",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-stalin-adam-ulam",
-          "title": "Stalin",
-          "author": "Adam Ulam",
-          "status": "enriched",
-          "matchTitle": "Stalin",
-          "matchAuthor": "Adam B. Ulam",
+          "matchTitle": "Hannah Arendt: A Life in Dark Times",
+          "matchAuthor": "Anne Heller",
           "matchScore": 1
         }
       ]
@@ -1199,283 +515,43 @@
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash",
-          "title": "The Baton and The Cross: Russia's Church from Pagans to Putin",
-          "author": "Lucy Ash",
+          "bookId": "book-inside-qatar-hidden-stories-from-one-of-the-richest-nations-on-earth-john-mcmanus",
+          "title": "Inside Qatar: Hidden Stories from One of the Richest Nations on Earth",
+          "author": "John McManus",
           "status": "enriched",
-          "matchTitle": "The Baton and the Cross",
-          "matchAuthor": "Lucy Ash",
-          "matchScore": 0.58
+          "matchTitle": "Inside Qatar",
+          "matchAuthor": "John McManus",
+          "matchScore": 0.417
         }
       ]
     },
     {
-      "rawPublisher": "Ignatius Press",
+      "rawPublisher": "imusti",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-love-is-stronger-than-death-peter-kreeft",
-          "title": "Love Is Stronger Than Death",
-          "author": "Peter Kreeft",
+          "bookId": "book-the-innovators-how-a-group-of-hackers-geniuses-and-geeks-created-the-digital-revolution-walter-i",
+          "title": "The Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution",
+          "author": "Walter Isaacson",
           "status": "enriched",
-          "matchTitle": "Love is stronger than death",
-          "matchAuthor": "Peter Kreeft",
-          "matchScore": 1
+          "matchTitle": "Summary Guide of the Innovators: How a Group of Hackers, Geniuses, and Geeks Created the Digital Revolution Book by Walter Isaacson",
+          "matchAuthor": "Cityprint",
+          "matchScore": 0.467
         }
       ]
     },
     {
-      "rawPublisher": "Indiana Univ Pr (1971-07-01)",
+      "rawPublisher": "Macmillan + ORM",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-indian-man-a-life-of-oliver-la-farge-d-arcy-mcnickle",
-          "title": "Indian Man: A Life of Oliver La Farge",
-          "author": "D'Arcy McNickle",
+          "bookId": "book-believers-making-a-life-at-the-end-of-the-world-lisa-wells",
+          "title": "Believers: Making a Life at the End of the World",
+          "author": "Lisa Wells",
           "status": "enriched",
-          "matchTitle": "Indian Man; A Life of Oliver LA Farge by D'Arcy McNickle (1971-07-01)",
-          "matchAuthor": "D'Arcy McNickle",
-          "matchScore": 0.677
-        }
-      ]
-    },
-    {
-      "rawPublisher": "IndyPublish.com",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-life-and-letters-of-walter-h-page-burton-j-hendrick",
-          "title": "The Life and Letters of Walter H. Page",
-          "author": "Burton J. Hendrick",
-          "status": "enriched",
-          "matchTitle": "The Life And Letters of Walter H. Page",
-          "matchAuthor": "Burton J. Hendrick",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "J. Daniel, Publishers",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-strong-drink-strong-language-john-espey",
-          "title": "Strong Drink, Strong Language",
-          "author": "John Espey",
-          "status": "enriched",
-          "matchTitle": "Strong drink, strong language",
-          "matchAuthor": "John Jenkins Espey",
-          "matchScore": 0.9
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Jason Aronson",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-deaths-of-man-edwin-s-shneidman",
-          "title": "Deaths of Man",
-          "author": "Edwin S. Shneidman",
-          "status": "enriched",
-          "matchTitle": "Deaths of man",
-          "matchAuthor": "Edwin S. Shneidman",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Johnson Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-land-above-the-trees-a-guide-to-american-alpine-tundra-ann-zwinger-and-beatrice-willard",
-          "title": "Land Above the Trees: A Guide to American Alpine Tundra",
-          "author": "Ann Zwinger Beatrice Willard",
-          "status": "enriched",
-          "matchTitle": "Land above the Trees",
-          "matchAuthor": "Ann Zwinger Beatrice E. Willard",
-          "matchScore": 0.611
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Jonathan Cape London",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-collected-poems-andrew-young",
-          "title": "Collected Poems",
-          "author": "Andrew Young",
-          "status": "enriched",
-          "matchTitle": "Collected Poems",
-          "matchAuthor": "Andrew Young",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Kaplan Pub.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-five-senses-f-gonzalez-crussi",
-          "title": "The Five Senses",
-          "author": "F. Gonzalez-Crussi",
-          "status": "enriched",
-          "matchTitle": "The five senses",
-          "matchAuthor": "F. Gonzalez-Crussi",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Kennikat Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-john-hay-tyler-dennett",
-          "title": "John Hay",
-          "author": "Tyler Dennett",
-          "status": "enriched",
-          "matchTitle": "John Hay",
-          "matchAuthor": "Tyler Dennett",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Kent State University Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-resurrection-of-the-wild-deborah-fleming",
-          "title": "Resurrection of the Wild",
-          "author": "Deborah Fleming",
-          "status": "enriched",
-          "matchTitle": "Resurrection of the Wild",
-          "matchAuthor": "Deborah Fleming",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Kessinger Publishing, LLC",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-founding-of-new-england-james-truslow-adams",
-          "title": "The Founding of New England",
-          "author": "James Truslow Adams",
-          "status": "enriched",
-          "matchTitle": "The founding of New England",
-          "matchAuthor": "James Truslow Adams",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Key Porter Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-cold-steel-the-multi-billion-dollar-battle-for-a-global-industry-tim-bouquet-and-byron-ousey",
-          "title": "Cold Steel: The Multi-billion-dollar Battle for a Global Industry",
-          "author": "Tim Bouquet Byron Ousey",
-          "status": "enriched",
-          "matchTitle": "Cold Steel: The Multi-Billion-Dollar Battle for a Global Empire",
-          "matchAuthor": "Tim Bouquet Byron Ousey",
-          "matchScore": 0.93
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Library of Virginia",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-edmund-pendleton-1721-1803-david-j-mays",
-          "title": "Edmund Pendleton 1721–1803",
-          "author": "David J. Mays",
-          "status": "enriched",
-          "matchTitle": "Edmund Pendleton, 1721-1803",
-          "matchAuthor": "David J. Mays",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Liveright Publishing Corporation, a division of W.W. Norton & Company",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-gates-of-eden-american-culture-in-the-sixties-morris-dickstein",
-          "title": "Gates of Eden: American Culture in the Sixties",
-          "author": "Morris Dickstein",
-          "status": "enriched",
-          "matchTitle": "Gates of Eden",
-          "matchAuthor": "Morris Dickstein",
-          "matchScore": 0.563
-        }
-      ]
-    },
-    {
-      "rawPublisher": "London : Chatto & Windus",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-continent-of-circe-nirad-c-chaudhuri",
-          "title": "The Continent of Circe",
-          "author": "Nirad C. Chaudhuri",
-          "status": "enriched",
-          "matchTitle": "The Continent of Circe",
-          "matchAuthor": "Nirad C. Chaudhuri",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "London : Gollancz",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-ivy-when-young-the-early-life-of-ivy-compton-burnett-1884-1919-hilary-spurling",
-          "title": "Ivy When Young: The Early Life of Ivy Compton-Burnett 1884-1919",
-          "author": "Hilary Spurling",
-          "status": "enriched",
-          "matchTitle": "Ivy when Young",
-          "matchAuthor": "Hilary Spurling",
-          "matchScore": 0.491
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Mcgraw Hill Book Company",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-james-boswell-the-earlier-years-frederick-a-pottle",
-          "title": "James Boswell: The Earlier Years",
-          "author": "Frederick A. Pottle",
-          "status": "enriched",
-          "matchTitle": "James boswells the earlier years 17",
-          "matchAuthor": "Frederick A. Pottle",
-          "matchScore": 0.767
-        }
-      ]
-    },
-    {
-      "rawPublisher": "N. A. L.-World Book",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-founding-father-the-story-of-joseph-p-kennedy-richard-j-whalen",
-          "title": "The Founding Father: The Story of Joseph P. Kennedy",
-          "author": "Richard J. Whalen",
-          "status": "enriched",
-          "matchTitle": "The Founding Father, The Story of Joseph P. Kennedy",
-          "matchAuthor": "Richard J. Whalen",
-          "matchScore": 1
+          "matchTitle": "Believers",
+          "matchAuthor": "Lisa Wells",
+          "matchScore": 0.387
         }
       ]
     },
@@ -1484,523 +560,208 @@
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-about-face-a-history-of-america-s-curious-relationship-with-china-from-nixon-to-clinton-james-ma",
-          "title": "About Face: A History of America's Curious Relationship with China, from Nixon to Clinton",
-          "author": "James Mann",
+          "bookId": "book-in-the-country-of-women-susan-straight",
+          "title": "In the Country of Women",
+          "author": "Susan Straight",
           "status": "enriched",
-          "matchTitle": "About Face",
-          "matchAuthor": "James Mann",
-          "matchScore": 0.408
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Naval Inst Pr",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-john-paul-jones-samuel-eliot-morison",
-          "title": "John Paul Jones",
-          "author": "Samuel Eliot Morison",
-          "status": "enriched",
-          "matchTitle": "John Paul Jones",
-          "matchAuthor": "Samuel Eliot Morison",
+          "matchTitle": "In the Country of Women",
+          "matchAuthor": "Susan Straight",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "New Directions",
+      "rawPublisher": "New Directions Publishing",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-because-i-was-flesh-edward-dahlberg",
-          "title": "Because I Was Flesh",
-          "author": "Edward Dahlberg",
+          "bookId": "book-the-quarry-susan-howe",
+          "title": "The Quarry",
+          "author": "Susan Howe",
           "status": "enriched",
-          "matchTitle": "Because I was flesh",
-          "matchAuthor": "Edward Dahlberg",
+          "matchTitle": "The Quarry",
+          "matchAuthor": "Susan Howe",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "New York : Knopf",
+      "rawPublisher": "New York Review of Books",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-edith-sitwell-a-unicorn-among-the-lions-victoria-glendinning",
-          "title": "Edith Sitwell: A Unicorn Among the Lions",
-          "author": "Victoria Glendinning",
+          "bookId": "book-i-used-to-be-charming-the-rest-of-eve-babitz-eve-babitz",
+          "title": "I Used to Be Charming: The Rest of Eve Babitz",
+          "author": "Eve Babitz",
           "status": "enriched",
-          "matchTitle": "Edith Sitwell, a Unicorn Among Lions",
-          "matchAuthor": "Victoria Glendinning",
-          "matchScore": 0.883
-        }
-      ]
-    },
-    {
-      "rawPublisher": "New York : Viking",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-china-hands-e-j-kahn-jr",
-          "title": "The China Hands",
-          "author": "E. J. Kahn, Jr.",
-          "status": "enriched",
-          "matchTitle": "The China Hands",
-          "matchAuthor": "E. J. Kahn (Jr.)",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Nonpareil Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-geography-of-the-imagination-forty-essays-guy-davenport",
-          "title": "The Geography of the Imagination: Forty Essays",
-          "author": "Guy Davenport",
-          "status": "enriched",
-          "matchTitle": "The Geography of the Imagination",
-          "matchAuthor": "Guy Davenport",
-          "matchScore": 0.767
-        }
-      ]
-    },
-    {
-      "rawPublisher": "North Atlantic Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-fresh-banana-leaves-healing-indigenous-landscapes-through-indigenous-science-jessica-hernandez",
-          "title": "Fresh Banana Leaves: Healing Indigenous Landscapes Through Indigenous Science",
-          "author": "Jessica Hernandez",
-          "status": "enriched",
-          "matchTitle": "Fresh Banana Leaves",
-          "matchAuthor": "Jessica Hernandez",
-          "matchScore": 0.563
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Not Specified",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-madness-of-adam-and-eve-did-schizophrenia-shape-humanity-david-horrobin",
-          "title": "The Madness of Adam and Eve: Did Schizophrenia Shape Humanity?",
-          "author": "David Horrobin",
-          "status": "enriched",
-          "matchTitle": "THE MADNESS OF ADAM AND EVE",
-          "matchAuthor": "David Horrobin",
-          "matchScore": 0.72
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Octagon Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-jonathan-edwards-1703-1758-a-biography-ola-elizabeth-winslow",
-          "title": "Jonathan Edwards, 1703–1758: a biography",
-          "author": "Ola Elizabeth Winslow",
-          "status": "enriched",
-          "matchTitle": "Jonathan Edwards, 1703-1758",
-          "matchAuthor": "Ola Elizabeth Winslow",
-          "matchScore": 0.86
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Oxford",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-democratic-promise-the-populist-moment-in-america-lawrence-goodwyn",
-          "title": "Democratic Promise: The Populist Moment in America",
-          "author": "Lawrence Goodwyn",
-          "status": "enriched",
-          "matchTitle": "Democratic Promise, The Populist Moment in America",
-          "matchAuthor": "Lawrence Goodwyn",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Oxford Univesity Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-learned-hand-the-man-and-the-judge-gerald-gunther",
-          "title": "Learned Hand: The Man and the Judge",
-          "author": "Gerald Gunther",
-          "status": "enriched",
-          "matchTitle": "Learned Hand, The Man And The Judge",
-          "matchAuthor": "Gerald Gunther",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Papermac",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-gladstone-roy-jenkins",
-          "title": "Gladstone",
-          "author": "Roy Jenkins",
-          "status": "enriched",
-          "matchTitle": "Gladstone",
-          "matchAuthor": "Roy Jenkins",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Penguin (Non-Classics)",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-stop-time-frank-conroy",
-          "title": "Stop-Time",
-          "author": "Frank Conroy",
-          "status": "enriched",
-          "matchTitle": "Stop-time",
-          "matchAuthor": "Frank Conroy",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Penguin Books India",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-lady-and-the-monk-four-seasons-in-kyoto-pico-iyer",
-          "title": "The Lady and the Monk: Four Seasons in Kyoto",
-          "author": "Pico Iyer",
-          "status": "enriched",
-          "matchTitle": "The lady and the monk",
-          "matchAuthor": "Pico Iyer",
-          "matchScore": 0.65
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Penguin P.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-social-origins-of-dictatorship-and-democracy-lord-and-peasant-in-the-making-of-the-modern-world-",
-          "title": "Social Origins of Dictatorship and Democracy: Lord and Peasant in the Making of the Modern World",
-          "author": "Barrington Moore, Jr.",
-          "status": "enriched",
-          "matchTitle": "Social origins of dictatorship and democracy: lord and peasant in the making of the modern world",
-          "matchAuthor": "Barrington Moore",
-          "matchScore": 0.9
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Penguin Random House",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-sound-tracks-a-musical-detective-story-graeme-lawson",
-          "title": "Sound Tracks: A Musical Detective Story",
-          "author": "Graeme Lawson",
-          "status": "enriched",
-          "matchTitle": "Sound Tracks",
-          "matchAuthor": "Graeme Lawson",
-          "matchScore": 0.58
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Perennial Library",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-genius-of-the-people-charles-mee",
-          "title": "The Genius of the People",
-          "author": "Charles Mee",
-          "status": "enriched",
-          "matchTitle": "The genius of the people",
-          "matchAuthor": "Charles L. Mee",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Peter Smith Pub Incorporated",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-dream-of-the-golden-mountains-remembering-the-1930s-malcolm-cowley",
-          "title": "The Dream of the Golden Mountains: Remembering the 1930s",
-          "author": "Malcolm Cowley",
-          "status": "enriched",
-          "matchTitle": "The Dream of the Golden Mountains",
-          "matchAuthor": "Malcolm Cowley",
-          "matchScore": 0.8
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Pimlico",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-michelangelo-and-the-popes-ceiling-ross-king",
-          "title": "Michelangelo & the Popes Ceiling",
-          "author": "Ross King",
-          "status": "enriched",
-          "matchTitle": "Michelangelo and the Pope's Ceiling",
-          "matchAuthor": "Ross King",
-          "matchScore": 0.72
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Pinnacle Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-a-daughter-of-the-middle-border-hamlin-garland",
-          "title": "A Daughter of the Middle Border",
-          "author": "Hamlin Garland",
-          "status": "enriched",
-          "matchTitle": "A daughter of the middle border",
-          "matchAuthor": "Hamlin Garland",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Plunkett Lake Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-memoirs-1950-1963-george-f-kennan",
-          "title": "Memoirs, 1950–1963",
-          "author": "George F. Kennan",
-          "status": "enriched",
-          "matchTitle": "Memoirs 1950-1963",
-          "matchAuthor": "George F. Kennan",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Portfolio Hardcover",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-retirement-heist-how-companies-plunder-and-profit-from-the-nest-eggs-of-american-workers-ellen-s",
-          "title": "Retirement Heist: How Companies Plunder and Profit from the Nest Eggs of American Workers",
-          "author": "Ellen Schultz",
-          "status": "enriched",
-          "matchTitle": "Retirement heist: how companies plunder and profit from the nest eggs of american workers",
-          "matchAuthor": "Ellen Schultz",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Published for the Archives of American Art by the Smithsonian Institution Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-arts-in-america-a-bibliography-bernard-karpel",
-          "title": "Arts in America: A Bibliography",
-          "author": "Bernard Karpel",
-          "status": "enriched",
-          "matchTitle": "Arts in America",
-          "matchAuthor": "Bernard Karpel",
-          "matchScore": 0.825
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Published for the National Collection of Fine Arts by the Smithsonian Institution Press : for sale by the Supt. of Docs., U.S. Govt. Print. Off.",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-america-as-art-joshua-c-taylor",
-          "title": "America as Art",
-          "author": "Joshua C. Taylor",
-          "status": "enriched",
-          "matchTitle": "America as art",
-          "matchAuthor": "Joshua Charles Taylor",
-          "matchScore": 0.9
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Quirk Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-how-to-clone-the-perfect-blonde-sue-nelson-and-richard-hollingham",
-          "title": "How to Clone the Perfect Blonde",
-          "author": "Sue Nelson Richard Hollingham",
-          "status": "enriched",
-          "matchTitle": "How to clone the perfect blonde",
-          "matchAuthor": "Sue Nelson Richard Hollingham",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Random House Value Publishing",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-don-t-tread-on-me-the-selected-letters-of-s-j-perelman-prudence-crowther",
-          "title": "Don’t Tread on Me: The Selected Letters of S.J. Perelman",
-          "author": "Prudence Crowther",
-          "status": "enriched",
-          "matchTitle": "Don't Tread on Me",
-          "matchAuthor": "Prudence Crowther",
+          "matchTitle": "I Used to Be Charming",
+          "matchAuthor": "Eve Babitz",
           "matchScore": 0.611
         }
       ]
     },
     {
-      "rawPublisher": "Renaissance Literary & Talent",
+      "rawPublisher": "Pan Publishing",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-eisenhower-at-war-1943-1945-david-eisenhower",
-          "title": "Eisenhower: At War, 1943–1945",
-          "author": "David Eisenhower",
+          "bookId": "book-haw-haw-the-tragedy-of-william-and-margaret-joyce-nigel-farndale",
+          "title": "Haw-Haw: The Tragedy of William and Margaret Joyce",
+          "author": "Nigel Farndale",
           "status": "enriched",
-          "matchTitle": "Eisenhower at War 1943-1945",
-          "matchAuthor": "David Eisenhower",
+          "matchTitle": "Haw-Haw",
+          "matchAuthor": "Nigel Farndale",
+          "matchScore": 0.387
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Pegasus",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-shooting-victoria-madness-mayhem-and-the-rebirth-of-the-british-monarchy-paul-thomas-murphy",
+          "title": "Shooting Victoria: Madness, Mayhem, and the Rebirth of the British Monarchy",
+          "author": "Paul Thomas Murphy",
+          "status": "enriched",
+          "matchTitle": "Shooting Victoria:  Madness, Mayhem and the rebirth of the British Monarchy",
+          "matchAuthor": "Paul Thomas Murphy",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Rizzoli",
+      "rawPublisher": "Penguin UK",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-new-york-1930-architecture-and-urbanism-between-the-two-world-wars-robert-a-m-stern-gregory-gilm",
-          "title": "New York 1930: Architecture and Urbanism Between the Two World Wars",
-          "author": "Robert A.M. Stern, Gregory Gilmartin, Thomas Mellins",
+          "bookId": "book-charles-dickens-a-life-claire-tomalin",
+          "title": "Charles Dickens: A Life",
+          "author": "Claire Tomalin",
           "status": "enriched",
-          "matchTitle": "New York 1930: Architecture and Urbanism Between the Two World Wars",
-          "matchAuthor": "Robert A.M. Stern Gregory F. Gilmartin Thomas Mellins",
+          "matchTitle": "Charles Dickens",
+          "matchAuthor": "Claire Tomalin",
+          "matchScore": 0.767
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Random House (NY)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-nixon-and-mao-the-week-that-changed-the-world-margaret-macmillan",
+          "title": "Nixon and Mao: The Week that Changed the World",
+          "author": "Margaret MacMillan",
+          "status": "enriched",
+          "matchTitle": "Nixon and Mao",
+          "matchAuthor": "Margaret MacMillan",
+          "matchScore": 0.563
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Sarabande Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-limber-angela-pelster",
+          "title": "Limber",
+          "author": "Angela Pelster",
+          "status": "enriched",
+          "matchTitle": "Limber",
+          "matchAuthor": "Angela Pelster",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Routledge",
+      "rawPublisher": "Schocken",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-female-imagination-patricia-meyer-spacks",
-          "title": "The Female Imagination",
-          "author": "Patricia Meyer Spacks",
+          "bookId": "book-lioness-golda-meir-and-the-nation-of-israel-francine-klagsbrun",
+          "title": "Lioness: Golda Meir and the Nation of Israel",
+          "author": "Francine Klagsbrun",
           "status": "enriched",
-          "matchTitle": "The Female Imagination",
-          "matchAuthor": "Patricia Meyer Spacks",
+          "matchTitle": "Lioness",
+          "matchAuthor": "Francine Klagsbrun",
+          "matchScore": 0.387
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Seal Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-who-cares-the-hidden-crisis-of-caregiving-and-how-we-solve-it-emily-kenway",
+          "title": "Who Cares?: The Hidden Crisis of Caregiving, and How We Solve It",
+          "author": "Emily Kenway",
+          "status": "enriched",
+          "matchTitle": "Who Cares",
+          "matchAuthor": "Emily Kenway",
+          "matchScore": 0.417
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Seven Stories Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-personal-score-sport-culture-identity-ellen-van-neerven",
+          "title": "Personal Score: Sport, Culture, Identity",
+          "author": "Ellen van Neerven",
+          "status": "enriched",
+          "matchTitle": "Personal Score",
+          "matchAuthor": "Ellen Van Neerven",
+          "matchScore": 0.58
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Simon & Schuster Australia",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-black-convicts-how-slavery-shaped-australia-santilla-chingaipe",
+          "title": "Black Convicts: How Slavery Shaped Australia",
+          "author": "Santilla Chingaipe",
+          "status": "enriched",
+          "matchTitle": "Black Convicts",
+          "matchAuthor": "Santilla Chingaipe",
+          "matchScore": 0.533
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Sphere",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-i-m-not-with-the-band-sylvia-patterson",
+          "title": "I’m Not With the Band",
+          "author": "Sylvia Patterson",
+          "status": "enriched",
+          "matchTitle": "I'm Not with the Band",
+          "matchAuthor": "Sylvia Patterson",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Sceptre",
+      "rawPublisher": "Ten Speed Press",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-deep-down-dark-the-untold-stories-of-33-men-buried-in-a-chilean-mine-and-the-miracle-that-set-th",
-          "title": "Deep Down Dark: The Untold Stories of 33 Men Buried in a Chilean Mine, and the Miracle That Set Them Free",
-          "author": "Héctor Tobar",
+          "bookId": "book-project-562-changing-the-way-we-see-native-america-matika-wilbur",
+          "title": "Project 562: Changing the Way We See Native America",
+          "author": "Matika Wilbur",
           "status": "enriched",
-          "matchTitle": "Deep down dark",
-          "matchAuthor": "Héctor Tobar",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Signet Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-heredity-and-the-nature-of-man-theodosius-dobzhansky",
-          "title": "Heredity and the Nature of Man",
-          "author": "Theodosius Dobzhansky",
-          "status": "enriched",
-          "matchTitle": "Heredity and the Nature of Man",
-          "matchAuthor": "Theodosius Dobzhansky",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Sunstone Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-egon-schiele-s-portraits-alessandra-comini",
-          "title": "Egon Schiele's Portraits",
-          "author": "Alessandra Comini",
-          "status": "enriched",
-          "matchTitle": "Egon Schiele's portraits",
-          "matchAuthor": "Alessandra Comini",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Swift Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-time-to-think-the-inside-story-of-the-collapse-of-the-tavistock-s-gender-service-for-children-ha",
-          "title": "Time to Think: The Inside Story of the Collapse of the Tavistock's Gender Service for Children",
-          "author": "Hannah Barnes",
-          "status": "enriched",
-          "matchTitle": "Time to Think",
-          "matchAuthor": "Hannah Barnes",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "The Folio Society",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-earth-an-intimate-history-richard-fortey",
-          "title": "The Earth: An Intimate History",
-          "author": "Richard Fortey",
-          "status": "enriched",
-          "matchTitle": "The earth an intimate history",
-          "matchAuthor": "Richard Fortey",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "The Fontana Library",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-biology-of-ultimate-concern-theodosius-dobzhansky",
-          "title": "The Biology of Ultimate Concern",
-          "author": "Theodosius Dobzhansky",
-          "status": "enriched",
-          "matchTitle": "The Biology of Ultimate Concern",
-          "matchAuthor": "Theodosius Dobzhansky",
-          "matchScore": 1
+          "matchTitle": "Project 562",
+          "matchAuthor": "Matika Wilbur",
+          "matchScore": 0.456
         }
       ]
     },
@@ -2009,208 +770,88 @@
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-light-of-the-world-a-memoir-elizabeth-alexander",
-          "title": "The Light of the World: A Memoir",
-          "author": "Elizabeth Alexander",
+          "bookId": "book-his-final-battle-the-last-months-of-franklin-roosevelt-joseph-lelyveld",
+          "title": "His Final Battle: The Last Months of Franklin Roosevelt",
+          "author": "Joseph Lelyveld",
           "status": "enriched",
-          "matchTitle": "The Light of the World",
-          "matchAuthor": "Elizabeth Alexander",
-          "matchScore": 0.86
+          "matchTitle": "His Final Battle",
+          "matchAuthor": "Joseph Lelyveld",
+          "matchScore": 0.533
         }
       ]
     },
     {
-      "rawPublisher": "Three Rivers Press",
+      "rawPublisher": "Tim Duggan Books",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-eaves-of-heaven-andrew-x-pham",
-          "title": "The Eaves of Heaven",
-          "author": "Andrew X. Pham",
+          "bookId": "book-i-am-dynamite-a-life-of-friedrich-nietzsche-sue-prideaux",
+          "title": "I Am Dynamite! A Life of Friedrich Nietzsche",
+          "author": "Sue Prideaux",
           "status": "enriched",
-          "matchTitle": "The eaves of heaven",
-          "matchAuthor": "Andrew X. Pham",
+          "matchTitle": "I Am Dynamite!",
+          "matchAuthor": "Sue Prideaux",
+          "matchScore": 0.533
+        }
+      ]
+    },
+    {
+      "rawPublisher": "University of Alberta Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-importance-of-being-monogamous-marriage-and-nation-building-in-western-canada-to-1915-sarah-",
+          "title": "The Importance of Being Monogamous: Marriage and Nation Building in Western Canada to 1915",
+          "author": "Sarah Carter",
+          "status": "enriched",
+          "matchTitle": "Ours by Every Law of Right and Justice",
+          "matchAuthor": "Sarah Carter",
+          "matchScore": 0.4
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Vintage Classics",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-cold-crematorium-reporting-from-the-land-of-auschwitz-jozsef-debreczeni",
+          "title": "Cold Crematorium: Reporting from the Land of Auschwitz",
+          "author": "József Debreczeni",
+          "status": "enriched",
+          "matchTitle": "Cold Crematorium: Reporting from the Land of Auschwitz",
+          "matchAuthor": "Jozsef Debreczeni",
+          "matchScore": 0.85
+        }
+      ]
+    },
+    {
+      "rawPublisher": "White Rabbit",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-hip-hop-is-history-questlove-and-ben-greenman",
+          "title": "Hip-Hop Is History",
+          "author": "Questlove Ben Greenman",
+          "status": "enriched",
+          "matchTitle": "Hip-Hop Is History",
+          "matchAuthor": "Questlove Ben Greenman",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "University of Oklahoma Press",
+      "rawPublisher": "Zando",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-charles-demuth-behind-a-laughing-mask-emily-farnham",
-          "title": "Charles Demuth: Behind A Laughing Mask",
-          "author": "Emily Farnham",
+          "bookId": "book-loitering-charles-d-ambrosio",
+          "title": "Loitering",
+          "author": "Charles D’Ambrosio",
           "status": "enriched",
-          "matchTitle": "Charles Demuth",
-          "matchAuthor": "Emily Farnham",
-          "matchScore": 0.58
-        }
-      ]
-    },
-    {
-      "rawPublisher": "UNM Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-girls-in-my-town-essays-angela-morales",
-          "title": "The Girls In My Town: Essays",
-          "author": "Angela Morales",
-          "status": "enriched",
-          "matchTitle": "The Girls in My Town",
-          "matchAuthor": "Angela Morales",
-          "matchScore": 0.883
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Victor Gollancz",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-clever-hearts-desmond-and-molly-maccarthy-a-biography-hugh-cecil-and-mirabel-cecil",
-          "title": "Clever Hearts: Desmond and Molly Maccarthy: A Biography",
-          "author": "Hugh Cecil Mirabel Cecil",
-          "status": "enriched",
-          "matchTitle": "Clever Hearts",
-          "matchAuthor": "Hugh P. Cecil Mirabel Cecil",
-          "matchScore": 0.5
-        }
-      ]
-    },
-    {
-      "rawPublisher": "W. H. Allen",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-beardsley-a-biography-stanley-weintraub",
-          "title": "Beardsley: A Biography",
-          "author": "Stanley Weintraub",
-          "status": "enriched",
-          "matchTitle": "Beardsley: a biography",
-          "matchAuthor": "Stanley Weintraub",
+          "matchTitle": "Loitering",
+          "matchAuthor": "Charles D'Ambrosio",
           "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Welcome Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-divided-racism-medicine-and-why-we-need-to-decolonise-healthcare-annabel-sowemimo",
-          "title": "Divided: Racism, Medicine and Why We Need to Decolonise Healthcare",
-          "author": "Annabel Sowemimo",
-          "status": "enriched",
-          "matchTitle": "Divided: Racism, Medicine and Why We Need to Decolonise Healthcare",
-          "matchAuthor": "Annabel Sowemimo",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Westminster Press",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-generative-man-psychoanalytic-perspectives-don-browning",
-          "title": "Generative Man: Psychoanalytic Perspectives",
-          "author": "Don Browning",
-          "status": "enriched",
-          "matchTitle": "Generative man: psychoanalytic perspectives",
-          "matchAuthor": "Don S. Browning",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "WH Allen",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-volunteer-the-true-story-of-the-resistance-hero-who-infiltrated-auschwitz-jack-fairweather",
-          "title": "The Volunteer: The True Story of the Resistance Hero who Infiltrated Auschwitz",
-          "author": "Jack Fairweather",
-          "status": "enriched",
-          "matchTitle": "The Volunteer: One Man’s Mission to Lead an Underground Army in Auschwitz and Expose the Greatest Nazi Crimes",
-          "matchAuthor": "Jack Fairweather",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Wildwood House",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-bukharin-and-the-bolshevik-revolution-a-political-biography-1888-1938-stephen-f-cohen",
-          "title": "Bukharin and the Bolshevik Revolution: A Political Biography, 1888–1938",
-          "author": "Stephen F. Cohen",
-          "status": "enriched",
-          "matchTitle": "Bukharin and the Bolshevik Revolution",
-          "matchAuthor": "Stephen F. Cohen",
-          "matchScore": 0.689
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Windmill Books",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-four-dimensional-human-ways-of-being-in-the-digital-world-laurence-scott",
-          "title": "The Four-Dimensional Human: Ways of Being in the Digital World",
-          "author": "Laurence Scott",
-          "status": "enriched",
-          "matchTitle": "The Four-Dimensional Human: Ways of Being in the Digital World",
-          "matchAuthor": "Laurence Scott",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Wipf & Stock Publishers",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-fictional-transfigurations-of-jesus-theodore-ziolkowski",
-          "title": "Fictional Transfigurations of Jesus",
-          "author": "Theodore Ziolkowski",
-          "status": "enriched",
-          "matchTitle": "Fictional transfigurations of Jesus",
-          "matchAuthor": "Theodore Ziolkowski",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Yale U.P",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-the-colonial-period-of-american-history-charles-mclean-andrews",
-          "title": "The Colonial Period of American History",
-          "author": "Charles McLean Andrews",
-          "status": "enriched",
-          "matchTitle": "The Colonial period of American history",
-          "matchAuthor": "Charles McLean Andrews",
-          "matchScore": 1
-        }
-      ]
-    },
-    {
-      "rawPublisher": "Zondervan",
-      "bookCount": 1,
-      "sampleBooks": [
-        {
-          "bookId": "book-a-prophet-with-honor-the-billy-graham-story-william-martin",
-          "title": "A Prophet With Honor: The Billy Graham Story",
-          "author": "William Martin",
-          "status": "enriched",
-          "matchTitle": "A Prophet With Honor",
-          "matchAuthor": "Martin, William C.",
-          "matchScore": 0.6
         }
       ]
     }

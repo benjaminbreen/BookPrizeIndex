@@ -16,10 +16,16 @@ export type PrizeRegistryFileEntry = {
     id: string;
     name: string;
     awardType?: "major_award" | "award";
+    officialUrl?: string;
+    sourceUrl?: string;
+    sourceLabel?: string;
+    sourceConfidence?: string;
+    importStrategy?: string;
     activeYears?: string;
     coverageNotes?: string;
   }>;
 };
+type PrizeRegistryCategory = NonNullable<PrizeRegistryFileEntry["categories"]>[number];
 
 export function findPrizeRegistryEntry(prizeRegistry: PrizeRegistryFileEntry[], prizeId: string) {
   return prizeRegistry.find((prize) => prize.id === prizeId);
@@ -68,7 +74,22 @@ export function applyAwardProgramMetadata(awards: Map<string, Award>, prizeRegis
       award.programId && award.categoryName
         ? matchers.find((candidate) => candidate.prize.id === award.programId && normalizeAwardCategoryName(candidate.category.name) === normalizeAwardCategoryName(award.categoryName ?? ""))
         : matchers.find((candidate) => candidate.name === normalized);
-    if (!match) continue;
+    if (!match) {
+      const prize = award.programId ? findPrizeRegistryEntry(prizeRegistry, award.programId) : undefined;
+      if (!prize) continue;
+      award.awardType = award.awardType ?? prize.awardType;
+      award.organization = award.organization ?? prize.organization;
+      award.geography = award.geography ?? prize.geography;
+      award.scope = award.scope ?? prize.scope;
+      award.description = award.description ?? awardDescriptionForRegistry(prize);
+      award.criteria = award.criteria ?? awardCriteriaForRegistry(prize, undefined, award.categoryName ?? award.name);
+      award.links = {
+        ...award.links,
+        official: award.links.official ?? prize.officialUrl,
+        criteria: award.links.criteria ?? prize.officialUrl,
+      };
+      continue;
+    }
 
     award.programId = award.programId ?? match.prize.id;
     award.categoryName = award.categoryName ?? displayCategoryName(match.category.name);
@@ -77,11 +98,57 @@ export function applyAwardProgramMetadata(awards: Map<string, Award>, prizeRegis
     award.organization = award.organization ?? match.prize.organization;
     award.geography = award.geography ?? match.prize.geography;
     award.scope = award.scope ?? match.prize.scope;
+    award.description = award.description ?? awardDescriptionForRegistry(match.prize, match.category);
+    award.criteria = award.criteria ?? awardCriteriaForRegistry(match.prize, match.category);
     award.links = {
       ...award.links,
       official: award.links.official ?? match.prize.officialUrl,
+      criteria: award.links.criteria ?? match.category.officialUrl ?? match.category.sourceUrl ?? match.prize.officialUrl,
     };
   }
+}
+
+function awardDescriptionForRegistry(prize: PrizeRegistryFileEntry, category?: PrizeRegistryCategory) {
+  const programDescriptions: Record<string, string> = {
+    "aha-book-prizes": "American Historical Association publication prizes recognize distinguished historical scholarship across selected fields represented in this catalog.",
+    "baillie-gifford-prize": "The Baillie Gifford Prize for Non-Fiction recognizes outstanding nonfiction books published in English for a broad readership.",
+    "british-academy-book-prize": "The British Academy Book Prize recognizes nonfiction that deepens public understanding of people, cultures, and societies across the world.",
+    "costa-book-awards": "The Costa Book Awards Biography category recognized biography, autobiography, and memoir within the former Costa/Whitbread awards program.",
+    "duff-cooper-prize": "The Duff Cooper Prize recognizes nonfiction in history, biography, politics, and related fields, with an emphasis on literary distinction.",
+    "ft-business-book-of-the-year": "The Financial Times Business Book of the Year recognizes books with significant insight into business, finance, economics, and management.",
+    "helen-bernstein-book-award": "The Helen Bernstein Book Award for Excellence in Journalism recognizes books of journalism that bring public attention to important issues.",
+    "hillman-prize-book-journalism": "The Hillman Prize for Book Journalism recognizes book-length journalism in the public interest.",
+    "j-anthony-lukas-book-prize": "The J. Anthony Lukas Book Prize recognizes nonfiction on an American topic that combines serious research, literary quality, and social or political insight.",
+    "lionel-gelber-prize": "The Lionel Gelber Prize recognizes English-language nonfiction on international affairs and global public policy.",
+    "los-angeles-times-book-prize": "The Los Angeles Times Book Prize recognizes books published in the previous year across literary and nonfiction categories.",
+    "national-book-awards": "The National Book Awards recognize books published by U.S. publishers across annual literary categories, including nonfiction and historical nonfiction categories represented here.",
+    "national-book-critics-circle-awards": "The National Book Critics Circle Awards recognize books published in English across annual categories judged by book critics.",
+    "new-york-historical-american-history-book-prize": "The Barbara and David Zalaznick Book Prize in American History recognizes adult nonfiction on American history or biography.",
+    "orwell-prize": "The Orwell Prize for Political Writing recognizes nonfiction political writing that makes public issues clear, compelling, and artful.",
+    "pen-diamonstein-spielvogel-award": "The PEN/Diamonstein-Spielvogel Award for the Art of the Essay recognizes distinguished essay collections by experienced writers.",
+    "pen-eo-wilson-award": "The PEN/E.O. Wilson Literary Science Writing Award recognizes literary excellence in writing about the physical and biological sciences.",
+    "pen-weld-biography-award": "The PEN/Jacqueline Bograd Weld Award for Biography recognizes biographies of exceptional literary, narrative, and research quality.",
+    "phi-beta-kappa-book-awards": "The Phi Beta Kappa Book Awards recognize outstanding contributions to literature, science, and intellectual life.",
+    "plutarch-award": "The Plutarch Award recognizes biography selected by members of Biographers International Organization.",
+    "prose-awards": "The PROSE Awards recognize professional and scholarly works of merit across subject areas represented in this catalog.",
+    "pulitzer-prize": "The Pulitzer book prizes recognize distinguished works first published in the United States across annual categories represented in this catalog.",
+    "rachel-carson-environment-book-award": "The Rachel Carson Environment Book Award recognizes books that illuminate environmental issues through reporting, research, and public-facing nonfiction.",
+    "ridenhour-book-prize": "The Ridenhour Book Prize recognizes public-interest nonfiction connected to truth-telling, civic courage, and accountability.",
+    "royal-society-science-book-prize": "The Royal Society Science Book Prize recognizes science books written for non-specialist readers.",
+  };
+  if (programDescriptions[prize.id]) return programDescriptions[prize.id];
+  const categoryName = category ? displayCategoryName(category.name) : "represented categories";
+  return `${prize.name}: ${categoryName} recognizes ${categoryName.toLowerCase()} books represented in The Book Prize Index.`;
+}
+
+function awardCriteriaForRegistry(prize: PrizeRegistryFileEntry, category?: PrizeRegistryCategory, fallbackCategoryName?: string) {
+  const parts = [
+    category?.activeYears ? `Active years represented: ${category.activeYears}.` : undefined,
+    category?.coverageNotes,
+  ].filter(Boolean);
+  if (parts.length) return parts.join(" ");
+  const categoryName = fallbackCategoryName ? displayCategoryName(fallbackCategoryName) : "this category";
+  return `Source coverage note: ${categoryName} records are tracked from ${prize.name} source records; eligibility follows the program rules and category archives where available.`;
 }
 
 export function mergeDuplicateAwardCategories(

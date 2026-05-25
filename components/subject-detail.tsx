@@ -173,94 +173,109 @@ export function SubjectDetail({
 
       <section className="mt-5 grid gap-6 lg:grid-cols-[1fr_0.5fr] lg:items-start">
         <div className="overflow-hidden rounded-[2px] border hairline panel">
-          <div className="grid md:hidden">
-            {rows.map((book) => {
-              const imprint = book.imprint ?? "";
-              const publisher = book.publisher ?? "";
-              return (
-                <button
-                  className="book-mobile-card book-mobile-card-compact block w-full border-b hairline px-3 py-3 text-left text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
-                  key={book.id}
-                  onClick={() => setActiveBookId(book.id)}
-                  type="button"
-                >
-                  <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
-                    <div className="min-w-0 overflow-hidden">
-                      <p className="book-mobile-title-one-line text-base font-medium leading-snug">{book.title}</p>
-                      <p className="mt-0.5 truncate text-sm leading-5 muted">{book.author}</p>
-                    </div>
-                    <span className="plain-number shrink-0 font-[var(--font-mono)] text-xs">{book.publicationYear ?? "-"}</span>
-                  </div>
-                  <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-[var(--font-mono)] text-xs muted">
-                    <span><span className="plain-number text-[var(--ink)]">{book.wins}</span> wins</span>
-                    <span><span className="plain-number text-[var(--ink)]">{book.lists}</span> lists</span>
-                    <span className={`min-w-0 max-w-full truncate font-sans text-sm normal-case tracking-normal ${imprint || publisher ? "text-[var(--ink)]" : "book-missing-value"}`}>
-                      {imprint || publisher || "Not yet sourced"}
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+          {rows.length ? (
+            <>
+              <div className="grid md:hidden">
+                {rows.map((book) => {
+                  const imprint = book.imprint ?? "";
+                  const publisher = book.publisher ?? "";
+                  return (
+                    <button
+                      className="book-mobile-card book-mobile-card-compact block w-full border-b hairline px-3 py-3 text-left text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
+                      key={book.id}
+                      onClick={() => setActiveBookId(book.id)}
+                      type="button"
+                    >
+                      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
+                        <div className="min-w-0 overflow-hidden">
+                          <p className="book-mobile-title-one-line text-base font-medium leading-snug">{book.title}</p>
+                          <p className="mt-0.5 truncate text-sm leading-5 muted">{book.author}</p>
+                        </div>
+                        <span className="plain-number shrink-0 font-[var(--font-mono)] text-xs">{book.publicationYear ?? "-"}</span>
+                      </div>
+                      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 font-[var(--font-mono)] text-xs muted">
+                        <span><span className="plain-number text-[var(--ink)]">{book.wins}</span> wins</span>
+                        <span><span className="plain-number text-[var(--ink)]">{book.lists}</span> lists</span>
+                        <span className={`min-w-0 max-w-full truncate font-sans text-sm normal-case tracking-normal ${imprint || publisher ? "text-[var(--ink)]" : "book-missing-value"}`}>
+                          {imprint || publisher || "Not yet sourced"}
+                        </span>
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
 
-          <div className="hidden overflow-x-auto md:block">
-            <table className="w-full min-w-[760px] border-collapse text-left">
-            <thead className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.12em] muted">
-              <tr className="border-b hairline">
-                <th className="px-4 py-3 font-normal">Year</th>
-                <th className="px-4 py-3 font-normal">Title</th>
-                <th className="px-4 py-3 font-normal">Author</th>
-                <th className="px-4 py-3 font-normal">Wins</th>
-                <th className="px-4 py-3 font-normal">Lists</th>
-                <th className="px-4 py-3 font-normal">Imprint</th>
-                <th className="px-4 py-3 font-normal" />
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((book) => {
-                const imprint = book.imprint ?? "";
-                const publisher = book.publisher ?? "";
-                return (
-                  <tr
-                    className="book-table-row cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)]"
-                    key={book.id}
-                    onClick={() => setActiveBookId(book.id)}
-                    onKeyDown={(event) => {
-                      if (event.key === "Enter" || event.key === " ") {
-                        event.preventDefault();
-                        setActiveBookId(book.id);
-                      }
-                    }}
-                    role="button"
-                    tabIndex={0}
-                  >
-                    <td className="plain-number px-4 py-3 text-xs">{book.publicationYear}</td>
-                    <td className="px-4 py-3">
-                      <button
-                        className="focus-ring grid w-full grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-left text-base transition hover:text-[var(--accent)]"
-                        onClick={(event) => {
-                          event.stopPropagation();
-                          setActiveBookId(book.id);
-                        }}
-                        type="button"
-                      >
-                        <SubjectBookCover book={book} />
-                        <span className="line-clamp-2">{book.title}</span>
-                      </button>
-                    </td>
-                    <td className="px-4 py-3">{book.author}</td>
-                    <td className="plain-number px-4 py-3 text-xs">{book.wins}</td>
-                    <td className="plain-number px-4 py-3 text-xs">{book.lists}</td>
-                    <td className={`px-4 py-3 ${imprint || publisher ? "" : "book-missing-value"}`}>{imprint || publisher || "Not yet sourced"}</td>
-                    <td className="px-4 py-3" aria-hidden="true" />
-                  </tr>
-                );
-              })}
-            </tbody>
-            </table>
-          </div>
+              <div className="hidden overflow-x-auto md:block">
+                <table className="w-full min-w-[760px] border-collapse text-left">
+                  <thead className="font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.12em] muted">
+                    <tr className="border-b hairline">
+                      <th className="px-4 py-3 font-normal">Year</th>
+                      <th className="px-4 py-3 font-normal">Title</th>
+                      <th className="px-4 py-3 font-normal">Author</th>
+                      <th className="px-4 py-3 font-normal">Wins</th>
+                      <th className="px-4 py-3 font-normal">Lists</th>
+                      <th className="px-4 py-3 font-normal">Imprint</th>
+                      <th className="px-4 py-3 font-normal" />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {rows.map((book) => {
+                      const imprint = book.imprint ?? "";
+                      const publisher = book.publisher ?? "";
+                      return (
+                        <tr
+                          className="book-table-row cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)]"
+                          key={book.id}
+                          onClick={() => setActiveBookId(book.id)}
+                          onKeyDown={(event) => {
+                            if (event.key === "Enter" || event.key === " ") {
+                              event.preventDefault();
+                              setActiveBookId(book.id);
+                            }
+                          }}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <td className="plain-number px-4 py-3 text-xs">{book.publicationYear}</td>
+                          <td className="px-4 py-3">
+                            <button
+                              className="focus-ring grid w-full grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-left text-base transition hover:text-[var(--accent)]"
+                              onClick={(event) => {
+                                event.stopPropagation();
+                                setActiveBookId(book.id);
+                              }}
+                              type="button"
+                            >
+                              <SubjectBookCover book={book} />
+                              <span className="line-clamp-2">{book.title}</span>
+                            </button>
+                          </td>
+                          <td className="px-4 py-3">{book.author}</td>
+                          <td className="plain-number px-4 py-3 text-xs">{book.wins}</td>
+                          <td className="plain-number px-4 py-3 text-xs">{book.lists}</td>
+                          <td className={`px-4 py-3 ${imprint || publisher ? "" : "book-missing-value"}`}>{imprint || publisher || "Not yet sourced"}</td>
+                          <td className="px-4 py-3" aria-hidden="true" />
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </>
+          ) : (
+            <div className="px-4 py-14 text-center">
+              <p className="text-lg">No books match this subject view.</p>
+              <p className="mt-2 text-sm muted">Try a broader search or switch back to keyword mode.</p>
+            </div>
+          )}
           <div className="flex flex-col gap-2 border-t hairline px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between">
-            <p>Showing <span className="plain-number">1-{rows.length}</span> of <span className="plain-number">{books.length}</span> books</p>
+            <p>
+              {rows.length ? (
+                <>Showing <span className="plain-number">1-{rows.length}</span> of <span className="plain-number">{books.length}</span> books</>
+              ) : (
+                <>No matching books out of <span className="plain-number">{books.length}</span></>
+              )}
+            </p>
             <p className="muted">
               Sorted by {subjectSortLabel(sortKey).toLowerCase()}
               {books.length > 50 ? (
