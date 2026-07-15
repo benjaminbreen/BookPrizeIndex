@@ -104,7 +104,7 @@ export default function MethodologyPage() {
           <p>
             The catalog build deduplicates award appearances into books. It normalizes titles and authors, applies
             curation patches, merges generated enrichment, and writes the public catalog used by the Next.js app.
-            Generated files such as <Code>data/public/catalog.json</Code> and reports in <Code>data/public/</Code> are
+            Generated files such as <Code>data/public/catalog.json</Code> and reports in <Code>data/reports/</Code> are
             outputs, not hand-edited authority.
           </p>
           <p>
@@ -118,10 +118,20 @@ export default function MethodologyPage() {
 
         <MethodSection id="subjects" title="Subjects, topics, and imprints">
           <p>
-            Subjects and topics are deliberately separate. Subjects are the broad browse taxonomy used for primary
-            navigation. Each book gets one primary subject based on curated evidence, catalog labels, award categories,
-            topic-derived evidence, and fallback rules. Topics are more granular tags used for discovery within and
-            across subjects.
+            Subjects and topics are deliberately separate. Subjects are an editorial browse taxonomy, not Library of
+            Congress Subject Headings or Library of Congress Classification. Each book gets one primary subject so the
+            catalog and historical comparisons do not double-count it. Manual curation takes precedence; otherwise an
+            accepted high-confidence model classification becomes primary. Catalog subject labels (BISAC, Google Books,
+            Open Library), award categories, and keyword rules remain as supporting evidence and as fallbacks when the
+            classifier is uncertain. The build retains conflicting evidence instead of discarding it.
+          </p>
+          <p>
+            Confidence measures agreement between independent evidence families. The browse taxonomy intentionally
+            favors familiar reader-facing shelves over a formal bibliographic hierarchy. The stored History, American
+            History, and World History classifications remain distinct, but the main subject index and comparative
+            charts roll them into one History category; the History page exposes them as General, American, and World &
+            International filters. This avoids comparing a parent category directly with its own subdivisions. Topics
+            remain the more granular, overlapping discovery layer.
           </p>
           <p>
             Imprints are also handled separately from generic publisher metadata. Catalog APIs often return strings that

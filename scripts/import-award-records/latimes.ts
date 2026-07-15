@@ -11,6 +11,7 @@ import {
   wikiToPlainText,
   writeRawAwardRecords,
 } from "./helpers";
+import { losAngelesTimesOfficialRows, mergeOfficialAwardRows } from "./official-recent-records";
 
 type ParsedRow = {
   style: string;
@@ -42,7 +43,11 @@ async function main() {
 
     console.log(`Fetching ${category.name} table from ${pageTitle}...`);
     const wikitext = await fetchMediaWikiWikitext(pageTitle);
-    const categoryRecords = parseLosAngelesTimesCategory(prize, category, wikitext);
+    const categoryRecords = mergeOfficialAwardRows(
+      parseLosAngelesTimesCategory(prize, category, wikitext),
+      prize,
+      losAngelesTimesOfficialRows.filter((row) => row.categoryId === category.id),
+    );
     records.push(...categoryRecords);
     summaries.push({
       categoryId: category.id,
@@ -59,8 +64,8 @@ async function main() {
 
   await writeRawAwardRecords("latimes.json", records, {
     importer: "scripts/import-award-records/latimes.ts",
-    source: "MediaWiki wikitables for Los Angeles Times Book Prize nonfiction category pages",
-    notes: "The Los Angeles Times books section is retained in sources/prizes.json, but this first importer uses Wikipedia category pages as deterministic secondary sources.",
+    source: "MediaWiki historical tables plus official Los Angeles Times recent results",
+    notes: "Historical rows use deterministic secondary-source category tables. Complete 2024 and 2025 category slates are replaced with official Los Angeles Times results.",
     categories: summaries,
   });
 
@@ -112,6 +117,7 @@ export function parseLosAngelesTimesCategory(prize: PrizeRegistryEntry, category
 }
 
 function applyKnownSourceCorrections(record: PartialRecord): PartialRecord {
+  const titleSlug = slugify(record.title);
   if (
     record.categoryId === "latimes-history" &&
     record.year === 2020 &&
@@ -119,15 +125,26 @@ function applyKnownSourceCorrections(record: PartialRecord): PartialRecord {
       "cuba-an-american-history",
       "traveling-black-a-story-of-race-and-resistance",
       "the-chinese-question-the-gold-rushes-chinese-migration-and-global-politics",
+      "the-chinese-question-the-gold-rushes-and-global-politics",
       "african-europeans-an-untold-history",
       "ive-been-here-all-the-while-black-freedom-on-native-land",
-    ].includes(slugify(record.title))
+      "i-ve-been-here-all-the-while-black-freedom-on-native-land",
+    ].includes(titleSlug)
   ) {
     return {
       ...record,
       year: 2021,
       notes: [record.notes, "Corrected importer year: the secondary table currently labels the 2021 History group as 2020."].filter(Boolean).join(" "),
     };
+  }
+  if (record.categoryId === "latimes-biography" && record.year === 2016 && titleSlug === "hitler-ascent-1889-1939") {
+    return { ...record, authors: ["Volker Ullrich"] };
+  }
+  if (record.categoryId === "latimes-current-interest" && record.year === 2016 && titleSlug === "secondhand-time-the-last-of-the-soviets") {
+    return { ...record, authors: ["Svetlana Alexievich"] };
+  }
+  if (record.categoryId === "latimes-history" && record.year === 2011 && titleSlug === "the-anatomy-of-a-moment-thirty-five-minutes-in-history-and-imagination") {
+    return { ...record, authors: ["Javier Cercas"] };
   }
   return record;
 }

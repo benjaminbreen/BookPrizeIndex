@@ -1,22 +1,120 @@
 {
-  "generatedAt": "2026-05-10T22:44:16.990Z",
+  "generatedAt": "2026-07-13T23:08:38.023Z",
   "metadata": {
     "importer": "scripts/import-award-records/royal-society.ts",
-    "source": "Wikipedia: Royal Society Science Book Prize",
-    "notes": "Imports winners and shortlisted books from the deterministic Wikipedia table; official Royal Society pages are retained in registry metadata for later verification.",
+    "source": "Wikipedia: Royal Society Science Book Prize, with official Royal Society verification for 2026",
+    "notes": "Imports historical winners and shortlisted books from the deterministic Wikipedia table; 2026 records are verified against the official Royal Society book archive.",
     "categories": [
       {
         "categoryId": "royal-society-science",
         "categoryName": "Science Book Prize",
         "sourceUrl": "https://en.wikipedia.org/wiki/Royal_Society_Science_Book_Prize",
-        "records": 169,
+        "records": 176,
         "winners": 39,
-        "shortlisted": 130,
-        "yearRange": "1988-2025"
+        "shortlisted": 137,
+        "yearRange": "1988-2026"
       }
-    ]
+    ],
+    "reconciliation": {
+      "baselineRef": "HEAD",
+      "retainedBaselineRecords": 169,
+      "acceptedNewRecords": 6,
+      "rejectedNewRecords": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 0
+    }
   },
   "records": [
+    {
+      "awardId": "royal-society-science-book-prize",
+      "awardName": "Royal Society Science Book Prize",
+      "categoryId": "royal-society-science",
+      "categoryName": "Science Book Prize",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Bad Influence: How the Internet Hijacked our Health",
+      "authors": [
+        "Deborah Cohen"
+      ],
+      "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/",
+      "sourceLabel": "Royal Society Science Book Prize archive",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "royal-society-science-book-prize",
+      "awardName": "Royal Society Science Book Prize",
+      "categoryId": "royal-society-science",
+      "categoryName": "Science Book Prize",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Despite it All: A Handbook for Climate Hopefuls",
+      "authors": [
+        "Fred Pearce"
+      ],
+      "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/",
+      "sourceLabel": "Royal Society Science Book Prize archive",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "royal-society-science-book-prize",
+      "awardName": "Royal Society Science Book Prize",
+      "categoryId": "royal-society-science",
+      "categoryName": "Science Book Prize",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Every Last Fish: What Fish Do for Us and What We Do to Them",
+      "authors": [
+        "Rose George"
+      ],
+      "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/",
+      "sourceLabel": "Royal Society Science Book Prize archive",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "royal-society-science-book-prize",
+      "awardName": "Royal Society Science Book Prize",
+      "categoryId": "royal-society-science",
+      "categoryName": "Science Book Prize",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Hidden Guests: Migrating Cells and How the New Science of Microchimerism is Redefining Human Identity",
+      "authors": [
+        "Lise Barnéoud"
+      ],
+      "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/",
+      "sourceLabel": "Royal Society Science Book Prize archive",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "royal-society-science-book-prize",
+      "awardName": "Royal Society Science Book Prize",
+      "categoryId": "royal-society-science",
+      "categoryName": "Science Book Prize",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "How to Change a Memory: One Neuroscientist's Quest to Alter the Past",
+      "authors": [
+        "Steve Ramirez"
+      ],
+      "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/",
+      "sourceLabel": "Royal Society Science Book Prize archive",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "royal-society-science-book-prize",
+      "awardName": "Royal Society Science Book Prize",
+      "categoryId": "royal-society-science",
+      "categoryName": "Science Book Prize",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "The Age of Alchemy: How Early Innovators Shaped Modern Chemistry",
+      "authors": [
+        "Kit Chapman"
+      ],
+      "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/",
+      "sourceLabel": "Royal Society Science Book Prize archive",
+      "sourceConfidence": "official"
+    },
     {
       "awardId": "royal-society-science-book-prize",
       "awardName": "Royal Society Science Book Prize",

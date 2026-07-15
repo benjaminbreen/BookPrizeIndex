@@ -1,0 +1,713 @@
+{
+  "generatedAt": "2026-07-14T00:07:48.483Z",
+  "model": "gpt-4o-mini",
+  "budgetUsd": 4,
+  "estimatedSpendUsd": 0.0162,
+  "stoppedForBudget": false,
+  "totals": {
+    "considered": 58,
+    "classified": 58,
+    "failed": 0,
+    "skippedForBudget": 0,
+    "alreadyCached": 5422
+  },
+  "books": [
+    {
+      "bookId": "book-a-history-of-building-types-nikolaus-pevsner",
+      "title": "A History of Building Types",
+      "author": "Nikolaus Pevsner",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "History"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily explores how architecture reflects societal values and changes, fitting it best under Society & Culture, with a secondary emphasis on its historical context."
+    },
+    {
+      "bookId": "book-a-realistic-theory-of-law-brian-z-tamanaha",
+      "title": "A Realistic Theory of Law",
+      "author": "Brian Z. Tamanaha",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [],
+      "confidence": "high",
+      "rationale": "The book articulates a theory of law deeply intertwined with societal factors, fitting best within the broader subject of Politics & Government."
+    },
+    {
+      "bookId": "book-alice-let-s-eat-further-adventures-of-a-happy-eater-calvin-trillin",
+      "title": "Alice, Let's Eat: Further Adventures of a Happy Eater",
+      "author": "Calvin Trillin",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Travel & Place"
+      ],
+      "confidence": "medium",
+      "rationale": "The book primarily explores culinary culture and dining experiences, which falls under Society & Culture, while also encompassing elements of travel as it details food adventures across various locations."
+    },
+    {
+      "bookId": "book-american-law-in-the-twentieth-century-lawrence-friedman",
+      "title": "American Law in the Twentieth Century",
+      "author": "Lawrence Friedman",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "History",
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily explores the evolution of American law within the broader context of political and social changes in the 20th century, making 'Politics & Government' the dominant frame alongside relevant historical and societal aspects."
+    },
+    {
+      "bookId": "book-among-schoolchildren-tracy-kidder",
+      "title": "Among Schoolchildren",
+      "author": "Tracy Kidder",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [],
+      "confidence": "high",
+      "rationale": "The book focuses on the educational environment and cultural context of an inner-city classroom, placing it within the broader themes of society and culture."
+    },
+    {
+      "bookId": "book-babysense-a-practical-and-supportive-guide-to-baby-care-frances-wells-burck",
+      "title": "Babysense: A Practical and Supportive Guide to Baby Care",
+      "author": "Frances Wells Burck",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Medicine & Public Health"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily addresses parenting and baby care within the context of societal and cultural practices, while also touching on aspects of health and wellbeing."
+    },
+    {
+      "bookId": "book-class-warfare-inside-the-fight-to-fix-america-s-schools-steven-brill",
+      "title": "Class Warfare: Inside the Fight to Fix America's Schools",
+      "author": "Steven Brill",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Politics & Government"
+      ],
+      "confidence": "high",
+      "rationale": "The book explores the complexities of America's educational system through the lens of social issues and governmental policies, making it primarily a study of society and culture."
+    },
+    {
+      "bookId": "book-collected-poems-peter-porter",
+      "title": "Collected Poems",
+      "author": "Peter Porter",
+      "status": "classified",
+      "primarySubject": "Arts & Criticism",
+      "secondarySubjects": [],
+      "confidence": "high",
+      "rationale": "The book is a collection of poems, making 'Arts & Criticism' the most appropriate subject despite the absence of a specific category for poetry."
+    },
+    {
+      "bookId": "book-critical-race-judgments-rewritten-u-s-court-opinions-on-race-and-the-law-bennett-capers-devon-w-",
+      "title": "Critical Race Judgments: Rewritten U.S. Court Opinions on Race and the Law",
+      "author": "Bennett Capers, Devon W. Carbado, R. A. Lenhardt, Angela Onwuachi-Willig",
+      "status": "classified",
+      "primarySubject": "Race & Ethnicity",
+      "secondarySubjects": [
+        "Politics & Government"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily addresses issues of racial justice through a legal lens by rewriting Supreme Court opinions, highlighting its central focus on Race & Ethnicity while also engaging with Law and Politics & Government."
+    },
+    {
+      "bookId": "book-failure-and-forgiveness-karen-gross",
+      "title": "Failure and Forgiveness",
+      "author": "Karen Gross",
+      "status": "classified",
+      "primarySubject": "Business & Economics",
+      "secondarySubjects": [
+        "Politics & Government",
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book discusses bankruptcy within a legal and social context, primarily focusing on its implications in business and economic systems."
+    },
+    {
+      "bookId": "book-generative-man-psychoanalytic-perspectives-don-browning",
+      "title": "Generative Man: Psychoanalytic Perspectives",
+      "author": "Don Browning",
+      "status": "classified",
+      "primarySubject": "Science",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "medium",
+      "rationale": "The book discusses psychoanalytic perspectives which relate to psychology, best classified under Science, with a secondary focus on societal impacts."
+    },
+    {
+      "bookId": "book-happiness-unlocking-the-mysteries-of-psychological-wealth-ed-diener-and-robert-biswas-diener",
+      "title": "Happiness: Unlocking the Mysteries of Psychological Wealth",
+      "author": "Ed Diener, Robert Biswas-Diener",
+      "status": "classified",
+      "primarySubject": "Science",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily focuses on the scientific study and understanding of happiness within the framework of psychology, fitting best under Science while also addressing societal implications, thus justifying a secondary classification in Society & Culture."
+    },
+    {
+      "bookId": "book-hiding-from-humanity-disgust-shame-and-the-law-martha-c-nussbaum",
+      "title": "Hiding from Humanity: Disgust, Shame, and the Law",
+      "author": "Martha C. Nussbaum",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book critically examines the intersection of law, societal norms, and emotions such as disgust and shame, placing it primarily within the realm of politics and government while also addressing cultural implications."
+    },
+    {
+      "bookId": "book-house-tracy-kidder",
+      "title": "House",
+      "author": "Tracy Kidder",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Arts & Criticism"
+      ],
+      "confidence": "medium",
+      "rationale": "The book's focus on the construction of a house can be framed within Society & Culture due to its examination of how architectural practices reflect and shape societal values, with a secondary emphasis on the aesthetic aspects of architecture."
+    },
+    {
+      "bookId": "book-how-the-world-thinks-a-global-history-of-philosophy-julian-baggini",
+      "title": "How the World Thinks: A Global History of Philosophy",
+      "author": "Julian Baggini",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "History"
+      ],
+      "confidence": "medium",
+      "rationale": "The book provides a global overview of philosophy in relation to cultural and historical contexts, making it primarily about societal and cultural frameworks while also delving into historical development."
+    },
+    {
+      "bookId": "book-is-that-a-fish-in-your-ear-translation-and-the-meaning-of-everything-david-bellos",
+      "title": "Is That a Fish in Your Ear?: Translation and the Meaning of Everything",
+      "author": "David Bellos",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Science"
+      ],
+      "confidence": "high",
+      "rationale": "The book explores the role of translation in human society and culture, emphasizing its importance in communication and understanding, while also touching on scientific aspects of language and translation processes."
+    },
+    {
+      "bookId": "book-julia-child-and-more-company-julia-child",
+      "title": "Julia Child and More Company",
+      "author": "Julia Child",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Arts & Criticism"
+      ],
+      "confidence": "medium",
+      "rationale": "The book focuses on cooking for company, which explores social and cultural aspects of dining and entertaining, though it also touches on culinary arts."
+    },
+    {
+      "bookId": "book-kicked-a-building-lately-ada-louise-huxtable",
+      "title": "Kicked a Building Lately?",
+      "author": "Ada Louise Huxtable",
+      "status": "classified",
+      "primarySubject": "Arts & Criticism",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book predominantly examines architecture as an artistic and cultural critique, fitting best within the subject of Arts & Criticism, while also addressing broader societal issues related to urban planning."
+    },
+    {
+      "bookId": "book-kingdom-of-characters-the-language-revolution-that-made-china-modern-jing-tsu",
+      "title": "Kingdom of Characters: The Language Revolution That Made China Modern",
+      "author": "Jing Tsu",
+      "status": "classified",
+      "primarySubject": "Technology",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "medium",
+      "rationale": "The book primarily discusses the technological innovations in adapting the Chinese language for modern use, but it also touches on cultural impacts, making 'Technology' the primary subject with 'Society & Culture' as a secondary focus."
+    },
+    {
+      "bookId": "book-lincoln-s-constitution-daniel-farber",
+      "title": "Lincoln’s Constitution",
+      "author": "Daniel Farber",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "American History"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily explores how Abraham Lincoln navigated constitutional issues during the Civil War, framing it within the context of politics and government while also addressing American historical aspects."
+    },
+    {
+      "bookId": "book-living-on-death-row-the-psychology-of-waiting-to-die-hans-toch-james-p-acker-and-vincent-martin-",
+      "title": "Living on Death Row: The Psychology of Waiting to Die",
+      "author": "Hans Toch, James P. Acker,, Vincent Martin Bonventre",
+      "status": "classified",
+      "primarySubject": "True Crime & Justice",
+      "secondarySubjects": [],
+      "confidence": "medium",
+      "rationale": "The book focuses on the psychological aspects of individuals awaiting execution, situating it within the domains of justice and psychological impact, although 'Psychology' is not an available category."
+    },
+    {
+      "bookId": "book-man-made-america-chaos-or-control-christopher-tunnard-and-boris-pushkarev",
+      "title": "Man-made America: Chaos or Control?",
+      "author": "Christopher Tunnard, Boris Pushkarev",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "medium",
+      "rationale": "The book discusses the themes of city and regional planning which relate closely to politics and governmental decisions, while also addressing societal structures and cultural implications."
+    },
+    {
+      "bookId": "book-new-poems-roy-fuller",
+      "title": "New Poems",
+      "author": "Roy Fuller",
+      "status": "classified",
+      "primarySubject": "Arts & Criticism",
+      "secondarySubjects": [],
+      "confidence": "high",
+      "rationale": "The collection is fundamentally about poetry and literary artistry, which fits best under Arts & Criticism."
+    },
+    {
+      "bookId": "book-north-seamus-heaney",
+      "title": "North",
+      "author": "Seamus Heaney",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "History"
+      ],
+      "confidence": "high",
+      "rationale": "The collection articulates a vision of Ireland's people and history through poetry, primarily exploring cultural narratives and societal reflections."
+    },
+    {
+      "bookId": "book-open-socrates-the-case-for-a-philosophical-life-agnes-callard",
+      "title": "Open Socrates: The Case for a Philosophical Life",
+      "author": "Agnes Callard",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Politics & Government"
+      ],
+      "confidence": "high",
+      "rationale": "The book explores themes related to philosophical living and societal norms as influenced by Socratic thought, making it primarily about society and culture, with significant overlap in political implications."
+    },
+    {
+      "bookId": "book-other-minds-thomas-nagel",
+      "title": "Other Minds",
+      "author": "Thomas Nagel",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "medium",
+      "rationale": "While the book centers on philosophical themes, it primarily addresses concepts within political philosophy and their societal implications, making Politics & Government a fitting primary subject."
+    },
+    {
+      "bookId": "book-philosophical-explanations-robert-nozick",
+      "title": "Philosophical Explanations",
+      "author": "Robert Nozick",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Politics & Government"
+      ],
+      "confidence": "medium",
+      "rationale": "The book explores philosophical concepts that relate to human values and societal issues, making 'Society & Culture' the most relevant primary subject, while 'Values' and 'Politics & Government' are secondary considerations due to the nature of its themes."
+    },
+    {
+      "bookId": "book-promoting-desired-lifestyles-among-adults-with-severe-autism-and-intellectual-disabilities-denni",
+      "title": "Promoting Desired Lifestyles Among Adults With Severe Autism and Intellectual Disabilities",
+      "author": "Dennis H. Reid, Mary Rosswurm",
+      "status": "classified",
+      "primarySubject": "Medicine & Public Health",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book focuses on promoting well-being and happiness for adults with severe autism and intellectual disabilities, aligning closely with public health and societal aspects of mental health care."
+    },
+    {
+      "bookId": "book-psychoanalysis-the-impossible-profession-janet-malcolm",
+      "title": "Psychoanalysis: The Impossible Profession",
+      "author": "Janet Malcolm",
+      "status": "classified",
+      "primarySubject": "Medicine & Public Health",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "medium",
+      "rationale": "The book examines the field of psychoanalysis, which intersects with medicine, as well as its societal implications, making it fit primarily under Medicine & Public Health while also touching upon Society & Culture."
+    },
+    {
+      "bookId": "book-quiet-the-power-of-introverts-in-a-world-that-can-t-stop-talking-susan-cain",
+      "title": "Quiet: The Power of Introverts in a World That Can’t Stop Talking",
+      "author": "Susan Cain",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Gender & Sexuality"
+      ],
+      "confidence": "high",
+      "rationale": "This book primarily examines the societal perceptions and cultural dynamics surrounding introverts, making 'Society & Culture' the best fit, while also touching on psychological aspects of personality."
+    },
+    {
+      "bookId": "book-rewriting-the-soul-multiple-personality-and-the-sciences-of-memory-ian-hacking",
+      "title": "Rewriting the Soul: Multiple Personality and the Sciences of Memory",
+      "author": "Ian Hacking",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Medicine & Public Health"
+      ],
+      "confidence": "medium",
+      "rationale": "The book examines social aspects of multiple personality disorders and their connection to memory and trauma, situating it within broader societal and medical contexts."
+    },
+    {
+      "bookId": "book-small-victories-the-real-world-of-a-teacher-her-students-and-their-high-school-samuel-g-freedman",
+      "title": "Small Victories: The Real World of a Teacher, Her Students and Their High School",
+      "author": "Samuel G. Freedman",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Race & Ethnicity"
+      ],
+      "confidence": "medium",
+      "rationale": "The book provides a detailed portrait of a teacher's impact in a diverse high school setting, fitting primarily within society and culture while also touching on educational themes and issues related to race and ethnicity."
+    },
+    {
+      "bookId": "book-social-perception-and-social-reality-why-accuracy-dominates-bias-and-self-fulfilling-prophecy-le",
+      "title": "Social Perception and Social Reality: Why Accuracy Dominates Bias and Self-Fulfilling Prophecy",
+      "author": "Lee Jussim",
+      "status": "classified",
+      "primarySubject": "Science",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily examines concepts in social psychology, which falls under the broader subject of Science, while also engaging with societal implications, justifying the inclusion of Society & Culture as a secondary subject."
+    },
+    {
+      "bookId": "book-the-anatomy-of-disgust-william-ian-miller",
+      "title": "The Anatomy of Disgust",
+      "author": "William Ian Miller",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Politics & Government",
+        "Science"
+      ],
+      "confidence": "high",
+      "rationale": "The book explores the emotions of disgust and its implications for social hierarchies and political dynamics, positioning it primarily within Society & Culture, while also touching on Politics & Government and the scientific understanding of human behavior."
+    },
+    {
+      "bookId": "book-the-biology-of-desire-why-addiction-is-not-a-disease-marc-lewis-phd",
+      "title": "The Biology of Desire: Why Addiction is Not a Disease",
+      "author": "Marc Lewis, PhD",
+      "status": "classified",
+      "primarySubject": "Science",
+      "secondarySubjects": [
+        "Medicine & Public Health"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily explores addiction through a scientific lens, focusing on neurological processes while also addressing public health implications."
+    },
+    {
+      "bookId": "book-the-columbia-gazetteer-of-the-world-saul-b-cohen-editor",
+      "title": "The Columbia Gazetteer of the World",
+      "author": "Saul B. Cohen, Editor",
+      "status": "classified",
+      "primarySubject": "Travel & Place",
+      "secondarySubjects": [
+        "Science",
+        "Society & Culture"
+      ],
+      "confidence": "medium",
+      "rationale": "The book is a geographical encyclopedia focusing on places and their characteristics, which aligns best with Travel & Place, though it also touches on scientific and societal aspects."
+    },
+    {
+      "bookId": "book-the-country-kitchen-della-t-lutes",
+      "title": "The Country Kitchen",
+      "author": "Della T. Lutes",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "American History"
+      ],
+      "confidence": "medium",
+      "rationale": "The book primarily explores the cultural significance of cookery within American society, aligning best with Society & Culture but also touching on historical aspects of American cooking."
+    },
+    {
+      "bookId": "book-the-gothic-screen-space-sculpture-and-community-in-the-cathedrals-of-france-and-germany-ca-1200-",
+      "title": "The Gothic Screen: Space, Sculpture, and Community in the Cathedrals of France and Germany, ca. 1200-1400",
+      "author": "Jacqueline E. Jung",
+      "status": "classified",
+      "primarySubject": "Arts & Criticism",
+      "secondarySubjects": [
+        "Society & Culture",
+        "Religion"
+      ],
+      "confidence": "medium",
+      "rationale": "The book primarily discusses Gothic choir screens as a form of artistic expression and cultural communication, while also touching upon their significance in societal and religious contexts."
+    },
+    {
+      "bookId": "book-the-land-where-the-blues-began-alan-lomax",
+      "title": "The Land Where the Blues Began",
+      "author": "Alan Lomax",
+      "status": "classified",
+      "primarySubject": "Arts & Criticism",
+      "secondarySubjects": [
+        "Race & Ethnicity",
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book predominantly explores the history and cultural significance of the blues music genre, particularly within the African American community in the Mississippi Delta, thus fitting squarely into Arts & Criticism while also addressing themes of race and social life."
+    },
+    {
+      "bookId": "book-the-meaning-of-human-existence-e-o-wilson",
+      "title": "The Meaning of Human Existence",
+      "author": "E.O. Wilson",
+      "status": "classified",
+      "primarySubject": "Science",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily explores human beings through a scientific lens, addressing biological evolution and social evolution, while also touching on cultural implications."
+    },
+    {
+      "bookId": "book-the-measure-of-man-joseph-wood-krutch",
+      "title": "The Measure of Man",
+      "author": "Joseph Wood Krutch",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Technology",
+        "Science"
+      ],
+      "confidence": "medium",
+      "rationale": "The book offers an analysis of man within the contexts of contemporary social thought and technological development, which aligns it closely with Society & Culture, while also touching on relevant themes in Technology and Science."
+    },
+    {
+      "bookId": "book-the-medieval-origins-of-the-legal-profession-canonists-civilians-and-courts-james-a-brundage",
+      "title": "The Medieval Origins of the Legal Profession: Canonists, Civilians, & Courts",
+      "author": "James A. Brundage",
+      "status": "classified",
+      "primarySubject": "History",
+      "secondarySubjects": [
+        "Politics & Government"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily explores the historical development of the legal profession from ancient Rome through the medieval period, focusing on the intersection of law and church authority."
+    },
+    {
+      "bookId": "book-the-mirror-of-justice-literary-reflections-of-legal-crises-theodore-ziolkowski",
+      "title": "The Mirror of Justice: Literary Reflections of Legal Crises",
+      "author": "Theodore Ziolkowski",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "medium",
+      "rationale": "The book primarily explores legal issues through literary reflections, which places it in the realm of Politics & Government, while also intersecting with Society & Culture due to its analysis of law's evolution within cultural contexts."
+    },
+    {
+      "bookId": "book-the-parthenon-enigma-joan-breton-connelly",
+      "title": "The Parthenon Enigma",
+      "author": "Joan Breton Connelly",
+      "status": "classified",
+      "primarySubject": "Arts & Criticism",
+      "secondarySubjects": [
+        "History"
+      ],
+      "confidence": "high",
+      "rationale": "The book examines the Parthenon, an iconic architectural work, through an artistic and historical lens, placing it firmly within the realm of Arts & Criticism while also touching on historical aspects."
+    },
+    {
+      "bookId": "book-the-power-of-habeas-corpus-in-america-from-the-king-s-prerogative-to-the-war-on-terror-anthony-g",
+      "title": "The Power of Habeas Corpus in America: From the King's Prerogative to the War on Terror",
+      "author": "Anthony Gregory",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "War & Military",
+        "American History"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily discusses the legal and political implications of habeas corpus in America, particularly in the context of wartime and government power, making Politics & Government the dominant frame."
+    },
+    {
+      "bookId": "book-the-redemptive-self-dan-p-mcadams",
+      "title": "The Redemptive Self",
+      "author": "Dan P. McAdams",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Race & Ethnicity"
+      ],
+      "confidence": "medium",
+      "rationale": "The book focuses on the psychological aspects of self-perception and redemption within the context of American culture and identity, making Society & Culture the primary subject while Psychology and Race & Ethnicity serve as relevant secondary themes."
+    },
+    {
+      "bookId": "book-the-rise-of-american-philosophy-cambridge-massachusetts-1860-1930-bruce-kuklick",
+      "title": "The Rise of American Philosophy: Cambridge, Massachusetts, 1860-1930",
+      "author": "Bruce Kuklick",
+      "status": "classified",
+      "primarySubject": "History",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily analyzes the development of American philosophy within a historical context, focusing on prominent thinkers and their social milieu."
+    },
+    {
+      "bookId": "book-the-seven-deadly-sins-of-psychology-a-manifesto-for-reforming-the-culture-of-scientific-practice",
+      "title": "The Seven Deadly Sins of Psychology: A Manifesto for Reforming the Culture of Scientific Practice",
+      "author": "Chris Chambers",
+      "status": "classified",
+      "primarySubject": "Science",
+      "secondarySubjects": [],
+      "confidence": "high",
+      "rationale": "The book primarily critiques scientific practices within the field of psychology, making 'Science' the dominant subject, with a specific focus on 'Psychology' and 'Research' as relevant secondary subjects."
+    },
+    {
+      "bookId": "book-the-sociology-of-philosophies-a-global-theory-of-intellectual-change-randall-collins",
+      "title": "The Sociology of Philosophies: A Global Theory of Intellectual Change",
+      "author": "Randall Collins",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "History"
+      ],
+      "confidence": "high",
+      "rationale": "The book examines the development of philosophical thought through social networks and intellectual change, placing it firmly in the realm of Society & Culture with historical elements."
+    },
+    {
+      "bookId": "book-the-transformation-of-the-school-lawrence-a-cremin",
+      "title": "The Transformation of the School",
+      "author": "Lawrence A. Cremin",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Politics & Government"
+      ],
+      "confidence": "medium",
+      "rationale": "The book focuses on the transformation of educational institutions within societal frameworks, making 'Society & Culture' the most fitting primary subject, while also touching on political influences in education."
+    },
+    {
+      "bookId": "book-the-uses-of-enchantment-the-meaning-and-importance-of-fairy-tales-bruno-bettelheim",
+      "title": "The Uses of Enchantment: The Meaning and Importance of Fairy Tales",
+      "author": "Bruno Bettelheim",
+      "status": "classified",
+      "primarySubject": "Science",
+      "secondarySubjects": [
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily explores the psychological significance of fairy tales in childhood development, making 'Science' the most fitting subject, with 'Society & Culture' as a secondary focus on the cultural role of these narratives."
+    },
+    {
+      "bookId": "book-the-worst-trickster-story-ever-told-native-america-the-supreme-court-and-the-u-s-constitution-ke",
+      "title": "The Worst Trickster Story Ever Told: Native America, the Supreme Court, and the U.S. Constitution",
+      "author": "Keith Richotte, Jr.",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "Race & Ethnicity",
+        "History"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily examines the interplay between Native American sovereignty, Supreme Court authority, and U.S. law, which fits best under Politics & Government, while also engaging with themes of race and historical context."
+    },
+    {
+      "bookId": "book-thinking-for-a-living-education-and-the-wealth-of-nations-ray-marshall-and-marc-tucker",
+      "title": "Thinking for a Living: Education and the Wealth of Nations",
+      "author": "Ray Marshall, Marc Tucker",
+      "status": "classified",
+      "primarySubject": "Business & Economics",
+      "secondarySubjects": [
+        "Politics & Government",
+        "Society & Culture"
+      ],
+      "confidence": "high",
+      "rationale": "The book focuses on the relationship between education and economic productivity, addressing how educational systems must adapt to meet the needs of the workforce, placing it firmly within Business & Economics."
+    },
+    {
+      "bookId": "book-undoing-aloneness-and-the-transformation-of-suffering-into-flourishing-aedp-2-0-diana-fosha",
+      "title": "Undoing Aloneness and the Transformation of Suffering into Flourishing: AEDP 2.0",
+      "author": "Diana Fosha",
+      "status": "classified",
+      "primarySubject": "Science",
+      "secondarySubjects": [
+        "Medicine & Public Health"
+      ],
+      "confidence": "high",
+      "rationale": "The book focuses on psychological therapy and the neurological aspects of mental health, fitting primarily within Science and also relating to Medicine & Public Health due to its clinical focus."
+    },
+    {
+      "bookId": "book-venice-from-the-water-architecture-and-myth-in-an-early-modern-city-daniel-savoy",
+      "title": "Venice from the Water: Architecture and Myth in an Early Modern City",
+      "author": "Daniel Savoy",
+      "status": "classified",
+      "primarySubject": "Arts & Criticism",
+      "secondarySubjects": [
+        "History",
+        "Travel & Place"
+      ],
+      "confidence": "high",
+      "rationale": "The book primarily explores the architectural history of Venice through an artistic lens while also providing historical context and engaging with the notion of place."
+    },
+    {
+      "bookId": "book-we-wish-to-inform-you-that-tomorrow-we-will-be-killed-with-our-families-stories-from-rwanda-phil",
+      "title": "We Wish to Inform You That Tomorrow We Will Be Killed with Our Families: Stories from Rwanda",
+      "author": "Philip Gourevitch",
+      "status": "classified",
+      "primarySubject": "Politics & Government",
+      "secondarySubjects": [
+        "Race & Ethnicity",
+        "War & Military"
+      ],
+      "confidence": "high",
+      "rationale": "The book centers on the political dynamics surrounding the genocide in Rwanda, exploring themes of ethnic conflict and the broader implications of state power, while also detailing the violent events themselves."
+    },
+    {
+      "bookId": "book-what-would-lynne-tillman-do-lynne-tillman",
+      "title": "What Would Lynne Tillman Do?",
+      "author": "Lynne Tillman",
+      "status": "classified",
+      "primarySubject": "Arts & Criticism",
+      "secondarySubjects": [
+        "Society & Culture",
+        "Politics & Government"
+      ],
+      "confidence": "high",
+      "rationale": "The book is primarily a collection of essays and interviews focused on arts and literature, while also addressing social issues and political themes."
+    },
+    {
+      "bookId": "book-why-does-the-world-exist-an-existential-detective-story-jim-holt",
+      "title": "Why Does the World Exist?: An Existential Detective Story",
+      "author": "Jim Holt",
+      "status": "classified",
+      "primarySubject": "Society & Culture",
+      "secondarySubjects": [
+        "Science"
+      ],
+      "confidence": "medium",
+      "rationale": "The book explores existential questions that are deeply rooted in societal and cultural contexts, while also touching on philosophical and scientific inquiries related to the nature of existence."
+    }
+  ]
+}

@@ -56,6 +56,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const outputDir = path.join(root, "sources", "enrichment");
 const publicDataDir = path.join(root, "data", "public");
+const reportsDataDir = path.join(root, "data", "reports");
 const generatedPath = path.join(outputDir, "subject-categories.generated.json");
 const limit = Number(process.env.SUBJECT_ENRICH_LIMIT ?? readArg("--limit") ?? "50");
 const minimumScore = Number(process.env.SUBJECT_ENRICH_MIN_SCORE ?? readArg("--min-score") ?? "0.58");
@@ -117,10 +118,10 @@ async function main() {
   }
 
   await fs.mkdir(outputDir, { recursive: true });
-  await fs.mkdir(publicDataDir, { recursive: true });
+  await Promise.all([publicDataDir, reportsDataDir].map((dir) => fs.mkdir(dir, { recursive: true })));
   await fs.writeFile(generatedPath, `${JSON.stringify(patch, null, 2)}\n`);
   await fs.writeFile(
-    path.join(publicDataDir, "subject-category-enrichment-report.json"),
+    path.join(reportsDataDir, "subject-category-enrichment-report.json"),
     `${JSON.stringify({ generatedAt, limit, minimumScore, selectedCount: selected.length, report }, null, 2)}\n`,
   );
   console.log(`Subject category enrichment: ${report.filter((row) => row.status === "enriched").length}/${selected.length} enriched.`);

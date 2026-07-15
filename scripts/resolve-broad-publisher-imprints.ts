@@ -99,9 +99,9 @@ const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "public", "catalog.json");
 const mappingPath = path.join(root, "sources", "imprint-normalization.json");
 const outputPath = path.join(root, "sources", "enrichment", "imprints.resolved.generated.json");
-const queuePath = path.join(root, "data", "public", "imprint-resolution-queue.json");
-const reportPath = path.join(root, "data", "public", "imprint-resolution-report.json");
-const cachePath = path.join(root, "data", "public", "imprint-resolution-provider-cache.json");
+const queuePath = path.join(root, "data", "reports", "imprint-resolution-queue.json");
+const reportPath = path.join(root, "data", "reports", "imprint-resolution-report.json");
+const cachePath = path.join(root, "data", "cache", "imprint-resolution-provider-cache.json");
 const limit = positiveNumber(readArg("--limit") ?? process.env.IMPRINT_RESOLUTION_LIMIT, 250);
 const concurrency = positiveNumber(readArg("--concurrency") ?? process.env.IMPRINT_RESOLUTION_CONCURRENCY, 3);
 const minScore = Number(readArg("--min-score") ?? process.env.IMPRINT_RESOLUTION_MIN_SCORE ?? "0.74");
@@ -160,7 +160,7 @@ async function main() {
   );
 
   console.log(`Resolved ${report.filter((row) => row.status === "applied").length}/${queue.length} broad-parent publisher rows.`);
-  console.log(`Report written to data/public/imprint-resolution-report.json.`);
+  console.log(`Report written to data/reports/imprint-resolution-report.json.`);
 }
 
 async function readMappings() {

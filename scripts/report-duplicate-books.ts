@@ -39,38 +39,50 @@ type DuplicateReport = {
   totalBooks: number;
   candidateGroups: number;
   candidateBooks: number;
+  unresolvedGroups: number;
+  unresolvedBooks: number;
   actionSummary: Record<DuplicateGroup["action"], number>;
   groups: DuplicateGroup[];
+};
+
+type ReviewedDistinctPairs = {
+  pairs: Array<{ bookIds: [string, string]; reason: string }>;
 };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "public", "catalog.json");
-const reportPath = path.join(root, "data", "public", "book-duplicate-review.json");
+const reportPath = path.join(root, "data", "reports", "book-duplicate-review.json");
+const distinctPairsPath = path.join(root, "sources", "book-distinct-pairs.json");
 
 async function main() {
   const data = JSON.parse(await fs.readFile(catalogPath, "utf8")) as PublicData;
+  const reviewedDistinctPairs = JSON.parse(await fs.readFile(distinctPairsPath, "utf8")) as ReviewedDistinctPairs;
+  const distinctPairReasons = new Map(reviewedDistinctPairs.pairs.map((pair) => [pairKey(...pair.bookIds), pair.reason]));
   const appearancesByBook = groupAppearances(data.appearances);
   const awardsById = new Map(data.awards.map((award) => [award.id, award]));
   const pairs = candidatePairs(data.books);
-  const groups = buildGroups(pairs, data.books, appearancesByBook, awardsById)
+  const groups = buildGroups(pairs, data.books, appearancesByBook, awardsById, distinctPairReasons)
     .sort((a, b) => actionRank(a.action) - actionRank(b.action) || b.score - a.score || b.books.length - a.books.length);
   const actionSummary = groups.reduce((summary, group) => {
     summary[group.action] = (summary[group.action] ?? 0) + 1;
     return summary;
   }, {} as Record<DuplicateGroup["action"], number>);
 
+  const unresolvedGroups = groups.filter((group) => group.action !== "ignore");
   const report: DuplicateReport = {
     generatedAt: new Date().toISOString(),
     totalBooks: data.books.length,
     candidateGroups: groups.length,
     candidateBooks: new Set(groups.flatMap((group) => group.books.map((book) => book.id))).size,
+    unresolvedGroups: unresolvedGroups.length,
+    unresolvedBooks: new Set(unresolvedGroups.flatMap((group) => group.books.map((book) => book.id))).size,
     actionSummary,
     groups,
   };
 
   await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-  console.log(`Wrote ${groups.length} duplicate candidate groups to data/public/book-duplicate-review.json.`);
+  console.log(`Wrote ${groups.length} duplicate candidate groups (${unresolvedGroups.length} unresolved) to data/reports/book-duplicate-review.json.`);
 }
 
 function groupAppearances(appearances: AwardAppearance[]) {
@@ -146,6 +158,7 @@ function buildGroups(
   books: Book[],
   appearancesByBook: Map<string, AwardAppearance[]>,
   awardsById: Map<string, Award>,
+  distinctPairReasons: Map<string, string>,
 ) {
   const parent = new Map<string, string>();
   const find = (id: string): string => {
@@ -185,7 +198,7 @@ function buildGroups(
       }));
     const candidateBooks = groupBooks.map((book) => toCandidateBook(book, appearancesByBook, awardsById));
     const bestPairScore = Math.max(...groupPairs.map((pair) => pair.titleSimilarity * 0.6 + pair.authorSimilarity * 0.35 + (pair.sharedIsbn ? 0.15 : 0)));
-    const action = classifyGroup(groupPairs, candidateBooks);
+    const action = classifyGroup(groupPairs, candidateBooks, distinctPairReasons);
     return {
       ...action,
       recommendedCanonicalBookId: chooseCanonical(candidateBooks).id,
@@ -224,7 +237,19 @@ function toCandidateBook(
   };
 }
 
-function classifyGroup(pairSignals: DuplicateGroup["pairSignals"], books: CandidateBook[]): Pick<DuplicateGroup, "action" | "confidence" | "reason"> {
+function classifyGroup(
+  pairSignals: DuplicateGroup["pairSignals"],
+  books: CandidateBook[],
+  distinctPairReasons: Map<string, string>,
+): Pick<DuplicateGroup, "action" | "confidence" | "reason"> {
+  const reviewedReasons = pairSignals.map((pair) => distinctPairReasons.get(pairKey(...pair.bookIds)));
+  if (reviewedReasons.every(Boolean)) {
+    return {
+      action: "ignore",
+      confidence: "high",
+      reason: `Reviewed as distinct works: ${[...new Set(reviewedReasons)].join(" ")}`,
+    };
+  }
   const hasSharedIsbn = pairSignals.some((pair) => pair.sharedIsbn);
   const hasSharedPrefix = pairSignals.some((pair) => pair.sharedTitlePrefix);
   const maxYearDelta = Math.max(0, ...pairSignals.map((pair) => pair.yearDelta ?? 0));
@@ -250,6 +275,10 @@ function classifyGroup(pairSignals: DuplicateGroup["pairSignals"], books: Candid
     };
   }
   return { action: "manual_review", confidence: "low", reason: "Loose similarity candidate; inspect before merging." };
+}
+
+function pairKey(a: string, b: string) {
+  return [a, b].sort().join("\0");
 }
 
 function chooseCanonical(books: CandidateBook[]) {

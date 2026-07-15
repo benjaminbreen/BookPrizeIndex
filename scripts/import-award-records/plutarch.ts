@@ -11,6 +11,7 @@ import {
   wikiToPlainText,
   writeRawAwardRecords,
 } from "./helpers";
+import { mergeOfficialAwardRows, plutarchOfficialRows } from "./official-recent-records";
 
 type PlutarchStatus = Extract<RawAwardRecordStatus, "winner" | "finalist">;
 type PartialRecord = Omit<RawAwardRecord, "status"> & { status: PlutarchStatus };
@@ -25,15 +26,15 @@ async function main() {
 
   console.log(`Fetching Plutarch Award table from "${pageTitle}"...`);
   const wikitext = await fetchMediaWikiWikitext(pageTitle);
-  const records = parsePlutarchTable(prize, category, wikitext);
+  const records = mergeOfficialAwardRows(parsePlutarchTable(prize, category, wikitext), prize, plutarchOfficialRows);
 
   records.sort((a, b) => b.year - a.year || statusSort(a.status) - statusSort(b.status) || a.title.localeCompare(b.title));
   assertCoverage(records);
 
   await writeRawAwardRecords("plutarch.json", records, {
     importer: "scripts/import-award-records/plutarch.ts",
-    source: `MediaWiki wikitable for "${pageTitle}"`,
-    notes: "Initial importer uses Wikipedia as a deterministic secondary source. Nominee rows are normalized to finalist status.",
+    source: `MediaWiki historical table for "${pageTitle}" plus official BIO recent results`,
+    notes: "Historical rows use a deterministic secondary source. The complete 2025 and 2026 slates are replaced with official Biographers International Organization results.",
     categories: [{
       categoryId: category.id,
       categoryName: category.name,
@@ -96,7 +97,18 @@ export function parsePlutarchTable(
     });
   }
 
-  return normalizeCoWinners(records);
+  return normalizeCoWinners(records.map(applyKnownSourceCorrections));
+}
+
+function applyKnownSourceCorrections(record: PartialRecord): PartialRecord {
+  const key = `${record.year}:${slugify(record.title)}`;
+  const primaryAuthors: Record<string, string> = {
+    "2018:milosz-a-biography": "Andrzej Franaszek",
+    "2017:hitler-ascent-1889-1939": "Volker Ullrich",
+    "2017:kafka-the-early-years": "Reiner Stach",
+  };
+  const primaryAuthor = primaryAuthors[key];
+  return primaryAuthor ? { ...record, authors: [primaryAuthor] } : record;
 }
 
 function extractWikitable(wikitext: string): string | undefined {

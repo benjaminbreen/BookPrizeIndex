@@ -10,7 +10,7 @@ const navItems = [
   { href: "/awards", label: "Awards", match: ["/awards"] },
   { href: "/subjects", label: "Subjects", match: ["/subjects", "/topics"] },
   { href: "/publishers", label: "Publishers", match: ["/publishers", "/imprints", "/imprint-logos"] },
-  { href: "/experiments", label: "Experiments", match: ["/experiments"] },
+  { href: "/experiments", label: "Trends", match: ["/experiments"] },
 ];
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -18,6 +18,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const breadcrumbs = useMemo(() => getBreadcrumbs(pathname), [pathname]);
+  const immersive = pathname === "/fun/chromatic-index";
 
   useEffect(() => {
     const stored = localStorage.getItem("book-prize-theme");
@@ -83,7 +84,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             <X className="mobile-menu-icon mobile-menu-icon-close" size={18} />
           </button>
         </div>
-        {breadcrumbs.length > 1 ? (
+        {!immersive && breadcrumbs.length > 1 ? (
           <div className="breadcrumb-bar border-t hairline">
             <nav className="mx-auto flex h-12 max-w-7xl items-center gap-4 overflow-x-auto px-4 text-sm muted sm:px-6 lg:px-8">
               {breadcrumbs.map((crumb, index) => (
@@ -129,7 +130,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         </div>
       </header>
       {children}
-      <SiteFooter />
+      {!immersive ? <SiteFooter /> : null}
     </div>
   );
 }
@@ -154,7 +155,8 @@ function labelForPart(part: string, href: string) {
   if (part === "topics") return "Topics";
   if (part === "publishers") return "Publishers";
   if (part === "imprints") return "Imprints";
-  if (part === "experiments") return "Experiments";
+  if (part === "experiments") return "Trends";
+  if (part === "fun") return "For Fun";
   if (part === "methodology") return "Methodology";
   if (part === "colophon") return "Colophon";
   if (part === "privacy") return "Privacy";
@@ -200,8 +202,8 @@ function SiteFooter() {
           title="Resources"
           links={[
             { href: "/about", label: "About" },
+            { href: "/fun", label: "For fun" },
             { href: "/methodology", label: "Methodology" },
-            { href: "#", label: "FAQ" },
             { href: "#", label: "Contact" },
           ]}
         />

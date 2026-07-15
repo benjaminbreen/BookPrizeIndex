@@ -1,22 +1,182 @@
 {
-  "generatedAt": "2026-05-12T20:32:53.863Z",
+  "generatedAt": "2026-07-14T21:28:22.282Z",
   "metadata": {
     "importer": "scripts/import-award-records/plutarch.ts",
-    "source": "MediaWiki wikitable for \"Plutarch Award\"",
-    "notes": "Initial importer uses Wikipedia as a deterministic secondary source. Nominee rows are normalized to finalist status.",
+    "source": "MediaWiki historical table for \"Plutarch Award\" plus official BIO recent results",
+    "notes": "Historical rows use a deterministic secondary source. The complete 2025 and 2026 slates are replaced with official Biographers International Organization results.",
     "categories": [
       {
         "categoryId": "plutarch-biography",
         "categoryName": "Biography",
         "sourceUrl": "https://en.wikipedia.org/wiki/Plutarch_Award",
-        "records": 83,
-        "winners": 14,
-        "finalists": 69,
-        "yearRange": "2013-2025"
+        "records": 101,
+        "winners": 15,
+        "finalists": 86,
+        "yearRange": "2013-2026"
       }
     ]
   },
   "records": [
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "winner",
+      "title": "Gertrude Stein: An Afterlife",
+      "authors": [
+        "Francesca Wade"
+      ],
+      "publisher": "Scribner",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "Baldwin: A Love Story",
+      "authors": [
+        "Nicholas Boggs"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "Emerson's Daughters: Ellen Tucker Emerson, Edith Emerson Forbes, and Their Family Legacy",
+      "authors": [
+        "Kate Culkin"
+      ],
+      "publisher": "University of Massachusetts Press",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "Pride and Pleasure: The Schuyler Sisters in an Age of Revolution",
+      "authors": [
+        "Amanda Vaill"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "The Einstein of Sex: Dr. Magnus Hirschfeld, Visionary of Weimar Berlin",
+      "authors": [
+        "Daniel Brook"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "The Invention of Charlotte Brontë: A New Life",
+      "authors": [
+        "Graham Watson"
+      ],
+      "publisher": "Pegasus Books",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "The Many Lives of Anne Frank",
+      "authors": [
+        "Ruth Franklin"
+      ],
+      "publisher": "Yale University Press",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "The Second Emancipation: Nkrumah, Pan-Africanism, and Global Blackness at High Tide",
+      "authors": [
+        "Howard W. French"
+      ],
+      "publisher": "Liveright",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "Wakara's America: The Life and Legacy of a Native Founder of the American West",
+      "authors": [
+        "Max Perry Mueller"
+      ],
+      "publisher": "Basic Books",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2026,
+      "status": "finalist",
+      "title": "Wild Thing: A Life of Paul Gauguin",
+      "authors": [
+        "Sue Prideaux"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: 2026 Plutarch Award finalists and winner",
+      "sourceConfidence": "official"
+    },
     {
       "awardId": "plutarch-award",
       "awardName": "Plutarch Award",
@@ -28,10 +188,10 @@
       "authors": [
         "Cynthia Carr"
       ],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Plutarch_Award",
-      "sourceLabel": "Wikipedia: Plutarch Award",
-      "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://biographersinternational.org/award/plutarch/"
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
     },
     {
       "awardId": "plutarch-award",
@@ -44,10 +204,138 @@
       "authors": [
         "Lucy Hughes-Hallett"
       ],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Plutarch_Award",
-      "sourceLabel": "Wikipedia: Plutarch Award",
-      "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://biographersinternational.org/award/plutarch/"
+      "publisher": "Harper",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "John Lewis: A Life",
+      "authors": [
+        "David Greenberg"
+      ],
+      "publisher": "Simon & Schuster",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Monet: The Restless Vision",
+      "authors": [
+        "Jackie Wullschläger"
+      ],
+      "publisher": "Penguin Random House",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Reagan: His Life and Legend",
+      "authors": [
+        "Max Boot"
+      ],
+      "publisher": "Liveright",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Survival Is a Promise: The Eternal Life of Audre Lorde",
+      "authors": [
+        "Alexis Pauline Gumbs"
+      ],
+      "publisher": "Macmillan",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Icon & the Idealist: Margaret Sanger, Mary Ware Dennett, and the Rivalry That Brought Birth Control to America",
+      "authors": [
+        "Stephanie Gorton"
+      ],
+      "publisher": "HarperCollins",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Mysterious Mrs. Nixon: The Life and Times of Washington's Most Private First Lady",
+      "authors": [
+        "Heath Hardage Lee"
+      ],
+      "publisher": "Macmillan",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Rebel's Clinic: The Revolutionary Lives of Frantz Fanon",
+      "authors": [
+        "Adam Shatz"
+      ],
+      "publisher": "Macmillan",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "plutarch-award",
+      "awardName": "Plutarch Award",
+      "categoryId": "plutarch-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Talented Mrs. Mandelbaum: The Rise and Fall of an American Organized-Crime Boss",
+      "authors": [
+        "Margalit Fox"
+      ],
+      "publisher": "Random House",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/",
+      "sourceLabel": "Biographers International Organization: Plutarch Award finalists and winners",
+      "sourceConfidence": "official"
     },
     {
       "awardId": "plutarch-award",

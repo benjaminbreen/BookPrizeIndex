@@ -1,49 +1,669 @@
 {
-  "generatedAt": "2026-05-09T23:29:21.795Z",
+  "generatedAt": "2026-07-14T21:28:21.359Z",
   "metadata": {
     "importer": "scripts/import-award-records/latimes.ts",
-    "source": "MediaWiki wikitables for Los Angeles Times Book Prize nonfiction category pages",
-    "notes": "The Los Angeles Times books section is retained in sources/prizes.json, but this first importer uses Wikipedia category pages as deterministic secondary sources.",
+    "source": "MediaWiki historical tables plus official Los Angeles Times recent results",
+    "notes": "Historical rows use deterministic secondary-source category tables. Complete 2024 and 2025 category slates are replaced with official Los Angeles Times results.",
     "categories": [
       {
         "categoryId": "latimes-history",
         "categoryName": "History",
         "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
-        "records": 173,
-        "winners": 48,
-        "finalists": 125,
-        "yearRange": "1980-2023"
+        "records": 183,
+        "winners": 50,
+        "finalists": 133,
+        "yearRange": "1980-2025"
       },
       {
         "categoryId": "latimes-biography",
         "categoryName": "Biography",
         "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Biography",
-        "records": 182,
-        "winners": 43,
-        "finalists": 139,
-        "yearRange": "1981-2023"
+        "records": 192,
+        "winners": 45,
+        "finalists": 147,
+        "yearRange": "1981-2025"
       },
       {
         "categoryId": "latimes-current-interest",
         "categoryName": "Current Interest",
         "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Current_Interest",
-        "records": 179,
-        "winners": 44,
-        "finalists": 135,
-        "yearRange": "1980-2023"
+        "records": 189,
+        "winners": 46,
+        "finalists": 143,
+        "yearRange": "1980-2025"
       },
       {
         "categoryId": "latimes-science-technology",
         "categoryName": "Science and Technology",
         "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Science_and_Technology",
-        "records": 177,
-        "winners": 35,
-        "finalists": 142,
-        "yearRange": "1989-2023"
+        "records": 187,
+        "winners": 37,
+        "finalists": 150,
+        "yearRange": "1989-2025"
       }
     ]
   },
   "records": [
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "winner",
+      "title": "The Strangers: Five Extraordinary Black Men and the Worlds That Made Them",
+      "authors": [
+        "Ekow Eshun"
+      ],
+      "publisher": "Harper",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Children of Radium: A Buried Inheritance",
+      "authors": [
+        "Joe Dunthorne"
+      ],
+      "publisher": "Scribner",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Paper Girl: A Memoir of Home and Family in a Fractured America",
+      "authors": [
+        "Beth Macy"
+      ],
+      "publisher": "Penguin Press",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Pride and Pleasure: The Schuyler Sisters in an Age of Revolution",
+      "authors": [
+        "Amanda Vaill"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Many Lives of Anne Frank",
+      "authors": [
+        "Ruth Franklin"
+      ],
+      "publisher": "Yale University Press",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2025,
+      "status": "winner",
+      "title": "There Is No Place for Us: Working and Homeless in America",
+      "authors": [
+        "Brian Goldstone"
+      ],
+      "publisher": "Crown",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2025,
+      "status": "finalist",
+      "title": "A Greek Tragedy: One Day, a Deadly Shipwreck, and the Human Cost of the Refugee Crisis",
+      "authors": [
+        "Jeanne Carstensen"
+      ],
+      "publisher": "One Signal Publishers",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2025,
+      "status": "finalist",
+      "title": "No More Tears: The Dark Secrets of Johnson & Johnson",
+      "authors": [
+        "Gardiner Harris"
+      ],
+      "publisher": "Random House",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Unabridged: The Thrill of (and Threat to) the Modern Dictionary",
+      "authors": [
+        "Stefan Fatsis"
+      ],
+      "publisher": "Atlantic Monthly Press",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2025,
+      "status": "finalist",
+      "title": "When It All Burns: Fighting Fire in a Transformed World",
+      "authors": [
+        "Jordan Thomas"
+      ],
+      "publisher": "Riverhead Books",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2025,
+      "status": "winner",
+      "title": "Born in Flames: The Business of Arson and the Remaking of the American City",
+      "authors": [
+        "Bench Ansfield"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Before Gender: Lost Stories from Trans History, 1850-1950",
+      "authors": [
+        "Eli Erlick"
+      ],
+      "publisher": "Beacon Press",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Black-Owned: The Revolutionary Life of the Black Bookstore",
+      "authors": [
+        "Char Adams"
+      ],
+      "publisher": "Tiny Reparations Books",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2025,
+      "status": "finalist",
+      "title": "High School Students Unite!: Teen Activism, Education Reform, and FBI Surveillance in Postwar America",
+      "authors": [
+        "Aaron G. Fountain Jr."
+      ],
+      "publisher": "University of North Carolina Press",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Titans of Industrial Agriculture: How a Few Giant Corporations Came to Dominate the Farm Sector and Why It Matters",
+      "authors": [
+        "Jennifer Clapp"
+      ],
+      "publisher": "The MIT Press",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2025,
+      "status": "winner",
+      "title": "Empire of AI: Dreams and Nightmares in Sam Altman's OpenAI",
+      "authors": [
+        "Karen Hao"
+      ],
+      "publisher": "Penguin Press",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2025,
+      "status": "finalist",
+      "title": "Strata: Stories from Deep Time",
+      "authors": [
+        "Laura Poppick"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2025,
+      "status": "finalist",
+      "title": "The Story of CO2 Is the Story of Everything: How Carbon Dioxide Made Our World",
+      "authors": [
+        "Peter Brannen"
+      ],
+      "publisher": "Ecco",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2025,
+      "status": "finalist",
+      "title": "They Poisoned the World: Life and Death in the Age of Forever Chemicals",
+      "authors": [
+        "Mariah Blake"
+      ],
+      "publisher": "Crown",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2025,
+      "status": "finalist",
+      "title": "When It All Burns: Fighting Fire in a Transformed World",
+      "authors": [
+        "Jordan Thomas"
+      ],
+      "publisher": "Riverhead Books",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "sourceLabel": "Los Angeles Times: 2025 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "winner",
+      "title": "Orwell's Ghosts: Wisdom and Warnings for the Twenty-First Century",
+      "authors": [
+        "Laura Beers"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Candy Darling: Dreamer, Icon, Superstar",
+      "authors": [
+        "Cynthia Carr"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Survival Is a Promise: The Eternal Life of Audre Lorde",
+      "authors": [
+        "Alexis Pauline Gumbs"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "finalist",
+      "title": "The Dragon from Chicago: The Untold Story of an American Reporter in Nazi Germany",
+      "authors": [
+        "Pamela D. Toler"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "finalist",
+      "title": "We Were Illegal: Uncovering a Texas Family's Mythmaking and Migration",
+      "authors": [
+        "Jessica Goudeau"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2024,
+      "status": "winner",
+      "title": "The Rent Collectors: Exploitation, Murder, and Redemption in Immigrant LA",
+      "authors": [
+        "Jesse Katz"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Everyone Who Is Gone Is Here: The United States, Central America, and the Making of a Crisis",
+      "authors": [
+        "Jonathan Blitzer"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2024,
+      "status": "finalist",
+      "title": "The Barn: The Secret History of a Murder in Mississippi",
+      "authors": [
+        "Wright Thompson"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2024,
+      "status": "finalist",
+      "title": "The Message",
+      "authors": [
+        "Ta-Nehisi Coates"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-current-interest",
+      "categoryName": "Current Interest",
+      "year": 2024,
+      "status": "finalist",
+      "title": "The Serviceberry: Abundance and Reciprocity in the Natural World",
+      "authors": [
+        "Robin Wall Kimmerer"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2024,
+      "status": "winner",
+      "title": "Ruin Their Crops on the Ground: The Politics of Food in the United States, from the Trail of Tears to School Lunch",
+      "authors": [
+        "Andrea Freeman"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Cold War Country: How Nashville's Music Row and the Pentagon Created the Sound of American Patriotism",
+      "authors": [
+        "Joseph M. Thompson"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2024,
+      "status": "finalist",
+      "title": "The Black Tax: 150 Years of Theft, Exploitation, and Dispossession in America",
+      "authors": [
+        "Andrew W. Kahrl"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2024,
+      "status": "finalist",
+      "title": "The Black Utopians: Searching for Paradise and the Promised Land in America",
+      "authors": [
+        "Aaron Robertson"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2024,
+      "status": "finalist",
+      "title": "The Other Olympians: Fascism, Queerness, and the Making of Modern Sports",
+      "authors": [
+        "Michael Waters"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2024,
+      "status": "winner",
+      "title": "Our Moon: How Earth's Celestial Companion Transformed the Planet, Guided Evolution, and Made Us Who We Are",
+      "authors": [
+        "Rebecca Boyle"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Becoming Earth: How Our Planet Came to Life",
+      "authors": [
+        "Ferris Jabr"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Math in Drag",
+      "authors": [
+        "Kyne Santos"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2024,
+      "status": "finalist",
+      "title": "The Light Eaters: How the Unseen World of Plant Intelligence Offers a New Understanding of Life on Earth",
+      "authors": [
+        "Zoë Schlanger"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-science-technology",
+      "categoryName": "Science and Technology",
+      "year": 2024,
+      "status": "finalist",
+      "title": "Twelve Trees: The Deep Roots of Our Future",
+      "authors": [
+        "Daniel Lewis"
+      ],
+      "sourceUrl": "https://events.latimes.com/festivalofbooks/bookprize/",
+      "sourceLabel": "Los Angeles Times: 2024 Book Prize winners and finalists",
+      "sourceConfidence": "official"
+    },
     {
       "awardId": "los-angeles-times-book-prize",
       "awardName": "Los Angeles Times Book Prize",
@@ -850,6 +1470,86 @@
     {
       "awardId": "los-angeles-times-book-prize",
       "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2021,
+      "status": "winner",
+      "title": "Cuba: An American History",
+      "authors": [
+        "Ada Ferrer"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2021,
+      "status": "finalist",
+      "title": "African Europeans: An Untold History",
+      "authors": [
+        "Olivette Otele"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2021,
+      "status": "finalist",
+      "title": "I've Been Here All the While: Black Freedom on Native Land",
+      "authors": [
+        "Alaina E. Roberts"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2021,
+      "status": "finalist",
+      "title": "The Chinese Question: The Gold Rushes and Global Politics",
+      "authors": [
+        "Mae Ngai"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
+      "categoryId": "latimes-history",
+      "categoryName": "History",
+      "year": 2021,
+      "status": "finalist",
+      "title": "Traveling Black: A Story of Race and Resistance",
+      "authors": [
+        "Mia Bay"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
+    },
+    {
+      "awardId": "los-angeles-times-book-prize",
+      "awardName": "Los Angeles Times Book Prize",
       "categoryId": "latimes-science-technology",
       "categoryName": "Science and Technology",
       "year": 2021,
@@ -1093,22 +1793,6 @@
       "awardName": "Los Angeles Times Book Prize",
       "categoryId": "latimes-history",
       "categoryName": "History",
-      "year": 2021,
-      "status": "winner",
-      "title": "Cuba: An American History",
-      "authors": [
-        "Ada Ferrer"
-      ],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
-      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
-      "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
-    },
-    {
-      "awardId": "los-angeles-times-book-prize",
-      "awardName": "Los Angeles Times Book Prize",
-      "categoryId": "latimes-history",
-      "categoryName": "History",
       "year": 2020,
       "status": "winner",
       "title": "Vanguard: How Black Women Broke Barriers, Won the Vote, and Insisted on Equality for All",
@@ -1119,38 +1803,6 @@
       "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
       "sourceConfidence": "secondary",
       "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
-    },
-    {
-      "awardId": "los-angeles-times-book-prize",
-      "awardName": "Los Angeles Times Book Prize",
-      "categoryId": "latimes-history",
-      "categoryName": "History",
-      "year": 2021,
-      "status": "finalist",
-      "title": "African Europeans: An Untold History",
-      "authors": [
-        "Olivette Otele"
-      ],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
-      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
-      "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
-    },
-    {
-      "awardId": "los-angeles-times-book-prize",
-      "awardName": "Los Angeles Times Book Prize",
-      "categoryId": "latimes-history",
-      "categoryName": "History",
-      "year": 2021,
-      "status": "finalist",
-      "title": "I've Been Here All the While: Black Freedom on Native Land",
-      "authors": [
-        "Alaina E. Roberts"
-      ],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
-      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
-      "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
     },
     {
       "awardId": "los-angeles-times-book-prize",
@@ -1189,22 +1841,6 @@
       "awardName": "Los Angeles Times Book Prize",
       "categoryId": "latimes-history",
       "categoryName": "History",
-      "year": 2021,
-      "status": "finalist",
-      "title": "The Chinese Question: The Gold Rushes and Global Politics",
-      "authors": [
-        "Mae Ngai"
-      ],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
-      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
-      "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
-    },
-    {
-      "awardId": "los-angeles-times-book-prize",
-      "awardName": "Los Angeles Times Book Prize",
-      "categoryId": "latimes-history",
-      "categoryName": "History",
       "year": 2020,
       "status": "finalist",
       "title": "The Deportation Machine: America’s Long History of Expelling Immigrants",
@@ -1231,22 +1867,6 @@
       "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
       "sourceConfidence": "secondary",
       "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
-    },
-    {
-      "awardId": "los-angeles-times-book-prize",
-      "awardName": "Los Angeles Times Book Prize",
-      "categoryId": "latimes-history",
-      "categoryName": "History",
-      "year": 2021,
-      "status": "finalist",
-      "title": "Traveling Black: A Story of Race and Resistance",
-      "authors": [
-        "Mia Bay"
-      ],
-      "sourceUrl": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
-      "sourceLabel": "Wikipedia: Los Angeles Times Book Prize for History",
-      "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.latimes.com/entertainment-arts/books Corrected importer year: the secondary table currently labels the 2021 History group as 2020."
     },
     {
       "awardId": "los-angeles-times-book-prize",

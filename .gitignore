@@ -15,3 +15,7 @@ coverage/
 playwright-report/
 test-results/
 tsconfig.tsbuildinfo
+
+# Pipeline provider caches and attempt ledgers (regenerable; see data/cache/README.md)
+data/cache/*
+!data/cache/README.md

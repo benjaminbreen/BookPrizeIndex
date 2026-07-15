@@ -53,6 +53,20 @@ export function PublisherBrowser({
   const years = data.appearances.map((appearance) => appearance.year);
   const topPublishers = [...allRows].sort((a, b) => b.stats.majorAppearances - a.stats.majorAppearances || b.stats.majorScore - a.stats.majorScore || b.stats.score - a.stats.score || a.publisher.name.localeCompare(b.publisher.name)).slice(0, 5);
   const topImprints = [...data.imprints].sort((a, b) => imprintStats(b.id, sinceYear, region).majorAppearances - imprintStats(a.id, sinceYear, region).majorAppearances || imprintStats(b.id, sinceYear, region).majorScore - imprintStats(a.id, sinceYear, region).majorScore || imprintStats(b.id, sinceYear, region).score - imprintStats(a.id, sinceYear, region).score || a.name.localeCompare(b.name)).slice(0, 5);
+  const topPublisherRows = topPublishers
+    .map((row) => ({
+      label: row.publisher.name,
+      value: row.stats.majorAppearances,
+      href: `/publishers/${publisherSlug(row.publisher)}`,
+    }))
+    .filter((row) => row.value > 0);
+  const topImprintRows = topImprints
+    .map((imprint) => ({
+      label: imprint.name,
+      value: imprintStats(imprint.id, sinceYear, region).majorAppearances,
+      href: `/imprints/${imprintSlug(imprint)}`,
+    }))
+    .filter((row) => row.value > 0);
 
   return (
     <main>
@@ -155,7 +169,7 @@ export function PublisherBrowser({
           <div>
           <div className="paper-surface overflow-hidden border hairline">
             {analysisView === "publishers" ? (
-              publisherRows.map(({ publisher, stats, imprints }, index) => (
+              publisherRows.length ? publisherRows.map(({ publisher, stats, imprints }, index) => (
                 <div className="paper-surface grid gap-4 border-b hairline p-4 last:border-b-0 lg:grid-cols-[18rem_1fr]" key={publisher.id}>
                   <Link className="group" href={`/publishers/${publisherSlug(publisher)}`}>
                     <p className="font-[var(--font-mono)] text-xs plain-number muted">{String(index + 1).padStart(2, "0")}</p>
@@ -179,9 +193,11 @@ export function PublisherBrowser({
                     })}
                   </div>
                 </div>
-              ))
+              )) : (
+                <PublisherEmptyState view="publishers" />
+              )
             ) : (
-              imprintRows.map(({ imprint, publisher, stats }, index) => (
+              imprintRows.length ? imprintRows.map(({ imprint, publisher, stats }, index) => (
                 <Link
                   className="group paper-surface grid gap-4 border-b hairline p-4 transition last:border-b-0 hover:bg-[var(--accent-soft)] sm:grid-cols-[4rem_1.25fr_12rem_9rem]"
                   href={`/imprints/${imprintSlug(imprint)}`}
@@ -207,22 +223,16 @@ export function PublisherBrowser({
                     <span><span className="plain-number text-[var(--ink)]">{stats.appearances}</span> appearances</span>
                   </span>
                 </Link>
-              ))
+              )) : (
+                <PublisherEmptyState view="imprints" />
+              )
             )}
           </div>
           </div>
 
           <aside className="grid content-start gap-4">
-          <RankingPanel title="Top publishers by major awards" href="/publishers" rows={topPublishers.map((row) => ({
-            label: row.publisher.name,
-            value: row.stats.majorAppearances,
-            href: `/publishers/${publisherSlug(row.publisher)}`,
-          }))} />
-          <RankingPanel title="Top imprints by major awards" href="/imprints" rows={topImprints.map((imprint) => ({
-            label: imprint.name,
-            value: imprintStats(imprint.id, sinceYear, region).majorAppearances,
-            href: `/imprints/${imprintSlug(imprint)}`,
-          }))} />
+          <RankingPanel title="Top publishers by major awards" href="/publishers" rows={topPublisherRows} />
+          <RankingPanel title="Top imprints by major awards" href="/imprints" rows={topImprintRows} />
           <div className="paper-surface border hairline p-5">
             <h2 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Browse by letter</h2>
             <div className="mt-4 grid grid-cols-9 gap-2 font-[var(--font-mono)] text-xs">
@@ -244,6 +254,18 @@ export function PublisherBrowser({
   );
 }
 
+function PublisherEmptyState({ view }: { view: AnalysisView }) {
+  return (
+    <div className="px-4 py-14 text-center sm:px-6">
+      <p className="text-lg">No {view} match the current filters.</p>
+      <p className="mt-2 text-sm muted">Try another letter, award region, or period.</p>
+      <Link className="filter-action focus-ring mt-5 inline-flex items-center gap-2 px-4 py-3 text-sm" href="/publishers">
+        Reset publisher view
+      </Link>
+    </div>
+  );
+}
+
 function HeroMetric({ value, label }: { value: string | number; label: string }) {
   return (
     <div className="border-r border-b hairline px-3 py-5 text-center even:border-r-0 sm:border-b-0 sm:px-4 sm:py-6 sm:even:border-r sm:last:border-r-0">
@@ -257,15 +279,19 @@ function RankingPanel({ title, rows, href }: { title: string; href: string; rows
   return (
     <div className="paper-surface border hairline p-5">
       <h2 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">{title}</h2>
-      <div className="mt-4 grid gap-2">
-        {rows.map((row, index) => (
-          <Link className="grid grid-cols-[auto_1fr_auto] gap-3 text-sm transition hover:text-[var(--accent)]" href={row.href} key={row.href}>
-            <span className="plain-number muted">{index + 1}</span>
-            <span>{row.label}</span>
-            <span className="plain-number">{row.value}</span>
-          </Link>
-        ))}
-      </div>
+      {rows.length ? (
+        <div className="mt-4 grid gap-2">
+          {rows.map((row, index) => (
+            <Link className="grid grid-cols-[auto_1fr_auto] gap-3 text-sm transition hover:text-[var(--accent)]" href={row.href} key={row.href}>
+              <span className="plain-number muted">{index + 1}</span>
+              <span>{row.label}</span>
+              <span className="plain-number">{row.value}</span>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <p className="mt-4 text-sm muted">No major-award activity for this view.</p>
+      )}
       <Link className="mt-4 inline-flex items-center gap-2 text-sm transition hover:text-[var(--accent)]" href={href}>
         View full list
         <ChevronRight size={15} />

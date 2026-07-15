@@ -11,8 +11,8 @@ import {
   type PrizeRegistryFileEntry,
 } from "./build/award-programs";
 import { buildBrowseData } from "./build/browse-data";
-import { applyCuration, applySourcePatches, mergeObject, readCuration, readEnrichment, type CurationFile } from "./build/curation";
-import { publicDataDir, rawAwardRecordsDir, sourcesDir } from "./build/paths";
+import { applyCuration, applySourcePatches, isTrustedWikipediaBookEvidence, mergeObject, readCuration, readEnrichment, type CurationFile } from "./build/curation";
+import { publicDataDir, rawAwardRecordsDir, reportsDataDir, sourcesDir } from "./build/paths";
 import { buildCanonicalTitleResolver, type CanonicalTitleResolver, type TitleCandidate } from "./build/title-resolver";
 import { clean, slugify } from "./build/text";
 import type {
@@ -101,6 +101,22 @@ type GeneratedTopicsFile = {
   generatedAt?: string;
   notes?: string;
   books?: Record<string, GeneratedTopicClassification>;
+};
+
+type GeneratedSubjectClassification = {
+  primarySubject?: string;
+  secondarySubjects?: string[];
+  confidence?: "high" | "medium" | "low";
+  method?: string;
+  model?: string;
+  rationale?: string;
+  reviewStatus?: "generated" | "reviewed" | "rejected";
+};
+
+type GeneratedSubjectsFile = {
+  generatedAt?: string | null;
+  notes?: string;
+  books?: Record<string, GeneratedSubjectClassification>;
 };
 
 type WikipediaGeneratedFile = CurationFile & {
@@ -253,7 +269,7 @@ function inferSubjects(awardName: string, title: string): string[] {
 }
 
 function cleanDisplaySummary(summary?: string) {
-  const normalized = clean(summary);
+  const normalized = cleanCatalogSummary(summary);
   if (!normalized) return undefined;
 
   const embeddedStart = findEmbeddedSummaryStart(normalized);
@@ -263,6 +279,24 @@ function cleanDisplaySummary(summary?: string) {
   const startIndex = findSummaryStartIndex(sentences);
   const cleaned = removePromotionalSummaryBlocks(sentences.slice(startIndex).join(" "));
   return cleaned || normalized;
+}
+
+function cleanCatalogSummary(summary?: string) {
+  const normalized = clean(summary);
+  if (!normalized) return undefined;
+  const maxLength = 1400;
+  const clipped = normalized.slice(0, maxLength).trim();
+  const looksProviderTruncated = normalized.length > maxLength
+    || [900, 1400].includes(normalized.length)
+    || (normalized.length >= 880 && !/[.!?]["'’”)]?$/.test(normalized));
+  if (!looksProviderTruncated) return normalized;
+  const sentenceEnds = [...clipped.matchAll(/[.!?]["'’”)]?(?=\s|$)/g)];
+  const lastSentenceEnd = sentenceEnds.at(-1)?.index;
+  if (lastSentenceEnd !== undefined && lastSentenceEnd >= Math.min(360, Math.floor(clipped.length * 0.48))) {
+    const punctuationLength = sentenceEnds.at(-1)?.[0].length ?? 1;
+    return clipped.slice(0, lastSentenceEnd + punctuationLength).trim();
+  }
+  return `${clipped.replace(/\s+\S*$/, "").replace(/[,;:\s]+$/, "")}…`;
 }
 
 function findEmbeddedSummaryStart(summary: string) {
@@ -451,6 +485,12 @@ async function importRawAwardRecords({
         });
       } else {
         const book = books.get(bookId)!;
+        if (hasDisplayArtifact(book.title) && !hasDisplayArtifact(title)) {
+          book.title = title;
+        }
+        if (book.authors.some((author) => hasDisplayArtifact(author.name)) && authorPeople.every((author) => !hasDisplayArtifact(author.name))) {
+          book.authors = authorPeople;
+        }
         if (!book.publisherId && publisherId) book.publisherId = publisherId;
         if (!book.imprintId && imprintId) book.imprintId = imprintId;
         book.sourceIds = [...new Set([...book.sourceIds, sourceId])];
@@ -479,6 +519,14 @@ async function importRawAwardRecords({
         });
       } else {
         const award = awards.get(awardId)!;
+        const registryPrize = findPrizeRegistryEntry(prizeRegistry, record.awardId);
+        const registryCategory = findPrizeRegistryCategory(prizeRegistry, record.awardId, record.categoryId);
+        award.programId ??= record.awardId;
+        award.categoryName ??= displayCategoryName(record.categoryName);
+        award.categoryYears ??= registryCategory?.activeYears;
+        award.shortName ??= shortAwardName(record);
+        award.organization ??= organizationForRawAward(record);
+        award.awardType ??= registryCategory?.awardType ?? registryPrize?.awardType ?? "award";
         award.sourceIds = [...new Set([...award.sourceIds, sourceId])];
       }
 
@@ -514,6 +562,17 @@ async function importRawAwardRecords({
 
 function isInvalidRawBookTitle(title: string) {
   return /^(winner|co[-\s]?winner|finalist|shortlist|shortlisted|longlist|longlisted|honou?rable mention|notable)$/i.test(clean(title));
+}
+
+function hasDisplayArtifact(value: string) {
+  return (
+    /^\s*[:;,|]/.test(value) ||
+    /\|\s*$/.test(value) ||
+    /\[\[|\]\]|\{\{|\}\}/.test(value) ||
+    /\b(?:bgcolor|rowspan|colspan|data-sort-value|scope|style)\s*=/i.test(value) ||
+    /<\/?[a-z][^>]*>/i.test(value) ||
+    /&(?:#\d+|#x[\da-f]+|[a-z][a-z\d]+);/i.test(value)
+  );
 }
 
 function displayAwardName(record: RawAwardRecord) {
@@ -554,7 +613,7 @@ function sourceIdForRawRecord(record: RawAwardRecord) {
 function mapRawSourceConfidence(confidence: RawAwardRecordSourceConfidence): SourceRef["confidence"] {
   if (confidence === "official") return "official";
   if (confidence === "manual") return "manual";
-  if (confidence === "secondary") return "catalog";
+  if (confidence === "secondary") return "secondary";
   return "unknown";
 }
 
@@ -608,6 +667,7 @@ async function main() {
   const wikipediaEvidence = await readWikipediaEvidence();
   const bookAliases = await readBookAliases();
   const generatedTopics = await readGeneratedTopics();
+  const generatedSubjects = await readGeneratedSubjects();
   const prizeRegistry = await readPrizeRegistry();
   const curatedBookSubjectIds = new Set(
     Object.entries(curation.books ?? {})
@@ -617,6 +677,11 @@ async function main() {
   const curatedBookTopicIds = new Set(
     Object.entries(curation.books ?? {})
       .filter(([, patch]) => Array.isArray(patch.topics) || patch.primaryTopic)
+      .map(([id]) => id),
+  );
+  const curatedBookPublicationYearIds = new Set(
+    Object.entries(curation.books ?? {})
+      .filter(([, patch]) => typeof patch.publicationYear === "number")
       .map(([id]) => id),
   );
   const generatedAt = new Date().toISOString();
@@ -783,6 +848,7 @@ async function main() {
     if (imprint?.publisherId) {
       book.publisherId = imprint.publisherId;
     }
+    book.summary = cleanCatalogSummary(book.summary);
     book.displaySummary = cleanDisplaySummary(book.summary);
   }
 
@@ -808,6 +874,7 @@ async function main() {
     topicClassifications,
     subjectClassifications,
     subjectMapRules,
+    generatedSubjects,
   });
   const subjectReviewReport = buildSubjectReviewReport(books);
   const suspiciousSubjectTopicReport = buildSuspiciousSubjectTopicReport(books);
@@ -817,9 +884,9 @@ async function main() {
     topicDefinitions,
   });
   if (taxonomyValidationReport.totals.subjectErrors || taxonomyValidationReport.totals.topicErrors) {
-    await fs.mkdir(publicDataDir, { recursive: true });
+    await Promise.all([publicDataDir, reportsDataDir].map((dir) => fs.mkdir(dir, { recursive: true })));
     await fs.writeFile(
-      path.join(publicDataDir, "taxonomy-validation-report.json"),
+      path.join(reportsDataDir, "taxonomy-validation-report.json"),
       `${JSON.stringify(taxonomyValidationReport, null, 2)}\n`,
     );
     throw new Error(
@@ -908,7 +975,8 @@ async function main() {
     appearances,
     stats,
   });
-  dropImplausiblePublicationYears(books, appearances);
+  applyTrustedWikipediaPageCounts(books, wikipediaEvidence);
+  dropImplausiblePublicationYears(books, appearances, curatedBookPublicationYearIds);
 
   const publicData: PublicData = {
     generatedAt,
@@ -923,7 +991,7 @@ async function main() {
     sources: [...sources.values()],
     stats: [...stats.values()].sort(compareBookStats),
     wikipediaEvidence: wikipediaEvidence
-      .filter((item) => books.has(item.bookId))
+      .filter((item) => books.has(item.bookId) && isTrustedWikipediaBookEvidence(item))
       .sort((a, b) => a.pageTitle.localeCompare(b.pageTitle)),
   };
   const topicSummary = buildTopicSummary({
@@ -934,34 +1002,34 @@ async function main() {
     topicDefinitions,
   });
 
-  await fs.mkdir(publicDataDir, { recursive: true });
+  await Promise.all([publicDataDir, reportsDataDir].map((dir) => fs.mkdir(dir, { recursive: true })));
   await fs.writeFile(path.join(publicDataDir, "catalog.json"), `${JSON.stringify(publicData, null, 2)}\n`);
   await fs.writeFile(path.join(publicDataDir, "browse.json"), `${JSON.stringify(buildBrowseData(publicData))}\n`);
   await fs.writeFile(
-    path.join(publicDataDir, "taxonomy-validation-report.json"),
+    path.join(reportsDataDir, "taxonomy-validation-report.json"),
     `${JSON.stringify(taxonomyValidationReport, null, 2)}\n`,
   );
   await fs.writeFile(
-    path.join(publicDataDir, "subject-classification-report.json"),
+    path.join(reportsDataDir, "subject-classification-report.json"),
     `${JSON.stringify(subjectClassificationReport, null, 2)}\n`,
   );
   await fs.writeFile(
-    path.join(publicDataDir, "topic-classification-report.json"),
+    path.join(reportsDataDir, "topic-classification-report.json"),
     `${JSON.stringify(topicClassificationReport, null, 2)}\n`,
   );
   await fs.writeFile(
-    path.join(publicDataDir, "subject-evidence-report.json"),
+    path.join(reportsDataDir, "subject-evidence-report.json"),
     `${JSON.stringify(subjectEvidenceReport, null, 2)}\n`,
   );
   await fs.writeFile(
-    path.join(publicDataDir, "subject-review-report.json"),
+    path.join(reportsDataDir, "subject-review-report.json"),
     `${JSON.stringify(subjectReviewReport, null, 2)}\n`,
   );
   await fs.writeFile(
-    path.join(publicDataDir, "suspicious-subject-topic-report.json"),
+    path.join(reportsDataDir, "suspicious-subject-topic-report.json"),
     `${JSON.stringify(suspiciousSubjectTopicReport, null, 2)}\n`,
   );
-  await fs.writeFile(path.join(publicDataDir, "topic-summary.json"), `${JSON.stringify(topicSummary, null, 2)}\n`);
+  await fs.writeFile(path.join(reportsDataDir, "topic-summary.json"), `${JSON.stringify(topicSummary, null, 2)}\n`);
 
   const appearanceSourceUrlGaps = publicData.appearances.filter(
     (appearance) => !hasAppearanceUrl(appearance, publicData.sources),
@@ -974,9 +1042,27 @@ async function main() {
     appearancesWithoutSourceIds: publicData.appearances.filter((appearance) => !appearance.sourceIds.length).length,
     unknownStatusCount: publicData.appearances.filter((appearance) => appearance.status === "unknown").length,
   };
-  await fs.writeFile(path.join(publicDataDir, "import-report.json"), `${JSON.stringify(warnings, null, 2)}\n`);
+  await fs.writeFile(path.join(reportsDataDir, "import-report.json"), `${JSON.stringify(warnings, null, 2)}\n`);
   console.log(`Built ${publicData.books.length} books, ${publicData.appearances.length} appearances, ${publicData.awards.length} awards.`);
   console.log(`Warnings: ${JSON.stringify(warnings)}`);
+}
+
+function applyTrustedWikipediaPageCounts(books: Map<string, Book>, evidence: WikipediaBookEvidence[]) {
+  for (const item of evidence) {
+    const book = books.get(item.bookId);
+    if (!book || book.pageCount || !isTrustedWikipediaBookEvidence(item)) continue;
+    const pageCount = parseWikipediaPageCount(item.infobox?.pages);
+    if (!pageCount) continue;
+    book.pageCount = pageCount;
+  }
+}
+
+function parseWikipediaPageCount(value: string | undefined) {
+  if (!value) return undefined;
+  const normalized = value.replace(/,/g, " ").replace(/\{\{[^}]+\}\}/g, " ");
+  const values = [...normalized.matchAll(/\b(\d{2,4})\b/g)].map((match) => Number(match[1]));
+  const pageCount = values.at(-1);
+  return pageCount && pageCount >= 20 && pageCount <= 3000 ? pageCount : undefined;
 }
 
 function hasAppearanceUrl(appearance: AwardAppearance, sources: SourceRef[]) {
@@ -1040,15 +1126,20 @@ function summarizeAppearanceSourceUrlGaps(appearances: AwardAppearance[], source
     .sort((a, b) => b.count - a.count || a.sourceId.localeCompare(b.sourceId));
 }
 
-function dropImplausiblePublicationYears(books: Map<string, Book>, appearances: Map<string, AwardAppearance>) {
+function dropImplausiblePublicationYears(
+  books: Map<string, Book>,
+  appearances: Map<string, AwardAppearance>,
+  curatedBookPublicationYearIds: Set<string>,
+) {
   const firstRecognitionYearByBookId = new Map<string, number>();
   for (const appearance of appearances.values()) {
     const previous = firstRecognitionYearByBookId.get(appearance.bookId);
     if (!previous || appearance.year < previous) firstRecognitionYearByBookId.set(appearance.bookId, appearance.year);
   }
   for (const book of books.values()) {
+    if (curatedBookPublicationYearIds.has(book.id)) continue;
     const firstRecognitionYear = firstRecognitionYearByBookId.get(book.id);
-    if (book.publicationYear && firstRecognitionYear && book.publicationYear > firstRecognitionYear + 1) {
+    if (book.publicationYear && firstRecognitionYear && (book.publicationYear > firstRecognitionYear + 3 || book.publicationYear < firstRecognitionYear - 30)) {
       delete book.publicationYear;
     }
   }
@@ -1413,6 +1504,7 @@ function applySubjectEvidenceDecisions({
   topicClassifications,
   subjectClassifications,
   subjectMapRules,
+  generatedSubjects,
 }: {
   books: Map<string, Book>;
   awards: Map<string, Award>;
@@ -1422,8 +1514,10 @@ function applySubjectEvidenceDecisions({
   topicClassifications: Map<string, BookTopicClassification>;
   subjectClassifications: Map<string, BookSubjectClassification>;
   subjectMapRules: SubjectMapRule[];
+  generatedSubjects: GeneratedSubjectsFile;
 }) {
   const allowedSubjects = new Set(subjectDefinitions.map((subject) => subject.name));
+  const llmClassifications = generatedSubjects.books ?? {};
   const appearancesByBookId = new Map<string, AwardAppearance[]>();
   for (const appearance of appearances.values()) {
     const current = appearancesByBookId.get(appearance.bookId) ?? [];
@@ -1450,6 +1544,7 @@ function applySubjectEvidenceDecisions({
       topicClassifications,
       subjectMapRules,
       allowedSubjects,
+      llmClassification: llmClassifications[book.id],
     });
     const decision = decideSubject(book, evidence, curatedBookSubjectIds.has(book.id), allowedSubjects);
     const subject = decision.primarySubject;
@@ -1492,6 +1587,7 @@ function buildSubjectEvidenceForBook({
   topicClassifications,
   subjectMapRules,
   allowedSubjects,
+  llmClassification,
 }: {
   book: Book;
   awards: Map<string, Award>;
@@ -1501,6 +1597,7 @@ function buildSubjectEvidenceForBook({
   topicClassifications: Map<string, BookTopicClassification>;
   subjectMapRules: SubjectMapRule[];
   allowedSubjects: Set<string>;
+  llmClassification?: GeneratedSubjectClassification;
 }) {
   const evidence: SubjectEvidence[] = [];
   const seenEvidence = new Set<string>();
@@ -1521,6 +1618,31 @@ function buildSubjectEvidenceForBook({
         score: 10 - index,
         confidence: "high",
         note: "Manual curation in sources/curation.json.",
+      });
+    }
+  }
+
+  if (llmClassification?.primarySubject && llmClassification.reviewStatus !== "rejected") {
+    const llmConfidence = llmClassification.confidence ?? "medium";
+    addEvidence({
+      source: "llm_classifier",
+      rawLabel: llmClassification.primarySubject,
+      mappedSubject: llmClassification.primarySubject,
+      // A specific classification should outrank one broad catalog category
+      // (for example, "Race & Ethnicity" versus Google Books' "Social
+      // Science"). Manual curation remains the strongest single signal at 10.
+      score: llmConfidence === "high" ? 8 : llmConfidence === "medium" ? 6 : 3,
+      confidence: llmConfidence,
+      note: llmClassification.rationale,
+    });
+    for (const subject of llmClassification.secondarySubjects ?? []) {
+      addEvidence({
+        source: "llm_classifier",
+        rawLabel: subject,
+        mappedSubject: subject,
+        score: 1,
+        confidence: "low",
+        note: "LLM secondary subject.",
       });
     }
   }
@@ -1610,7 +1732,20 @@ function mapRawSubjectLabel(label: string, rules: SubjectMapRule[], bonus = 0) {
 }
 
 function decideSubject(book: Book, evidence: SubjectEvidence[], isCurated: boolean, allowedSubjects: Set<string>): SubjectDecision {
-  const decisiveEvidence = isCurated ? evidence : evidence.filter((item) => isDecisiveSubjectEvidence(item));
+  const manualEvidence = evidence.filter((item) => item.source === "manual_curation");
+  const highConfidenceLlmEvidence = evidence.filter(
+    (item) => item.source === "llm_classifier" && item.confidence === "high",
+  );
+  // Subject selection has an explicit precedence order. Reviewed curation must
+  // never be outvoted by generated metadata, and an accepted high-confidence
+  // classifier decision should not be reversed merely because several broad
+  // provider labels map to the same fallback bucket. All evidence is retained
+  // below for confidence scoring and review reports.
+  const decisiveEvidence = isCurated && manualEvidence.length
+    ? manualEvidence
+    : highConfidenceLlmEvidence.length
+      ? highConfidenceLlmEvidence
+      : evidence.filter((item) => isDecisiveSubjectEvidence(item));
   const scoringEvidence = decisiveEvidence.length ? decisiveEvidence : evidence.filter((item) => item.mappedSubject !== "General Nonfiction");
   const scores = new Map<string, { score: number; evidenceCount: number; highCount: number }>();
   for (const item of scoringEvidence) {
@@ -1627,8 +1762,7 @@ function decideSubject(book: Book, evidence: SubjectEvidence[], isCurated: boole
     .map(([subject, values]) => ({ subject, score: Number(values.score.toFixed(2)), evidenceCount: values.evidenceCount, highCount: values.highCount }))
     .sort((a, b) => b.score - a.score || b.highCount - a.highCount || subjectTieBreakRank(a.subject) - subjectTieBreakRank(b.subject) || a.subject.localeCompare(b.subject));
   const primarySubject = candidates[0]?.subject ?? "General Nonfiction";
-  const top = candidates[0];
-  const confidence = isCurated || decisiveEvidence.some((item) => item.mappedSubject === primarySubject && item.confidence === "high") ? "high" : decisiveEvidence.length ? "medium" : "low";
+  const confidence = subjectDecisionConfidence(primarySubject, evidence, isCurated);
   return {
     primarySubject,
     confidence,
@@ -1639,7 +1773,43 @@ function decideSubject(book: Book, evidence: SubjectEvidence[], isCurated: boole
 }
 
 function isDecisiveSubjectEvidence(item: SubjectEvidence) {
-  return ["manual_curation", "bisac", "google_books", "open_library", "publisher"].includes(item.source) && item.mappedSubject !== "General Nonfiction";
+  return (
+    ["manual_curation", "bisac", "google_books", "open_library", "publisher", "llm_classifier"].includes(item.source) &&
+    item.mappedSubject !== "General Nonfiction"
+  );
+}
+
+// Confidence reflects agreement between independent evidence families rather than
+// the mere presence of any single source: curation always wins, two strong
+// families (catalog vs. LLM) agreeing is high, one strong family is medium, and
+// weak-only or conflicting strong signals stay low.
+function subjectDecisionConfidence(primarySubject: string, evidence: SubjectEvidence[], isCurated: boolean): "high" | "medium" | "low" {
+  if (isCurated) return "high";
+  const familyFor = (item: SubjectEvidence) => {
+    if (item.source === "manual_curation") return "curation";
+    if (["bisac", "google_books", "open_library", "publisher"].includes(item.source)) return "catalog";
+    if (item.source === "llm_classifier" && item.confidence !== "low") return "llm";
+    return undefined;
+  };
+  const familyScores = new Map<string, Map<string, number>>();
+  for (const item of evidence) {
+    const family = familyFor(item);
+    if (!family || item.mappedSubject === "General Nonfiction") continue;
+    const perSubject = familyScores.get(family) ?? new Map<string, number>();
+    perSubject.set(item.mappedSubject, (perSubject.get(item.mappedSubject) ?? 0) + item.score);
+    familyScores.set(family, perSubject);
+  }
+  let agreeing = 0;
+  for (const [family, perSubject] of familyScores) {
+    const top = [...perSubject.entries()].sort((a, b) => b[1] - a[1])[0];
+    if (top?.[0] === primarySubject) {
+      if (family === "curation") return "high";
+      agreeing += 1;
+    }
+  }
+  if (agreeing >= 2) return "high";
+  if (agreeing === 1) return "medium";
+  return "low";
 }
 
 function subjectTieBreakRank(subject: string) {
@@ -2526,6 +2696,14 @@ async function readGeneratedTopics(): Promise<GeneratedTopicsFile> {
   }
 }
 
+async function readGeneratedSubjects(): Promise<GeneratedSubjectsFile> {
+  try {
+    return JSON.parse(await fs.readFile(path.join(sourcesDir, "enrichment", "subjects.generated.json"), "utf8")) as GeneratedSubjectsFile;
+  } catch {
+    return { books: {} };
+  }
+}
+
 async function readWikipediaEvidence(): Promise<WikipediaBookEvidence[]> {
   try {
     const parsed = JSON.parse(await fs.readFile(path.join(sourcesDir, "enrichment", "wikipedia.generated.json"), "utf8")) as WikipediaGeneratedFile;
@@ -2637,6 +2815,7 @@ function mergeBooks(canonical: Book, duplicate: Book): Book {
     subjects: [...new Set([...canonical.subjects, ...duplicate.subjects])],
     topics: [...new Set([...canonical.topics, ...duplicate.topics])],
     centralFigures: [...new Set([...canonical.centralFigures, ...duplicate.centralFigures])],
+    experimentalSemanticProfile: canonical.experimentalSemanticProfile ?? duplicate.experimentalSemanticProfile,
     subjectCategories: mergeSubjectCategoryArrays(canonical.subjectCategories, duplicate.subjectCategories),
     links: { ...duplicate.links, ...canonical.links },
     sourceIds: [...new Set([...canonical.sourceIds, ...duplicate.sourceIds])],

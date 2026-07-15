@@ -29,12 +29,14 @@ export type BookSearchDocument = {
   subjects: string;
   awards: string;
   figures: string;
+  places: string;
+  argument: string;
   summary: string;
 };
 
 export function makeBookSearch() {
   const search = new MiniSearch<BookSearchDocument>({
-    fields: ["title", "author", "publisher", "imprint", "subjects", "awards", "figures", "summary"],
+    fields: ["title", "author", "publisher", "imprint", "subjects", "awards", "figures", "places", "argument", "summary"],
     storeFields: ["id"],
     searchOptions: {
       boost: { title: 4, author: 3, awards: 2, subjects: 2, imprint: 1.5 },
@@ -62,6 +64,8 @@ export function bookToSearchDocument(book: Book): BookSearchDocument {
     subjects: book.subjects.join(" "),
     awards,
     figures: book.centralFigures.join(" "),
+    places: book.experimentalSemanticProfile?.centralPlaces.map((place) => place.name).join(" ") ?? "",
+    argument: book.experimentalSemanticProfile?.argument.present ? book.experimentalSemanticProfile.argument.statement : "",
     summary: book.summary ?? "",
   };
 }

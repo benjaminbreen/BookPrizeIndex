@@ -8,22 +8,24 @@ import { BookDrawer } from "@/components/book-drawer";
 import { EntityMetricGrid, SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch } from "@/components/use-semantic-book-search";
 import type { BrowseBookRow } from "@/lib/browse-types";
-import { appearancesByBookId, booksById } from "@/lib/data";
 import type { SubjectSummary } from "@/lib/types";
 
 type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
 type AwardOption = { id: string; name: string; shortName?: string };
 type RelatedSubjectOption = { id: string; slug: string; name: string };
+type SubjectSubdivisionOption = { label: string; subject: string };
 
 export function SubjectDetail({
   awardOptions,
   books,
   relatedSubjects,
+  subdivisions = [],
   subject,
 }: {
   awardOptions: AwardOption[];
   books: BrowseBookRow[];
   relatedSubjects: RelatedSubjectOption[];
+  subdivisions?: SubjectSubdivisionOption[];
   subject: SubjectSummary;
 }) {
   const [query, setQuery] = useState("");
@@ -31,8 +33,13 @@ export function SubjectDetail({
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
   const [mode, setMode] = useState<"keyword" | "semantic">("keyword");
   const [activeBookId, setActiveBookId] = useState<string | null>(null);
+  const [activeSubdivision, setActiveSubdivision] = useState("");
   const activeQuery = mode === "semantic" ? semanticQuery : query;
-  const semanticCandidateBookIds = useMemo(() => books.map((book) => book.id), [books]);
+  const visibleBooks = useMemo(
+    () => activeSubdivision ? books.filter((book) => book.primarySubject === activeSubdivision) : books,
+    [activeSubdivision, books],
+  );
+  const semanticCandidateBookIds = useMemo(() => visibleBooks.map((book) => book.id), [visibleBooks]);
   const awardsById = useMemo(() => new Map(awardOptions.map((award) => [award.id, award])), [awardOptions]);
 
   const semanticSearch = useSemanticBookSearch({
@@ -44,26 +51,27 @@ export function SubjectDetail({
   const semanticResultByBookId = useMemo(() => new Map(semanticSearch.results.map((result, index) => [result.bookId, index])), [semanticSearch.results]);
   const rows = useMemo(() => {
     const trimmedQuery = activeQuery.trim();
-    if (mode === "semantic" && trimmedQuery.length >= 3 && semanticSearch.results.length) {
-      return books
+    const hasCurrentSemanticResponse = mode === "semantic" && trimmedQuery.length >= 3 && semanticSearch.query === trimmedQuery && !semanticSearch.loading && Boolean(semanticSearch.diagnostics);
+    if (hasCurrentSemanticResponse && semanticSearch.results.length) {
+      return visibleBooks
         .filter((book) => semanticResultByBookId.has(book.id))
         .sort((a, b) => (semanticResultByBookId.get(a.id) ?? 0) - (semanticResultByBookId.get(b.id) ?? 0))
         .slice(0, 50);
     }
-    if (mode === "semantic" && trimmedQuery.length >= 3 && !semanticSearch.loading && !semanticSearch.error) return [];
-    return sortBookRows(filterBookRowsByQuery(books, activeQuery), sortKey).slice(0, 50);
-  }, [activeQuery, books, mode, semanticResultByBookId, semanticSearch.error, semanticSearch.loading, semanticSearch.results.length, sortKey]);
-  const years = books.map((book) => book.firstRecognitionYear).filter((year): year is number => Boolean(year));
+    if (hasCurrentSemanticResponse && !semanticSearch.error) return [];
+    return sortBookRows(filterBookRowsByQuery(visibleBooks, activeQuery), sortKey).slice(0, 50);
+  }, [activeQuery, mode, semanticResultByBookId, semanticSearch.diagnostics, semanticSearch.error, semanticSearch.loading, semanticSearch.query, semanticSearch.results.length, sortKey, visibleBooks]);
+  const years = visibleBooks.map((book) => book.firstRecognitionYear).filter((year): year is number => Boolean(year));
   const yearRange = years.length ? `${Math.min(...years)}-${Math.max(...years)}` : "Unknown";
-  const uniqueImprints = new Set(books.map((book) => book.imprintId).filter(Boolean));
-  const topicMix = topTopicCounts(books, subject.name);
-  const topAwards = topCounts(books.flatMap((book) => book.awardIds.map((awardId) => awardsById.get(awardId)?.shortName ?? awardsById.get(awardId)?.name ?? "")));
-  const topImprints = topCounts(books.map((book) => book.imprint ?? ""));
+  const uniqueImprints = new Set(visibleBooks.map((book) => book.imprintId).filter(Boolean));
+  const topicMix = topTopicCounts(visibleBooks, subject.name);
+  const topAwards = topCounts(visibleBooks.flatMap((book) => book.awardIds.map((awardId) => awardsById.get(awardId)?.shortName ?? awardsById.get(awardId)?.name ?? "")));
+  const topImprints = topCounts(visibleBooks.map((book) => book.imprint ?? ""));
   const semanticActive = mode === "semantic" && semanticQuery.trim().length >= 3;
   const hasPendingSemanticQuery = mode === "semantic" && query.trim() !== semanticQuery.trim();
-  const contextLine = `${subject.name} · ${semanticActive ? "Sorted by meaning match" : `Sorted by ${subjectSortLabel(sortKey).toLowerCase()}`} · Showing ${rows.length.toLocaleString()} of ${books.length.toLocaleString()} books${activeQuery.trim() ? ` · Search: ${activeQuery.trim()}` : ""}`;
-  const activeBook = activeBookId ? booksById.get(activeBookId) ?? null : null;
-  const activeBookAppearances = activeBookId ? appearancesByBookId.get(activeBookId) ?? [] : [];
+  const semanticSearchPending = semanticActive && (semanticSearch.loading || semanticSearch.query !== semanticQuery.trim());
+  const activeSubdivisionLabel = subdivisions.find((item) => item.subject === activeSubdivision)?.label;
+  const contextLine = `${subject.name}${activeSubdivisionLabel ? ` · ${activeSubdivisionLabel}` : ""} · ${semanticActive ? "Sorted by meaning match" : `Sorted by ${subjectSortLabel(sortKey).toLowerCase()}`} · Showing ${rows.length.toLocaleString()} of ${visibleBooks.length.toLocaleString()} books${activeQuery.trim() ? ` · Search: ${activeQuery.trim()}` : ""}`;
   const activeBookIndex = activeBookId ? rows.findIndex((book) => book.id === activeBookId) : -1;
   const semanticConceptLine = semanticActive && semanticSearch.interpretation
     ? [
@@ -86,14 +94,39 @@ export function SubjectDetail({
         <EntityMetricGrid
           className="subject-hero-metrics lg:justify-self-end"
           items={[
-            { value: books.length, label: "Books" },
+            { value: visibleBooks.length, label: "Books" },
             { value: uniqueImprints.size, label: "Imprints" },
             { value: yearRange, label: "Year range" },
           ]}
         />
       </section>
 
-      <section className="filter-toolbar mt-5 border-y hairline px-1 py-2">
+      {subdivisions.length ? (
+        <section className="filter-toolbar mt-5 flex flex-wrap items-center gap-3 border-y hairline px-1 py-2">
+          <span className="filter-label">History</span>
+          <div className="segmented-control">
+            <button
+              className={`segment-button focus-ring ${activeSubdivision === "" ? "segment-button-active" : ""}`}
+              onClick={() => setActiveSubdivision("")}
+              type="button"
+            >
+              All
+            </button>
+            {subdivisions.map((item) => (
+              <button
+                className={`segment-button focus-ring ${activeSubdivision === item.subject ? "segment-button-active" : ""}`}
+                key={item.subject}
+                onClick={() => setActiveSubdivision(item.subject)}
+                type="button"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <section className={`filter-toolbar border-y hairline px-1 py-2 ${subdivisions.length ? "mt-2" : "mt-5"}`}>
         <div className="grid gap-2 lg:grid-cols-[minmax(20rem,0.78fr)_auto_minmax(12rem,15rem)_auto] lg:items-center">
           <div className="subjects-search subject-detail-search focus-within:border-[var(--ink)]">
             <Search size={18} className="muted" />
@@ -163,7 +196,6 @@ export function SubjectDetail({
         {semanticActive || (hasPendingSemanticQuery && query.trim()) ? (
           <p className="mt-2 grid gap-1 px-1 font-[var(--font-mono)] text-xs muted">
             {hasPendingSemanticQuery && query.trim() ? <span>Press Enter to search this phrase.</span> : null}
-            {semanticSearch.loading ? <span>Reading for meaning...</span> : null}
             {semanticConceptLine ? <span className="text-[var(--ink)]">Interpreted as {semanticConceptLine}</span> : null}
             {semanticSearch.error ? <span className="text-[var(--accent)]">{semanticSearch.error} Showing keyword fallback.</span> : null}
             {semanticSearch.warning ? <span>{semanticSearch.warning}</span> : null}
@@ -173,6 +205,9 @@ export function SubjectDetail({
 
       <section className="mt-5 grid gap-6 lg:grid-cols-[1fr_0.5fr] lg:items-start">
         <div className="overflow-hidden rounded-[2px] border hairline panel">
+          {semanticSearchPending ? (
+            <SemanticLoadingState candidateCount={visibleBooks.length} query={semanticQuery} />
+          ) : null}
           {rows.length ? (
             <>
               <div className="grid md:hidden">
@@ -271,14 +306,14 @@ export function SubjectDetail({
           <div className="flex flex-col gap-2 border-t hairline px-4 py-3 text-sm sm:flex-row sm:items-center sm:justify-between">
             <p>
               {rows.length ? (
-                <>Showing <span className="plain-number">1-{rows.length}</span> of <span className="plain-number">{books.length}</span> books</>
+                <>Showing <span className="plain-number">1-{rows.length}</span> of <span className="plain-number">{visibleBooks.length}</span> books</>
               ) : (
-                <>No matching books out of <span className="plain-number">{books.length}</span></>
+                <>No matching books out of <span className="plain-number">{visibleBooks.length}</span></>
               )}
             </p>
             <p className="muted">
               Sorted by {subjectSortLabel(sortKey).toLowerCase()}
-              {books.length > 50 ? (
+              {visibleBooks.length > 50 ? (
                 <>
                   <span className="px-2">·</span>
                   <Link className="transition hover:text-[var(--accent)]" href={`/books?q=${encodeURIComponent(subject.name)}`}>View all in Books</Link>
@@ -302,7 +337,7 @@ export function SubjectDetail({
           <Panel title="Topic mix">
             <div className="grid gap-3">
               {topicMix.map((row, index) => (
-                <DistributionRow colorIndex={index} key={row.label} {...row} total={books.length} />
+                <DistributionRow colorIndex={index} key={row.label} {...row} total={visibleBooks.length} />
               ))}
             </div>
           </Panel>
@@ -315,9 +350,8 @@ export function SubjectDetail({
       </section>
     </main>
     <BookDrawer
-      appearances={activeBookAppearances}
-      book={activeBook}
-      currentLabel={activeBook && activeBookIndex >= 0 ? `${activeBookIndex + 1} of ${rows.length}` : undefined}
+      bookId={activeBookId}
+      currentLabel={activeBookId && activeBookIndex >= 0 ? `${activeBookIndex + 1} of ${rows.length}` : undefined}
       onClose={() => setActiveBookId(null)}
       onNext={activeBookIndex >= 0 && activeBookIndex < rows.length - 1 ? () => setActiveBookId(rows[activeBookIndex + 1].id) : undefined}
       onPrevious={activeBookIndex > 0 ? () => setActiveBookId(rows[activeBookIndex - 1].id) : undefined}
@@ -331,6 +365,20 @@ function Panel({ title, children }: { title: string; children: React.ReactNode }
     <div className="border hairline panel p-5">
       <h2 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">{title}</h2>
       <div className="mt-4">{children}</div>
+    </div>
+  );
+}
+
+function SemanticLoadingState({ candidateCount, query }: { candidateCount: number; query: string }) {
+  return (
+    <div className="semantic-loading-state" aria-live="polite" role="status">
+      <span className="semantic-loading-mark" aria-hidden="true" />
+      <div>
+        <p className="semantic-loading-title">Reading for meaning</p>
+        <p className="semantic-loading-copy">
+          Comparing "{query.trim()}" with {candidateCount.toLocaleString()} subject books.
+        </p>
+      </div>
     </div>
   );
 }
@@ -470,6 +518,9 @@ function sortBookRows(books: BrowseBookRow[], sortKey: BookSortKey) {
 }
 
 function subjectDeck(name: string) {
+  if (name.toLowerCase() === "history") {
+    return "Award-recognized history across the United States, the wider world, and transnational or general historical subjects.";
+  }
   if (name.toLowerCase() === "american history") {
     return "Award-recognized works that explore the history of the United States, its people, institutions, politics, and social movements from the colonial era to the present.";
   }

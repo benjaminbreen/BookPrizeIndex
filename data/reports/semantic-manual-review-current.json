@@ -1,0 +1,2901 @@
+{
+  "generatedAt": "2026-07-15T21:34:03.164Z",
+  "purpose": "Manual review of live semantic-search results after adding experimental central figures, central places, argument, and reading-orientation text.",
+  "queryCount": 10,
+  "resultsPerQuery": 8,
+  "queries": [
+    {
+      "query": "books centered on Robert Moses and how he reshaped New York City",
+      "interpretation": {
+        "expandedQuery": "Nonfiction history and political biography focused on Robert Moses and his role in reshaping New York City through urban planning, infrastructure building, zoning and housing policy, transportation systems, and parkway/parkway authority power, including analyses of democratic governance and public opposition during the mid-20th century; include comparative urban studies and transportation-history angles.",
+        "concepts": [
+          "Robert Moses",
+          "New York City",
+          "urban planning and redevelopment",
+          "transportation infrastructure",
+          "public works and governance",
+          "the politics of eminent domain and displacement",
+          "racial segregation effects of highway projects",
+          "quantitative urban infrastructure history (costs, ridership, commute patterns)",
+          "comparative megaproject case studies (other U.S. city planners and regimes)"
+        ],
+        "adventurousConcepts": [
+          "the politics of eminent domain and displacement",
+          "racial segregation effects of highway projects",
+          "quantitative urban infrastructure history (costs, ridership, commute patterns)",
+          "comparative megaproject case studies (other U.S. city planners and regimes)",
+          "planning ethics and democratic accountability in megaprojects",
+          "civil engineering as political power (authorities, contracts, procurement)",
+          "public protest movements and grassroots opposition to redevelopment"
+        ],
+        "coreConcepts": [
+          "Robert Moses",
+          "New York City",
+          "urban planning and redevelopment",
+          "transportation infrastructure",
+          "public works and governance"
+        ],
+        "eras": [
+          "mid-20th century",
+          "1930s",
+          "1940s",
+          "1950s",
+          "1960s"
+        ],
+        "subjects": [
+          "urban history",
+          "political history",
+          "infrastructure and transportation history",
+          "public policy",
+          "housing and zoning",
+          "city planning and architecture (context)"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: books centered on Robert Moses and how he reshaped New York City\nExpanded search intent: Nonfiction history and political biography focused on Robert Moses and his role in reshaping New York City through urban planning, infrastructure building, zoning and housing policy, transportation systems, and parkway/parkway authority power, including analyses of democratic governance and public opposition during the mid-20th century; include comparative urban studies and transportation-history angles.\nCore concepts: Robert Moses, New York City, urban planning and redevelopment, transportation infrastructure, public works and governance\nAdventurous adjacent concepts: the politics of eminent domain and displacement, racial segregation effects of highway projects, quantitative urban infrastructure history (costs, ridership, commute patterns), comparative megaproject case studies (other U.S. city planners and regimes), planning ethics and democratic accountability in megaprojects, civil engineering as political power (authorities, contracts, procurement), public protest movements and grassroots opposition to redevelopment\nEras and periods: mid-20th century, 1930s, 1940s, 1950s, 1960s\nLikely subjects: urban history, political history, infrastructure and transportation history, public policy, housing and zoning, city planning and architecture (context)",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "centered",
+          "robert",
+          "moses",
+          "reshaped",
+          "new",
+          "york",
+          "city",
+          "history",
+          "political",
+          "biography",
+          "focused",
+          "his",
+          "role",
+          "reshaping",
+          "through",
+          "urban",
+          "planning",
+          "infrastructure",
+          "building",
+          "zoning",
+          "housing",
+          "policy",
+          "transportation",
+          "systems",
+          "parkway",
+          "authority",
+          "power",
+          "including",
+          "analyses",
+          "democratic",
+          "governance",
+          "opposition",
+          "during",
+          "mid-20th",
+          "century",
+          "include",
+          "comparative",
+          "studies",
+          "transportation-history",
+          "angles",
+          "redevelopment",
+          "works"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-saving-america-s-cities-ed-logue-and-the-struggle-to-renew-urban-america-in-the-suburban-age-liz",
+          "slug": "saving-america-s-cities-ed-logue-and-the-struggle-to-renew-urban-america-in-the-suburban-age-liz",
+          "title": "Saving America's Cities: Ed Logue and the Struggle to Renew Urban America in the Suburban Age",
+          "author": "Lizabeth Cohen",
+          "publicationYear": 2020,
+          "primarySubject": "Politics & Government",
+          "score": 1.669765,
+          "similarity": 0.613215,
+          "reasons": [
+            "Matched terms: robert, moses, new, york",
+            "Matched concepts: robert moses, new york city",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Edward J. Logue"
+            ],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-death-and-life-of-great-american-cities-jane-jacobs",
+          "slug": "death-and-life-of-great-american-cities-jane-jacobs",
+          "title": "Death and Life of Great American Cities",
+          "author": "Jane Jacobs",
+          "publicationYear": 1961,
+          "primarySubject": "Society & Culture",
+          "score": 1.587125,
+          "similarity": 0.585934,
+          "reasons": [
+            "Matched terms: robert, moses, new, city",
+            "Matched concepts: robert moses",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "1950s “rationalist” urban-planning policies are responsible for the decline of many city neighborhoods, and planning should instead prioritize residents’ needs and preserve existing city fabric.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-the-city-in-history-its-origins-its-transformations-and-its-prospects-lewis-mumford",
+          "slug": "the-city-in-history-its-origins-its-transformations-and-its-prospects-lewis-mumford",
+          "title": "The City in History: Its Origins, its Transformations and its Prospects",
+          "author": "Lewis Mumford",
+          "publicationYear": 1961,
+          "primarySubject": "History",
+          "score": 1.556206,
+          "similarity": 0.612758,
+          "reasons": [
+            "Matched terms: city, history, his, urban",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-new-york-1930-architecture-and-urbanism-between-the-two-world-wars-robert-a-m-stern-gregory-gilm",
+          "slug": "new-york-1930-architecture-and-urbanism-between-the-two-world-wars-robert-a-m-stern-gregory-gilm",
+          "title": "New York 1930: Architecture and Urbanism Between the Two World Wars",
+          "author": "Robert A.M. Stern, Gregory Gilmartin,, Thomas Mellins",
+          "publicationYear": 1987,
+          "primarySubject": "History",
+          "score": 1.525783,
+          "similarity": 0.636941,
+          "reasons": [
+            "Matched terms: robert, new, york, history",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "New York"
+            ],
+            "academicOrientation": 45
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-the-brazen-age-new-york-city-and-the-american-empire-politics-art-and-bohemia-david-reid",
+          "slug": "the-brazen-age-new-york-city-and-the-american-empire-politics-art-and-bohemia-david-reid",
+          "title": "The Brazen Age: New York City and the American Empire - Politics, Art and Bohemia",
+          "author": "David Reid",
+          "publicationYear": 2017,
+          "primarySubject": "American History",
+          "score": 1.461745,
+          "similarity": 0.542024,
+          "reasons": [
+            "Matched terms: robert, new, york, city",
+            "Matched concepts: new york city",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "New York City"
+            ],
+            "academicOrientation": 42
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-the-well-tempered-city-what-modern-science-ancient-civilizations-and-human-nature-teach-us-about",
+          "slug": "the-well-tempered-city-what-modern-science-ancient-civilizations-and-human-nature-teach-us-about",
+          "title": "The Well-Tempered City: What Modern Science, Ancient Civilizations, and Human Nature Teach Us About the Future of Urban Life",
+          "author": "Jonathan F.P. Rose",
+          "publicationYear": 2016,
+          "primarySubject": "Politics & Government",
+          "score": 1.440914,
+          "similarity": 0.548029,
+          "reasons": [
+            "Matched terms: new, city, his, role",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 25
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-lost-new-york-nathan-silver",
+          "slug": "lost-new-york-nathan-silver",
+          "title": "Lost New York",
+          "author": "Nathan Silver",
+          "publicationYear": 1967,
+          "primarySubject": "American History",
+          "score": 1.333089,
+          "similarity": 0.546264,
+          "reasons": [
+            "Matched terms: new, york, city, history",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "New York"
+            ],
+            "academicOrientation": 25
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-beyond-the-melting-pot-the-negroes-puerto-ricans-jews-italians-and-irish-of-new-york-city-nathan",
+          "slug": "beyond-the-melting-pot-the-negroes-puerto-ricans-jews-italians-and-irish-of-new-york-city-nathan",
+          "title": "Beyond the Melting Pot: The Negroes, Puerto Ricans, Jews, Italians and Irish of New York City",
+          "author": "Nathan Glazer, Daniel Patrick Moynihan",
+          "publicationYear": 1963,
+          "primarySubject": "Race & Ethnicity",
+          "score": 1.210721,
+          "similarity": 0.513241,
+          "reasons": [
+            "Matched terms: new, york, city, urban",
+            "Matched concepts: new york city",
+            "Matched subject scope",
+            "Matched period signal"
+          ]
+        }
+      ]
+    },
+    {
+      "query": "how al-Qaeda grew and why US intelligence failed before 9/11",
+      "interpretation": {
+        "expandedQuery": "nonfiction investigations and historical analyses of how al-Qaeda expanded operationally and organizationally in the 1980s–early 2000s, and how U.S. intelligence and counterterrorism policies failed to connect threats and prevent 9/11; focus on intelligence collection, interagency coordination, threat assessment, terrorist networks, safe havens, and post–Cold War security decisions",
+        "concepts": [
+          "al-Qaeda growth and expansion timeline",
+          "U.S. intelligence warning failure prior to 9/11",
+          "counterterrorism and interagency coordination breakdown",
+          "terrorist networks and safe-haven dynamics",
+          "forensic timeline building from declassified material and court records",
+          "psychology of intelligence judgment and cognitive bias in threat assessment",
+          "signals intelligence vs. human intelligence tradeoffs (collection quality)",
+          "networks-under-systems: communication patterns and how cells hide in data"
+        ],
+        "adventurousConcepts": [
+          "forensic timeline building from declassified material and court records",
+          "psychology of intelligence judgment and cognitive bias in threat assessment",
+          "signals intelligence vs. human intelligence tradeoffs (collection quality)",
+          "networks-under-systems: communication patterns and how cells hide in data",
+          "comparative case studies of failed prevention in other terror plots"
+        ],
+        "coreConcepts": [
+          "al-Qaeda growth and expansion timeline",
+          "U.S. intelligence warning failure prior to 9/11",
+          "counterterrorism and interagency coordination breakdown",
+          "terrorist networks and safe-haven dynamics"
+        ],
+        "eras": [
+          "1980s",
+          "1990s",
+          "early 2000s",
+          "pre-9/11"
+        ],
+        "subjects": [
+          "history",
+          "intelligence studies",
+          "national security",
+          "counterterrorism",
+          "terrorism studies",
+          "politics and public policy"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: how al-Qaeda grew and why US intelligence failed before 9/11\nExpanded search intent: nonfiction investigations and historical analyses of how al-Qaeda expanded operationally and organizationally in the 1980s–early 2000s, and how U.S. intelligence and counterterrorism policies failed to connect threats and prevent 9/11; focus on intelligence collection, interagency coordination, threat assessment, terrorist networks, safe havens, and post–Cold War security decisions\nCore concepts: al-Qaeda growth and expansion timeline, U.S. intelligence warning failure prior to 9/11, counterterrorism and interagency coordination breakdown, terrorist networks and safe-haven dynamics\nAdventurous adjacent concepts: forensic timeline building from declassified material and court records, psychology of intelligence judgment and cognitive bias in threat assessment, signals intelligence vs. human intelligence tradeoffs (collection quality), networks-under-systems: communication patterns and how cells hide in data, comparative case studies of failed prevention in other terror plots\nEras and periods: 1980s, 1990s, early 2000s, pre-9/11\nLikely subjects: history, intelligence studies, national security, counterterrorism, terrorism studies, politics and public policy",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "al-qaeda",
+          "grew",
+          "intelligence",
+          "failed",
+          "before",
+          "investigations",
+          "historical",
+          "analyses",
+          "expanded",
+          "operationally",
+          "organizationally",
+          "1980s",
+          "early",
+          "2000s",
+          "counterterrorism",
+          "policies",
+          "connect",
+          "threats",
+          "prevent",
+          "focus",
+          "collection",
+          "interagency",
+          "coordination",
+          "threat",
+          "assessment",
+          "terrorist",
+          "networks",
+          "safe",
+          "havens",
+          "post",
+          "cold",
+          "war",
+          "security",
+          "decisions",
+          "growth",
+          "expansion",
+          "timeline",
+          "warning",
+          "failure",
+          "prior",
+          "breakdown",
+          "safe-haven"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+          "slug": "the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+          "title": "The Looming Tower: Al-Qaeda and the Road to 9/11",
+          "author": "Lawrence Wright",
+          "publicationYear": 2006,
+          "primarySubject": "History",
+          "score": 1.627332,
+          "similarity": 0.673447,
+          "reasons": [
+            "Matched terms: al-qaeda, intelligence, historical, counterterrorism",
+            "Matched concepts: history, counterterrorism",
+            "Matched concepts: history",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Osama bin Laden",
+              "Ayman al-Zawahiri"
+            ],
+            "centralPlaces": [
+              "World Trade Center"
+            ],
+            "argument": "The book argues that the growth of Islamic fundamentalism and the rise of al-Qaeda, together with intelligence failures, culminated in the World Trade Center attacks.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-the-watchers-the-rise-of-america-s-surveillance-state-shane-harris",
+          "slug": "the-watchers-the-rise-of-america-s-surveillance-state-shane-harris",
+          "title": "The Watchers: The Rise of America's Surveillance State",
+          "author": "Shane Harris",
+          "publicationYear": 2010,
+          "primarySubject": "Politics & Government",
+          "score": 1.534813,
+          "similarity": 0.558838,
+          "reasons": [
+            "Matched terms: intelligence, threats, prevent, threat",
+            "Matched concepts: history, national security",
+            "Matched concepts: history, intelligence, politics",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "John Poindexter"
+            ],
+            "centralPlaces": [],
+            "argument": "America’s surveillance-state strategy has made it harder to catch terrorists while making it easier to spy on ordinary people.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-the-black-banners-the-inside-story-of-9-11-and-the-war-against-al-qaeda-ali-h-soufan",
+          "slug": "the-black-banners-the-inside-story-of-9-11-and-the-war-against-al-qaeda-ali-h-soufan",
+          "title": "The Black Banners: The Inside Story of 9/11 and the War Against al‐Qaeda",
+          "author": "Ali H. Soufan",
+          "publicationYear": 2011,
+          "primarySubject": "War & Military",
+          "score": 1.513537,
+          "similarity": 0.628749,
+          "reasons": [
+            "Matched terms: prevent, terrorist, war",
+            "Matched concepts: history",
+            "Matched concepts: history, war, military",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "The September 11th attacks could have been prevented, and the narrator’s interrogation efforts were highly effective as part of the war on terror.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-ghost-wars-the-secret-history-of-the-cia-afghanistan-and-bin-laden-from-the-soviet-invasion-to-s",
+          "slug": "ghost-wars-the-secret-history-of-the-cia-afghanistan-and-bin-laden-from-the-soviet-invasion-to-s",
+          "title": "Ghost Wars: The Secret History of the CIA, Afghanistan, and Bin Laden, from the Soviet Invasion to September 10, 2001",
+          "author": "Steve Coll",
+          "publicationYear": 2004,
+          "primarySubject": "War & Military",
+          "score": 1.491686,
+          "similarity": 0.651025,
+          "reasons": [
+            "Matched terms: intelligence, early, war",
+            "Matched concepts: history",
+            "Matched concepts: intelligence, war, military",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "Afghanistan"
+            ],
+            "argument": "CIA covert operations in Afghanistan, alongside other intelligence agencies, fueled Islamic militancy and helped give rise to bin Laden’s al Qaeda, providing context for the September 11 attacks.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-legacy-of-ashes-the-history-of-the-cia-tim-weiner",
+          "slug": "legacy-of-ashes-the-history-of-the-cia-tim-weiner",
+          "title": "Legacy of Ashes: The History of the CIA",
+          "author": "Tim Weiner",
+          "publicationYear": 2007,
+          "primarySubject": "History",
+          "score": 1.463889,
+          "similarity": 0.539317,
+          "reasons": [
+            "Matched terms: intelligence, war, security, failure",
+            "Matched concepts: history, national security",
+            "Matched concepts: history, intelligence",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "The CIA’s failures to understand the world have prompted actions that have profoundly jeopardized United States national security.",
+            "academicOrientation": 55
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-directorate-s-the-c-i-a-and-america-s-secret-wars-in-afghanistan-and-pakistan-steve-coll",
+          "slug": "directorate-s-the-c-i-a-and-america-s-secret-wars-in-afghanistan-and-pakistan-steve-coll",
+          "title": "Directorate S: The C.I.A. and America’s Secret Wars in Afghanistan and Pakistan",
+          "author": "Steve Coll",
+          "publicationYear": 2018,
+          "primarySubject": "War & Military",
+          "score": 1.396241,
+          "similarity": 0.620457,
+          "reasons": [
+            "Matched terms: intelligence, failed, war, failure",
+            "Matched concepts: intelligence, war, military",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "Afghanistan",
+              "Pakistan"
+            ],
+            "argument": "The U.S. efforts in the Afghan War faltered because America failed to understand the intentions of Pakistan's intelligence agency.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-the-american-war-in-afghanistan-a-history-carter-malkasian",
+          "slug": "the-american-war-in-afghanistan-a-history-carter-malkasian",
+          "title": "The American War in Afghanistan: A History",
+          "author": "Carter Malkasian",
+          "publicationYear": 2021,
+          "primarySubject": "War & Military",
+          "score": 1.37176,
+          "similarity": 0.487297,
+          "reasons": [
+            "Matched terms: war",
+            "Matched concepts: history",
+            "Matched concepts: history, war, military",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "Afghanistan"
+            ],
+            "academicOrientation": 72
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-black-flags-the-rise-of-isis-joby-warrick",
+          "slug": "black-flags-the-rise-of-isis-joby-warrick",
+          "title": "Black Flags: The Rise of ISIS",
+          "author": "Joby Warrick",
+          "publicationYear": 2015,
+          "primarySubject": "Politics & Government",
+          "score": 1.331003,
+          "similarity": 0.539147,
+          "reasons": [
+            "Matched terms: intelligence, terrorist, war, security",
+            "Matched concepts: history",
+            "Matched concepts: history, politics",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Abu Musab al-Zarqawi"
+            ],
+            "centralPlaces": [],
+            "argument": "ISIS’s rise is traced to Abu Musab al-Zarqawi’s zeal, amplified by strategic mistakes by Presidents Bush and Obama that helped his movement expand across Syria and Iraq.",
+            "academicOrientation": 25
+          }
+        }
+      ]
+    },
+    {
+      "query": "narrative nonfiction about Hurricane Katrina and New Orleans",
+      "interpretation": {
+        "expandedQuery": "narrative nonfiction account of Hurricane Katrina and its impact on New Orleans, combining disaster journalism and oral history with the political, economic, and infrastructure failures that shaped evacuation, housing, policing, and recovery; include local history, social inequality, and the rebuilding of the city",
+        "concepts": [
+          "Hurricane Katrina",
+          "New Orleans",
+          "narrative nonfiction disaster account",
+          "displacement and recovery",
+          "levee and emergency management failures",
+          "climate and extreme weather narratives",
+          "institutional failure case studies",
+          "local political machine and municipal governance",
+          "how misinformation and rumor networks affected crisis decisions"
+        ],
+        "adventurousConcepts": [
+          "climate and extreme weather narratives",
+          "institutional failure case studies",
+          "local political machine and municipal governance",
+          "how misinformation and rumor networks affected crisis decisions",
+          "comparative disaster recovery (other U.S. hurricanes or floods)"
+        ],
+        "coreConcepts": [
+          "Hurricane Katrina",
+          "New Orleans",
+          "narrative nonfiction disaster account",
+          "displacement and recovery",
+          "levee and emergency management failures"
+        ],
+        "eras": [
+          "2000s",
+          "mid-2000s",
+          "post-Katrina recovery era"
+        ],
+        "subjects": [
+          "history",
+          "journalism",
+          "politics",
+          "public policy",
+          "urban studies",
+          "sociology of disaster/climate risk"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: narrative nonfiction about Hurricane Katrina and New Orleans\nExpanded search intent: narrative nonfiction account of Hurricane Katrina and its impact on New Orleans, combining disaster journalism and oral history with the political, economic, and infrastructure failures that shaped evacuation, housing, policing, and recovery; include local history, social inequality, and the rebuilding of the city\nCore concepts: Hurricane Katrina, New Orleans, narrative nonfiction disaster account, displacement and recovery, levee and emergency management failures\nAdventurous adjacent concepts: climate and extreme weather narratives, institutional failure case studies, local political machine and municipal governance, how misinformation and rumor networks affected crisis decisions, comparative disaster recovery (other U.S. hurricanes or floods)\nEras and periods: 2000s, mid-2000s, post-Katrina recovery era\nLikely subjects: history, journalism, politics, public policy, urban studies, sociology of disaster/climate risk",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "narrative",
+          "hurricane",
+          "katrina",
+          "new",
+          "orleans",
+          "account",
+          "its",
+          "impact",
+          "combining",
+          "disaster",
+          "journalism",
+          "oral",
+          "history",
+          "political",
+          "economic",
+          "infrastructure",
+          "failures",
+          "shaped",
+          "evacuation",
+          "housing",
+          "policing",
+          "recovery",
+          "include",
+          "local",
+          "social",
+          "inequality",
+          "rebuilding",
+          "city",
+          "displacement",
+          "levee",
+          "emergency",
+          "management",
+          "climate",
+          "extreme",
+          "weather",
+          "narratives",
+          "institutional",
+          "failure",
+          "case",
+          "studies",
+          "machine",
+          "municipal"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-heart-like-water-surviving-katrina-and-life-in-its-disaster-zone-joshua-clark",
+          "slug": "heart-like-water-surviving-katrina-and-life-in-its-disaster-zone-joshua-clark",
+          "title": "Heart Like Water: Surviving Katrina and Life in Its Disaster Zone",
+          "author": "Joshua Clark",
+          "publicationYear": 2007,
+          "primarySubject": "Memoir & Autobiography",
+          "score": 1.195569,
+          "similarity": 0.578805,
+          "reasons": [
+            "Matched terms: hurricane, katrina, account, its",
+            "Matched concepts: hurricane katrina",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 30
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-darkness-in-el-dorado-how-scientists-and-journalists-devastated-the-amazon-patrick-tierney",
+          "slug": "darkness-in-el-dorado-how-scientists-and-journalists-devastated-the-amazon-patrick-tierney",
+          "title": "Darkness in El Dorado: How Scientists and Journalists Devastated the Amazon",
+          "author": "Patrick Tierney",
+          "publicationYear": 2000,
+          "primarySubject": "Journalism & Reportage",
+          "score": 1.115573,
+          "similarity": 0.485253,
+          "reasons": [
+            "Matched terms: new, its, disaster, journalism",
+            "Matched concepts: journalism",
+            "Matched concepts: journalism",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "The book argues that ruthless journalists, self-serving anthropologists, and obsessed scientists pushed the Yanomami toward extinction by placing them on the cusp of extinction.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-the-great-deluge-hurricane-katrina-new-orleans-and-the-mississippi-gulf-coast-douglas-brinkley",
+          "slug": "the-great-deluge-hurricane-katrina-new-orleans-and-the-mississippi-gulf-coast-douglas-brinkley",
+          "title": "The Great Deluge: Hurricane Katrina, New Orleans, and the Mississippi Gulf Coast",
+          "author": "Douglas Brinkley",
+          "publicationYear": 2006,
+          "primarySubject": "History",
+          "score": 1.075172,
+          "similarity": 0.697215,
+          "reasons": [
+            "Matched terms: hurricane, katrina, new, orleans",
+            "Matched concepts: hurricane katrina, new orleans",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "New Orleans",
+              "the Mississippi Gulf Coast"
+            ],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-high-and-mighty-suvs-the-world-s-most-dangerous-vehicles-and-how-they-got-that-way-keith-bradshe",
+          "slug": "high-and-mighty-suvs-the-world-s-most-dangerous-vehicles-and-how-they-got-that-way-keith-bradshe",
+          "title": "High and Mighty: SUVs--The World’s Most Dangerous Vehicles and How They Got That Way",
+          "author": "Keith Bradsher",
+          "publicationYear": 2002,
+          "primarySubject": "Journalism & Reportage",
+          "score": 1.061503,
+          "similarity": 0.446943,
+          "reasons": [
+            "Matched terms: new, its, impact, journalism",
+            "Matched concepts: journalism",
+            "Matched concepts: journalism",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-american-dream-three-women-ten-kids-and-a-nation-s-drive-to-end-welfare-jason-deparle",
+          "slug": "american-dream-three-women-ten-kids-and-a-nation-s-drive-to-end-welfare-jason-deparle",
+          "title": "American Dream: Three Women, Ten Kids, and a Nation's Drive to End Welfare",
+          "author": "Jason DeParle",
+          "publicationYear": 2004,
+          "primarySubject": "Politics & Government",
+          "score": 0.996387,
+          "similarity": 0.429335,
+          "reasons": [
+            "Matched terms: new, its, political, failures",
+            "Matched concepts: politics",
+            "Matched concepts: politics",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Bill Clinton"
+            ],
+            "centralPlaces": [],
+            "academicOrientation": 28
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-zeitoun-dave-eggers",
+          "slug": "zeitoun-dave-eggers",
+          "title": "Zeitoun",
+          "author": "Dave Eggers",
+          "publicationYear": 2009,
+          "primarySubject": "Memoir & Autobiography",
+          "score": 0.967903,
+          "similarity": 0.590405,
+          "reasons": [
+            "Matched terms: hurricane, katrina, new, orleans",
+            "Matched concepts: hurricane katrina, new orleans",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "New Orleans"
+            ],
+            "academicOrientation": 30
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-challenger-a-true-story-of-heroism-and-disaster-on-the-edge-of-space-adam-higginbotham",
+          "slug": "challenger-a-true-story-of-heroism-and-disaster-on-the-edge-of-space-adam-higginbotham",
+          "title": "Challenger: A True Story of Heroism and Disaster on the Edge of Space",
+          "author": "Adam Higginbotham",
+          "publicationYear": 2025,
+          "primarySubject": "American History",
+          "score": 0.965986,
+          "similarity": 0.484674,
+          "reasons": [
+            "Matched terms: new, account, its, disaster",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-paradise-falls-the-true-story-of-an-environmental-catastrophe-keith-o-brien",
+          "slug": "paradise-falls-the-true-story-of-an-environmental-catastrophe-keith-o-brien",
+          "title": "Paradise Falls: The True Story of an Environmental Catastrophe",
+          "author": "Keith O'Brien",
+          "publicationYear": 2022,
+          "primarySubject": "Nature & Environment",
+          "score": 0.92568,
+          "similarity": 0.525241,
+          "reasons": [
+            "Matched terms: new, its, disaster, infrastructure",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Lois Gibbs",
+              "Luella Kenny"
+            ],
+            "centralPlaces": [
+              "Niagara Falls"
+            ],
+            "academicOrientation": 35
+          }
+        }
+      ]
+    },
+    {
+      "query": "books arguing that slavery and capitalism developed together",
+      "interpretation": {
+        "expandedQuery": "Nonfiction scholarship and historical arguments that examine how chattel slavery and capitalism co-developed, reinforcing each other economically and institutionally—covering transatlantic slave trade, plantation finance, colonialism, industrialization links, and abolition-era market transformations; include Marxist, world-systems, abolitionist-history, and political-economy perspectives on slavery’s integration into capitalist accumulation.",
+        "concepts": [
+          "slavery–capitalism co-development",
+          "transatlantic slavery as an economic system",
+          "economic integration of slave labor into markets and finance",
+          "colonial institutions and capitalist accumulation",
+          "theoretical approaches (Marxist/world-systems/political economy)",
+          "slave labor as a formation of racialized labor markets",
+          "institutional design of property in humans",
+          "how abolition reshaped capital accumulation and labor control",
+          "imperial logistics (shipping/insurance/banking) enabling slavery as infrastructure"
+        ],
+        "adventurousConcepts": [
+          "slave labor as a formation of racialized labor markets",
+          "institutional design of property in humans",
+          "how abolition reshaped capital accumulation and labor control",
+          "imperial logistics (shipping/insurance/banking) enabling slavery as infrastructure",
+          "racial capitalism and the reproduction of inequality through markets",
+          "comparative studies of coerced labor beyond the Atlantic (plantations, indenture)"
+        ],
+        "coreConcepts": [
+          "slavery–capitalism co-development",
+          "transatlantic slavery as an economic system",
+          "economic integration of slave labor into markets and finance",
+          "colonial institutions and capitalist accumulation",
+          "theoretical approaches (Marxist/world-systems/political economy)"
+        ],
+        "eras": [
+          "early modern period (1500s–1700s)",
+          "18th century",
+          "19th century",
+          "abolition and post-abolition era"
+        ],
+        "subjects": [
+          "history",
+          "economic history",
+          "political economy",
+          "capitalism studies",
+          "slavery and abolition",
+          "labor history"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: books arguing that slavery and capitalism developed together\nExpanded search intent: Nonfiction scholarship and historical arguments that examine how chattel slavery and capitalism co-developed, reinforcing each other economically and institutionally—covering transatlantic slave trade, plantation finance, colonialism, industrialization links, and abolition-era market transformations; include Marxist, world-systems, abolitionist-history, and political-economy perspectives on slavery’s integration into capitalist accumulation.\nCore concepts: slavery–capitalism co-development, transatlantic slavery as an economic system, economic integration of slave labor into markets and finance, colonial institutions and capitalist accumulation, theoretical approaches (Marxist/world-systems/political economy)\nAdventurous adjacent concepts: slave labor as a formation of racialized labor markets, institutional design of property in humans, how abolition reshaped capital accumulation and labor control, imperial logistics (shipping/insurance/banking) enabling slavery as infrastructure, racial capitalism and the reproduction of inequality through markets, comparative studies of coerced labor beyond the Atlantic (plantations, indenture)\nEras and periods: early modern period (1500s–1700s), 18th century, 19th century, abolition and post-abolition era\nLikely subjects: history, economic history, political economy, capitalism studies, slavery and abolition, labor history",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "arguing",
+          "slavery",
+          "capitalism",
+          "developed",
+          "together",
+          "scholarship",
+          "historical",
+          "arguments",
+          "examine",
+          "chattel",
+          "co-developed",
+          "reinforcing",
+          "each",
+          "other",
+          "economically",
+          "institutionally",
+          "covering",
+          "transatlantic",
+          "slave",
+          "trade",
+          "plantation",
+          "finance",
+          "colonialism",
+          "industrialization",
+          "links",
+          "abolition-era",
+          "market",
+          "transformations",
+          "include",
+          "marxist",
+          "world-systems",
+          "abolitionist-history",
+          "political-economy",
+          "perspectives",
+          "integration",
+          "capitalist",
+          "accumulation",
+          "co-development",
+          "economic",
+          "system",
+          "labor",
+          "markets"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-the-indian-slave-trade-the-rise-of-the-english-empire-in-the-american-south-1670-1717-alan-galla",
+          "slug": "the-indian-slave-trade-the-rise-of-the-english-empire-in-the-american-south-1670-1717-alan-galla",
+          "title": "The Indian Slave Trade: The Rise of the English Empire in the American South, 1670-1717",
+          "author": "Alan Gallay",
+          "publicationYear": 2002,
+          "primarySubject": "American History",
+          "score": 1.511583,
+          "similarity": 0.657051,
+          "reasons": [
+            "Matched terms: slavery, slave, trade, plantation",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "South Carolina"
+            ],
+            "academicOrientation": 70
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-traders-in-men-merchants-and-the-transformation-of-the-transatlantic-slave-trade-nicholas-radbur",
+          "slug": "traders-in-men-merchants-and-the-transformation-of-the-transatlantic-slave-trade-nicholas-radbur",
+          "title": "Traders in Men: Merchants and the Transformation of the Transatlantic Slave Trade",
+          "author": "Nicholas Radburn",
+          "publicationYear": 2023,
+          "primarySubject": "History",
+          "score": 1.302814,
+          "similarity": 0.59744,
+          "reasons": [
+            "Matched terms: slavery, capitalism, developed, historical",
+            "Matched concepts: history",
+            "Matched concepts: history, environment, business",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Merchants collectively transformed Britain’s transatlantic slave trade by inventing efficient but violent business methods, enabling African commercial infrastructure to facilitate the enslavement and sale of millions.",
+            "academicOrientation": 70
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-the-problem-of-slavery-in-the-age-of-revolution-1700-1823-david-davis",
+          "slug": "the-problem-of-slavery-in-the-age-of-revolution-1700-1823-david-davis",
+          "title": "The Problem of Slavery in the Age of Revolution, 1700-1823",
+          "author": "David Davis",
+          "primarySubject": "American History",
+          "score": 1.204534,
+          "similarity": 0.598727,
+          "reasons": [
+            "Matched terms: slavery, historical, slave",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope",
+            "Matched period signal"
+          ]
+        },
+        {
+          "rank": 4,
+          "bookId": "book-plantation-goods-a-material-history-of-american-slavery-seth-rockman",
+          "slug": "plantation-goods-a-material-history-of-american-slavery-seth-rockman",
+          "title": "Plantation Goods: A Material History of American Slavery",
+          "author": "Seth Rockman",
+          "publicationYear": 2025,
+          "primarySubject": "American History",
+          "score": 1.200984,
+          "similarity": 0.635592,
+          "reasons": [
+            "Matched terms: slavery, together, historical, each",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Nineteenth-century U.S. economic ties interdependently linked Northern industry and Southern slavery, with plantation-supply goods outsourced to the North and human bondage shaped by Northern manufacturing.",
+            "academicOrientation": 70
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-capitalism-in-america-a-history-alan-greenspan-and-adrian-wooldridge",
+          "slug": "capitalism-in-america-a-history-alan-greenspan-and-adrian-wooldridge",
+          "title": "Capitalism in America: A History",
+          "author": "Alan Greenspan, Adrian Wooldridge",
+          "publicationYear": 2018,
+          "primarySubject": "Business & Economics",
+          "score": 1.1941,
+          "similarity": 0.588428,
+          "reasons": [
+            "Matched terms: slavery, capitalism, slave, trade",
+            "Matched concepts: history",
+            "Matched concepts: history, business, economics",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "America’s prosperity is driven by its enthusiasm for creative destruction—the ceaseless churn of the old giving way to the new—despite being messy and painful, it has broadly raised living standards.",
+            "academicOrientation": 28
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-empire-of-cotton-a-global-history-sven-beckert",
+          "slug": "empire-of-cotton-a-global-history-sven-beckert",
+          "title": "Empire of Cotton: A Global History",
+          "author": "Sven Beckert",
+          "publicationYear": 2004,
+          "primarySubject": "World History",
+          "score": 1.186113,
+          "similarity": 0.613798,
+          "reasons": [
+            "Matched terms: slavery, capitalism, slave, trade",
+            "Matched concepts: history",
+            "Matched concepts: history, agriculture",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "European entrepreneurs and powerful states recast the global cotton industry by combining imperial expansion and slave labor with machines and wage work, creating “war capitalism” and reshaping global capitalism.",
+            "academicOrientation": 45
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-moral-capital-foundations-of-british-abolitionism-christopher-brown",
+          "slug": "moral-capital-foundations-of-british-abolitionism-christopher-brown",
+          "title": "Moral Capital: Foundations of British Abolitionism",
+          "author": "Christopher Brown",
+          "publicationYear": 2006,
+          "primarySubject": "American History",
+          "score": 1.179397,
+          "similarity": 0.654597,
+          "reasons": [
+            "Matched terms: historical, colonialism, market, economic",
+            "Matched concepts: history",
+            "Matched concepts: history",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Brown argues that British abolitionism’s late-eighteenth-century shift from sentiment to action was driven by changing British views of empire and nation, especially anxieties and dislocations from the American Revolution, not economic determinism or bourgeois humanitarianism.",
+            "academicOrientation": 65
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-the-history-of-black-business-in-america-capitalism-race-entrepreneurship-juliet-e-k-walker",
+          "slug": "the-history-of-black-business-in-america-capitalism-race-entrepreneurship-juliet-e-k-walker",
+          "title": "The History of Black Business in America: Capitalism, Race, Entrepreneurship",
+          "author": "Juliet E. K. Walker",
+          "publicationYear": 1998,
+          "primarySubject": "Business & Economics",
+          "score": 1.169522,
+          "similarity": 0.565031,
+          "reasons": [
+            "Matched terms: capitalism, each, trade, finance",
+            "Matched concepts: history",
+            "Matched concepts: history, agriculture, business",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Madame C. J. Walker"
+            ],
+            "centralPlaces": [],
+            "academicOrientation": 48
+          }
+        }
+      ]
+    },
+    {
+      "query": "an accessible but rigorous introduction to evolution for a general reader",
+      "interpretation": {
+        "expandedQuery": "accessible yet rigorous introductory nonfiction explaining biological evolution for general readers, covering natural selection and common descent, mechanisms (mutation, inheritance, genetic drift, gene flow), the fossil record, and core evidence using clear examples and quantitative-light explanations; include companion topics like speciation and evolutionary medicine where appropriate",
+        "concepts": [
+          "biological evolution as a unifying scientific theory",
+          "natural selection and adaptation",
+          "genetics-based explanation of heredity and variation",
+          "evidence for evolution from multiple lines (fossils, comparative biology, genomics)",
+          "how species change over time (speciation)",
+          "evolutionary medicine (trade-offs, constraints, mismatch)",
+          "how to read and interpret phylogenetic trees",
+          "the evolution of cooperation and sexual selection",
+          "evolutionary developmental biology (evo-devo) at an accessible level"
+        ],
+        "adventurousConcepts": [
+          "evolutionary medicine (trade-offs, constraints, mismatch)",
+          "how to read and interpret phylogenetic trees",
+          "the evolution of cooperation and sexual selection",
+          "evolutionary developmental biology (evo-devo) at an accessible level",
+          "historical development of evolutionary theory (Darwin and after)"
+        ],
+        "coreConcepts": [
+          "biological evolution as a unifying scientific theory",
+          "natural selection and adaptation",
+          "genetics-based explanation of heredity and variation",
+          "evidence for evolution from multiple lines (fossils, comparative biology, genomics)",
+          "how species change over time (speciation)"
+        ],
+        "eras": [
+          "19th century origins of evolutionary theory",
+          "20th century modern synthesis",
+          "contemporary genomics-era evolution"
+        ],
+        "subjects": [
+          "biology",
+          "genetics",
+          "paleontology",
+          "science education",
+          "evolutionary theory",
+          "population genetics"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: an accessible but rigorous introduction to evolution for a general reader\nExpanded search intent: accessible yet rigorous introductory nonfiction explaining biological evolution for general readers, covering natural selection and common descent, mechanisms (mutation, inheritance, genetic drift, gene flow), the fossil record, and core evidence using clear examples and quantitative-light explanations; include companion topics like speciation and evolutionary medicine where appropriate\nCore concepts: biological evolution as a unifying scientific theory, natural selection and adaptation, genetics-based explanation of heredity and variation, evidence for evolution from multiple lines (fossils, comparative biology, genomics), how species change over time (speciation)\nAdventurous adjacent concepts: evolutionary medicine (trade-offs, constraints, mismatch), how to read and interpret phylogenetic trees, the evolution of cooperation and sexual selection, evolutionary developmental biology (evo-devo) at an accessible level, historical development of evolutionary theory (Darwin and after)\nEras and periods: 19th century origins of evolutionary theory, 20th century modern synthesis, contemporary genomics-era evolution\nLikely subjects: biology, genetics, paleontology, science education, evolutionary theory, population genetics",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "accessible",
+          "rigorous",
+          "introduction",
+          "evolution",
+          "general",
+          "reader",
+          "yet",
+          "introductory",
+          "explaining",
+          "biological",
+          "readers",
+          "covering",
+          "natural",
+          "selection",
+          "common",
+          "descent",
+          "mechanisms",
+          "mutation",
+          "inheritance",
+          "genetic",
+          "drift",
+          "gene",
+          "flow",
+          "fossil",
+          "record",
+          "core",
+          "evidence",
+          "using",
+          "clear",
+          "examples",
+          "quantitative-light",
+          "explanations",
+          "include",
+          "companion",
+          "topics",
+          "speciation",
+          "evolutionary",
+          "medicine",
+          "where",
+          "appropriate",
+          "unifying",
+          "scientific"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-the-emperor-of-all-maladies-a-biography-of-cancer-siddhartha-mukherjee",
+          "slug": "the-emperor-of-all-maladies-a-biography-of-cancer-siddhartha-mukherjee",
+          "title": "The Emperor of All Maladies: A Biography of Cancer",
+          "author": "Siddhartha Mukherjee",
+          "publicationYear": 2011,
+          "primarySubject": "Medicine & Public Health",
+          "score": 1.173004,
+          "similarity": 0.403673,
+          "reasons": [
+            "Matched terms: reader, evidence, topics, medicine",
+            "Matched concepts: medicine, public health, science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-entangled-life-merlin-sheldrake",
+          "slug": "entangled-life-merlin-sheldrake",
+          "title": "Entangled Life",
+          "author": "Merlin Sheldrake",
+          "publicationYear": 2020,
+          "primarySubject": "Science",
+          "score": 1.162037,
+          "similarity": 0.49246,
+          "reasons": [
+            "Matched terms: evolution, reader, natural, evidence",
+            "Matched concepts: medicine, public health, science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 20
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-your-inner-fish-a-journey-into-the-3-5-billion-year-history-of-the-human-body-neil-shubin",
+          "slug": "your-inner-fish-a-journey-into-the-3-5-billion-year-history-of-the-human-body-neil-shubin",
+          "title": "Your Inner Fish: A Journey Into the 3.5-Billion-Year History of the Human Body",
+          "author": "Neil Shubin",
+          "publicationYear": 2008,
+          "primarySubject": "Science",
+          "score": 1.100932,
+          "similarity": 0.531289,
+          "reasons": [
+            "Matched terms: reader, genetic, gene, evidence",
+            "Matched concepts: medicine, public health, science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 43
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-the-ancestor-s-tale-richard-dawkins",
+          "slug": "the-ancestor-s-tale-richard-dawkins",
+          "title": "The Ancestor's Tale",
+          "author": "Richard Dawkins",
+          "publicationYear": 2004,
+          "primarySubject": "Science",
+          "score": 1.034311,
+          "similarity": 0.682398,
+          "reasons": [
+            "Matched terms: evolution, reader, evidence, topics",
+            "Matched concepts: biology",
+            "Matched concepts: science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Evolution is the fundamental, unifying principle that explains the development and relationships of all living things, revealed through DNA-based research into evolutionary history.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-the-beak-of-the-finch-a-story-of-evolution-in-our-time-jonathan-weiner",
+          "slug": "the-beak-of-the-finch-a-story-of-evolution-in-our-time-jonathan-weiner",
+          "title": "The Beak of the Finch: A Story Of Evolution In Our Time",
+          "author": "Jonathan Weiner",
+          "publicationYear": 1995,
+          "primarySubject": "Science",
+          "score": 1.031911,
+          "similarity": 0.622673,
+          "reasons": [
+            "Matched terms: evolution, reader, natural, selection",
+            "Matched concepts: science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "Daphne Major"
+            ],
+            "argument": "Natural selection in Darwin’s finches on Daphne Major is neither rare nor slow; it is ongoing by the hour and can be observed directly, yielding a new understanding of life.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-an-immense-world-how-animal-senses-reveal-the-hidden-realms-around-us-ed-yong",
+          "slug": "an-immense-world-how-animal-senses-reveal-the-hidden-realms-around-us-ed-yong",
+          "title": "An Immense World: How Animal Senses Reveal the Hidden Realms Around Us",
+          "author": "Ed Yong",
+          "publicationYear": 2023,
+          "primarySubject": "Science",
+          "score": 1.028086,
+          "similarity": 0.523679,
+          "reasons": [
+            "Matched terms: reader, topics",
+            "Matched concepts: science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-the-blind-watchmaker-richard-dawkins",
+          "slug": "the-blind-watchmaker-richard-dawkins",
+          "title": "The Blind Watchmaker",
+          "author": "Richard Dawkins",
+          "publicationYear": 1986,
+          "primarySubject": "Science",
+          "score": 1.022896,
+          "similarity": 0.574724,
+          "reasons": [
+            "Matched terms: evolution, reader, natural, selection",
+            "Matched concepts: biology",
+            "Matched concepts: science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ]
+        },
+        {
+          "rank": 8,
+          "bookId": "book-the-making-of-the-fittest-sean-b-carroll",
+          "slug": "the-making-of-the-fittest-sean-b-carroll",
+          "title": "The Making of the Fittest",
+          "author": "Sean B. Carroll",
+          "publicationYear": 2006,
+          "primarySubject": "Science",
+          "score": 1.012058,
+          "similarity": 0.65445,
+          "reasons": [
+            "Matched terms: evolution, general, reader, gene",
+            "Matched concepts: science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "DNA preserves a detailed record of evolution, and the book argues that this evidence establishes evolution beyond any reasonable doubt.",
+            "academicOrientation": 45
+          }
+        }
+      ]
+    },
+    {
+      "query": "biographies of women scientists who fought institutional sexism",
+      "interpretation": {
+        "expandedQuery": "narrative and scholarly nonfiction biographies of women scientists who challenged and overcame institutional sexism in academia and research institutions; include themes of gender discrimination, lab and workplace barriers, professional gatekeeping, and scientific communities’ resistance to women; span multiple fields (STEM, medicine, physics, chemistry, engineering, computer science, biology) and eras; emphasize primary-source accounts and institutional history around hiring, tenure, publication, and credit for discoveries.",
+        "concepts": [
+          "biographies of women scientists",
+          "institutional sexism",
+          "gender discrimination in scientific institutions",
+          "barriers to professional advancement (hiring, tenure, publication, credit)",
+          "overcoming systemic resistance",
+          "gendered authorship and citation credit networks",
+          "the politics of peer review and journal acceptance",
+          "scientific credentialing and credential fraud defenses",
+          "hidden labor in research organizations"
+        ],
+        "adventurousConcepts": [
+          "gendered authorship and citation credit networks",
+          "the politics of peer review and journal acceptance",
+          "scientific credentialing and credential fraud defenses",
+          "hidden labor in research organizations",
+          "intersectional barriers (race, class, disability) affecting women scientists",
+          "women scientists’ informal mentorship and alternative institutions",
+          "archival recovery of marginalized scientific contributions"
+        ],
+        "coreConcepts": [
+          "biographies of women scientists",
+          "institutional sexism",
+          "gender discrimination in scientific institutions",
+          "barriers to professional advancement (hiring, tenure, publication, credit)",
+          "overcoming systemic resistance"
+        ],
+        "eras": [
+          "20th century",
+          "early 21st century",
+          "Victorian and Progressive Era (late 19th–early 20th century)"
+        ],
+        "subjects": [
+          "science history",
+          "gender studies",
+          "biography",
+          "academic labor and labor history",
+          "institutional sociology",
+          "medicine and medical science history"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: biographies of women scientists who fought institutional sexism\nExpanded search intent: narrative and scholarly nonfiction biographies of women scientists who challenged and overcame institutional sexism in academia and research institutions; include themes of gender discrimination, lab and workplace barriers, professional gatekeeping, and scientific communities’ resistance to women; span multiple fields (STEM, medicine, physics, chemistry, engineering, computer science, biology) and eras; emphasize primary-source accounts and institutional history around hiring, tenure, publication, and credit for discoveries.\nCore concepts: biographies of women scientists, institutional sexism, gender discrimination in scientific institutions, barriers to professional advancement (hiring, tenure, publication, credit), overcoming systemic resistance\nAdventurous adjacent concepts: gendered authorship and citation credit networks, the politics of peer review and journal acceptance, scientific credentialing and credential fraud defenses, hidden labor in research organizations, intersectional barriers (race, class, disability) affecting women scientists, women scientists’ informal mentorship and alternative institutions, archival recovery of marginalized scientific contributions\nEras and periods: 20th century, early 21st century, Victorian and Progressive Era (late 19th–early 20th century)\nLikely subjects: science history, gender studies, biography, academic labor and labor history, institutional sociology, medicine and medical science history",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "biographies",
+          "women",
+          "scientists",
+          "fought",
+          "institutional",
+          "sexism",
+          "narrative",
+          "scholarly",
+          "challenged",
+          "overcame",
+          "academia",
+          "research",
+          "institutions",
+          "include",
+          "themes",
+          "gender",
+          "discrimination",
+          "lab",
+          "workplace",
+          "barriers",
+          "professional",
+          "gatekeeping",
+          "scientific",
+          "communities",
+          "resistance",
+          "span",
+          "multiple",
+          "fields",
+          "stem",
+          "medicine",
+          "physics",
+          "chemistry",
+          "engineering",
+          "computer",
+          "science",
+          "biology",
+          "eras",
+          "emphasize",
+          "primary-source",
+          "accounts",
+          "history",
+          "around"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-other-powers-the-age-of-suffrage-spiritualism-and-the-scandalous-victoria-woodhull-barbara-golds",
+          "slug": "other-powers-the-age-of-suffrage-spiritualism-and-the-scandalous-victoria-woodhull-barbara-golds",
+          "title": "Other Powers: The Age of Suffrage, Spiritualism, and the Scandalous Victoria Woodhull",
+          "author": "Barbara Goldsmith",
+          "publicationYear": 1998,
+          "primarySubject": "Gender & Sexuality",
+          "score": 1.281823,
+          "similarity": 0.578111,
+          "reasons": [
+            "Matched terms: women, scholarly, research, include",
+            "Matched concepts: biography",
+            "Matched concepts: biography",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Victoria Woodhull"
+            ],
+            "centralPlaces": [],
+            "academicOrientation": 38
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-florence-kelley-and-the-nation-s-work-kathryn-kish-sklar",
+          "slug": "florence-kelley-and-the-nation-s-work-kathryn-kish-sklar",
+          "title": "Florence Kelley and the Nation's Work",
+          "author": "Kathryn Kish Sklar",
+          "publicationYear": 1995,
+          "primarySubject": "Biography",
+          "score": 1.186142,
+          "similarity": 0.518367,
+          "reasons": [
+            "Matched terms: women, scholarly, gender, lab",
+            "Matched concepts: biography",
+            "Matched concepts: biography",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Florence Kelley"
+            ],
+            "centralPlaces": [
+              "Chicago"
+            ],
+            "argument": "Changes in women’s public culture combined with changes in men’s public culture to produce Progressive-era reforms that neither could have achieved alone.",
+            "academicOrientation": 60
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-the-doctors-blackwell-how-two-pioneering-sisters-brought-medicine-to-women-and-women-to-medicine",
+          "slug": "the-doctors-blackwell-how-two-pioneering-sisters-brought-medicine-to-women-and-women-to-medicine",
+          "title": "The Doctors Blackwell: How Two Pioneering Sisters Brought Medicine to Women and Women to Medicine",
+          "author": "Janice P. Nimura",
+          "publicationYear": 2021,
+          "primarySubject": "Biography",
+          "score": 1.153483,
+          "similarity": 0.636336,
+          "reasons": [
+            "Matched terms: women, sexism, scholarly, scientific",
+            "Matched concepts: biography",
+            "Matched concepts: biography",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Elizabeth Blackwell",
+              "Emily Blackwell"
+            ],
+            "centralPlaces": [],
+            "argument": "Elizabeth and Emily Blackwell transformed New York’s medical establishment by creating a women-staffed hospital, enabling women to access medicine and forcing an all-male medical system to accept female doctors.",
+            "academicOrientation": 30
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-ripples-in-spacetime-einstein-gravitational-waves-and-the-future-of-astronomy-govert-schilling",
+          "slug": "ripples-in-spacetime-einstein-gravitational-waves-and-the-future-of-astronomy-govert-schilling",
+          "title": "Ripples in Spacetime: Einstein, Gravitational Waves, and the Future of Astronomy",
+          "author": "Govert Schilling",
+          "publicationYear": 2017,
+          "primarySubject": "Science",
+          "score": 1.151786,
+          "similarity": 0.502038,
+          "reasons": [
+            "Matched terms: scholarly, research, professional, physics",
+            "Matched concepts: science",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Einstein"
+            ],
+            "centralPlaces": [],
+            "argument": "The detection of gravitational waves completes Einstein's project by confirming general relativity and enables gravitational-wave astronomy to reveal the universe’s structure and origin.",
+            "academicOrientation": 45
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-the-birth-of-the-pill-how-four-crusaders-reinvented-sex-and-launched-a-revolution-jonathan-eig",
+          "slug": "the-birth-of-the-pill-how-four-crusaders-reinvented-sex-and-launched-a-revolution-jonathan-eig",
+          "title": "The Birth of the Pill: How Four Crusaders Reinvented Sex and Launched a Revolution",
+          "author": "Jonathan Eig",
+          "publicationYear": 2014,
+          "primarySubject": "Science",
+          "score": 1.118031,
+          "similarity": 0.5391,
+          "reasons": [
+            "Matched terms: scientists, scholarly, scientific, science",
+            "Matched concepts: biography",
+            "Matched concepts: science",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-pandora-s-dna-tracing-the-breast-cancer-genes-through-history-science-and-one-family-tree-lizzie",
+          "slug": "pandora-s-dna-tracing-the-breast-cancer-genes-through-history-science-and-one-family-tree-lizzie",
+          "title": "Pandora's DNA: Tracing the Breast Cancer Genes through History, Science, and One Family Tree",
+          "author": "Lizzie Stark",
+          "publicationYear": 2014,
+          "primarySubject": "Medicine & Public Health",
+          "score": 1.087603,
+          "similarity": 0.507602,
+          "reasons": [
+            "Matched terms: scholarly, scientific, medicine, engineering",
+            "Matched concepts: science history, biography",
+            "Matched concepts: medicine, public health, science",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 30
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-in-pursuit-of-equity-women-men-and-the-quest-for-economic-citizenship-in-20th-century-america-al",
+          "slug": "in-pursuit-of-equity-women-men-and-the-quest-for-economic-citizenship-in-20th-century-america-al",
+          "title": "In Pursuit of Equity: Women, Men, and the Quest for Economic Citizenship in 20th-Century America",
+          "author": "Alice Kessler-Harris",
+          "publicationYear": 2001,
+          "primarySubject": "American History",
+          "score": 1.045055,
+          "similarity": 0.549562,
+          "reasons": [
+            "Matched terms: women, scholarly, gender, lab",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 72
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-the-immortal-life-of-henrietta-lacks-rebecca-skloot",
+          "slug": "the-immortal-life-of-henrietta-lacks-rebecca-skloot",
+          "title": "The Immortal Life of Henrietta Lacks",
+          "author": "Rebecca Skloot",
+          "publicationYear": 2010,
+          "primarySubject": "Medicine & Public Health",
+          "score": 1.029623,
+          "similarity": 0.485662,
+          "reasons": [
+            "Matched terms: women, scholarly, research, lab",
+            "Matched concepts: biography",
+            "Matched concepts: medicine, public health, science",
+            "Matched subject scope",
+            "Matched period signal",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Henrietta Lacks"
+            ],
+            "centralPlaces": [],
+            "academicOrientation": 30
+          }
+        }
+      ]
+    },
+    {
+      "query": "serious trade books explaining authoritarianism in modern Russia",
+      "interpretation": {
+        "expandedQuery": "serious nonfiction trade books that explain the rise, structure, institutions, propaganda systems, coercive mechanisms, and international strategy of authoritarianism under modern Russia (post-1991 to Putin era), with emphasis on state power, elite politics, repression, and political economy; include comparative authoritarianism, regime security, and civil-military perspectives.",
+        "concepts": [
+          "post-1991 Russian politics",
+          "Putin regime institutions",
+          "coercion and repression",
+          "media and information control",
+          "political economy of authoritarian rule",
+          "authoritarian foreign policy",
+          "comparative authoritarian breakdown (Russia vs. other regimes)",
+          "cyber/technological authoritarianism (surveillance, data control)",
+          "authoritarian legalism and courts as a control tool",
+          "counter-elites, loyalty networks, and informal governance"
+        ],
+        "adventurousConcepts": [
+          "comparative authoritarian breakdown (Russia vs. other regimes)",
+          "cyber/technological authoritarianism (surveillance, data control)",
+          "authoritarian legalism and courts as a control tool",
+          "counter-elites, loyalty networks, and informal governance",
+          "civil society collapse and NGO repression",
+          "influence operations and diaspora politics"
+        ],
+        "coreConcepts": [
+          "post-1991 Russian politics",
+          "Putin regime institutions",
+          "coercion and repression",
+          "media and information control",
+          "political economy of authoritarian rule",
+          "authoritarian foreign policy"
+        ],
+        "eras": [
+          "post-1991",
+          "Putin era (early 2000s to present)",
+          "late 20th century to 21st century"
+        ],
+        "subjects": [
+          "political science",
+          "history (post-Soviet Russia)",
+          "international relations",
+          "authoritarianism studies",
+          "media studies",
+          "sociology of power/repression"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: serious trade books explaining authoritarianism in modern Russia\nExpanded search intent: serious nonfiction trade books that explain the rise, structure, institutions, propaganda systems, coercive mechanisms, and international strategy of authoritarianism under modern Russia (post-1991 to Putin era), with emphasis on state power, elite politics, repression, and political economy; include comparative authoritarianism, regime security, and civil-military perspectives.\nCore concepts: post-1991 Russian politics, Putin regime institutions, coercion and repression, media and information control, political economy of authoritarian rule, authoritarian foreign policy\nAdventurous adjacent concepts: comparative authoritarian breakdown (Russia vs. other regimes), cyber/technological authoritarianism (surveillance, data control), authoritarian legalism and courts as a control tool, counter-elites, loyalty networks, and informal governance, civil society collapse and NGO repression, influence operations and diaspora politics\nEras and periods: post-1991, Putin era (early 2000s to present), late 20th century to 21st century\nLikely subjects: political science, history (post-Soviet Russia), international relations, authoritarianism studies, media studies, sociology of power/repression",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "trade",
+          "explaining",
+          "authoritarianism",
+          "modern",
+          "russia",
+          "explain",
+          "rise",
+          "structure",
+          "institutions",
+          "propaganda",
+          "systems",
+          "coercive",
+          "mechanisms",
+          "international",
+          "strategy",
+          "post-1991",
+          "putin",
+          "emphasis",
+          "state",
+          "power",
+          "elite",
+          "politics",
+          "repression",
+          "political",
+          "economy",
+          "include",
+          "comparative",
+          "regime",
+          "security",
+          "civil-military",
+          "perspectives",
+          "russian",
+          "coercion",
+          "media",
+          "information",
+          "control",
+          "authoritarian",
+          "rule",
+          "foreign",
+          "policy",
+          "breakdown",
+          "other"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash",
+          "slug": "the-baton-and-the-cross-russia-s-church-from-pagans-to-putin-lucy-ash",
+          "title": "The Baton and The Cross: Russia's Church from Pagans to Putin",
+          "author": "Lucy Ash",
+          "publicationYear": 2024,
+          "primarySubject": "Religion",
+          "score": 1.335881,
+          "similarity": 0.641839,
+          "reasons": [
+            "Matched terms: trade, russia, putin, power",
+            "Matched concepts: cold war, war, politics",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Vladimir Putin"
+            ],
+            "centralPlaces": [],
+            "argument": "Under Putin, the Russian Orthodox Church strips religion of spiritual content and uses it as a weapon to control the population, promoting Slav Christian supremacy.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-the-last-empire-the-final-days-of-the-soviet-union-serhii-plokhy",
+          "slug": "the-last-empire-the-final-days-of-the-soviet-union-serhii-plokhy",
+          "title": "The Last Empire: The Final Days of the Soviet Union",
+          "author": "Serhii Plokhy",
+          "publicationYear": 2014,
+          "primarySubject": "World History",
+          "score": 1.335049,
+          "similarity": 0.528874,
+          "reasons": [
+            "Matched terms: trade, russia, international, politics",
+            "Matched concepts: cold war, war, politics",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "The collapse of the Soviet Union in 1991 was not significantly spurred by any close relationship between George H.W. Bush and Mikhail Gorbachev.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-on-stalin-s-team-the-years-of-living-danerously-in-soviet-politics-sheila-fitzpatrick",
+          "slug": "on-stalin-s-team-the-years-of-living-danerously-in-soviet-politics-sheila-fitzpatrick",
+          "title": "On Stalin's Team: The Years of Living Danerously in Soviet Politics",
+          "author": "Sheila Fitzpatrick",
+          "publicationYear": 2015,
+          "primarySubject": "Politics & Government",
+          "score": 1.317622,
+          "similarity": 0.547883,
+          "reasons": [
+            "Matched terms: authoritarianism, politics, political, security",
+            "Matched concepts: cold war, war, politics",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Stalin’s inner circle was not window dressing but a loyal, effective team that worked closely with him on major issues and enabled a successful collective leadership transition after his death.",
+            "academicOrientation": 66
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-iron-curtain-the-crushing-of-eastern-europe-1944-1956-anne-applebaum",
+          "slug": "iron-curtain-the-crushing-of-eastern-europe-1944-1956-anne-applebaum",
+          "title": "Iron Curtain: The Crushing of Eastern Europe 1944-1956",
+          "author": "Anne Applebaum",
+          "publicationYear": 2012,
+          "primarySubject": "History",
+          "score": 1.314873,
+          "similarity": 0.555939,
+          "reasons": [
+            "Matched terms: trade, russia, rise, systems",
+            "Matched concepts: cold war, war, politics",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Josef Stalin"
+            ],
+            "centralPlaces": [],
+            "argument": "After World War II, Stalin and Soviet secret police imposed Communist rule on Eastern Europe, creating new political and moral systems that reshaped individuals’ lives through coerced daily realities.",
+            "academicOrientation": 32
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-the-road-to-unfreedom-russia-europe-america-timothy-snyder",
+          "slug": "the-road-to-unfreedom-russia-europe-america-timothy-snyder",
+          "title": "The Road to Unfreedom: Russia, Europe, America",
+          "author": "Timothy Snyder",
+          "publicationYear": 2018,
+          "primarySubject": "Politics & Government",
+          "score": 1.284746,
+          "similarity": 0.648598,
+          "reasons": [
+            "Matched terms: trade, authoritarianism, russia, rise",
+            "Matched concepts: political science",
+            "Matched concepts: politics, russia",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Vladimir Putin",
+              "Donald Trump"
+            ],
+            "centralPlaces": [
+              "Russia"
+            ],
+            "argument": "The rise of authoritarianism, enabled by Russian influence, exploits and reveals Western societies’ vulnerability, threatening democracy and law and requiring a renewal of fundamental political virtues.",
+            "academicOrientation": 45
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-revolution-and-dictatorship-the-violent-origins-of-durable-authoritarianism-steven-levitsky-and-",
+          "slug": "revolution-and-dictatorship-the-violent-origins-of-durable-authoritarianism-steven-levitsky-and-",
+          "title": "Revolution and Dictatorship: The Violent Origins of Durable Authoritarianism",
+          "author": "Steven Levitsky, Lucan Way",
+          "publicationYear": 2022,
+          "primarySubject": "Politics & Government",
+          "score": 1.25526,
+          "similarity": 0.565546,
+          "reasons": [
+            "Matched terms: authoritarianism, modern, rise, coercive",
+            "Matched concepts: political science",
+            "Matched concepts: cold war, war, politics",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Authoritarian regimes born of social revolution become durable because counterrevolutionary conflict threatens them at first but ultimately drives elite unity and state-building through coercive apparatus and loyalty.",
+            "academicOrientation": 65
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-motherland-a-feminist-history-of-modern-russia-from-revolution-to-autocracy-julia-ioffe",
+          "slug": "motherland-a-feminist-history-of-modern-russia-from-revolution-to-autocracy-julia-ioffe",
+          "title": "Motherland: A Feminist History of Modern Russia, from Revolution to Autocracy",
+          "author": "Julia Ioffe",
+          "publicationYear": 2025,
+          "primarySubject": "Gender & Sexuality",
+          "score": 1.249634,
+          "similarity": 0.584922,
+          "reasons": [
+            "Matched terms: trade, authoritarianism, modern, russia",
+            "Matched concepts: russia",
+            "Matched subject scope",
+            "Matched period signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 30
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-to-run-the-world-the-kremlin-s-cold-war-bid-for-global-power-sergey-radchenko",
+          "slug": "to-run-the-world-the-kremlin-s-cold-war-bid-for-global-power-sergey-radchenko",
+          "title": "To Run the World: The Kremlin's Cold War Bid for Global Power",
+          "author": "Sergey Radchenko",
+          "publicationYear": 2024,
+          "primarySubject": "Politics & Government",
+          "score": 1.241399,
+          "similarity": 0.545903,
+          "reasons": [
+            "Matched terms: russia, international, strategy, power",
+            "Matched concepts: political science",
+            "Matched concepts: cold war, war, military",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Soviet rulers’ insecurities, delusions of grandeur, and desire for recognition propelled Moscow’s headlong quest for global power, producing dire consequences and painful legacies that continue shaping the world.",
+            "academicOrientation": 72
+          }
+        }
+      ]
+    },
+    {
+      "query": "memoirs about migration, language, and living between cultures",
+      "interpretation": {
+        "expandedQuery": "literary nonfiction memoirs and autobiographical essays about migration and resettlement, focusing on learning and using language across borders, identity formation while living between cultures, and the lived experience of translation, belonging, and cultural hybridity; include scholarship-adjacent narrative nonfiction on diaspora, immigration, and sociolinguistics",
+        "concepts": [
+          "migration and resettlement memoir",
+          "language and identity",
+          "living between cultures (cultural hybridity)",
+          "diaspora belonging and alienation",
+          "translation, multilingualism, and code-switching",
+          "diasporic humor and code-switching as art",
+          "minority-language revitalization from a memoir perspective",
+          "migration as a bodily practice (sensory ethnography)",
+          "bilingual “in-between” cognition and creativity"
+        ],
+        "adventurousConcepts": [
+          "diasporic humor and code-switching as art",
+          "minority-language revitalization from a memoir perspective",
+          "migration as a bodily practice (sensory ethnography)",
+          "bilingual “in-between” cognition and creativity",
+          "letters, migration correspondence, and epistolary memoir",
+          "parallel narratives: asylum documents + personal testimony",
+          "language grief and memory loss/reclamation"
+        ],
+        "coreConcepts": [
+          "migration and resettlement memoir",
+          "language and identity",
+          "living between cultures (cultural hybridity)",
+          "diaspora belonging and alienation",
+          "translation, multilingualism, and code-switching"
+        ],
+        "eras": [
+          "late 20th century",
+          "21st century"
+        ],
+        "subjects": [
+          "literary nonfiction memoir",
+          "immigration and refugee studies",
+          "sociolinguistics",
+          "cultural studies",
+          "identity and diaspora studies",
+          "language education"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: memoirs about migration, language, and living between cultures\nExpanded search intent: literary nonfiction memoirs and autobiographical essays about migration and resettlement, focusing on learning and using language across borders, identity formation while living between cultures, and the lived experience of translation, belonging, and cultural hybridity; include scholarship-adjacent narrative nonfiction on diaspora, immigration, and sociolinguistics\nCore concepts: migration and resettlement memoir, language and identity, living between cultures (cultural hybridity), diaspora belonging and alienation, translation, multilingualism, and code-switching\nAdventurous adjacent concepts: diasporic humor and code-switching as art, minority-language revitalization from a memoir perspective, migration as a bodily practice (sensory ethnography), bilingual “in-between” cognition and creativity, letters, migration correspondence, and epistolary memoir, parallel narratives: asylum documents + personal testimony, language grief and memory loss/reclamation\nEras and periods: late 20th century, 21st century\nLikely subjects: literary nonfiction memoir, immigration and refugee studies, sociolinguistics, cultural studies, identity and diaspora studies, language education",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "memoirs",
+          "migration",
+          "language",
+          "living",
+          "between",
+          "cultures",
+          "literary",
+          "autobiographical",
+          "essays",
+          "resettlement",
+          "focusing",
+          "learning",
+          "using",
+          "across",
+          "borders",
+          "identity",
+          "formation",
+          "while",
+          "lived",
+          "experience",
+          "translation",
+          "belonging",
+          "cultural",
+          "hybridity",
+          "include",
+          "scholarship-adjacent",
+          "narrative",
+          "diaspora",
+          "immigration",
+          "sociolinguistics",
+          "memoir",
+          "alienation",
+          "multilingualism",
+          "code-switching",
+          "diasporic",
+          "humor",
+          "art",
+          "minority-language",
+          "revitalization",
+          "perspective",
+          "bodily",
+          "practice"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-other-people-s-countries-a-journey-into-memory-patrick-mcguinness",
+          "slug": "other-people-s-countries-a-journey-into-memory-patrick-mcguinness",
+          "title": "Other People's Countries: A Journey into Memory",
+          "author": "Patrick McGuinness",
+          "publicationYear": 2015,
+          "primarySubject": "Memoir & Autobiography",
+          "score": 1.368254,
+          "similarity": 0.57934,
+          "reasons": [
+            "Matched terms: migration, immigration, memoir",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [
+              "Bouillon"
+            ],
+            "academicOrientation": 28
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-the-far-away-brothers-two-young-migrants-and-the-making-of-an-american-life-lauren-markham",
+          "slug": "the-far-away-brothers-two-young-migrants-and-the-making-of-an-american-life-lauren-markham",
+          "title": "The Far Away Brothers: Two Young Migrants And the Making of an American Life",
+          "author": "Lauren Markham",
+          "publicationYear": 2018,
+          "primarySubject": "Race & Ethnicity",
+          "score": 1.361168,
+          "similarity": 0.565436,
+          "reasons": [
+            "Matched terms: migration, language, using, across",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Ernesto Flores",
+              "Raul Flores"
+            ],
+            "centralPlaces": [
+              "El Salvador"
+            ],
+            "academicOrientation": 33
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-solito-a-memoir-javier-zamora",
+          "slug": "solito-a-memoir-javier-zamora",
+          "title": "Solito: A Memoir",
+          "author": "Javier Zamora",
+          "publicationYear": 2023,
+          "primarySubject": "Memoir & Autobiography",
+          "score": 1.316203,
+          "similarity": 0.556591,
+          "reasons": [
+            "Matched terms: using, across, memoir, art",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Javier Zamora"
+            ],
+            "centralPlaces": [
+              "El Salvador"
+            ],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-the-ungrateful-refugee-what-immigrants-never-tell-you-dina-nayeri",
+          "slug": "the-ungrateful-refugee-what-immigrants-never-tell-you-dina-nayeri",
+          "title": "The Ungrateful Refugee: What Immigrants Never Tell You",
+          "author": "Dina Nayeri",
+          "publicationYear": 2019,
+          "primarySubject": "Memoir & Autobiography",
+          "score": 1.289586,
+          "similarity": 0.562744,
+          "reasons": [
+            "Matched terms: migration, resettlement, using, diaspora",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Dina Nayeri"
+            ],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-mother-archive-a-dominican-family-memoir-erika-morillo",
+          "slug": "mother-archive-a-dominican-family-memoir-erika-morillo",
+          "title": "Mother Archive: A Dominican Family Memoir",
+          "author": "Erika Morillo",
+          "publicationYear": 2024,
+          "primarySubject": "Memoir & Autobiography",
+          "score": 1.195429,
+          "similarity": 0.581517,
+          "reasons": [
+            "Matched terms: across, experience, memoir, art",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Erika Morillo"
+            ],
+            "centralPlaces": [],
+            "argument": "By tracing sealed incidents in her family history through archival materials, Erika Morillo connects generational trauma to her own self-understanding and her experience as a mother.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-clam-down-a-metamorphosis-anelise-chen",
+          "slug": "clam-down-a-metamorphosis-anelise-chen",
+          "title": "Clam Down: A Metamorphosis",
+          "author": "Anelise Chen",
+          "publicationYear": 2025,
+          "primarySubject": "Memoir & Autobiography",
+          "score": 1.15314,
+          "similarity": 0.569896,
+          "reasons": [
+            "Matched terms: between, formation, memoir",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 30
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-my-broken-language-quiara-alegria-hudes",
+          "slug": "my-broken-language-quiara-alegria-hudes",
+          "title": "My Broken Language",
+          "author": "Quiara Alegría Hudes",
+          "publicationYear": 2021,
+          "primarySubject": "Memoir & Autobiography",
+          "score": 1.146821,
+          "similarity": 0.553993,
+          "reasons": [
+            "Matched terms: language, essays, while, cultural",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Quiara Alegría Hudes"
+            ],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-becoming-mexican-american-ethnicity-culture-and-identity-in-chicano-los-angeles-1900-1945-george",
+          "slug": "becoming-mexican-american-ethnicity-culture-and-identity-in-chicano-los-angeles-1900-1945-george",
+          "title": "Becoming Mexican American: Ethnicity, Culture and Identity in Chicano Los Angeles, 1900-1945",
+          "author": "George Sanchez",
+          "publicationYear": 1993,
+          "primarySubject": "Race & Ethnicity",
+          "score": 1.143011,
+          "similarity": 0.560035,
+          "reasons": [
+            "Matched terms: migration, between, focusing, using",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Mexican immigrants’ shift from temporary sojourners to permanent residents in Los Angeles (1900–1945) laid the foundation for a new Mexican-American culture.",
+            "academicOrientation": 70
+          }
+        }
+      ]
+    },
+    {
+      "query": "how climate change and environmental shocks have transformed societies",
+      "interpretation": {
+        "expandedQuery": "nonfiction on how climate change and environmental shocks (droughts, floods, heatwaves, wildfire, sea-level rise) reshape societies through impacts on agriculture, water and food security, public health, migration and displacement, conflict and state capacity, economic stability, and political institutions; include historical and contemporary case studies across regions; cover climate risk, adaptation, resilience, and inequality",
+        "concepts": [
+          "climate change impacts",
+          "environmental shocks",
+          "societal transformation via food and water security",
+          "migration and displacement",
+          "conflict, governance, and economic stability",
+          "public health",
+          "adaptation and resilience",
+          "anthropogenic climate tipping points and cascade effects",
+          "climate-themed disease ecology and vector shifts",
+          "climate migration regimes and border politics"
+        ],
+        "adventurousConcepts": [
+          "anthropogenic climate tipping points and cascade effects",
+          "climate-themed disease ecology and vector shifts",
+          "climate migration regimes and border politics",
+          "insurance and financial system vulnerability to climate risk",
+          "climate aesthetics, culture wars, and media framing of environmental disasters",
+          "geoengineering governance and ethical tradeoffs",
+          "“slow disasters” versus rapid-onset catastrophes and how each reshapes institutions"
+        ],
+        "coreConcepts": [
+          "climate change impacts",
+          "environmental shocks",
+          "societal transformation via food and water security",
+          "migration and displacement",
+          "conflict, governance, and economic stability",
+          "public health",
+          "adaptation and resilience"
+        ],
+        "eras": [
+          "contemporary (late 20th–21st century)",
+          "historical precursors and long-run societal vulnerability (20th century onward)",
+          "future-oriented risk horizons"
+        ],
+        "subjects": [
+          "environmental science",
+          "climate policy",
+          "social science (sociology, political science, economics)",
+          "history",
+          "public health",
+          "security and conflict studies"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: how climate change and environmental shocks have transformed societies\nExpanded search intent: nonfiction on how climate change and environmental shocks (droughts, floods, heatwaves, wildfire, sea-level rise) reshape societies through impacts on agriculture, water and food security, public health, migration and displacement, conflict and state capacity, economic stability, and political institutions; include historical and contemporary case studies across regions; cover climate risk, adaptation, resilience, and inequality\nCore concepts: climate change impacts, environmental shocks, societal transformation via food and water security, migration and displacement, conflict, governance, and economic stability, public health, adaptation and resilience\nAdventurous adjacent concepts: anthropogenic climate tipping points and cascade effects, climate-themed disease ecology and vector shifts, climate migration regimes and border politics, insurance and financial system vulnerability to climate risk, climate aesthetics, culture wars, and media framing of environmental disasters, geoengineering governance and ethical tradeoffs, “slow disasters” versus rapid-onset catastrophes and how each reshapes institutions\nEras and periods: contemporary (late 20th–21st century), historical precursors and long-run societal vulnerability (20th century onward), future-oriented risk horizons\nLikely subjects: environmental science, climate policy, social science (sociology, political science, economics), history, public health, security and conflict studies",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "climate",
+          "change",
+          "environmental",
+          "shocks",
+          "have",
+          "transformed",
+          "societies",
+          "droughts",
+          "floods",
+          "heatwaves",
+          "wildfire",
+          "sea-level",
+          "rise",
+          "reshape",
+          "through",
+          "impacts",
+          "agriculture",
+          "water",
+          "food",
+          "security",
+          "health",
+          "migration",
+          "displacement",
+          "conflict",
+          "state",
+          "capacity",
+          "economic",
+          "stability",
+          "political",
+          "institutions",
+          "include",
+          "historical",
+          "contemporary",
+          "case",
+          "studies",
+          "across",
+          "regions",
+          "cover",
+          "risk",
+          "adaptation",
+          "resilience",
+          "inequality"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-inconspicuous-consumption-the-environmental-impact-you-don-t-know-you-have-tatiana-schlossberg",
+          "slug": "inconspicuous-consumption-the-environmental-impact-you-don-t-know-you-have-tatiana-schlossberg",
+          "title": "Inconspicuous Consumption: The Environmental Impact You Don't Know You Have",
+          "author": "Tatiana Schlossberg",
+          "publicationYear": 2019,
+          "primarySubject": "Nature & Environment",
+          "score": 1.58273,
+          "similarity": 0.605085,
+          "reasons": [
+            "Matched terms: climate, change, environmental, have",
+            "Matched concepts: environment, pollution, climate",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-global-flood-hazard-applications-in-modeling-mapping-and-forecasting-guy-j-p-schumann-paul-d-bat",
+          "slug": "global-flood-hazard-applications-in-modeling-mapping-and-forecasting-guy-j-p-schumann-paul-d-bat",
+          "title": "Global Flood Hazard: Applications in Modeling, Mapping and Forecasting",
+          "author": "Guy J-P. Schumann, Paul D. Bates, Heiko Apel, Giuseppe T. Aronica",
+          "publicationYear": 2018,
+          "primarySubject": "Science",
+          "score": 1.488595,
+          "similarity": 0.632294,
+          "reasons": [
+            "Matched terms: climate, change, environmental, floods",
+            "Matched concepts: environmental science",
+            "Matched concepts: environment, pollution, climate",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 60
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-global-environmental-outlook-geo-6-healthy-planet-healthy-people-un-environment",
+          "slug": "global-environmental-outlook-geo-6-healthy-planet-healthy-people-un-environment",
+          "title": "Global Environmental Outlook – GEO-6: Healthy Planet, Healthy People",
+          "author": "UN Environment",
+          "publicationYear": 2019,
+          "primarySubject": "Nature & Environment",
+          "score": 1.428105,
+          "similarity": 0.583138,
+          "reasons": [
+            "Matched terms: environmental, societies, health",
+            "Matched concepts: public health, environmental science, history",
+            "Matched concepts: history, public health, environment",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Decision makers must take bold, urgent, inclusive action to address environmental issues to protect both the planet and human health, using GEO-6’s scientific evidence to guide societies toward sustainable futures by 2050.",
+            "academicOrientation": 75
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-a-brain-for-all-seasons-human-evolution-and-abrupt-climate-change-william-h-calvin",
+          "slug": "a-brain-for-all-seasons-human-evolution-and-abrupt-climate-change-william-h-calvin",
+          "title": "A Brain for All Seasons: Human Evolution & Abrupt Climate Change",
+          "author": "William H. Calvin",
+          "publicationYear": 2002,
+          "primarySubject": "Science",
+          "score": 1.337862,
+          "similarity": 0.586172,
+          "reasons": [
+            "Matched terms: climate, change, through, across",
+            "Matched concepts: history",
+            "Matched concepts: history, environment, pollution",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Abrupt \"whiplash\" climate changes forced human ancestors to adapt rapidly, and the resulting need to cooperate and innovate drove the increase in brain size and complexity.",
+            "academicOrientation": 45
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-a-world-without-soil-the-past-present-and-precarious-future-of-the-earth-beneath-our-feet-jo-han",
+          "slug": "a-world-without-soil-the-past-present-and-precarious-future-of-the-earth-beneath-our-feet-jo-han",
+          "title": "A World Without Soil: The Past, Present, and Precarious Future of the Earth Beneath Our Feet",
+          "author": "Jo Handelsman",
+          "publicationYear": 2021,
+          "primarySubject": "Nature & Environment",
+          "score": 1.28242,
+          "similarity": 0.606951,
+          "reasons": [
+            "Matched terms: climate, change, water, food",
+            "Matched concepts: environment, pollution, climate",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Soil erosion, intensified by climate change and undermined by poor conservation, is accelerating beyond sustainable rates, threatening food and water security and drug discovery, and requires urgent solutions.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-this-changes-everything-capitalism-vs-the-climate-naomi-klein",
+          "slug": "this-changes-everything-capitalism-vs-the-climate-naomi-klein",
+          "title": "This Changes Everything: Capitalism vs. The Climate",
+          "author": "Naomi Klein",
+          "publicationYear": 2013,
+          "primarySubject": "Nature & Environment",
+          "score": 1.27189,
+          "similarity": 0.598836,
+          "reasons": [
+            "Matched terms: climate, change, environmental, have",
+            "Matched concepts: environment, pollution, climate",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "The climate crisis requires abandoning core free-market ideology and restructuring the global economy and political systems; market mechanisms have not and cannot fix climate change and will worsen it.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-the-climate-casino-risk-uncertainty-and-economics-for-a-warming-world-william-nordhaus",
+          "slug": "the-climate-casino-risk-uncertainty-and-economics-for-a-warming-world-william-nordhaus",
+          "title": "The Climate Casino: Risk, Uncertainty, and Economics for a Warming World",
+          "author": "William Nordhaus",
+          "publicationYear": 2013,
+          "primarySubject": "Nature & Environment",
+          "score": 1.237002,
+          "similarity": 0.595041,
+          "reasons": [
+            "Matched terms: climate, change, have, societies",
+            "Matched concepts: environment, pollution, climate",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Human societies have entered the “Climate Casino,” facing major risks from warming, but policymakers can still reverse course by adopting effective economic policy tools to reduce emissions.",
+            "academicOrientation": 48
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-climatic-change-and-global-warming-of-inland-waters-impacts-and-mitigation-for-ecosystems-and-so",
+          "slug": "climatic-change-and-global-warming-of-inland-waters-impacts-and-mitigation-for-ecosystems-and-so",
+          "title": "Climatic Change and Global Warming of Inland Waters: Impacts and Mitigation for Ecosystems and Societies",
+          "author": "Charles R. Goldman, Michio Kumagai,, Richard D. Robarts",
+          "publicationYear": 2012,
+          "primarySubject": "Science",
+          "score": 1.207135,
+          "similarity": 0.647707,
+          "reasons": [
+            "Matched terms: climate, change, environmental, societies",
+            "Matched concepts: environmental science",
+            "Matched concepts: climate, science",
+            "Matched subject scope"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 70
+          }
+        }
+      ]
+    },
+    {
+      "query": "books about maps, ruins, decipherment, and lost cities for a curious teenager",
+      "interpretation": {
+        "expandedQuery": "Accessible narrative nonfiction for a curious teenager about maps and geographic imagination, archaeology of ruins and lost cities, and how decipherment techniques unlock vanished languages—covering exploration, historical puzzles, and popular accounts of major discoveries; include adjacent fields like epigraphy, remote sensing, and museum methods.",
+        "concepts": [
+          "cartography and maps",
+          "archaeology of ruins",
+          "lost cities as historical puzzles",
+          "decipherment of ancient writing",
+          "satellite and remote-sensing archaeology (LiDAR)",
+          "forensic geography and landscape reconstruction",
+          "lost manuscripts and manuscript transmission",
+          "archaeology ethics and looting debates"
+        ],
+        "adventurousConcepts": [
+          "satellite and remote-sensing archaeology (LiDAR)",
+          "forensic geography and landscape reconstruction",
+          "lost manuscripts and manuscript transmission",
+          "archaeology ethics and looting debates",
+          "museum collections and provenance detective work",
+          "shipwrecks and coastal “lost city” analogs",
+          "invisible writing systems and code-breaking analogies"
+        ],
+        "coreConcepts": [
+          "cartography and maps",
+          "archaeology of ruins",
+          "lost cities as historical puzzles",
+          "decipherment of ancient writing"
+        ],
+        "eras": [
+          "ancient world",
+          "medieval period",
+          "early modern exploration",
+          "modern archaeology era"
+        ],
+        "subjects": [
+          "history",
+          "geography",
+          "archaeology",
+          "linguistics",
+          "writing systems",
+          "science & technology (remote sensing)"
+        ]
+      },
+      "diagnostics": {
+        "candidateBookCount": 5512,
+        "embeddingInput": "Reader query: books about maps, ruins, decipherment, and lost cities for a curious teenager\nExpanded search intent: Accessible narrative nonfiction for a curious teenager about maps and geographic imagination, archaeology of ruins and lost cities, and how decipherment techniques unlock vanished languages—covering exploration, historical puzzles, and popular accounts of major discoveries; include adjacent fields like epigraphy, remote sensing, and museum methods.\nCore concepts: cartography and maps, archaeology of ruins, lost cities as historical puzzles, decipherment of ancient writing\nAdventurous adjacent concepts: satellite and remote-sensing archaeology (LiDAR), forensic geography and landscape reconstruction, lost manuscripts and manuscript transmission, archaeology ethics and looting debates, museum collections and provenance detective work, shipwrecks and coastal “lost city” analogs, invisible writing systems and code-breaking analogies\nEras and periods: ancient world, medieval period, early modern exploration, modern archaeology era\nLikely subjects: history, geography, archaeology, linguistics, writing systems, science & technology (remote sensing)",
+        "embeddingModel": "text-embedding-3-small",
+        "indexBookCount": 5512,
+        "indexGeneratedAt": "2026-07-15T21:27:11.342Z",
+        "interpretationModel": "gpt-5.4-nano",
+        "queryExpansionModel": "gpt-5.4-nano",
+        "rankingTerms": [
+          "maps",
+          "ruins",
+          "decipherment",
+          "lost",
+          "cities",
+          "curious",
+          "teenager",
+          "accessible",
+          "narrative",
+          "geographic",
+          "imagination",
+          "archaeology",
+          "techniques",
+          "unlock",
+          "vanished",
+          "languages",
+          "covering",
+          "exploration",
+          "historical",
+          "puzzles",
+          "popular",
+          "accounts",
+          "major",
+          "discoveries",
+          "include",
+          "adjacent",
+          "fields",
+          "epigraphy",
+          "remote",
+          "sensing",
+          "museum",
+          "methods",
+          "cartography",
+          "ancient",
+          "satellite",
+          "remote-sensing",
+          "lidar",
+          "forensic",
+          "geography",
+          "landscape",
+          "reconstruction",
+          "manuscripts"
+        ],
+        "resultCount": 8,
+        "usedModelInterpretation": true
+      },
+      "results": [
+        {
+          "rank": 1,
+          "bookId": "book-descent-the-heroic-discovery-of-the-abyss-brad-matsen",
+          "slug": "descent-the-heroic-discovery-of-the-abyss-brad-matsen",
+          "title": "Descent: The Heroic Discovery of the Abyss",
+          "author": "Brad Matsen",
+          "publicationYear": 2005,
+          "primarySubject": "Science",
+          "score": 1.219103,
+          "similarity": 0.56809,
+          "reasons": [
+            "Matched terms: geographic, exploration",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [
+              "Otis Barton",
+              "William Beebe"
+            ],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 2,
+          "bookId": "book-mapping-the-deep-robert-kunzig",
+          "slug": "mapping-the-deep-robert-kunzig",
+          "title": "Mapping the Deep",
+          "author": "Robert Kunzig",
+          "primarySubject": "Nature & Environment",
+          "score": 1.198809,
+          "similarity": 0.533415,
+          "reasons": [
+            "Matched terms: remote",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "argument": "Although the sea is central to climate and teems with life, we have mapped and identified only a small fraction of it; this book warns that, before unprecedented exploitation, we still have much to learn.",
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 3,
+          "bookId": "book-annals-of-the-former-world-john-mcphee",
+          "slug": "annals-of-the-former-world-john-mcphee",
+          "title": "Annals of the Former World",
+          "author": "John McPhee",
+          "publicationYear": 2000,
+          "primarySubject": "Science",
+          "score": 1.179338,
+          "similarity": 0.59385,
+          "reasons": [
+            "Matched terms: maps, exploration",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 4,
+          "bookId": "book-underland-a-deep-time-journey-robert-macfarlane",
+          "slug": "underland-a-deep-time-journey-robert-macfarlane",
+          "title": "Underland: A Deep Time Journey",
+          "author": "Robert Macfarlane",
+          "publicationYear": 2019,
+          "primarySubject": "Nature & Environment",
+          "score": 1.146289,
+          "similarity": 0.548517,
+          "reasons": [
+            "Matched terms: lost, exploration",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 5,
+          "bookId": "book-the-riddle-of-the-labyrinth-the-quest-to-crack-an-ancient-code-margalit-fox",
+          "slug": "the-riddle-of-the-labyrinth-the-quest-to-crack-an-ancient-code-margalit-fox",
+          "title": "The Riddle of the Labyrinth: The Quest to Crack an Ancient Code",
+          "author": "Margalit Fox",
+          "publicationYear": 2013,
+          "primarySubject": "History",
+          "score": 1.113509,
+          "similarity": 0.673322,
+          "reasons": [
+            "Matched terms: ruins, ancient",
+            "Matched concepts: linguistics",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 45
+          }
+        },
+        {
+          "rank": 6,
+          "bookId": "book-moby-duck-the-true-story-of-28-800-bath-toys-lost-at-sea-and-of-the-beachcombers-oceanographers-",
+          "slug": "moby-duck-the-true-story-of-28-800-bath-toys-lost-at-sea-and-of-the-beachcombers-oceanographers-",
+          "title": "Moby-Duck: The True Story of 28,800 Bath Toys Lost at Sea and of the Beachcombers, Oceanographers, Environmentalists, and Fools, Including the Author, Who Went in Search of Them",
+          "author": "Donovan Hohn",
+          "publicationYear": 2010,
+          "primarySubject": "Science",
+          "score": 1.112774,
+          "similarity": 0.50734,
+          "reasons": [
+            "Matched terms: geography",
+            "Matched concepts: geography",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 45
+          }
+        },
+        {
+          "rank": 7,
+          "bookId": "book-remarkable-creatures-epic-adventures-in-the-search-for-the-origins-of-species-sean-b-carroll",
+          "slug": "remarkable-creatures-epic-adventures-in-the-search-for-the-origins-of-species-sean-b-carroll",
+          "title": "Remarkable Creatures: Epic Adventures in the Search for the Origins of Species",
+          "author": "Sean B. Carroll",
+          "publicationYear": 2009,
+          "primarySubject": "Science",
+          "score": 1.084403,
+          "similarity": 0.574057,
+          "reasons": [
+            "Matched terms: exploration",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 35
+          }
+        },
+        {
+          "rank": 8,
+          "bookId": "book-decoding-the-heavens-jo-marchant",
+          "slug": "decoding-the-heavens-jo-marchant",
+          "title": "Decoding the Heavens",
+          "author": "Jo Marchant",
+          "publicationYear": 1998,
+          "primarySubject": "Science",
+          "score": 1.081629,
+          "similarity": 0.58461,
+          "reasons": [
+            "Matched terms: ancient",
+            "Matched subject scope",
+            "Matched reader-experience signal"
+          ],
+          "semanticProfile": {
+            "centralFigures": [],
+            "centralPlaces": [],
+            "academicOrientation": 38
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -55,7 +55,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
   const [query, setQuery] = useState("");
   const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
   const [searchMode, setSearchMode] = useState<SearchMode>("keyword");
-  const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>("gemini-3.5-flash");
+  const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>("gpt-5.4-nano");
   const [tooltipMode, setTooltipMode] = useState<SearchMode | null>(null);
   const [type, setType] = useState<TypeFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("score");
@@ -97,7 +97,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
 
   function selectSemanticMode() {
     if (searchMode === "semantic") {
-      setQueryExpansionModel((model) => (model === "gpt-5.4-mini" ? "gemini-3.5-flash" : "gpt-5.4-mini"));
+      setQueryExpansionModel((model) => (model === "gpt-5.4-nano" ? "gemini-3.5-flash" : "gpt-5.4-nano"));
       return;
     }
     setSearchMode("semantic");
@@ -483,7 +483,8 @@ function titleCase(value: string) {
 }
 
 function queryExpansionModelLabel(model: SemanticQueryExpansionModel) {
-  return model === "gemini-3.5-flash" ? "Gemini 3.5 Flash" : "GPT-5.4 Mini";
+  if (model === "gemini-3.5-flash") return "Gemini 3.5 Flash";
+  return model === "gpt-5.4-mini" ? "GPT-5.4 Mini" : "GPT-5.4 Nano";
 }
 
 function Stat({ label, value }: { label: string; value: number }) {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-24T15:14:12.502Z",
+  "generatedAt": "2026-07-14T21:28:32.983Z",
   "files": [
     {
       "file": "aha-book-prizes.json",
@@ -23,7 +23,7 @@
     },
     {
       "file": "carnegie.json",
-      "generatedAt": "2026-05-11T05:15:55.882Z",
+      "generatedAt": "2026-07-13T23:08:37.207Z",
       "records": 332
     },
     {
@@ -38,13 +38,18 @@
     },
     {
       "file": "duff-cooper.json",
-      "generatedAt": "2026-05-11T20:26:02.210Z",
-      "records": 69
+      "generatedAt": "2026-07-13T23:08:37.278Z",
+      "records": 70
     },
     {
       "file": "ft-business-book.json",
       "generatedAt": "2026-05-11T21:06:49.513Z",
       "records": 119
+    },
+    {
+      "file": "governor-general.json",
+      "generatedAt": "2026-07-13T23:08:37.320Z",
+      "records": 269
     },
     {
       "file": "helen-bernstein.json",
@@ -53,8 +58,8 @@
     },
     {
       "file": "hillman-book-journalism.json",
-      "generatedAt": "2026-05-12T19:36:47.111Z",
-      "records": 85
+      "generatedAt": "2026-07-13T23:08:37.348Z",
+      "records": 84
     },
     {
       "file": "j-anthony-lukas.json",
@@ -68,13 +73,13 @@
     },
     {
       "file": "latimes.json",
-      "generatedAt": "2026-05-09T23:29:21.795Z",
-      "records": 711
+      "generatedAt": "2026-07-14T21:28:21.359Z",
+      "records": 751
     },
     {
       "file": "lionel-gelber.json",
-      "generatedAt": "2026-05-11T20:15:04.661Z",
-      "records": 83
+      "generatedAt": "2026-07-14T21:27:08.100Z",
+      "records": 88
     },
     {
       "file": "mark-lynton.json",
@@ -93,18 +98,18 @@
     },
     {
       "file": "ny-history-book-prize.json",
-      "generatedAt": "2026-05-12T20:43:21.765Z",
-      "records": 20
+      "generatedAt": "2026-07-14T21:26:40.108Z",
+      "records": 21
     },
     {
       "file": "orwell.json",
-      "generatedAt": "2026-05-10T22:43:52.550Z",
-      "records": 56
+      "generatedAt": "2026-07-13T23:08:37.750Z",
+      "records": 64
     },
     {
       "file": "pen-diamonstein-essay.json",
-      "generatedAt": "2026-05-12T18:30:04.157Z",
-      "records": 53
+      "generatedAt": "2026-07-14T21:26:40.231Z",
+      "records": 67
     },
     {
       "file": "pen-eo-wilson.json",
@@ -128,8 +133,8 @@
     },
     {
       "file": "plutarch.json",
-      "generatedAt": "2026-05-12T20:32:53.863Z",
-      "records": 83
+      "generatedAt": "2026-07-14T21:28:22.282Z",
+      "records": 101
     },
     {
       "file": "prose.json",
@@ -143,8 +148,8 @@
     },
     {
       "file": "rachel-carson.json",
-      "generatedAt": "2026-05-12T19:31:49.473Z",
-      "records": 17
+      "generatedAt": "2026-07-14T21:26:40.355Z",
+      "records": 18
     },
     {
       "file": "ridenhour.json",
@@ -153,8 +158,8 @@
     },
     {
       "file": "royal-society.json",
-      "generatedAt": "2026-05-10T22:44:16.990Z",
-      "records": 169
+      "generatedAt": "2026-07-13T23:08:38.023Z",
+      "records": 175
     },
     {
       "file": "wolfson.json",
@@ -163,13 +168,14 @@
     }
   ],
   "totals": {
-    "records": 6453,
-    "awards": 32,
-    "categories": 92,
+    "records": 6815,
+    "awards": 33,
+    "categories": 93,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
-    "duplicateCanonicalKeys": 0
+    "duplicateCanonicalKeys": 0,
+    "semanticQualityIssues": 0
   },
   "byCategory": [
     {
@@ -186,11 +192,11 @@
       "awardId": "new-york-historical-american-history-book-prize",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "records": 20,
-      "winners": 20,
+      "records": 21,
+      "winners": 21,
       "finalists": 0,
-      "earliestYear": 2005,
-      "latestYear": 2024
+      "earliestYear": 2006,
+      "latestYear": 2026
     },
     {
       "awardId": "prose-awards",
@@ -226,11 +232,11 @@
       "awardId": "pen-diamonstein-spielvogel-award",
       "categoryId": "pen-diamonstein-essay",
       "categoryName": "Art of the Essay",
-      "records": 53,
-      "winners": 28,
-      "finalists": 25,
+      "records": 67,
+      "winners": 31,
+      "finalists": 36,
       "earliestYear": 1990,
-      "latestYear": 2023
+      "latestYear": 2026
     },
     {
       "awardId": "prose-awards",
@@ -316,11 +322,11 @@
       "awardId": "los-angeles-times-book-prize",
       "categoryId": "latimes-biography",
       "categoryName": "Biography",
-      "records": 182,
-      "winners": 43,
-      "finalists": 139,
+      "records": 192,
+      "winners": 45,
+      "finalists": 147,
       "earliestYear": 1981,
-      "latestYear": 2023
+      "latestYear": 2025
     },
     {
       "awardId": "national-book-awards",
@@ -356,11 +362,11 @@
       "awardId": "plutarch-award",
       "categoryId": "plutarch-biography",
       "categoryName": "Biography",
-      "records": 83,
-      "winners": 14,
-      "finalists": 69,
+      "records": 101,
+      "winners": 15,
+      "finalists": 86,
       "earliestYear": 2013,
-      "latestYear": 2025
+      "latestYear": 2026
     },
     {
       "awardId": "national-book-awards",
@@ -426,8 +432,8 @@
       "awardId": "hillman-prize-book-journalism",
       "categoryId": "hillman-book-journalism",
       "categoryName": "Book Journalism",
-      "records": 85,
-      "winners": 85,
+      "records": 84,
+      "winners": 84,
       "finalists": 0,
       "earliestYear": 1950,
       "latestYear": 2026
@@ -516,11 +522,11 @@
       "awardId": "los-angeles-times-book-prize",
       "categoryId": "latimes-current-interest",
       "categoryName": "Current Interest",
-      "records": 179,
-      "winners": 44,
-      "finalists": 135,
+      "records": 189,
+      "winners": 46,
+      "finalists": 143,
       "earliestYear": 1980,
-      "latestYear": 2023
+      "latestYear": 2025
     },
     {
       "awardId": "national-book-awards",
@@ -563,14 +569,24 @@
       "latestYear": 2026
     },
     {
+      "awardId": "governor-generals-literary-awards",
+      "categoryId": "governor-generals-english-nonfiction",
+      "categoryName": "English-language Non-fiction",
+      "records": 269,
+      "winners": 103,
+      "finalists": 166,
+      "earliestYear": 1936,
+      "latestYear": 2025
+    },
+    {
       "awardId": "rachel-carson-environment-book-award",
       "categoryId": "rachel-carson-environment-book",
       "categoryName": "Environment Book",
-      "records": 17,
-      "winners": 17,
+      "records": 18,
+      "winners": 18,
       "finalists": 0,
       "earliestYear": 2008,
-      "latestYear": 2024
+      "latestYear": 2026
     },
     {
       "awardId": "pulitzer-prize",
@@ -656,11 +672,11 @@
       "awardId": "los-angeles-times-book-prize",
       "categoryId": "latimes-history",
       "categoryName": "History",
-      "records": 173,
-      "winners": 48,
-      "finalists": 125,
+      "records": 183,
+      "winners": 50,
+      "finalists": 133,
       "earliestYear": 1980,
-      "latestYear": 2023
+      "latestYear": 2025
     },
     {
       "awardId": "national-book-awards",
@@ -746,21 +762,21 @@
       "awardId": "duff-cooper-prize",
       "categoryId": "duff-cooper",
       "categoryName": "History, Biography & Political Science",
-      "records": 69,
-      "winners": 69,
+      "records": 70,
+      "winners": 70,
       "finalists": 0,
       "earliestYear": 1956,
-      "latestYear": 2024
+      "latestYear": 2025
     },
     {
       "awardId": "lionel-gelber-prize",
       "categoryId": "lionel-gelber",
       "categoryName": "International Affairs",
-      "records": 83,
-      "winners": 35,
+      "records": 88,
+      "winners": 36,
       "finalists": 0,
       "earliestYear": 1990,
-      "latestYear": 2025
+      "latestYear": 2026
     },
     {
       "awardId": "j-anthony-lukas-book-prize",
@@ -966,11 +982,11 @@
       "awardId": "orwell-prize",
       "categoryId": "orwell-political-writing",
       "categoryName": "Political Writing",
-      "records": 56,
-      "winners": 7,
+      "records": 64,
+      "winners": 8,
       "finalists": 0,
       "earliestYear": 2019,
-      "latestYear": 2025
+      "latestYear": 2026
     },
     {
       "awardId": "prose-awards",
@@ -1026,21 +1042,21 @@
       "awardId": "los-angeles-times-book-prize",
       "categoryId": "latimes-science-technology",
       "categoryName": "Science and Technology",
-      "records": 177,
-      "winners": 35,
-      "finalists": 142,
+      "records": 187,
+      "winners": 37,
+      "finalists": 150,
       "earliestYear": 1989,
-      "latestYear": 2023
+      "latestYear": 2025
     },
     {
       "awardId": "royal-society-science-book-prize",
       "categoryId": "royal-society-science",
       "categoryName": "Science Book Prize",
-      "records": 169,
+      "records": 175,
       "winners": 39,
       "finalists": 0,
       "earliestYear": 1988,
-      "latestYear": 2025
+      "latestYear": 2026
     },
     {
       "awardId": "national-book-awards",
@@ -1093,5 +1109,6 @@
       "latestYear": 2026
     }
   ],
-  "duplicateKeys": []
+  "duplicateKeys": [],
+  "qualityIssues": []
 }

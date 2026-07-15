@@ -1,0 +1,643 @@
+{
+  "generatedAt": "2026-07-14T21:31:54.371Z",
+  "totalBooks": 5512,
+  "candidateGroups": 9,
+  "candidateBooks": 18,
+  "unresolvedGroups": 0,
+  "unresolvedBooks": 0,
+  "actionSummary": {
+    "ignore": 9
+  },
+  "groups": [
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: Separate volumes in Ernest Samuels's Henry Adams biography sequence.",
+      "recommendedCanonicalBookId": "book-henry-adams-the-middle-years-ernest-samuels",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-henry-adams-the-middle-years-ernest-samuels",
+          "title": "Henry Adams: The Middle Years",
+          "authors": [
+            "Ernest Samuels"
+          ],
+          "publicationYear": 1958,
+          "isbn13": [],
+          "publisherId": "publisher-harvard-university-press",
+          "imprintId": "imprint-harvard-university-press",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-bancroft-prize",
+              "awardName": "Bancroft Prize",
+              "year": 1959,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-henry-adams-the-major-phase-ernest-samuels",
+          "title": "Henry Adams: The Major Phase",
+          "authors": [
+            "Ernest Samuels"
+          ],
+          "publicationYear": 1948,
+          "isbn13": [
+            "9780674432567"
+          ],
+          "publisherId": "publisher-harvard-university-press",
+          "imprintId": "imprint-harvard-university-press",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-history-and-biography",
+              "awardName": "National Book Award for History and Biography",
+              "year": 1965,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-henry-adams-the-major-phase-ernest-samuels",
+            "book-henry-adams-the-middle-years-ernest-samuels"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 10
+        }
+      ]
+    },
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: Separate volumes of Hershel Parker's Herman Melville biography.",
+      "recommendedCanonicalBookId": "book-herman-melville-a-biography-volume-i-1819-1851-hershel-parker",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-herman-melville-a-biography-volume-2-hershel-parker",
+          "title": "Herman Melville: A Biography, Volume 2",
+          "authors": [
+            "Hershel Parker"
+          ],
+          "publicationYear": 1996,
+          "isbn13": [
+            "9780801868924"
+          ],
+          "publisherId": "publisher-johns-hopkins-university-press",
+          "imprintId": "imprint-johns-hopkins-university-press",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-prose-award-for-biography-and-autobiography",
+              "awardName": "PROSE Award for Biography and Autobiography",
+              "year": 2002,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-herman-melville-a-biography-volume-i-1819-1851-hershel-parker",
+          "title": "Herman Melville: A Biography, Volume 1, 1819–1851",
+          "authors": [
+            "Hershel Parker"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1997,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-herman-melville-a-biography-volume-i-1819-1851-hershel-parker",
+            "book-herman-melville-a-biography-volume-2-hershel-parker"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: Separate volumes in Lawrance Thompson's Robert Frost biography.",
+      "recommendedCanonicalBookId": "book-robert-frost-the-years-of-triumph-1915-1938-lawrance-thompson",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-robert-frost-the-early-years-lawrance-thompson",
+          "title": "Robert Frost: The Early Years",
+          "authors": [
+            "Lawrance Thompson"
+          ],
+          "publicationYear": 1966,
+          "isbn13": [],
+          "publisherId": "publisher-holt-rinehart-and-winston",
+          "imprintId": "imprint-holt-rinehart-and-winston",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1967,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 5
+        },
+        {
+          "id": "book-robert-frost-the-years-of-triumph-1915-1938-lawrance-thompson",
+          "title": "Robert Frost: The Years of Triumph, 1915–1938,",
+          "authors": [
+            "Lawrance Thompson"
+          ],
+          "isbn13": [
+            "9780224619622"
+          ],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1971,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 1
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-robert-frost-the-early-years-lawrance-thompson",
+            "book-robert-frost-the-years-of-triumph-1915-1938-lawrance-thompson"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: Separate volumes of Arnold Rampersad's Langston Hughes biography.",
+      "recommendedCanonicalBookId": "book-the-life-of-langston-hughes-volume-ii-1941-1967-i-dream-a-world-arnold-rampersad",
+      "score": 0.65,
+      "books": [
+        {
+          "id": "book-the-life-of-langston-hughes-volume-ii-1941-1967-i-dream-a-world-arnold-rampersad",
+          "title": "The Life of Langston Hughes: Volume II, 1941–1967: I Dream a World",
+          "authors": [
+            "Arnold Rampersad"
+          ],
+          "publicationYear": 1988,
+          "isbn13": [
+            "9780195061697"
+          ],
+          "publisherId": "publisher-oxford-university-press",
+          "imprintId": "imprint-oxford-university-press",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1989,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-the-life-of-langston-hughes-vol-i-1902-1941-arnold-rampersad",
+          "title": "The Life of Langston Hughes, Vol. I: 1902-1941",
+          "authors": [
+            "Arnold Rampersad"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-biography",
+              "awardName": "National Book Critics Circle Award for Biography",
+              "year": 1986,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-life-of-langston-hughes-vol-i-1902-1941-arnold-rampersad",
+            "book-the-life-of-langston-hughes-volume-ii-1941-1967-i-dream-a-world-arnold-rampersad"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: The Master is a volume of Leon Edel's original multi-volume biography; Henry James: A Life is a later distinct one-volume work.",
+      "recommendedCanonicalBookId": "book-henry-james-the-master-1901-1916-leon-edel",
+      "score": 0.59,
+      "books": [
+        {
+          "id": "book-henry-james-the-master-1901-1916-leon-edel",
+          "title": "Henry James: The Master, 1901–1916",
+          "authors": [
+            "Leon Edel"
+          ],
+          "isbn13": [
+            "9780380396511"
+          ],
+          "publisherId": "publisher-harpercollins",
+          "imprintId": "imprint-avon-books",
+          "sourceCount": 7,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-biography",
+              "awardName": "National Book Award for Biography",
+              "year": 1973,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1963,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1963,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-henry-james-a-life-leon-edel",
+          "title": "Henry James: A Life",
+          "authors": [
+            "Leon Edel"
+          ],
+          "publicationYear": 1985,
+          "isbn13": [],
+          "publisherId": "publisher-harpercollins",
+          "imprintId": "imprint-harper-and-row",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-biography",
+              "awardName": "National Book Critics Circle Award for Biography",
+              "year": 1985,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 7
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-henry-james-a-life-leon-edel",
+            "book-henry-james-the-master-1901-1916-leon-edel"
+          ],
+          "titleSimilarity": 0.4,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: Separate volumes in Simon Callow's Orson Welles biography.",
+      "recommendedCanonicalBookId": "book-orson-welles-the-road-to-xanadu-simon-callow",
+      "score": 0.59,
+      "books": [
+        {
+          "id": "book-orson-welles-volume-3-one-man-band-simon-callow",
+          "title": "Orson Welles, Volume 3: One-Man Band",
+          "authors": [
+            "Simon Callow"
+          ],
+          "publicationYear": 2015,
+          "isbn13": [
+            "9781473545762"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-viking",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-plutarch-award-biography",
+              "awardName": "Plutarch Award: Biography",
+              "year": 2017,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-orson-welles-the-road-to-xanadu-simon-callow",
+          "title": "Orson Welles: The Road to Xanadu",
+          "authors": [
+            "Simon Callow"
+          ],
+          "publicationYear": 1995,
+          "isbn13": [
+            "9780670867226"
+          ],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-biography",
+              "awardName": "Los Angeles Times Book Prize for Biography",
+              "year": 1996,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 4
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-orson-welles-volume-3-one-man-band-simon-callow",
+            "book-orson-welles-the-road-to-xanadu-simon-callow"
+          ],
+          "titleSimilarity": 0.4,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 20
+        }
+      ]
+    },
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: Separate volumes of Lewis Mumford's The Myth of the Machine.",
+      "recommendedCanonicalBookId": "book-the-myth-of-the-machine-technics-and-human-development-lewis-mumford",
+      "score": 0.59,
+      "books": [
+        {
+          "id": "book-the-myth-of-the-machine-technics-and-human-development-lewis-mumford",
+          "title": "The Myth of the Machine: Technics and Human Development",
+          "authors": [
+            "Lewis Mumford"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1968,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-the-myth-of-the-machine-the-pentagon-of-power-lewis-mumford",
+          "title": "The Myth of the Machine: The Pentagon of Power",
+          "authors": [
+            "Lewis Mumford"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1971,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-myth-of-the-machine-technics-and-human-development-lewis-mumford",
+            "book-the-myth-of-the-machine-the-pentagon-of-power-lewis-mumford"
+          ],
+          "titleSimilarity": 0.4,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: Separate chronological volumes of David Levering Lewis's W. E. B. Du Bois biography.",
+      "recommendedCanonicalBookId": "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+      "score": 0.575,
+      "books": [
+        {
+          "id": "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+          "title": "W. E. B. Du Bois: Biography of a Race, 1868–1919",
+          "authors": [
+            "David Levering Lewis"
+          ],
+          "publicationYear": 1994,
+          "isbn13": [
+            "9781466841512",
+            "9780805035681"
+          ],
+          "publisherId": "publisher-macmillan",
+          "imprintId": "imprint-henry-holt",
+          "sourceCount": 12,
+          "appearanceCount": 5,
+          "awards": [
+            {
+              "awardId": "award-bancroft-prize",
+              "awardName": "Bancroft Prize",
+              "year": 1994,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-phi-beta-kappa-book-awards-ralph-waldo-emerson-award",
+              "awardName": "Phi Beta Kappa Book Awards: Ralph Waldo Emerson Award",
+              "year": 1994,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 1994,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 1993,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-national-book-critics-circle-award-for-biography",
+              "awardName": "National Book Critics Circle Award for Biography",
+              "year": 1993,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-w-e-b-du-bois-the-fight-for-equality-and-the-american-century-1919-1963-david-levering-lewis",
+          "title": "W.E.B. Du Bois: The Fight for Equality and the American Century, 1919–1963",
+          "authors": [
+            "David Levering Lewis"
+          ],
+          "publicationYear": 2000,
+          "isbn13": [
+            "9780805025347"
+          ],
+          "publisherId": "publisher-macmillan",
+          "imprintId": "imprint-henry-holt-and-company",
+          "sourceCount": 5,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
+              "awardName": "Pulitzer Prize in Biography or Autobiography",
+              "year": 2001,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 2000,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+            "book-w-e-b-du-bois-the-fight-for-equality-and-the-american-century-1919-1963-david-levering-lewis"
+          ],
+          "titleSimilarity": 0.375,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true,
+          "yearDelta": 6
+        }
+      ]
+    },
+    {
+      "action": "ignore",
+      "confidence": "high",
+      "reason": "Reviewed as distinct works: Separate volumes in John Grigg's Lloyd George biography.",
+      "recommendedCanonicalBookId": "book-lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+      "score": 0.55,
+      "books": [
+        {
+          "id": "book-lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+          "title": "Lloyd George: From Peace to War, 1912-1916",
+          "authors": [
+            "John Grigg"
+          ],
+          "publicationYear": 1985,
+          "isbn13": [],
+          "publisherId": "publisher-methuen-publishing",
+          "imprintId": "imprint-methuen",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-wolfson-history-prize",
+              "awardName": "Wolfson History Prize",
+              "year": 1985,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-lloyd-george-the-people-s-champion-john-grigg",
+          "title": "Lloyd George: The People's Champion",
+          "authors": [
+            "John Grigg"
+          ],
+          "isbn13": [
+            "9780006863076"
+          ],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-costa-book-awards-biography",
+              "awardName": "Costa Book Awards: Biography",
+              "year": 1978,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 4
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-lloyd-george-from-peace-to-war-1912-1916-john-grigg",
+            "book-lloyd-george-the-people-s-champion-john-grigg"
+          ],
+          "titleSimilarity": 0.333,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    }
+  ]
+}

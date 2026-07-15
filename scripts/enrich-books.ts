@@ -146,7 +146,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const outputDir = path.join(root, "sources", "enrichment");
 const publicDataDir = path.join(root, "data", "public");
-const attemptsPath = path.join(publicDataDir, "book-enrichment-attempts.json");
+const cacheDataDir = path.join(root, "data", "cache");
+const reportsDataDir = path.join(root, "data", "reports");
+const attemptsPath = path.join(cacheDataDir, "book-enrichment-attempts.json");
 
 loadEnvLocal();
 
@@ -159,6 +161,7 @@ const concurrency = positiveNumber(process.env.BOOK_COMPLETION_CONCURRENCY ?? pr
 const fastMode = hasArg("--fast") || process.env.BOOK_COMPLETION_FAST === "1" || process.env.ENRICH_FAST === "1";
 const quietMode = hasArg("--quiet") || process.env.BOOK_COMPLETION_QUIET === "1" || process.env.ENRICH_QUIET === "1";
 const checkpointEvery = positiveNumber(process.env.BOOK_COMPLETION_CHECKPOINT_EVERY ?? process.env.ENRICH_CHECKPOINT_EVERY ?? readArg("--checkpoint-every"), 0);
+const minimumLists = positiveNumber(process.env.BOOK_COMPLETION_MIN_LISTS ?? process.env.ENRICH_MIN_LISTS ?? readArg("--min-lists"), 0);
 const providerPlan = selectProviderPlan(provider, requestedFields);
 let imprintMappingsByRawName = new Map<string, ImprintMapping>();
 
@@ -170,6 +173,7 @@ async function main() {
   const attempts = await readAttempts();
   const patch = await readExistingPatch(generatedAt);
   const selected = (requestedBookIds.size ? data.books.filter((book) => requestedBookIds.has(book.id) || requestedBookIds.has(book.slug)) : [...data.books])
+    .filter((book) => getBookStats(book.id).lists >= minimumLists)
     .map((book) => selectionRow(book, attempts[book.id]))
     .filter((row) => row.selectedMissingFields.length > 0)
     .filter((row) => !requestedLane || row.lane === requestedLane)
@@ -183,7 +187,7 @@ async function main() {
   let completedCount = 0;
   let checkpointChain = Promise.resolve();
   await fs.mkdir(outputDir, { recursive: true });
-  await fs.mkdir(publicDataDir, { recursive: true });
+  await Promise.all([publicDataDir, cacheDataDir, reportsDataDir].map((dir) => fs.mkdir(dir, { recursive: true })));
 
   const checkpoint = async (force = false) => {
     if (!force && (!checkpointEvery || completedCount % checkpointEvery !== 0)) return;
@@ -192,7 +196,7 @@ async function main() {
     await writeReports(progressPayload);
     await writeRawPublisherReview(generatedAt, report);
     await writeAttempts(runAttempts);
-    await fs.writeFile(path.join(publicDataDir, "book-enrichment-progress.json"), `${JSON.stringify(progressPayload, null, 2)}\n`);
+    await fs.writeFile(path.join(cacheDataDir, "book-enrichment-progress.json"), `${JSON.stringify(progressPayload, null, 2)}\n`);
   };
 
   await mapConcurrent(selected, concurrency, async (row, index) => {
@@ -213,7 +217,7 @@ async function main() {
   await checkpointChain;
   await checkpoint(true);
   const enrichedCount = report.filter((row) => row.status === "enriched").length;
-  console.log(`Completed ${enrichedCount}/${selected.length} books. Report written to data/public/book-completion-report.json.`);
+  console.log(`Completed ${enrichedCount}/${selected.length} books. Report written to data/reports/book-completion-report.json.`);
 }
 
 async function readAttempts(): Promise<Record<string, AttemptRow>> {
@@ -376,6 +380,7 @@ function progressReportPayload(generatedAt: string, selected: Array<ReturnType<t
     fastMode,
     quietMode,
     checkpointEvery,
+    minimumLists,
     lane: requestedLane,
     fields: requestedFields ? [...requestedFields] : undefined,
     selectedCount: selected.length,
@@ -388,9 +393,9 @@ function progressReportPayload(generatedAt: string, selected: Array<ReturnType<t
 }
 
 async function writeReports(payload: ReturnType<typeof progressReportPayload>) {
-  await fs.writeFile(path.join(publicDataDir, "book-completion-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
-  await fs.writeFile(path.join(publicDataDir, "book-enrichment-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
-  await fs.writeFile(path.join(publicDataDir, "enrichment-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
+  await fs.writeFile(path.join(reportsDataDir, "book-completion-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
+  await fs.writeFile(path.join(reportsDataDir, "book-enrichment-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
+  await fs.writeFile(path.join(reportsDataDir, "enrichment-report.json"), `${JSON.stringify(payload, null, 2)}\n`);
 }
 
 function mergeResultIntoPatch(patch: EnrichmentPatch, result: BookCompletionResult) {
@@ -452,7 +457,7 @@ async function writeRawPublisherReview(generatedAt: string, report: ReportRow[])
     grouped.set(key, current);
   }
   await fs.writeFile(
-    path.join(publicDataDir, "raw-publisher-review-report.json"),
+    path.join(reportsDataDir, "raw-publisher-review-report.json"),
     `${JSON.stringify({
       generatedAt,
       count: grouped.size,
@@ -918,8 +923,8 @@ function isAcceptedProviderMatch(book: Book, author: string, candidateTitle: str
 
 function isPlausiblePublicationYear(book: Book, publicationYear: number) {
   const firstRecognitionYear = Math.min(...(appearancesByBookId.get(book.id) ?? []).map((appearance) => appearance.year));
-  if (Number.isFinite(firstRecognitionYear) && publicationYear > firstRecognitionYear + 1) return false;
-  return true;
+  if (Number.isFinite(firstRecognitionYear) && (publicationYear > firstRecognitionYear + 3 || publicationYear < firstRecognitionYear - 30)) return false;
+  return publicationYear >= 1500 && publicationYear <= new Date().getFullYear() + 1;
 }
 
 function isAcceptedMatch(book: Book, author: string, candidateTitle: string | undefined, candidateAuthor: string | undefined, score: number) {
@@ -981,7 +986,18 @@ function completionSummary(books: Book[]) {
 }
 
 function trimDescription(value: string) {
-  return value.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim().slice(0, 900);
+  return trimAtSentenceBoundary(value.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim(), 900);
+}
+
+function trimAtSentenceBoundary(value: string, maxLength: number) {
+  if (value.length <= maxLength) return value;
+  const clipped = value.slice(0, maxLength).trim();
+  const endings = [...clipped.matchAll(/[.!?]["'’”)]?(?=\s|$)/g)];
+  const last = endings.at(-1);
+  if (last?.index !== undefined && last.index >= Math.floor(maxLength * 0.48)) {
+    return clipped.slice(0, last.index + last[0].length).trim();
+  }
+  return `${clipped.replace(/\s+\S*$/, "").replace(/[,;:\s]+$/, "")}…`;
 }
 
 function matchScore(title: string, author: string, candidateTitle = "", candidateAuthor = "") {

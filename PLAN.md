@@ -128,7 +128,7 @@ Each importer should write normalized JSON rows. Then `scripts/build-data.ts` sh
 
 ### Corpus Validation
 
-Generate a more useful `data/public/import-report.json` with:
+Generate a more useful `data/reports/import-report.json` with:
 
 - total award records
 - unique books

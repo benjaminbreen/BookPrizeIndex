@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-05-12T20:43:21.765Z",
+  "generatedAt": "2026-07-14T21:26:40.108Z",
   "metadata": {
     "importer": "scripts/import-award-records/ny-history-book-prize.ts",
-    "source": "MediaWiki section for \"New York Historical book prizes\"",
-    "notes": "Initial importer uses Wikipedia as a deterministic secondary source and keeps only the Barbara and David Zalaznick Book Prize in American History winners section.",
+    "source": "MediaWiki historical section for \"New York Historical book prizes\" plus official New York Historical recent results",
+    "notes": "The secondary table labels rows by publication year, so the importer adds one year to record the year in which the prize was presented. The 2025 and 2026 winners are replaced with official New York Historical records.",
     "categories": [
       {
         "categoryId": "ny-history-american-history",
         "categoryName": "American History",
         "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
-        "records": 20,
-        "winners": 20,
-        "yearRange": "2005-2024"
+        "records": 21,
+        "winners": 21,
+        "yearRange": "2006-2026"
       }
     ]
   },
@@ -21,23 +21,38 @@
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2024,
+      "year": 2026,
       "status": "winner",
-      "title": "A Place Called Yellowstone: The Epic History of the World's First National Park",
+      "title": "McNamara at War: A New History",
       "authors": [
-        "Randall K. Wilson"
+        "Philip Taubman",
+        "William Taubman"
       ],
-      "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
-      "sourceLabel": "Wikipedia: New York Historical book prizes",
-      "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "sourceUrl": "https://shop.nyhistory.org/products/mcnamara-at-war-a-new-history",
+      "sourceLabel": "New York Historical: 2026 Barbara and David Zalaznick Book Prize winner",
+      "sourceConfidence": "official"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2023,
+      "year": 2025,
+      "status": "winner",
+      "title": "A Place Called Yellowstone: The Epic History of the World's First National Park",
+      "authors": [
+        "Randall K. Wilson"
+      ],
+      "sourceUrl": "https://shop.nyhistory.org/products/a-place-called-yellowstone",
+      "sourceLabel": "New York Historical: 2025 Barbara and David Zalaznick Book Prize winner",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "new-york-historical-american-history-book-prize",
+      "awardName": "Barbara and David Zalaznick Book Prize in American History",
+      "categoryId": "ny-history-american-history",
+      "categoryName": "American History",
+      "year": 2024,
       "status": "winner",
       "title": "King: A Life",
       "authors": [
@@ -46,14 +61,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2022,
+      "year": 2023,
       "status": "winner",
       "title": "G-Man: J. Edgar Hoover and the Making of the American Century",
       "authors": [
@@ -62,14 +77,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2021,
+      "year": 2022,
       "status": "winner",
       "title": "American Republics: A Continental History of the United States, 1783–1850",
       "authors": [
@@ -78,14 +93,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2020,
+      "year": 2021,
       "status": "winner",
       "title": "The Year of Peril: America in 1942",
       "authors": [
@@ -94,14 +109,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2019,
+      "year": 2020,
       "status": "winner",
       "title": "The British Are Coming: The War for America, Lexington to Princeton, 1775–1777",
       "authors": [
@@ -110,14 +125,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2018,
+      "year": 2019,
       "status": "winner",
       "title": "The Marshall Plan: Dawn of the Cold War",
       "authors": [
@@ -126,14 +141,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2017,
+      "year": 2018,
       "status": "winner",
       "title": "Richard Nixon: The Life",
       "authors": [
@@ -142,14 +157,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2016,
+      "year": 2017,
       "status": "winner",
       "title": "A Revolution in Color: The World of John Singleton Copley",
       "authors": [
@@ -158,14 +173,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2015,
+      "year": 2016,
       "status": "winner",
       "title": "Gateway to Freedom: The Hidden History of the Underground Railroad",
       "authors": [
@@ -174,14 +189,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2014,
+      "year": 2015,
       "status": "winner",
       "title": "The Secret History of Wonder Woman",
       "authors": [
@@ -190,14 +205,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2013,
+      "year": 2014,
       "status": "winner",
       "title": "The Men Who Lost America: British Leadership, the American Revolution and the Fate of the Empire",
       "authors": [
@@ -206,14 +221,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2012,
+      "year": 2013,
       "status": "winner",
       "title": "The Passage of Power: The Years of Lyndon Johnson",
       "authors": [
@@ -222,14 +237,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2011,
+      "year": 2012,
       "status": "winner",
       "title": "George F. Kennan: An American Life",
       "authors": [
@@ -238,14 +253,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2010,
+      "year": 2011,
       "status": "winner",
       "title": "Washington: A Life",
       "authors": [
@@ -254,14 +269,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2009,
+      "year": 2010,
       "status": "winner",
       "title": "Empire of Liberty: A History of the Early Republic, 1789–1815",
       "authors": [
@@ -270,14 +285,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2008,
+      "year": 2009,
       "status": "winner",
       "title": "This Republic of Suffering: Death and the American Civil War",
       "authors": [
@@ -286,14 +301,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2007,
+      "year": 2008,
       "status": "winner",
       "title": "What Hath God Wrought: The Transformation of America, 1815–1848",
       "authors": [
@@ -302,14 +317,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2006,
+      "year": 2007,
       "status": "winner",
       "title": "Andrew Carnegie",
       "authors": [
@@ -318,14 +333,14 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     },
     {
       "awardId": "new-york-historical-american-history-book-prize",
       "awardName": "Barbara and David Zalaznick Book Prize in American History",
       "categoryId": "ny-history-american-history",
       "categoryName": "American History",
-      "year": 2005,
+      "year": 2006,
       "status": "winner",
       "title": "Team of Rivals: The Political Genius of Abraham Lincoln",
       "authors": [
@@ -334,7 +349,7 @@
       "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History",
       "sourceLabel": "Wikipedia: New York Historical book prizes",
       "sourceConfidence": "secondary",
-      "notes": "Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
+      "notes": "Award year is one year after the publication year shown in the historical source. Official awards URL: https://www.nyhistory.org/programs/american-history-book-prize"
     }
   ]
 }

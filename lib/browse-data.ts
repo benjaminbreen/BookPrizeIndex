@@ -1,5 +1,6 @@
 import rawBrowseData from "@/data/public/browse.json";
 import type { BrowseBookRow, BrowseData } from "@/lib/browse-types";
+import { rollupSubjectName } from "@/lib/subject-rollup";
 
 export const browseData = rawBrowseData as unknown as BrowseData;
 export const browseBooksById = new Map(browseData.books.map((book) => [book.id, book]));
@@ -10,9 +11,11 @@ export const browseBooksBySubject = (() => {
   const grouped = new Map<string, BrowseBookRow[]>();
   for (const book of browseData.books) {
     for (const subject of book.subjects) {
-      const current = grouped.get(subject) ?? [];
-      current.push(book);
-      grouped.set(subject, current);
+      for (const browseSubject of new Set([subject, rollupSubjectName(subject)])) {
+        const current = grouped.get(browseSubject) ?? [];
+        current.push(book);
+        grouped.set(browseSubject, current);
+      }
     }
   }
   return grouped;

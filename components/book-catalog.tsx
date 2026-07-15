@@ -9,12 +9,18 @@ import { BookDrawer } from "@/components/book-drawer";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
 import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
-import { appearancesByBookId, booksById } from "@/lib/data";
 import type { BrowseBookRecognitionStats, BrowseBookRow } from "@/lib/browse-types";
 import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryExpansionModel, type SemanticQueryInterpretation } from "@/lib/semantic-search";
+import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 
 type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
 type AwardOption = { id: string; name: string; shortName?: string };
+type CatalogOption = { value: string; label: string };
+type RemoteBookCatalog = {
+  initialTotal: number;
+  publisherOptions: Array<{ id: string; name: string }>;
+  subjectOptions: CatalogOption[];
+};
 
 type MetadataFilter = "all" | "complete" | "missing" | "has_cover" | "missing_cover" | "missing_publisher";
 
@@ -49,6 +55,7 @@ export function BookCatalog({
   compactHeader = false,
   wideLayout = false,
   defaultRegion = "us",
+  remote,
 }: {
   awardOptions: AwardOption[];
   books: BrowseBookRow[];
@@ -59,6 +66,7 @@ export function BookCatalog({
   compactHeader?: boolean;
   wideLayout?: boolean;
   defaultRegion?: AwardRegionFilter;
+  remote?: RemoteBookCatalog;
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -78,6 +86,10 @@ export function BookCatalog({
   const [activeBookId, setActiveBookId] = useState<string | null>(null);
   const [density, setDensity] = useState<"compact" | "normal" | "roomy">("normal");
   const [showSemanticDetails, setShowSemanticDetails] = useState(false);
+  const [remoteRows, setRemoteRows] = useState(books);
+  const [remoteTotal, setRemoteTotal] = useState(remote?.initialTotal ?? books.length);
+  const [remoteLoading, setRemoteLoading] = useState(false);
+  const [remoteError, setRemoteError] = useState<string | null>(null);
   const topicFilter = searchParams.get("topic");
   const urlQuery = searchParams.get("q") ?? "";
   const [query, setQuery] = useState(urlQuery);
@@ -88,59 +100,75 @@ export function BookCatalog({
     if (!awardFilter) return null;
     return new Set(books.filter((book) => bookRecognition(book, region).awardIds.includes(awardFilter)).map((book) => book.id));
   }, [awardFilter, books, region]);
-  const publisherOptions = useMemo(
-    () =>
-      [...new Map(books.filter((book) => book.publisherId && book.publisher).map((book) => [book.publisherId!, { id: book.publisherId!, name: book.publisher! }])).values()]
-        .sort((a, b) => a.name.localeCompare(b.name)),
-    [books],
-  );
+  const publisherOptions = useMemo(() => remote?.publisherOptions ??
+    [...new Map(books.filter((book) => book.publisherId && book.publisher).map((book) => [book.publisherId!, { id: book.publisherId!, name: book.publisher! }])).values()]
+      .sort((a, b) => a.name.localeCompare(b.name)), [books, remote?.publisherOptions]);
+  const catalogSubjectOptions = useMemo(() => remote?.subjectOptions ?? subjectOptions(books), [books, remote?.subjectOptions]);
   const hasActiveFilters = Boolean(query || topicFilter || subjectFilter || awardFilter || publisherFilter || metadataFilter !== "all");
   const structuredRows = useMemo(() => {
     return books.filter((book) => {
       if (bookRecognition(book, region).lists === 0) return false;
       if (topicFilter && !book.topics.includes(topicFilter)) return false;
-      if (subjectFilter && !book.subjects.includes(subjectFilter)) return false;
+      if (subjectFilter && !book.subjects.some((subject) => rollupSubjectName(subject) === subjectFilter)) return false;
       if (awardBookIds && !awardBookIds.has(book.id)) return false;
       if (publisherFilter && book.publisherId !== publisherFilter) return false;
       if (!matchesMetadataFilter(book, metadataFilter)) return false;
       return true;
     });
   }, [awardBookIds, books, metadataFilter, publisherFilter, region, subjectFilter, topicFilter]);
-  const semanticCandidateBookIds = useMemo(() => structuredRows.map((book) => book.id), [structuredRows]);
+  const semanticCandidateBookIds = useMemo(() => remote ? [] : structuredRows.map((book) => book.id), [remote, structuredRows]);
+  const semanticCandidateFilters = useMemo(() => remote ? ({
+    awardId: awardFilter || undefined,
+    metadata: metadataFilter,
+    publisherId: publisherFilter || undefined,
+    region,
+    subject: subjectFilter || undefined,
+    topic: topicFilter || undefined,
+  }) : undefined, [awardFilter, metadataFilter, publisherFilter, region, remote, subjectFilter, topicFilter]);
   const semanticSearch = useSemanticBookSearch({
     candidateBookIds: semanticCandidateBookIds,
     enabled: mode === "semantic",
+    filters: semanticCandidateFilters,
     limit: 500,
     query: semanticQuery,
     queryExpansionModel,
   });
   const semanticResultByBookId = useMemo(() => new Map(semanticSearch.results.map((result, index) => [result.bookId, { ...result, index }])), [semanticSearch.results]);
+  const remoteSemanticReady = mode === "semantic"
+    && semanticQuery.trim().length >= 3
+    && semanticSearch.query === semanticQuery.trim()
+    && !semanticSearch.loading
+    && Boolean(semanticSearch.diagnostics);
+  const remoteSemanticBookIds = useMemo(
+    () => remoteSemanticReady ? semanticSearch.results.map((result) => result.bookId) : [],
+    [remoteSemanticReady, semanticSearch.results],
+  );
+  const remoteSemanticKey = remoteSemanticBookIds.join("|");
   const filteredRows = useMemo(() => {
     const trimmedQuery = activeQuery.trim();
-    if (mode === "semantic" && trimmedQuery.length >= 3 && semanticSearch.results.length) {
+    const hasCurrentSemanticResponse = mode === "semantic" && trimmedQuery.length >= 3 && semanticSearch.query === trimmedQuery && !semanticSearch.loading && Boolean(semanticSearch.diagnostics);
+    if (hasCurrentSemanticResponse && semanticSearch.results.length) {
       return structuredRows
         .filter((book) => semanticResultByBookId.has(book.id))
         .sort((a, b) => (semanticResultByBookId.get(a.id)?.index ?? 0) - (semanticResultByBookId.get(b.id)?.index ?? 0));
     }
-    if (mode === "semantic" && trimmedQuery.length >= 3 && !semanticSearch.loading && !semanticSearch.error) {
+    if (hasCurrentSemanticResponse && !semanticSearch.error) {
       return [];
     }
     const filtered = filterBookRowsByQuery(structuredRows, activeQuery);
     return sortBookRows(filtered, sortKey, region);
-  }, [activeQuery, mode, region, semanticResultByBookId, semanticSearch.error, semanticSearch.loading, semanticSearch.results.length, sortKey, structuredRows]);
+  }, [activeQuery, mode, region, semanticResultByBookId, semanticSearch.diagnostics, semanticSearch.error, semanticSearch.loading, semanticSearch.query, semanticSearch.results.length, sortKey, structuredRows]);
 
-  const totalRows = limit ? Math.min(filteredRows.length, limit) : filteredRows.length;
+  const totalRows = remote ? remoteTotal : limit ? Math.min(filteredRows.length, limit) : filteredRows.length;
   const totalPages = Math.max(1, Math.ceil(totalRows / pageSize));
   const safePage = Math.min(page, totalPages);
-  const rows = filteredRows.slice((safePage - 1) * pageSize, safePage * pageSize);
+  const rows = remote ? remoteRows : filteredRows.slice((safePage - 1) * pageSize, safePage * pageSize);
   const pageNumbers = paginationRange(safePage, totalPages);
   const rowPadding = density === "compact" ? "py-1.5" : density === "roomy" ? "py-4" : "py-2.5";
   const coverSize = density === "roomy" ? "large" : "standard";
   const showRowCovers = density !== "compact";
   const tableMinWidth = wideLayout ? "min-w-[1320px]" : "min-w-[1180px]";
   const showDenseCatalogControls = wideLayout && !compactHeader;
-  const activeBook = activeBookId ? booksById.get(activeBookId) ?? null : null;
-  const activeBookAppearances = activeBookId ? appearancesByBookId.get(activeBookId) ?? [] : [];
   const activeBookIndex = activeBookId ? rows.findIndex((book) => book.id === activeBookId) : -1;
   useEffect(() => {
     setQuery(urlQuery);
@@ -159,6 +187,53 @@ export function BookCatalog({
   useEffect(() => {
     setActiveBookId(null);
   }, [searchParams]);
+
+  useEffect(() => {
+    if (!remote) return;
+    const semanticRequested = mode === "semantic" && semanticQuery.trim().length >= 3;
+    if (semanticRequested && !remoteSemanticReady && !semanticSearch.error) return;
+
+    const controller = new AbortController();
+    const timeout = window.setTimeout(async () => {
+      setRemoteLoading(true);
+      setRemoteError(null);
+      try {
+        const response = await fetch("/api/books/search", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            awardId: awardFilter || undefined,
+            metadata: metadataFilter,
+            page,
+            pageSize,
+            publisherId: publisherFilter || undefined,
+            query: semanticRequested && remoteSemanticReady ? undefined : activeQuery,
+            region,
+            semanticBookIds: semanticRequested && remoteSemanticReady ? remoteSemanticBookIds : undefined,
+            sort: sortKey,
+            subject: subjectFilter || undefined,
+            topic: topicFilter || undefined,
+          }),
+          signal: controller.signal,
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !Array.isArray(result.rows)) throw new Error(result.error ?? `Catalog request failed (${response.status}).`);
+        setRemoteRows(result.rows);
+        setRemoteTotal(Number(result.total) || 0);
+        if (Number(result.page) && Number(result.page) !== page) setPage(Number(result.page));
+      } catch (error) {
+        if (controller.signal.aborted) return;
+        setRemoteError(error instanceof Error ? error.message : "Could not update the catalog.");
+      } finally {
+        if (!controller.signal.aborted) setRemoteLoading(false);
+      }
+    }, mode === "keyword" && activeQuery.trim() ? 220 : 0);
+
+    return () => {
+      window.clearTimeout(timeout);
+      controller.abort();
+    };
+  }, [activeQuery, awardFilter, metadataFilter, mode, page, publisherFilter, region, remote, remoteSemanticBookIds, remoteSemanticKey, remoteSemanticReady, semanticQuery, semanticSearch.error, sortKey, subjectFilter, topicFilter]);
 
   function openBook(book: BrowseBookRow) {
     setActiveBookId(book.id);
@@ -282,16 +357,24 @@ export function BookCatalog({
   ].filter(Boolean) as Array<{ id: string; label: string; onRemove: () => void }>;
   const semanticActive = mode === "semantic" && semanticQuery.trim().length >= 3;
   const hasPendingSemanticQuery = mode === "semantic" && query.trim() !== semanticQuery.trim();
-  const semanticSearchPending = semanticActive && (semanticSearch.loading || semanticSearch.query !== semanticQuery.trim() || (!semanticSearch.diagnostics && !semanticSearch.error));
+  const semanticSearchPending = semanticActive && (semanticSearch.loading || semanticSearch.query !== semanticQuery.trim());
+  const semanticCandidateCount = semanticSearch.diagnostics?.candidateBookCount;
+  const semanticResultCount = semanticSearch.diagnostics?.resultCount;
   const resultContext = semanticSearchPending
-    ? `${regionLabel(region)} awards · Searching ${structuredRows.length.toLocaleString()} candidate books by meaning`
-    : `${regionLabel(region)} awards · ${topicFilter ? `Topic: ${titleCaseLabel(topicFilter)} · ` : ""}${semanticActive ? "Sorted by meaning match" : `Sorted by ${bookSortLabels[sortKey].toLowerCase()}`} · ${totalRows.toLocaleString()} books${hasActiveFilters ? " · filtered" : ""}`;
+    ? `${regionLabel(region)} awards · Searching the semantic index by meaning`
+    : semanticActive && semanticCandidateCount !== undefined && semanticResultCount !== undefined
+      ? `${regionLabel(region)} awards · Sorted by meaning match · Top ${semanticResultCount.toLocaleString()} of ${semanticCandidateCount.toLocaleString()} candidate books`
+      : `${regionLabel(region)} awards · ${topicFilter ? `Topic: ${titleCaseLabel(topicFilter)} · ` : ""}Sorted by ${bookSortLabels[sortKey].toLowerCase()} · ${totalRows.toLocaleString()} books${hasActiveFilters ? " · filtered" : ""}`;
   const semanticConceptLine = semanticActive && semanticSearch.interpretation
     ? [
-        semanticCoreConcepts(semanticSearch.interpretation).slice(0, 4).join(", "),
-        semanticAdventurousConcepts(semanticSearch.interpretation).slice(0, 3).join(", "),
-        semanticSearch.interpretation.eras.slice(0, 2).join(", "),
-        semanticSearch.interpretation.subjects.slice(0, 3).join(", "),
+        semanticCoreConcepts(semanticSearch.interpretation).slice(0, 3).join(", "),
+        semanticAdventurousConcepts(semanticSearch.interpretation).slice(0, 1).join(", "),
+        semanticSearch.interpretation.namedFigures?.slice(0, 2).join(", "),
+        semanticSearch.interpretation.namedPlaces?.slice(0, 2).join(", "),
+        semanticSearch.interpretation.publicationDateIntent && semanticSearch.interpretation.publicationDateIntent !== "none"
+          ? `${semanticSearch.interpretation.publicationDateIntent} publications${semanticSearch.interpretation.publicationYearCutoff ? ` (${semanticSearch.interpretation.publicationDateIntent === "older" ? "before" : "after"} ${semanticSearch.interpretation.publicationYearCutoff})` : ""}`
+          : "",
+        semanticSearch.interpretation.subjects.slice(0, 2).join(", "),
       ].filter(Boolean).join(" · ")
     : "";
 
@@ -356,7 +439,6 @@ export function BookCatalog({
             <span className="grid gap-1 muted">
               <span>{resultContext}</span>
               {hasPendingSemanticQuery && query.trim() ? <span>Press Enter to search this phrase.</span> : null}
-              {semanticSearchPending ? <span>Reading for meaning...</span> : null}
               {semanticConceptLine ? <span className="text-[var(--ink)]">Interpreted as {semanticConceptLine}</span> : null}
               {semanticActive && semanticSearch.error ? <span className="text-[var(--accent)]">{semanticSearch.error} Showing keyword fallback.</span> : null}
               {semanticActive && semanticSearch.warning ? <span>{semanticSearch.warning}</span> : null}
@@ -427,7 +509,7 @@ export function BookCatalog({
                     setSubjectFilter(value);
                     setPage(1);
                   }}
-                  options={subjectOptions(books)}
+                  options={catalogSubjectOptions}
                 />
                 <FilterSelect
                   label="Award"
@@ -492,7 +574,7 @@ export function BookCatalog({
               setSubjectFilter(value);
               setPage(1);
             }}
-            options={subjectOptions(books)}
+            options={catalogSubjectOptions}
           />
           <label className="filter-group flex-nowrap">
             <span className="filter-label">Sort</span>
@@ -651,7 +733,14 @@ export function BookCatalog({
           </div>
         ) : null}
         {semanticSearchPending ? (
-          <SemanticLoadingState candidateCount={structuredRows.length} query={semanticQuery} />
+          <SemanticLoadingState query={semanticQuery} />
+        ) : remoteLoading ? (
+          <CatalogLoadingState />
+        ) : remoteError ? (
+          <div className="px-4 py-12 text-center" role="alert">
+            <p className="text-lg">The catalog could not be updated.</p>
+            <p className="mt-2 text-sm muted">{remoteError}</p>
+          </div>
         ) : rows.length === 0 ? (
           <div className="px-4 py-16 text-center">
             <p className="text-lg">No books match the current view.</p>
@@ -735,18 +824,11 @@ export function BookCatalog({
                         }`}
                         style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
                         onClick={() => openBook(book)}
-                        onKeyDown={(event) => {
-                          if (event.key === "Enter" || event.key === " ") {
-                            event.preventDefault();
-                            openBook(book);
-                          }
-                        }}
-                        role="button"
-                        tabIndex={0}
                       >
                         <td className={`plain-number px-3 ${rowPadding} text-xs`}>{displayYear ?? "-"}</td>
                         <td className={`px-3 ${rowPadding}`}>
                           <button
+                            aria-label={`Open ${book.title}`}
                             className={`focus-ring w-full items-center text-left transition hover:text-[var(--accent)] ${
                               showRowCovers ? (density === "roomy" ? "grid grid-cols-[3rem_1fr] gap-3.5" : "grid grid-cols-[2.35rem_1fr] gap-3") : "block"
                             }`}
@@ -829,9 +911,8 @@ export function BookCatalog({
       </div>
     </section>
     <BookDrawer
-      appearances={activeBookAppearances}
-      book={activeBook}
-      currentLabel={activeBook && activeBookIndex >= 0 ? `${activeBookIndex + 1} of ${rows.length}` : undefined}
+      bookId={activeBookId}
+      currentLabel={activeBookId && activeBookIndex >= 0 ? `${activeBookIndex + 1} of ${rows.length}` : undefined}
       onClose={() => setActiveBookId(null)}
       onNext={activeBookIndex >= 0 && activeBookIndex < rows.length - 1 ? () => setActiveBookId(rows[activeBookIndex + 1].id) : undefined}
       onPrevious={activeBookIndex > 0 ? () => setActiveBookId(rows[activeBookIndex - 1].id) : undefined}
@@ -858,7 +939,9 @@ function searchParamsMode(value: string | null): "keyword" | "semantic" {
 }
 
 function searchParamsQueryExpansionModel(value: string | null): SemanticQueryExpansionModel {
-  return value === "gemini-3.5-flash" || value === "gpt-5.4-mini" ? value : "gemini-3.5-flash";
+  return value === "gpt-5.4-nano" || value === "gpt-5.4-mini" || value === "gemini-3.5-flash"
+    ? value
+    : "gpt-5.4-nano";
 }
 
 function CatalogSubjectPill({
@@ -868,14 +951,14 @@ function CatalogSubjectPill({
   subject: string;
   onClick: React.MouseEventHandler<HTMLAnchorElement>;
 }) {
-  const subjectSlug = slugify(subject);
+  const subjectSlug = rollupSubjectSlug(subject);
   return (
     <Link
       className={`subject-chip ${subjectChipClass(subject)} focus-ring rounded-full border hairline px-2.5 py-[0.22rem] text-[0.72rem]`}
       href={subjectSlug ? `/subjects/${subjectSlug}` : "/subjects"}
       onClick={onClick}
     >
-      {subject}
+      {rollupSubjectName(subject)}
     </Link>
   );
 }
@@ -962,7 +1045,7 @@ function BookMobileCard({
       <span className="mt-2 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
         {book.primarySubject ? (
           <span className={`subject-chip ${subjectChipClass(book.primarySubject)} rounded-full border hairline px-2 py-[0.18rem] text-[0.68rem]`}>
-            {book.primarySubject}
+            {rollupSubjectName(book.primarySubject)}
           </span>
         ) : null}
         {firstTopic ? (
@@ -990,7 +1073,7 @@ function BookSubjectTags({ book, interactive = true }: { book: BrowseBookRow; in
             />
           ) : (
             <span className={`subject-chip ${subjectChipClass(book.primarySubject)} rounded-full border hairline px-2.5 py-[0.22rem] text-[0.72rem]`}>
-              {book.primarySubject}
+              {rollupSubjectName(book.primarySubject)}
             </span>
           )}
         </span>
@@ -1108,7 +1191,7 @@ function SemanticDetailsModal({
           <p className="muted">
             The query <span className="text-[var(--ink)]">"{query.trim()}"</span> was converted into an embedding query, compared against
             {` ${diagnostics.candidateBookCount?.toLocaleString() ?? "the filtered set of"} candidate books`} from a
-            {` ${diagnostics.indexBookCount?.toLocaleString() ?? "local"}-book semantic index`}, then reranked with text, topic, period, and recognition signals.
+            {` ${diagnostics.indexBookCount?.toLocaleString() ?? "local"}-book semantic index`}, then reranked with text, entities, topics, publication preferences, reading experience, and recognition signals.
           </p>
           <div className="semantic-details-grid">
             <DetailItem label="Embedding model" value={diagnostics.embeddingModel ?? "unknown"} />
@@ -1134,6 +1217,26 @@ function SemanticDetailsModal({
               <p className="semantic-details-box">{semanticAdventurousConcepts(interpretation).join(", ")}</p>
             </div>
           ) : null}
+          {interpretation && ((interpretation.namedFigures?.length ?? 0) > 0 || (interpretation.namedPlaces?.length ?? 0) > 0) ? (
+            <div className="grid gap-2">
+              <p className="filter-label">Named Entities</p>
+              <p className="semantic-details-box">
+                {[
+                  interpretation.namedFigures?.length ? `Figures: ${interpretation.namedFigures.join(", ")}` : "",
+                  interpretation.namedPlaces?.length ? `Places: ${interpretation.namedPlaces.join(", ")}` : "",
+                ].filter(Boolean).join(" · ")}
+              </p>
+            </div>
+          ) : null}
+          {interpretation?.publicationDateIntent && interpretation.publicationDateIntent !== "none" ? (
+            <div className="grid gap-2">
+              <p className="filter-label">Publication Preference</p>
+              <p className="semantic-details-box">
+                Favor {interpretation.publicationDateIntent} publications
+                {interpretation.publicationYearCutoff ? ` ${interpretation.publicationDateIntent === "older" ? "from or before" : "from or after"} ${interpretation.publicationYearCutoff}` : ""}.
+              </p>
+            </div>
+          ) : null}
           {rankingTerms.length ? (
             <div className="grid gap-2">
               <p className="filter-label">Ranking Terms</p>
@@ -1152,20 +1255,27 @@ function SemanticDetailsModal({
   );
 }
 
-function SemanticLoadingState({ candidateCount, query }: { candidateCount: number; query: string }) {
+function SemanticLoadingState({ query }: { query: string }) {
   return (
     <div className="semantic-loading-state" aria-live="polite" role="status">
-      <div className="semantic-loading-orbit" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
+      <span className="semantic-loading-mark" aria-hidden="true" />
       <div>
-        <p className="semantic-loading-kicker">Semantic search</p>
         <p className="semantic-loading-title">Reading for meaning</p>
         <p className="semantic-loading-copy">
-          Comparing "{query.trim()}" against {candidateCount.toLocaleString()} candidate books.
+          Comparing "{query.trim()}" with every book allowed by the current filters.
         </p>
+      </div>
+    </div>
+  );
+}
+
+function CatalogLoadingState() {
+  return (
+    <div className="semantic-loading-state" aria-live="polite" role="status">
+      <span className="semantic-loading-mark" aria-hidden="true" />
+      <div>
+        <p className="semantic-loading-title">Updating the catalog</p>
+        <p className="semantic-loading-copy">Loading this page of books.</p>
       </div>
     </div>
   );
@@ -1221,7 +1331,7 @@ function sortBookRows(books: BrowseBookRow[], sortKey: BookSortKey, region: Awar
     if (sortKey === "author") return a.author.localeCompare(b.author) || a.title.localeCompare(b.title);
     if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "") || a.title.localeCompare(b.title);
     if (sortKey === "publisher") return (a.publisher ?? "").localeCompare(b.publisher ?? "") || a.title.localeCompare(b.title);
-    if (sortKey === "subject") return (a.primarySubject ?? "").localeCompare(b.primarySubject ?? "") || a.title.localeCompare(b.title);
+    if (sortKey === "subject") return rollupSubjectName(a.primarySubject ?? "").localeCompare(rollupSubjectName(b.primarySubject ?? "")) || a.title.localeCompare(b.title);
     return a.title.localeCompare(b.title);
   });
 }
@@ -1242,25 +1352,15 @@ function bookRecognition(book: BrowseBookRow, region: AwardRegionFilter): Browse
 }
 
 function subjectOptions(books: BrowseBookRow[]) {
-  return [...new Set(books.flatMap((book) => book.subjects))]
+  return [...new Set(books.flatMap((book) => book.subjects.map(rollupSubjectName)))]
     .sort((a, b) => a.localeCompare(b))
     .map((subject) => ({ value: subject, label: subject }));
 }
 
-function slugify(input: string) {
-  return input
-    .toLowerCase()
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/&/g, " and ")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
 function subjectChipClass(subject: string) {
   const normalized = subject.toLowerCase();
-  if (normalized.includes("american history") || normalized === "history") return "subject-chip-brick";
-  if (normalized.includes("world history") || normalized.includes("travel")) return "subject-chip-teal";
+  if (normalized.includes("american history") || normalized.includes("world history") || normalized === "history") return "subject-chip-brick";
+  if (normalized.includes("travel")) return "subject-chip-teal";
   if (normalized.includes("biography") || normalized.includes("memoir")) return "subject-chip-plum";
   if (normalized.includes("politics") || normalized.includes("journalism")) return "subject-chip-indigo";
   if (normalized.includes("society") || normalized.includes("race") || normalized.includes("gender") || normalized.includes("religion")) return "subject-chip-olive";

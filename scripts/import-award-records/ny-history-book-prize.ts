@@ -9,6 +9,7 @@ import {
   wikiToPlainText,
   writeRawAwardRecords,
 } from "./helpers";
+import { mergeOfficialAwardRows, nyHistoryOfficialRows } from "./official-recent-records";
 
 const pageTitle = "New York Historical book prizes";
 
@@ -20,15 +21,15 @@ async function main() {
 
   console.log(`Fetching New York Historical American History Book Prize list from "${pageTitle}"...`);
   const wikitext = await fetchMediaWikiWikitext(pageTitle);
-  const records = parseNyHistoryPrize(prize, category, wikitext);
+  const records = mergeOfficialAwardRows(parseNyHistoryPrize(prize, category, wikitext), prize, nyHistoryOfficialRows);
 
   records.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
   assertCoverage(records);
 
   await writeRawAwardRecords("ny-history-book-prize.json", records, {
     importer: "scripts/import-award-records/ny-history-book-prize.ts",
-    source: `MediaWiki section for "${pageTitle}"`,
-    notes: "Initial importer uses Wikipedia as a deterministic secondary source and keeps only the Barbara and David Zalaznick Book Prize in American History winners section.",
+    source: `MediaWiki historical section for "${pageTitle}" plus official New York Historical recent results`,
+    notes: "The secondary table labels rows by publication year, so the importer adds one year to record the year in which the prize was presented. The 2025 and 2026 winners are replaced with official New York Historical records.",
     categories: [{
       categoryId: category.id,
       categoryName: category.name,
@@ -60,14 +61,17 @@ export function parseNyHistoryPrize(
       awardName: prize.name,
       categoryId: category.id,
       categoryName: category.name,
-      year: parsed.year,
+      year: parsed.year + 1,
       status: "winner",
       title: parsed.title,
       authors: parsed.authors,
       sourceUrl: category.sourceUrl,
       sourceLabel: category.sourceLabel,
       sourceConfidence: category.sourceConfidence,
-      notes: category.officialUrl ? `Official awards URL: ${category.officialUrl}` : undefined,
+      notes: [
+        "Award year is one year after the publication year shown in the historical source.",
+        category.officialUrl ? `Official awards URL: ${category.officialUrl}` : undefined,
+      ].filter(Boolean).join(" "),
     });
   }
 
@@ -103,7 +107,7 @@ function removeRefs(input: string) {
 function assertCoverage(records: RawAwardRecord[]) {
   if (records.length < 20) throw new Error(`Expected at least 20 New York Historical rows, got ${records.length}`);
   const years = records.map((record) => record.year);
-  if (Math.min(...years) > 2005 || Math.max(...years) < 2024) {
+  if (Math.min(...years) > 2006 || Math.max(...years) < 2026) {
     throw new Error(`Unexpected New York Historical year range: ${yearRange(records)}`);
   }
 }

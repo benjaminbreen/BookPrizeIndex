@@ -7,6 +7,7 @@ export type ImprintRankEvent = {
   year: number;
   imprintId: string;
   imprintName: string;
+  imprintShortName?: string;
   publisherName?: string;
   bookId: string;
   weight: number;
@@ -42,10 +43,13 @@ type RankedPoint = {
 type Series = {
   imprintId: string;
   name: string;
+  shortName: string;
   publisherName?: string;
   color: string;
   finalRank: number;
   finalValue: number;
+  finalPoint: RankedPoint;
+  rankChange: number | null;
   points: RankedPoint[];
 };
 
@@ -63,133 +67,158 @@ const seriesColors = [
 ];
 
 export function ImprintRankExperiment({ events, yearRange }: ImprintRankExperimentProps) {
-  const [windowMode, setWindowMode] = useState<WindowMode>("cumulative");
-  const [metric, setMetric] = useState<Metric>("score");
-  const [scope, setScope] = useState<Scope>("major");
-  const [topCount, setTopCount] = useState(10);
+  const [windowMode, setWindowMode] = useState<WindowMode>("rolling5");
+  const [metric, setMetric] = useState<Metric>("books");
+  const [scope, setScope] = useState<Scope>("all");
+  const [topCount, setTopCount] = useState(15);
   const [visibleRange, setVisibleRange] = useState<[number, number]>(yearRange);
   const [hoverId, setHoverId] = useState<string | null>(null);
-  const [pinnedIds, setPinnedIds] = useState<Set<string>>(() => new Set());
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const activeIds = useMemo(() => {
-    if (hoverId) return new Set([hoverId]);
-    return pinnedIds;
-  }, [hoverId, pinnedIds]);
   const race = useMemo(() => buildRace(events, windowMode, metric, scope, visibleRange, topCount), [events, metric, scope, topCount, visibleRange, windowMode]);
-  const activeSeriesId = hoverId ?? [...pinnedIds][0];
-  const activeSeries = activeSeriesId ? race.series.find((series) => series.imprintId === activeSeriesId) : race.series[0];
   const leader = race.series[0];
+  const activeSeriesId = hoverId ?? (selectedId && race.series.some((series) => series.imprintId === selectedId) ? selectedId : leader?.imprintId);
+  const activeSeries = race.series.find((series) => series.imprintId === activeSeriesId) ?? leader;
 
-  function togglePinned(imprintId: string) {
-    setPinnedIds((current) => {
-      const next = new Set(current);
-      if (next.has(imprintId)) next.delete(imprintId);
-      else next.add(imprintId);
-      return next;
-    });
+  function selectSeries(imprintId: string) {
+    setSelectedId((current) => current === imprintId ? null : imprintId);
   }
 
   return (
     <section className="mt-10 border-t hairline pt-8">
-      <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
-        <div className="min-w-0">
-          <div className="flex flex-col gap-5 border-b hairline pb-6">
-            <div>
-              <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Experiment 01</p>
-              <h2 className="mt-3 font-[var(--font-serif)] text-3xl font-light leading-tight sm:text-4xl">
-                Imprint leaderboard over time
-              </h2>
-              <p className="mt-4 max-w-3xl text-base leading-7 muted">
-                A bump chart works best here: each year ranks imprints by weighted prize recognition, then draws the
-                selected top imprints as lines. Running totals show durable reputation; rolling windows reveal momentum
-                without the noise of single prize seasons.
-              </p>
-            </div>
-
-            <div className="filter-toolbar flex flex-wrap items-center gap-4 border hairline p-3">
-              <ControlGroup label="Window">
-                <SegmentButton active={windowMode === "cumulative"} onClick={() => setWindowMode("cumulative")}>Running</SegmentButton>
-                <SegmentButton active={windowMode === "rolling5"} onClick={() => setWindowMode("rolling5")}>5 yr</SegmentButton>
-                <SegmentButton active={windowMode === "rolling3"} onClick={() => setWindowMode("rolling3")}>3 yr</SegmentButton>
-                <SegmentButton active={windowMode === "annual"} onClick={() => setWindowMode("annual")}>Annual</SegmentButton>
-              </ControlGroup>
-              <ControlGroup label="Measure">
-                <SegmentButton active={metric === "score"} onClick={() => setMetric("score")}>Score</SegmentButton>
-                <SegmentButton active={metric === "books"} onClick={() => setMetric("books")}>Books</SegmentButton>
-                <SegmentButton active={metric === "wins"} onClick={() => setMetric("wins")}>Wins</SegmentButton>
-              </ControlGroup>
-              <ControlGroup label="Awards">
-                <SegmentButton active={scope === "major"} onClick={() => setScope("major")}>Major</SegmentButton>
-                <SegmentButton active={scope === "all"} onClick={() => setScope("all")}>All</SegmentButton>
-              </ControlGroup>
-              <ControlGroup label="Lines">
-                {[5, 10, 15].map((count) => (
-                  <SegmentButton active={topCount === count} key={count} onClick={() => setTopCount(count)}>
-                    Top {count}
-                  </SegmentButton>
-                ))}
-              </ControlGroup>
-            </div>
+      <div className="border-b hairline pb-6">
+        <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end">
+          <div>
+            <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Publishing imprints</p>
+            <h2 className="mt-3 font-[var(--font-serif)] text-3xl font-light leading-tight sm:text-4xl">
+              Imprint leaderboard over time
+            </h2>
+            <p className="mt-4 max-w-3xl text-base leading-7 muted">
+              See which publishing imprints led nonfiction prize recognition in each period.
+            </p>
           </div>
 
-          <div className="mt-6 max-w-full overflow-x-auto border hairline bg-[color-mix(in_srgb,var(--paper)_86%,var(--panel))]">
+          <div className="imprint-leaderboard-metrics grid grid-cols-3 gap-5">
+            <Metric label="Years" value={`${visibleRange[0]}–${visibleRange[1]}`} />
+            <Metric label="Ranked imprints" value={String(race.rankedImprints)} />
+            <Metric label="Rows scored" value={race.scoredEvents.toLocaleString()} />
+          </div>
+        </div>
+
+        <div className="filter-toolbar mt-6 flex flex-wrap items-end gap-x-5 gap-y-3 border hairline p-3">
+          <label className="filter-group" htmlFor="imprint-window">
+            <span className="filter-label">Window</span>
+            <select
+              className="filter-select"
+              id="imprint-window"
+              onChange={(event) => setWindowMode(event.target.value as WindowMode)}
+              value={windowMode}
+            >
+              <option value="rolling5">5-year rolling</option>
+              <option value="rolling3">3-year rolling</option>
+              <option value="annual">Annual</option>
+              <option value="cumulative">All-time cumulative</option>
+            </select>
+          </label>
+          <label className="filter-group" htmlFor="imprint-measure">
+            <span className="filter-label">Measure</span>
+            <select
+              className="filter-select"
+              id="imprint-measure"
+              onChange={(event) => setMetric(event.target.value as Metric)}
+              value={metric}
+            >
+              <option value="score">Recognition score</option>
+              <option value="books">Recognized books</option>
+              <option value="wins">Wins</option>
+            </select>
+          </label>
+          <ControlGroup label="Awards">
+            <SegmentButton active={scope === "major"} onClick={() => setScope("major")}>Major</SegmentButton>
+            <SegmentButton active={scope === "all"} onClick={() => setScope("all")}>All</SegmentButton>
+          </ControlGroup>
+          <ControlGroup label="Show">
+            {[5, 10, 15].map((count) => (
+              <SegmentButton active={topCount === count} key={count} onClick={() => setTopCount(count)}>
+                Top {count}
+              </SegmentButton>
+            ))}
+          </ControlGroup>
+        </div>
+      </div>
+
+      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_16rem]">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-x border-t hairline px-4 py-3">
+            <p className="filter-label">Rank within the selected {windowModeLabel(windowMode).toLowerCase()} window</p>
+            <p className="text-xs leading-5 muted">Focused line: dashed below Top {topCount} · gap means no recognition</p>
+          </div>
+          <div className="max-w-full overflow-x-auto border hairline bg-[color-mix(in_srgb,var(--paper)_86%,var(--panel))]">
             <ImprintBumpChart
-              activeIds={activeIds}
+              activeId={activeSeriesId}
               onHoverIdChange={setHoverId}
-              onTogglePinned={togglePinned}
-              pinnedIds={pinnedIds}
+              onSelect={selectSeries}
               series={race.series}
+              topCount={topCount}
               yearRange={visibleRange}
             />
           </div>
           <DateRangeBrush fullRange={yearRange} onChange={setVisibleRange} value={visibleRange} />
         </div>
 
-        <aside className="border-t hairline pt-6 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
-          <div className="grid grid-cols-3 gap-4 border-b hairline pb-5 lg:grid-cols-1">
-            <Metric label="Years" value={`${visibleRange[0]}-${visibleRange[1]}`} />
-            <Metric label="Ranked imprints" value={String(race.rankedImprints)} />
-            <Metric label="Rows scored" value={race.scoredEvents.toLocaleString()} />
-          </div>
-
+        <aside className="imprint-ranking-rail border-t hairline pt-5 lg:sticky lg:top-6 lg:self-start lg:border-l lg:border-t-0 lg:pl-5 lg:pt-0">
           {leader ? (
-            <div className="border-b hairline py-5">
+            <div className="border-b hairline pb-5">
               <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Current leader</p>
               <p className="mt-3 font-[var(--font-serif)] text-2xl font-light leading-tight">{leader.name}</p>
-              <p className="mt-2 text-sm leading-6 muted">
-                {leader.publisherName ?? "Parent publisher not yet sourced"} / {formatMetric(metric, leader.finalValue)}
+              <p className="mt-1 text-sm leading-6 muted">
+                {leader.publisherName ?? "Parent publisher not yet sourced"}
               </p>
+              <p className="mt-2 plain-number text-sm text-[var(--ink)]">{formatMetric(metric, leader.finalValue)}</p>
             </div>
           ) : null}
 
           <div className="pt-5">
-            <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Top {topCount}</p>
-            <div className="mt-4 grid gap-2">
-              {race.series.map((series, index) => (
+            <div className="flex items-end justify-between gap-3">
+              <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Current ranking</p>
+              <p className="font-[var(--font-mono)] text-[0.6rem] uppercase tracking-[0.12em] muted">Change</p>
+            </div>
+            <div className="mt-3 border-y hairline">
+              {race.series.map((series) => (
                 <button
-                  className={`experiment-legend-row focus-ring ${activeIds.has(series.imprintId) ? "experiment-legend-row-active" : ""} ${pinnedIds.has(series.imprintId) ? "experiment-legend-row-pinned" : ""}`}
+                  aria-pressed={selectedId === series.imprintId}
+                  className={`experiment-ranking-row focus-ring ${activeSeriesId === series.imprintId ? "experiment-ranking-row-active" : ""}`}
                   key={series.imprintId}
-                  onClick={() => togglePinned(series.imprintId)}
+                  onClick={() => selectSeries(series.imprintId)}
+                  onFocus={() => setHoverId(series.imprintId)}
+                  onBlur={() => setHoverId(null)}
                   onMouseEnter={() => setHoverId(series.imprintId)}
                   onMouseLeave={() => setHoverId(null)}
                   style={{ "--series-color": series.color } as CSSProperties}
                   type="button"
                 >
+                  <span className="plain-number text-xs muted">{series.finalRank}</span>
                   <span className="experiment-legend-swatch" />
-                  <span className="min-w-0 truncate text-left">{series.name}</span>
-                  <span className="plain-number text-right">{pinnedIds.has(series.imprintId) ? "PIN" : index + 1}</span>
+                  <span className="min-w-0 text-left">
+                    <span className="block truncate text-sm text-[var(--ink)]">{series.name}</span>
+                    <span className="mt-0.5 block truncate plain-number text-[0.68rem] muted">{formatMetric(metric, series.finalValue)}</span>
+                  </span>
+                  <RankChange value={series.rankChange} />
                 </button>
               ))}
             </div>
           </div>
 
           {activeSeries ? (
-            <div className="mt-6 border-t hairline pt-5 text-sm leading-6 muted">
-              <p className="text-[var(--ink)]">{activeSeries.name}</p>
-              <p>{activeSeries.publisherName ?? "Parent publisher not yet sourced"}</p>
-              <p>
-                Latest rank {activeSeries.finalRank}; {formatMetric(metric, activeSeries.finalValue)}.
-              </p>
+            <div aria-live="polite" className="mt-6 border-t hairline pt-5">
+              <p className="filter-label">Focused imprint</p>
+              <p className="mt-3 text-sm text-[var(--ink)]">{activeSeries.name}</p>
+              <p className="mt-1 text-xs leading-5 muted">{activeSeries.publisherName ?? "Parent publisher not yet sourced"}</p>
+              <div className="mt-4 grid grid-cols-3 gap-3 border-t hairline pt-3">
+                <MiniMetric label="Score" value={activeSeries.finalPoint.score} />
+                <MiniMetric label="Books" value={activeSeries.finalPoint.books} />
+                <MiniMetric label="Wins" value={activeSeries.finalPoint.wins} />
+              </div>
             </div>
           ) : null}
         </aside>
@@ -199,30 +228,30 @@ export function ImprintRankExperiment({ events, yearRange }: ImprintRankExperime
 }
 
 function ImprintBumpChart({
-  activeIds,
+  activeId,
   onHoverIdChange,
-  onTogglePinned,
-  pinnedIds,
+  onSelect,
   series,
+  topCount,
   yearRange,
 }: {
-  activeIds: Set<string>;
+  activeId?: string;
   onHoverIdChange: (id: string | null) => void;
-  onTogglePinned: (id: string) => void;
-  pinnedIds: Set<string>;
+  onSelect: (id: string) => void;
   series: Series[];
+  topCount: number;
   yearRange: [number, number];
 }) {
   const width = 960;
-  const height = 520;
-  const margin = { top: 34, right: 48, bottom: 54, left: 62 };
+  const height = 500;
+  const margin = { top: 30, right: 132, bottom: 52, left: 58 };
   const chartWidth = width - margin.left - margin.right;
   const chartHeight = height - margin.top - margin.bottom;
   const minYear = yearRange[0];
   const maxYear = yearRange[1];
-  const rankFloor = 16;
+  const rankFloor = topCount + 1;
   const yearTicks = getYearTicks(minYear, maxYear);
-  const rankTicks = [1, 5, 10, 15];
+  const rankTicks = topCount === 5 ? [1, 2, 3, 4, 5] : topCount === 10 ? [1, 5, 10] : [1, 5, 10, 15];
 
   function xForYear(year: number) {
     if (maxYear === minYear) return margin.left;
@@ -236,6 +265,11 @@ function ImprintBumpChart({
 
   return (
     <svg aria-label="Imprint rank chart" className="experiment-chart" role="img" viewBox={`0 0 ${width} ${height}`}>
+      <desc>
+        Imprint rankings over time. Select an imprint from the chart or ranking list to focus it. A dashed line at the
+        bottom means the focused imprint ranked below the displayed cutoff; a gap means it had no recognition in the
+        selected window.
+      </desc>
       <rect className="experiment-chart-bg" height={height} width={width} />
       {yearTicks.map((year) => (
         <g key={year}>
@@ -249,19 +283,25 @@ function ImprintBumpChart({
           <text className="experiment-chart-axis" textAnchor="end" x={margin.left - 12} y={yForRank(rank) + 4}>#{rank}</text>
         </g>
       ))}
-      <text className="experiment-chart-axis" textAnchor="end" x={margin.left - 12} y={yForRank(rankFloor) + 4}>16+</text>
+      <text className="experiment-chart-axis" textAnchor="end" x={margin.left - 12} y={yForRank(rankFloor) + 4}>{`>${topCount}`}</text>
       {series.map((item) => {
-        const hasActive = activeIds.size > 0;
-        const active = activeIds.has(item.imprintId);
-        const focused = active || (!hasActive && item.finalRank <= 3);
-        const dimmed = hasActive && !active;
-        const showLabel = active || pinnedIds.has(item.imprintId) || (!hasActive && item.finalRank <= 3);
-        const path = pointsToPath(item.points, xForYear, yForRank);
+        const active = activeId === item.imprintId;
+        const dimmed = Boolean(activeId) && !active;
+        const path = pointsToVisiblePath(item.points, xForYear, yForRank, topCount);
+        const belowCutoffPath = active ? pointsToBelowCutoffPath(item.points, xForYear, yForRank, topCount) : "";
+        const visiblePoints = item.points.filter((point) => point.rank <= topCount);
+        const cutoffBoundaryPoints = active ? getCutoffBoundaryPoints(item.points, topCount) : [];
+        const markerPoints = active
+          ? visiblePoints.filter((point, index) => {
+              const previous = visiblePoints[index - 1];
+              const next = visiblePoints[index + 1];
+              return !previous || !next || previous.rank !== point.rank || previous.year !== point.year - 1;
+            })
+          : visiblePoints.slice(-1);
         return (
           <g
-            className={dimmed ? "experiment-series-dimmed" : ""}
             key={item.imprintId}
-            onClick={() => onTogglePinned(item.imprintId)}
+            onClick={() => onSelect(item.imprintId)}
             onMouseEnter={() => onHoverIdChange(item.imprintId)}
             onMouseLeave={() => onHoverIdChange(null)}
           >
@@ -273,33 +313,59 @@ function ImprintBumpChart({
               fill="none"
               stroke="transparent"
             />
+            {belowCutoffPath ? (
+              <path
+                aria-hidden="true"
+                className="experiment-series-hit-area"
+                d={belowCutoffPath}
+                fill="none"
+                stroke="transparent"
+              />
+            ) : null}
             <path
-              className={`experiment-series-line ${focused ? "experiment-series-line-active" : ""}`}
+              className={`experiment-series-line ${active ? "experiment-series-line-active" : ""} ${dimmed ? "experiment-series-line-dimmed" : ""}`}
               d={path}
               fill="none"
               stroke={item.color}
             />
-            {item.points
-              .filter((point) => point.rank <= 10 || point.year === maxYear)
-              .map((point) => (
+            {belowCutoffPath ? (
+              <path
+                className="experiment-series-line experiment-series-line-below"
+                d={belowCutoffPath}
+                fill="none"
+                stroke={item.color}
+              />
+            ) : null}
+            {markerPoints.map((point) => (
                 <circle
-                  className="experiment-series-dot"
+                  className={`experiment-series-dot ${dimmed ? "experiment-series-dot-dimmed" : ""}`}
                   cx={xForYear(point.year)}
                   cy={yForRank(point.rank)}
                   fill={item.color}
                   key={`${item.imprintId}-${point.year}`}
-                  r={focused ? 4 : 3}
+                  r={active ? 3.6 : 2.8}
                 />
               ))}
-            {showLabel ? (
+            {cutoffBoundaryPoints.map((point) => (
+              <circle
+                className="experiment-series-cutoff-dot"
+                cx={xForYear(point.year)}
+                cy={yForRank(rankFloor)}
+                fill="var(--paper)"
+                key={`${item.imprintId}-cutoff-${point.year}`}
+                r={2.7}
+                stroke={item.color}
+              />
+            ))}
+            {active ? (
               <text
-                className="experiment-series-label"
+                className="experiment-series-label experiment-series-label-active"
                 fill={item.color}
                 onMouseEnter={() => onHoverIdChange(item.imprintId)}
                 x={width - margin.right + 10}
-                y={yForRank(item.points.at(-1)?.rank ?? item.finalRank) + 4}
+                y={yForRank(item.finalRank) + 4}
               >
-                {item.name}
+                {item.shortName}
               </text>
             ) : null}
           </g>
@@ -311,7 +377,7 @@ function ImprintBumpChart({
 
 function buildRace(events: ImprintRankEvent[], windowMode: WindowMode, metric: Metric, scope: Scope, yearRange: [number, number], topCount: number) {
   const years = rangeOfYears(yearRange[0], yearRange[1]);
-  const imprintNames = new Map<string, { name: string; publisherName?: string }>();
+  const imprintNames = new Map<string, { name: string; shortName: string; publisherName?: string }>();
   const annual = new Map<number, Map<string, YearStat>>();
   let scoredEvents = 0;
 
@@ -321,7 +387,11 @@ function buildRace(events: ImprintRankEvent[], windowMode: WindowMode, metric: M
     const weight = scope === "major" ? event.majorWeight : event.weight;
     if (weight <= 0) continue;
     scoredEvents += 1;
-    imprintNames.set(event.imprintId, { name: event.imprintName, publisherName: event.publisherName });
+    imprintNames.set(event.imprintId, {
+      name: event.imprintName,
+      shortName: event.imprintShortName ?? event.imprintName,
+      publisherName: event.publisherName,
+    });
     const yearStats = annual.get(event.year) ?? new Map<string, YearStat>();
     annual.set(event.year, yearStats);
     const stat = yearStats.get(event.imprintId) ?? { score: 0, wins: 0, books: new Set<string>() };
@@ -333,7 +403,8 @@ function buildRace(events: ImprintRankEvent[], windowMode: WindowMode, metric: M
 
   const pointsByImprint = new Map<string, RankedPoint[]>();
   const running = new Map<string, YearStat>();
-  const totals = new Map<string, number>();
+  let latestRanked: { imprintId: string; stat: YearStat; value: number }[] = [];
+  let currentYear = yearRange[0];
 
   for (const year of years) {
     const yearStats = annual.get(year) ?? new Map<string, YearStat>();
@@ -354,6 +425,11 @@ function buildRace(events: ImprintRankEvent[], windowMode: WindowMode, metric: M
       .filter((row) => row.value > 0)
       .sort((a, b) => b.value - a.value || b.stat.score - a.stat.score || imprintName(imprintNames, a.imprintId).localeCompare(imprintName(imprintNames, b.imprintId)));
 
+    if (ranked.length > 0) {
+      latestRanked = ranked;
+      currentYear = year;
+    }
+
     ranked.forEach((row, index) => {
       const point = {
         year,
@@ -366,48 +442,38 @@ function buildRace(events: ImprintRankEvent[], windowMode: WindowMode, metric: M
       const points = pointsByImprint.get(row.imprintId) ?? [];
       points.push(point);
       pointsByImprint.set(row.imprintId, points);
-      totals.set(row.imprintId, (totals.get(row.imprintId) ?? 0) + row.value);
     });
   }
 
-  const topIds = [...pointsByImprint.entries()]
-    .map(([imprintId, points]) => {
-      const latest = points.at(-1);
-      return {
-        imprintId,
-        latestRank: latest?.rank ?? 999,
-        latestValue: latest?.value ?? 0,
-        total: totals.get(imprintId) ?? 0,
-      };
-    })
-    .sort((a, b) => {
-      if (windowMode === "cumulative") {
-        return b.latestValue - a.latestValue || a.latestRank - b.latestRank || imprintName(imprintNames, a.imprintId).localeCompare(imprintName(imprintNames, b.imprintId));
-      }
-      return b.total - a.total || b.latestValue - a.latestValue || imprintName(imprintNames, a.imprintId).localeCompare(imprintName(imprintNames, b.imprintId));
-    })
+  const topIds = latestRanked
     .slice(0, topCount)
     .map((row) => row.imprintId);
 
   const series = topIds.map((imprintId, index) => {
     const info = imprintNames.get(imprintId);
     const points = pointsByImprint.get(imprintId) ?? [];
-    const latest = points.at(-1);
+    const latest = points.findLast((point) => point.year === currentYear) ?? points.at(-1);
+    if (!latest) return null;
+    const previous = points.findLast((point) => point.year < currentYear);
     return {
       imprintId,
       name: info?.name ?? imprintId,
+      shortName: info?.shortName ?? info?.name ?? imprintId,
       publisherName: info?.publisherName,
       color: seriesColors[index % seriesColors.length],
-      finalRank: latest?.rank ?? 0,
-      finalValue: latest?.value ?? 0,
+      finalRank: latest.rank,
+      finalValue: latest.value,
+      finalPoint: latest,
+      rankChange: previous ? previous.rank - latest.rank : null,
       points,
     };
-  });
+  }).filter((series): series is NonNullable<typeof series> => series !== null);
 
   return {
     rankedImprints: pointsByImprint.size,
     scoredEvents,
     series,
+    currentYear,
   };
 }
 
@@ -465,10 +531,74 @@ function imprintName(names: Map<string, { name: string }>, imprintId: string) {
   return names.get(imprintId)?.name ?? imprintId;
 }
 
-function pointsToPath(points: RankedPoint[], xForYear: (year: number) => number, yForRank: (rank: number) => number) {
-  return points
-    .map((point, index) => `${index === 0 ? "M" : "L"} ${xForYear(point.year).toFixed(2)} ${yForRank(point.rank).toFixed(2)}`)
-    .join(" ");
+function pointsToVisiblePath(
+  points: RankedPoint[],
+  xForYear: (year: number) => number,
+  yForRank: (rank: number) => number,
+  maxRank: number,
+) {
+  const commands: string[] = [];
+  let previousVisibleYear: number | null = null;
+
+  for (const point of points) {
+    if (point.rank > maxRank) {
+      previousVisibleYear = null;
+      continue;
+    }
+    const command = previousVisibleYear === point.year - 1 ? "L" : "M";
+    commands.push(`${command} ${xForYear(point.year).toFixed(2)} ${yForRank(point.rank).toFixed(2)}`);
+    previousVisibleYear = point.year;
+  }
+
+  return commands.join(" ");
+}
+
+function pointsToBelowCutoffPath(
+  points: RankedPoint[],
+  xForYear: (year: number) => number,
+  yForRank: (rank: number) => number,
+  maxRank: number,
+) {
+  const commands: string[] = [];
+  let previous: RankedPoint | undefined;
+  let belowRunActive = false;
+
+  for (const point of points) {
+    const contiguous = previous?.year === point.year - 1;
+    if (!contiguous) belowRunActive = false;
+
+    if (point.rank > maxRank) {
+      if (!belowRunActive) {
+        if (contiguous && previous && previous.rank <= maxRank) {
+          commands.push(`M ${xForYear(previous.year).toFixed(2)} ${yForRank(previous.rank).toFixed(2)}`);
+          commands.push(`L ${xForYear(point.year).toFixed(2)} ${yForRank(maxRank + 1).toFixed(2)}`);
+        } else {
+          commands.push(`M ${xForYear(point.year).toFixed(2)} ${yForRank(maxRank + 1).toFixed(2)}`);
+        }
+      } else {
+        commands.push(`L ${xForYear(point.year).toFixed(2)} ${yForRank(maxRank + 1).toFixed(2)}`);
+      }
+      belowRunActive = true;
+    } else if (belowRunActive && contiguous && previous) {
+      commands.push(`L ${xForYear(point.year).toFixed(2)} ${yForRank(point.rank).toFixed(2)}`);
+      belowRunActive = false;
+    }
+
+    previous = point;
+  }
+
+  return commands.join(" ");
+}
+
+function getCutoffBoundaryPoints(points: RankedPoint[], maxRank: number) {
+  return points.filter((point, index) => {
+    if (point.rank <= maxRank) return false;
+    const previous = points[index - 1];
+    const next = points[index + 1];
+    const startsRun = !previous || previous.year !== point.year - 1 || previous.rank <= maxRank;
+    const endsRun = !next || next.year !== point.year + 1 || next.rank <= maxRank;
+    return startsRun || endsRun;
+  });
 }
 
 function getYearTicks(minYear: number, maxYear: number) {
@@ -484,6 +614,29 @@ function getYearTicks(minYear: number, maxYear: number) {
 function formatMetric(metric: Metric, value: number) {
   const label = metric === "score" ? "score" : metric === "books" ? "books" : "wins";
   return `${value.toLocaleString()} ${label}`;
+}
+
+function windowModeLabel(windowMode: WindowMode) {
+  if (windowMode === "rolling5") return "5-year rolling";
+  if (windowMode === "rolling3") return "3-year rolling";
+  if (windowMode === "annual") return "Annual";
+  return "All-time cumulative";
+}
+
+function RankChange({ value }: { value: number | null }) {
+  if (value === null) return <span className="plain-number text-xs muted">New</span>;
+  if (value > 0) return <span className="plain-number text-xs text-[var(--data-green)]">↑{value}</span>;
+  if (value < 0) return <span className="plain-number text-xs text-[var(--data-red)]">↓{Math.abs(value)}</span>;
+  return <span className="plain-number text-xs muted">—</span>;
+}
+
+function MiniMetric({ label, value }: { label: string; value: number }) {
+  return (
+    <div className="min-w-0">
+      <p className="plain-number text-sm text-[var(--ink)]">{value.toLocaleString()}</p>
+      <p className="mt-1 font-[var(--font-mono)] text-[0.52rem] uppercase tracking-[0.12em] muted">{label}</p>
+    </div>
+  );
 }
 
 function DateRangeBrush({

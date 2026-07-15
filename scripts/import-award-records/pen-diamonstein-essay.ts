@@ -11,6 +11,7 @@ import {
   wikiToPlainText,
   writeRawAwardRecords,
 } from "./helpers";
+import { mergeOfficialAwardRows, penDiamonsteinOfficialRows } from "./official-recent-records";
 
 type PenStatus = Extract<RawAwardRecordStatus, "winner" | "finalist">;
 type PartialRecord = Omit<RawAwardRecord, "status"> & { status: PenStatus };
@@ -25,14 +26,14 @@ async function main() {
 
   console.log(`Fetching PEN Essay table from "${pageTitle}"...`);
   const wikitext = await fetchMediaWikiWikitext(pageTitle);
-  const records = parsePenAwardTable(prize, category, wikitext);
+  const records = mergeOfficialAwardRows(parsePenAwardTable(prize, category, wikitext), prize, penDiamonsteinOfficialRows);
 
   records.sort((a, b) => b.year - a.year || statusSort(a.status) - statusSort(b.status) || a.title.localeCompare(b.title));
 
   await writeRawAwardRecords("pen-diamonstein-essay.json", records, {
     importer: "scripts/import-award-records/pen-diamonstein-essay.ts",
-    source: `MediaWiki wikitable for "${pageTitle}"`,
-    notes: "Initial importer uses Wikipedia as a deterministic secondary source. Runner-up and finalist rows are normalized to finalist status.",
+    source: `MediaWiki historical table for "${pageTitle}" plus official PEN America recent results`,
+    notes: "Historical rows use a deterministic secondary source. Complete 2024-2026 finalist slates and winners are replaced with official PEN America results; the withdrawn 2024 Ross Gay title is omitted.",
     categories: [
       {
         categoryId: category.id,

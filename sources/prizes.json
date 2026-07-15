@@ -6,6 +6,7 @@
     "scope": "general",
     "organization": "The Pulitzer Prizes / Columbia University",
     "geography": "United States",
+    "foundedYear": 1917,
     "officialUrl": "https://www.pulitzer.org/prize-winners-by-year",
     "notes": "Official Pulitzer pages are canonical, but command-line fetching is currently blocked by Cloudflare. Initial importer uses Wikipedia category pages as a deterministic secondary source while retaining official category URLs in registry metadata.",
     "categories": [
@@ -62,6 +63,13 @@
     "scope": "general",
     "organization": "National Book Foundation",
     "geography": "United States",
+    "foundedYear": 1935,
+    "dormantYears": [
+      [
+        1941,
+        1949
+      ]
+    ],
     "officialUrl": "https://www.nationalbook.org/national-book-awards/",
     "notes": "Initial nonfiction importer uses the Wikipedia National Book Award for Nonfiction page as a deterministic secondary source. The official archive should be used for later verification, publisher enrichment, and annual-page source links.",
     "categories": [
@@ -85,6 +93,7 @@
     "scope": "general",
     "organization": "National Book Critics Circle",
     "geography": "United States",
+    "foundedYear": 1975,
     "officialUrl": "https://www.bookcritics.org/awards/",
     "notes": "Initial importer uses Wikipedia category pages as deterministic secondary sources while retaining the official NBCC awards and past-awards pages for later source verification and publisher enrichment.",
     "categories": [
@@ -141,6 +150,7 @@
     "scope": "general",
     "organization": "American Library Association / Reference and User Services Association",
     "geography": "United States",
+    "foundedYear": 2012,
     "officialUrl": "https://www.ala.org/rusa/awards/carnegie-medals",
     "notes": "Initial nonfiction importer uses the Wikipedia Carnegie Medals page as a deterministic secondary source while retaining official ALA/RUSA URLs for later verification and publisher enrichment.",
     "categories": [
@@ -164,6 +174,7 @@
     "scope": "general",
     "organization": "Kirkus Reviews",
     "geography": "United States",
+    "foundedYear": 2014,
     "officialUrl": "https://www.kirkusreviews.com/prize/",
     "notes": "Initial nonfiction importer uses the Wikipedia Kirkus Prize table as a deterministic secondary source while retaining the official Kirkus prize page for later verification and publisher enrichment.",
     "categories": [
@@ -187,6 +198,7 @@
     "scope": "general",
     "organization": "The Baillie Gifford Prize",
     "geography": "United Kingdom",
+    "foundedYear": 1999,
     "officialUrl": "https://www.thebailliegiffordprize.co.uk/",
     "notes": "Formerly the Samuel Johnson Prize. Initial importer uses the Wikipedia Baillie Gifford Prize tables as deterministic secondary sources while retaining the official prize site for later verification and publisher enrichment.",
     "categories": [
@@ -210,6 +222,7 @@
     "scope": "subject",
     "organization": "McGill University",
     "geography": "Canada / International",
+    "foundedYear": 2008,
     "officialUrl": "https://www.cundillprize.com/",
     "notes": "Initial importer uses the Wikipedia Cundill History Prize table as a deterministic secondary source while retaining the official Cundill site for later verification and publisher enrichment.",
     "categories": [
@@ -233,6 +246,7 @@
     "scope": "general",
     "organization": "PEN America",
     "geography": "United States",
+    "foundedYear": 2007,
     "officialUrl": "https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/",
     "notes": "Initial importer uses the Wikipedia PEN/Galbraith table as a deterministic secondary source while retaining the official PEN America award page for later verification.",
     "categories": [
@@ -256,6 +270,7 @@
     "scope": "general",
     "organization": "Los Angeles Times",
     "geography": "United States",
+    "foundedYear": 1980,
     "officialUrl": "https://www.latimes.com/entertainment-arts/books",
     "notes": "Initial nonfiction importer uses Wikipedia category tables as deterministic secondary sources while retaining the Los Angeles Times books section as the official source root for later verification.",
     "categories": [
@@ -312,6 +327,7 @@
     "scope": "discipline",
     "organization": "Association of American Publishers",
     "geography": "United States / International",
+    "foundedYear": 1976,
     "officialUrl": "https://proseawards.com/",
     "notes": "Importer uses the official PROSE Awards winners archive and keeps book-like nonfiction categories relevant to a broad public nonfiction index, including Outstanding Work by a Trade Publisher. It excludes technical, professional, education, reference, journal, and narrow scholarly categories that would otherwise over-weight specialist publishing; finalist PDFs should be imported in a later pass.",
     "categories": []
@@ -323,6 +339,7 @@
     "scope": "subject",
     "organization": "Wolfson Foundation",
     "geography": "United Kingdom / International",
+    "foundedYear": 1972,
     "officialUrl": "https://www.wolfsonhistoryprize.org.uk/",
     "notes": "Importer uses the official Wolfson History Prize all-winners archive. Until 2016, the official page lists multiple annual awards; from 2017 onward it lists one winner and a shortlist.",
     "categories": [
@@ -346,6 +363,7 @@
     "scope": "general",
     "organization": "The Phi Beta Kappa Society",
     "geography": "United States publication",
+    "foundedYear": 1954,
     "officialUrl": "https://www.pbk.org/awards/bookawards",
     "notes": "Importer uses the official Phi Beta Kappa past-winner pages for the Christian Gauss Award, Phi Beta Kappa Award in Science, and Ralph Waldo Emerson Award.",
     "categories": [
@@ -391,6 +409,7 @@
     "scope": "subject",
     "organization": "The Royal Society",
     "geography": "United Kingdom / International",
+    "foundedYear": 1988,
     "officialUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/",
     "notes": "Importer uses the deterministic Wikipedia table because command-line access to the current Royal Society competition archive is blocked by its web application firewall. Official Royal Society URLs are retained for later verification.",
     "categories": [
@@ -414,6 +433,7 @@
     "scope": "subject",
     "organization": "The Orwell Foundation",
     "geography": "United Kingdom / International",
+    "foundedYear": 1994,
     "officialUrl": "https://www.orwellfoundation.com/the-orwell-prizes/",
     "notes": "Importer currently imports the nonfiction-specific Political Writing category from 2019 onward. The older combined book category is intentionally excluded because it mixes fiction and nonfiction before the current split.",
     "categories": [
@@ -437,6 +457,7 @@
     "scope": "subject",
     "organization": "Columbia University Libraries",
     "geography": "United States",
+    "foundedYear": 1948,
     "officialUrl": "https://library.columbia.edu/about/awards/bancroft.html",
     "notes": "Importer uses the official Columbia University Libraries previous-awards archive for annual Bancroft Prize recipients.",
     "categories": [
@@ -460,6 +481,7 @@
     "scope": "discipline",
     "organization": "American Historical Association",
     "geography": "United States",
+    "foundedYear": 1923,
     "officialUrl": "https://www.historians.org/community-careers/awards-grants/awards-prizes/",
     "notes": "Selected AHA publication prizes with broad value for history nonfiction discovery. Importer uses official AHA prize pages and records Past Recipients as winners; finalist/shortlist slates are not publicly listed on those pages.",
     "categories": [
@@ -527,6 +549,7 @@
     "scope": "subject",
     "organization": "Columbia Journalism School / Nieman Foundation for Journalism",
     "geography": "United States",
+    "foundedYear": 1999,
     "officialUrl": "https://journalism.columbia.edu/lukas",
     "notes": "Initial importer uses the Wikipedia Mark Lynton History Prize table as a deterministic secondary source while retaining official Lukas Prize Project URLs for later verification.",
     "categories": [
@@ -550,6 +573,8 @@
     "scope": "general",
     "organization": "Costa / Booksellers Association",
     "geography": "United Kingdom",
+    "foundedYear": 1971,
+    "discontinuedYear": 2021,
     "officialUrl": "https://www.costabookawards.com/",
     "notes": "Formerly the Whitbread Book Awards until 2006. The Biography category covers biography, autobiography, and memoir. Shortlist data is available from 1995 onward; before that only winners are recorded.",
     "categories": [
@@ -573,6 +598,7 @@
     "scope": "general",
     "organization": "Columbia Journalism School / Nieman Foundation for Journalism",
     "geography": "United States",
+    "foundedYear": 1999,
     "officialUrl": "https://journalism.columbia.edu/lukas",
     "notes": "Initial importer uses the Wikipedia J. Anthony Lukas Book Prize table as a deterministic secondary source while retaining official Lukas Prize Project URLs for later verification.",
     "categories": [
@@ -596,6 +622,7 @@
     "scope": "subject",
     "organization": "PEN America",
     "geography": "United States",
+    "foundedYear": 2011,
     "officialUrl": "https://pen.org/pen-eo-wilson-prize-literary-science-writing/",
     "notes": "Founded by E.O. Wilson, Harrison Ford, and the E.O. Wilson Biodiversity Foundation. Awarded for literary excellence in writing about the physical and biological sciences. Shortlists available from 2016 onward; 2011-2012 used 'Runner-up' instead of 'Shortlist'.",
     "categories": [
@@ -618,6 +645,7 @@
     "scope": "subject",
     "organization": "PEN America",
     "geography": "United States",
+    "foundedYear": 2008,
     "officialUrl": "https://pen.org/literary-awards/pen-bograd-weld-award-biography/",
     "notes": "Awarded for excellence in biography published in the United States. Initial importer uses the Wikipedia winners table as a deterministic secondary source while retaining the official PEN America award page for later verification.",
     "categories": [
@@ -641,6 +669,7 @@
     "scope": "subject",
     "organization": "PEN America",
     "geography": "United States",
+    "foundedYear": 1990,
     "officialUrl": "https://pen.org/literary-awards/pen-diamonstein-spielvogel-award-for-the-art-of-the-essay/",
     "notes": "Awarded for a book of essays by a seasoned writer. Initial importer uses the Wikipedia winners table as a deterministic secondary source while retaining the official PEN America award page for later verification.",
     "categories": [
@@ -664,6 +693,7 @@
     "scope": "subject",
     "organization": "Society of Environmental Journalists",
     "geography": "United States / International",
+    "foundedYear": 2008,
     "officialUrl": "https://www.sej.org/library/books/rachel-carson-environment-book-award-winners",
     "notes": "Book category of SEJ's Annual Awards for Reporting on the Environment. Importer uses official SEJ annual award pages linked from the official winners index.",
     "categories": [
@@ -687,6 +717,7 @@
     "scope": "subject",
     "organization": "Biographers International Organization",
     "geography": "United States / International",
+    "foundedYear": 2013,
     "officialUrl": "https://biographersinternational.org/award/plutarch/",
     "notes": "Annual biography award selected by members of Biographers International Organization. Initial importer uses the Wikipedia winners and finalists table as a deterministic secondary source while retaining the BIO award page for later verification.",
     "categories": [
@@ -710,6 +741,7 @@
     "scope": "subject",
     "organization": "New York Public Library",
     "geography": "United States",
+    "foundedYear": 1988,
     "officialUrl": "https://www.nypl.org/about/awards/helen-bernstein-award-excellence-journalism",
     "notes": "Annual award for books of journalism that bring public attention to important issues. Initial importer uses the Wikipedia winners list as a deterministic secondary source while retaining the NYPL award page for later verification.",
     "categories": [
@@ -733,6 +765,7 @@
     "scope": "subject",
     "organization": "The Ridenhour Prizes",
     "geography": "United States",
+    "foundedYear": 2004,
     "officialUrl": "https://www.ridenhour.org/",
     "notes": "Annual public-interest nonfiction book prize named for Ron Ridenhour. Initial importer uses the Wikipedia Ridenhour Book Prize section as a deterministic secondary source while retaining the official prize site for later verification.",
     "categories": [
@@ -756,8 +789,9 @@
     "scope": "subject",
     "organization": "New York Historical",
     "geography": "United States",
+    "foundedYear": 2006,
     "officialUrl": "https://www.nyhistory.org/programs/american-history-book-prize",
-    "notes": "Formerly the New-York Historical Society American History Book Prize. Awarded for adult nonfiction on American history or biography. Initial importer uses the Wikipedia winners list as a deterministic secondary source while retaining the New York Historical prize page for later verification.",
+    "notes": "Formerly the New-York Historical Society American History Book Prize. Awarded for adult nonfiction on American history or biography. Historical source rows are labeled by publication year; the public catalog records the following year, when the prize was presented.",
     "categories": [
       {
         "id": "ny-history-american-history",
@@ -767,8 +801,8 @@
         "sourceLabel": "Wikipedia: New York Historical book prizes",
         "sourceConfidence": "secondary",
         "importStrategy": "mediawiki-bullets",
-        "activeYears": "2005-present",
-        "coverageNotes": "Covers winners listed under the Barbara and David Zalaznick Book Prize in American History section. Publication year is used as award year, matching the source note."
+        "activeYears": "2006-present",
+        "coverageNotes": "Covers winners listed under the Barbara and David Zalaznick Book Prize in American History section. Historical publication-year labels are shifted forward one year to the prize presentation year; recent winners are verified against official New York Historical records."
       }
     ]
   },
@@ -779,6 +813,7 @@
     "scope": "subject",
     "organization": "The Sidney Hillman Foundation",
     "geography": "United States / International",
+    "foundedYear": 1950,
     "officialUrl": "https://www.hillmanfoundation.org/hillman-prizes/us/honorees",
     "notes": "U.S. Hillman Prize category for book journalism. Importer uses the official previous-honorees table and keeps only rows whose category is Book.",
     "categories": [
@@ -802,6 +837,7 @@
     "scope": "subject",
     "organization": "Munk School of Global Affairs & Public Policy / Foreign Policy",
     "geography": "International",
+    "foundedYear": 1990,
     "officialUrl": "https://munkschool.utoronto.ca/lionel-gelber-prize",
     "notes": "One of the world's richest nonfiction prizes (CA$50,000), awarded for the best English-language nonfiction book on international affairs. Co-presented by the Munk School at the University of Toronto and Foreign Policy magazine. Shortlist data available from 2011 onward; earlier years record winners only.",
     "categories": [
@@ -825,6 +861,7 @@
     "scope": "subject",
     "organization": "Pol Roger / New College, Oxford",
     "geography": "United Kingdom",
+    "foundedYear": 1956,
     "officialUrl": "https://www.duffcooperprize.org/",
     "notes": "One of the oldest continuous nonfiction prizes in the UK, awarded since 1956 for the best work of history, biography, or political science published in English or French. Currently sponsored by Pol Roger champagne (Pol Roger Duff Cooper Prize). Winners only — no shortlist is announced.",
     "categories": [
@@ -848,6 +885,7 @@
     "scope": "subject",
     "organization": "Financial Times",
     "geography": "International",
+    "foundedYear": 2005,
     "officialUrl": "https://www.ft.com/business-book-of-the-year",
     "notes": "Annual prize for the best business book of the year, backed by the Financial Times. Sponsor has changed: Goldman Sachs (2005–2013), McKinsey (2014–2021), Schroders (2023–present). Prize is £30,000. One of the most internationally recognized nonfiction awards, covering economics, business, politics, and social science.",
     "categories": [
@@ -871,6 +909,7 @@
     "scope": "general",
     "organization": "The British Academy",
     "geography": "United Kingdom / International",
+    "foundedYear": 2013,
     "officialUrl": "https://www.thebritishacademy.ac.uk/british-academy-book-prize/",
     "notes": "Launched in 2013 to recognize outstanding nonfiction in the humanities and social sciences. Formerly known as the British Academy Book Prize for Global Cultural Understanding and earlier as the Nayef Al-Rodhan Prize.",
     "categories": [
@@ -884,6 +923,30 @@
         "importStrategy": "official-html",
         "activeYears": "2013-present",
         "coverageNotes": "Currently imports official winner and shortlist rows from 2018 onward. Earlier 2013–2017 archive pages require separate QA because their page structure differs from the modern annual pages."
+      }
+    ]
+  },
+  {
+    "id": "governor-generals-literary-awards",
+    "name": "Governor General's Literary Awards",
+    "awardType": "major_award",
+    "scope": "general",
+    "organization": "Canada Council for the Arts",
+    "geography": "Canada",
+    "foundedYear": 1936,
+    "officialUrl": "https://ggbooks.ca/",
+    "notes": "Canada's national literary awards, presented since 1936. This registry entry covers the English-language non-fiction category. Initial importer uses the Wikipedia decade tables as a deterministic secondary source while retaining the official GGBooks archive for later verification.",
+    "categories": [
+      {
+        "id": "governor-generals-english-nonfiction",
+        "name": "English-language Non-fiction",
+        "officialUrl": "https://ggbooks.ca/past-winners-and-finalists",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction",
+        "sourceLabel": "Wikipedia: Governor General's Award for English-language non-fiction",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1936-present",
+        "coverageNotes": "Winners from 1936 onward; finalists as listed from 1980 onward. Several 1940s years list multiple winners, reflecting the era's split academic/creative non-fiction categories; these are normalized as co-winners."
       }
     ]
   }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-12T19:36:47.111Z",
+  "generatedAt": "2026-07-13T23:08:37.348Z",
   "metadata": {
     "importer": "scripts/import-award-records/hillman-book-journalism.ts",
     "source": "Official Hillman Prize previous-honorees table",
@@ -9,12 +9,20 @@
         "categoryId": "hillman-book-journalism",
         "categoryName": "Book Journalism",
         "sourceUrl": "https://www.hillmanfoundation.org/hillman-prizes/us/honorees",
-        "records": 85,
-        "winners": 64,
+        "records": 84,
+        "winners": 63,
         "coWinners": 21,
         "yearRange": "1950-2026"
       }
-    ]
+    ],
+    "reconciliation": {
+      "baselineRef": "HEAD",
+      "retainedBaselineRecords": 84,
+      "acceptedNewRecords": 0,
+      "rejectedNewRecords": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 1
+    }
   },
   "records": [
     {
@@ -388,22 +396,6 @@
       ],
       "sourceUrl": "http://www.washingtonpost.com/wp-dyn/content/discussion/2006/07/07/DI2006070701061.html",
       "sourceLabel": "Hillman Prize previous honorees: 2007",
-      "sourceConfidence": "official",
-      "notes": "Official awards URL: https://www.hillmanfoundation.org/hillman-prizes/us/honorees"
-    },
-    {
-      "awardId": "hillman-prize-book-journalism",
-      "awardName": "Hillman Prize for Book Journalism",
-      "categoryId": "hillman-book-journalism",
-      "categoryName": "Book Journalism",
-      "year": 2006,
-      "status": "winner",
-      "title": "Award withheld",
-      "authors": [
-        "N/A"
-      ],
-      "sourceUrl": "https://www.hillmanfoundation.org/hillman-prizes/us/honorees",
-      "sourceLabel": "Hillman Prize previous honorees: 2006",
       "sourceConfidence": "official",
       "notes": "Official awards URL: https://www.hillmanfoundation.org/hillman-prizes/us/honorees"
     },

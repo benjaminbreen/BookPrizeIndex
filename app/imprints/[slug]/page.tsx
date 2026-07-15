@@ -10,6 +10,7 @@ import type { BrowseBookRow } from "@/lib/browse-types";
 import { sortBrowseBooksByRecognition } from "@/lib/browse-ranking";
 import { data, imprintsBySlug, publishersById } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
+import { rollupSubjectName } from "@/lib/subject-rollup";
 
 const STATIC_IMPRINT_PAGE_LIMIT = 80;
 const INITIAL_IMPRINT_BOOK_LIMIT = 100;
@@ -142,7 +143,8 @@ function imprintSummary(imprintName: string, books: BrowseBookRow[]) {
   const subjectCounts = new Map<string, number>();
   for (const book of books) {
     for (const subject of book.subjects.slice(0, 3)) {
-      subjectCounts.set(subject, (subjectCounts.get(subject) ?? 0) + 1);
+      const browseSubject = rollupSubjectName(subject);
+      subjectCounts.set(browseSubject, (subjectCounts.get(browseSubject) ?? 0) + 1);
     }
   }
   const subjects = [...subjectCounts.entries()]

@@ -67,7 +67,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "public", "catalog.json");
 const mappingPath = path.join(root, "sources", "imprint-normalization.json");
-const reportPath = path.join(root, "data", "public", "publisher-imprint-qa-report.json");
+const reportPath = path.join(root, "data", "reports", "publisher-imprint-qa-report.json");
 
 async function main() {
   const data = JSON.parse(await fs.readFile(catalogPath, "utf8")) as PublicData;
@@ -117,7 +117,7 @@ async function main() {
   };
 
   await fs.writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`);
-  console.log(`Wrote ${publisherIssues.length} publisher/imprint QA issues to data/public/publisher-imprint-qa-report.json.`);
+  console.log(`Wrote ${publisherIssues.length} publisher/imprint QA issues to data/reports/publisher-imprint-qa-report.json.`);
 }
 
 function publisherIssuesFor({

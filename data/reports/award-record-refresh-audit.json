@@ -1,0 +1,3262 @@
+{
+  "generatedAt": "2026-07-13T23:08:38.046Z",
+  "baselineRef": "HEAD",
+  "wroteChanges": true,
+  "totals": {
+    "files": 33,
+    "retainedBaselineRecords": 6452,
+    "acceptedNewRecords": 285,
+    "rejectedNewRecords": 0,
+    "replacedRevisions": 1,
+    "repairedBaselineRecords": 1,
+    "excludedCorruptBaselineRecords": 1
+  },
+  "files": [
+    {
+      "file": "carnegie.json",
+      "baselineRecords": 332,
+      "refreshedRecords": 332,
+      "retainedBaselineRecords": 332,
+      "acceptedNewRecords": 0,
+      "rejectedNewRecords": 0,
+      "replacedRevisions": 1,
+      "repairedBaselineRecords": 1,
+      "excludedCorruptBaselineRecords": 0,
+      "accepted": [],
+      "rejected": []
+    },
+    {
+      "file": "duff-cooper.json",
+      "baselineRecords": 69,
+      "refreshedRecords": 70,
+      "retainedBaselineRecords": 69,
+      "acceptedNewRecords": 1,
+      "rejectedNewRecords": 0,
+      "replacedRevisions": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 0,
+      "accepted": [
+        {
+          "awardId": "duff-cooper-prize",
+          "categoryId": "duff-cooper",
+          "year": 2025,
+          "status": "winner",
+          "title": "Allies at War: The Politics of Defeating Hitler",
+          "authors": [
+            "Tim Bouverie"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Duff_Cooper_Prize"
+        }
+      ],
+      "rejected": []
+    },
+    {
+      "file": "governor-general.json",
+      "baselineRecords": 0,
+      "refreshedRecords": 269,
+      "retainedBaselineRecords": 0,
+      "acceptedNewRecords": 269,
+      "rejectedNewRecords": 0,
+      "replacedRevisions": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 0,
+      "accepted": [
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2025,
+          "status": "winner",
+          "title": "How to Survive a Bear Attack",
+          "authors": [
+            "Claire Cameron"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2025,
+          "status": "finalist",
+          "title": "All Our Ordinary Stories: A Multigenerational Family Odyssey",
+          "authors": [
+            "Teresa Wong"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2025,
+          "status": "finalist",
+          "title": "Searching for Serafim: The Life and Legacy of Serafim “Joe” Fortes",
+          "authors": [
+            "Ruby Smith Dίaz"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2025,
+          "status": "finalist",
+          "title": "The Migrant Rain Falls in Reverse",
+          "authors": [
+            "Vinh Nguyen"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2025,
+          "status": "finalist",
+          "title": "What to Feel, How to Feel: Lyric Essays on Neurodivergence and Neurofatherhood",
+          "authors": [
+            "Shane Neilson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2024,
+          "status": "winner",
+          "title": "Wînipêk: Visions of Canada from an Indigenous Centre",
+          "authors": [
+            "Niigaan Sinclair"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2024,
+          "status": "finalist",
+          "title": "Becoming a Matriarch",
+          "authors": [
+            "Helen Knott"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2024,
+          "status": "finalist",
+          "title": "Crooked Teeth: A Queer Syrian Refugee Memoir",
+          "authors": [
+            "Danny Ramadan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2024,
+          "status": "finalist",
+          "title": "The Age of Insecurity: Coming Together as Things Fall Apart",
+          "authors": [
+            "Astra Taylor"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2024,
+          "status": "finalist",
+          "title": "The Walls Have Eyes: Surviving Migration in the Age of Artificial Intelligence",
+          "authors": [
+            "Petra Molnar"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2023,
+          "status": "winner",
+          "title": "Unearthing",
+          "authors": [
+            "Kyo Maclear"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2023,
+          "status": "finalist",
+          "title": "Gendered Islamophobia: My Journey with a Scar(f)",
+          "authors": [
+            "Monia Mazigh"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2023,
+          "status": "finalist",
+          "title": "Invisible Boy",
+          "authors": [
+            "Harrison Mooney"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2023,
+          "status": "finalist",
+          "title": "Message in a Bottle",
+          "authors": [
+            "Holly Hogan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2023,
+          "status": "finalist",
+          "title": "Unbroken: My Fight for Survival, Hope, and Justice for Indigenous Women and Girls",
+          "authors": [
+            "Angela Sterritt"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2022,
+          "status": "winner",
+          "title": "Aki-wayn-zih: A Person as Worthy as the Earth",
+          "authors": [
+            "Eli Baxter"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2022,
+          "status": "finalist",
+          "title": "All the Frequent Troubles of Our Days: The True Story of the American Woman at the Heart of the German Resistance to Hitler",
+          "authors": [
+            "Rebecca Donner"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2022,
+          "status": "finalist",
+          "title": "Generation Dread: Finding Purpose in an Age of Climate Crisis",
+          "authors": [
+            "Britt Wray"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2022,
+          "status": "finalist",
+          "title": "Persephoneʼs Children: A Life in Fragments",
+          "authors": [
+            "Rowan McCandless"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2022,
+          "status": "finalist",
+          "title": "Rehearsals for Living",
+          "authors": [
+            "Robyn Maynard",
+            "Leanne Betasamosake Simpson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2021,
+          "status": "winner",
+          "title": "alfabet/alphabet: a memoir of a first language",
+          "authors": [
+            "Sadiqa de Meijer"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2021,
+          "status": "finalist",
+          "title": "Care of: Letters, Connections, and Cures",
+          "authors": [
+            "Ivan Coyote"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2021,
+          "status": "finalist",
+          "title": "Revery: A Year of Bees",
+          "authors": [
+            "Jenna Butler"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2021,
+          "status": "finalist",
+          "title": "The Day the World Stops Shopping",
+          "authors": [
+            "J. B. MacKinnon"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2021,
+          "status": "finalist",
+          "title": "What I Remember, What I Know: The Life of a High Arctic Exile",
+          "authors": [
+            "Larry Audlaluk"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2020,
+          "status": "winner",
+          "title": "This Red Line Goes Straight to Your Heart",
+          "authors": [
+            "Madhur Anand"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2020,
+          "status": "finalist",
+          "title": "A History of My Brief Body",
+          "authors": [
+            "Billy-Ray Belcourt"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2020,
+          "status": "finalist",
+          "title": "Disfigured: On Fairy Tales, Disability and Making Space",
+          "authors": [
+            "Amanda Leduc"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2020,
+          "status": "finalist",
+          "title": "Rebent Sinner",
+          "authors": [
+            "Ivan Coyote"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2020,
+          "status": "finalist",
+          "title": "Shame on Me",
+          "authors": [
+            "Tessa McWatt"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2019,
+          "status": "winner",
+          "title": "To the River: Losing My Brother",
+          "authors": [
+            "Don Gillmor"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2019,
+          "status": "finalist",
+          "title": "City of Omens: A Search for the Missing Women of the Borderlands",
+          "authors": [
+            "Dan Werb"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2019,
+          "status": "finalist",
+          "title": "Fryderyk Chopin: A Life and Times",
+          "authors": [
+            "Alan Walker"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2019,
+          "status": "finalist",
+          "title": "Sea Trial: Sailing After My Father",
+          "authors": [
+            "Brian Harvey"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2019,
+          "status": "finalist",
+          "title": "Tiny Lights for Travellers",
+          "authors": [
+            "Naomi K. Lewis"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2018,
+          "status": "winner",
+          "title": "Mamaskatch: A Cree Coming of Age",
+          "authors": [
+            "Darrel J. McLeod"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2018,
+          "status": "finalist",
+          "title": "Dead Reckoning: How I Came To Meet the Man Who Murdered My Father",
+          "authors": [
+            "Carys Cragg"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2018,
+          "status": "finalist",
+          "title": "Heart Berries",
+          "authors": [
+            "Terese Marie Mailhot"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2018,
+          "status": "finalist",
+          "title": "Homes: A Refugee Story",
+          "authors": [
+            "Abu Bakr Al-Rabeeah",
+            "Winnie Yeung"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2018,
+          "status": "finalist",
+          "title": "The Wife’s Tale: A Personal History",
+          "authors": [
+            "Aida Edemariam"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2017,
+          "status": "winner",
+          "title": "The Way of the Strangers: Encounters with the Islamic State",
+          "authors": [
+            "Graeme Wood"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2017,
+          "status": "finalist",
+          "title": "All We Leave Behind: A Reporter's Journey into the Lives of Others",
+          "authors": [
+            "Carol Off"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2017,
+          "status": "finalist",
+          "title": "The Handover: How Bigwigs and Bureaucrats Transferred Canada's Best Publisher and the Best Part of our Literary Heritage to a Foreign Multinational",
+          "authors": [
+            "Elaine Dewar"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2017,
+          "status": "finalist",
+          "title": "Where I Live Now: A Journey through Love and Loss to Healing and Hope",
+          "authors": [
+            "Sharon Butala"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2017,
+          "status": "finalist",
+          "title": "Where It Hurts",
+          "authors": [
+            "Sarah de Leeuw"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2016,
+          "status": "winner",
+          "title": "A World We Have Lost: Saskatchewan Before 1905",
+          "authors": [
+            "Bill Waiser"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2016,
+          "status": "finalist",
+          "title": "Brown: What Being Brown in the World Today Means (To Everyone)",
+          "authors": [
+            "Kamal Al-Solaylee"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2016,
+          "status": "finalist",
+          "title": "Firewater: How Alcohol is Killing My People (and Yours)",
+          "authors": [
+            "Harold R. Johnson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2016,
+          "status": "finalist",
+          "title": "In-Between Days: A Memoir about Living with Cancer",
+          "authors": [
+            "Teva Harrison"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2016,
+          "status": "finalist",
+          "title": "Marconi: The Man Who Networked the World",
+          "authors": [
+            "Marc Raboy"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2015,
+          "status": "winner",
+          "title": "Bee Time: Lessons from the Hive",
+          "authors": [
+            "Mark L. Winston"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2015,
+          "status": "finalist",
+          "title": "Dispatches from the Front: Matthew Halton, Canada's Voice at War",
+          "authors": [
+            "David Halton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2015,
+          "status": "finalist",
+          "title": "Norval Morrisseau: Man Changing into Thunderbird",
+          "authors": [
+            "Armand Garnet Ruffo"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2015,
+          "status": "finalist",
+          "title": "Party of One: Stephen Harper and Canada's Radical Makeover",
+          "authors": [
+            "Michael Harris"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2015,
+          "status": "finalist",
+          "title": "The Social Life of Ink: Culture, Wonder, and Our Relationship with the Written Word",
+          "authors": [
+            "Ted Bishop"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2014,
+          "status": "winner",
+          "title": "The End of Absence: Reclaiming What We’ve Lost in a World of Constant Connection",
+          "authors": [
+            "Michael Harris"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2014,
+          "status": "finalist",
+          "title": "Know the Night: A Memoir of Survival in the Small Hours",
+          "authors": [
+            "Maria Mutch"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2014,
+          "status": "finalist",
+          "title": "The Oil Man and the Sea: Navigating the Northern Gateway",
+          "authors": [
+            "Arno Kopecky"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2014,
+          "status": "finalist",
+          "title": "Up Ghost River: A Chief’s Journey Through the Turbulent Waters of Native History",
+          "authors": [
+            "Edmund Metatawabin",
+            "Alexandra Shimo"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2013,
+          "status": "winner",
+          "title": "Journey with No Maps: A Life of P.K. Page",
+          "authors": [
+            "Sandra Djwa"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2013,
+          "status": "finalist",
+          "title": "Projection: Encounters with My Runaway Mother",
+          "authors": [
+            "Priscila Uppal"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2013,
+          "status": "finalist",
+          "title": "The Idealist: Jeffrey Sachs and the Quest to End Poverty",
+          "authors": [
+            "Nina Munk"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2013,
+          "status": "finalist",
+          "title": "The Juggler's Children: A Journey into Family, Legend and the Genes that Bind Us",
+          "authors": [
+            "Carolyn Abraham"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2013,
+          "status": "finalist",
+          "title": "The Memory of Water",
+          "authors": [
+            "Allen Smutylo"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2012,
+          "status": "winner",
+          "title": "Leonardo and the Last Supper",
+          "authors": [
+            "Ross King"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2012,
+          "status": "finalist",
+          "title": "A Thousand Farewells: A Reporter's Journey from Refugee Camp to the Arab Spring",
+          "authors": [
+            "Nahlah Ayed"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2012,
+          "status": "finalist",
+          "title": "Into the Silence: The Great War, Mallory, and the Conquest of Everest",
+          "authors": [
+            "Wade Davis"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2012,
+          "status": "finalist",
+          "title": "The Pursuit of Perfection: A Life of Celia Franca",
+          "authors": [
+            "Carol Bishop-Gwyn"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2012,
+          "status": "finalist",
+          "title": "What We Talk About When We Talk About War",
+          "authors": [
+            "Noah Richler"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2011,
+          "status": "winner",
+          "title": "Mordecai: The Life and Times",
+          "authors": [
+            "Charles Foran"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2011,
+          "status": "finalist",
+          "title": "Empire of the Beetle: How Human Folly and a Tiny Bug Are Killing North America's Great Forests",
+          "authors": [
+            "Andrew Nikiforuk"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2011,
+          "status": "finalist",
+          "title": "Nation Maker: Sir John A. Macdonald: His Life, Our Times, Volume Two: 1867-1891",
+          "authors": [
+            "Richard Gwyn"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2011,
+          "status": "finalist",
+          "title": "The Damned: The Canadians at the Battle of Hong Kong and the POW Experience, 1941-45",
+          "authors": [
+            "Nathan M. Greenfield"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2011,
+          "status": "finalist",
+          "title": "The Measure of a Man: The Story of a Father, a Son, and a Suit",
+          "authors": [
+            "JJ Lee"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2010,
+          "status": "winner",
+          "title": "Lakeland: Journeys into the Soul of Canada",
+          "authors": [
+            "Allan Casey"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2010,
+          "status": "finalist",
+          "title": "A History of Marriage",
+          "authors": [
+            "Elizabeth Abbott"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2010,
+          "status": "finalist",
+          "title": "Burmese Lessons: A Love Story",
+          "authors": [
+            "Karen Connelly"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2010,
+          "status": "finalist",
+          "title": "Just Watch Me: The Life of Pierre Elliott Trudeau, 1968-2000",
+          "authors": [
+            "John English"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2010,
+          "status": "finalist",
+          "title": "The Boy in the Moon: A Father's Search for His Disabled Son",
+          "authors": [
+            "Ian Brown"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2009,
+          "status": "winner",
+          "title": "A Place Within: Rediscovering India",
+          "authors": [
+            "M. G. Vassanji"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2009,
+          "status": "finalist",
+          "title": "American Raj: Liberation or Domination? (Resolving the Conflict Between the West and the Muslim World)",
+          "authors": [
+            "Eric Margolis"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2009,
+          "status": "finalist",
+          "title": "Fire and Fury: The Allied Bombing of Germany, 1942-45",
+          "authors": [
+            "Randall Hansen"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2009,
+          "status": "finalist",
+          "title": "Grass, Sky, Song: Promise and Peril in the World of Grassland Birds",
+          "authors": [
+            "Trevor Herriot"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2009,
+          "status": "finalist",
+          "title": "The Cello Suites: J.S. Bach, Pablo Casals, and the Search for a Baroque Masterpiece",
+          "authors": [
+            "Eric Siblin"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2008,
+          "status": "winner",
+          "title": "Fifteen Days: Stories of Bravery, Friendship, Life and Death from Inside the New Canadian Army",
+          "authors": [
+            "Christie Blatchford"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2008,
+          "status": "finalist",
+          "title": "An Imperfect Offering: Humanitarian Action in the Twenty-first Century",
+          "authors": [
+            "James Orbinski"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2008,
+          "status": "finalist",
+          "title": "God’s Mercies: Rivalry, Betrayal and the Dream of Discovery",
+          "authors": [
+            "Douglas Hunter"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2008,
+          "status": "finalist",
+          "title": "The Black Grizzly of Whiskey Creek",
+          "authors": [
+            "Sid Marty"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2008,
+          "status": "finalist",
+          "title": "The Geography of Hope: A Tour of the World We Need",
+          "authors": [
+            "Chris Turner"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2007,
+          "status": "winner",
+          "title": "I've Got a Home in Glory Land: A Lost Tale of the Underground Railroad",
+          "authors": [
+            "Karolyn Smardz Frost"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2007,
+          "status": "finalist",
+          "title": "28: Stories of AIDS in Africa",
+          "authors": [
+            "Stephanie Nolen"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2007,
+          "status": "finalist",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume One: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2007,
+          "status": "finalist",
+          "title": "Enter the Babylon System: Unpacking Gun Culture from Samuel Colt to 50 Cent",
+          "authors": [
+            "Rodrigo Bascunan",
+            "Christian Pearce"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2007,
+          "status": "finalist",
+          "title": "Silence of the Songbirds: How We Are Losing the World's Songbirds and What We Can Do to Save Them",
+          "authors": [
+            "Bridget Stutchbury"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2006,
+          "status": "winner",
+          "title": "The Judgment of Paris: The Revolutionary Decade That Gave the World Impressionism",
+          "authors": [
+            "Ross King"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2006,
+          "status": "finalist",
+          "title": "Starlight Tour: The Last, Lonely Night of Neil Stonechild",
+          "authors": [
+            "Susanne Reber",
+            "Robert Renaud"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2006,
+          "status": "finalist",
+          "title": "The Empire of Mind: Digital Piracy and the Anti-Capitalist Movement",
+          "authors": [
+            "Michael Strangelove"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2006,
+          "status": "finalist",
+          "title": "The Half-Lives of Pat Lowther",
+          "authors": [
+            "Christine Wiesenthal"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2006,
+          "status": "finalist",
+          "title": "The Hanging of Angélique: The Untold Story of Canadian Slavery and the Burning of Old Montréal",
+          "authors": [
+            "Afua Cooper"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2005,
+          "status": "winner",
+          "title": "The Golden Spruce: A True Story of Myth, Madness and Greed",
+          "authors": [
+            "John Vaillant"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2005,
+          "status": "finalist",
+          "title": "Riding with Rilke: Reflections on Motorcycles and Books",
+          "authors": [
+            "Ted Bishop"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2005,
+          "status": "finalist",
+          "title": "The Incendiary: The Misadventures of John the Painter, First Modern Terrorist",
+          "authors": [
+            "Jessica Warner"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2005,
+          "status": "finalist",
+          "title": "The Molly Fire",
+          "authors": [
+            "Michael Mitchell"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2005,
+          "status": "finalist",
+          "title": "Written in the Flesh: A History of Desire",
+          "authors": [
+            "Edward Shorter"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2004,
+          "status": "winner",
+          "title": "Shake Hands With the Devil: The Failure of Humanity in Rwanda",
+          "authors": [
+            "Roméo Dallaire"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2004,
+          "status": "finalist",
+          "title": "Acquainted With the Night: Excursions Through the World After Dark",
+          "authors": [
+            "Christopher Dewdney"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2004,
+          "status": "finalist",
+          "title": "Dark Age Ahead",
+          "authors": [
+            "Jane Jacobs"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2004,
+          "status": "finalist",
+          "title": "I'll Tell You a Secret: A Memory of Seven Summers",
+          "authors": [
+            "Anne Coleman"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2004,
+          "status": "finalist",
+          "title": "Wisdom & Metaphor",
+          "authors": [
+            "Jan Zwicky"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2003,
+          "status": "winner",
+          "title": "Paris 1919: Six Months That Changed the World",
+          "authors": [
+            "Margaret MacMillan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2003,
+          "status": "finalist",
+          "title": "A Keen Soldier: The Execution of Second World War Private Harold Pringle",
+          "authors": [
+            "Andrew Clark"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2003,
+          "status": "finalist",
+          "title": "Michelangelo and the Pope’s Ceiling",
+          "authors": [
+            "Ross King"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2003,
+          "status": "finalist",
+          "title": "Missing Sarah: A Vancouver Woman Remembers Her Vanished Sister",
+          "authors": [
+            "Maggie de Vries"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2003,
+          "status": "finalist",
+          "title": "While Canada Slept: How We Lost Our Place in the World",
+          "authors": [
+            "Andrew Cohen"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2002,
+          "status": "winner",
+          "title": "Saboteurs: Wiebo Ludwig's War Against Big Oil",
+          "authors": [
+            "Andrew Nikiforuk"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2002,
+          "status": "finalist",
+          "title": "Possessing Genius: The Bizarre Odyssey of Einstein's Brain",
+          "authors": [
+            "Carolyn Abraham"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2002,
+          "status": "finalist",
+          "title": "Starting Out in the Afternoon: A Mid-Life Journey into Wild Land",
+          "authors": [
+            "Jill Frayne"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2002,
+          "status": "finalist",
+          "title": "Vis à Vis: Field Notes on Poetry & Wilderness",
+          "authors": [
+            "Don McKay"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2002,
+          "status": "finalist",
+          "title": "When Words Deny the World: The Reshaping of Canadian Writing",
+          "authors": [
+            "Stephen Henighan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2001,
+          "status": "winner",
+          "title": "The Ingenuity Gap",
+          "authors": [
+            "Thomas Homer-Dixon"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2001,
+          "status": "finalist",
+          "title": "Grain of Truth: The Ancient Lessons of Craft",
+          "authors": [
+            "Ross A. Laird"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2001,
+          "status": "finalist",
+          "title": "Reading Pictures: A History of Love and Hate",
+          "authors": [
+            "Alberto Manguel"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2001,
+          "status": "finalist",
+          "title": "The Laughing One: A Journey to Emily Carr",
+          "authors": [
+            "Susan Crean"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2001,
+          "status": "finalist",
+          "title": "The Taste of Metal: A Deserter's Story",
+          "authors": [
+            "Jack Todd"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2000,
+          "status": "winner",
+          "title": "Notes from the Hyena's Belly",
+          "authors": [
+            "Nega Mezlekia"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2000,
+          "status": "finalist",
+          "title": "A Story as Sharp as a Knife",
+          "authors": [
+            "Robert Bringhurst"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2000,
+          "status": "finalist",
+          "title": "River in a Dry Land",
+          "authors": [
+            "Trevor Herriot"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 2000,
+          "status": "finalist",
+          "title": "The Spinster and the Prophet",
+          "authors": [
+            "A. B. McKillop"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1999,
+          "status": "winner",
+          "title": "Water",
+          "authors": [
+            "Marq de Villiers"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1999,
+          "status": "finalist",
+          "title": "Baltimore's Mansion",
+          "authors": [
+            "Wayne Johnston"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1999,
+          "status": "finalist",
+          "title": "Paper Shadows: A Chinatown Childhood",
+          "authors": [
+            "Wayson Choy"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1999,
+          "status": "finalist",
+          "title": "Surpassing Wonder",
+          "authors": [
+            "Donald Harman Akenson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1999,
+          "status": "finalist",
+          "title": "William Osler",
+          "authors": [
+            "Michael Bliss"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1998,
+          "status": "winner",
+          "title": "Lines on the Water: A Fisherman's Life on the Miramichi",
+          "authors": [
+            "David Adams Richards"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1998,
+          "status": "finalist",
+          "title": "Mamie's Children: Three Generations of Prairie Women",
+          "authors": [
+            "Judy Schultz"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1998,
+          "status": "finalist",
+          "title": "Mrs. King: The Life and Times of Isabel Mackenzie King",
+          "authors": [
+            "Charlotte Gray"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1998,
+          "status": "finalist",
+          "title": "Stolen Life: The Journey of a Cree Woman",
+          "authors": [
+            "Rudy Wiebe",
+            "Yvonne Johnson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1998,
+          "status": "finalist",
+          "title": "The Quiet Limit of the World: A Journey to the North Pole to Investigate Global Warming",
+          "authors": [
+            "Wayne Grady"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1997,
+          "status": "winner",
+          "title": "Drumblair: Memories of a Jamaican Childhood",
+          "authors": [
+            "Rachel Manley"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1997,
+          "status": "finalist",
+          "title": "Loyal Till Death: Indians and the North-West Rebellion",
+          "authors": [
+            "Blair Stonechild",
+            "Bill Waiser"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1997,
+          "status": "finalist",
+          "title": "Morgentaler: A Difficult Hero",
+          "authors": [
+            "Catherine Dunphy"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1997,
+          "status": "finalist",
+          "title": "One River: Explorations and Discoveries in the Amazon Rain Forest",
+          "authors": [
+            "Wade Davis"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1997,
+          "status": "finalist",
+          "title": "This Ragged Place: Travels Across the Landscape",
+          "authors": [
+            "Terry Glavin"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1996,
+          "status": "winner",
+          "title": "The Unconscious Civilization",
+          "authors": [
+            "John Ralston Saul"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1996,
+          "status": "finalist",
+          "title": "A Blue Boy in a Black Dress",
+          "authors": [
+            "T. F. Rigelhof"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1996,
+          "status": "finalist",
+          "title": "After the First Death: A Journey Through Chile, Time, Mind",
+          "authors": [
+            "Lake Sagaris"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1996,
+          "status": "finalist",
+          "title": "The Convict Lover: A True Story",
+          "authors": [
+            "Merilyn Simonds"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1996,
+          "status": "finalist",
+          "title": "The Home Team: Fathers, Sons & Hockey",
+          "authors": [
+            "Roy MacGregor"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1995,
+          "status": "winner",
+          "title": "Shadow Maker: The Life of Gwendolyn MacEwen",
+          "authors": [
+            "Rosemary Sullivan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1995,
+          "status": "finalist",
+          "title": "Leaning on the Wind",
+          "authors": [
+            "Sid Marty"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1995,
+          "status": "finalist",
+          "title": "Shooting the Hippo",
+          "authors": [
+            "Linda McQuaig"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1995,
+          "status": "finalist",
+          "title": "The Last House of Ulster: A Family in Belfast",
+          "authors": [
+            "Charles Foran"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1994,
+          "status": "winner",
+          "title": "Rogue Primate: An Exploration of Human Domestication",
+          "authors": [
+            "John A. Livingston"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1994,
+          "status": "finalist",
+          "title": "Light for a Cold Land: Lawren Harris's Work and Life-An Interpretation",
+          "authors": [
+            "Peter Larisey"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1994,
+          "status": "finalist",
+          "title": "The Concubine's Children: Portrait of a Family",
+          "authors": [
+            "Denise Chong"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1994,
+          "status": "finalist",
+          "title": "The Invitation: A Memoir of Family Love and Reconciliation",
+          "authors": [
+            "Joan Haggerty"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1994,
+          "status": "finalist",
+          "title": "The Perfection of the Morning: An Apprenticeship in Nature",
+          "authors": [
+            "Sharon Butala"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1993,
+          "status": "winner",
+          "title": "Touch the Dragon",
+          "authors": [
+            "Karen Connelly"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1993,
+          "status": "finalist",
+          "title": "Frontiers",
+          "authors": [
+            "Noel Mostert"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1993,
+          "status": "finalist",
+          "title": "In a Gilded Cage",
+          "authors": [
+            "Marian Fowler"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1993,
+          "status": "finalist",
+          "title": "Systems of Survival",
+          "authors": [
+            "Jane Jacobs"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1993,
+          "status": "finalist",
+          "title": "The Heartbreak Grape: A Journey in Search of the Perfect Pinot Noir",
+          "authors": [
+            "Marq de Villiers"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1992,
+          "status": "winner",
+          "title": "Revenge of the Land: A Century of Greed, Tragedy and Murder on a Saskatchewan Farm",
+          "authors": [
+            "Maggie Siggins"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1992,
+          "status": "finalist",
+          "title": "Inside: The Biography of John Gunther",
+          "authors": [
+            "Ken Cuthbertson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1992,
+          "status": "finalist",
+          "title": "Mr. Sam: The Life and Times of Samuel Bronfman",
+          "authors": [
+            "Michael R. Marrus"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1992,
+          "status": "finalist",
+          "title": "Plague: A Story of Smallpox in Montreal",
+          "authors": [
+            "Michael Bliss"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1991,
+          "status": "winner",
+          "title": "Occupied Canada: A Young White Man Discovers His Unsuspected Past",
+          "authors": [
+            "Robert Hunter",
+            "Robert Calihoo"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1991,
+          "status": "finalist",
+          "title": "By Heart: Elizabeth Smart, A Life",
+          "authors": [
+            "Rosemary Sullivan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1991,
+          "status": "finalist",
+          "title": "Poor Polidori: A Critical Biography of the Author of \"The Vampyre\"",
+          "authors": [
+            "D. L. MacDonald"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1991,
+          "status": "finalist",
+          "title": "Words With Power",
+          "authors": [
+            "Northrop Frye"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1991,
+          "status": "finalist",
+          "title": "Zero Hour",
+          "authors": [
+            "Kristjana Gunnars"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1990,
+          "status": "winner",
+          "title": "Trudeau and Our Times",
+          "authors": [
+            "Stephen Clarkson",
+            "Christina McCall"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1990,
+          "status": "finalist",
+          "title": "A Life on the Fringe: The Memoirs of Eugene Forsey",
+          "authors": [
+            "Eugene Forsey"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1990,
+          "status": "finalist",
+          "title": "God's Dominion: A Sceptic's Quest",
+          "authors": [
+            "Ron Graham"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1990,
+          "status": "finalist",
+          "title": "Inside Memory: Pages from a Writer's Workbook",
+          "authors": [
+            "Timothy Findley"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1990,
+          "status": "finalist",
+          "title": "The Last Modern: A Life of Herbert Read",
+          "authors": [
+            "James King"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1989,
+          "status": "winner",
+          "title": "Willie: The Life of W. Somerset Maugham",
+          "authors": [
+            "Robert Calder"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1989,
+          "status": "finalist",
+          "title": "An Odyssey in Time: The Dinosaurs of North America",
+          "authors": [
+            "Dale A. Russell"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1989,
+          "status": "finalist",
+          "title": "Wombs and Alien Spirits",
+          "authors": [
+            "Janice Boddy"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1989,
+          "status": "finalist",
+          "title": "Wordstruck",
+          "authors": [
+            "Robert MacNeil"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1988,
+          "status": "winner",
+          "title": "In the Sleep Room",
+          "authors": [
+            "Anne Collins"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1988,
+          "status": "finalist",
+          "title": "Fishing with John",
+          "authors": [
+            "Edith Iglauer"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1988,
+          "status": "finalist",
+          "title": "The Arctic Grail",
+          "authors": [
+            "Pierre Berton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1988,
+          "status": "finalist",
+          "title": "When Freedoms Collide",
+          "authors": [
+            "Alan Borovoy"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1987,
+          "status": "winner",
+          "title": "The Russian Album",
+          "authors": [
+            "Michael Ignatieff"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1987,
+          "status": "finalist",
+          "title": "Brazilian Journal",
+          "authors": [
+            "P. K. Page"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1987,
+          "status": "finalist",
+          "title": "Under Eastern Eyes",
+          "authors": [
+            "Janice Kulyk Keefer"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1986,
+          "status": "winner",
+          "title": "Northrop Frye on Shakespeare",
+          "authors": [
+            "Northrop Frye"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1986,
+          "status": "finalist",
+          "title": "Home",
+          "authors": [
+            "Witold Rybczynski"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1986,
+          "status": "finalist",
+          "title": "Melanie Klein",
+          "authors": [
+            "Phyllis Grosskurth"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1986,
+          "status": "finalist",
+          "title": "The Imperial Canadian",
+          "authors": [
+            "Claude Bissell"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1985,
+          "status": "winner",
+          "title": "The Regenerators: Social Criticism in Late Victorian English Canada",
+          "authors": [
+            "Ramsay Cook"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1985,
+          "status": "finalist",
+          "title": "Canada 1922-1939: Decades of Discord",
+          "authors": [
+            "John Herd Thompson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1985,
+          "status": "finalist",
+          "title": "Prelude to Quebec's Quiet Revolution: Liberalism versus Neo-nationalism",
+          "authors": [
+            "Michael D. Behiels"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1985,
+          "status": "finalist",
+          "title": "The Man from Halifax: Sir John Thompson, Prime Minister",
+          "authors": [
+            "P. B. Waite"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1984,
+          "status": "winner",
+          "title": "The Private Capital: Ambition and Love in the Age of Macdonald and Laurier",
+          "authors": [
+            "Sandra Gwyn"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1984,
+          "status": "finalist",
+          "title": "P.Q.: René Lévesque and the Parti Québécois in Power",
+          "authors": [
+            "Graham Fraser"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1984,
+          "status": "finalist",
+          "title": "Prairie Fire: The 1885 North-West Rebellion",
+          "authors": [
+            "Bob Beal",
+            "Rod Macleod"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1983,
+          "status": "winner",
+          "title": "Byng of Vimy: General and Governor General",
+          "authors": [
+            "Jeffery Williams"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1983,
+          "status": "finalist",
+          "title": "Reading from Left to Right: One Man's Political History",
+          "authors": [
+            "H S Ferns"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1983,
+          "status": "finalist",
+          "title": "The Game",
+          "authors": [
+            "Ken Dryden"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1982,
+          "status": "winner",
+          "title": "Louisbourg Portraits: Life in an Eighteenth- Century Garrison Town",
+          "authors": [
+            "Christopher Moore"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1982,
+          "status": "finalist",
+          "title": "Grits: An Intimate Portrait of The Liberal Party",
+          "authors": [
+            "Christina McCall-Newman"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1982,
+          "status": "finalist",
+          "title": "The Great Code: The Bible and Literature",
+          "authors": [
+            "Northrop Frye"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1981,
+          "status": "winner",
+          "title": "Caribou and the Barren-Lands",
+          "authors": [
+            "George Calef"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1981,
+          "status": "finalist",
+          "title": "Hugh MacLennan: A Writer's Life",
+          "authors": [
+            "Elspeth Cameron"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1981,
+          "status": "finalist",
+          "title": "The Young Vincent Massey",
+          "authors": [
+            "Claude Bissell"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1980,
+          "status": "winner",
+          "title": "Discipline of Power: The Conservative Interlude and the Liberal Restoration",
+          "authors": [
+            "Jeffrey Simpson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1980,
+          "status": "finalist",
+          "title": "Scotland Farewell: The People of the Hector",
+          "authors": [
+            "Donald MacKay"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1980,
+          "status": "finalist",
+          "title": "The Chinese: Portrait of a People",
+          "authors": [
+            "John Fraser"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1979,
+          "status": "winner",
+          "title": "Emily Carr",
+          "authors": [
+            "Maria Tippett"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1979,
+          "status": "finalist",
+          "title": "C.D. Howe",
+          "authors": [
+            "Robert Bothwell",
+            "William Kilbourn"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1979,
+          "status": "finalist",
+          "title": "Prairie Capitalism",
+          "authors": [
+            "Larry Pratt",
+            "John Richards"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1978,
+          "status": "winner",
+          "title": "Go-Boy! Memories of a Life Behind Bars",
+          "authors": [
+            "Roger Caron"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1977,
+          "status": "winner",
+          "title": "Essays on the Constitution",
+          "authors": [
+            "Frank Scott"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1976,
+          "status": "winner",
+          "title": "The Writing of Canadian History",
+          "authors": [
+            "Carl Berger"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1975,
+          "status": "winner",
+          "title": "Hallowed Walls",
+          "authors": [
+            "Marion MacRae",
+            "Anthony Adamson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1974,
+          "status": "winner",
+          "title": "The Siren Years",
+          "authors": [
+            "Charles Ritchie"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1973,
+          "status": "winner",
+          "title": "Painters in a New Land",
+          "authors": [
+            "Michael Bell"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1971,
+          "status": "winner",
+          "title": "The Last Spike",
+          "authors": [
+            "Pierre Berton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1968,
+          "status": "winner",
+          "title": "Hunting Tigers Under Glass",
+          "authors": [
+            "Mordecai Richler"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1967,
+          "status": "winner",
+          "title": "The Oxford Companion to Canadian History and Literature",
+          "authors": [
+            "Norah Story"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1966,
+          "status": "winner",
+          "title": "The Crystal Spirit: A Study of George Orwell",
+          "authors": [
+            "George Woodcock"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1965,
+          "status": "winner",
+          "title": "In Defence of Canada",
+          "authors": [
+            "James Eayrs"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1964,
+          "status": "winner",
+          "title": "John Addington Symonds",
+          "authors": [
+            "Phyllis Grosskurth"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1963,
+          "status": "winner",
+          "title": "Brown of the Globe",
+          "authors": [
+            "J.M.S. Careless"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1962,
+          "status": "winner",
+          "title": "The Gutenberg Galaxy",
+          "authors": [
+            "Marshall McLuhan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1961,
+          "status": "winner",
+          "title": "The Ascent of Life",
+          "authors": [
+            "T. A. Goudge"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1960,
+          "status": "winner",
+          "title": "In Search of Canadian Liberalism",
+          "authors": [
+            "Frank H. Underhill"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1958,
+          "status": "co_winner",
+          "title": "Klondike",
+          "authors": [
+            "Pierre Berton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1958,
+          "status": "co_winner",
+          "title": "The History of Fanny Burney",
+          "authors": [
+            "Joyce Hemlow"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1957,
+          "status": "co_winner",
+          "title": "Canada: Tomorrow's Giant",
+          "authors": [
+            "Bruce Hutchison"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1957,
+          "status": "co_winner",
+          "title": "The Path of Destiny",
+          "authors": [
+            "Thomas H. Raddall"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1956,
+          "status": "co_winner",
+          "title": "Century of Conflict",
+          "authors": [
+            "Joseph Lister Rutledge"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1956,
+          "status": "co_winner",
+          "title": "The Mysterious North",
+          "authors": [
+            "Pierre Berton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1955,
+          "status": "co_winner",
+          "title": "John A. Macdonald, The Old Chieftain",
+          "authors": [
+            "Donald G. Creighton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1955,
+          "status": "co_winner",
+          "title": "Man's Emerging Mind",
+          "authors": [
+            "N. J. Berrill"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1954,
+          "status": "co_winner",
+          "title": "Thirty and Three",
+          "authors": [
+            "Hugh MacLennan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1954,
+          "status": "co_winner",
+          "title": "This Most Famous Stream",
+          "authors": [
+            "Arthur R. M. Lower"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1953,
+          "status": "co_winner",
+          "title": "Canada, A Story of Challenge",
+          "authors": [
+            "J. M. S. Careless"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1953,
+          "status": "co_winner",
+          "title": "Sex and the Nature of Things",
+          "authors": [
+            "N. J. Berrill"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1952,
+          "status": "co_winner",
+          "title": "John A. Macdonald, The Young Politician",
+          "authors": [
+            "Donald G. Creighton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1952,
+          "status": "co_winner",
+          "title": "The Incredible Canadian",
+          "authors": [
+            "Bruce Hutchison"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1951,
+          "status": "co_winner",
+          "title": "The Ardent Exile",
+          "authors": [
+            "Josephine Phelan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1951,
+          "status": "co_winner",
+          "title": "The Government of Prince Edward Island",
+          "authors": [
+            "Frank MacKinnon"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1950,
+          "status": "co_winner",
+          "title": "The Progressive Party in Canada",
+          "authors": [
+            "W. L. Morton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1950,
+          "status": "co_winner",
+          "title": "The Saskatchewan",
+          "authors": [
+            "Marjorie Wilkins Campbell"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1949,
+          "status": "co_winner",
+          "title": "Cross-country",
+          "authors": [
+            "Hugh MacLennan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1949,
+          "status": "co_winner",
+          "title": "Democratic Government in Canada",
+          "authors": [
+            "R. MacGregor Dawson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1948,
+          "status": "co_winner",
+          "title": "Halifax, Warden of the North",
+          "authors": [
+            "Thomas H. Raddall"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1948,
+          "status": "co_winner",
+          "title": "The Canadian Army, 1939-1945",
+          "authors": [
+            "C. P. Stacey"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1947,
+          "status": "co_winner",
+          "title": "Haida",
+          "authors": [
+            "William Sclater"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1947,
+          "status": "co_winner",
+          "title": "The Government of Canada",
+          "authors": [
+            "R. MacGregor Dawson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1946,
+          "status": "co_winner",
+          "title": "Colony to Nation",
+          "authors": [
+            "Arthur R. M. Lower"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1946,
+          "status": "co_winner",
+          "title": "In Search of Myself",
+          "authors": [
+            "Frederick Philip Grove"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1945,
+          "status": "co_winner",
+          "title": "Gauntlet to Overlord",
+          "authors": [
+            "Ross Munro"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1945,
+          "status": "co_winner",
+          "title": "We Keep a Light",
+          "authors": [
+            "Evelyn M. Richardson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1944,
+          "status": "co_winner",
+          "title": "Partner in Three Worlds",
+          "authors": [
+            "Dorothy Duncan"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1944,
+          "status": "co_winner",
+          "title": "The War: Fourth Year",
+          "authors": [
+            "Edgar McInnis"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1943,
+          "status": "co_winner",
+          "title": "On Canadian Poetry",
+          "authors": [
+            "E. K. Brown"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1943,
+          "status": "co_winner",
+          "title": "The Incomplete Anglers",
+          "authors": [
+            "John D. Robins"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1942,
+          "status": "co_winner",
+          "title": "The Unguarded Frontier",
+          "authors": [
+            "Edgar McInnis"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1942,
+          "status": "co_winner",
+          "title": "The Unknown Country",
+          "authors": [
+            "Bruce Hutchison"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1941,
+          "status": "winner",
+          "title": "Klee Wyck",
+          "authors": [
+            "Emily Carr"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1940,
+          "status": "winner",
+          "title": "Slava Bohu",
+          "authors": [
+            "J. F. C. Wright"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1939,
+          "status": "winner",
+          "title": "Confessions of an Immigrant's Daughter",
+          "authors": [
+            "Laura Salverson"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1938,
+          "status": "winner",
+          "title": "Canadian Mosaic",
+          "authors": [
+            "John Murray Gibbon"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1937,
+          "status": "winner",
+          "title": "My Discovery of the West",
+          "authors": [
+            "Stephen Leacock"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        },
+        {
+          "awardId": "governor-generals-literary-awards",
+          "categoryId": "governor-generals-english-nonfiction",
+          "year": 1936,
+          "status": "winner",
+          "title": "TBR: Newspaper Pieces",
+          "authors": [
+            "Thomas Beattie Roberton"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Governor_General%27s_Award_for_English-language_non-fiction"
+        }
+      ],
+      "rejected": []
+    },
+    {
+      "file": "hillman-book-journalism.json",
+      "baselineRecords": 85,
+      "refreshedRecords": 84,
+      "retainedBaselineRecords": 84,
+      "acceptedNewRecords": 0,
+      "rejectedNewRecords": 0,
+      "replacedRevisions": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 1,
+      "accepted": [],
+      "rejected": []
+    },
+    {
+      "file": "ny-history-book-prize.json",
+      "baselineRecords": 20,
+      "refreshedRecords": 21,
+      "retainedBaselineRecords": 20,
+      "acceptedNewRecords": 1,
+      "rejectedNewRecords": 0,
+      "replacedRevisions": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 0,
+      "accepted": [
+        {
+          "awardId": "new-york-historical-american-history-book-prize",
+          "categoryId": "ny-history-american-history",
+          "year": 2025,
+          "status": "winner",
+          "title": "McNamara at War: A New History",
+          "authors": [
+            "Philip Taubman",
+            "William Taubman"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Barbara_and_David_Zalaznick_Book_Prize_in_American_History"
+        }
+      ],
+      "rejected": []
+    },
+    {
+      "file": "orwell.json",
+      "baselineRecords": 56,
+      "refreshedRecords": 64,
+      "retainedBaselineRecords": 56,
+      "acceptedNewRecords": 8,
+      "rejectedNewRecords": 0,
+      "replacedRevisions": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 0,
+      "accepted": [
+        {
+          "awardId": "orwell-prize",
+          "categoryId": "orwell-political-writing",
+          "year": 2026,
+          "status": "winner",
+          "title": "The Escape From Kabul",
+          "authors": [
+            "Karen Bartlett"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize"
+        },
+        {
+          "awardId": "orwell-prize",
+          "categoryId": "orwell-political-writing",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "For the Sun After Long Nights",
+          "authors": [
+            "Nilo Tabrizy",
+            "Fatemeh Jamalpour"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize"
+        },
+        {
+          "awardId": "orwell-prize",
+          "categoryId": "orwell-political-writing",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "Israel: What Went Wrong?",
+          "authors": [
+            "Omer Bartov"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize"
+        },
+        {
+          "awardId": "orwell-prize",
+          "categoryId": "orwell-political-writing",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "Shattered Lands",
+          "authors": [
+            "Sam Dalrymple"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize"
+        },
+        {
+          "awardId": "orwell-prize",
+          "categoryId": "orwell-political-writing",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "Stalin's Apostles",
+          "authors": [
+            "Antonia Senior"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize"
+        },
+        {
+          "awardId": "orwell-prize",
+          "categoryId": "orwell-political-writing",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "The Elements of Power",
+          "authors": [
+            "Nicolas Niarchos"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize"
+        },
+        {
+          "awardId": "orwell-prize",
+          "categoryId": "orwell-political-writing",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "The Wall Dancers",
+          "authors": [
+            "Yi-Ling Liu"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize"
+        },
+        {
+          "awardId": "orwell-prize",
+          "categoryId": "orwell-political-writing",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "Three Years on Fire",
+          "authors": [
+            "Andrey Kurkov"
+          ],
+          "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize"
+        }
+      ],
+      "rejected": []
+    },
+    {
+      "file": "royal-society.json",
+      "baselineRecords": 169,
+      "refreshedRecords": 175,
+      "retainedBaselineRecords": 169,
+      "acceptedNewRecords": 6,
+      "rejectedNewRecords": 0,
+      "replacedRevisions": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 0,
+      "accepted": [
+        {
+          "awardId": "royal-society-science-book-prize",
+          "categoryId": "royal-society-science",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "Bad Influence: How the Internet Hijacked our Health",
+          "authors": [
+            "Deborah Cohen"
+          ],
+          "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/"
+        },
+        {
+          "awardId": "royal-society-science-book-prize",
+          "categoryId": "royal-society-science",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "Despite it All: A Handbook for Climate Hopefuls",
+          "authors": [
+            "Fred Pearce"
+          ],
+          "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/"
+        },
+        {
+          "awardId": "royal-society-science-book-prize",
+          "categoryId": "royal-society-science",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "Every Last Fish: What Fish Do for Us and What We Do to Them",
+          "authors": [
+            "Rose George"
+          ],
+          "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/"
+        },
+        {
+          "awardId": "royal-society-science-book-prize",
+          "categoryId": "royal-society-science",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "Hidden Guests: Migrating Cells and How the New Science of Microchimerism is Redefining Human Identity",
+          "authors": [
+            "Lise Barnéoud"
+          ],
+          "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/"
+        },
+        {
+          "awardId": "royal-society-science-book-prize",
+          "categoryId": "royal-society-science",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "How to Change a Memory: One Neuroscientist's Quest to Alter the Past",
+          "authors": [
+            "Steve Ramirez"
+          ],
+          "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/"
+        },
+        {
+          "awardId": "royal-society-science-book-prize",
+          "categoryId": "royal-society-science",
+          "year": 2026,
+          "status": "shortlist",
+          "title": "The Age of Alchemy: How Early Innovators Shaped Modern Chemistry",
+          "authors": [
+            "Kit Chapman"
+          ],
+          "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/books/bookprize/"
+        }
+      ],
+      "rejected": []
+    }
+  ]
+}

@@ -1,29 +1,39 @@
+import { BestsellerConvergenceExperiment } from "@/components/bestseller-convergence-experiment";
+import { ConsensusExperiment } from "@/components/consensus-experiment";
 import { ImprintRankExperiment, type ImprintRankEvent } from "@/components/imprint-rank-experiment";
-import { awardsById, booksById, data, publishersById } from "@/lib/data";
+import { PrizeCensusExperiment } from "@/components/prize-census-experiment";
+import { SubjectDriftExperiment, type SubjectDriftData } from "@/components/subject-drift-experiment";
+import { awardProgramsById, awardsById, booksById, data, publishersById } from "@/lib/data";
+import { buildConsensusData } from "@/lib/consensus";
+import { buildBestsellerConvergenceData } from "@/lib/bestseller-convergence";
+import { buildPrizeCensus } from "@/lib/prize-census";
+import { rollupSubjectName } from "@/lib/subject-rollup";
 import type { AwardStatus } from "@/lib/types";
 
 export const metadata = {
-  title: "Experiments / The Book Prize Index",
-  description: "Experimental visualizations and interactive views of book prize data.",
+  title: "Trends / The Book Prize Index",
+  description: "Interactive charts showing how nonfiction prizes, subjects, and publishing imprints have changed over time.",
 };
 
 export default function ExperimentsPage() {
   const events = buildImprintRankEvents();
   const years = events.map((event) => event.year);
   const yearRange: [number, number] = [Math.min(...years), Math.max(...years)];
+  const census = buildPrizeCensus();
+  const subjectDrift = buildSubjectDriftData();
+  const consensus = buildConsensusData();
+  const bestsellerConvergence = buildBestsellerConvergenceData();
 
   return (
-    <main className="mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
+    <main className="text-page mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
       <section className="grid gap-8 border-b hairline pb-10 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-end">
         <div>
-          <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Experiments</p>
+          <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Trends</p>
           <h1 className="mt-3 max-w-3xl font-[var(--font-serif)] text-4xl font-light leading-tight sm:text-5xl">
-            Visual ways to test the prize corpus.
+            How nonfiction prizes have changed.
           </h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 muted">
-            Small interactive studies for patterns that do not fit a normal browse table: imprint momentum, prize
-            geography, subject drift, publisher concentration, and other views that may or may not graduate into the
-            main product.
+            Explore the publishers, subjects, and prize programs represented in the index over time.
           </p>
         </div>
         <div className="grid grid-cols-3 gap-4">
@@ -35,22 +45,70 @@ export default function ExperimentsPage() {
 
       <ImprintRankExperiment events={events} yearRange={yearRange} />
 
-      <section className="mt-12 grid gap-5 border-t hairline pt-8 md:grid-cols-3">
-        <ExperimentStub
-          title="Prize geography"
-          body="Compare U.S., U.K., Canadian, and international award programs by subject mix and recognition weight."
-        />
-        <ExperimentStub
-          title="Subject drift"
-          body="Track how biography, history, science, memoir, criticism, and politics rise or fade across prize years."
-        />
-        <ExperimentStub
-          title="Publisher concentration"
-          body="Estimate how much recognition is concentrated among the largest parent publishers versus independent presses."
-        />
-      </section>
+      <PrizeCensusExperiment census={census} />
+
+      <SubjectDriftExperiment data={subjectDrift} />
+
+      <ConsensusExperiment data={consensus} />
+
+      <BestsellerConvergenceExperiment data={bestsellerConvergence} />
     </main>
   );
+}
+
+function buildSubjectDriftData(): SubjectDriftData {
+  const counts = new Map<string, number>();
+  const subjectTotals = new Map<string, number>();
+
+  for (const appearance of data.appearances) {
+    const book = booksById.get(appearance.bookId);
+    const storedSubject = book?.primarySubject;
+    if (!storedSubject) continue;
+    const subject = rollupSubjectName(storedSubject);
+    const award = awardsById.get(appearance.awardId);
+    if (!award) continue;
+    const program = award.programId ? awardProgramsById.get(award.programId) : undefined;
+    const regionIndex = subjectDriftRegionIndex(award.geography ?? program?.geography);
+    const isWin = appearance.status === "winner" || appearance.status === "co_winner" ? 1 : 0;
+    const scopeIndex = award.scope === "general" ? 0 : 1;
+    subjectTotals.set(subject, (subjectTotals.get(subject) ?? 0) + 1);
+    const key = `${appearance.year}|${subject}|${regionIndex}|${isWin}|${scopeIndex}`;
+    counts.set(key, (counts.get(key) ?? 0) + 1);
+  }
+
+  const subjects = [...subjectTotals.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([subject]) => subject);
+  const subjectIndex = new Map(subjects.map((subject, index) => [subject, index]));
+
+  const rows = [...counts.entries()]
+    .map(([key, count]) => {
+      const [year, subject, regionIndex, isWin, scopeIndex] = key.split("|");
+      return [Number(year), subjectIndex.get(subject) as number, Number(regionIndex), Number(isWin), Number(scopeIndex), count] as [
+        number,
+        number,
+        number,
+        number,
+        number,
+        number,
+      ];
+    })
+    .sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+
+  const rowYears = rows.map((row) => row[0]);
+  return {
+    subjects,
+    rows,
+    yearRange: [Math.min(...rowYears), Math.max(...rowYears)],
+  };
+}
+
+function subjectDriftRegionIndex(geography: string | undefined) {
+  const normalized = geography?.toLowerCase() ?? "";
+  if (normalized.includes("united states") || normalized.includes("u.s.")) return 0;
+  if (normalized.includes("united kingdom")) return 1;
+  if (normalized.includes("canada")) return 2;
+  return 3;
 }
 
 function buildImprintRankEvents(): ImprintRankEvent[] {
@@ -67,7 +125,8 @@ function buildImprintRankEvents(): ImprintRankEvent[] {
     events.push({
       year: appearance.year,
       imprintId: imprint.id,
-      imprintName: imprint.shortName ?? imprint.name,
+      imprintName: imprint.name,
+      ...(imprint.shortName ? { imprintShortName: imprint.shortName } : {}),
       ...(publisher?.name ? { publisherName: publisher.name } : {}),
       bookId: book.id,
       weight: recognitionWeight(appearance.status, award.awardType === "major_award"),
@@ -99,15 +158,6 @@ function HeroMetric({ label, value }: { label: string; value: string }) {
     <div className="border-t hairline pt-3">
       <p className="plain-number text-2xl leading-none text-[var(--ink)]">{value}</p>
       <p className="mt-2 font-[var(--font-mono)] text-[0.6rem] uppercase tracking-[0.15em] muted">{label}</p>
-    </div>
-  );
-}
-
-function ExperimentStub({ body, title }: { body: string; title: string }) {
-  return (
-    <div className="border-t hairline pt-4">
-      <h2 className="font-[var(--font-serif)] text-2xl font-light">{title}</h2>
-      <p className="mt-3 text-sm leading-6 muted">{body}</p>
     </div>
   );
 }

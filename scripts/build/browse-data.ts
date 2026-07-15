@@ -1,5 +1,6 @@
 import type { Award, AwardAppearance, AwardProgram, Book, BookStats, PublicData, SubjectSummary } from "../../lib/types";
 import type { BrowseAwardRow, BrowseBookRecognitionStats, BrowseData, BrowseFilterKey, BrowseSubjectRow } from "../../lib/browse-types";
+import { HISTORY_SUBJECT, HISTORY_SUBJECTS, rollupSubjectName, rollupSubjectSlug } from "../../lib/subject-rollup";
 
 type TypeFilter = "all" | "fiction" | "nonfiction";
 type RegionFilter = "us" | "international" | "all";
@@ -146,11 +147,13 @@ function buildHomeFilterData(
   const subjectCounts = new Map<string, number>();
   for (const book of data.books) {
     if (!bookIds.has(book.id)) continue;
-    for (const subject of book.subjects) subjectCounts.set(subject, (subjectCounts.get(subject) ?? 0) + 1);
+    for (const subject of new Set(book.subjects.map(rollupSubjectName))) {
+      subjectCounts.set(subject, (subjectCounts.get(subject) ?? 0) + 1);
+    }
   }
 
   return {
-    subjects: data.subjects
+    subjects: browseSubjectDefinitions(data.subjects)
       .map((subject) => ({ id: subject.id, slug: subject.slug, name: subject.name, count: subjectCounts.get(subject.name) ?? 0 }))
       .filter((subject) => subject.count > 0)
       .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name)),
@@ -237,21 +240,23 @@ function buildSubjectRows(
     scoreByBook.set(appearance.bookId, (scoreByBook.get(appearance.bookId) ?? 0) + appearanceScore(appearance.statusRank));
   }
 
-  return data.subjects
-    .map((subject) => subjectRow(subject, data, booksById, statsByBookId, bookIds, scoreByBook))
+  return browseSubjectDefinitions(data.subjects)
+    .map((subject) => subjectRow(subject, browseSubjectNames(subject.name), data, booksById, statsByBookId, bookIds, scoreByBook))
     .filter((row): row is BrowseSubjectRow => Boolean(row))
     .sort((a, b) => b.bookCount - a.bookCount || a.name.localeCompare(b.name));
 }
 
 function subjectRow(
   subject: SubjectSummary,
+  storedSubjectNames: readonly string[],
   data: PublicData,
   booksById: Map<string, Book>,
   statsByBookId: Map<string, BookStats>,
   filteredBookIds: Set<string>,
   scoreByBook: Map<string, number>,
 ): BrowseSubjectRow | undefined {
-  const subjectBooks = data.books.filter((book) => filteredBookIds.has(book.id) && book.subjects.includes(subject.name));
+  const storedSubjectSet = new Set(storedSubjectNames);
+  const subjectBooks = data.books.filter((book) => filteredBookIds.has(book.id) && book.subjects.some((name) => storedSubjectSet.has(name)));
   if (!subjectBooks.length) return undefined;
   const topBook = [...subjectBooks].sort((a, b) => (scoreByBook.get(b.id) ?? 0) - (scoreByBook.get(a.id) ?? 0) || (statsByBookId.get(b.id)?.score ?? 0) - (statsByBookId.get(a.id)?.score ?? 0) || a.title.localeCompare(b.title))[0];
   return {
@@ -269,6 +274,27 @@ function subjectRow(
     } : undefined,
     searchText: [subject.name, subject.description, subjectDeck(subject.name), topBook?.title, topBook?.authors.map((author) => author.name).join(" ")].filter(Boolean).join(" ").toLowerCase(),
   };
+}
+
+function browseSubjectDefinitions(subjects: SubjectSummary[]): SubjectSummary[] {
+  const definitions = new Map<string, SubjectSummary>();
+  for (const subject of subjects) {
+    const name = rollupSubjectName(subject.name);
+    if (definitions.has(name)) continue;
+    definitions.set(name, name === HISTORY_SUBJECT ? {
+      ...subject,
+      id: "history",
+      slug: rollupSubjectSlug(name),
+      name,
+      description: "History across the United States, the wider world, and transnational or general historical subjects.",
+      sortOrder: Math.min(...subjects.filter((item) => HISTORY_SUBJECTS.includes(item.name as (typeof HISTORY_SUBJECTS)[number])).map((item) => item.sortOrder ?? Number.MAX_SAFE_INTEGER)),
+    } : subject);
+  }
+  return [...definitions.values()];
+}
+
+function browseSubjectNames(subject: string): readonly string[] {
+  return subject === HISTORY_SUBJECT ? HISTORY_SUBJECTS : [subject];
 }
 
 function matchesAward(award: Award, region: RegionFilter, type: TypeFilter, programsById: Map<string, AwardProgram>) {
@@ -315,6 +341,8 @@ function bookSearchText(book: Book, data: PublicData, awardsById: Map<string, Aw
     data.imprints.find((imprint) => imprint.id === book.imprintId)?.name,
     book.subjects.join(" "),
     book.centralFigures.join(" "),
+    book.experimentalSemanticProfile?.centralPlaces.map((place) => place.name).join(" "),
+    book.experimentalSemanticProfile?.argument.present ? book.experimentalSemanticProfile.argument.statement : "",
     appearances,
     book.summary,
   ].filter(Boolean).join(" ").toLowerCase();

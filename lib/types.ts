@@ -9,7 +9,7 @@ export type AwardStatus =
   | "notable"
   | "unknown";
 
-export type SourceConfidence = "official" | "catalog" | "retailer" | "manual" | "unknown";
+export type SourceConfidence = "official" | "secondary" | "catalog" | "retailer" | "manual" | "unknown";
 
 export type SourceRef = {
   id: string;
@@ -51,7 +51,8 @@ export type SubjectEvidenceSource =
   | "publisher"
   | "award_category"
   | "topic_classifier"
-  | "keyword_classifier";
+  | "keyword_classifier"
+  | "llm_classifier";
 
 export type SubjectEvidence = {
   id: string;
@@ -102,6 +103,39 @@ export type BookReaderProfile = {
   method?: string;
 };
 
+export type ExperimentalSemanticEntity = {
+  name: string;
+  confidence: number;
+};
+
+export type ExperimentalSemanticProfile = {
+  centralFigures: ExperimentalSemanticEntity[];
+  centralPlaces: ExperimentalSemanticEntity[];
+  argument: {
+    present: boolean;
+    statement: string;
+    confidence: number;
+  };
+  academicOrientation: {
+    score: number;
+    confidence: number;
+  };
+  profileConfidence: number;
+  lowerConfidenceCandidates?: {
+    centralFigures?: ExperimentalSemanticEntity[];
+    centralPlaces?: ExperimentalSemanticEntity[];
+    argument?: {
+      statement: string;
+      confidence: number;
+    };
+  };
+  model: string;
+  promptVersion: number;
+  inputHash: string;
+  reviewStatus: "unreviewed" | "flagged" | "reviewed";
+  validationWarnings?: string[];
+};
+
 export type Book = {
   id: string;
   slug: string;
@@ -122,6 +156,8 @@ export type Book = {
   topics: string[];
   relatedBookIds?: string[];
   centralFigures: string[];
+  experimentalSemanticProfile?: ExperimentalSemanticProfile;
+  nytBestseller?: NytBestsellerStats;
   summary?: string;
   displaySummary?: string;
   thumbnailUrl?: string;
@@ -135,6 +171,27 @@ export type Book = {
     wikidata?: string;
   };
   sourceIds: string[];
+};
+
+export type NytBestsellerListStats = {
+  listName: string;
+  displayName: string;
+  firstPublishedDate: string;
+  latestPublishedDate: string;
+  bestRank: number;
+  weeksOnList: number;
+  appearances: number;
+};
+
+export type NytBestsellerStats = {
+  provider: "new_york_times";
+  matchedBy: "isbn13" | "title_author";
+  firstPublishedDate: string;
+  latestPublishedDate: string;
+  bestRank: number;
+  weeksOnList: number;
+  appearances: number;
+  lists: NytBestsellerListStats[];
 };
 
 export type Award = {

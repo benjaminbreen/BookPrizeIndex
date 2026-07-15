@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import type { Award, Book, Imprint, Publisher, SourceRef } from "../../lib/types";
+import type { Award, Book, Imprint, Publisher, SourceRef, WikipediaBookEvidence } from "../../lib/types";
 import { sourcesDir } from "./paths";
 
 export type CurationFile = {
@@ -26,7 +26,13 @@ export async function readEnrichment(): Promise<CurationFile> {
     const files = await fs.readdir(enrichmentDir);
     for (const file of files.filter((item) => item.endsWith(".json") && item !== "topics.generated.json").sort()) {
       const parsed = JSON.parse(await fs.readFile(path.join(enrichmentDir, file), "utf8")) as CurationFile;
-      mergeCurationRecords(merged.books!, parsed.books);
+      if (file === "wikipedia.generated.json") {
+        const wikipedia = parsed as CurationFile & { wikipediaEvidence?: Record<string, WikipediaBookEvidence> };
+        const trustedBooks = Object.fromEntries(Object.entries(wikipedia.books ?? {}).filter(([bookId]) => isTrustedWikipediaBookEvidence(wikipedia.wikipediaEvidence?.[bookId])));
+        mergeCurationRecords(merged.books!, trustedBooks);
+      } else {
+        mergeCurationRecords(merged.books!, parsed.books);
+      }
       mergeCurationRecords(merged.awards!, parsed.awards);
       mergeCurationRecords(merged.imprints!, parsed.imprints);
       mergeCurationRecords(merged.publishers!, parsed.publishers);
@@ -36,6 +42,14 @@ export async function readEnrichment(): Promise<CurationFile> {
     return {};
   }
   return merged;
+}
+
+export function isTrustedWikipediaBookEvidence(evidence: WikipediaBookEvidence | undefined) {
+  if (!evidence) return false;
+  if (evidence.infobox && Object.values(evidence.infobox).some(Boolean)) return true;
+  if (evidence.confidence !== "high") return false;
+  const lead = evidence.extract?.slice(0, 520).toLowerCase() ?? "";
+  return /\b(?:is|was|are|were)\s+(?:an?\s+|the\s+)?(?:\d{4}\s+)?(?:non[- ]fiction\s+|history\s+|graphic\s+)?(?:book|memoir|biography|autobiography|essay collection)\b/.test(lead);
 }
 
 export function mergeCurationRecords<T>(target: Record<string, Partial<T>>, incoming?: Record<string, Partial<T>>) {

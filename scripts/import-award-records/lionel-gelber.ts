@@ -9,6 +9,7 @@ import {
   writeRawAwardRecords,
 } from "./helpers";
 import { parseAwardRowsFromWikitable } from "./wikitable";
+import { lionelGelberOfficialRows, mergeOfficialAwardRows } from "./official-recent-records";
 
 const pageTitle = "Lionel Gelber Prize";
 
@@ -22,14 +23,14 @@ async function main() {
   const wikitext = await fetchMediaWikiWikitext(pageTitle);
   const parsed = parseAwardRowsFromWikitable(wikitext);
 
-  const records: RawAwardRecord[] = [];
+  const parsedRecords: RawAwardRecord[] = [];
   for (const row of parsed) {
     const status = toStatus(row.result);
     if (!status) continue;
     const authors = normalizeAuthorList(cleanText(row.author));
     const title = cleanText(row.title);
     if (!authors.length || !isLikelyTitle(title)) continue;
-    records.push({
+    parsedRecords.push({
       awardId: prize.id,
       awardName: prize.name,
       categoryId: category.id,
@@ -45,14 +46,15 @@ async function main() {
     });
   }
 
+  const records = mergeOfficialAwardRows(parsedRecords, prize, lionelGelberOfficialRows);
   records.sort((a, b) => b.year - a.year || statusSort(a.status) - statusSort(b.status) || a.title.localeCompare(b.title));
 
   const yearRange = `${Math.min(...records.map((r) => r.year))}-${Math.max(...records.map((r) => r.year))}`;
 
   await writeRawAwardRecords("lionel-gelber.json", records, {
     importer: "scripts/import-award-records/lionel-gelber.ts",
-    source: "MediaWiki wikitable for Lionel Gelber Prize winners and shortlist",
-    notes: "Winners from 1990 onward (no entry for 2005). Shortlist data available from 2011; years 2015, 2020, 2021 have winner only.",
+    source: "MediaWiki historical table plus official Munk School recent results",
+    notes: "Winners from 1990 onward (no entry for 2005). Shortlist data is available from 2011; the complete 2026 shortlist and winner are replaced with the official Munk School result.",
     categories: [{
       categoryId: category.id,
       categoryName: category.name,

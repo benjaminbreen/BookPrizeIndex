@@ -33,17 +33,20 @@ export function SubjectsBrowser({ data, defaultRegion }: { data: BrowseData; def
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Subjects</p>
           <h1 className="mt-3 font-[var(--font-serif)] text-4xl font-light leading-tight sm:text-5xl">Browse subjects.</h1>
           <p className="mt-4 max-w-2xl font-[var(--font-serif)] text-lg font-light leading-7 muted sm:mt-5 sm:text-xl sm:leading-8">
-            Explore books organized by subject.
+            Explore books by editorial browse category.
             <br />
-            Click a subject to view related books and awards.
+            Each title has one primary category for comparison; overlapping ideas live under Topics.
           </p>
+          <Link className="mt-4 inline-block font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.14em] muted transition hover:text-[var(--ink)]" href="/methodology#subjects">
+            How categories work →
+          </Link>
         </div>
 
         <div className="subjects-search focus-within:border-[var(--ink)]">
           <Search className="shrink-0 text-[var(--ink)]" size={24} strokeWidth={1.8} />
           <input
             className="min-w-0 flex-1 bg-transparent px-2 text-base outline-none placeholder:text-[var(--muted)]"
-            placeholder="Search subjects (e.g., American history, science, memoir)"
+            placeholder="Search subjects (e.g., history, science, memoir)"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />
@@ -232,6 +235,7 @@ function sortSubjectRows(rows: BrowseSubjectRow[], sortKey: SortKey) {
 
 function subjectDeck(name: string) {
   const decks: Record<string, string> = {
+    History: "United States, world, and general history in one browse category.",
     "American History": "United States history, from pre-colonial period to present day.",
     "World History": "Global and international history.",
     Biography: "Life stories of individuals.",

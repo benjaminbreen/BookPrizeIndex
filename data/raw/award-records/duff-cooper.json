@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-11T20:26:02.210Z",
+  "generatedAt": "2026-07-13T23:08:37.278Z",
   "metadata": {
     "importer": "scripts/import-award-records/duff-cooper.ts",
     "source": "MediaWiki wikitable for Duff Cooper Prize winners",
@@ -9,13 +9,37 @@
         "categoryId": "duff-cooper",
         "categoryName": "History, Biography & Political Science",
         "sourceUrl": "https://en.wikipedia.org/wiki/Duff_Cooper_Prize",
-        "records": 69,
-        "winners": 69,
-        "yearRange": "1956-2024"
+        "records": 70,
+        "winners": 70,
+        "yearRange": "1956-2025"
       }
-    ]
+    ],
+    "reconciliation": {
+      "baselineRef": "HEAD",
+      "retainedBaselineRecords": 69,
+      "acceptedNewRecords": 1,
+      "rejectedNewRecords": 0,
+      "repairedBaselineRecords": 0,
+      "excludedCorruptBaselineRecords": 0
+    }
   },
   "records": [
+    {
+      "awardId": "duff-cooper-prize",
+      "awardName": "Duff Cooper Prize",
+      "categoryId": "duff-cooper",
+      "categoryName": "History, Biography & Political Science",
+      "year": 2025,
+      "status": "winner",
+      "title": "Allies at War: The Politics of Defeating Hitler",
+      "authors": [
+        "Tim Bouverie"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Duff_Cooper_Prize",
+      "sourceLabel": "Wikipedia: Duff Cooper Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.duffcooperprize.org/"
+    },
     {
       "awardId": "duff-cooper-prize",
       "awardName": "Duff Cooper Prize",

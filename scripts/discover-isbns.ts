@@ -105,17 +105,18 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "public", "catalog.json");
 const outputPath = path.join(root, "sources", "enrichment", "isbn.generated.json");
-const reportPath = path.join(root, "data", "public", "isbn-discovery-report.json");
-const reviewPath = path.join(root, "data", "public", "isbn-review-queue.json");
-const cachePath = path.join(root, "data", "public", "isbn-discovery-cache.json");
-const isbnAttemptsPath = path.join(root, "data", "public", "isbn-discovery-attempts.json");
-const attemptsPath = path.join(root, "data", "public", "book-enrichment-attempts.json");
+const reportPath = path.join(root, "data", "reports", "isbn-discovery-report.json");
+const reviewPath = path.join(root, "data", "reports", "isbn-review-queue.json");
+const cachePath = path.join(root, "data", "cache", "isbn-discovery-cache.json");
+const isbnAttemptsPath = path.join(root, "data", "cache", "isbn-discovery-attempts.json");
+const attemptsPath = path.join(root, "data", "cache", "book-enrichment-attempts.json");
 const limit = positiveNumber(readArg("--limit") ?? process.env.ISBN_DISCOVERY_LIMIT, 100);
 const minScore = Number(readArg("--min-score") ?? process.env.ISBN_DISCOVERY_MIN_SCORE ?? "0.72");
 const concurrency = positiveNumber(readArg("--concurrency") ?? process.env.ISBN_DISCOVERY_CONCURRENCY, 2);
 const requestDelayMs = positiveNumber(readArg("--request-delay-ms") ?? process.env.ISBN_DISCOVERY_REQUEST_DELAY_MS, 350);
 const checkpointEvery = positiveNumber(readArg("--checkpoint-every") ?? process.env.ISBN_DISCOVERY_CHECKPOINT_EVERY, 0);
 const requestedLane = parseLane(readArg("--lane") ?? process.env.ISBN_DISCOVERY_LANE);
+const minimumLists = positiveNumber(readArg("--min-lists") ?? process.env.ISBN_DISCOVERY_MIN_LISTS, 0);
 const retryFailures = process.argv.includes("--retry-failures") || process.env.ISBN_DISCOVERY_RETRY_FAILURES === "1";
 const allowEquivalentEditionTies =
   process.argv.includes("--allow-equivalent-edition-ties") || process.env.ISBN_DISCOVERY_ALLOW_EQUIVALENT_EDITION_TIES === "1";
@@ -137,6 +138,7 @@ async function main() {
       const firstRecognitionYear = firstRecognitionYearForBook(catalog, book.id);
       return { book, stats: statsByBook.get(book.id), firstRecognitionYear, inputSignature: isbnAttemptSignature(book, firstRecognitionYear) };
     })
+    .filter((row) => (row.stats?.lists ?? 0) >= minimumLists)
     .filter((row) => !requestedLane || enrichmentLaneForBook(row.book, statsFor(row.stats), attempts[row.book.id]) === requestedLane);
   const candidates = laneCandidates
     .filter((row) => retryFailures || !isReusableIsbnAttempt(isbnAttempts[row.book.id], row.inputSignature));
@@ -170,6 +172,7 @@ async function main() {
         requestDelayMs,
         checkpointEvery,
         lane: requestedLane,
+        minimumLists,
         retryFailures,
         allowEquivalentEditionTies,
         skippedPreviousReviewCount: previousReviewBookIds.size,
@@ -215,6 +218,7 @@ async function main() {
       requestDelayMs,
       checkpointEvery,
       lane: requestedLane,
+      minimumLists,
       retryFailures,
       allowEquivalentEditionTies,
       skippedPreviousReviewCount: previousReviewBookIds.size,
@@ -227,7 +231,7 @@ async function main() {
   );
 
   console.log(`Discovered ISBNs for ${report.filter((row) => row.status === "selected").length}/${selected.length} books.`);
-  console.log("Report written to data/public/isbn-discovery-report.json.");
+  console.log("Report written to data/reports/isbn-discovery-report.json.");
 }
 
 async function discoverBookIsbn(book: Book, stats: BookStats | undefined, firstRecognitionYear: number | undefined, index: number, total: number): Promise<ReportRow> {

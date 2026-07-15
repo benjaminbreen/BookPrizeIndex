@@ -49,6 +49,12 @@ export type PrizeRegistryEntry = {
   scope?: PrizeScope;
   organization: string;
   geography: string;
+  /** First year the prize was awarded (real-world founding, which may predate corpus coverage). */
+  foundedYear?: number;
+  /** Final year the prize was awarded, when the prize has been discontinued. */
+  discontinuedYear?: number;
+  /** Inclusive [start, end] year ranges when the prize was not awarded (e.g. wartime hiatus). */
+  dormantYears?: Array<[number, number]>;
   officialUrl?: string;
   notes?: string;
   categories: PrizeCategoryRegistryEntry[];

@@ -82,9 +82,9 @@ const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "public", "catalog.json");
 const topicsPath = path.join(root, "sources", "topics.json");
 const generatedPath = path.join(root, "sources", "enrichment", "topics.generated.json");
-const cachePath = path.join(root, "data", "public", "topic-embedding-cache.json");
-const reportPath = path.join(root, "data", "public", "topic-enrichment-report.json");
-const qualityReportPath = path.join(root, "data", "public", "topic-quality-report.json");
+const cachePath = path.join(root, "data", "cache", "topic-embedding-cache.json");
+const reportPath = path.join(root, "data", "reports", "topic-enrichment-report.json");
+const qualityReportPath = path.join(root, "data", "reports", "topic-quality-report.json");
 
 const EMBEDDING_PRICE_PER_MILLION = 0.02;
 const MINI_INPUT_PRICE_PER_MILLION = 0.15;

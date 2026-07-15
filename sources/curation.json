@@ -1,6 +1,68 @@
 {
   "notes": "Manual source-backed corrections and enrichments. Use stable generated IDs from data/public/catalog.json.",
   "books": {
+    "book-caste-the-origins-of-our-discontents-isabel-wilkerson": {
+      "publicationYear": 2020,
+      "primaryTopic": "Civil Rights & Racial Justice",
+      "subjects": [
+        "Race & Ethnicity"
+      ],
+      "topics": [
+        "Civil Rights & Racial Justice",
+        "Black History & Culture",
+        "Class, Poverty & Inequality"
+      ]
+    },
+    "book-alice-let-s-eat-further-adventures-of-a-happy-eater-calvin-trillin": {
+      "subjects": [
+        "Society & Culture"
+      ]
+    },
+    "book-benjamin-rush-revolutionary-gadfly-david-freeman-hawke": {
+      "subjects": [
+        "Biography"
+      ]
+    },
+    "book-greyhound-joanna-pocock": {
+      "subjects": [
+        "Nature & Environment"
+      ]
+    },
+    "book-orwell-s-roses-rebecca-solnit": {
+      "subjects": [
+        "Biography"
+      ]
+    },
+    "book-rewriting-the-soul-multiple-personality-and-the-sciences-of-memory-ian-hacking": {
+      "subjects": [
+        "Society & Culture"
+      ]
+    },
+    "book-the-country-kitchen-della-t-lutes": {
+      "subjects": [
+        "Society & Culture"
+      ]
+    },
+    "book-the-culture-of-bruising-essays-on-prizefighting-literature-and-modern-american-culture-gerald-ea": {
+      "subjects": [
+        "Arts & Criticism"
+      ]
+    },
+    "book-the-redemptive-self-dan-p-mcadams": {
+      "subjects": [
+        "Society & Culture"
+      ]
+    },
+    "book-the-wall-john-hersey": {
+      "subjects": [
+        "World History"
+      ]
+    },
+    "book-translating-empire-emulation-and-the-origins-of-political-economy-sophus-a-reinert": {
+      "subjects": [
+        "World History"
+      ]
+    },
     "book-black-sea-neal-ascherson": {
       "publisherId": "publisher-penguin-random-house",
       "imprintId": "imprint-jonathan-cape",
@@ -1940,6 +2002,156 @@
         "source-open-library-the-metaphysical-club-a-story-of-ideas-in-america-louis-menand",
         "source-publisher-cleanup-curation"
       ]
+    },
+    "book-a-distant-mirror-the-calamitous-14th-century-barbara-w-tuchman": {
+      "publicationYear": 1978,
+      "sourceIds": ["source-year-repair-a-distant-mirror"]
+    },
+    "book-dotter-of-her-father-s-eyes-mary-talbot-and-bryan-talbot": {
+      "publicationYear": 2012,
+      "sourceIds": ["source-year-repair-dotter"]
+    },
+    "book-home-before-dark-susan-cheever": {
+      "publicationYear": 1984,
+      "sourceIds": ["source-year-repair-home-before-dark"]
+    },
+    "book-i-m-dancing-as-fast-as-i-can-barbara-gordon": {
+      "publicationYear": 1979,
+      "sourceIds": ["source-year-repair-dancing-fast"]
+    },
+    "book-indian-man-a-life-of-oliver-la-farge-d-arcy-mcnickle": {
+      "publicationYear": 1971,
+      "sourceIds": ["source-year-repair-indian-man"]
+    },
+    "book-out-of-the-mountains-the-coming-of-age-of-the-urban-guerrilla-david-kilcullen": {
+      "publicationYear": 2013,
+      "sourceIds": ["source-year-repair-out-of-the-mountains"]
+    },
+    "book-sidewalk-mitchell-duneier-with-ovie-carter-photographer": {
+      "publicationYear": 1999,
+      "sourceIds": ["source-year-repair-sidewalk"]
+    },
+    "book-the-discovery-of-abundance-daniel-fox": {
+      "publicationYear": 1967,
+      "sourceIds": ["source-year-repair-discovery-abundance"]
+    },
+    "book-the-education-of-henry-adams-henry-adams": {
+      "publicationYear": 1918,
+      "sourceIds": ["source-year-repair-education-henry-adams"]
+    },
+    "book-the-medical-detectives-berton-roueche": {
+      "publicationYear": 1980,
+      "sourceIds": ["source-year-repair-medical-detectives"]
+    },
+    "book-the-rise-and-fall-of-the-third-reich-william-l-shirer": {
+      "publicationYear": 1960,
+      "sourceIds": ["source-year-repair-third-reich"]
+    },
+    "book-the-rise-of-the-robots-technology-and-the-threat-of-mass-unemployment-martin-ford": {
+      "publicationYear": 2015,
+      "sourceIds": ["source-year-repair-rise-robots"]
+    },
+    "book-woodrow-wilson-and-world-politics-america-s-response-to-war-and-revolution-n-gordon-levin-jr": {
+      "publicationYear": 1968,
+      "sourceIds": ["source-year-repair-woodrow-wilson"]
+    },
+    "book-jefferson-and-his-time-the-sage-of-monticello-dumas-malone": {
+      "publicationYear": 1981,
+      "sourceIds": ["source-year-repair-jefferson-time"]
+    },
+    "book-stalin-waiting-for-hitler-1929-1941-stephen-kotkin": {
+      "publicationYear": 2017,
+      "isbn13": ["9781594203800"],
+      "sourceIds": ["source-isbn-repair-stalin-waiting"]
+    },
+    "book-cuba-an-american-history-ada-ferrer": {
+      "pageCount": 576,
+      "sourceIds": ["source-prime-metadata-cuba"]
+    },
+    "book-plantation-goods-a-material-history-of-american-slavery-seth-rockman": {
+      "pageCount": 496,
+      "sourceIds": ["source-prime-metadata-plantation-goods"]
+    },
+    "book-the-chinese-question-the-gold-rushes-chinese-migration-and-global-politics-mae-ngai": {
+      "pageCount": 440,
+      "sourceIds": ["source-prime-metadata-chinese-question"]
+    },
+    "book-slave-counterpoint-black-culture-in-the-eighteenth-century-chesapeake-and-lowcountry-philip-d-mo": {
+      "pageCount": 736,
+      "sourceIds": ["source-prime-metadata-slave-counterpoint"]
+    },
+    "book-coleridge-darker-reflections-richard-holmes": {
+      "pageCount": 622,
+      "sourceIds": ["source-prime-metadata-coleridge"]
+    },
+    "book-fordlandia-the-rise-and-fall-of-henry-ford-s-forgotten-jungle-city-greg-grandin": {
+      "pageCount": 432,
+      "sourceIds": ["source-prime-metadata-fordlandia"]
+    },
+    "book-before-the-movement-the-hidden-history-of-black-civil-rights-dylan-c-penningroth": {
+      "pageCount": 496,
+      "sourceIds": ["source-prime-metadata-before-movement"]
+    },
+    "book-the-islamic-enlightenment-the-modern-struggle-between-faith-and-reason-christopher-de-bellaigue": {
+      "pageCount": 448,
+      "publisherId": "publisher-w-w-norton-and-company",
+      "imprintId": "imprint-liveright",
+      "sourceIds": ["source-prime-metadata-islamic-enlightenment"]
+    },
+    "book-gods-of-the-upper-air-how-a-circle-of-renegade-anthropologists-reinvented-race-sex-and-gender-in": {
+      "pageCount": 448,
+      "sourceIds": ["source-prime-metadata-gods-upper-air"]
+    },
+    "book-into-the-silence-the-great-war-mallory-and-the-conquest-of-everest-wade-davis": {
+      "pageCount": 672,
+      "sourceIds": ["source-prime-metadata-into-silence"]
+    },
+    "book-means-of-ascent-volume-2-of-the-years-of-lyndon-johnson-robert-a-caro": {
+      "pageCount": 560,
+      "sourceIds": ["source-prime-metadata-means-ascent"]
+    },
+    "book-red-famine-stalin-s-war-on-ukraine-anne-applebaum": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-doubleday",
+      "sourceIds": ["source-prime-metadata-red-famine"]
+    },
+    "book-simple-justice-the-history-of-brown-v-board-of-education-and-black-america-s-struggle-for-equali": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-knopf",
+      "sourceIds": ["source-prime-metadata-simple-justice"]
+    },
+    "book-guilty-thing-a-life-of-thomas-de-quincey-frances-wilson": {
+      "publisherId": "publisher-macmillan",
+      "imprintId": "imprint-farrar-straus-and-giroux",
+      "sourceIds": ["source-prime-metadata-guilty-thing"]
+    },
+    "book-the-faraway-nearby-rebecca-solnit": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-viking",
+      "sourceIds": ["source-prime-metadata-faraway-nearby"]
+    },
+    "book-galileo-s-daughter-a-historical-memoir-of-science-faith-and-love-dava-sobel": {
+      "publisherId": "publisher-harpercollins",
+      "imprintId": "imprint-fourth-estate",
+      "sourceIds": ["source-prime-metadata-galileos-daughter"]
+    },
+    "book-the-years-of-lyndon-johnson-the-path-to-power-robert-a-caro": {
+      "publisherId": "publisher-penguin-random-house",
+      "imprintId": "imprint-knopf",
+      "sourceIds": ["source-prime-metadata-path-power"]
+    },
+    "book-my-fourth-time-we-drowned-seeking-refuge-on-the-world-s-deadliest-migration-route-sally-hayden": {
+      "publisherId": "publisher-melville-house",
+      "imprintId": "imprint-melville-house",
+      "sourceIds": ["source-prime-metadata-fourth-time"]
+    },
+    "book-when-women-kill-four-crimes-retold-alia-trabucco-zeran": {
+      "publisherId": "publisher-coffee-house-press",
+      "imprintId": "imprint-coffee-house-press",
+      "sourceIds": ["source-prime-metadata-when-women-kill"]
+    },
+    "book-civic-ideals-rogers-m-smith": {
+      "title": "Civic Ideals: Conflicting Visions of Citizenship in U.S. History"
     }
   },
   "awards": {},
@@ -2377,6 +2589,11 @@
       "sourceIds": [
         "source-publisher-cleanup-curation"
       ]
+    },
+    "imprint-melville-house": {
+      "name": "Melville House",
+      "publisherId": "publisher-melville-house",
+      "sourceIds": ["source-prime-metadata-fourth-time"]
     }
   },
   "publishers": {
@@ -2839,9 +3056,121 @@
       "sourceIds": [
         "source-publisher-cleanup-curation"
       ]
+    },
+    "publisher-melville-house": {
+      "name": "Melville House",
+      "region": "us",
+      "sourceIds": ["source-prime-metadata-fourth-time"]
     }
   },
   "sources": {
+    "source-year-repair-a-distant-mirror": {
+      "id": "source-year-repair-a-distant-mirror",
+      "label": "First-edition publication year for A Distant Mirror",
+      "url": "https://en.wikipedia.org/wiki/A_Distant_Mirror",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-dotter": {
+      "id": "source-year-repair-dotter",
+      "label": "First-edition publication year for Dotter of Her Father's Eyes",
+      "url": "https://openlibrary.org/works/OL17448989W/Dotter_Of_Her_Fathers_Eyes",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-home-before-dark": {
+      "id": "source-year-repair-home-before-dark",
+      "label": "Publication year for Home Before Dark",
+      "url": "https://www.simonandschuster.com/books/Home-Before-Dark/Susan-Cheever/9780671028503",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-dancing-fast": {
+      "id": "source-year-repair-dancing-fast",
+      "label": "Original publication year for I'm Dancing as Fast as I Can",
+      "url": "https://obnb.uk/p8042751-im-dancing-as-fast-as-i-can",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-indian-man": {
+      "id": "source-year-repair-indian-man",
+      "label": "Publication year for Indian Man",
+      "url": "https://en.wikipedia.org/wiki/D%27Arcy_McNickle",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-out-of-the-mountains": {
+      "id": "source-year-repair-out-of-the-mountains",
+      "label": "Publication year for Out of the Mountains",
+      "url": "https://www.kirkusreviews.com/book-reviews/david-kilcullen/out-of-the-mountains/",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-sidewalk": {
+      "id": "source-year-repair-sidewalk",
+      "label": "First-edition publication year for Sidewalk",
+      "url": "https://www.nypl.org/research/research-catalog/bib/b14399737",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-discovery-abundance": {
+      "id": "source-year-repair-discovery-abundance",
+      "label": "Publication year for The Discovery of Abundance",
+      "url": "https://catalog.folger.edu/record/267401",
+      "confidence": "manual",
+      "field": "book",
+      "note": "The AHA selected the manuscript for its 1965 Beveridge Award; Cornell University Press published the book in 1967."
+    },
+    "source-year-repair-education-henry-adams": {
+      "id": "source-year-repair-education-henry-adams",
+      "label": "Commercial publication year for The Education of Henry Adams",
+      "url": "https://openlibrary.org/books/OL25522761M/The_education_of_Henry_Adams",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-medical-detectives": {
+      "id": "source-year-repair-medical-detectives",
+      "label": "First-edition publication year for The Medical Detectives",
+      "url": "https://jamanetwork.com/journals/jama/fullarticle/374119",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-third-reich": {
+      "id": "source-year-repair-third-reich",
+      "label": "First-edition publication year for The Rise and Fall of the Third Reich",
+      "url": "https://en.wikipedia.org/wiki/The_Rise_and_Fall_of_the_Third_Reich",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-rise-robots": {
+      "id": "source-year-repair-rise-robots",
+      "label": "First-edition publication year for Rise of the Robots",
+      "url": "https://books.google.com/books/about/Rise_of_the_Robots.html?id=b-w3DgAAQBAJ",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-woodrow-wilson": {
+      "id": "source-year-repair-woodrow-wilson",
+      "label": "First-edition publication year for Woodrow Wilson and World Politics",
+      "url": "https://en.wikipedia.org/wiki/Bibliography_of_Woodrow_Wilson",
+      "confidence": "manual",
+      "field": "book"
+    },
+    "source-year-repair-jefferson-time": {
+      "id": "source-year-repair-jefferson-time",
+      "label": "Publication span for Jefferson and His Time",
+      "url": "https://en.wikipedia.org/wiki/Jefferson_and_His_Time",
+      "confidence": "manual",
+      "field": "book",
+      "note": "The catalog title includes The Sage of Monticello, the sixth and final volume, published in 1981."
+    },
+    "source-isbn-repair-stalin-waiting": {
+      "id": "source-isbn-repair-stalin-waiting",
+      "label": "First-edition ISBN and year for Stalin: Waiting for Hitler",
+      "url": "https://www.goodreads.com/work/editions/55246108-stalin-waiting-for-hitler-1929-1941",
+      "confidence": "manual",
+      "field": "book"
+    },
     "source-publisher-parent-curation": {
       "id": "source-publisher-parent-curation",
       "label": "Manual parent-publisher mapping for current imprint corpus",
@@ -2910,6 +3239,141 @@
       "confidence": "manual",
       "field": "publisher",
       "note": "Uses W. W. Norton for the 2004 US trade edition, ISBN 9780393050578."
+    },
+    "source-prime-metadata-cuba": {
+      "id": "source-prime-metadata-cuba",
+      "label": "Scribner product details for Cuba: An American History",
+      "url": "https://www.simonandschuster.com/books/Cuba-%28Winner-of-the-Pulitzer-Prize%29/Ada-Ferrer/9781501154553",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-prime-metadata-plantation-goods": {
+      "id": "source-prime-metadata-plantation-goods",
+      "label": "University of Chicago Press product details for Plantation Goods",
+      "url": "https://press.uchicago.edu/ucp/books/book/chicago/P/bo237040605.html",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-prime-metadata-chinese-question": {
+      "id": "source-prime-metadata-chinese-question",
+      "label": "Berkeley Law catalog record for The Chinese Question",
+      "url": "https://lawcat.berkeley.edu/record/1209733",
+      "confidence": "catalog",
+      "field": "book"
+    },
+    "source-prime-metadata-slave-counterpoint": {
+      "id": "source-prime-metadata-slave-counterpoint",
+      "label": "UNC Press product details for Slave Counterpoint",
+      "url": "https://uncpress.org/9780807847176/slave-counterpoint/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-prime-metadata-coleridge": {
+      "id": "source-prime-metadata-coleridge",
+      "label": "Open British National Bibliography record for Coleridge: Darker Reflections",
+      "url": "https://obnb.uk/p13300854-coleridge-darker-reflections",
+      "confidence": "catalog",
+      "field": "book"
+    },
+    "source-prime-metadata-fordlandia": {
+      "id": "source-prime-metadata-fordlandia",
+      "label": "Macmillan product details for Fordlandia",
+      "url": "https://us.macmillan.com/books/9780312429621/fordlandia/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-prime-metadata-before-movement": {
+      "id": "source-prime-metadata-before-movement",
+      "label": "Google Books catalog record for Before the Movement",
+      "url": "https://books.google.com/books/about/Before_the_Movement.html?id=iIOpEAAAQBAJ",
+      "confidence": "catalog",
+      "field": "book"
+    },
+    "source-prime-metadata-islamic-enlightenment": {
+      "id": "source-prime-metadata-islamic-enlightenment",
+      "label": "Publisher records for The Islamic Enlightenment",
+      "url": "https://www.penguin.co.uk/books/416043/the-islamic-enlightenment-by-christopher-de-bellaigue/9781448139675",
+      "confidence": "official",
+      "field": "book",
+      "note": "Penguin supplies the 448-page UK edition; the first US trade edition was published by Liveright."
+    },
+    "source-prime-metadata-gods-upper-air": {
+      "id": "source-prime-metadata-gods-upper-air",
+      "label": "Penguin Random House product details for Gods of the Upper Air",
+      "url": "https://www.penguinrandomhouse.com/books/549852/gods-of-the-upper-air-by-charles-king/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-prime-metadata-into-silence": {
+      "id": "source-prime-metadata-into-silence",
+      "label": "Penguin Random House product details for Into the Silence",
+      "url": "https://www.penguinrandomhouse.com/books/37923/into-the-silence-by-wade-davis/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-prime-metadata-means-ascent": {
+      "id": "source-prime-metadata-means-ascent",
+      "label": "Penguin Random House product details for Means of Ascent",
+      "url": "https://www.penguinrandomhouse.com/books/24309/means-of-ascent-by-robert-a-caro/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-prime-metadata-red-famine": {
+      "id": "source-prime-metadata-red-famine",
+      "label": "Penguin Random House history catalog for Red Famine",
+      "url": "https://penguinrandomhousehighereducation.com/wp-content/uploads/2017/12/Knopf-Doubleday-History-Catalog-Web-Fall-2017.pdf",
+      "confidence": "official",
+      "field": "publisher"
+    },
+    "source-prime-metadata-simple-justice": {
+      "id": "source-prime-metadata-simple-justice",
+      "label": "First-edition catalog record for Simple Justice",
+      "url": "https://lawcat.berkeley.edu/record/28100",
+      "confidence": "catalog",
+      "field": "publisher"
+    },
+    "source-prime-metadata-guilty-thing": {
+      "id": "source-prime-metadata-guilty-thing",
+      "label": "Macmillan product details for Guilty Thing",
+      "url": "https://us.macmillan.com/books/9780374537258/guiltything/",
+      "confidence": "official",
+      "field": "publisher"
+    },
+    "source-prime-metadata-faraway-nearby": {
+      "id": "source-prime-metadata-faraway-nearby",
+      "label": "Publisher evidence for the first Viking edition of The Faraway Nearby",
+      "url": "https://penguinrandomhouselibrary.com/book/?isbn=9780143125495",
+      "confidence": "official",
+      "field": "publisher"
+    },
+    "source-prime-metadata-galileos-daughter": {
+      "id": "source-prime-metadata-galileos-daughter",
+      "label": "Wikipedia infobox evidence for Galileo's Daughter",
+      "url": "https://en.wikipedia.org/wiki/Galileo%27s_Daughter",
+      "confidence": "catalog",
+      "field": "publisher",
+      "note": "Uses the first UK trade edition from Fourth Estate; the infobox also lists the US Walker & Company edition."
+    },
+    "source-prime-metadata-path-power": {
+      "id": "source-prime-metadata-path-power",
+      "label": "First-edition catalog record for The Path to Power",
+      "url": "https://openlibrary.org/books/OL24216336M/The_path_to_power",
+      "confidence": "catalog",
+      "field": "publisher"
+    },
+    "source-prime-metadata-fourth-time": {
+      "id": "source-prime-metadata-fourth-time",
+      "label": "Melville House publisher record for My Fourth Time, We Drowned",
+      "url": "https://www.penguinrandomhouse.com/books/696846/my-fourth-time-we-drowned-by-sally-hayden/",
+      "confidence": "official",
+      "field": "publisher"
+    },
+    "source-prime-metadata-when-women-kill": {
+      "id": "source-prime-metadata-when-women-kill",
+      "label": "Coffee House Press catalog metadata for When Women Kill",
+      "url": "https://coffeehousepress.org/products/when-women-kill",
+      "confidence": "official",
+      "field": "publisher"
     }
   }
 }

@@ -4,44 +4,66 @@ import Link from "next/link";
 import { Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, Link2, X } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import { awardsById, getBookStats, imprintsById, publishersById, statusLabels, subjectsByName, wikipediaEvidenceByBook } from "@/lib/data";
-import type { AwardAppearance, Book, WikipediaBookEvidence } from "@/lib/types";
+import { withAmazonAssociateTag } from "@/lib/affiliate-links";
+import type { BookDrawerAppearance, BookDrawerPayload } from "@/lib/book-drawer-types";
+import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
+import type { Book, WikipediaBookEvidence } from "@/lib/types";
 
 const DRAWER_EXIT_MS = 360;
 
 type BookDrawerSnapshot = {
-  book: Book;
-  appearances: AwardAppearance[];
+  payload: BookDrawerPayload;
   currentLabel?: string;
 };
 
 export function BookDrawer({
-  book,
-  appearances,
+  bookId,
   currentLabel,
   onNext,
   onPrevious,
   onClose,
 }: {
-  book: Book | null;
-  appearances: AwardAppearance[];
+  bookId: string | null;
   currentLabel?: string;
   onNext?: () => void;
   onPrevious?: () => void;
   onClose: () => void;
 }) {
-  const [snapshot, setSnapshot] = useState<BookDrawerSnapshot | null>(() => book ? { book, appearances, currentLabel } : null);
+  const [payload, setPayload] = useState<BookDrawerPayload | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [snapshot, setSnapshot] = useState<BookDrawerSnapshot | null>(null);
   const [isClosing, setIsClosing] = useState(false);
-  const [hasEntered, setHasEntered] = useState(Boolean(book));
+  const [hasEntered, setHasEntered] = useState(false);
   const [citationCopied, setCitationCopied] = useState(false);
   const panelRef = useRef<HTMLElement | null>(null);
-  const animatedBookIdRef = useRef<string | null>(book?.id ?? null);
+  const animatedBookIdRef = useRef<string | null>(null);
 
   useEffect(() => {
-    if (book) {
-      const shouldAnimate = animatedBookIdRef.current !== book.id;
-      animatedBookIdRef.current = book.id;
-      setSnapshot({ book, appearances, currentLabel });
+    if (!bookId) {
+      setPayload(null);
+      setLoadError(null);
+      return;
+    }
+    const controller = new AbortController();
+    setLoadError(null);
+    void fetch(`/api/books/detail?id=${encodeURIComponent(bookId)}`, { signal: controller.signal })
+      .then(async (response) => {
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error ?? `Book request failed (${response.status}).`);
+        setPayload(result as BookDrawerPayload);
+      })
+      .catch((error) => {
+        if (!controller.signal.aborted) setLoadError(error instanceof Error ? error.message : "Could not load this book.");
+      });
+    return () => controller.abort();
+  }, [bookId]);
+
+  useEffect(() => {
+    if (bookId) {
+      if (!payload || payload.book.id !== bookId) return;
+      const shouldAnimate = animatedBookIdRef.current !== payload.book.id;
+      animatedBookIdRef.current = payload.book.id;
+      setSnapshot({ payload, currentLabel });
       setIsClosing(false);
       setCitationCopied(false);
       if (!shouldAnimate) return;
@@ -70,7 +92,7 @@ export function BookDrawer({
     }, DRAWER_EXIT_MS);
 
     return () => window.clearTimeout(timeout);
-  }, [appearances, book, currentLabel]);
+  }, [bookId, currentLabel, payload]);
 
   useEffect(() => {
     if (!snapshot || isClosing) return;
@@ -95,20 +117,36 @@ export function BookDrawer({
   }, [isClosing, onClose, onNext, onPrevious, snapshot]);
 
   useEffect(() => {
-    if (!book) return;
+    if (!payload) return;
     panelRef.current?.scrollTo({ top: 0 });
-  }, [book?.id]);
+  }, [payload?.book.id]);
 
-  if (!snapshot) return null;
-  const renderedBook = snapshot.book;
-  const renderedAppearances = book ? appearances : snapshot.appearances;
-  const renderedCurrentLabel = book ? currentLabel : snapshot.currentLabel;
-  const imprint = renderedBook.imprintId ? imprintsById.get(renderedBook.imprintId)?.name : undefined;
-  const publisher = renderedBook.publisherId ? publishersById.get(renderedBook.publisherId)?.name : undefined;
-  const stats = getBookStats(renderedBook.id);
-  const wikipediaEvidence = wikipediaEvidenceByBook.get(renderedBook.id);
+  if (!snapshot) {
+    if (!bookId) return null;
+    return (
+      <div className="book-drawer-layer fixed inset-0 z-30 is-open">
+        <button aria-label="Close detail panel" className="book-drawer-backdrop absolute inset-0 bg-black/45 backdrop-blur-[1px]" onClick={onClose} />
+        <aside className="book-drawer-panel absolute bottom-0 right-0 top-0 grid w-full max-w-[45rem] place-items-center border-l hairline bg-[var(--paper)] p-7 shadow-2xl">
+          <div className="text-center">
+            <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Book record</p>
+            <p className="mt-3 text-lg">{loadError ?? "Loading…"}</p>
+            {loadError ? <button className="filter-action focus-ring mt-5 px-4 py-2" onClick={onClose} type="button">Close</button> : null}
+          </div>
+        </aside>
+      </div>
+    );
+  }
+  const renderedPayload = snapshot.payload;
+  const renderedBook = renderedPayload.book;
+  const renderedAppearances = renderedPayload.appearances;
+  const renderedCurrentLabel = bookId === renderedBook.id ? currentLabel : snapshot.currentLabel;
+  const imprint = renderedPayload.imprint;
+  const publisher = renderedPayload.publisher;
+  const stats = renderedPayload.stats;
+  const wikipediaEvidence = renderedPayload.wikipediaEvidence;
   const wikipediaInfobox = wikipediaEvidence?.infobox;
   const wikipediaUrl = renderedBook.links.wikipedia ?? wikipediaEvidence?.url;
+  const semanticProfile = renderedBook.experimentalSemanticProfile;
   const sortedAppearances = sortAwardAppearances(renderedAppearances);
   const winsCount = sortedAppearances.filter((appearance) => isWinningStatus(appearance.status)).length;
   const layerState = isClosing ? "is-closing" : hasEntered ? "is-open" : "is-entering";
@@ -214,8 +252,8 @@ export function BookDrawer({
           </div>
           <div className="sm:pl-6">
             <Meta label="Pages" value={metadataValue(renderedBook.pageCount ? `${renderedBook.pageCount} pp` : undefined, wikipediaInfobox?.pages, "Not yet sourced")} missing={!renderedBook.pageCount && !wikipediaInfobox?.pages} />
-            <Meta label="ISBN" value={metadataValue(renderedBook.isbn13.join(", ") || undefined, wikipediaInfobox?.isbn, "Not yet sourced")} missing={!renderedBook.isbn13.length && !wikipediaInfobox?.isbn} />
             <Meta label="Language" value="English" />
+            <DrawerRetailerLinks book={renderedBook} />
           </div>
         </dl>
 
@@ -228,7 +266,7 @@ export function BookDrawer({
           </div>
           <div className="mt-4 border hairline">
             {sortedAppearances.map((appearance) => {
-              const award = awardsById.get(appearance.awardId);
+              const award = appearance.award;
               const isMajor = award?.awardType === "major_award";
               const isWinner = isWinningStatus(appearance.status);
               return (
@@ -241,7 +279,7 @@ export function BookDrawer({
                     {isMajor ? <span className="award-major-pill">Major</span> : null}
                   </Link>
                   <span className="plain-number text-xs">{appearance.year}</span>
-                  <span className={isWinner ? "award-status-winner" : "award-status-secondary"}>{statusLabels[appearance.status]}</span>
+                  <span className={isWinner ? "award-status-winner" : "award-status-secondary"}>{appearance.statusLabel}</span>
                   {appearance.sourceUrl ? (
                     <a
                       aria-label={`Open source for ${award?.name ?? "award record"}`}
@@ -285,30 +323,116 @@ export function BookDrawer({
         </div>
 
         <div className="book-drawer-section mt-7 border-t hairline pt-5">
-          <div className="flex items-center justify-between">
-            <h3 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Related</h3>
+          <div className="flex items-center justify-end">
             <Link className="inline-flex items-center gap-2 text-sm transition hover:text-[var(--accent)]" href="/subjects">
               View all subjects
               <ChevronRight size={15} />
             </Link>
           </div>
-          <p className="mt-3 text-sm muted">All subjects</p>
-          <div className="mt-3 flex flex-wrap gap-2">
-            {renderedBook.subjects.map((subject, index) => <SubjectChip index={index} key={subject} subject={subject} />)}
-          </div>
-          {renderedBook.topics.length ? (
-            <>
-              <p className="mt-5 text-sm muted">Topics</p>
-              <div className="mt-3 flex flex-wrap gap-x-3 gap-y-2">
-                {renderedBook.topics.map((topic, index) => <TopicTag isPrimary={topic === renderedBook.primaryTopic || index === 0} key={topic} topic={topic} />)}
+          <div className="mt-4 grid gap-6 sm:grid-cols-2">
+            <section>
+              <h3 className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] muted">Subjects</h3>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {renderedBook.subjects.map((subject, index) => <SubjectChip index={index} key={subject} subject={subject} />)}
               </div>
-            </>
+            </section>
+            {renderedBook.topics.length ? (
+              <section>
+                <h3 className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] muted">Topics</h3>
+                <div className="mt-3 flex flex-wrap gap-x-3 gap-y-2">
+                  {renderedBook.topics.map((topic, index) => <TopicTag isPrimary={topic === renderedBook.primaryTopic || index === 0} key={topic} topic={topic} />)}
+                </div>
+              </section>
+            ) : null}
+          </div>
+
+          {semanticProfile ? (
+            <div className="mt-6 border-t hairline pt-5">
+              <p className="font-[var(--font-mono)] text-[0.6rem] uppercase tracking-[0.12em] muted">
+                Experimental · generated by GPT-5.4 nano · may contain inaccuracies
+              </p>
+              <div className="mt-4 grid gap-6 sm:grid-cols-2">
+                <DrawerEntityList entities={semanticProfile.centralFigures.map((figure) => figure.name)} linkToWikipedia />
+                <DrawerEntityList entities={semanticProfile.centralPlaces.map((place) => place.name)} />
+              </div>
+            </div>
           ) : null}
           {wikipediaEvidence ? <WikipediaDrawerReference evidence={wikipediaEvidence} /> : null}
         </div>
       </aside>
     </div>
   );
+}
+
+function DrawerEntityList({ entities, linkToWikipedia = false }: { entities: string[]; linkToWikipedia?: boolean }) {
+  return (
+    <section>
+      <h3 className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.16em] muted">
+        {linkToWikipedia ? "Central figures" : "Central places"}
+      </h3>
+      {entities.length ? (
+        <ul className="mt-2 border-t hairline">
+          {entities.map((entity) => (
+            <li className="border-b hairline py-2 text-sm" key={entity}>
+              {linkToWikipedia ? (
+                <a
+                  className="focus-ring inline-flex items-center gap-1.5 transition hover:text-[var(--accent)]"
+                  href={wikipediaPersonUrl(entity)}
+                  rel="noreferrer"
+                  target="_blank"
+                  title={`Find ${entity} on Wikipedia`}
+                >
+                  {entity}
+                  <ExternalLink size={11} />
+                </a>
+              ) : entity}
+            </li>
+          ))}
+        </ul>
+      ) : <p className="mt-2 text-sm muted">None confidently extracted.</p>}
+    </section>
+  );
+}
+
+function wikipediaPersonUrl(name: string) {
+  return `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(name)}&go=Go`;
+}
+
+function DrawerRetailerLinks({ book }: { book: Book }) {
+  const links = retailerLinks(book);
+  if (!links.length) return null;
+  return (
+    <div className="grid gap-2 border-b hairline py-2.5">
+      <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">Find this book</dt>
+      <dd className="flex flex-nowrap items-center gap-2">
+        {links.map((link) => (
+          <a
+            aria-label={link.label}
+            className="book-retailer-link focus-ring"
+            href={link.href}
+            key={link.label}
+            rel="noreferrer"
+            target="_blank"
+            title={link.label}
+          >
+            <img alt="" src={link.icon} />
+            <span className="book-retailer-tooltip" role="tooltip">{`Buy on ${link.label}`}</span>
+          </a>
+        ))}
+      </dd>
+    </div>
+  );
+}
+
+function retailerLinks(book: Book) {
+  const searchText = [book.title, book.authors[0]?.name].filter(Boolean).join(" ");
+  const isbn = book.isbn13[0];
+  return [
+    book.links.bookshop ? { label: "Bookshop.org", href: book.links.bookshop, icon: "/icons/bookshop.png" } : undefined,
+    book.links.indiebound ? { label: "IndieBound", href: book.links.indiebound, icon: "/icons/indiebound.png" } : undefined,
+    { label: "Barnes & Noble", href: `https://www.barnesandnoble.com/s/${encodeURIComponent(isbn ?? searchText)}`, icon: "/icons/bn.png" },
+    book.links.amazon ? { label: "Amazon", href: withAmazonAssociateTag(book.links.amazon), icon: "/icons/amazon.png" } : undefined,
+  ].filter((link): link is { label: string; href: string; icon: string } => Boolean(link?.href) && Boolean(searchText || isbn));
 }
 
 function WikipediaDrawerReference({ evidence }: { evidence: WikipediaBookEvidence }) {
@@ -379,10 +503,10 @@ function MiniCover({ title, author, href, thumbnailUrl }: { title: string; autho
 }
 
 function SubjectChip({ subject, index }: { subject: string; index: number }) {
-  const subjectSlug = dataSubjectSlug(subject);
+  const subjectSlug = rollupSubjectSlug(subject);
   return (
     <Link className={`subject-chip ${subjectChipClass(subject)} focus-ring rounded-full border hairline px-3 py-1 text-xs`} href={subjectSlug ? `/subjects/${subjectSlug}` : "/subjects"}>
-      {subject}
+      {rollupSubjectName(subject)}
     </Link>
   );
 }
@@ -395,14 +519,10 @@ function TopicTag({ topic, isPrimary }: { topic: string; isPrimary?: boolean }) 
   );
 }
 
-function dataSubjectSlug(subject: string) {
-  return subjectsByName.get(subject.toLowerCase())?.slug;
-}
-
 function subjectChipClass(subject: string) {
   const normalized = subject.toLowerCase();
-  if (normalized.includes("american history") || normalized === "history") return "subject-chip-brick";
-  if (normalized.includes("world history") || normalized.includes("travel")) return "subject-chip-teal";
+  if (normalized.includes("american history") || normalized.includes("world history") || normalized === "history") return "subject-chip-brick";
+  if (normalized.includes("travel")) return "subject-chip-teal";
   if (normalized.includes("biography") || normalized.includes("memoir")) return "subject-chip-plum";
   if (normalized.includes("politics") || normalized.includes("journalism")) return "subject-chip-indigo";
   if (normalized.includes("society") || normalized.includes("race") || normalized.includes("gender") || normalized.includes("religion")) return "subject-chip-olive";
@@ -434,10 +554,10 @@ function wikipediaExcerpt(evidence: WikipediaBookEvidence) {
   return words.slice(0, 58).join(" ") + (words.length > 58 ? "..." : "");
 }
 
-function sortAwardAppearances(appearances: AwardAppearance[]) {
+function sortAwardAppearances(appearances: BookDrawerAppearance[]) {
   return [...appearances].sort((a, b) => {
-    const awardA = awardsById.get(a.awardId);
-    const awardB = awardsById.get(b.awardId);
+    const awardA = a.award;
+    const awardB = b.award;
     const winnerDelta = Number(isWinningStatus(b.status)) - Number(isWinningStatus(a.status));
     if (winnerDelta) return winnerDelta;
     const majorDelta = Number(awardB?.awardType === "major_award") - Number(awardA?.awardType === "major_award");
@@ -446,7 +566,7 @@ function sortAwardAppearances(appearances: AwardAppearance[]) {
   });
 }
 
-function isWinningStatus(status: AwardAppearance["status"]) {
+function isWinningStatus(status: BookDrawerAppearance["status"]) {
   return status === "winner" || status === "co_winner";
 }
 

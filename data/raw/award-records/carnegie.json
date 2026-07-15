@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-11T05:15:55.882Z",
+  "generatedAt": "2026-07-13T23:08:37.207Z",
   "metadata": {
     "importer": "scripts/import-award-records/carnegie.ts",
     "source": "MediaWiki wikitable for Andrew Carnegie Medals nonfiction winners/finalists plus official ALA annual pages for longlists",
@@ -15,7 +15,15 @@
         "longlisted": 288,
         "yearRange": "2012-2026"
       }
-    ]
+    ],
+    "reconciliation": {
+      "baselineRef": "HEAD",
+      "retainedBaselineRecords": 332,
+      "acceptedNewRecords": 0,
+      "rejectedNewRecords": 0,
+      "repairedBaselineRecords": 1,
+      "excludedCorruptBaselineRecords": 0
+    }
   },
   "records": [
     {
@@ -732,8 +740,7 @@
       "status": "longlist",
       "title": "Thunder Song",
       "authors": [
-        "Sasha taqʷ&scaron LaPointe",
-        "əblu"
+        "Sasha taqʷšəblu LaPointe"
       ],
       "sourceUrl": "https://www.ala.org/carnegie-medals/2025-winners",
       "sourceLabel": "ALA Carnegie Medals 2025 annual page",

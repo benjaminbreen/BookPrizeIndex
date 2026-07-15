@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import type { BookCatalogQuery } from "@/lib/book-catalog-query";
 import type { SemanticQueryExpansionModel, SemanticQueryInterpretation, SemanticSearchResult } from "@/lib/semantic-search";
+
+type SemanticCandidateFilters = Pick<BookCatalogQuery, "awardId" | "metadata" | "publisherId" | "region" | "subject" | "topic">;
 
 export type SemanticBookSearchState = {
   diagnostics: SemanticSearchDiagnostics | null;
@@ -29,12 +32,14 @@ export type SemanticSearchDiagnostics = {
 export function useSemanticBookSearch({
   candidateBookIds,
   enabled,
+  filters,
   limit = 250,
   query,
-  queryExpansionModel = "gemini-3.5-flash",
+  queryExpansionModel = "gpt-5.4-nano",
 }: {
   candidateBookIds: string[];
   enabled: boolean;
+  filters?: SemanticCandidateFilters;
   limit?: number;
   query: string;
   queryExpansionModel?: SemanticQueryExpansionModel;
@@ -48,6 +53,7 @@ export function useSemanticBookSearch({
     results: [],
   });
   const candidateKey = useMemo(() => candidateBookIds.join("|"), [candidateBookIds]);
+  const filtersKey = JSON.stringify(filters ?? {});
 
   useEffect(() => {
     const trimmed = query.trim();
@@ -57,13 +63,14 @@ export function useSemanticBookSearch({
     }
 
     const controller = new AbortController();
-    setState({ diagnostics: null, error: null, interpretation: null, loading: true, query: trimmed, results: [] });
+    setState({ diagnostics: null, error: null, interpretation: null, loading: false, query: trimmed, results: [] });
     const timeout = window.setTimeout(async () => {
+      setState({ diagnostics: null, error: null, interpretation: null, loading: true, query: trimmed, results: [] });
       try {
         const response = await fetch("/api/search/semantic", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ candidateBookIds, limit, query: trimmed, queryExpansionModel }),
+          body: JSON.stringify({ candidateBookIds, filters: JSON.parse(filtersKey), limit, query: trimmed, queryExpansionModel }),
           signal: controller.signal,
         });
         const json = await response.json().catch(() => ({}));
@@ -96,7 +103,7 @@ export function useSemanticBookSearch({
       window.clearTimeout(timeout);
       controller.abort();
     };
-  }, [candidateBookIds, candidateKey, enabled, limit, query, queryExpansionModel]);
+  }, [candidateKey, enabled, filtersKey, limit, query, queryExpansionModel]);
 
   return state;
 }

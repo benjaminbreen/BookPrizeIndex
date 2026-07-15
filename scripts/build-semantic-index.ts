@@ -28,7 +28,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "public", "catalog.json");
 const defaultOutputPath = path.join(root, "data", "public", "book-semantic-index.json");
-const defaultReportPath = path.join(root, "data", "public", "book-semantic-index-report.json");
+const defaultReportPath = path.join(root, "data", "reports", "book-semantic-index-report.json");
 const INPUT_VERSION = 1;
 
 function parseArgs(): Args {
@@ -69,7 +69,8 @@ async function main() {
     const cached = existingByBook.get(row.bookId);
     return !cached || cached.inputHash !== row.inputHash || cached.embedding.length !== args.dimensions;
   });
-  const estimatedCost = missing.reduce((sum, row) => sum + costEmbedding(estimateTokens(row.text), args.embeddingModel), 0);
+  const estimatedInputTokens = missing.reduce((sum, row) => sum + estimateTokens(row.text), 0);
+  const estimatedCost = costEmbedding(estimatedInputTokens, args.embeddingModel);
   if (estimatedCost > args.budgetUsd) {
     throw new Error(`Semantic index embeddings would exceed budget: $${estimatedCost.toFixed(4)} > $${args.budgetUsd}.`);
   }
@@ -111,6 +112,7 @@ async function main() {
     books: prepared.length,
     embedded: missing.length,
     reused: prepared.length - missing.length,
+    estimatedInputTokens,
     estimatedSpendUsd: Number(estimatedCost.toFixed(4)),
     outputPath: path.relative(root, args.outputPath),
   };
@@ -150,6 +152,10 @@ function prepareBookRow(
     narrativeScore: book.readerProfile?.narrativeScore,
     accessibilityScore: book.readerProfile?.accessibilityScore,
     scholarlyScore: book.readerProfile?.scholarlyScore,
+    centralFigures: book.experimentalSemanticProfile?.centralFigures.map((figure) => figure.name) ?? book.centralFigures,
+    centralPlaces: book.experimentalSemanticProfile?.centralPlaces.map((place) => place.name) ?? [],
+    academicOrientationScore: book.experimentalSemanticProfile?.academicOrientation.score,
+    academicOrientationConfidence: book.experimentalSemanticProfile?.academicOrientation.confidence,
     recognitionScore,
     text,
     searchText: normalizeForSearch(text),
@@ -220,6 +226,7 @@ async function loadEnvLocal() {
 }
 
 async function embedBatch(input: string[], args: Args) {
+  if (args.dryRun) return input.map(() => Array.from({ length: args.dimensions }, () => 0));
   if (!process.env.OPENAI_API_KEY) {
     throw new Error("OPENAI_API_KEY is required to build the semantic search index.");
   }

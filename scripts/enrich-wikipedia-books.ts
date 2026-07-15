@@ -73,17 +73,20 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const outputDir = path.join(root, "sources", "enrichment");
 const publicDataDir = path.join(root, "data", "public");
+const reportsDataDir = path.join(root, "data", "reports");
 const outputPath = path.join(outputDir, "wikipedia.generated.json");
-const reportPath = path.join(publicDataDir, "wikipedia-enrichment-report.json");
+const reportPath = path.join(reportsDataDir, "wikipedia-enrichment-report.json");
 const limit = positiveNumber(readArg("--limit") ?? process.env.WIKIPEDIA_ENRICH_LIMIT, 25);
 const concurrency = positiveNumber(readArg("--concurrency") ?? process.env.WIKIPEDIA_ENRICH_CONCURRENCY, 1);
 const minRequestInterval = positiveNumber(readArg("--request-delay") ?? process.env.WIKIPEDIA_ENRICH_REQUEST_DELAY, 900);
 const minScore = Number(readArg("--min-score") ?? process.env.WIKIPEDIA_ENRICH_MIN_SCORE ?? "0.74");
 const checkpointEvery = positiveNumber(readArg("--checkpoint-every") ?? process.env.WIKIPEDIA_ENRICH_CHECKPOINT_EVERY, 0);
+const minimumLists = positiveNumber(readArg("--min-lists") ?? process.env.WIKIPEDIA_ENRICH_MIN_LISTS, 0);
 const retry = hasArg("--retry") || process.env.WIKIPEDIA_ENRICH_RETRY === "1";
 const writeSummary = hasArg("--write-summary") || process.env.WIKIPEDIA_ENRICH_WRITE_SUMMARY === "1";
 const missingSummaryOnly = hasArg("--missing-summary-only") || process.env.WIKIPEDIA_ENRICH_MISSING_SUMMARY_ONLY === "1";
 const requestedBookIds = new Set((readArg("--book-ids") ?? process.env.WIKIPEDIA_ENRICH_BOOK_IDS ?? "").split(",").map((item) => item.trim()).filter(Boolean));
+const requestedFields = new Set((readArg("--fields") ?? process.env.WIKIPEDIA_ENRICH_FIELDS ?? "").split(",").map((item) => item.trim()).filter(Boolean));
 let lastRequestAt = 0;
 
 async function main() {
@@ -96,7 +99,7 @@ async function main() {
   let checkpointChain = Promise.resolve();
 
   await fs.mkdir(outputDir, { recursive: true });
-  await fs.mkdir(publicDataDir, { recursive: true });
+  await Promise.all([publicDataDir, reportsDataDir].map((dir) => fs.mkdir(dir, { recursive: true })));
 
   const checkpoint = async (force = false) => {
     if (!force && (!checkpointEvery || completedCount % checkpointEvery !== 0)) return;
@@ -136,6 +139,8 @@ async function writeOutputs(
       minScore,
       requestDelay: minRequestInterval,
       checkpointEvery,
+      minimumLists,
+      requestedFields: [...requestedFields],
       skippedPreviousReviewCount,
       selectedCount,
       completedCount: report.length,
@@ -256,6 +261,8 @@ function selectBooks(patch: WikipediaGeneratedPatch, previousReviewBookIds: Set<
     ? data.books.filter((book) => requestedBookIds.has(book.id) || requestedBookIds.has(book.slug))
     : data.books;
   return books
+    .filter((book) => !minimumLists || getBookStats(book.id).lists >= minimumLists)
+    .filter((book) => !requestedFields.size || [...requestedFields].some((field) => isMissingRequestedField(book, field)))
     .filter((book) => !missingSummaryOnly || !book.summary)
     .filter((book) => !previousReviewBookIds.has(book.id))
     .filter((book) => retry || !book.links.wikipedia || !patch.wikipediaEvidence[book.id])
@@ -284,7 +291,19 @@ function wikipediaPriorityScore(book: Book) {
   if (!book.links.wikipedia) score += 8;
   if (!book.summary) score += 3;
   if (!book.isbn13.length) score += 3;
+  if (!book.pageCount) score += 3;
   return score;
+}
+
+function isMissingRequestedField(book: Book, field: string) {
+  if (field === "publisher" || field === "publisherId") return !book.publisherId;
+  if (field === "imprint" || field === "imprintId") return !book.imprintId;
+  if (field === "pageCount") return !book.pageCount;
+  if (field === "summary") return !book.summary;
+  if (field === "isbn13") return !book.isbn13.length;
+  if (field === "publicationYear") return !book.publicationYear;
+  if (field === "wikipedia") return !book.links.wikipedia;
+  return false;
 }
 
 async function fetchCandidatePages(book: Book): Promise<CandidatePage[]> {
@@ -367,8 +386,8 @@ function scoreCandidate(book: Book, page: CandidatePage): MatchResult {
   const confidence = score >= 0.9 && authorScore >= 0.5 ? "high" : score >= minScore ? "medium" : "low";
   const accepted = score >= minScore
     && titleScore >= 0.72
-    && (authorScore >= 0.35 || bookness > 0)
-    && (bookness > 0 || confidence === "high");
+    && bookness > 0
+    && (authorScore >= 0.35 || Boolean(page.infobox));
   return {
     page,
     score,
@@ -472,8 +491,9 @@ function cleanExtract(value: string | undefined) {
 }
 
 function isBookPage(page: CandidatePage) {
-  const text = `${page.extract ?? ""} ${page.wikitext.slice(0, 1800)}`.toLowerCase();
-  return Boolean(page.infobox) || /\b(book|non[- ]fiction|memoir|biography|novel|essay collection)\b/.test(text);
+  if (page.infobox) return true;
+  const lead = page.extract?.slice(0, 520).toLowerCase() ?? "";
+  return /\b(?:is|was|are|were)\s+(?:an?\s+|the\s+)?(?:\d{4}\s+)?(?:non[- ]fiction\s+|history\s+|graphic\s+)?(?:book|memoir|biography|autobiography|essay collection)\b/.test(lead);
 }
 
 function containsAuthorSignal(page: CandidatePage, book: Book) {

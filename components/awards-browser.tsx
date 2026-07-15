@@ -96,7 +96,7 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
         </div>
 
         <div className="grid md:hidden">
-          {rows.map((row, index) => (
+          {rows.length ? rows.map((row, index) => (
             <Link
               className="subjects-row mobile-browse-row block border-b hairline px-3 py-3 transition last:border-b-0 hover:bg-[var(--accent-soft)]"
               href={`/awards/${row.slug}`}
@@ -122,7 +122,13 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
                 {row.subjects.slice(0, 3).join(", ")}{row.subjects.length > 3 ? ` +${row.subjects.length - 3}` : ""}
               </span>
             </Link>
-          ))}
+          )) : (
+            <AwardEmptyState onReset={() => {
+              setQuery("");
+              setGeography("all");
+              setBookType("all");
+            }} />
+          )}
         </div>
 
         <div className="hidden overflow-x-auto md:block">
@@ -140,7 +146,7 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
               </tr>
             </thead>
             <tbody>
-              {rows.map((row, index) => (
+              {rows.length ? rows.map((row, index) => (
                 <tr
                   className="subjects-row cursor-pointer border-b hairline"
                   key={row.id}
@@ -175,12 +181,34 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
                     </Link>
                   </td>
                 </tr>
-              ))}
+              )) : (
+                <tr>
+                  <td colSpan={8}>
+                    <AwardEmptyState onReset={() => {
+                      setQuery("");
+                      setGeography("all");
+                      setBookType("all");
+                    }} />
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
       </section>
     </main>
+  );
+}
+
+function AwardEmptyState({ onReset }: { onReset: () => void }) {
+  return (
+    <div className="px-4 py-14 text-center sm:px-6">
+      <p className="text-lg">No awards match the current filters.</p>
+      <p className="mt-2 text-sm muted">Try a broader search, include all regions, or reset book type.</p>
+      <button className="filter-action focus-ring mt-5 inline-flex items-center gap-2 px-4 py-3 text-sm" onClick={onReset} type="button">
+        Show all awards
+      </button>
+    </div>
   );
 }
 

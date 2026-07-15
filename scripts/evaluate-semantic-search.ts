@@ -39,7 +39,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const indexPath = resolveRootPath(readArg("--index") ?? "data/public/book-semantic-index.json");
 const evaluationPath = path.join(root, "data", "semantic-evaluation-queries.json");
-const reportPath = resolveRootPath(readArg("--report") ?? "data/public/semantic-evaluation-report.json");
+const reportPath = resolveRootPath(readArg("--report") ?? "data/reports/semantic-evaluation-report.json");
 const limit = positiveNumber(readArg("--limit"), 25);
 
 async function main() {

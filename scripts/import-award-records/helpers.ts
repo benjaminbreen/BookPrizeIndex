@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import type { PrizeRegistryEntry, RawAwardRecord } from "../../lib/award-records";
+import { findRawRecordQualityIssues } from "./quality";
 
 export const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const root = path.resolve(__dirname, "..", "..");
@@ -19,8 +20,7 @@ export function slugify(input: string) {
 }
 
 export function cleanText(input: string) {
-  return input
-    .replace(/&nbsp;/g, " ")
+  return decodeHtmlEntities(input)
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -32,12 +32,31 @@ export async function readPrizeRegistry() {
 
 export async function writeRawAwardRecords(fileName: string, records: RawAwardRecord[], metadata: Record<string, unknown>) {
   await fs.mkdir(rawAwardRecordsDir, { recursive: true });
+  const outputPath = path.join(rawAwardRecordsDir, fileName);
+  const qualityIssues = findRawRecordQualityIssues(records);
+  if (qualityIssues.length) {
+    const summary = qualityIssues
+      .slice(0, 12)
+      .map((issue) => `${issue.code}: ${issue.year} ${JSON.stringify(issue.title)}`)
+      .join("\n");
+    throw new Error(`Refusing to write ${fileName}: ${qualityIssues.length} semantic quality issue(s).\n${summary}`);
+  }
+  if (!process.argv.includes("--allow-historical-rewrite")) {
+    const historicalRegressions = await findHistoricalRegressions(outputPath, records);
+    if (historicalRegressions.length) {
+      throw new Error(
+        `Refusing to rewrite ${historicalRegressions.length} established historical record(s) in ${fileName}. ` +
+        `Use a source-backed curation change, or rerun with --allow-historical-rewrite after reviewing the diff.\n` +
+        historicalRegressions.slice(0, 12).join("\n"),
+      );
+    }
+  }
   const output = {
     generatedAt: new Date().toISOString(),
     metadata,
     records,
   };
-  await fs.writeFile(path.join(rawAwardRecordsDir, fileName), `${JSON.stringify(output, null, 2)}\n`);
+  await fs.writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`);
 }
 
 export async function fetchMediaWikiWikitext(pageTitle: string) {
@@ -78,7 +97,7 @@ export async function fetchMediaWikiWikitext(pageTitle: string) {
 }
 
 export function wikiToPlainText(input: string) {
-  let output = input;
+  let output = decodeHtmlEntities(input);
 
   output = output.replace(/\{\{[Ss]ortname\|([^{}]+)\}\}/g, (_match, body: string) => {
     const parts = body.split("|").map((part) => part.trim()).filter(Boolean);
@@ -111,9 +130,6 @@ export function wikiToPlainText(input: string) {
   output = output.replace(/[†‡]/g, "");
   output = output.replace(/data-sort-value="[^"]*"\s*\|/g, "");
   output = output.replace(/'{2,}/g, "");
-  output = output.replace(/&ndash;/g, "-");
-  output = output.replace(/&mdash;/g, "-");
-  output = output.replace(/&amp;/g, "&");
   output = output.replace(/<!--[\s\S]*?-->/g, "");
 
   return cleanText(output);
@@ -124,17 +140,74 @@ export function stripCellAttributes(input: string) {
   const pipeIndex = trimmed.indexOf("|");
   if (pipeIndex === -1) return trimmed;
   const beforePipe = trimmed.slice(0, pipeIndex);
-  if (/^(?:rowspan|colspan|scope|style|class|data-sort-value|width|align)\b/i.test(beforePipe.trim())) {
+  if (/^(?:rowspan|colspan|scope|style|class|data-sort-value|width|align|bgcolor)\b/i.test(beforePipe.trim())) {
     return trimmed.slice(pipeIndex + 1).trim();
   }
   return trimmed;
 }
 
 export function normalizeAuthorList(input: string) {
-  return input
+  return decodeHtmlEntities(input)
     .split(/\s+(?:and|&)\s+|;\s*/)
     .map((item) => cleanText(item))
     .filter(Boolean);
+}
+
+export function decodeHtmlEntities(input: string) {
+  const named: Record<string, string> = {
+    amp: "&",
+    apos: "'",
+    auml: "ä",
+    ccedil: "ç",
+    eacute: "é",
+    egrave: "è",
+    iacute: "í",
+    ldquo: "“",
+    lsquo: "‘",
+    mdash: "—",
+    nbsp: " ",
+    ndash: "–",
+    oacute: "ó",
+    ouml: "ö",
+    quot: "\"",
+    rdquo: "”",
+    rsquo: "’",
+    scaron: "š",
+    uacute: "ú",
+    uuml: "ü",
+  };
+  return input.replace(/&(#(?:x[\da-f]+|\d+)|[a-z][a-z\d]+);/gi, (entity, body: string) => {
+    if (body.startsWith("#x") || body.startsWith("#X")) return String.fromCodePoint(Number.parseInt(body.slice(2), 16));
+    if (body.startsWith("#")) return String.fromCodePoint(Number.parseInt(body.slice(1), 10));
+    return named[body.toLowerCase()] ?? entity;
+  });
+}
+
+async function findHistoricalRegressions(outputPath: string, records: RawAwardRecord[]) {
+  let existing: RawAwardRecord[] = [];
+  try {
+    const parsed = JSON.parse(await fs.readFile(outputPath, "utf8")) as { records?: RawAwardRecord[] };
+    existing = parsed.records ?? [];
+  } catch {
+    return [];
+  }
+  if (!existing.length) return [];
+  const latestExistingYear = Math.max(...existing.map((record) => record.year));
+  const refreshedKeys = new Set(records.map(stableHistoricalKey));
+  return existing
+    .filter((record) => record.year < latestExistingYear && !refreshedKeys.has(stableHistoricalKey(record)))
+    .map((record) => `${record.year} ${record.status}: ${record.title} — ${record.authors.join("; ")}`);
+}
+
+function stableHistoricalKey(record: RawAwardRecord) {
+  return [
+    record.awardId,
+    record.categoryId,
+    record.year,
+    record.status,
+    slugify(record.title),
+    record.authors.map(slugify).sort().join("+"),
+  ].join(":");
 }
 
 export function isLikelyTitle(value: string) {

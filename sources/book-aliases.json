@@ -3,6 +3,11 @@
   "notes": "Reviewed book identity aliases. Build uses these to merge duplicate book records and repoint award appearances. Add aliases only after inspecting data/public/book-duplicate-review.json or source records.",
   "aliases": [
     {
+      "canonicalBookId": "book-caste-the-origins-of-our-discontents-isabel-wilkerson",
+      "duplicateBookIds": ["book-caste-the-origins-of-our-discontent-isabel-wilkerson"],
+      "reason": "Same Isabel Wilkerson book; one award record dropped the final 's' from the subtitle. The plural-title record has the correct title and the fuller award history."
+    },
+    {
       "canonicalBookId": "book-our-migrant-souls-a-meditation-on-race-and-the-meanings-and-myths-of-latino-hector-tobar",
       "duplicateBookIds": ["book-our-migrant-souls-a-meditation-on-the-meanings-and-myths-of-latino-hector-tobar"],
       "reason": "Shared ISBN and similar title."
@@ -589,6 +594,76 @@
       "canonicalBookId": "book-how-music-got-free-the-end-of-an-industry-the-turn-of-the-century-and-the-patient-zero-of-piracy",
       "duplicateBookIds": ["book-how-music-got-free-what-happens-when-an-entire-generation-commits-the-same-crime-stephen-witt"],
       "reason": "Same Stephen Witt book with US/UK subtitle variant exposed after raw markup cleanup."
+    },
+    {
+      "canonicalBookId": "book-american-slavery-american-freedom-the-ordeal-of-colonial-virginia-edmund-morgan",
+      "duplicateBookIds": ["book-american-slavery-american-freedom-edmund-s-morgan"],
+      "reason": "Shared ISBN and matching title/author; canonical keeps the full subtitle."
+    },
+    {
+      "canonicalBookId": "book-anti-intellectualism-in-american-life-richard-hofstadter",
+      "duplicateBookIds": ["book-anti-lntellectualism-in-american-life-richard-hofstadter"],
+      "reason": "Same book; duplicate title contains a lowercase-L OCR error for the initial I."
+    },
+    {
+      "canonicalBookId": "book-at-canaan-s-edge-america-in-the-king-years-1965-1968-taylor-branch",
+      "duplicateBookIds": ["book-at-canaan-s-edge-america-in-the-king-years-1965-68-taylor-branch"],
+      "reason": "Shared ISBN and matching author; title differs only in year-range styling."
+    },
+    {
+      "canonicalBookId": "book-black-folk-the-roots-of-the-black-working-class-blair-l-m-kelley",
+      "duplicateBookIds": ["book-black-folk-blair-lm-kelley"],
+      "reason": "Shared ISBN and matching author; canonical keeps the full subtitle and author initials."
+    },
+    {
+      "canonicalBookId": "book-civic-ideals-rogers-m-smith",
+      "duplicateBookIds": ["book-civic-ideals-conflicting-visions-of-citizenship-in-u-s-history-rogers-smith"],
+      "reason": "Shared ISBN and matching author; canonical keeps the author's middle initial."
+    },
+    {
+      "canonicalBookId": "book-dreamland-the-true-story-of-america-s-opiate-epidemic-sam-quinones",
+      "duplicateBookIds": ["book-dreamland-the-true-tale-of-america-s-opiate-epidemic-sam-quinones"],
+      "reason": "Shared ISBN and matching author; minor subtitle wording variant."
+    },
+    {
+      "canonicalBookId": "book-freedom-papers-an-atlantic-odyssey-in-the-age-of-emancipation-jean-m-hebrard-and-rebecca-j-scott",
+      "duplicateBookIds": ["book-freedom-papers-an-atlantic-odyssey-in-the-age-of-emancipation-rebecca-scott-and-jean-hebrard"],
+      "reason": "Shared ISBN; same coauthors in reversed order with normalized diacritics."
+    },
+    {
+      "canonicalBookId": "book-his-name-is-george-floyd-one-man-s-life-and-the-struggle-for-racial-justice-robert-samuels-and-t",
+      "duplicateBookIds": ["book-his-name-is-george-floyd-one-man-s-life-and-the-struggle-for-racial-justice-toluse-olorunnipa-an"],
+      "reason": "Shared ISBN; same coauthors in reversed order."
+    },
+    {
+      "canonicalBookId": "book-hitler-1936-1945-nemesis-ian-kershaw",
+      "duplicateBookIds": ["book-hitler-1936-45-nemesis-ian-kershaw"],
+      "reason": "Shared ISBN and matching author; year range is abbreviated in one record."
+    },
+    {
+      "canonicalBookId": "book-wilson-a-scott-berg",
+      "duplicateBookIds": ["book-scott-wilson-a-berg"],
+      "reason": "Shared ISBN; malformed title/author split turned A. Scott Berg's Wilson into Scott. Wilson by A. Berg."
+    },
+    {
+      "canonicalBookId": "book-the-innovators-how-a-group-of-inventors-hackers-geniuses-and-geeks-created-the-digital-revolutio",
+      "duplicateBookIds": ["book-the-innovators-how-a-group-of-hackers-geniuses-and-geeks-created-the-digital-revolution-walter-i"],
+      "reason": "Shared ISBN and matching author; canonical keeps the full first-edition subtitle."
+    },
+    {
+      "canonicalBookId": "book-by-hands-now-known-jim-crow-s-legal-executioners-margaret-a-burnham",
+      "duplicateBookIds": ["book-by-hands-now-known-jim-crow-s-legal-executioners-margaret-burnham"],
+      "reason": "Same title and author; separate hardcover/paperback ISBNs had produced duplicate book records."
+    },
+    {
+      "canonicalBookId": "book-house-of-huawei-inside-the-secret-world-of-china-s-most-powerful-company-eva-dou",
+      "duplicateBookIds": ["book-house-of-huawei-the-secret-history-of-china-s-most-powerful-company-eva-dou"],
+      "reason": "Same Eva Dou book under UK and North American subtitle variants; canonical record retains the existing ISBN-backed metadata."
+    },
+    {
+      "canonicalBookId": "book-becoming-earth-how-our-planet-came-to-life-ferris-jabr",
+      "duplicateBookIds": ["book-becoming-earth-a-journey-through-the-hidden-wonders-that-bring-our-planet-to-life-ferris-jabr"],
+      "reason": "Same Ferris Jabr book under the publisher subtitle and the longer subtitle used by the SEJ award page."
     }
   ]
 }

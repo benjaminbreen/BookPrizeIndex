@@ -119,6 +119,8 @@ export function bookSearchText(book: Book) {
     imprint,
     book.subjects.join(" "),
     book.centralFigures.join(" "),
+    book.experimentalSemanticProfile?.centralPlaces.map((place) => place.name).join(" "),
+    book.experimentalSemanticProfile?.argument.present ? book.experimentalSemanticProfile.argument.statement : "",
     appearances,
     book.summary,
   ]

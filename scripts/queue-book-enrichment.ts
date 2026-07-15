@@ -33,15 +33,19 @@ type QueueRow = {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const publicDataDir = path.join(root, "data", "public");
-const attemptsPath = path.join(publicDataDir, "book-enrichment-attempts.json");
+const cacheDataDir = path.join(root, "data", "cache");
+const reportsDataDir = path.join(root, "data", "reports");
+const attemptsPath = path.join(cacheDataDir, "book-enrichment-attempts.json");
 const limit = Number(process.env.ENRICH_LIMIT ?? readArg("--limit") ?? "100");
 const requestedLane = parseLane(readArg("--lane") ?? process.env.ENRICH_LANE);
 const requestedFields = parseMissingFieldSet(readArg("--fields") ?? process.env.ENRICH_FIELDS);
+const minimumLists = Number(readArg("--min-lists") ?? process.env.ENRICH_MIN_LISTS ?? "0");
 
 async function main() {
   const generatedAt = new Date().toISOString();
   const attempts = await readAttempts();
   const queue = data.books
+    .filter((book) => getBookStats(book.id).lists >= minimumLists)
     .map((book) => toQueueRow(book, attempts[book.id]))
     .filter((row) => row.missingFields.length > 0)
     .filter((row) => !requestedLane || row.lane === requestedLane)
@@ -49,13 +53,13 @@ async function main() {
     .sort(compareEnrichmentPriority)
     .slice(0, limit);
 
-  await fs.mkdir(publicDataDir, { recursive: true });
+  await Promise.all([publicDataDir, cacheDataDir, reportsDataDir].map((dir) => fs.mkdir(dir, { recursive: true })));
   await fs.writeFile(
-    path.join(publicDataDir, "book-enrichment-queue.json"),
-    `${JSON.stringify({ generatedAt, limit, lane: requestedLane, fields: requestedFields ? [...requestedFields] : undefined, count: queue.length, lanes: summarizeLanes(queue), queue }, null, 2)}\n`,
+    path.join(reportsDataDir, "book-enrichment-queue.json"),
+    `${JSON.stringify({ generatedAt, limit, minimumLists, lane: requestedLane, fields: requestedFields ? [...requestedFields] : undefined, count: queue.length, lanes: summarizeLanes(queue), queue }, null, 2)}\n`,
   );
 
-  console.log(`Queued ${queue.length} books for enrichment. Report written to data/public/book-enrichment-queue.json.`);
+  console.log(`Queued ${queue.length} books for enrichment. Report written to data/reports/book-enrichment-queue.json.`);
 }
 
 async function readAttempts(): Promise<Record<string, EnrichmentAttemptLike>> {

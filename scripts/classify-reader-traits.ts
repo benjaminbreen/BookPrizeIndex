@@ -33,7 +33,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const taxonomyPath = path.join(root, "sources", "reader-traits.json");
 const outputPath = path.join(root, "sources", "enrichment", "reader-traits.generated.json");
-const reportPath = path.join(root, "data", "public", "reader-traits-report.json");
+const reportPath = path.join(root, "data", "reports", "reader-traits-report.json");
 const limit = positiveNumber(readArg("--limit"), data.books.length);
 
 async function main() {

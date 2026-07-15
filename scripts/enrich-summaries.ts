@@ -18,7 +18,7 @@ import {
   type EnrichmentLane,
 } from "./book-enrichment-priority";
 
-type Provider = "all" | "open_library" | "google_books" | "open_library_dump";
+type Provider = "all" | "open_library" | "google_books" | "apple_books" | "open_library_dump";
 
 type GeneratedSummaryPatch = {
   generatedAt: string;
@@ -77,16 +77,27 @@ type GoogleVolume = {
     authors?: string[];
     description?: string;
     pageCount?: number;
+    publisher?: string;
     publishedDate?: string;
     industryIdentifiers?: { type?: string; identifier?: string }[];
     categories?: string[];
+    imageLinks?: Record<string, string>;
     canonicalVolumeLink?: string;
     infoLink?: string;
   };
 };
 
+type AppleBook = {
+  trackId?: number;
+  trackName?: string;
+  artistName?: string;
+  description?: string;
+  trackViewUrl?: string;
+  kind?: string;
+};
+
 type Candidate = {
-  provider: "open_library_dump" | "open_library" | "google_books";
+  provider: "open_library_dump" | "open_library" | "google_books" | "apple_books";
   via: "isbn" | "search" | "dump";
   title?: string;
   author?: string;
@@ -128,16 +139,21 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const outputDir = path.join(root, "sources", "enrichment");
 const publicDataDir = path.join(root, "data", "public");
+const cacheDataDir = path.join(root, "data", "cache");
+const reportsDataDir = path.join(root, "data", "reports");
 const outputPath = path.join(outputDir, "summaries.generated.json");
-const reportPath = path.join(publicDataDir, "summary-enrichment-report.json");
-const cachePath = path.join(publicDataDir, "summary-enrichment-provider-cache.json");
-const attemptsPath = path.join(publicDataDir, "summary-enrichment-attempts.json");
-const isbnDiscoveryReportPath = path.join(publicDataDir, "isbn-discovery-report.json");
+const reportPath = path.join(reportsDataDir, "summary-enrichment-report.json");
+const cachePath = path.join(cacheDataDir, "summary-enrichment-provider-cache.json");
+const attemptsPath = path.join(cacheDataDir, "summary-enrichment-attempts.json");
+const isbnDiscoveryReportPath = path.join(reportsDataDir, "isbn-discovery-report.json");
 
 loadEnvLocal();
 
 const args = parseArgs();
-const requestDelayMs = positiveNumber(args["request-delay-ms"], args.provider === "google_books" ? 1200 : 350);
+const requestDelayMs = positiveNumber(
+  args["request-delay-ms"],
+  args.provider === "google_books" ? 1200 : args.provider === "apple_books" ? 3200 : 350,
+);
 const refreshCacheProviders = new Set((args["refresh-cache-provider"] ?? "").split(",").map((item) => item.trim()).filter(Boolean));
 let lastRequestAt = 0;
 
@@ -153,6 +169,7 @@ async function main() {
   const retryFailures = Boolean(args["retry-failures"]);
   const selected = data.books
     .filter((book) => !book.summary)
+    .filter((book) => getBookStats(book.id).lists >= args["min-lists"])
     .filter((book) => !args["isbn-only"] || normalizedIsbns(book).length > 0)
     .filter((book) => !requestedBookIds.size || requestedBookIds.has(book.id) || requestedBookIds.has(book.slug))
     .filter((book) => !excludedAttemptProviders.has(attempts[book.id]?.provider ?? ""))
@@ -170,7 +187,7 @@ async function main() {
   let checkpointChain = Promise.resolve();
 
   await fs.mkdir(outputDir, { recursive: true });
-  await fs.mkdir(publicDataDir, { recursive: true });
+  await Promise.all([publicDataDir, cacheDataDir, reportsDataDir].map((dir) => fs.mkdir(dir, { recursive: true })));
 
   const checkpoint = async (force = false) => {
     if (args["dry-run"]) return;
@@ -322,6 +339,12 @@ async function fetchBestCandidate(book: Book, author: string, cache: CacheFile) 
       : await fetchGoogleCandidate(book, author, cache).catch(() => undefined);
     if (google) candidates.push(google);
   }
+  if (!candidates.some((candidate) => candidate.description) && (args.provider === "all" || args.provider === "apple_books")) {
+    const apple = args.provider === "apple_books"
+      ? await fetchAppleCandidate(book, author, cache)
+      : await fetchAppleCandidate(book, author, cache).catch(() => undefined);
+    if (apple) candidates.push(apple);
+  }
   return candidates.sort((a, b) => candidateRank(b) - candidateRank(a))[0];
 }
 
@@ -368,12 +391,50 @@ async function fetchGoogleCandidate(book: Book, author: string, cache: CacheFile
   return match ? googleCandidate(book, match.item, match.score, "search") : undefined;
 }
 
+async function fetchAppleCandidate(book: Book, author: string, cache: CacheFile): Promise<Candidate | undefined> {
+  const candidates: Candidate[] = [];
+  const countries = args["apple-countries"];
+  if (!args["isbn-only"]) {
+    for (const country of countries) {
+      const params = new URLSearchParams({
+        term: `${book.title} ${primaryAuthor(author)}`,
+        country,
+        media: "ebook",
+        entity: "ebook",
+        limit: "10",
+        explicit: "No",
+      });
+      const json = await fetchJson<{ results?: AppleBook[] }>(`https://itunes.apple.com/search?${params}`, cache);
+      const match = bestAppleMatch(book, author, json.results ?? []);
+      if (!match) continue;
+      const candidate = appleCandidate(book, match.item, match.score, "search");
+      candidates.push(candidate);
+      if (match.score >= 0.9 && trimDescription(candidate.description)) return candidate;
+    }
+  }
+
+  if (!candidates.some((candidate) => isAcceptedCandidate(book, author, candidate) && trimDescription(candidate.description))) {
+    for (const country of countries) {
+      for (const isbn of normalizedIsbns(book).slice(0, 2)) {
+        const params = new URLSearchParams({ isbn, country, entity: "ebook" });
+        const json = await fetchJson<{ results?: AppleBook[] }>(`https://itunes.apple.com/lookup?${params}`, cache);
+        const match = bestAppleMatch(book, author, json.results ?? []);
+        if (!match) continue;
+        const candidate = appleCandidate(book, match.item, match.score, "isbn");
+        candidates.push(candidate);
+        if (trimDescription(candidate.description)) return candidate;
+      }
+    }
+  }
+  return candidates.sort((a, b) => candidateRank(b) - candidateRank(a))[0];
+}
+
 function googleVolumeParams(query: string) {
   const params = new URLSearchParams({
     q: query,
     maxResults: "5",
     printType: "books",
-    fields: "items(id,volumeInfo(title,authors,description,pageCount,publishedDate,industryIdentifiers,categories,canonicalVolumeLink,infoLink))",
+    fields: "items(id,volumeInfo(title,authors,description,pageCount,publisher,publishedDate,industryIdentifiers,categories,imageLinks,canonicalVolumeLink,infoLink))",
   });
   const apiKey = process.env.GOOGLE_BOOKS_API_KEY ?? process.env.GOOGLE_API_KEY;
   if (apiKey) params.set("key", apiKey);
@@ -521,6 +582,20 @@ function googleCandidate(book: Book, item: GoogleVolume, score: number, via: Can
   };
 }
 
+function appleCandidate(book: Book, item: AppleBook, score: number, via: Candidate["via"]): Candidate {
+  const description = cleanAppleDescription(item.description);
+  return {
+    provider: "apple_books",
+    via,
+    title: item.trackName,
+    author: item.artistName,
+    description: description && !isLowQualityAppleDescription(description) ? description : undefined,
+    url: item.trackViewUrl,
+    score,
+    sourceId: `source-apple-books-summary-${book.slug}`,
+  };
+}
+
 function buildPatch(book: Book, candidate: Candidate, generatedAt: string) {
   const patch: Partial<Book> = {};
   const fields: string[] = [];
@@ -553,7 +628,7 @@ function buildPatch(book: Book, candidate: Candidate, generatedAt: string) {
     patch.isbn13 = [candidate.isbn13];
     fields.push("isbn13");
   }
-  if (!book.links.publisher && candidate.url) {
+  if (candidate.provider !== "apple_books" && !book.links.publisher && candidate.url) {
     patch.links = { ...book.links, publisher: candidate.url };
     fields.push("links");
   }
@@ -571,9 +646,9 @@ async function fetchJson<T>(url: string, cache: CacheFile, retries = 2): Promise
   const cacheKey = redactUrlSecrets(url);
   const cached = cache.entries[cacheKey];
   if (cached && !shouldRefreshCache(url)) return cached.json as T;
-  await throttle();
+  await throttle(url);
   const response = await fetch(url, {
-    headers: { "User-Agent": "book-prize-index-summary-enrichment/0.1" },
+    headers: { "User-Agent": "BookPrizeIndex/1.0 (https://resobscura.substack.com)" },
     signal: AbortSignal.timeout(15_000),
   });
   if (response.status === 429 && retries > 0) {
@@ -589,6 +664,7 @@ async function fetchJson<T>(url: string, cache: CacheFile, retries = 2): Promise
 function shouldRefreshCache(url: string) {
   if (refreshCacheProviders.has("google_books") && url.includes("www.googleapis.com/books/")) return true;
   if (refreshCacheProviders.has("open_library") && url.includes("openlibrary.org/")) return true;
+  if (refreshCacheProviders.has("apple_books") && url.includes("itunes.apple.com/")) return true;
   return false;
 }
 
@@ -596,9 +672,10 @@ function redactUrlSecrets(url: string) {
   return url.replace(/([?&]key=)[^&]+/gi, "$1[REDACTED]");
 }
 
-async function throttle() {
+async function throttle(url: string) {
+  const minimumDelayMs = url.includes("itunes.apple.com/") ? Math.max(requestDelayMs, 3200) : requestDelayMs;
   const elapsed = Date.now() - lastRequestAt;
-  if (elapsed < requestDelayMs) await delay(requestDelayMs - elapsed);
+  if (elapsed < minimumDelayMs) await delay(minimumDelayMs - elapsed);
   lastRequestAt = Date.now();
 }
 
@@ -637,16 +714,25 @@ function bestGoogleMatch(book: Book, author: string, items: GoogleVolume[]) {
     .sort((a, b) => b.score - a.score)[0];
 }
 
+function bestAppleMatch(book: Book, author: string, items: AppleBook[]) {
+  return items
+    .filter((item) => item.kind === undefined || item.kind === "ebook")
+    .map((item) => ({ item, score: matchScore(book.title, author, item.trackName, item.artistName) }))
+    .sort((a, b) => b.score - a.score)[0];
+}
+
 function isAcceptedCandidate(book: Book, author: string, candidate: Candidate) {
-  if (candidate.via === "isbn" || candidate.via === "dump") return Boolean(candidate.title && !isDisallowedEdition(normalizeForMatch(candidate.title), normalizeForMatch(book.title)));
   if (!candidate.title) return false;
+  if (isDisallowedEdition(normalizeForMatch(candidate.title), normalizeForMatch(book.title))) return false;
+  if (candidate.via === "isbn" || candidate.via === "dump") return true;
   const titleScore = similarity(book.title, candidate.title);
   const authorScore = similarity(author, candidate.author ?? "");
   const shortTitle = normalizeForMatch(titleWithoutSubtitle(book.title));
   const candidateTitle = normalizeForMatch(candidate.title);
-  const containedMainTitle = shortTitle.length >= 8 && candidateTitle.startsWith(shortTitle);
+  const containedMainTitle = shortTitle.length >= 8 && candidateTitle.length >= 8
+    && (candidateTitle.startsWith(shortTitle) || shortTitle.startsWith(candidateTitle));
   if (authorScore >= 0.55 && containedMainTitle) return true;
-  return candidate.score >= args.minScore && authorScore >= 0.55 && titleScore >= 0.58;
+  return candidate.score >= args.minScore && authorScore >= 0.55 && titleScore >= 0.72;
 }
 
 function matchScore(title: string, author: string, candidateTitle?: string, candidateAuthor?: string) {
@@ -681,21 +767,105 @@ function titleWithoutSubtitle(title: string) {
 }
 
 function isDisallowedEdition(candidate: string, title: string) {
-  const disallowed = ["adaptation", "young readers", "study guide", "summary", "companion", "collection set", "illustrated"];
+  const disallowed = ["adaptation", "young readers", "study guide", "summary", "companion", "collection set", "illustrated", "workbook"];
   if (disallowed.some((term) => candidate.includes(term) && !title.includes(term))) return true;
   if (candidate.includes("short history of") && !title.includes("short history")) return true;
   if (/\bvolumes?\b/.test(candidate) && !/\bvolumes?\b|\bvol\.?\b/.test(title)) return true;
+  if (/\b\d{1,2}(?:st|nd|rd|th)\s+(?:ed|edition)\b/.test(candidate) && !/\b\d{1,2}(?:st|nd|rd|th)\s+(?:ed|edition)\b/.test(title)) return true;
   return false;
 }
 
 function trimDescription(description?: string) {
   if (!description) return undefined;
-  const cleaned = description
+  const cleaned = decodeHtmlEntities(description)
     .replace(/<[^>]+>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
   if (cleaned.length < 80) return undefined;
-  return cleaned.slice(0, 1400).trim();
+  if (cleaned.length <= 1400) {
+    if (/[.!?]["'’”)]?$/.test(cleaned)) return cleaned;
+    const endings = [...cleaned.matchAll(/[.!?]["'’”)]?(?=\s|$)/g)];
+    const last = endings.at(-1);
+    if (last?.index !== undefined && last.index >= 80) return cleaned.slice(0, last.index + last[0].length).trim();
+    return undefined;
+  }
+  const clipped = cleaned.slice(0, 1400).trim();
+  const endings = [...clipped.matchAll(/[.!?]["'’”)]?(?=\s|$)/g)];
+  const last = endings.at(-1);
+  if (last?.index !== undefined && last.index >= 670) {
+    return clipped.slice(0, last.index + last[0].length).trim();
+  }
+  return `${clipped.replace(/\s+\S*$/, "").replace(/[,;:\s]+$/, "")}…`;
+}
+
+function cleanAppleDescription(description?: string) {
+  if (!description) return undefined;
+  const paragraphs = decodeHtmlEntities(description)
+    .replace(/<br\s*\/?>/gi, "\n")
+    .replace(/<\/(?:p|div|li)>/gi, "\n\n")
+    .replace(/<[^>]+>/g, " ")
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.replace(/\s+/g, " ").trim())
+    .filter(Boolean);
+  while (paragraphs.length > 1 && isPromotionalAppleLead(paragraphs[0])) paragraphs.shift();
+  return paragraphs
+    .join("\n\n")
+    .replace(/^(?=[^•·]{0,140}\b(?:winner|finalist|bestseller|book of the year)\b)[^•·]{1,140}[•·]\s*/i, "")
+    .replace(/\s+(?:praise|acclaim|reviews?)\s+for\b[\s\S]*$/i, "")
+    .trim();
+}
+
+function isPromotionalAppleLead(paragraph: string) {
+  const normalized = paragraph.toLowerCase();
+  const markers = [
+    /\bwinner\b/,
+    /\bfinalist\b/,
+    /\bshortlist(?:ed)?\b/,
+    /\blonglist(?:ed)?\b/,
+    /\bbest(?:selling|seller)\b/,
+    /\bbook of the year\b/,
+    /\bnamed (?:one of|a)\b/,
+    /\beditors?['’]? choice\b/,
+  ];
+  const markerCount = markers.filter((marker) => marker.test(normalized)).length;
+  return markerCount >= 2 || /^(?:winner|finalist|shortlisted|longlisted|named one of|a (?:new york times|national) bestseller)\b/i.test(paragraph);
+}
+
+function isLowQualityAppleDescription(description: string) {
+  const normalized = description.toLowerCase();
+  const markers = [
+    /\bdelivers? (?:a|an) (?:compelling|captivating|powerful|thought-provoking)\b/,
+    /\brich in (?:emotional|historical|cultural)\b/,
+    /\bthe protagonist navigates?\b/,
+    /\bengaging and (?:thoughtful|insightful|moving)\b/,
+    /\b(?:compelling|captivating|insightful|thought-provoking) read\b/,
+    /\breaders (?:will|are invited to)\b/,
+    /\bthis (?:compelling|captivating|powerful) (?:book|story|work)\b/,
+  ];
+  return markers.filter((marker) => marker.test(normalized)).length >= 2;
+}
+
+function decodeHtmlEntities(value: string) {
+  const named: Record<string, string> = {
+    amp: "&",
+    apos: "'",
+    gt: ">",
+    hellip: "…",
+    ldquo: "“",
+    lsquo: "‘",
+    lt: "<",
+    mdash: "—",
+    nbsp: " ",
+    ndash: "–",
+    quot: '"',
+    rdquo: "”",
+    rsquo: "’",
+  };
+  return value.replace(/&(#(?:x[0-9a-f]+|\d+)|[a-z]+);/gi, (entity, key: string) => {
+    if (key.startsWith("#x") || key.startsWith("#X")) return String.fromCodePoint(Number.parseInt(key.slice(2), 16));
+    if (key.startsWith("#")) return String.fromCodePoint(Number.parseInt(key.slice(1), 10));
+    return named[key.toLowerCase()] ?? entity;
+  });
 }
 
 function subjectCategoriesFor(candidate: Candidate, sourceId: string): BookSubjectCategory[] {
@@ -744,7 +914,7 @@ function mergeBookPatch(current: Partial<Book>, next: Partial<Book>): Partial<Bo
 
 function isPlausiblePublicationYear(book: Book, publicationYear: number) {
   const firstRecognitionYear = Math.min(...(appearancesByBookId.get(book.id) ?? []).map((appearance) => appearance.year));
-  if (Number.isFinite(firstRecognitionYear) && publicationYear > firstRecognitionYear + 1) return false;
+  if (Number.isFinite(firstRecognitionYear) && (publicationYear > firstRecognitionYear + 3 || publicationYear < firstRecognitionYear - 30)) return false;
   return publicationYear >= 1500 && publicationYear <= new Date().getFullYear() + 1;
 }
 
@@ -770,13 +940,14 @@ function toAttempt(row: ReportRow, attemptedAt: string): AttemptRow {
     attemptedAt,
     title: row.title,
     author: row.author,
-    provider: row.provider,
+    provider: row.provider ?? (args.provider === "all" ? undefined : args.provider),
     notes: row.notes,
     missingFields: ["summary"],
   };
 }
 
 function isRecentUnproductiveAttempt(attempt: AttemptRow | undefined, book: Book) {
+  if (args.provider !== "all" && attempt?.provider !== args.provider) return false;
   return isUnproductiveAttempt(attempt) && sameMissingFields(attempt?.missingFields, catalogMissingFieldsForBook(book).filter((field) => field === "summary"));
 }
 
@@ -809,11 +980,16 @@ function authorText(book: Book) {
   return book.authors.map((author) => author.name).join(", ");
 }
 
+function primaryAuthor(author: string) {
+  return author.split(/\s+(?:and|&)\s+|,\s*(?=[A-Z])/i)[0]?.trim() || author;
+}
+
 function quote(input: string) {
   return `"${input.replaceAll('"', "")}"`;
 }
 
 function providerLabel(provider: Candidate["provider"]) {
+  if (provider === "apple_books") return "Apple Books";
   if (provider === "google_books") return "Google Books";
   if (provider === "open_library_dump") return "Open Library dump";
   return "Open Library";
@@ -843,14 +1019,14 @@ async function readExistingPatch(generatedAt: string): Promise<GeneratedSummaryP
     const parsed = JSON.parse(await fs.readFile(outputPath, "utf8")) as Partial<GeneratedSummaryPatch>;
     return {
       generatedAt,
-      notes: "Generated by scripts/enrich-summaries.ts from Open Library dumps/APIs and Google Books fallback. Focused on sourced catalog text for semantic search; manual curation may override.",
+      notes: "Generated by scripts/enrich-summaries.ts from Open Library dumps/APIs, Google Books, and Apple Books catalog fallback. Focused on sourced catalog text for semantic search; manual curation may override.",
       books: parsed.books ?? {},
       sources: parsed.sources ?? {},
     };
   } catch {
     return {
       generatedAt,
-      notes: "Generated by scripts/enrich-summaries.ts from Open Library dumps/APIs and Google Books fallback. Focused on sourced catalog text for semantic search; manual curation may override.",
+      notes: "Generated by scripts/enrich-summaries.ts from Open Library dumps/APIs, Google Books, and Apple Books catalog fallback. Focused on sourced catalog text for semantic search; manual curation may override.",
       books: {},
       sources: {},
     };
@@ -950,10 +1126,15 @@ function parseArgs() {
     return index >= 0 ? raw[index + 1] : undefined;
   };
   const provider = (value("provider") ?? "all") as Provider;
-  if (!["all", "open_library", "google_books", "open_library_dump"].includes(provider)) {
-    throw new Error("--provider must be one of all, open_library, google_books, open_library_dump");
+  if (!["all", "open_library", "google_books", "apple_books", "open_library_dump"].includes(provider)) {
+    throw new Error("--provider must be one of all, open_library, google_books, apple_books, open_library_dump");
   }
+  const appleCountries = (value("apple-countries") ?? "US")
+    .split(",")
+    .map((country) => country.trim().toUpperCase())
+    .filter((country) => /^[A-Z]{2}$/.test(country));
   return {
+    "apple-countries": appleCountries.length ? appleCountries : ["US"],
     "book-ids": value("book-ids"),
     "checkpoint-every": positiveNumber(value("checkpoint-every"), 0),
     concurrency: positiveNumber(value("concurrency"), 2),
@@ -963,6 +1144,7 @@ function parseArgs() {
     "isbn-only": raw.includes("--isbn-only"),
     limit: positiveNumber(value("limit"), 200),
     "local-only": raw.includes("--local-only") || provider === "open_library_dump",
+    "min-lists": positiveNumber(value("min-lists"), 0),
     minScore: Number(value("min-score") ?? "0.68"),
     "open-library-editions-dump": value("open-library-editions-dump") ?? process.env.OPEN_LIBRARY_EDITIONS_DUMP,
     "open-library-works-dump": value("open-library-works-dump") ?? process.env.OPEN_LIBRARY_WORKS_DUMP,

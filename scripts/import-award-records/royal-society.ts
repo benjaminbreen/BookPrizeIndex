@@ -42,6 +42,7 @@ export function parseRoyalSociety(prize: PrizeRegistryEntry, category: PrizeCate
   const section = sectionBetween(wikitext, "==Shortlisted books==", "== References ==");
   return parseAwardRowsFromWikitable(section)
     .filter((row) => isLikelyTitle(row.title))
+    .flatMap(splitMergedShortlistRow)
     .map((row) => ({
       awardId: prize.id,
       awardName: prize.name,
@@ -57,6 +58,15 @@ export function parseRoyalSociety(prize: PrizeRegistryEntry, category: PrizeCate
       notes: category.officialUrl ? `Official awards URL: ${category.officialUrl}` : undefined,
     }))
     .filter((record) => record.status === "winner" || record.status === "shortlist");
+}
+
+function splitMergedShortlistRow<T extends { title: string; author: string }>(row: T): T[] {
+  const match = row.title.match(/^(.*?)\s+and\s+((?:[A-Z][\p{L}.'’-]+\s+){2,4})for\s+(.+)$/u);
+  if (!match) return [row];
+  return [
+    { ...row, title: match[1].trim() },
+    { ...row, title: match[3].trim(), author: match[2].trim() },
+  ];
 }
 
 function sectionBetween(input: string, startMarker: string, endMarker: string) {

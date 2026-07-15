@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import type { RawAwardRecord } from "../../lib/award-records";
 import { rawAwardRecordsDir, slugify } from "./helpers";
+import { findRawRecordQualityIssues } from "./quality";
 
 type RawRecordFile = {
   generatedAt?: string;
@@ -26,6 +27,7 @@ async function main() {
   }
 
   const duplicateKeys = findDuplicateKeys(records);
+  const qualityIssues = findRawRecordQualityIssues(records);
   const report = {
     generatedAt: new Date().toISOString(),
     files: filesReport,
@@ -37,6 +39,7 @@ async function main() {
       recordsMissingTitle: records.filter((record) => !record.title).length,
       recordsMissingAuthors: records.filter((record) => !record.authors.length).length,
       duplicateCanonicalKeys: duplicateKeys.length,
+      semanticQualityIssues: qualityIssues.length,
     },
     byCategory: Object.values(
       records.reduce<Record<string, {
@@ -69,11 +72,21 @@ async function main() {
       }, {}),
     ).sort((a, b) => a.categoryName.localeCompare(b.categoryName)),
     duplicateKeys: duplicateKeys.slice(0, 100),
+    qualityIssues: qualityIssues.slice(0, 250),
   };
 
   await fs.writeFile(path.join(rawAwardRecordsDir, "import-report.json"), `${JSON.stringify(report, null, 2)}\n`);
   console.log(`Validated ${records.length} raw award records across ${files.length} files.`);
-  console.log(`Missing source URLs: ${report.totals.recordsMissingSourceUrl}; duplicate canonical keys: ${report.totals.duplicateCanonicalKeys}.`);
+  console.log(`Missing source URLs: ${report.totals.recordsMissingSourceUrl}; duplicate canonical keys: ${report.totals.duplicateCanonicalKeys}; semantic quality issues: ${report.totals.semanticQualityIssues}.`);
+  if (
+    report.totals.recordsMissingSourceUrl ||
+    report.totals.recordsMissingTitle ||
+    report.totals.recordsMissingAuthors ||
+    report.totals.duplicateCanonicalKeys ||
+    report.totals.semanticQualityIssues
+  ) {
+    throw new Error("Raw award record validation failed. Inspect data/raw/award-records/import-report.json.");
+  }
 }
 
 function findDuplicateKeys(records: RawAwardRecord[]) {

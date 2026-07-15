@@ -153,7 +153,7 @@ function parseOfficialNonfictionLonglist(html: string) {
   const lines = htmlToLines(html);
   const start = findNonfictionLonglistStart(lines);
   if (start < 0) return [];
-  const block = lines.slice(start, findLonglistEnd(lines, start)).filter(isContentLine);
+  const block = lines.slice(start, findLonglistEnd(lines, start)).filter(isContentLine).flatMap(splitMergedEntries);
   return block.some((line) => /^published by\b/i.test(line)) ? parseTitleFirstLonglist(block) : parseAuthorFirstLonglist(block);
 }
 
@@ -337,7 +337,16 @@ function invertAuthorNames(input: string) {
 }
 
 function cleanOfficialTitle(input: string) {
-  return cleanTitle(input.replace(/\.$/, ""));
+  return cleanTitle(input.replace(/\.$/, "").replace(/:(?=\S)/g, ": "));
+}
+
+// The ALA annual pages sometimes merge two "Lastname, Firstname. Title. (Publisher)"
+// entries into a single paragraph with no separator after the publisher paren.
+function splitMergedEntries(line: string) {
+  return line
+    .split(/(?<=\))\s*(?=[A-ZÀ-ÖØ-Þ][\p{L}'’-]+,\s)/u)
+    .map((part) => part.trim())
+    .filter(Boolean);
 }
 
 function stripTerminalPeriod(input: string) {

@@ -6,6 +6,7 @@ import {
   readPrizeRegistry,
   writeRawAwardRecords,
 } from "./helpers";
+import { mergeOfficialAwardRows, rachelCarsonOfficialRows } from "./official-recent-records";
 
 const indexUrl = "https://www.sej.org/library/books/rachel-carson-environment-book-award-winners";
 
@@ -71,7 +72,7 @@ async function main() {
     books.push(parsed);
   }
 
-  const records = toRecords(prize, category, books);
+  const records = mergeOfficialAwardRows(toRecords(prize, category, books), prize, rachelCarsonOfficialRows);
   records.sort((a, b) => b.year - a.year || statusSort(a.status) - statusSort(b.status) || a.title.localeCompare(b.title));
   assertCoverage(records);
 
