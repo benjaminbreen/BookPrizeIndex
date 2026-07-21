@@ -316,3 +316,7 @@ The normalized award-record foundation, importer framework, and broad major-awar
 4. Grow `sources/imprint-normalization.json` from `data/reports/imprint-review-queue.json`, prioritizing high-count and high-confidence raw publisher strings.
 5. Improve cover handling by caching usable cover thumbnails locally when source/license policy allows it.
 6. Keep topic classification and subject/category assignments reviewed through generated reports rather than treating LLM output as final truth.
+
+## To Do
+
+- Remove the cold-start delay when opening a book from `/books`. The drawer endpoint currently imports the full `data/public/catalog.json` through `lib/data.ts`; the catalog is about 81 MB, and loading it also constructs all catalog-wide lookup and grouping maps before returning a roughly 22 KB single-book response. Local measurements showed approximately 6.2 seconds to load `lib/data`, 4.1 seconds for the first drawer request with an existing dev cache, and 11–28 ms for warm requests; a completely cold development compile can be substantially slower. Prefer generating compact per-book drawer JSON artifacts during `data:build` and fetching the relevant static artifact directly. Preserve the existing `BookDrawerPayload` contract, award-history details, experimental semantic profile, retailer links, and next/previous navigation. Hover/focus prefetching and a lightweight immediate drawer shell may be added afterward, but they should not substitute for removing the full-catalog import from the request path.

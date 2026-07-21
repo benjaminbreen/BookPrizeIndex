@@ -5,12 +5,16 @@ import { usePathname } from "next/navigation";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
+const DONATE_URL = "https://buy.stripe.com/5kQaEXfJLgRGbqrf1L4F201";
+const NEWSLETTER_URL = "https://resobscura.substack.com/subscribe?";
+
 const navItems = [
   { href: "/books", label: "Books", match: ["/books"] },
   { href: "/awards", label: "Awards", match: ["/awards"] },
   { href: "/subjects", label: "Subjects", match: ["/subjects", "/topics"] },
   { href: "/publishers", label: "Publishers", match: ["/publishers", "/imprints", "/imprint-logos"] },
   { href: "/experiments", label: "Trends", match: ["/experiments"] },
+  { href: DONATE_URL, label: "Donate", match: [] },
 ];
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
@@ -209,16 +213,28 @@ function SiteFooter() {
         />
 
         <div>
-          <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Open project</p>
+          <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Support the project</p>
           <p className="mt-5 max-w-xs text-sm leading-7 muted">
-            No accounts, newsletter, analytics, or advertising. Data methods and source code are public on GitHub.
+            The index is free to use. Help offset its API and hosting costs, or support related research and writing by
+            subscribing to Res Obscura.
           </p>
-          <Link
-            className="focus-ring mt-5 inline-flex border hairline px-4 py-3 text-sm transition hover:bg-[var(--panel)]"
-            href="https://github.com/benjaminbreen/BookPrizeIndex"
-          >
-            View the repository
-          </Link>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <Link
+              aria-label="Donate via Stripe"
+              className="focus-ring inline-flex bg-[var(--ink)] px-4 py-3 text-sm text-[var(--paper)] transition hover:bg-[var(--accent)]"
+              href={DONATE_URL}
+            >
+              Donate
+            </Link>
+            <Link
+              aria-label="Subscribe to Res Obscura on Substack"
+              className="focus-ring inline-flex border hairline px-4 py-3 text-sm transition hover:bg-[var(--panel)]"
+              href={NEWSLETTER_URL}
+            >
+              Subscribe to Res Obscura
+            </Link>
+          </div>
+          <p className="mt-4 text-xs leading-5 muted">Payments and subscriptions are handled on Stripe and Substack.</p>
         </div>
       </div>
       <div className="bg-[#181713] text-[#f4f1ea]">

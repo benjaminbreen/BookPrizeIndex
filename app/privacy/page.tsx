@@ -21,9 +21,10 @@ export default function PrivacyPage() {
 
       <TextPageSection id="collection" title="Collection">
         <p>
-          The Book Prize Index does not collect or store personal data. It has no user accounts, email signup, mailing
-          list, analytics, advertising, tracking pixels, tracking cookies, or stored search history. Theme and award-region
-          preferences are saved only in your browser&apos;s local storage and are never added to a visitor profile or database.
+          The Book Prize Index does not collect or store personal data. It has no user accounts, on-site email signup,
+          mailing list, analytics, advertising, tracking pixels, tracking cookies, or stored search history. Theme and
+          award-region preferences are saved only in your browser&apos;s local storage and are never added to a visitor
+          profile or database.
         </p>
       </TextPageSection>
 
@@ -38,10 +39,19 @@ export default function PrivacyPage() {
         <p>
           If you actively submit a Meaning search, the text of that query is sent to OpenAI solely to generate search
           results. The Book Prize Index does not store the query or associate it with an identifier. The hosting provider
-          and OpenAI necessarily process requests under their own privacy practices, but this project does not use their
-          services to build visitor profiles or retain analytics. External links—including libraries, Wikipedia, Open
-          Library, Google Books, publishers, booksellers, and award pages—lead to independent services with their own
-          policies.
+          and OpenAI necessarily process requests under their own privacy practices, but this project does not use those
+          services to build visitor profiles or retain analytics.
+        </p>
+        <p>
+          Donations are optional and take place on a Stripe-hosted checkout page. Newsletter subscriptions are optional
+          and take place on Res Obscura&apos;s Substack page. The Book Prize Index does not receive payment-card details or
+          add donors or subscribers to a site account, mailing list, or visitor profile. Stripe may provide the project
+          owner with transaction details, and Substack maintains subscription information, under their respective privacy
+          practices.
+        </p>
+        <p>
+          Other external links—including libraries, Wikipedia, Open Library, Google Books, publishers, booksellers, and
+          award pages—lead to independent services with their own policies.
         </p>
       </TextPageSection>
 
