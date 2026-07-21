@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { ChevronRight, Search } from "lucide-react";
 import { useMemo, useState } from "react";
-import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import { useAwardRegion } from "@/components/use-award-region";
+import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import type { BrowseData, BrowseSubjectRow } from "@/lib/browse-types";
 
 type BookTypeFilter = "all" | "fiction" | "nonfiction";
@@ -11,7 +12,7 @@ type SortKey = "books-desc" | "books-asc" | "subject-asc" | "subject-desc";
 
 export function SubjectsBrowser({ data, defaultRegion }: { data: BrowseData; defaultRegion: AwardRegionFilter }) {
   const [query, setQuery] = useState("");
-  const [geography, setGeographyState] = useState<AwardRegionFilter>(defaultRegion);
+  const [geography, setGeography] = useAwardRegion(defaultRegion);
   const [bookType, setBookType] = useState<BookTypeFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("books-desc");
 
@@ -20,11 +21,6 @@ export function SubjectsBrowser({ data, defaultRegion }: { data: BrowseData; def
     const rows = data.subjects[`${geography}:${bookType}`].filter((subject) => !q || subject.searchText.includes(q));
     return sortSubjectRows(rows, sortKey);
   }, [bookType, data, geography, query, sortKey]);
-
-  function setGeography(nextGeography: AwardRegionFilter) {
-    setGeographyState(nextGeography);
-    document.cookie = `${AWARD_REGION_COOKIE}=${nextGeography}; path=/; max-age=31536000; samesite=lax`;
-  }
 
   return (
     <main className="subjects-page mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">

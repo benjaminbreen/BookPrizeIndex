@@ -163,6 +163,10 @@ export default function MethodologyPage() {
 
         <MethodSection id="search" title="Keyword and meaning search">
           <p>
+            Meaning search is the default discovery mode. Keyword search remains available for exact-title, author,
+            prize, publisher, and catalog-term lookups.
+          </p>
+          <p>
             Keyword search uses a local MiniSearch index over titles, authors, publishers, imprints, subjects, awards,
             central figures, and summaries. Field boosts favor titles, authors, awards, and subjects while still allowing
             fuzzy and prefix matching.
@@ -174,6 +178,11 @@ export default function MethodologyPage() {
             generic hybrid score: embedding similarity plus corpus-aware exact terms, subject/topic signals, period
             hints, and a small recognition boost. Ranking should remain generic and should not hard-code demo queries or
             favored phrases.
+          </p>
+          <p>
+            The public meaning-search endpoint does not retain queries or client identifiers. A process-wide request
+            budget and concurrency cap are applied before provider calls, and operators can disable meaning search with
+            a server-side kill switch if traffic or cost becomes abnormal.
           </p>
         </MethodSection>
 

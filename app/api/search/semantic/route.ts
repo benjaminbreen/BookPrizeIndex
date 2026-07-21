@@ -3,6 +3,11 @@ import path from "node:path";
 import { browseData } from "@/lib/browse-data";
 import { filterBookCatalogRows, type BookCatalogQuery } from "@/lib/book-catalog-query";
 import {
+  getSemanticSearchGuard,
+  semanticSearchEnabled,
+  type SemanticSearchPermit,
+} from "@/lib/semantic-search-guard";
+import {
   DEFAULT_SEMANTIC_EMBEDDING_MODEL,
   inferPeriodRanges,
   semanticAdventurousConcepts,
@@ -95,18 +100,21 @@ export async function POST(request: Request) {
   const body = await request.json().catch(() => null) as SemanticSearchRequest | null;
   const query = body?.query?.trim() ?? "";
   if (query.length < 3) {
-    return Response.json({ error: "Query must be at least 3 characters." }, { status: 400 });
+    return privateJson({ error: "Query must be at least 3 characters." }, { status: 400 });
   }
   if (query.length > 600) {
-    return Response.json({ error: "Query is too long for semantic search." }, { status: 400 });
+    return privateJson({ error: "Query is too long for semantic search." }, { status: 400 });
   }
   if (!process.env.OPENAI_API_KEY) {
-    return Response.json({ error: "OPENAI_API_KEY is not configured on the server." }, { status: 503 });
+    return privateJson({ error: "OPENAI_API_KEY is not configured on the server." }, { status: 503 });
+  }
+  if (!semanticSearchEnabled()) {
+    return privateJson({ error: "Meaning search is temporarily disabled." }, { status: 503 });
   }
 
   const index = await loadSemanticIndex();
   if (!index?.books.length) {
-    return Response.json({ error: "Semantic index is missing. Run `npm run semantic:index` first." }, { status: 503 });
+    return privateJson({ error: "Semantic index is missing. Run `npm run semantic:index` first." }, { status: 503 });
   }
 
   const limit = Math.min(Math.max(body?.limit ?? 120, 1), 500);
@@ -118,7 +126,7 @@ export async function POST(request: Request) {
     (!candidateIds.size || candidateIds.has(row.bookId)) && (!filteredIds || filteredIds.has(row.bookId)),
   );
   if (!candidates.length) {
-    return Response.json({
+    return privateJson({
       diagnostics: {
         candidateBookCount: 0,
         indexBookCount: index.books.length,
@@ -134,39 +142,72 @@ export async function POST(request: Request) {
     });
   }
 
-  const queryExpansionModel = parseQueryExpansionModel(body?.queryExpansionModel);
-  const { interpretation, model: interpretationModel, usedModelInterpretation, warning } = await interpretQuery(query, queryExpansionModel);
-  const embeddingInput = semanticQueryText(query, interpretation);
-  const queryEmbedding = await embedQuery(embeddingInput, index);
-  const rankingTerms = semanticRankingTerms(query, interpretation);
-  const termWeights = semanticTermWeights(query, interpretation, candidates);
-  const scored = candidates
-    .map((row): SemanticSearchResult => ({
-      bookId: row.bookId,
-      ...semanticHybridScore({ interpretation, query, queryEmbedding, row, termWeights }),
-    }));
-  const results = semanticRankFusion(scored)
-    .sort((a, b) => b.score - a.score || b.similarity - a.similarity)
-    .slice(0, limit);
+  const permit = getSemanticSearchGuard().acquire();
+  if (!permit.allowed) return semanticSearchLimitResponse(permit);
 
-  return Response.json({
-    diagnostics: {
-      candidateBookCount: candidates.length,
-      embeddingInput,
-      embeddingModel: index.embeddingModel || DEFAULT_SEMANTIC_EMBEDDING_MODEL,
-      indexBookCount: index.books.length,
-      indexGeneratedAt: index.generatedAt,
-      interpretationModel,
-      queryExpansionModel,
-      rankingTerms,
-      resultCount: results.length,
-      usedModelInterpretation,
+  try {
+    const queryExpansionModel = parseQueryExpansionModel(body?.queryExpansionModel);
+    const { interpretation, model: interpretationModel, usedModelInterpretation, warning } = await interpretQuery(query, queryExpansionModel);
+    const embeddingInput = semanticQueryText(query, interpretation);
+    const queryEmbedding = await embedQuery(embeddingInput, index);
+    const rankingTerms = semanticRankingTerms(query, interpretation);
+    const termWeights = semanticTermWeights(query, interpretation, candidates);
+    const scored = candidates
+      .map((row): SemanticSearchResult => ({
+        bookId: row.bookId,
+        ...semanticHybridScore({ interpretation, query, queryEmbedding, row, termWeights }),
+      }));
+    const results = semanticRankFusion(scored)
+      .sort((a, b) => b.score - a.score || b.similarity - a.similarity)
+      .slice(0, limit);
+
+    return privateJson({
+      diagnostics: {
+        candidateBookCount: candidates.length,
+        embeddingInput,
+        embeddingModel: index.embeddingModel || DEFAULT_SEMANTIC_EMBEDDING_MODEL,
+        indexBookCount: index.books.length,
+        indexGeneratedAt: index.generatedAt,
+        interpretationModel,
+        queryExpansionModel,
+        rankingTerms,
+        resultCount: results.length,
+        usedModelInterpretation,
+      },
+      query,
+      interpretation,
+      results,
+      warning,
+    }, { headers: semanticSearchRateHeaders(permit) });
+  } finally {
+    permit.release();
+  }
+}
+
+function semanticSearchLimitResponse(permit: Extract<SemanticSearchPermit, { allowed: false }>) {
+  const error = permit.reason === "concurrency"
+    ? "Meaning search is busy. Please try again in a moment."
+    : "Meaning search has reached its short-term request limit. Please try again shortly.";
+  return privateJson({ error }, {
+    status: 429,
+    headers: {
+      "Retry-After": String(permit.retryAfterSeconds),
+      ...semanticSearchRateHeaders(permit),
     },
-    query,
-    interpretation,
-    results,
-    warning,
   });
+}
+
+function semanticSearchRateHeaders(permit: Pick<SemanticSearchPermit, "limit" | "remaining">) {
+  return {
+    "X-RateLimit-Limit": String(permit.limit),
+    "X-RateLimit-Remaining": String(permit.remaining),
+  };
+}
+
+function privateJson(body: unknown, init: ResponseInit = {}) {
+  const headers = new Headers(init.headers);
+  headers.set("Cache-Control", "private, no-store");
+  return Response.json(body, { ...init, headers });
 }
 
 async function loadSemanticIndex() {
@@ -362,9 +403,7 @@ const QUERY_INTERPRETATION_TRIGGER =
   /\b(writing|book called|recommend(?:ation|ations)?|looking for|similar to|about|would like|would enjoy|might like|for fans of|books? for|stuff for|vibe|sensibility|taste|adjacent|like this|like these|read next|what to read|interested in|into|on the subject of)\b/i;
 
 function parseQueryExpansionModel(value: unknown): SemanticQueryExpansionModel {
-  return value === "gpt-5.4-nano" || value === "gpt-5.4-mini" || value === "gemini-3.5-flash"
-    ? value
-    : DEFAULT_QUERY_EXPANSION_MODEL;
+  return value === "gemini-3.5-flash" ? value : DEFAULT_QUERY_EXPANSION_MODEL;
 }
 
 function fallbackInterpretation(query: string): SemanticQueryInterpretation {

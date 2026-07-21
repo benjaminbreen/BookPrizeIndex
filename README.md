@@ -28,6 +28,14 @@ The app is built with:
 
 It is designed to be deployed on Vercel as a static-first web application.
 
+### Semantic search safeguards
+
+Meaning search requires `OPENAI_API_KEY` on the server. The public endpoint keeps no visitor identifiers or query
+history and applies a process-wide cost guard before provider calls: 20 requests per minute and 3 concurrent searches
+by default. Operators can tune `SEMANTIC_SEARCH_REQUESTS_PER_MINUTE` and `SEMANTIC_SEARCH_MAX_CONCURRENT`, or set
+`SEMANTIC_SEARCH_ENABLED=false` as an immediate kill switch. Provider-level project budgets remain the final backstop
+when a serverless host runs more than one process.
+
 ## Status
 
 This is an early version of the project. The current focus is building a reliable, source-backed corpus of book award data and improving metadata for individual books.

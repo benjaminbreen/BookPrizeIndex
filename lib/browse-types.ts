@@ -92,6 +92,7 @@ export type BrowseData = {
   stats: {
     books: number;
     appearances: number;
+    programs: number;
     prizes: number;
     imprints: number;
   };

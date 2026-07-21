@@ -8,7 +8,8 @@ import { useEffect, useMemo, useState } from "react";
 import { BookDrawer } from "@/components/book-drawer";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
-import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import { useAwardRegion } from "@/components/use-award-region";
+import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import type { BrowseBookRecognitionStats, BrowseBookRow } from "@/lib/browse-types";
 import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryExpansionModel, type SemanticQueryInterpretation } from "@/lib/semantic-search";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
@@ -74,7 +75,7 @@ export function BookCatalog({
   const routeMode = searchParamsMode(searchParams.get("mode"));
   const routeQueryExpansionModel = searchParamsQueryExpansionModel(searchParams.get("queryModel"));
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
-  const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
+  const [region, setStoredRegion] = useAwardRegion(defaultRegion);
   const [mode, setModeState] = useState<"keyword" | "semantic">(() => routeMode);
   const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>(() => routeQueryExpansionModel);
   const [subjectFilter, setSubjectFilter] = useState("");
@@ -256,10 +257,10 @@ export function BookCatalog({
     setPage(1);
     const nextParams = new URLSearchParams(searchParams.toString());
     if (nextMode === "semantic") {
-      nextParams.set("mode", "semantic");
+      nextParams.delete("mode");
       nextParams.set("queryModel", queryExpansionModel);
     } else {
-      nextParams.delete("mode");
+      nextParams.set("mode", "keyword");
       nextParams.delete("queryModel");
     }
     const queryString = nextParams.toString();
@@ -267,9 +268,8 @@ export function BookCatalog({
   }
 
   function setRegion(nextRegion: AwardRegionFilter) {
-    setRegionState(nextRegion);
+    setStoredRegion(nextRegion);
     setPage(1);
-    document.cookie = `${AWARD_REGION_COOKIE}=${nextRegion}; path=/; max-age=31536000; samesite=lax`;
   }
 
   function clearQuery() {
@@ -935,7 +935,7 @@ function paginationRange(current: number, total: number): Array<number | "ellips
 }
 
 function searchParamsMode(value: string | null): "keyword" | "semantic" {
-  return value === "semantic" ? "semantic" : "keyword";
+  return value === "keyword" ? "keyword" : "semantic";
 }
 
 function searchParamsQueryExpansionModel(value: string | null): SemanticQueryExpansionModel {

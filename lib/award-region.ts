@@ -2,16 +2,10 @@ import type { Award, AwardProgram } from "@/lib/types";
 
 export type AwardRegionFilter = "us" | "international" | "all";
 
-export const AWARD_REGION_COOKIE = "bpi_award_region";
-
 export function normalizeAwardRegion(value: string | undefined | null): AwardRegionFilter {
   if (value === "international") return "international";
   if (value === "all" || value === "world") return "all";
   return "us";
-}
-
-export function awardRegionFromCountry(country: string | undefined | null): AwardRegionFilter {
-  return country?.toUpperCase() === "US" ? "us" : "international";
 }
 
 export function regionLabel(region: AwardRegionFilter) {

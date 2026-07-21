@@ -16,29 +16,32 @@ export default function PrivacyPage() {
     <TextPageShell label="Privacy" navItems={navItems}>
       <TextPageTitle>Privacy</TextPageTitle>
       <p className="mt-5 font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.16em] muted">
-        Last updated May 12, 2026
+        Last updated July 21, 2026
       </p>
 
       <TextPageSection id="collection" title="Collection">
         <p>
-          The Book Prize Index is designed for browsing public book-prize data. If you enter an email address for updates,
-          that address may be used to send site news and related notices. Server logs may also record basic technical
-          information such as request time, browser, and IP address.
+          The Book Prize Index does not collect or store personal data. It has no user accounts, email signup, mailing
+          list, analytics, advertising, tracking pixels, tracking cookies, or stored search history. Theme and award-region
+          preferences are saved only in your browser&apos;s local storage and are never added to a visitor profile or database.
         </p>
       </TextPageSection>
 
       <TextPageSection id="use" title="Use">
         <p>
-          Information is used to operate the site, improve reliability, respond to requests, and send updates if you ask
-          for them. The site does not sell personal information.
+          Because the project does not collect personal data, it does not sell, rent, share, or use personal data for
+          profiling or marketing. Search and browse activity is not retained by The Book Prize Index.
         </p>
       </TextPageSection>
 
       <TextPageSection id="third-parties" title="Services">
         <p>
-          Semantic search may send the text of your search query to OpenAI to generate an embedding or improve query
-          interpretation. The site may also link to external services such as booksellers, libraries, Wikipedia, Open
-          Library, Google Books, and award pages; those services have their own privacy practices.
+          If you actively submit a Meaning search, the text of that query is sent to OpenAI solely to generate search
+          results. The Book Prize Index does not store the query or associate it with an identifier. The hosting provider
+          and OpenAI necessarily process requests under their own privacy practices, but this project does not use their
+          services to build visitor profiles or retain analytics. External links—including libraries, Wikipedia, Open
+          Library, Google Books, publishers, booksellers, and award pages—lead to independent services with their own
+          policies.
         </p>
       </TextPageSection>
 

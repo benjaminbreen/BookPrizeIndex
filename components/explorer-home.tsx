@@ -5,13 +5,13 @@ import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown, ChevronUp, ChevronsUpDown, CornerDownLeft, Filter, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import type { SearchMode } from "@/components/ui/design-primitives";
-import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import { useAwardRegion } from "@/components/use-award-region";
+import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import type { BrowseData, BrowseLinkRow } from "@/lib/browse-types";
 import type { SemanticQueryExpansionModel } from "@/lib/semantic-search";
 
 type SortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher";
 type SortDirection = "asc" | "desc";
-type TypeFilter = "fiction" | "nonfiction" | "all";
 type RankedSubjectFilter = "all" | "biography" | "history" | "science" | "politics";
 
 export type HomeBookRow = Pick<
@@ -53,11 +53,10 @@ const rankedSubjectFilters: Array<{ key: RankedSubjectFilter; label: string; sub
 export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; defaultRegion: AwardRegionFilter }) {
   const router = useRouter();
   const [query, setQuery] = useState("");
-  const [region, setRegionState] = useState<AwardRegionFilter>(defaultRegion);
-  const [searchMode, setSearchMode] = useState<SearchMode>("keyword");
+  const [region, setRegion] = useAwardRegion(defaultRegion);
+  const [searchMode, setSearchMode] = useState<SearchMode>("semantic");
   const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>("gpt-5.4-nano");
   const [tooltipMode, setTooltipMode] = useState<SearchMode | null>(null);
-  const [type, setType] = useState<TypeFilter>("all");
   const [sortKey, setSortKey] = useState<SortKey>("score");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
   const [rankedSubject, setRankedSubject] = useState<RankedSubjectFilter>("all");
@@ -79,19 +78,16 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
   }, [data.books, query, rankedSubject, sortDirection, sortKey]);
 
   const topBooks = rankedBooks.slice(0, 12);
-  const browseData = useMemo(() => getBrowseData(data, region, type), [data, region, type]);
-  const showingLabel = `${regionLabel(region)} · ${type === "all" ? "All" : titleCase(type)}`;
-
-  function setRegion(nextRegion: AwardRegionFilter) {
-    setRegionState(nextRegion);
-    document.cookie = `${AWARD_REGION_COOKIE}=${nextRegion}; path=/; max-age=31536000; samesite=lax`;
-  }
+  const browseData = useMemo(() => getBrowseData(data, region), [data, region]);
+  const showingLabel = `${regionLabel(region)} awards`;
 
   function submitSearch(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const q = query.trim();
     if (!q) return;
-    const mode = searchMode === "semantic" ? `&mode=semantic&queryModel=${encodeURIComponent(queryExpansionModel)}` : "";
+    const mode = searchMode === "semantic"
+      ? `&queryModel=${encodeURIComponent(queryExpansionModel)}`
+      : "&mode=keyword";
     router.push(`/books?q=${encodeURIComponent(q)}${mode}`);
   }
 
@@ -119,11 +115,11 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
         <div className="home-hero-inner mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[1.04fr_0.96fr] lg:px-8 lg:pb-12 lg:pt-20">
           <div className="home-hero-copy">
             <h1 className="max-w-2xl font-[var(--font-serif)] text-4xl font-light leading-[1.02] sm:text-5xl lg:text-5xl">
-              A searchable index of award-winning books.
+              A searchable index of nonfiction book prizes.
             </h1>
             <p className="mt-6 max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted">
-              Browse award-winning, shortlisted, and longlisted books by subject, prize, imprint, publisher,
-              figure, period, and source.
+              Explore {data.stats.books.toLocaleString()} winners, finalists, shortlists, and longlists across{" "}
+              {data.stats.programs.toLocaleString()} award programs, with a source for every imported appearance.
             </p>
           </div>
 
@@ -196,19 +192,11 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
               </div>
             </form>
             <div className="home-search-controls">
-              <div className="grid gap-4 lg:grid-cols-[auto_auto_auto] lg:items-end">
+              <div className="grid gap-4 lg:items-end">
                 <FilterGroup label="Region">
                   {(["us", "international", "all"] as const).map((item) => (
                     <FilterButton key={item} active={region === item} onClick={() => setRegion(item)}>
                       {regionLabel(item)}
-                    </FilterButton>
-                  ))}
-                </FilterGroup>
-                <div className="hidden h-10 w-px bg-[var(--line)] lg:block" />
-                <FilterGroup label="Type">
-                  {(["fiction", "nonfiction", "all"] as const).map((item) => (
-                    <FilterButton key={item} active={type === item} onClick={() => setType(item)}>
-                      {titleCase(item)}
                     </FilterButton>
                   ))}
                 </FilterGroup>
@@ -256,7 +244,13 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
         <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Ranked catalog</p>
-            <h2 className="mt-2 font-[var(--font-serif)] text-3xl font-light">Most awarded books</h2>
+            <h2 className="mt-2 font-[var(--font-serif)] text-3xl font-light">Highest recognition scores</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-6 muted">
+              Weighted by wins and list placements, with established major prizes carrying more weight. Read the{" "}
+              <Link className="underline decoration-[var(--line)] underline-offset-4 hover:text-[var(--ink)]" href="/methodology#ranking">
+                scoring methodology
+              </Link>.
+            </p>
           </div>
           <div className="grid justify-items-start gap-2 font-[var(--font-mono)] text-xs sm:justify-items-end">
             <div className="flex flex-wrap gap-2">
@@ -278,7 +272,8 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
           <table className="w-full min-w-[860px] border-collapse text-left">
             <thead className="font-[var(--font-mono)] text-xs uppercase tracking-[0.08em] muted">
               <tr className="border-b hairline">
-                <HomeSortHeader active={sortKey === "year"} direction={sortDirection} label="Year" onClick={() => sortByColumn("year")} />
+                <HomeSortHeader active={sortKey === "score"} direction={sortDirection} label="Score" onClick={() => sortByColumn("score")} />
+                <HomeSortHeader active={sortKey === "year"} direction={sortDirection} label="First listed" onClick={() => sortByColumn("year")} />
                 <HomeSortHeader active={sortKey === "title"} direction={sortDirection} label="Title" onClick={() => sortByColumn("title")} />
                 <HomeSortHeader active={sortKey === "author"} direction={sortDirection} label="Author" onClick={() => sortByColumn("author")} />
                 <HomeSortHeader active={sortKey === "wins"} direction={sortDirection} label="Wins" onClick={() => sortByColumn("wins")} />
@@ -295,7 +290,8 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
                     className="book-table-row fade-up border-b hairline transition hover:bg-[var(--accent-soft)]"
                     style={{ animationDelay: `${Math.min(index * 18, 140)}ms` }}
                   >
-                    <td className="plain-number px-4 py-4 text-sm muted">{book.publicationYear}</td>
+                    <td className="plain-number px-4 py-4 text-sm font-medium">{book.score}</td>
+                    <td className="plain-number px-4 py-4 text-sm muted">{book.firstRecognitionYear ?? "—"}</td>
                     <td className="px-4 py-4">
                       <Link
                         className="focus-ring grid w-full grid-cols-[2.15rem_minmax(0,1fr)] items-center gap-3 text-left font-[var(--font-serif)] text-xl font-light transition hover:text-[var(--accent)]"
@@ -319,10 +315,11 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
       </section>
 
       <section className="home-stats-section mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8" id="publishers">
-        <div className="grid gap-4 border-t hairline pt-8 font-[var(--font-mono)] text-xs muted sm:grid-cols-4">
+        <div className="grid gap-4 border-t hairline pt-8 font-[var(--font-mono)] text-xs muted sm:grid-cols-5">
           <Stat label="Books" value={data.stats.books} />
           <Stat label="Award appearances" value={data.stats.appearances} />
-          <Stat label="Prizes" value={data.stats.prizes} />
+          <Stat label="Award programs" value={data.stats.programs} />
+          <Stat label="Prize categories" value={data.stats.prizes} />
           <Stat label="Imprints" value={data.stats.imprints} />
         </div>
       </section>
@@ -448,7 +445,7 @@ function compareHomeBooks(a: HomeBookRow, b: HomeBookRow, sortKey: SortKey) {
   if (sortKey === "score") return a.score - b.score;
   if (sortKey === "wins") return a.wins - b.wins;
   if (sortKey === "lists") return a.lists - b.lists;
-  if (sortKey === "year") return (a.publicationYear ?? 0) - (b.publicationYear ?? 0);
+  if (sortKey === "year") return (a.firstRecognitionYear ?? 0) - (b.firstRecognitionYear ?? 0);
   if (sortKey === "author") return a.author.localeCompare(b.author);
   if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "");
   if (sortKey === "publisher") return (a.publisher ?? "").localeCompare(b.publisher ?? "");
@@ -465,7 +462,7 @@ function compareHomeRecognitionTieBreak(a: HomeBookRow, b: HomeBookRow) {
     b.normalShortlists - a.normalShortlists ||
     b.majorLonglists - a.majorLonglists ||
     b.normalLonglists - a.normalLonglists ||
-    (b.publicationYear ?? b.firstRecognitionYear ?? 0) - (a.publicationYear ?? a.firstRecognitionYear ?? 0) ||
+    (b.firstRecognitionYear ?? 0) - (a.firstRecognitionYear ?? 0) ||
     a.title.localeCompare(b.title)
   );
 }
@@ -474,12 +471,8 @@ function defaultSortDirection(sortKey: SortKey): SortDirection {
   return sortKey === "year" || sortKey === "wins" || sortKey === "lists" || sortKey === "score" ? "desc" : "asc";
 }
 
-function getBrowseData(data: HomeBrowseData, region: AwardRegionFilter, type: TypeFilter) {
-  return data.home[`${region}:${type}`];
-}
-
-function titleCase(value: string) {
-  return value.slice(0, 1).toUpperCase() + value.slice(1);
+function getBrowseData(data: HomeBrowseData, region: AwardRegionFilter) {
+  return data.home[`${region}:all`];
 }
 
 function queryExpansionModelLabel(model: SemanticQueryExpansionModel) {

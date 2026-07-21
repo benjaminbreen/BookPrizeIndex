@@ -128,12 +128,14 @@
       ]
     },
     "book-behind-the-beautiful-forevers-life-death-and-hope-in-a-mumbai-undercity-katherine-boo": {
+      "publicationYear": 2012,
       "publisherId": "publisher-penguin-random-house",
       "imprintId": "imprint-random-house",
       "sourceIds": [
         "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
         "source-award-record-nbcc-nonfiction-wikipedia-national-book-critics-circle-award-for-nonfiction",
         "source-award-record-pulitzer-general-nonfiction-wikipedia-pulitzer-prize-for-general-nonfiction",
+        "source-year-repair-behind-beautiful-forevers",
         "source-publisher-cleanup-curation"
       ]
     },
@@ -663,12 +665,14 @@
       ]
     },
     "book-evicted-poverty-and-profit-in-the-american-city-matthew-desmond": {
+      "publicationYear": 2016,
       "publisherId": "publisher-penguin-random-house",
       "imprintId": "imprint-crown",
       "sourceIds": [
         "source-award-record-carnegie-nonfiction-wikipedia-andrew-carnegie-medals-for-excellence-in-fiction-and-nonfiction",
         "source-award-record-nbcc-nonfiction-wikipedia-national-book-critics-circle-award-for-nonfiction",
         "source-award-record-pulitzer-general-nonfiction-wikipedia-pulitzer-prize-for-general-nonfiction",
+        "source-year-repair-evicted",
         "source-publisher-cleanup-curation"
       ]
     },
@@ -1345,6 +1349,7 @@
       ]
     },
     "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis": {
+      "publicationYear": 1993,
       "publisherId": "publisher-macmillan",
       "imprintId": "imprint-henry-holt",
       "sourceIds": [
@@ -1352,6 +1357,7 @@
         "source-award-record-nbcc-biography-wikipedia-national-book-critics-circle-award-for-biography",
         "source-award-record-pulitzer-biography-or-autobiography-wikipedia-pulitzer-prize-for-biography",
         "source-open-library-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+        "source-year-repair-w-e-b-du-bois",
         "source-publisher-cleanup-curation"
       ]
     },
@@ -2058,6 +2064,22 @@
     "book-jefferson-and-his-time-the-sage-of-monticello-dumas-malone": {
       "publicationYear": 1981,
       "sourceIds": ["source-year-repair-jefferson-time"]
+    },
+    "book-g-man-j-edgar-hoover-and-the-making-of-the-american-century-beverly-gage": {
+      "publicationYear": 2022,
+      "sourceIds": ["source-year-repair-g-man"]
+    },
+    "book-frederick-douglass-prophet-of-freedom-david-w-blight": {
+      "publicationYear": 2018,
+      "sourceIds": ["source-year-repair-frederick-douglass"]
+    },
+    "book-all-that-she-carried-the-journey-of-ashley-s-sack-a-black-family-keepsake-tiya-miles": {
+      "publicationYear": 2021,
+      "sourceIds": ["source-year-repair-all-that-she-carried"]
+    },
+    "book-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea": {
+      "publicationYear": 2015,
+      "sourceIds": ["source-year-repair-invention-of-nature"]
     },
     "book-stalin-waiting-for-hitler-1929-1941-stephen-kotkin": {
       "publicationYear": 2017,
@@ -3163,6 +3185,55 @@
       "confidence": "manual",
       "field": "book",
       "note": "The catalog title includes The Sage of Monticello, the sixth and final volume, published in 1981."
+    },
+    "source-year-repair-evicted": {
+      "id": "source-year-repair-evicted",
+      "label": "Penguin Random House first-edition details for Evicted",
+      "url": "https://www.penguinrandomhouse.com/books/247816/evicted-by-matthew-desmond/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-year-repair-g-man": {
+      "id": "source-year-repair-g-man",
+      "label": "Penguin Random House first-edition details for G-Man",
+      "url": "https://www.penguinrandomhouse.com/books/529289/g-man-pulitzer-prize-winner-by-beverly-gage/9780593511466/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-year-repair-frederick-douglass": {
+      "id": "source-year-repair-frederick-douglass",
+      "label": "Simon & Schuster first-edition details for Frederick Douglass",
+      "url": "https://www.simonandschuster.com/books/Frederick-Douglass/David-W-Blight/9781416593881",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-year-repair-behind-beautiful-forevers": {
+      "id": "source-year-repair-behind-beautiful-forevers",
+      "label": "Penguin Random House first-edition details for Behind the Beautiful Forevers",
+      "url": "https://www.penguinrandomhouse.com/books/16017/behind-the-beautiful-forevers-by-katherine-boo/9780679643951/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-year-repair-all-that-she-carried": {
+      "id": "source-year-repair-all-that-she-carried",
+      "label": "Penguin Random House first-edition details for All That She Carried",
+      "url": "https://www.penguinrandomhouse.com/books/606278/all-that-she-carried-by-tiya-miles/9781984855015/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-year-repair-invention-of-nature": {
+      "id": "source-year-repair-invention-of-nature",
+      "label": "Penguin Random House first-edition details for The Invention of Nature",
+      "url": "https://www.penguinrandomhouse.com/books/227866/the-invention-of-nature-by-andrea-wulf/",
+      "confidence": "official",
+      "field": "book"
+    },
+    "source-year-repair-w-e-b-du-bois": {
+      "id": "source-year-repair-w-e-b-du-bois",
+      "label": "Open Library first-edition catalog record for W. E. B. Du Bois",
+      "url": "https://openlibrary.org/books/OL19727564M/W.E.B._Du_Bois",
+      "confidence": "catalog",
+      "field": "book"
     },
     "source-isbn-repair-stalin-waiting": {
       "id": "source-isbn-repair-stalin-waiting",

@@ -32,6 +32,7 @@ export function buildBrowseData(data: PublicData): BrowseData {
     stats: {
       books: data.books.length,
       appearances: data.appearances.length,
+      programs: data.awardPrograms.length,
       prizes: data.awards.length,
       imprints: data.imprints.length,
     },

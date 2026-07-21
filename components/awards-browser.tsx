@@ -4,7 +4,8 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpDown, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
-import { AWARD_REGION_COOKIE, type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import { useAwardRegion } from "@/components/use-award-region";
+import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import type { BrowseData } from "@/lib/browse-types";
 
 type AwardSort = "name" | "records" | "subject" | "deadline";
@@ -13,7 +14,7 @@ type BookTypeFilter = "all" | "fiction" | "nonfiction";
 export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defaultRegion: AwardRegionFilter }) {
   const [query, setQuery] = useState("");
   const [sort, setSort] = useState<AwardSort>("name");
-  const [geography, setGeographyState] = useState<AwardRegionFilter>(defaultRegion);
+  const [geography, setGeography] = useAwardRegion(defaultRegion);
   const [bookType, setBookType] = useState<BookTypeFilter>("all");
   const router = useRouter();
 
@@ -31,11 +32,6 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
         return a.name.localeCompare(b.name);
       });
   }, [bookType, data.awards, geography, query, sort]);
-
-  function setGeography(nextGeography: AwardRegionFilter) {
-    setGeographyState(nextGeography);
-    document.cookie = `${AWARD_REGION_COOKIE}=${nextGeography}; path=/; max-age=31536000; samesite=lax`;
-  }
 
   const contextLine = `${regionLabel(geography)} · ${bookType === "all" ? "All books" : titleCase(bookType)} · Sorted by ${awardSortLabels[sort].toLowerCase()} · ${rows.length.toLocaleString()} awards`;
 

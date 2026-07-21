@@ -31,6 +31,7 @@
     "topics:classify": "tsx scripts/classify-topics.ts",
     "semantic:evaluate": "tsx scripts/evaluate-semantic-search.ts",
     "semantic:index": "tsx scripts/build-semantic-index.ts",
+    "semantic:test-guard": "tsx --test lib/semantic-search-guard.test.ts",
     "data:semantic": "npm run data:build && npm run semantic:index",
     "imprints:normalize": "tsx scripts/normalize-imprints.ts",
     "imprints:enrich-editions": "tsx scripts/enrich-imprint-editions.ts",

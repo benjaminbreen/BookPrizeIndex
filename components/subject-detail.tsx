@@ -31,7 +31,7 @@ export function SubjectDetail({
   const [query, setQuery] = useState("");
   const [semanticQuery, setSemanticQuery] = useState("");
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
-  const [mode, setMode] = useState<"keyword" | "semantic">("keyword");
+  const [mode, setMode] = useState<"keyword" | "semantic">("semantic");
   const [activeBookId, setActiveBookId] = useState<string | null>(null);
   const [activeSubdivision, setActiveSubdivision] = useState("");
   const activeQuery = mode === "semantic" ? semanticQuery : query;

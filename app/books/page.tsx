@@ -1,7 +1,5 @@
 import { Suspense } from "react";
-import { cookies } from "next/headers";
 import { BookCatalog } from "@/components/book-catalog";
-import { AWARD_REGION_COOKIE, normalizeAwardRegion } from "@/lib/award-region";
 import { browseData } from "@/lib/browse-data";
 import { bookCatalogPublisherOptions, bookCatalogSubjectOptions, queryBookCatalog } from "@/lib/book-catalog-query";
 
@@ -14,9 +12,9 @@ type BooksPageProps = {
 };
 
 export default async function BooksPage({ searchParams }: BooksPageProps) {
-  const defaultRegion = normalizeAwardRegion((await cookies()).get(AWARD_REGION_COOKIE)?.value);
+  const defaultRegion = "all" as const;
   const params = (await searchParams) ?? {};
-  const initialQuery = typeof params.q === "string" && params.mode !== "semantic" ? params.q : "";
+  const initialQuery = typeof params.q === "string" && params.mode === "keyword" ? params.q : "";
   const topic = typeof params.topic === "string" ? params.topic : undefined;
   const initial = queryBookCatalog(browseData.books, {
     page: 1,

@@ -204,25 +204,21 @@ function SiteFooter() {
             { href: "/about", label: "About" },
             { href: "/fun", label: "For fun" },
             { href: "/methodology", label: "Methodology" },
-            { href: "#", label: "Contact" },
+            { href: "https://github.com/benjaminbreen/BookPrizeIndex", label: "Source code" },
           ]}
         />
 
         <div>
-          <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Stay Updated</p>
-          <p className="mt-5 max-w-xs text-sm leading-7 muted">Get updates on new data, features, and improvements.</p>
-          <form className="mt-5 flex max-w-sm">
-            <input
-              aria-label="Email address"
-              className="min-w-0 flex-1 border hairline bg-transparent px-4 py-3 text-sm outline-none placeholder:text-[var(--muted)] focus:border-[var(--focus)]"
-              placeholder="Enter your email"
-              type="email"
-            />
-            <button className="focus-ring bg-[var(--ink)] px-4 py-3 text-sm text-[var(--paper)] transition hover:bg-[var(--accent)]">
-              Subscribe
-            </button>
-          </form>
-          <p className="mt-4 text-xs muted">We respect your privacy. Unsubscribe anytime.</p>
+          <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Open project</p>
+          <p className="mt-5 max-w-xs text-sm leading-7 muted">
+            No accounts, newsletter, analytics, or advertising. Data methods and source code are public on GitHub.
+          </p>
+          <Link
+            className="focus-ring mt-5 inline-flex border hairline px-4 py-3 text-sm transition hover:bg-[var(--panel)]"
+            href="https://github.com/benjaminbreen/BookPrizeIndex"
+          >
+            View the repository
+          </Link>
         </div>
       </div>
       <div className="bg-[#181713] text-[#f4f1ea]">
