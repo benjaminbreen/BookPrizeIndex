@@ -20,7 +20,7 @@
     "data:bestsellers": "npm run bestsellers:enrich && npm run data:build",
     "report:duplicates": "tsx scripts/report-duplicate-books.ts",
     "report:publishers": "tsx scripts/report-publisher-imprints.ts",
-    "report:quality": "tsx scripts/report-catalog-quality.ts",
+    "report:quality": "npm run report:duplicates && tsx scripts/report-catalog-quality.ts",
     "report:multi-prize": "tsx scripts/report-multi-prize-coverage.ts",
     "subjects:enrich": "tsx scripts/enrich-subject-categories.ts",
     "subjects:classify": "tsx scripts/classify-subjects.ts",

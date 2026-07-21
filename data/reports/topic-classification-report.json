@@ -802,22 +802,6 @@
     ]
   },
   {
-    "bookId": "book-notes-on-a-foreign-country-an-american-abroad-in-a-post-america-world-suzy-hansen",
-    "title": "Notes on a Foreign Country: An American Abroad in a Post-America World",
-    "author": "Suzy Hansen",
-    "primarySubject": "American History",
-    "primaryTopic": "Africa & the African Diaspora",
-    "topics": [
-      "Africa & the African Diaspora",
-      "Gender & Feminism",
-      "Immigration, Refugees & Borderlands"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "generated topic enrichment: embedding"
-    ]
-  },
-  {
     "bookId": "book-passing-strange-a-gilded-age-tale-of-love-and-deception-across-the-color-line-martha-a-sandweiss",
     "title": "Passing Strange: A Gilded Age Tale of Love and Deception Across the Color Line",
     "author": "Martha A. Sandweiss",
@@ -7545,21 +7529,6 @@
     ]
   },
   {
-    "bookId": "book-edith-sitwell-unicorn-among-lions-victoria-glendinning",
-    "title": "Edith Sitwell: Unicorn Among Lions",
-    "author": "Victoria Glendinning",
-    "primarySubject": "Biography",
-    "primaryTopic": "Biography & Public Lives",
-    "topics": [
-      "Biography & Public Lives"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "biography fallback",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-edvard-munch-behind-the-scream-sue-prideaux",
     "title": "Edvard Munch: Behind The Scream",
     "author": "Sue Prideaux",
@@ -7920,21 +7889,6 @@
     ]
   },
   {
-    "bookId": "book-john-maynard-keynes-volume-3-fighting-for-britain-1937-1946-robert-skidelsky",
-    "title": "John Maynard Keynes: Volume 3 Fighting For Britain 1937-1946",
-    "author": "Robert Skidelsky",
-    "primarySubject": "Biography",
-    "primaryTopic": "Biography & Public Lives",
-    "topics": [
-      "Biography & Public Lives"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "biography fallback",
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-jonathan-swift-a-hypocrite-reversed-david-nokes",
     "title": "Jonathan Swift: A Hypocrite Reversed",
     "author": "David Nokes",
@@ -8058,21 +8012,6 @@
     "bookId": "book-lord-palmerston-jasper-ridley",
     "title": "Lord Palmerston",
     "author": "Jasper Ridley",
-    "primarySubject": "Biography",
-    "primaryTopic": "Biography & Public Lives",
-    "topics": [
-      "Biography & Public Lives"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "biography fallback",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-ma-am-darling-99-glimpses-of-princess-margaret-craig-brown",
-    "title": "Ma'am Darling: 99 Glimpses of Princess Margaret",
-    "author": "Craig Brown",
     "primarySubject": "Biography",
     "primaryTopic": "Biography & Public Lives",
     "topics": [
@@ -8328,21 +8267,6 @@
     "bookId": "book-supermac-the-life-of-harold-macmillan-d-r-thorpe",
     "title": "Supermac: The Life of Harold Macmillan",
     "author": "D. R. Thorpe",
-    "primarySubject": "Biography",
-    "primaryTopic": "Biography & Public Lives",
-    "topics": [
-      "Biography & Public Lives"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "biography fallback",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-tennyson-the-unquiet-heart-robert-b-martin",
-    "title": "Tennyson: The Unquiet Heart",
-    "author": "Robert B. Martin",
     "primarySubject": "Biography",
     "primaryTopic": "Biography & Public Lives",
     "topics": [
@@ -11787,22 +11711,6 @@
       "Business Biography",
       "Business, Capitalism & Corporations",
       "Presidency & Executive Power"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "generated topic enrichment: embedding"
-    ]
-  },
-  {
-    "bookId": "book-the-power-broker-robert-moses-and-the-fall-of-new-york-robert-caro",
-    "title": "The Power Broker: Robert Moses and the Fall of New York",
-    "author": "Robert Caro,",
-    "primarySubject": "American History",
-    "primaryTopic": "Business Biography",
-    "topics": [
-      "Business Biography",
-      "Presidency & Executive Power",
-      "Business, Capitalism & Corporations"
     ],
     "confidence": "medium",
     "reasons": [
@@ -18931,6 +18839,28 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: Climate, Weather & Disaster, Natural History & Animals, Business, Capitalism & Corporations, Education & Universities."
+  },
+  {
+    "bookId": "book-emerson-the-mind-on-fire-robert-d-richardson-jr",
+    "title": "Emerson: The Mind on Fire",
+    "author": "Robert D. Richardson, Jr.",
+    "primarySubject": "Nature & Environment",
+    "primaryTopic": "Climate, Weather & Disaster",
+    "topics": [
+      "Climate, Weather & Disaster",
+      "Environment, Conservation & Pollution",
+      "Family, Childhood & Adoption",
+      "Intellectual History & Ideas"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "family/childhood keyword",
+      "intellectual history keyword",
+      "climate/weather/disaster keyword",
+      "environment keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Climate, Weather & Disaster, Environment, Conservation & Pollution, Family, Childhood & Adoption, Intellectual History & Ideas."
   },
   {
     "bookId": "book-fire-at-sea-thomas-gallager",
@@ -27158,6 +27088,27 @@
     "reviewReason": "Primary topic selected from multiple candidates: Democracy & Elections, Intellectual History & Ideas, Regional & Local History."
   },
   {
+    "bookId": "book-the-power-broker-robert-moses-and-the-fall-of-new-york-robert-a-caro",
+    "title": "The Power Broker: Robert Moses and the Fall of New York",
+    "author": "Robert A. Caro",
+    "primarySubject": "American History",
+    "primaryTopic": "Democracy & Elections",
+    "topics": [
+      "Democracy & Elections",
+      "Housing, Cities & Urban Life",
+      "Intellectual History & Ideas",
+      "Regional & Local History"
+    ],
+    "confidence": "medium",
+    "reasons": [
+      "democracy/elections keyword",
+      "intellectual history keyword",
+      "housing/cities keyword",
+      "subject fallback"
+    ],
+    "reviewReason": "Primary topic selected from multiple candidates: Democracy & Elections, Housing, Cities & Urban Life, Intellectual History & Ideas, Regional & Local History."
+  },
+  {
     "bookId": "book-toward-democracy-the-struggle-for-self-rule-in-european-and-american-thought-james-kloppenberg",
     "title": "Toward Democracy: The Struggle for Self-Rule in European and American Thought",
     "author": "James Kloppenberg",
@@ -31256,20 +31207,6 @@
     "reviewReason": "Primary topic selected from multiple candidates: Essays & Cultural Criticism, Archives, Museums & Historical Method, Family, Childhood & Adoption."
   },
   {
-    "bookId": "book-all-our-relations-finding-the-path-forward-tanya-talaga",
-    "title": "All Our Relations: Finding the Path Forward",
-    "author": "Tanya Talaga",
-    "primarySubject": "General Nonfiction",
-    "primaryTopic": "Essays & Cultural Criticism",
-    "topics": [
-      "Essays & Cultural Criticism"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-amazing-grace-jonathan-kozol",
     "title": "Amazing Grace",
     "author": "Jonathan Kozol",
@@ -31478,20 +31415,6 @@
     "bookId": "book-blood-of-the-liberals-george-packer",
     "title": "Blood of the Liberals",
     "author": "George Packer",
-    "primarySubject": "General Nonfiction",
-    "primaryTopic": "Essays & Cultural Criticism",
-    "topics": [
-      "Essays & Cultural Criticism"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-bottle-of-lies-inside-the-generic-drug-boom-katherine-eban",
-    "title": "Bottle of Lies: Inside the Generic Drug Boom",
-    "author": "Katherine Eban",
     "primarySubject": "General Nonfiction",
     "primaryTopic": "Essays & Cultural Criticism",
     "topics": [
@@ -32153,20 +32076,6 @@
     ]
   },
   {
-    "bookId": "book-having-it-so-good-britain-in-the-1950s-peter-hennessy",
-    "title": "Having It So Good: Britain in the 1950s",
-    "author": "Peter Hennessy",
-    "primarySubject": "General Nonfiction",
-    "primaryTopic": "Essays & Cultural Criticism",
-    "topics": [
-      "Essays & Cultural Criticism"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-heart-berries-terese-marie-mailhot",
     "title": "Heart Berries",
     "author": "Terese Marie Mailhot",
@@ -32788,20 +32697,6 @@
     ]
   },
   {
-    "bookId": "book-marianne-in-chains-in-search-of-the-german-occupation-1940-45-robert-gildea",
-    "title": "Marianne in Chains: In Search of the German Occupation 1940-45",
-    "author": "Robert Gildea",
-    "primarySubject": "General Nonfiction",
-    "primaryTopic": "Essays & Cultural Criticism",
-    "topics": [
-      "Essays & Cultural Criticism"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-men-and-brothers-betty-fladeland",
     "title": "Men & Brothers",
     "author": "Betty Fladeland",
@@ -33295,20 +33190,6 @@
     "bookId": "book-people-of-the-deer-farley-mowat",
     "title": "People of the Deer",
     "author": "Farley Mowat",
-    "primarySubject": "General Nonfiction",
-    "primaryTopic": "Essays & Cultural Criticism",
-    "topics": [
-      "Essays & Cultural Criticism"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-people-who-eat-darkness-the-fate-of-lucie-blackman-richard-lloyd-parry",
-    "title": "People Who Eat Darkness: The Fate of Lucie Blackman",
-    "author": "Richard Lloyd Parry",
     "primarySubject": "General Nonfiction",
     "primaryTopic": "Essays & Cultural Criticism",
     "topics": [
@@ -37883,26 +37764,6 @@
     "bookId": "book-operation-nemesis-the-assassination-plot-that-avenged-the-armenian-genocide-eric-bogosian",
     "title": "Operation Nemesis: The Assassination Plot that Avenged the Armenian Genocide",
     "author": "Eric Bogosian",
-    "primarySubject": "True Crime & Justice",
-    "primaryTopic": "Genocide, Atrocity & Political Violence",
-    "topics": [
-      "Genocide, Atrocity & Political Violence",
-      "Crime, Policing & Violence",
-      "Human Rights & International Law"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "crime/policing keyword",
-      "atrocity keyword",
-      "human rights/international law keyword",
-      "subject fallback"
-    ],
-    "reviewReason": "Primary topic selected from multiple candidates: Genocide, Atrocity & Political Violence, Crime, Policing & Violence, Human Rights & International Law."
-  },
-  {
-    "bookId": "book-shadows-at-dawn-an-apache-massacre-and-the-violence-of-history-karl-jacoby",
-    "title": "Shadows at Dawn: An Apache Massacre and the Violence of History",
-    "author": "Karl Jacoby",
     "primarySubject": "True Crime & Justice",
     "primaryTopic": "Genocide, Atrocity & Political Violence",
     "topics": [
@@ -44437,22 +44298,6 @@
     "primaryTopic": "Intellectual Biography",
     "topics": [
       "Intellectual Biography"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "generated topic enrichment: embedding"
-    ]
-  },
-  {
-    "bookId": "book-emerson-the-mind-on-fire-robert-richardson-jr",
-    "title": "Emerson: The Mind on Fire",
-    "author": "Robert Richardson Jr.",
-    "primarySubject": "Nature & Environment",
-    "primaryTopic": "Intellectual Biography",
-    "topics": [
-      "Intellectual Biography",
-      "Memoir & Personal History",
-      "Mental Health & Psychology"
     ],
     "confidence": "medium",
     "reasons": [
@@ -65957,20 +65802,6 @@
     ]
   },
   {
-    "bookId": "book-the-american-southwest-desert-ruth-kirk",
-    "title": "The American Southwest Desert",
-    "author": "Ruth Kirk",
-    "primarySubject": "American History",
-    "primaryTopic": "Regional & Local History",
-    "topics": [
-      "Regional & Local History"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "subject fallback"
-    ]
-  },
-  {
     "bookId": "book-the-americans-the-national-experience-daniel-j-boorstin",
     "title": "The Americans: The National Experience",
     "author": "Daniel J. Boorstin",
@@ -72479,26 +72310,6 @@
     "reasons": [
       "generated topic enrichment: embedding"
     ]
-  },
-  {
-    "bookId": "book-charles-darwin-volume-2-the-power-of-place-janet-browne",
-    "title": "Charles Darwin: Volume 2 - The Power of Place",
-    "author": "Janet Browne",
-    "primarySubject": "Biography",
-    "primaryTopic": "Scientific Biography",
-    "topics": [
-      "Scientific Biography",
-      "Travel, Exploration & Place",
-      "Biography & Public Lives"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "scientific biography keyword",
-      "biography fallback",
-      "travel/place keyword",
-      "subject fallback"
-    ],
-    "reviewReason": "Primary topic selected from multiple candidates: Scientific Biography, Travel, Exploration & Place, Biography & Public Lives."
   },
   {
     "bookId": "book-charles-sanders-peirce-a-life-joseph-brent",
@@ -79025,28 +78836,6 @@
       "subject fallback"
     ],
     "reviewReason": "Primary topic selected from multiple candidates: World War I, Empire & Colonialism, War & Military Strategy."
-  },
-  {
-    "bookId": "book-the-image-of-the-black-in-western-art-from-the-american-revolution-to-world-war-i-hugh-honour",
-    "title": "The Image of the Black in Western Art From the American Revolution to World War I",
-    "author": "Hugh Honour",
-    "primarySubject": "American History",
-    "primaryTopic": "World War I",
-    "topics": [
-      "World War I",
-      "Art, Music & Performance",
-      "Black History & Culture",
-      "War & Military Strategy"
-    ],
-    "confidence": "medium",
-    "reasons": [
-      "war/military keyword",
-      "World War I keyword",
-      "Black history/culture keyword",
-      "art/music/performance keyword",
-      "subject fallback"
-    ],
-    "reviewReason": "Primary topic selected from multiple candidates: World War I, Art, Music & Performance, Black History & Culture, War & Military Strategy."
   },
   {
     "bookId": "book-the-infernal-machine-a-true-story-of-dynamite-terror-and-the-rise-of-the-modern-detective-steven",
@@ -86541,23 +86330,6 @@
     "bookId": "book-despite-it-all-a-handbook-for-climate-hopefuls-fred-pearce",
     "title": "Despite it All: A Handbook for Climate Hopefuls",
     "author": "Fred Pearce",
-    "primarySubject": "Nature & Environment",
-    "primaryTopic": "Climate, Weather & Disaster",
-    "topics": [
-      "Climate, Weather & Disaster",
-      "Environment, Conservation & Pollution"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "climate/weather/disaster keyword",
-      "environment keyword",
-      "subject fallback"
-    ]
-  },
-  {
-    "bookId": "book-emerson-the-mind-on-fire-robert-d-richardson-jr",
-    "title": "Emerson: The Mind on Fire",
-    "author": "Robert D. Richardson, Jr.",
     "primarySubject": "Nature & Environment",
     "primaryTopic": "Climate, Weather & Disaster",
     "topics": [
@@ -95976,22 +95748,6 @@
     "confidence": "high",
     "reasons": [
       "generated topic enrichment: embedding"
-    ]
-  },
-  {
-    "bookId": "book-the-power-broker-robert-moses-and-the-fall-of-new-york-robert-a-caro",
-    "title": "The Power Broker: Robert Moses and the Fall of New York",
-    "author": "Robert A. Caro",
-    "primarySubject": "General Nonfiction",
-    "primaryTopic": "Housing, Cities & Urban Life",
-    "topics": [
-      "Housing, Cities & Urban Life",
-      "Essays & Cultural Criticism"
-    ],
-    "confidence": "high",
-    "reasons": [
-      "housing/cities keyword",
-      "subject fallback"
     ]
   },
   {

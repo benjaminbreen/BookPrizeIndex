@@ -8,11 +8,26 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "public", "catalog.json");
 const curationPath = path.join(root, "sources", "curation.json");
+const duplicateReviewPath = path.join(root, "data", "reports", "book-duplicate-review.json");
 const reportPath = path.join(root, "data", "reports", "catalog-quality-report.json");
+
+type DuplicateReviewReport = {
+  generatedAt: string;
+  unresolvedGroups: number;
+  unresolvedBooks: number;
+  groups: Array<{
+    action: "auto_merge_candidate" | "manual_review" | "ignore";
+    confidence: "high" | "medium" | "low";
+    reason: string;
+    recommendedCanonicalBookId: string;
+    books: Array<{ id: string; title: string; authors: string[] }>;
+  }>;
+};
 
 async function main() {
   const data = JSON.parse(await fs.readFile(catalogPath, "utf8")) as PublicData;
   const curation = JSON.parse(await fs.readFile(curationPath, "utf8")) as { books?: Record<string, { publicationYear?: number }> };
+  const duplicateReview = JSON.parse(await fs.readFile(duplicateReviewPath, "utf8")) as DuplicateReviewReport;
   const curatedPublicationYears = new Set(
     Object.entries(curation.books ?? {}).filter(([, patch]) => typeof patch.publicationYear === "number").map(([bookId]) => bookId),
   );
@@ -33,20 +48,36 @@ async function main() {
   const truncatedSummaries = data.books
     .filter((book) => looksTruncated(book.summary))
     .map((book) => ({ bookId: book.id, title: book.title, length: book.summary?.length ?? 0 }));
-  const hardIssueCount = sharedIsbn.length + duplicateIdentities.length + implausibleYears.length + untrustedWikipediaEvidence.length;
+  const unresolvedDuplicateGroups = duplicateReview.groups
+    .filter((group) => group.action !== "ignore")
+    .map((group) => ({
+      confidence: group.confidence,
+      reason: group.reason,
+      recommendedCanonicalBookId: group.recommendedCanonicalBookId,
+      books: group.books.map((book) => ({ bookId: book.id, title: book.title, authors: book.authors })),
+    }));
+  const hardIssueCount = sharedIsbn.length
+    + duplicateIdentities.length
+    + unresolvedDuplicateGroups.length
+    + implausibleYears.length
+    + untrustedWikipediaEvidence.length;
   const report = {
     generatedAt: new Date().toISOString(),
     totalBooks: data.books.length,
     hardIssueCount,
+    duplicateReviewGeneratedAt: duplicateReview.generatedAt,
     totals: {
       sharedIsbnGroups: sharedIsbn.length,
       duplicateIdentityGroups: duplicateIdentities.length,
+      unresolvedDuplicateGroups: unresolvedDuplicateGroups.length,
+      unresolvedDuplicateBooks: duplicateReview.unresolvedBooks,
       implausiblePublicationYears: implausibleYears.length,
       untrustedWikipediaEvidence: untrustedWikipediaEvidence.length,
       possiblyTruncatedSummaries: truncatedSummaries.length,
     },
     sharedIsbn,
     duplicateIdentities,
+    unresolvedDuplicateGroups,
     implausibleYears,
     untrustedWikipediaEvidence,
     truncatedSummaries,

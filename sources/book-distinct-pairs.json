@@ -1,5 +1,5 @@
 {
-  "reviewedAt": "2026-07-14",
+  "reviewedAt": "2026-07-21",
   "notes": "Pairs reviewed as related but distinct works. The duplicate report keeps these visible as resolved ignores so future title normalization changes do not reopen them silently.",
   "pairs": [
     {
@@ -64,6 +64,13 @@
         "book-lloyd-george-the-people-s-champion-john-grigg"
       ],
       "reason": "Separate volumes in John Grigg's Lloyd George biography."
+    },
+    {
+      "bookIds": [
+        "book-john-maynard-keynes-vol-2-the-economist-as-saviour-1920-1937-robert-skidelsky",
+        "book-john-maynard-keynes-fighting-for-britain-1937-1946-robert-skidelsky"
+      ],
+      "reason": "Separate second and third volumes of Robert Skidelsky's John Maynard Keynes biography."
     }
   ]
 }

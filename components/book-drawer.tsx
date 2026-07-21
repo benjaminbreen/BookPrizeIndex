@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, Link2, X } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, X } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
+import { LibraryLookupLink } from "@/components/library-lookup-link";
 import { withAmazonAssociateTag } from "@/lib/affiliate-links";
 import type { BookDrawerAppearance, BookDrawerPayload } from "@/lib/book-drawer-types";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
@@ -311,15 +312,15 @@ export function BookDrawer({
               <FileText size={17} />
               Full record
             </Link>
-            <a className="focus-ring inline-flex items-center justify-center gap-3 border hairline px-4 py-4 text-sm transition hover:bg-[var(--panel)]" href={renderedBook.links.worldcat ?? "#"} target="_blank" rel="noreferrer">
-              <Link2 size={17} />
-              Open links
-            </a>
+            <LibraryLookupLink book={renderedBook} variant="drawer" />
             <button className="focus-ring inline-flex items-center justify-center gap-3 border hairline px-4 py-4 text-sm transition hover:bg-[var(--panel)]" onClick={copyCitation}>
               {citationCopied ? <Check size={17} /> : <Clipboard size={17} />}
               {citationCopied ? "Copied" : "Copy citation"}
             </button>
           </div>
+          <p className="mt-2 text-[0.68rem] leading-4 muted">
+            Library lookup opens WorldCat. We don&apos;t request or receive your location.
+          </p>
         </div>
 
         <div className="book-drawer-section mt-7 border-t hairline pt-5">

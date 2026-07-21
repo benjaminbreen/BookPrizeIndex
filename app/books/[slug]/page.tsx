@@ -3,6 +3,7 @@ import type React from "react";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { ExpandableBookDescription } from "@/components/expandable-book-description";
+import { LibraryLookupLink } from "@/components/library-lookup-link";
 import { withAmazonAssociateTag } from "@/lib/affiliate-links";
 import {
   appearancesByBookId,
@@ -138,6 +139,7 @@ export default async function BookPage({ params }: PageProps) {
             <StatLine label="Award score" value={String(stats.score)} />
           </dl>
           {book.nytBestseller ? <NytBestsellerPanel stats={book.nytBestseller} /> : null}
+          <LibraryLookupLink book={book} />
           <RetailerLinks book={book} />
         </aside>
       </section>

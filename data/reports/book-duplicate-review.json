@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-14T21:31:54.371Z",
-  "totalBooks": 5512,
+  "generatedAt": "2026-07-21T16:18:31.276Z",
+  "totalBooks": 6466,
   "candidateGroups": 9,
   "candidateBooks": 18,
   "unresolvedGroups": 0,
@@ -26,12 +26,18 @@
           "isbn13": [],
           "publisherId": "publisher-harvard-university-press",
           "imprintId": "imprint-harvard-university-press",
-          "sourceCount": 4,
-          "appearanceCount": 1,
+          "sourceCount": 5,
+          "appearanceCount": 2,
           "awards": [
             {
               "awardId": "award-bancroft-prize",
               "awardName": "Bancroft Prize",
+              "year": 1959,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-francis-parkman-prize",
+              "awardName": "Francis Parkman Prize",
               "year": 1959,
               "status": "winner"
             }
@@ -96,7 +102,7 @@
           ],
           "publisherId": "publisher-johns-hopkins-university-press",
           "imprintId": "imprint-johns-hopkins-university-press",
-          "sourceCount": 4,
+          "sourceCount": 5,
           "appearanceCount": 1,
           "awards": [
             {
@@ -106,7 +112,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 7
+          "completenessScore": 8
         },
         {
           "id": "book-herman-melville-a-biography-volume-i-1819-1851-hershel-parker",
@@ -158,7 +164,7 @@
           "isbn13": [],
           "publisherId": "publisher-holt-rinehart-and-winston",
           "imprintId": "imprint-holt-rinehart-and-winston",
-          "sourceCount": 3,
+          "sourceCount": 4,
           "appearanceCount": 1,
           "awards": [
             {
@@ -168,7 +174,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 5
+          "completenessScore": 6
         },
         {
           "id": "book-robert-frost-the-years-of-triumph-1915-1938-lawrance-thompson",
@@ -179,7 +185,7 @@
           "isbn13": [
             "9780224619622"
           ],
-          "sourceCount": 2,
+          "sourceCount": 4,
           "appearanceCount": 1,
           "awards": [
             {
@@ -189,7 +195,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 1
+          "completenessScore": 2
         }
       ],
       "pairSignals": [
@@ -224,14 +230,20 @@
           ],
           "publisherId": "publisher-oxford-university-press",
           "imprintId": "imprint-oxford-university-press",
-          "sourceCount": 3,
-          "appearanceCount": 1,
+          "sourceCount": 4,
+          "appearanceCount": 2,
           "awards": [
             {
               "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
               "awardName": "Pulitzer Prize in Biography or Autobiography",
               "year": 1989,
               "status": "finalist"
+            },
+            {
+              "awardId": "award-anisfield-wolf-book-awards-nonfiction",
+              "awardName": "Anisfield-Wolf Book Awards: Nonfiction",
+              "year": 1987,
+              "status": "co_winner"
             }
           ],
           "completenessScore": 7
@@ -243,7 +255,7 @@
             "Arnold Rampersad"
           ],
           "isbn13": [],
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -253,7 +265,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 1
         }
       ],
       "pairSignals": [
@@ -287,7 +299,7 @@
           ],
           "publisherId": "publisher-harpercollins",
           "imprintId": "imprint-avon-books",
-          "sourceCount": 7,
+          "sourceCount": 8,
           "appearanceCount": 3,
           "awards": [
             {
@@ -366,7 +378,7 @@
           ],
           "publisherId": "publisher-penguin-random-house",
           "imprintId": "imprint-viking",
-          "sourceCount": 4,
+          "sourceCount": 5,
           "appearanceCount": 1,
           "awards": [
             {
@@ -376,7 +388,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 7
+          "completenessScore": 8
         },
         {
           "id": "book-orson-welles-the-road-to-xanadu-simon-callow",
@@ -388,7 +400,9 @@
           "isbn13": [
             "9780670867226"
           ],
-          "sourceCount": 2,
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-viking",
+          "sourceCount": 5,
           "appearanceCount": 1,
           "awards": [
             {
@@ -398,7 +412,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 4
+          "completenessScore": 7
         }
       ],
       "pairSignals": [
@@ -429,7 +443,7 @@
             "Lewis Mumford"
           ],
           "isbn13": [],
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -439,7 +453,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 1
         },
         {
           "id": "book-the-myth-of-the-machine-the-pentagon-of-power-lewis-mumford",
@@ -448,7 +462,7 @@
             "Lewis Mumford"
           ],
           "isbn13": [],
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -458,7 +472,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 1
         }
       ],
       "pairSignals": [
@@ -494,12 +508,18 @@
           ],
           "publisherId": "publisher-macmillan",
           "imprintId": "imprint-henry-holt",
-          "sourceCount": 12,
-          "appearanceCount": 5,
+          "sourceCount": 13,
+          "appearanceCount": 6,
           "awards": [
             {
               "awardId": "award-bancroft-prize",
               "awardName": "Bancroft Prize",
+              "year": 1994,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-francis-parkman-prize",
+              "awardName": "Francis Parkman Prize",
               "year": 1994,
               "status": "winner"
             },
@@ -532,19 +552,24 @@
         },
         {
           "id": "book-w-e-b-du-bois-the-fight-for-equality-and-the-american-century-1919-1963-david-levering-lewis",
-          "title": "W.E.B. Du Bois: The Fight for Equality and the American Century, 1919–1963",
+          "title": "W. E. B. Du Bois: The Fight for Equality and the American Century 1919-1963",
           "authors": [
             "David Levering Lewis"
           ],
-          "publicationYear": 2000,
           "isbn13": [
             "9780805025347"
           ],
           "publisherId": "publisher-macmillan",
           "imprintId": "imprint-henry-holt-and-company",
-          "sourceCount": 5,
-          "appearanceCount": 2,
+          "sourceCount": 6,
+          "appearanceCount": 4,
           "awards": [
+            {
+              "awardId": "award-anisfield-wolf-book-awards-nonfiction",
+              "awardName": "Anisfield-Wolf Book Awards: Nonfiction",
+              "year": 2001,
+              "status": "co_winner"
+            },
             {
               "awardId": "award-pulitzer-prize-in-biography-or-autobiography",
               "awardName": "Pulitzer Prize in Biography or Autobiography",
@@ -556,9 +581,15 @@
               "awardName": "National Book Award for Nonfiction",
               "year": 2000,
               "status": "finalist"
+            },
+            {
+              "awardId": "award-anisfield-wolf-book-awards-nonfiction",
+              "awardName": "Anisfield-Wolf Book Awards: Nonfiction",
+              "year": 1994,
+              "status": "co_winner"
             }
           ],
-          "completenessScore": 8
+          "completenessScore": 7
         }
       ],
       "pairSignals": [
@@ -570,8 +601,7 @@
           "titleSimilarity": 0.375,
           "authorSimilarity": 1,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true,
-          "yearDelta": 6
+          "sharedTitlePrefix": true
         }
       ]
     },
@@ -613,7 +643,9 @@
           "isbn13": [
             "9780006863076"
           ],
-          "sourceCount": 2,
+          "publisherId": "publisher-harpercollins",
+          "imprintId": "imprint-harpercollins",
+          "sourceCount": 4,
           "appearanceCount": 1,
           "awards": [
             {
@@ -623,7 +655,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 4
+          "completenessScore": 7
         }
       ],
       "pairSignals": [
