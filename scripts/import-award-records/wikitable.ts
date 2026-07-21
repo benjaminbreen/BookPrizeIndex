@@ -57,11 +57,6 @@ function parseYear(cell: string) {
 }
 
 function titleFromCell(cell: string) {
-  let value = cell;
-  value = value.replace(/\{\{[Ss]ort\|([^{}]+)\|''([^{}]+)''\}\}/g, "$2");
-  value = value.replace(/\{\{[Ss]ort\|[^|{}]+\|([^{}]+)\}\}/g, "$1");
-  value = value.replace(/\{\{[Ss]ortname\|1=([^|{}]+)\|2=([^|{}]+)(?:\|[^{}]*)?\}\}/g, "$1 $2");
-  value = value.replace(/\{\{[Ss]ortname\|1=([^|{}]+)(?:\|[^{}]*)?\}\}/g, "$1");
-  value = wikiToPlainText(value);
+  const value = wikiToPlainText(cell);
   return cleanText(value.replace(/^''|''$/g, "").replace(/''/g, ""));
 }

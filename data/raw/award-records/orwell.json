@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-13T23:08:37.750Z",
+  "generatedAt": "2026-07-20T23:53:02.014Z",
   "metadata": {
     "importer": "scripts/import-award-records/orwell.ts",
     "source": "Wikipedia: Orwell Prize",
-    "notes": "Imports only the nonfiction-specific Political Writing category from 2019 onward. The older combined book category is excluded because it mixes fiction and nonfiction.",
+    "notes": "Imports Political Writing from 2019 onward and nonfiction works from the combined 1994-2018 book category. Six explicitly reviewed fiction works are excluded from the combined-category table.",
     "categories": [
       {
         "categoryId": "orwell-political-writing",
@@ -13,16 +13,17 @@
         "winners": 8,
         "shortlisted": 56,
         "yearRange": "2019-2026"
+      },
+      {
+        "categoryId": "orwell-combined-book",
+        "categoryName": "Combined Book Prize (nonfiction works)",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+        "records": 100,
+        "winners": 24,
+        "shortlisted": 76,
+        "yearRange": "1994-2018"
       }
-    ],
-    "reconciliation": {
-      "baselineRef": "HEAD",
-      "retainedBaselineRecords": 56,
-      "acceptedNewRecords": 8,
-      "rejectedNewRecords": 0,
-      "repairedBaselineRecords": 0,
-      "excludedCorruptBaselineRecords": 0
-    }
+    ]
   },
   "records": [
     {
@@ -513,7 +514,7 @@
       "categoryName": "Political Writing",
       "year": 2023,
       "status": "shortlist",
-      "title": "The Last Colony: A Tale of Exile, Justice and Britain’s Colonial Legacy",
+      "title": "The Last Colony: A Tale of Exile, Justice and Britain's Colonial Legacy",
       "authors": [
         "Philippe Sands"
       ],
@@ -1051,6 +1052,1607 @@
       "sourceLabel": "Wikipedia: Orwell Prize",
       "sourceConfidence": "secondary",
       "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/"
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2018,
+      "status": "winner",
+      "title": "Poverty Safari",
+      "authors": [
+        "Darren McGarvey"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2018,
+      "status": "shortlist",
+      "title": "Lovers and Strangers: An Immigrant History of Post-War Britain",
+      "authors": [
+        "Clair Wills"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2018,
+      "status": "shortlist",
+      "title": "Testosterone Rex",
+      "authors": [
+        "Cordelia Fine"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2018,
+      "status": "shortlist",
+      "title": "The Islamic Enlightenment: The Modern Struggle Between Faith and Reason",
+      "authors": [
+        "Christopher de Bellaigue"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2018,
+      "status": "shortlist",
+      "title": "What You Did Not Tell",
+      "authors": [
+        "Mark Mazower"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2017,
+      "status": "winner",
+      "title": "Citizen Clem: A Biography of Attlee",
+      "authors": [
+        "John Bew"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2017,
+      "status": "shortlist",
+      "title": "All Out War: The Full Story of How Brexit Sank Britain's Political Class",
+      "authors": [
+        "Tim Shipman"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2017,
+      "status": "shortlist",
+      "title": "And the Sun Shines Now: How Hillsborough and the Premier League Changed Britain",
+      "authors": [
+        "Adrian Tempany"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2017,
+      "status": "shortlist",
+      "title": "Another Day in the Death of America: A Chronicle of Ten Short Lives",
+      "authors": [
+        "Gary Younge"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2017,
+      "status": "shortlist",
+      "title": "Island Story: Journeys Around Unfamiliar Britain",
+      "authors": [
+        "J. D. Taylor"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2017,
+      "status": "shortlist",
+      "title": "The Seven: The Lives and Legacies of the Founding Fathers of the Irish Republic",
+      "authors": [
+        "Ruth Dudley Edwards"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2016,
+      "status": "winner",
+      "title": "The Invention of Russia",
+      "authors": [
+        "Arkady Ostrovsky"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2016,
+      "status": "shortlist",
+      "title": "Circling the Square",
+      "authors": [
+        "Wendell Steavenson"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2016,
+      "status": "shortlist",
+      "title": "Other People's Money",
+      "authors": [
+        "John Kay"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2016,
+      "status": "shortlist",
+      "title": "The New Threat from Islamic Militancy",
+      "authors": [
+        "Jason Burke"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2016,
+      "status": "shortlist",
+      "title": "The Tears of the Rajas",
+      "authors": [
+        "Ferdinand Mount"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2016,
+      "status": "shortlist",
+      "title": "The Unravelling",
+      "authors": [
+        "Emma Sky"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2015,
+      "status": "winner",
+      "title": "Private Island: Why Britain Now Belongs to Someone Else",
+      "authors": [
+        "James Meek"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2015,
+      "status": "shortlist",
+      "title": "Capital: The Eruption of Delhi",
+      "authors": [
+        "Rana Dasgupta"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2015,
+      "status": "shortlist",
+      "title": "Hack Attack: How the Truth Caught Up with Rupert Murdoch",
+      "authors": [
+        "Nick Davies"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2015,
+      "status": "shortlist",
+      "title": "In Plain Sight: The Life and Lies of Jimmy Savile",
+      "authors": [
+        "Dan Davies"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2015,
+      "status": "shortlist",
+      "title": "Modernity Britain: Opening the Box, 1957–1959",
+      "authors": [
+        "David Kynaston"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2015,
+      "status": "shortlist",
+      "title": "People's Republic of Amnesia: Tiananmen Revisited",
+      "authors": [
+        "Louisa Lim"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2014,
+      "status": "winner",
+      "title": "This Boy: A Memoir of a Childhood",
+      "authors": [
+        "Alan Johnson"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2014,
+      "status": "shortlist",
+      "title": "Coolie Woman",
+      "authors": [
+        "Gaiutra Bahadur"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2014,
+      "status": "shortlist",
+      "title": "Not for Turning",
+      "authors": [
+        "Charles Moore"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2014,
+      "status": "shortlist",
+      "title": "The British Dream",
+      "authors": [
+        "David Goodhart"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2014,
+      "status": "shortlist",
+      "title": "The Tragedy of Liberation",
+      "authors": [
+        "Frank Dikötter"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2014,
+      "status": "shortlist",
+      "title": "The World's Most Dangerous Place",
+      "authors": [
+        "James Fergusson"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2013,
+      "status": "winner",
+      "title": "A Very British Killing: The Death of Baha Mousa",
+      "authors": [
+        "A. T. Williams"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2013,
+      "status": "shortlist",
+      "title": "Burying the Typewriter",
+      "authors": [
+        "Carmen Bugan"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2013,
+      "status": "shortlist",
+      "title": "From the Ruins of the Empire",
+      "authors": [
+        "Pankaj Mishra"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2013,
+      "status": "shortlist",
+      "title": "Injustice",
+      "authors": [
+        "Clive Stafford Smith"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2013,
+      "status": "shortlist",
+      "title": "Leaving Alexandria",
+      "authors": [
+        "Richard Holloway"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2013,
+      "status": "shortlist",
+      "title": "Occupation Diaries",
+      "authors": [
+        "Raja Shehadeh"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2013,
+      "status": "shortlist",
+      "title": "On the Front Line: The Collected Journalism of Marie Colvin",
+      "authors": [
+        "Marie Colvin"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2012,
+      "status": "winner",
+      "title": "Dead Men Risen",
+      "authors": [
+        "Toby Harnden"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2012,
+      "status": "shortlist",
+      "title": "DarkMarket: CyberThieves, CyberCops and You",
+      "authors": [
+        "Misha Glenny"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2012,
+      "status": "shortlist",
+      "title": "Hood Rat",
+      "authors": [
+        "Gavin Knight"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2012,
+      "status": "shortlist",
+      "title": "People Who Eat Darkness: The Fate of Lucie Blackman",
+      "authors": [
+        "Richard Lloyd Parry"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2012,
+      "status": "shortlist",
+      "title": "The Beautiful and the Damned: Life in the New India",
+      "authors": [
+        "Siddhartha Deb"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2012,
+      "status": "shortlist",
+      "title": "The Opium War",
+      "authors": [
+        "Julia Lovell"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2011,
+      "status": "winner",
+      "title": "The Rule of Law",
+      "authors": [
+        "Tom Bingham"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2011,
+      "status": "shortlist",
+      "title": "Death to the Dictator!: Witnessing Iran's election and the Crippling of the Islamic Republic",
+      "authors": [
+        "Afsaneh Moqadam"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2011,
+      "status": "shortlist",
+      "title": "Hitch-22",
+      "authors": [
+        "Christopher Hitchens"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2011,
+      "status": "shortlist",
+      "title": "Let Our Fame Be Great: Journeys among the defiant people of the Caucasus",
+      "authors": [
+        "Oliver Bullough"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2011,
+      "status": "shortlist",
+      "title": "Supermac: The Life of Harold Macmillan",
+      "authors": [
+        "D. R. Thorpe"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2010,
+      "status": "winner",
+      "title": "Keeper",
+      "authors": [
+        "Andrea Gillies"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2010,
+      "status": "shortlist",
+      "title": "Freedom For Sale: How We Made Money and Lost Our Liberty",
+      "authors": [
+        "John Kampfner"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2010,
+      "status": "shortlist",
+      "title": "From Fatwa to Jihad: The Rushdie Affair and Its Legacy",
+      "authors": [
+        "Kenan Malik"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2010,
+      "status": "shortlist",
+      "title": "It's Our Turn to Eat: The Story of a Kenyan Whistle Blower",
+      "authors": [
+        "Michela Wrong"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2010,
+      "status": "shortlist",
+      "title": "Rebel Land: Among Turkey's Forgotten Peoples",
+      "authors": [
+        "Christopher de Bellaigue"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2009,
+      "status": "winner",
+      "title": "Fishing in Utopia: Sweden and the future that disappeared",
+      "authors": [
+        "Andrew Brown"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2009,
+      "status": "shortlist",
+      "title": "Chinese Whispers: The True Story Behind Britain's Hidden Army of Labour",
+      "authors": [
+        "Hsiao-Hung Pai"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2009,
+      "status": "shortlist",
+      "title": "Descent into Chaos: The United States and the Failure of Nation Building in Pakistan, Afghanistan and Central Asia",
+      "authors": [
+        "Ahmed Rashid"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2009,
+      "status": "shortlist",
+      "title": "Reappraisals: Reflections on the Forgotten Twentieth Century",
+      "authors": [
+        "Tony Judt"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2009,
+      "status": "shortlist",
+      "title": "Stalin's Children: Three Generations of Love and War",
+      "authors": [
+        "Owen Matthews"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2009,
+      "status": "shortlist",
+      "title": "The White War: Life and Death on the Italian Front 1915–1918",
+      "authors": [
+        "Mark Thompson"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2008,
+      "status": "winner",
+      "title": "Palestinian Walks: Forays into a Vanishing Landscape",
+      "authors": [
+        "Raja Shehadeh"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2008,
+      "status": "shortlist",
+      "title": "Bad Men",
+      "authors": [
+        "Clive Stafford Smith"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2008,
+      "status": "shortlist",
+      "title": "The Islamist",
+      "authors": [
+        "Ed Husain"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2008,
+      "status": "shortlist",
+      "title": "What's Left?",
+      "authors": [
+        "Nick Cohen"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2008,
+      "status": "shortlist",
+      "title": "Wild",
+      "authors": [
+        "Jay Griffiths"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2008,
+      "status": "shortlist",
+      "title": "William Wilberforce",
+      "authors": [
+        "William Hague"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2007,
+      "status": "winner",
+      "title": "Having It So Good: Britain in the 1950s",
+      "authors": [
+        "Peter Hennessy"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2007,
+      "status": "shortlist",
+      "title": "Alexis de Tocqueville: Prophet of Democracy in the Age of Revolution",
+      "authors": [
+        "Hugh Brogan"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2007,
+      "status": "shortlist",
+      "title": "Bad Faith: A Forgotten History of Family and Fatherland",
+      "authors": [
+        "Carmen Callil"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2007,
+      "status": "shortlist",
+      "title": "Lions, Donkeys And Dinosaurs: Waste and Blundering in the Military",
+      "authors": [
+        "Lewis Page"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2007,
+      "status": "shortlist",
+      "title": "Occupational Hazards: My Time Governing in Iraq",
+      "authors": [
+        "Rory Stewart"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2007,
+      "status": "shortlist",
+      "title": "Thatcher and Sons: A Revolution in Three Acts",
+      "authors": [
+        "Simon Jenkins"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2006,
+      "status": "shortlist",
+      "title": "Black Gold of the Sun: Searching for Home in England and Africa",
+      "authors": [
+        "Ekow Eshun"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2006,
+      "status": "shortlist",
+      "title": "Frontline: The True Story of the British Mavericks Who Changed the Face of War Reporting",
+      "authors": [
+        "David Loyn"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2006,
+      "status": "shortlist",
+      "title": "I Didn't Do It For You: How the World Used and Abused a Small African Nation",
+      "authors": [
+        "Michela Wrong"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2006,
+      "status": "shortlist",
+      "title": "The Secret of Bryn Estyn: The Making of a Modern Witch Hunt",
+      "authors": [
+        "Richard Webster"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2006,
+      "status": "shortlist",
+      "title": "Urban Grimshaw and the Shed Crew",
+      "authors": [
+        "Bernard Hare"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2005,
+      "status": "winner",
+      "title": "The Likes of Us: A Biography of the White Working Class",
+      "authors": [
+        "Michael Collins"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2005,
+      "status": "shortlist",
+      "title": "Free World",
+      "authors": [
+        "Timothy Garton Ash"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2005,
+      "status": "shortlist",
+      "title": "Just Law",
+      "authors": [
+        "Helena Kennedy"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2005,
+      "status": "shortlist",
+      "title": "My Trade: A Short History of British Journalism",
+      "authors": [
+        "Andrew Marr"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2005,
+      "status": "shortlist",
+      "title": "Occidentalism: A Short History of Anti-Westernism",
+      "authors": [
+        "Ian Buruma",
+        "Avishai Margalit"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2005,
+      "status": "shortlist",
+      "title": "Wartime: Britain 1939-1945",
+      "authors": [
+        "Juliet Gardiner"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2004,
+      "status": "winner",
+      "title": "The Breaking of Nations: Order and Chaos in the Twenty-First Century",
+      "authors": [
+        "Robert Cooper"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2004,
+      "status": "shortlist",
+      "title": "Margaret Thatcher: Volume Two: The Iron Lady",
+      "authors": [
+        "John Campbell"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2004,
+      "status": "shortlist",
+      "title": "Rising '44: The Battle For Warsaw",
+      "authors": [
+        "Norman Davies"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2004,
+      "status": "shortlist",
+      "title": "Supping with the Devils: Political Journalism from Thatcher to Blair",
+      "authors": [
+        "Hugo Young"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2003,
+      "status": "winner",
+      "title": "Hoo-hahs and Passing Frenzies: Collected Journalism 1991–2000",
+      "authors": [
+        "Francis Wheen"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2003,
+      "status": "shortlist",
+      "title": "Chance Witness: An Outsider's Life in Politics",
+      "authors": [
+        "Matthew Parris"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2003,
+      "status": "shortlist",
+      "title": "London Orbital: A Walk Around the M25",
+      "authors": [
+        "Iain Sinclair"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2003,
+      "status": "shortlist",
+      "title": "Marianne in Chains: In Search of the German Occupation 1940-45",
+      "authors": [
+        "Robert Gildea"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2003,
+      "status": "shortlist",
+      "title": "Patriots: National Identity in Britain 1940-2000",
+      "authors": [
+        "Richard Weight"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2003,
+      "status": "shortlist",
+      "title": "Stone Voices: The Search for Scotland",
+      "authors": [
+        "Neal Ascherson"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2002,
+      "status": "winner",
+      "title": "Anthony Blunt: His Lives",
+      "authors": [
+        "Miranda Carter"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2001,
+      "status": "winner",
+      "title": "Virtual War",
+      "authors": [
+        "Michael Ignatieff"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 2000,
+      "status": "winner",
+      "title": "The Case of Stephen Lawrence",
+      "authors": [
+        "Brian Cathcart"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 1999,
+      "status": "winner",
+      "title": "Alexander Solzhenitsyn: a Century in His Life",
+      "authors": [
+        "D. M. Thomas"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 1998,
+      "status": "winner",
+      "title": "Jennie Lee: A Life",
+      "authors": [
+        "Patricia Hollis"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 1997,
+      "status": "winner",
+      "title": "Mukiwa: A White Boy in Africa",
+      "authors": [
+        "Peter Godwin"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 1996,
+      "status": "winner",
+      "title": "Season of Blood: A Rwandan Journey",
+      "authors": [
+        "Fergal Keane"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 1995,
+      "status": "winner",
+      "title": "In Search of a State: Catholics in Northern Ireland",
+      "authors": [
+        "Fionnuala O'Connor"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
+    },
+    {
+      "awardId": "orwell-prize",
+      "awardName": "Orwell Prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "year": 1994,
+      "status": "winner",
+      "title": "The Baltic Revolution: Estonia, Latvia, Lithuania and the Path to Independence",
+      "authors": [
+        "Anatol Lieven"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+      "sourceLabel": "Wikipedia: Orwell Prize",
+      "sourceConfidence": "secondary",
+      "notes": "Official awards URL: https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/ The pre-2019 Book Prize accepted both fiction and nonfiction; this record was reviewed as nonfiction."
     }
   ]
 }

@@ -96,11 +96,46 @@ export async function fetchMediaWikiWikitext(pageTitle: string) {
   return content;
 }
 
+export async function fetchHtml(url: string) {
+  const response = await fetch(url, {
+    headers: {
+      "User-Agent": "book-prize-index-importer/0.1 (research dataset builder)",
+    },
+  });
+  if (!response.ok) throw new Error(`HTML request failed for ${url}: ${response.status} ${response.statusText}`);
+  return response.text();
+}
+
+export function htmlToPlainText(html: string) {
+  return cleanText(
+    decodeHtmlEntities(
+      html
+        .replace(/<script[\s\S]*?<\/script>/gi, " ")
+        .replace(/<style[\s\S]*?<\/style>/gi, " ")
+        .replace(/<br\s*\/?\s*>/gi, " ")
+        .replace(/<[^>]+>/g, " "),
+    ),
+  );
+}
+
+export function htmlToLines(html: string) {
+  return decodeHtmlEntities(
+    html
+      .replace(/<script[\s\S]*?<\/script>/gi, "")
+      .replace(/<style[\s\S]*?<\/style>/gi, "")
+      .replace(/<\/?(?:h[1-6]|p|li|div|section|article|tr|td|th|br)[^>]*>/gi, "\n")
+      .replace(/<[^>]+>/g, " "),
+  )
+    .split(/\n+/)
+    .map(cleanText)
+    .filter(Boolean);
+}
+
 export function wikiToPlainText(input: string) {
   let output = decodeHtmlEntities(input);
 
   output = output.replace(/\{\{[Ss]ortname\|([^{}]+)\}\}/g, (_match, body: string) => {
-    const parts = body.split("|").map((part) => part.trim()).filter(Boolean);
+    const parts = splitWikiTemplateParameters(body).map((part) => part.trim()).filter(Boolean);
     const params = new Map<string, string>();
     const positional: string[] = [];
     for (const part of parts) {
@@ -116,7 +151,22 @@ export function wikiToPlainText(input: string) {
     const last = params.get("last") ?? positional[1] ?? "";
     return cleanText(`${first} ${last}`);
   });
-  output = output.replace(/\{\{[Ss]ort\|[^|{}]+\|([^{}]+)\}\}/g, "$1");
+  output = output.replace(/\{\{[Ss]ort\|([^{}]+)\}\}/g, (_match, body: string) => {
+    const parts = splitWikiTemplateParameters(body).map((part) => part.trim()).filter(Boolean);
+    const params = new Map<string, string>();
+    const positional: string[] = [];
+    for (const part of parts) {
+      const eq = part.indexOf("=");
+      if (eq > 0) params.set(part.slice(0, eq).trim(), part.slice(eq + 1).trim());
+      else positional.push(part);
+    }
+    const first = params.get("1");
+    const second = params.get("2");
+    if (first && second && /^(?:a|an|the)$/i.test(first) && !new RegExp(`^${first}\\b`, "i").test(second)) {
+      return `${first} ${second}`;
+    }
+    return second ?? first ?? positional[1] ?? positional[0] ?? "";
+  });
   output = output.replace(/\{\{nowrap\|([^{}]+)\}\}/g, "$1");
   output = output.replace(/\{\{small\|([^{}]+)\}\}/g, "$1");
   output = output.replace(/\{\{efn\|[^{}]*\}\}/g, "");
@@ -214,4 +264,29 @@ export function isLikelyTitle(value: string) {
   if (!value) return false;
   if (/^no award$/i.test(value)) return false;
   return /[a-zA-Z0-9]/.test(value);
+}
+
+function splitWikiTemplateParameters(body: string) {
+  const parts: string[] = [];
+  let start = 0;
+  let linkDepth = 0;
+  for (let index = 0; index < body.length; index += 1) {
+    const pair = body.slice(index, index + 2);
+    if (pair === "[[") {
+      linkDepth += 1;
+      index += 1;
+      continue;
+    }
+    if (pair === "]]" && linkDepth > 0) {
+      linkDepth -= 1;
+      index += 1;
+      continue;
+    }
+    if (body[index] === "|" && linkDepth === 0) {
+      parts.push(body.slice(start, index));
+      start = index + 1;
+    }
+  }
+  parts.push(body.slice(start));
+  return parts;
 }

@@ -435,7 +435,7 @@
     "geography": "United Kingdom / International",
     "foundedYear": 1994,
     "officialUrl": "https://www.orwellfoundation.com/the-orwell-prizes/",
-    "notes": "Importer currently imports the nonfiction-specific Political Writing category from 2019 onward. The older combined book category is intentionally excluded because it mixes fiction and nonfiction before the current split.",
+    "notes": "Importer covers the nonfiction-specific Political Writing category from 2019 onward and the nonfiction works from the combined Book Prize used from 1994 through 2018. The combined category accepted fiction and nonfiction, so explicitly reviewed fiction titles are excluded rather than admitted to the nonfiction corpus.",
     "categories": [
       {
         "id": "orwell-political-writing",
@@ -447,6 +447,17 @@
         "importStrategy": "mediawiki-wikitable",
         "activeYears": "2019-present",
         "coverageNotes": "Covers winners and shortlisted books in the nonfiction-specific Orwell Prize for Political Writing table from 2019 onward."
+      },
+      {
+        "id": "orwell-combined-book",
+        "name": "Combined Book Prize (nonfiction works)",
+        "officialUrl": "https://www.orwellfoundation.com/the-orwell-prizes/previous-winners/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Orwell_Prize",
+        "sourceLabel": "Wikipedia: Orwell Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable-with-reviewed-nonfiction-filter",
+        "activeYears": "1994-2018",
+        "coverageNotes": "Covers winners from 1994 onward and shortlists where listed from 2003 onward, limited to reviewed nonfiction works. Explicit fiction entries in the former combined category are excluded."
       }
     ]
   },
@@ -947,6 +958,260 @@
         "importStrategy": "mediawiki-wikitable",
         "activeYears": "1936-present",
         "coverageNotes": "Winners from 1936 onward; finalists as listed from 1980 onward. Several 1940s years list multiple winners, reflecting the era's split academic/creative non-fiction categories; these are normalized as co-winners."
+      }
+    ]
+  },
+  {
+    "id": "chicago-tribune-heartland-prize",
+    "name": "Chicago Tribune Heartland Prize",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Chicago Tribune",
+    "geography": "United States",
+    "foundedYear": 1988,
+    "discontinuedYear": 2019,
+    "officialUrl": "https://www.chicagotribune.com/entertainment/books/ct-books-heartland-prize-2019-1029-20191028-3wnkvmt2hbahdicom7efuaiqya-story.html",
+    "notes": "Annual Chicago Tribune prize for books associated with the American heartland. The nonfiction category ran for 32 award years; historical winners are retained even though the prize ended in 2019.",
+    "categories": [
+      {
+        "id": "heartland-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://www.chicagotribune.com/entertainment/books/ct-books-heartland-prize-2019-1029-20191028-3wnkvmt2hbahdicom7efuaiqya-story.html",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Chicago_Tribune_Heartland_Prize",
+        "sourceLabel": "Wikipedia: Chicago Tribune Heartland Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-bullets",
+        "activeYears": "1988-2019",
+        "coverageNotes": "Complete winners-only coverage for the nonfiction category. In 2008 the archive names two Garry Wills books; both are retained as winning works."
+      }
+    ]
+  },
+  {
+    "id": "james-tait-black-prizes",
+    "name": "James Tait Black Prizes",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "University of Edinburgh",
+    "geography": "United Kingdom / International",
+    "foundedYear": 1919,
+    "officialUrl": "https://james-tait-black.ed.ac.uk/",
+    "notes": "The biography prize has been awarded since 1919 as part of the James Tait Black Prizes. The official archive lists winners by publication year and does not provide a complete historical shortlist.",
+    "categories": [
+      {
+        "id": "james-tait-black-biography",
+        "name": "Biography",
+        "officialUrl": "https://james-tait-black.ed.ac.uk/winners/biography",
+        "sourceUrl": "https://james-tait-black.ed.ac.uk/winners/biography",
+        "sourceLabel": "University of Edinburgh James Tait Black biography winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1919-present",
+        "coverageNotes": "Winners from 1919 onward. The importer supplements the archive with a newer official University announcement when the archive is awaiting its annual update."
+      }
+    ]
+  },
+  {
+    "id": "anisfield-wolf-book-awards",
+    "name": "Anisfield-Wolf Book Awards",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Cleveland Foundation",
+    "geography": "United States / International",
+    "foundedYear": 1935,
+    "officialUrl": "https://www.anisfield-wolf.org/",
+    "notes": "Long-running awards for books that contribute to understanding racism and human diversity. This corpus imports the official Nonfiction and Memoir labels and excludes fiction, poetry, and lifetime-achievement records.",
+    "categories": [
+      {
+        "id": "anisfield-wolf-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://www.anisfield-wolf.org/winners/",
+        "sourceUrl": "https://www.anisfield-wolf.org/winners/",
+        "sourceLabel": "Anisfield-Wolf official winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1936-present",
+        "coverageNotes": "Winners labeled Nonfiction by the official archive. Multiple works in a category-year are normalized as co-winners."
+      },
+      {
+        "id": "anisfield-wolf-memoir",
+        "name": "Memoir",
+        "officialUrl": "https://www.anisfield-wolf.org/winners/",
+        "sourceUrl": "https://www.anisfield-wolf.org/winners/",
+        "sourceLabel": "Anisfield-Wolf official winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "2025-present",
+        "coverageNotes": "Winners in the separately labeled Memoir category from its introduction in 2025. Earlier memoirs retain the category labels used by the official archive."
+      }
+    ]
+  },
+  {
+    "id": "ackerley-prize",
+    "name": "Ackerley Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "J. R. Ackerley Memorial Trust / Times Literary Supplement",
+    "geography": "United Kingdom",
+    "foundedYear": 1982,
+    "officialUrl": "https://www.jrackerley.com/the-ackerley-prize",
+    "notes": "Annual British prize for autobiography and memoir, founded in 1982 in memory of J. R. Ackerley. The official winner archive begins with the inaugural 1982 award.",
+    "categories": [
+      {
+        "id": "ackerley-autobiography",
+        "name": "Autobiography and Memoir",
+        "officialUrl": "https://www.jrackerley.com/the-ackerley-prize",
+        "sourceUrl": "https://www.jrackerley.com/the-ackerley-prize",
+        "sourceLabel": "J. R. Ackerley official prize archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1982-present",
+        "coverageNotes": "Winners from 1982 onward, including the two joint winners in 1983. The archive does not provide historical shortlists."
+      }
+    ]
+  },
+  {
+    "id": "edgar-awards",
+    "name": "Edgar Awards",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Mystery Writers of America",
+    "geography": "United States",
+    "foundedYear": 1946,
+    "officialUrl": "https://edgarawards.com/",
+    "notes": "The corpus includes the Edgar category for book-length factual crime writing, preserving both winners and the nominated slates exposed by the official database.",
+    "categories": [
+      {
+        "id": "edgar-best-fact-crime",
+        "name": "Best Fact Crime",
+        "officialUrl": "https://edgarawards.com/category-list-best-fact-crime/",
+        "sourceUrl": "https://edgarawards.com/category-list-best-fact-crime/",
+        "sourceLabel": "Edgar Awards official Best Fact Crime database",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-paginated-table",
+        "activeYears": "1948-present",
+        "coverageNotes": "Official database winners and nominees from 1948 onward. Non-winning nominated works are normalized as finalists; years without a category record remain explicit gaps."
+      }
+    ]
+  },
+  {
+    "id": "overseas-press-club-awards",
+    "name": "Overseas Press Club Awards",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Overseas Press Club of America",
+    "geography": "United States / International",
+    "foundedYear": 1939,
+    "officialUrl": "https://opcofamerica.org/opc-awards-contest-rules/",
+    "notes": "The corpus includes the Cornelius Ryan Award for the best nonfiction book on international affairs. The official book archive also contains predecessor categories; those are kept outside this program rather than silently merged.",
+    "categories": [
+      {
+        "id": "cornelius-ryan-award",
+        "name": "Cornelius Ryan Award",
+        "officialUrl": "https://opcofamerica.org/opc-awards-contest-rules/",
+        "sourceUrl": "https://opcofamerica.org/awardarchivecategory/book/",
+        "sourceLabel": "Overseas Press Club official book award archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-archive-and-detail-pages",
+        "activeYears": "1977-present",
+        "coverageNotes": "Winners from official archive entries explicitly named Cornelius Ryan Award and containing structured recipient/work data. Several older named entry pages are empty and remain explicit coverage gaps; predecessor Best Book on Foreign Affairs records are not conflated with this category."
+      }
+    ]
+  },
+  {
+    "id": "hilary-weston-writers-trust-prize",
+    "name": "Hilary Weston Writers' Trust Prize for Nonfiction",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Writers' Trust of Canada",
+    "geography": "Canada",
+    "foundedYear": 1997,
+    "officialUrl": "https://www.writerstrust.com/writers-books/awards/hilary-weston-writers-trust-prize-for-nonfiction",
+    "notes": "Major Canadian general-nonfiction prize established in 1997 under earlier sponsors and named for Hilary Weston since 2011. The deterministic secondary table is used because the official archive blocks command-line retrieval.",
+    "categories": [
+      {
+        "id": "hilary-weston-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://www.writerstrust.com/writers-books/awards/hilary-weston-writers-trust-prize-for-nonfiction",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Hilary_Weston_Writers%27_Trust_Prize_for_Nonfiction",
+        "sourceLabel": "Wikipedia: Hilary Weston Writers' Trust Prize for Nonfiction",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1997-present",
+        "coverageNotes": "Winners and finalists from 1997 onward as listed in the deterministic table; official archive URL is retained for manual verification."
+      }
+    ]
+  },
+  {
+    "id": "robert-f-kennedy-book-award",
+    "name": "Robert F. Kennedy Book Award",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Robert & Ethel Kennedy Human Rights Center",
+    "geography": "United States / International",
+    "foundedYear": 1980,
+    "officialUrl": "https://kennedyhumanrights.org/awards/book-and-journalism-awards/",
+    "notes": "Founded in 1980 to recognize books that reflect Robert F. Kennedy's concern for justice, opportunity, and the rights of poor and powerless people. The official laureate archive begins with the 1981 award. The program is not formally restricted to nonfiction; this nonfiction corpus excludes its 1988 fiction winner, Beloved.",
+    "categories": [
+      {
+        "id": "rfk-book-award",
+        "name": "Book Award",
+        "officialUrl": "https://kennedyhumanrights.org/awards/book-and-journalism/past-book-award-laureates/",
+        "sourceUrl": "https://kennedyhumanrights.org/awards/book-and-journalism/past-book-award-laureates/",
+        "sourceLabel": "Robert F. Kennedy Human Rights official book laureate archive and laureate pages",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-archive-and-detail-pages",
+        "activeYears": "1981-present",
+        "coverageNotes": "Official laureate records from 1981 through 2025. Multiple works described by official detail pages as receiving the award are normalized as co-winners. March: Book One (2014) is retained as an honorable mention because the historical winners list calls it a special recognition; The Burning Season (1991) is likewise marked honorable mention from a contemporary report. Beloved (1988) is excluded as fiction. The archive repeats the 1995 heading for Jack Bass, whose official detail page and contemporary records identify his award as 1994; the importer corrects that isolated heading error. Historical finalist slates were not published and are not inferred."
+      }
+    ]
+  },
+  {
+    "id": "francis-parkman-prize",
+    "name": "Francis Parkman Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Society of American Historians",
+    "geography": "United States / International",
+    "foundedYear": 1957,
+    "dormantYears": [[1968, 1968]],
+    "officialUrl": "https://sah.columbia.edu/content/prizes/francis-parkman-prize",
+    "notes": "Annual prize for a nonfiction work of history on an American theme, judged for both literary merit and historical contribution.",
+    "categories": [
+      {
+        "id": "francis-parkman-prize",
+        "name": "Francis Parkman Prize",
+        "officialUrl": "https://sah.columbia.edu/content/prizes/francis-parkman-prize",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Francis_Parkman_Prize",
+        "sourceLabel": "Wikipedia: Francis Parkman Prize winners",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-list-with-official-current-year-supplement",
+        "activeYears": "1957-present",
+        "coverageNotes": "Winners from 1957 onward; no prize was awarded in 1968. Historical rows use the deterministic secondary list because the official archive is protected from automated retrieval. The 2026 winner is replaced with the Society of American Historians' official announcement. Special-achievement awards to people or publishers are excluded."
+      }
+    ]
+  },
+  {
+    "id": "john-burroughs-medal",
+    "name": "John Burroughs Medal",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "John Burroughs Association",
+    "geography": "United States / International",
+    "foundedYear": 1926,
+    "dormantYears": [[1931, 1931], [1935, 1935], [1937, 1937], [1944, 1944], [1947, 1947], [1951, 1951], [1959, 1959], [1975, 1975], [1980, 1980]],
+    "officialUrl": "https://www.johnburroughsassociation.org/literary-awards/about-the-awards",
+    "notes": "Long-running medal for distinguished natural-history writing, first awarded in 1926. The current official historical archive is unavailable to automated retrieval, so the importer preserves a deterministic secondary list and uses publisher evidence for the newest winner.",
+    "categories": [
+      {
+        "id": "john-burroughs-medal",
+        "name": "John Burroughs Medal",
+        "officialUrl": "https://www.johnburroughsassociation.org/literary-awards/about-the-awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/John_Burroughs_Medal",
+        "sourceLabel": "Wikipedia: John Burroughs Medal recipients",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-list-with-publisher-current-year-supplement",
+        "activeYears": "1926-present",
+        "coverageNotes": "Book winners from 1926 through 2025, excluding explicit no-award years and three out-of-scope works: the poetry collection Nature Poems (1928) and the two fiction winners, Those of the Forest (1955) and Martin Marten (2017). The source has no 2019 entry, which remains an explicit unresolved gap rather than being labeled a no-award year. The 2018 lifetime-achievement medal for nature poetry is not a book record and is excluded."
       }
     ]
   }

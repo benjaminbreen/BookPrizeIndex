@@ -1,10 +1,20 @@
 {
-  "generatedAt": "2026-07-14T21:28:32.983Z",
+  "generatedAt": "2026-07-21T07:03:17.464Z",
   "files": [
+    {
+      "file": "ackerley.json",
+      "generatedAt": "2026-07-20T23:49:26.019Z",
+      "records": 45
+    },
     {
       "file": "aha-book-prizes.json",
       "generatedAt": "2026-05-12T22:46:12.867Z",
       "records": 239
+    },
+    {
+      "file": "anisfield-wolf.json",
+      "generatedAt": "2026-07-20T23:32:48.302Z",
+      "records": 169
     },
     {
       "file": "baillie-gifford.json",
@@ -27,6 +37,11 @@
       "records": 332
     },
     {
+      "file": "cornelius-ryan.json",
+      "generatedAt": "2026-07-20T23:47:52.435Z",
+      "records": 28
+    },
+    {
       "file": "costa.json",
       "generatedAt": "2026-05-11T18:11:00.758Z",
       "records": 125
@@ -42,6 +57,16 @@
       "records": 70
     },
     {
+      "file": "edgar-best-fact-crime.json",
+      "generatedAt": "2026-07-20T23:44:49.600Z",
+      "records": 332
+    },
+    {
+      "file": "francis-parkman.json",
+      "generatedAt": "2026-07-21T06:44:12.973Z",
+      "records": 69
+    },
+    {
       "file": "ft-business-book.json",
       "generatedAt": "2026-05-11T21:06:49.513Z",
       "records": 119
@@ -52,9 +77,19 @@
       "records": 269
     },
     {
+      "file": "heartland.json",
+      "generatedAt": "2026-07-20T23:32:47.377Z",
+      "records": 33
+    },
+    {
       "file": "helen-bernstein.json",
       "generatedAt": "2026-05-12T20:32:55.523Z",
       "records": 65
+    },
+    {
+      "file": "hilary-weston.json",
+      "generatedAt": "2026-07-20T23:50:49.766Z",
+      "records": 144
     },
     {
       "file": "hillman-book-journalism.json",
@@ -65,6 +100,16 @@
       "file": "j-anthony-lukas.json",
       "generatedAt": "2026-05-11T04:17:21.680Z",
       "records": 79
+    },
+    {
+      "file": "james-tait-black-biography.json",
+      "generatedAt": "2026-07-20T23:32:47.274Z",
+      "records": 108
+    },
+    {
+      "file": "john-burroughs.json",
+      "generatedAt": "2026-07-21T07:01:07.304Z",
+      "records": 87
     },
     {
       "file": "kirkus.json",
@@ -103,8 +148,8 @@
     },
     {
       "file": "orwell.json",
-      "generatedAt": "2026-07-13T23:08:37.750Z",
-      "records": 64
+      "generatedAt": "2026-07-20T23:53:02.014Z",
+      "records": 164
     },
     {
       "file": "pen-diamonstein-essay.json",
@@ -152,6 +197,11 @@
       "records": 18
     },
     {
+      "file": "rfk-book.json",
+      "generatedAt": "2026-07-21T07:03:16.495Z",
+      "records": 66
+    },
+    {
       "file": "ridenhour.json",
       "generatedAt": "2026-05-12T20:42:46.416Z",
       "records": 20
@@ -168,9 +218,9 @@
     }
   ],
   "totals": {
-    "records": 6815,
-    "awards": 33,
-    "categories": 93,
+    "records": 7996,
+    "awards": 43,
+    "categories": 105,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
@@ -269,6 +319,16 @@
       "latestYear": 1983
     },
     {
+      "awardId": "ackerley-prize",
+      "categoryId": "ackerley-autobiography",
+      "categoryName": "Autobiography and Memoir",
+      "records": 45,
+      "winners": 45,
+      "finalists": 0,
+      "earliestYear": 1982,
+      "latestYear": 2025
+    },
+    {
       "awardId": "national-book-awards",
       "categoryId": "national-book-awards-autobiography-hardcover",
       "categoryName": "Autobiography Hardcover",
@@ -299,6 +359,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "edgar-awards",
+      "categoryId": "edgar-best-fact-crime",
+      "categoryName": "Best Fact Crime",
+      "records": 332,
+      "winners": 78,
+      "finalists": 254,
+      "earliestYear": 1948,
+      "latestYear": 2026
+    },
+    {
       "awardId": "aha-book-prizes",
       "categoryId": "aha-beveridge-family",
       "categoryName": "Beveridge Family Prize in American History",
@@ -317,6 +387,16 @@
       "finalists": 67,
       "earliestYear": 1971,
       "latestYear": 2021
+    },
+    {
+      "awardId": "james-tait-black-prizes",
+      "categoryId": "james-tait-black-biography",
+      "categoryName": "Biography",
+      "records": 108,
+      "winners": 108,
+      "finalists": 0,
+      "earliestYear": 1919,
+      "latestYear": 2025
     },
     {
       "awardId": "los-angeles-times-book-prize",
@@ -429,6 +509,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "robert-f-kennedy-book-award",
+      "categoryId": "rfk-book-award",
+      "categoryName": "Book Award",
+      "records": 66,
+      "winners": 64,
+      "finalists": 0,
+      "earliestYear": 1981,
+      "latestYear": 2025
+    },
+    {
       "awardId": "hillman-prize-book-journalism",
       "categoryId": "hillman-book-journalism",
       "categoryName": "Book Journalism",
@@ -509,6 +599,26 @@
       "latestYear": 2026
     },
     {
+      "awardId": "orwell-prize",
+      "categoryId": "orwell-combined-book",
+      "categoryName": "Combined Book Prize (nonfiction works)",
+      "records": 100,
+      "winners": 24,
+      "finalists": 0,
+      "earliestYear": 1994,
+      "latestYear": 2018
+    },
+    {
+      "awardId": "overseas-press-club-awards",
+      "categoryId": "cornelius-ryan-award",
+      "categoryName": "Cornelius Ryan Award",
+      "records": 28,
+      "winners": 28,
+      "finalists": 0,
+      "earliestYear": 1980,
+      "latestYear": 2025
+    },
+    {
       "awardId": "national-book-critics-circle-awards",
       "categoryId": "nbcc-criticism",
       "categoryName": "Criticism",
@@ -586,6 +696,16 @@
       "winners": 18,
       "finalists": 0,
       "earliestYear": 2008,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "francis-parkman-prize",
+      "categoryId": "francis-parkman-prize",
+      "categoryName": "Francis Parkman Prize",
+      "records": 69,
+      "winners": 69,
+      "finalists": 0,
+      "earliestYear": 1957,
       "latestYear": 2026
     },
     {
@@ -809,6 +929,16 @@
       "latestYear": 2025
     },
     {
+      "awardId": "john-burroughs-medal",
+      "categoryId": "john-burroughs-medal",
+      "categoryName": "John Burroughs Medal",
+      "records": 87,
+      "winners": 87,
+      "finalists": 0,
+      "earliestYear": 1926,
+      "latestYear": 2025
+    },
+    {
       "awardId": "helen-bernstein-book-award",
       "categoryId": "helen-bernstein-journalism",
       "categoryName": "Journalism",
@@ -856,6 +986,16 @@
       "winners": 17,
       "finalists": 0,
       "earliestYear": 2005,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "anisfield-wolf-book-awards",
+      "categoryId": "anisfield-wolf-memoir",
+      "categoryName": "Memoir",
+      "records": 2,
+      "winners": 2,
+      "finalists": 0,
+      "earliestYear": 2025,
       "latestYear": 2026
     },
     {
@@ -909,6 +1049,16 @@
       "latestYear": 2025
     },
     {
+      "awardId": "anisfield-wolf-book-awards",
+      "categoryId": "anisfield-wolf-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 167,
+      "winners": 167,
+      "finalists": 0,
+      "earliestYear": 1936,
+      "latestYear": 2026
+    },
+    {
       "awardId": "andrew-carnegie-medals",
       "categoryId": "carnegie-nonfiction",
       "categoryName": "Nonfiction",
@@ -917,6 +1067,26 @@
       "finalists": 30,
       "earliestYear": 2012,
       "latestYear": 2026
+    },
+    {
+      "awardId": "chicago-tribune-heartland-prize",
+      "categoryId": "heartland-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 33,
+      "winners": 33,
+      "finalists": 0,
+      "earliestYear": 1988,
+      "latestYear": 2019
+    },
+    {
+      "awardId": "hilary-weston-writers-trust-prize",
+      "categoryId": "hilary-weston-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 144,
+      "winners": 29,
+      "finalists": 111,
+      "earliestYear": 1997,
+      "latestYear": 2025
     },
     {
       "awardId": "kirkus-prize",
