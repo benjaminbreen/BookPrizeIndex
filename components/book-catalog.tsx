@@ -10,7 +10,8 @@ import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
 import { useAwardRegion } from "@/components/use-award-region";
 import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
-import type { BrowseBookRecognitionStats, BrowseBookRow } from "@/lib/browse-types";
+import { bookRecognition, compareBrowseBookRecognition } from "@/lib/browse-ranking";
+import type { BrowseBookRow } from "@/lib/browse-types";
 import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryExpansionModel, type SemanticQueryInterpretation } from "@/lib/semantic-search";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 
@@ -35,7 +36,7 @@ const metadataFilterLabels: Record<MetadataFilter, string> = {
 };
 
 const bookSortLabels: Record<BookSortKey, string> = {
-  score: "Recognition score",
+  score: "Score",
   wins: "Most wins",
   lists: "Most lists",
   year: "Newest year",
@@ -580,12 +581,14 @@ export function BookCatalog({
             <span className="filter-label">Sort</span>
             <select
               className="filter-select focus-ring font-sans normal-case tracking-normal"
+              disabled={semanticActive}
               onChange={(event) => {
                 setSortKey(event.target.value as BookSortKey);
                 setPage(1);
               }}
-              value={sortKey}
+              value={semanticActive ? "semantic" : sortKey}
             >
+              {semanticActive ? <option value="semantic">Meaning match</option> : null}
               {Object.entries(bookSortLabels).map(([value, label]) => (
                 <option key={value} value={value}>{label}</option>
               ))}
@@ -797,6 +800,7 @@ export function BookCatalog({
                           className={`focus-ring inline-flex items-center gap-1 transition hover:text-[var(--ink)] ${
                             sortKey === key ? "text-[var(--ink)]" : ""
                           }`}
+                          disabled={semanticActive}
                           onClick={() => {
                             setSortKey(key);
                             setPage(1);
@@ -804,7 +808,7 @@ export function BookCatalog({
                           type="button"
                         >
                           {heading}
-                          {sortKey === key ? <ChevronDown size={10} /> : <ChevronsUpDown size={10} />}
+                          {!semanticActive ? (sortKey === key ? <ChevronDown size={10} /> : <ChevronsUpDown size={10} />) : null}
                         </button>
                       </th>
                     ))}
@@ -1312,19 +1316,7 @@ function sortBookRows(books: BrowseBookRow[], sortKey: BookSortKey, region: Awar
   return [...books].sort((a, b) => {
     const aStats = bookRecognition(a, region);
     const bStats = bookRecognition(b, region);
-    if (sortKey === "score") {
-      return (
-        bStats.score - aStats.score ||
-        bStats.majorWins - aStats.majorWins ||
-        bStats.wins - aStats.wins ||
-        bStats.majorShortlists - aStats.majorShortlists ||
-        bStats.normalShortlists - aStats.normalShortlists ||
-        bStats.majorLonglists - aStats.majorLonglists ||
-        bStats.normalLonglists - aStats.normalLonglists ||
-        (b.publicationYear ?? 0) - (a.publicationYear ?? 0) ||
-        a.title.localeCompare(b.title)
-      );
-    }
+    if (sortKey === "score") return compareBrowseBookRecognition(a, b, region);
     if (sortKey === "wins") return bStats.wins - aStats.wins || a.title.localeCompare(b.title);
     if (sortKey === "lists") return bStats.lists - aStats.lists || a.title.localeCompare(b.title);
     if (sortKey === "year") return (b.publicationYear ?? bStats.firstRecognitionYear ?? b.firstRecognitionYear ?? 0) - (a.publicationYear ?? aStats.firstRecognitionYear ?? a.firstRecognitionYear ?? 0) || a.title.localeCompare(b.title);
@@ -1334,21 +1326,6 @@ function sortBookRows(books: BrowseBookRow[], sortKey: BookSortKey, region: Awar
     if (sortKey === "subject") return rollupSubjectName(a.primarySubject ?? "").localeCompare(rollupSubjectName(b.primarySubject ?? "")) || a.title.localeCompare(b.title);
     return a.title.localeCompare(b.title);
   });
-}
-
-function bookRecognition(book: BrowseBookRow, region: AwardRegionFilter): BrowseBookRecognitionStats {
-  return book.recognitionByRegion?.[region] ?? {
-    awardIds: book.awardIds,
-    firstRecognitionYear: book.firstRecognitionYear,
-    lists: book.lists,
-    majorLonglists: book.majorLonglists,
-    majorShortlists: book.majorShortlists,
-    majorWins: book.majorWins,
-    normalLonglists: book.normalLonglists,
-    normalShortlists: book.normalShortlists,
-    score: book.score,
-    wins: book.wins,
-  };
 }
 
 function subjectOptions(books: BrowseBookRow[]) {

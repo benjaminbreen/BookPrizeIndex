@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import crypto from "node:crypto";
-import { data, getBookStats } from "../lib/data";
+import { data, getBookStats } from "./build/pipeline-data";
 import type { Book, SourceRef } from "../lib/types";
 import { cacheDataDir, reportsDataDir, root, sourcesDir } from "./build/paths";
 import type { CoverDiscoveryCandidate } from "./discover-book-covers";

@@ -96,7 +96,7 @@ type ProviderCache = {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const catalogPath = path.join(root, "data", "public", "catalog.json");
+const catalogPath = path.join(root, "data", "cache", "catalog.full.generated.json");
 const mappingPath = path.join(root, "sources", "imprint-normalization.json");
 const outputPath = path.join(root, "sources", "enrichment", "imprints.resolved.generated.json");
 const queuePath = path.join(root, "data", "reports", "imprint-resolution-queue.json");

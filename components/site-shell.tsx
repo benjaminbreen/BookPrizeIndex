@@ -161,6 +161,7 @@ function labelForPart(part: string, href: string) {
   if (part === "imprints") return "Imprints";
   if (part === "experiments") return "Trends";
   if (part === "fun") return "For Fun";
+  if (part === "data") return "Data & API";
   if (part === "methodology") return "Methodology";
   if (part === "colophon") return "Colophon";
   if (part === "privacy") return "Privacy";
@@ -206,6 +207,7 @@ function SiteFooter() {
           title="Resources"
           links={[
             { href: "/about", label: "About" },
+            { href: "/data", label: "Data & API" },
             { href: "/fun", label: "For fun" },
             { href: "/methodology", label: "Methodology" },
             { href: "https://github.com/benjaminbreen/BookPrizeIndex", label: "Source code" },

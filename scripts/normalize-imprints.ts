@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { data } from "../lib/data";
+import { data } from "./build/pipeline-data";
 import type { Book, Imprint, Publisher, PublisherEvidence, SourceRef } from "../lib/types";
 
 type MappingConfidence = "high" | "medium" | "low";

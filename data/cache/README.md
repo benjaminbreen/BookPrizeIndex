@@ -10,6 +10,9 @@ state that the enrichment scripts read and write to avoid repeating provider req
   batches do not retry them. Delete or edit only when deliberately resetting attempts
   (see AGENTS.md).
 - `book-enrichment-progress.json`: checkpoint state for long enrichment runs.
+- `catalog.full.generated.json`: the full catalog used by enrichment and reporting
+  scripts. `npm run data:build` regenerates it; runtime pages use the split artifacts
+  in `data/public/` instead.
 
 This directory is gitignored. The durable sources of truth live in `sources/` and
 `data/raw/`; generated app data lives in `data/public/`; QA reports and review queues

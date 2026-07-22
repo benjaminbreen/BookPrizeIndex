@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { ExpandableBookDescription } from "@/components/expandable-book-description";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
 import { withAmazonAssociateTag } from "@/lib/affiliate-links";
+import { readBookDetailArtifact } from "@/lib/book-detail-artifacts";
 import {
   appearancesByBookId,
   awardsById,
@@ -15,9 +16,7 @@ import {
   getBookStats,
   imprintsById,
   publishersById,
-  sourcesById,
   statusLabels,
-  wikipediaEvidenceByBook,
 } from "@/lib/data";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 import type { AwardAppearance, Book, ExperimentalSemanticEntity, ExperimentalSemanticProfile, WikipediaBookEvidence } from "@/lib/types";
@@ -55,14 +54,17 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function BookPage({ params }: PageProps) {
   const { slug } = await params;
-  const book = booksBySlug.get(slug);
-  if (!book) notFound();
+  const compactBook = booksBySlug.get(slug);
+  if (!compactBook) notFound();
+  const detail = await readBookDetailArtifact(compactBook.id);
+  const book = detail?.book ?? compactBook;
   const stats = getBookStats(book.id);
   const appearances = [...(appearancesByBookId.get(book.id) ?? [])].sort(compareAwardAppearances);
   const winsCount = appearances.filter((appearance) => isWinningStatus(appearance.status)).length;
   const imprint = book.imprintId ? imprintsById.get(book.imprintId) : undefined;
   const publisher = book.publisherId ? publishersById.get(book.publisherId) : undefined;
-  const wikipediaEvidence = wikipediaEvidenceByBook.get(book.id);
+  const wikipediaEvidence = detail?.wikipediaEvidence;
+  const detailSourcesById = new Map((detail?.sources ?? []).map((source) => [source.id, source]));
   const firstAwardYear = appearances.length ? Math.min(...appearances.map((appearance) => appearance.year)) : undefined;
   const latestRecognition = appearances.length ? Math.max(...appearances.map((appearance) => appearance.year)) : undefined;
   const authorNames = new Set(book.authors.map((author) => author.name));
@@ -183,7 +185,7 @@ export default async function BookPage({ params }: PageProps) {
                         <td className="px-4 py-2 muted">
                           {appearance.sourceUrl ? (
                             <a className="inline-flex items-center gap-1 hover:text-[var(--ink)]" href={appearance.sourceUrl}>
-                              {sourceLabelForAppearance(appearance)} <ArrowUpRight size={12} />
+                              {sourceLabelForAppearance(appearance, detailSourcesById)} <ArrowUpRight size={12} />
                             </a>
                           ) : (
                             "Source URL pending"
@@ -377,7 +379,7 @@ function academicOrientationLabel(score: number) {
   return "Specialist / reference";
 }
 
-function sourceLabelForAppearance(appearance: AwardAppearance) {
+function sourceLabelForAppearance(appearance: AwardAppearance, sourcesById: Map<string, { confidence: string }>) {
   const confidences = appearance.sourceIds
     .map((sourceId) => sourcesById.get(sourceId)?.confidence)
     .filter(Boolean);

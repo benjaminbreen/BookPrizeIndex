@@ -1,7 +1,8 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { data, getBookStats, imprintsById, publishersById } from "../lib/data";
+import { data, getBookStats, imprintsById, publishersById } from "./build/pipeline-data";
+import { writeAggregateQaArtifact } from "./build/qa-artifacts";
 import type { Book, BookReaderProfile, BookReaderTrait, SourceRef } from "../lib/types";
 
 type TraitDefinition = {
@@ -71,9 +72,7 @@ async function main() {
   await fs.mkdir(path.dirname(outputPath), { recursive: true });
   await fs.mkdir(path.dirname(reportPath), { recursive: true });
   await fs.writeFile(outputPath, `${JSON.stringify(sortOutput(output), null, 2)}\n`);
-  await fs.writeFile(
-    reportPath,
-    `${JSON.stringify({
+  const detailedReport = {
       generatedAt,
       totalBooks: data.books.length,
       classifiedBooks: books.length,
@@ -84,8 +83,21 @@ async function main() {
         .sort((a, b) => b.warnings.length - a.warnings.length || b.scholarlyScore - a.scholarlyScore || a.title.localeCompare(b.title))
         .slice(0, 500),
       report,
-    }, null, 2)}\n`,
-  );
+  };
+  await writeAggregateQaArtifact({
+    filename: path.basename(reportPath),
+    generatedAt,
+    reportsDir: path.dirname(reportPath),
+    report: detailedReport,
+    rowCounts: { classified: report.length, review: detailedReport.review.length },
+    summary: {
+      totalBooks: detailedReport.totalBooks,
+      classifiedBooks: detailedReport.classifiedBooks,
+      traitCounts: detailedReport.traitCounts,
+      readerLevelCounts: detailedReport.readerLevelCounts,
+      reviewSample: detailedReport.review.slice(0, 25),
+    },
+  });
   console.log(`Reader traits classified for ${books.length} books.`);
 }
 

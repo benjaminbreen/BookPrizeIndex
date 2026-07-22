@@ -1,7 +1,23 @@
 import type { Book } from "@/lib/types";
+import type { AwardRegionFilter } from "@/lib/award-region";
+import type { BookCatalogMetadataFilter } from "@/lib/book-catalog-query";
+import { rollupSubjectName } from "@/lib/subject-rollup";
 
 export const DEFAULT_SEMANTIC_EMBEDDING_MODEL = "text-embedding-3-small";
 export const DEFAULT_SEMANTIC_DIMENSIONS = 512;
+
+export type SemanticVector = number[] | Float32Array;
+
+export type SemanticBookFilterMetadata = {
+  awardIds: string[];
+  publisherId?: string;
+  recognitionByRegion: Record<AwardRegionFilter, { awardIds: string[]; lists: number }>;
+  hasIsbn: boolean;
+  hasPageCount: boolean;
+  hasCover: boolean;
+  hasSummary: boolean;
+  hasPublisher: boolean;
+};
 
 export type SemanticBookIndexRow = {
   bookId: string;
@@ -29,7 +45,8 @@ export type SemanticBookIndexRow = {
   text: string;
   searchText: string;
   inputHash: string;
-  embedding: number[];
+  filter: SemanticBookFilterMetadata;
+  embedding: SemanticVector;
   norm: number;
 };
 
@@ -43,6 +60,8 @@ export type SemanticBookIndex = {
 
 export type SemanticQueryInterpretation = {
   expandedQuery: string;
+  audienceTerms?: string[];
+  culturalReferences?: string[];
   concepts: string[];
   adventurousConcepts?: string[];
   coreConcepts?: string[];
@@ -55,6 +74,19 @@ export type SemanticQueryInterpretation = {
 };
 
 export type SemanticQueryExpansionModel = "gpt-5.4-nano" | "gpt-5.4-mini" | "gemini-3.5-flash";
+
+export type SemanticQueryContext = {
+  adventurousConceptNeedles: string[];
+  adventurousConcepts: string[];
+  coreConceptNeedles: string[];
+  coreConcepts: string[];
+  periods: Array<{ label: string; start: number; end: number }>;
+  personaTasteQuery: boolean;
+  publicationDateQuery: boolean;
+  readerExperienceQuery: boolean;
+  terms: string[];
+  topicNeedles: string[];
+};
 
 export type SemanticSearchResult = {
   bookId: string;
@@ -71,6 +103,7 @@ export type SemanticSearchResult = {
   publicationBoost?: number;
   recognitionBoost: number;
   readerIntentBoost?: number;
+  evidenceConfidence?: number;
   reasons: string[];
 };
 
@@ -127,9 +160,11 @@ function academicOrientationText(score: number) {
 export function semanticQueryText(query: string, interpretation?: SemanticQueryInterpretation | null) {
   const coreConcepts = semanticCoreConcepts(interpretation);
   const adventurousConcepts = semanticAdventurousConcepts(interpretation);
+  const tasteQuery = isPersonaTasteQuery(query);
   const parts = [
-    `Reader query: ${query}`,
-    interpretation?.expandedQuery ? `Expanded search intent: ${interpretation.expandedQuery}` : "",
+    !tasteQuery || !interpretation ? `Reader query: ${query}` : "",
+    interpretation?.expandedQuery ? `Expanded search intent: ${tasteQuery ? tasteIntentText(interpretation.expandedQuery, interpretation) : interpretation.expandedQuery}` : "",
+    interpretation?.culturalReferences?.length ? `Taste references: ${interpretation.culturalReferences.join(", ")}` : "",
     coreConcepts.length ? `Core concepts: ${coreConcepts.join(", ")}` : "",
     adventurousConcepts.length ? `Adventurous adjacent concepts: ${adventurousConcepts.join(", ")}` : "",
     interpretation?.namedFigures?.length ? `Named figures: ${interpretation.namedFigures.join(", ")}` : "",
@@ -144,15 +179,42 @@ export function semanticQueryText(query: string, interpretation?: SemanticQueryI
 }
 
 export function semanticRankingTerms(query: string, interpretation?: SemanticQueryInterpretation | null) {
+  const culturalReferenceTerms = new Set(searchTerms((interpretation?.culturalReferences ?? []).join(" ")));
+  const audienceTerms = new Set([
+    ...searchTerms((interpretation?.audienceTerms ?? []).join(" ")),
+    ...(isPersonaTasteQuery(query) ? personaAudienceTerms : []),
+  ].filter((term) => !culturalReferenceTerms.has(term)));
   return uniqueValues([
-    ...searchTerms(query),
+    ...(!isPersonaTasteQuery(query) || !interpretation ? searchTerms(query) : []),
+    ...searchTerms((interpretation?.culturalReferences ?? []).join(" ")),
     ...searchTerms([...(interpretation?.namedFigures ?? []), ...(interpretation?.namedPlaces ?? [])].join(" ")),
     ...searchTerms(semanticCoreConcepts(interpretation).join(" ")),
     ...searchTerms((interpretation?.subjects ?? []).join(" ")),
-    ...searchTerms(interpretation?.expandedQuery ?? ""),
+    ...searchTerms(positiveLexicalText(interpretation?.expandedQuery ?? "")),
     ...searchTerms((interpretation?.eras ?? []).join(" ")),
     ...searchTerms(semanticAdventurousConcepts(interpretation).join(" ")),
-  ]).slice(0, 36);
+  ]).filter((term) => !audienceTerms.has(term)).slice(0, 36);
+}
+
+export function isPersonaTasteQuery(query: string) {
+  return /\b(?:books?|stuff|recommendations?)\s+for\b|\b(?:would|might)\s+(?:like|enjoy)\b|\bfor fans? of\b|\b(?:taste|sensibility|vibe|read next)\b/i.test(query);
+}
+
+const personaAudienceTerms = [
+  "audience", "beginner", "beginners", "dad", "dads", "father", "fathers", "fan", "fans", "mom", "moms",
+  "mother", "mothers", "parent", "parents", "professional", "professionals", "student", "students",
+];
+
+function tasteIntentText(input: string, interpretation: SemanticQueryInterpretation) {
+  const culturalReferenceTerms = new Set(searchTerms((interpretation.culturalReferences ?? []).join(" ")));
+  const excluded = new Set([
+    ...searchTerms((interpretation.audienceTerms ?? []).join(" ")),
+    ...personaAudienceTerms,
+  ].filter((term) => !culturalReferenceTerms.has(term)));
+  return input
+    .split(/\s+/)
+    .filter((term) => !excluded.has(tokenBoundaryText(term)))
+    .join(" ");
 }
 
 export function semanticCoreConcepts(interpretation?: SemanticQueryInterpretation | null) {
@@ -162,6 +224,45 @@ export function semanticCoreConcepts(interpretation?: SemanticQueryInterpretatio
 
 export function semanticAdventurousConcepts(interpretation?: SemanticQueryInterpretation | null) {
   return uniqueValues(interpretation?.adventurousConcepts ?? []);
+}
+
+export function createSemanticQueryContext(query: string, interpretation?: SemanticQueryInterpretation | null): SemanticQueryContext {
+  const coreConcepts = semanticCoreConcepts(interpretation);
+  const adventurousConcepts = semanticAdventurousConcepts(interpretation);
+  const personaTasteQuery = isPersonaTasteQuery(query);
+  const readerExperienceQuery = isReaderExperienceQuery(query, interpretation);
+  const coreConceptNeedles = uniqueNormalized([...coreConcepts, ...(interpretation?.subjects ?? [])])
+    .filter((needle) => needle.length >= 4)
+    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+  const adventurousConceptNeedles = uniqueNormalized(adventurousConcepts)
+    .filter((needle) => needle.length >= 4)
+    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+  const topicNeedles = uniqueNormalized(readerExperienceQuery
+    ? [
+        ...(interpretation?.subjects ?? []),
+        ...(personaTasteQuery ? [] : inferredSubjectNeedles(query, interpretation)),
+      ]
+    : [
+        ...(interpretation?.subjects ?? []),
+        ...coreConcepts,
+        ...adventurousConcepts,
+        ...(personaTasteQuery ? [] : inferredSubjectNeedles(query, interpretation)),
+      ])
+    .filter(Boolean)
+    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+  return {
+    adventurousConceptNeedles,
+    adventurousConcepts,
+    coreConceptNeedles,
+    coreConcepts,
+    periods: inferPeriodRanges([query, interpretation?.expandedQuery, ...(interpretation?.eras ?? [])].filter(Boolean).join(" ")),
+    personaTasteQuery,
+    publicationDateQuery: isPublicationDateQuery(query, interpretation),
+    readerExperienceQuery,
+    terms: semanticRankingTerms(query, interpretation)
+      .filter((term) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(term)),
+    topicNeedles,
+  };
 }
 
 function uniqueValues(values: string[]) {
@@ -178,11 +279,34 @@ export function normalizeForSearch(input: string) {
     .trim();
 }
 
-export function vectorNorm(vector: number[]) {
-  return Math.sqrt(vector.reduce((sum, value) => sum + value * value, 0));
+export function containsSearchPhrase(haystack: string, needle: string) {
+  const normalizedNeedle = tokenBoundaryText(needle);
+  if (!normalizedNeedle) return false;
+  return ` ${tokenBoundaryText(haystack)} `.includes(` ${normalizedNeedle} `);
 }
 
-export function cosineSimilarity(a: number[], b: number[], bNorm = vectorNorm(b)) {
+function tokenBoundaryText(input: string) {
+  const cached = tokenBoundaryTextCache.get(input);
+  if (cached !== undefined) return cached;
+  const normalized = normalizeForSearch(input).replace(/[&-]/g, " ").replace(/\s+/g, " ").trim();
+  if (tokenBoundaryTextCache.size >= 50_000) tokenBoundaryTextCache.clear();
+  tokenBoundaryTextCache.set(input, normalized);
+  return normalized;
+}
+
+const tokenBoundaryTextCache = new Map<string, string>();
+
+function positiveLexicalText(input: string) {
+  return input.replace(/\b(?:not|without|excluding|except(?: for)?|rather than|instead of)\s+(?:[\w'-]+\s*){1,3}/gi, " ");
+}
+
+export function vectorNorm(vector: SemanticVector) {
+  let squared = 0;
+  for (const value of vector) squared += value * value;
+  return Math.sqrt(squared);
+}
+
+export function cosineSimilarity(a: SemanticVector, b: SemanticVector, bNorm = vectorNorm(b)) {
   const aNorm = vectorNorm(a);
   if (!aNorm || !bNorm) return 0;
   let dot = 0;
@@ -192,10 +316,40 @@ export function cosineSimilarity(a: number[], b: number[], bNorm = vectorNorm(b)
   return dot / (aNorm * bNorm);
 }
 
+export function semanticRowMatchesFilters(
+  row: SemanticBookIndexRow,
+  filters: {
+    awardId?: string;
+    metadata?: BookCatalogMetadataFilter;
+    publisherId?: string;
+    region?: AwardRegionFilter;
+    subject?: string;
+    topic?: string;
+  },
+) {
+  const region = filters.region ?? "us";
+  const recognition = row.filter.recognitionByRegion[region];
+  if (!recognition || recognition.lists === 0) return false;
+  if (filters.topic && !row.topics.includes(filters.topic)) return false;
+  if (filters.subject && !row.subjects.some((subject) => rollupSubjectName(subject) === filters.subject)) return false;
+  if (filters.awardId && !recognition.awardIds.includes(filters.awardId)) return false;
+  if (filters.publisherId && row.filter.publisherId !== filters.publisherId) return false;
+
+  const metadata = filters.metadata ?? "all";
+  const complete = row.filter.hasIsbn && row.filter.hasPageCount && row.filter.hasCover && row.filter.hasPublisher;
+  if (metadata === "complete") return complete;
+  if (metadata === "missing") return !complete;
+  if (metadata === "has_cover") return row.filter.hasCover;
+  if (metadata === "missing_cover") return !row.filter.hasCover;
+  if (metadata === "missing_publisher") return !row.filter.hasPublisher;
+  return true;
+}
+
 export function searchTerms(input: string) {
   const stop = new Set([
     "about",
     "after",
+    "all",
     "age",
     "also",
     "and",
@@ -204,28 +358,36 @@ export function searchTerms(input: string) {
     "book",
     "books",
     "but",
+    "based",
+    "could",
     "called",
     "era",
     "explore",
     "exploring",
     "for",
     "from",
+    "give",
+    "having",
     "how",
     "interest",
     "interests",
     "into",
+    "just",
     "key",
     "like",
     "likes",
     "looking",
     "matter",
     "more",
+    "most",
     "novel",
     "nonfiction",
     "period",
     "periods",
     "public",
     "recommend",
+    "recommendation",
+    "recommendations",
     "read",
     "reading",
     "search",
@@ -233,18 +395,23 @@ export function searchTerms(input: string) {
     "show",
     "someone",
     "something",
+    "such",
     "still",
     "stuff",
     "terms",
+    "than",
     "that",
     "the",
     "this",
     "things",
+    "through",
     "understand",
     "understanding",
     "under",
     "versus",
     "who",
+    "whose",
+    "will",
     "with",
     "would",
     "writing",
@@ -262,11 +429,17 @@ export function searchTerms(input: string) {
 export function corpusTermWeights(terms: string[], rows: SemanticBookIndexRow[]) {
   const weights = new Map<string, number>();
   const uniqueTerms = Array.from(new Set(terms));
+  const normalizedTerms = new Map(uniqueTerms.map((term) => [term, tokenBoundaryText(term)]));
+  const preparedRows = rows.map((row) => ` ${tokenBoundaryText(row.searchText)} `);
   const rowCount = Math.max(rows.length, 1);
   for (const term of uniqueTerms) {
+    const normalizedTerm = normalizedTerms.get(term);
     let documentFrequency = 0;
-    for (const row of rows) {
-      if (row.searchText.includes(term)) documentFrequency += 1;
+    if (normalizedTerm) {
+      const needle = ` ${normalizedTerm} `;
+      for (const rowSearch of preparedRows) {
+        if (rowSearch.includes(needle)) documentFrequency += 1;
+      }
     }
     weights.set(term, Math.log((rowCount + 1) / (documentFrequency + 1)) + 1);
   }
@@ -286,11 +459,12 @@ export function semanticTermWeights(
       priority.set(term, Math.max(priority.get(term) ?? 0, multiplier));
     }
   };
-  applyPriority(query, 2.4);
+  if (!isPersonaTasteQuery(query) || !interpretation) applyPriority(query, 2.4);
+  applyPriority((interpretation?.culturalReferences ?? []).join(" "), 2.5);
   applyPriority([...(interpretation?.namedFigures ?? []), ...(interpretation?.namedPlaces ?? [])].join(" "), 3);
   applyPriority(semanticCoreConcepts(interpretation).join(" "), 1.7);
   applyPriority((interpretation?.subjects ?? []).join(" "), 1.15);
-  applyPriority(interpretation?.expandedQuery ?? "", 0.8);
+  applyPriority(positiveLexicalText(interpretation?.expandedQuery ?? ""), 0.8);
   applyPriority((interpretation?.eras ?? []).join(" "), 0.8);
   applyPriority(semanticAdventurousConcepts(interpretation).join(" "), 0.45);
   for (const term of terms) weights.set(term, (weights.get(term) ?? 1) * (priority.get(term) ?? 0.7));
@@ -315,58 +489,50 @@ export function inferPeriodRanges(input: string): Array<{ label: string; start: 
 }
 
 export function semanticHybridScore({
+  context,
   interpretation,
   query,
   queryEmbedding,
   row,
   termWeights,
 }: {
+  context?: SemanticQueryContext;
   interpretation?: SemanticQueryInterpretation | null;
   query: string;
   queryEmbedding: number[];
   row: SemanticBookIndexRow;
   termWeights?: Map<string, number>;
 }) {
-  const coreConcepts = semanticCoreConcepts(interpretation);
-  const adventurousConcepts = semanticAdventurousConcepts(interpretation);
-  const readerExperienceQuery = isReaderExperienceQuery(query, interpretation);
-  const terms = semanticRankingTerms(query, interpretation)
-    .filter((term) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(term));
+  const queryContext = context ?? createSemanticQueryContext(query, interpretation);
+  const { adventurousConcepts, coreConcepts, readerExperienceQuery, terms } = queryContext;
   const rowSearch = readerExperienceQuery ? semanticBodySearchText(row) : row.searchText;
-  const hits = terms.filter((term) => rowSearch.includes(term));
+  const hits = terms.filter((term) => containsSearchPhrase(rowSearch, term));
   const totalTermWeight = terms.reduce((sum, term) => sum + (termWeights?.get(term) ?? 1), 0);
   const hitTermWeight = hits.reduce((sum, term) => sum + (termWeights?.get(term) ?? 1), 0);
   const keywordBoost = totalTermWeight ? Math.min(1, hitTermWeight / totalTermWeight) : 0;
   const fieldBoost = fieldAwareTermScore(row, terms, termWeights, readerExperienceQuery);
-  const coreConceptNeedles = uniqueNormalized([...coreConcepts, ...(interpretation?.subjects ?? [])])
-    .filter((needle) => needle.length >= 4)
-    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
-  const adventurousConceptNeedles = uniqueNormalized(adventurousConcepts)
-    .filter((needle) => needle.length >= 4)
-    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+  const { coreConceptNeedles, adventurousConceptNeedles } = queryContext;
   const conceptNeedles = uniqueNormalized([...coreConceptNeedles, ...adventurousConceptNeedles]);
-  const conceptHits = conceptNeedles.filter((needle) => rowSearch.includes(needle));
+  const conceptHits = conceptNeedles.filter((needle) => containsSearchPhrase(rowSearch, needle));
   const totalConceptWeight =
     coreConceptNeedles.reduce((sum, needle) => sum + conceptWeight(needle, termWeights), 0) +
     adventurousConceptNeedles.reduce((sum, needle) => sum + conceptWeight(needle, termWeights) * 0.65, 0);
   const hitConceptWeight =
-    coreConceptNeedles.filter((needle) => rowSearch.includes(needle)).reduce((sum, needle) => sum + conceptWeight(needle, termWeights), 0) +
-    adventurousConceptNeedles.filter((needle) => rowSearch.includes(needle)).reduce((sum, needle) => sum + conceptWeight(needle, termWeights) * 0.65, 0);
+    coreConceptNeedles.filter((needle) => containsSearchPhrase(rowSearch, needle)).reduce((sum, needle) => sum + conceptWeight(needle, termWeights), 0) +
+    adventurousConceptNeedles.filter((needle) => containsSearchPhrase(rowSearch, needle)).reduce((sum, needle) => sum + conceptWeight(needle, termWeights) * 0.65, 0);
   const conceptBoost = totalConceptWeight ? Math.min(1, hitConceptWeight / totalConceptWeight) : 0;
   const { score: entityBoost, hits: entityHits } = entityMatchScore(interpretation, row);
-  const topicNeedles = uniqueNormalized([...(interpretation?.subjects ?? []), ...coreConcepts, ...adventurousConcepts, ...inferredSubjectNeedles(query, interpretation)])
-    .filter(Boolean)
-    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
-  const topicHaystack = normalizeForSearch([row.primarySubject, ...row.subjects, row.primaryTopic, ...row.topics].filter(Boolean).join(" "));
-  const topicHits = topicNeedles.filter((needle) => needle && topicHaystack.includes(needle));
+  const topicNeedles = queryContext.topicNeedles;
+  const topicHaystack = semanticRowSearchText(row).topics;
+  const topicHits = topicNeedles.filter((needle) => needle && containsSearchPhrase(topicHaystack, needle));
   const topicBoost = topicNeedles.length ? Math.min(1, topicHits.length / Math.min(topicNeedles.length, 6)) : 0;
-  const scopeBoost = subjectScopeScore(query, interpretation, row);
-  const periods = inferPeriodRanges([query, interpretation?.expandedQuery, ...(interpretation?.eras ?? [])].filter(Boolean).join(" "));
-  const periodBoost = rowMentionsPeriod(row, periods, isPublicationDateQuery(query, interpretation)) ? 1 : 0;
+  const scopeBoost = queryContext.personaTasteQuery ? 0 : subjectScopeScore(query, interpretation, row);
+  const periodBoost = rowMentionsPeriod(row, queryContext.periods, queryContext.publicationDateQuery) ? 1 : 0;
   const publicationBoost = publicationPreferenceScore(interpretation, row.publicationYear);
   const readerIntentBoost = readerIntentScore(query, interpretation, row);
   const recognitionBoost = Math.min(1, Math.log1p(Math.max(0, row.recognitionScore)) / Math.log1p(32));
   const similarity = cosineSimilarity(queryEmbedding, row.embedding, row.norm);
+  const evidenceConfidence = semanticEvidenceConfidence(row);
   const phraseBoost = phraseMatchBoost(query, interpretation, row);
   const positiveReaderIntentBoost = Math.max(0, readerIntentBoost);
   const lexicalScore = Math.min(1,
@@ -381,7 +547,8 @@ export function semanticHybridScore({
     phraseBoost * 0.04 +
     positiveReaderIntentBoost * 0.04,
   );
-  const score = similarity * 0.7 + lexicalScore * 0.24 + recognitionBoost * 0.06;
+  const supportedLexicalScore = lexicalScore * (0.55 + evidenceConfidence * 0.45);
+  const score = similarity * 0.76 + supportedLexicalScore * 0.22 + recognitionBoost * 0.02;
   const reasons = [
     hits.slice(0, 4).length ? `Matched terms: ${hits.slice(0, 4).join(", ")}` : "",
     conceptHits.slice(0, 3).length ? `Matched concepts: ${conceptHits.slice(0, 3).join(", ")}` : "",
@@ -395,6 +562,7 @@ export function semanticHybridScore({
   return {
     conceptBoost,
     entityBoost,
+    evidenceConfidence,
     fieldBoost,
     keywordBoost,
     lexicalScore: Number(lexicalScore.toFixed(6)),
@@ -414,9 +582,9 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
   const vectorRanks = ranksBy(results, (row) => row.similarity);
   const lexicalRanks = ranksBy(results, (row) => row.lexicalScore ?? lexicalScore(row));
   const topicRanks = ranksBy(results, (row) => row.scopeBoost + row.topicBoost * 0.8 + row.conceptBoost * 0.5 + row.periodBoost * 0.35);
-  const readerRanks = ranksBy(results, (row) => Math.max(0, row.readerIntentBoost ?? 0));
-  const entityRanks = ranksBy(results, (row) => row.entityBoost ?? 0);
-  const publicationRanks = ranksBy(results, (row) => row.publicationBoost ?? 0);
+  const readerRanks = positiveRanksBy(results, (row) => Math.max(0, row.readerIntentBoost ?? 0));
+  const entityRanks = positiveRanksBy(results, (row) => row.entityBoost ?? 0);
+  const publicationRanks = positiveRanksBy(results, (row) => row.publicationBoost ?? 0);
   const recognitionRanks = ranksBy(results, (row) => row.recognitionBoost);
   const hasReaderSignal = results.some((row) => Math.abs(row.readerIntentBoost ?? 0) > 0.001);
   const hasEntitySignal = results.some((row) => (row.entityBoost ?? 0) > 0.001);
@@ -424,13 +592,13 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
   const k = 60;
   return results.map((row) => {
     const rankSignals = [
-      { active: true, rank: vectorRanks.get(row.bookId), weight: 0.43 },
-      { active: true, rank: lexicalRanks.get(row.bookId), weight: 0.2 },
-      { active: true, rank: topicRanks.get(row.bookId), weight: 0.12 },
+      { active: true, rank: vectorRanks.get(row.bookId), weight: 0.52 },
+      { active: true, rank: lexicalRanks.get(row.bookId), weight: 0.24 },
+      { active: true, rank: topicRanks.get(row.bookId), weight: 0.14 },
       { active: hasEntitySignal, rank: entityRanks.get(row.bookId), weight: 0.16 },
       { active: hasPublicationSignal, rank: publicationRanks.get(row.bookId), weight: 0.11 },
       { active: hasReaderSignal, rank: readerRanks.get(row.bookId), weight: 0.08 },
-      { active: true, rank: recognitionRanks.get(row.bookId), weight: 0.06 },
+      { active: true, rank: recognitionRanks.get(row.bookId), weight: 0.02 },
     ].filter((signal) => signal.active);
     const totalWeight = rankSignals.reduce((sum, signal) => sum + signal.weight, 0);
     const fused = rankSignals.reduce(
@@ -438,15 +606,20 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
       0,
     );
     const readerPenalty = Math.min(0, row.readerIntentBoost ?? 0) * 1.15;
-    const fitBonus =
-      Math.max(0, row.readerIntentBoost ?? 0) * 0.15 +
+    const vectorRank = vectorRanks.get(row.bookId) ?? results.length;
+    const semanticSupport = clamp01(1 - (vectorRank - 1) / Math.min(250, Math.max(50, results.length * 0.04)));
+    const evidenceConfidence = row.evidenceConfidence ?? 0.5;
+    const fitBonus = semanticSupport * (
+      Math.max(0, row.readerIntentBoost ?? 0) * 0.12 +
       (row.entityBoost ?? 0) * 0.22 +
       (row.publicationBoost ?? 0) * 0.12 +
       row.scopeBoost * 0.08 +
-      row.recognitionBoost * 0.1;
+      row.recognitionBoost * 0.025
+    );
+    const evidencePenalty = (1 - evidenceConfidence) * 0.035;
     return {
       ...row,
-      score: Number((fused * 100 + fitBonus + readerPenalty).toFixed(6)),
+      score: Number((fused * 100 + fitBonus + readerPenalty - evidencePenalty).toFixed(6)),
     };
   });
 }
@@ -457,6 +630,22 @@ function ranksBy(results: SemanticSearchResult[], score: (row: SemanticSearchRes
       .sort((a, b) => score(b) - score(a) || b.similarity - a.similarity)
       .map((row, index) => [row.bookId, index + 1]),
   );
+}
+
+function positiveRanksBy(results: SemanticSearchResult[], score: (row: SemanticSearchResult) => number) {
+  return new Map(
+    results
+      .filter((row) => score(row) > 0.001)
+      .sort((a, b) => score(b) - score(a) || b.similarity - a.similarity)
+      .map((row, index) => [row.bookId, index + 1]),
+  );
+}
+
+function semanticEvidenceConfidence(row: SemanticBookIndexRow) {
+  if (/\nDescription:/i.test(row.text)) return 1;
+  if (/\nInterpretive claim:/i.test(row.text)) return 0.85;
+  if (row.readerLevel || row.readerTraits?.length || row.centralFigures?.length || row.centralPlaces?.length) return 0.68;
+  return 0.35;
 }
 
 function lexicalScore(row: SemanticSearchResult) {
@@ -597,39 +786,59 @@ function subjectScopeScore(query: string, interpretation: SemanticQueryInterpret
 
 function fieldAwareTermScore(row: SemanticBookIndexRow, terms: string[], termWeights: Map<string, number> | undefined, bodyOnly: boolean) {
   if (!terms.length) return 0;
+  const prepared = semanticRowSearchText(row);
   const fields = [
-    bodyOnly ? undefined : { text: normalizeForSearch(row.title), weight: 3 },
-    bodyOnly ? undefined : { text: normalizeForSearch(row.author), weight: 1.2 },
-    bodyOnly ? undefined : { text: normalizeForSearch([row.primarySubject, ...row.subjects, row.primaryTopic, ...row.topics].filter(Boolean).join(" ")), weight: 2.4 },
-    { text: semanticBodySearchText(row), weight: 1 },
+    bodyOnly ? undefined : { text: prepared.title, weight: 3 },
+    bodyOnly ? undefined : { text: prepared.author, weight: 1.2 },
+    bodyOnly ? undefined : { text: prepared.topics, weight: 2.4 },
+    { text: prepared.body, weight: 1 },
   ].filter((field): field is { text: string; weight: number } => Boolean(field?.text));
   const totalWeight = terms.reduce((sum, term) => sum + (termWeights?.get(term) ?? 1), 0);
   if (!totalWeight) return 0;
   let score = 0;
   for (const term of terms) {
     const termWeight = termWeights?.get(term) ?? 1;
-    const bestField = fields.reduce((best, field) => field.text.includes(term) ? Math.max(best, field.weight) : best, 0);
+    const bestField = fields.reduce((best, field) => containsSearchPhrase(field.text, term) ? Math.max(best, field.weight) : best, 0);
     score += termWeight * Math.min(1, bestField / 3);
   }
   return Math.min(1, score / totalWeight);
 }
 
 function semanticContentSearchText(row: SemanticBookIndexRow) {
-  return normalizeForSearch(
-    row.text
-      .split("\n")
-      .filter((line) => !/^award recognition:/i.test(line) && !/^book publication year:/i.test(line))
-      .join("\n"),
-  );
+  return semanticRowSearchText(row).content;
 }
 
 function semanticBodySearchText(row: SemanticBookIndexRow) {
-  return normalizeForSearch(
-    row.text
-      .split("\n")
-      .filter((line) => !/^title:/i.test(line) && !/^author:/i.test(line) && !/^award recognition:/i.test(line) && !/^book publication year:/i.test(line))
-      .join("\n"),
-  );
+  return semanticRowSearchText(row).body;
+}
+
+type SemanticRowSearchText = {
+  author: string;
+  body: string;
+  content: string;
+  title: string;
+  topics: string;
+};
+
+const semanticRowSearchTextCache = new WeakMap<SemanticBookIndexRow, SemanticRowSearchText>();
+
+function semanticRowSearchText(row: SemanticBookIndexRow) {
+  const cached = semanticRowSearchTextCache.get(row);
+  if (cached) return cached;
+  const lines = row.text.split("\n");
+  const prepared: SemanticRowSearchText = {
+    author: normalizeForSearch(row.author),
+    body: normalizeForSearch(lines
+      .filter((line) => !/^(?:title|author|reading orientation|primary subject|subjects|primary topic|topics|reader profile|catalog subject evidence|imprint|publisher|award recognition|book publication year):/i.test(line))
+      .join("\n")),
+    content: normalizeForSearch(lines
+      .filter((line) => !/^award recognition:/i.test(line) && !/^book publication year:/i.test(line))
+      .join("\n")),
+    title: normalizeForSearch(row.title),
+    topics: normalizeForSearch([row.primarySubject, ...row.subjects, row.primaryTopic, ...row.topics].filter(Boolean).join(" ")),
+  };
+  semanticRowSearchTextCache.set(row, prepared);
+  return prepared;
 }
 
 function phraseMatchBoost(query: string, interpretation: SemanticQueryInterpretation | null | undefined, row: SemanticBookIndexRow) {
@@ -642,7 +851,7 @@ function phraseMatchBoost(query: string, interpretation: SemanticQueryInterpreta
   ]).filter((phrase) => phrase.includes(" ") && phrase.length >= 8);
   if (!phrases.length) return 0;
   const content = semanticContentSearchText(row);
-  const hits = phrases.filter((phrase) => content.includes(phrase));
+  const hits = phrases.filter((phrase) => containsSearchPhrase(content, phrase));
   return Math.min(1, hits.length / Math.min(phrases.length, 4));
 }
 
@@ -694,6 +903,7 @@ function readerIntentScore(query: string, interpretation: SemanticQueryInterpret
   ].join(" "));
   const wantsReadable = /\b(fun|readable|engaging|accessible|popular|page turner|page-turner|good read|general reader|not academic|beach read)\b/.test(normalized);
   const wantsNarrative = /\b(narrative|story|stories|character|character driven|people|lives|biographical|reported|journalistic|immersive)\b/.test(normalized);
+  const wantsReported = /\b(reporting|reported|journalistic|journalism|investigative|investigation|fieldwork|interviews?)\b/.test(normalizeForSearch(query));
   const wantsScholarly = !/\bnot academic\b/.test(normalized) && /\b(academic|scholarly|dense|historiography|historiographical|theory|monograph|specialist)\b/.test(normalized);
   const academicOrientation = confidenceAdjustedAcademicOrientation(row);
   let score = 0;
@@ -716,14 +926,28 @@ function readerIntentScore(query: string, interpretation: SemanticQueryInterpret
     if (!wantsScholarly && (row.narrativeScore ?? 0) < 0.1 && (row.scholarlyScore ?? 0) >= 0.25) score -= 0.35;
     if ((row.narrativeScore ?? 0) < 0.1 && !row.readerTraits?.some((trait) => ["character_driven", "biographical", "reported", "memoiristic", "narrative"].includes(trait))) score -= 0.2;
   }
+  if (wantsReported) {
+    const reportingEvidence = reportingMethodEvidence(row);
+    score += reportingEvidence >= 0.65 ? 0.34 : reportingEvidence >= 0.3 ? 0.12 : -0.42;
+  }
   if (wantsReadable && wantsNarrative && (row.accessibilityScore ?? 0) < 0.12 && (row.narrativeScore ?? 0) < 0.12) score -= 0.18;
   if (wantsScholarly) {
     score += (row.scholarlyScore ?? 0) * 0.5;
     if (row.readerLevel === "academic") score += 0.18;
     score += academicOrientation * 0.24;
   }
-  if (!wantsReadable && !wantsNarrative && !wantsScholarly) return 0;
+  if (!wantsReadable && !wantsNarrative && !wantsReported && !wantsScholarly) return 0;
   return Math.max(-1, Math.min(1, score));
+}
+
+function reportingMethodEvidence(row: SemanticBookIndexRow) {
+  const content = semanticBodySearchText(row);
+  const strongSignals = ["based on reporting", "meticulously reported", "years of reporting", "investigative reporting", "fieldwork"];
+  if (strongSignals.some((signal) => containsSearchPhrase(content, signal))) return 1;
+  const signals = ["reporting", "reported", "reporter", "journalist", "interview", "interviews", "investigative", "investigation", "dispatches"];
+  if (signals.some((signal) => containsSearchPhrase(content, signal))) return 0.72;
+  if (row.readerTraits?.includes("reported")) return 0.2;
+  return 0;
 }
 
 function confidenceAdjustedAcademicOrientation(row: SemanticBookIndexRow) {
@@ -735,7 +959,7 @@ function confidenceAdjustedAcademicOrientation(row: SemanticBookIndexRow) {
 }
 
 function inferredSubjectNeedles(query: string, interpretation?: SemanticQueryInterpretation | null) {
-  const normalized = normalizeForSearch([query, interpretation?.expandedQuery ?? ""].join(" "));
+  const normalized = normalizeForSearch([query, ...(interpretation?.subjects ?? [])].join(" "));
   const needles: string[] = [];
   if (/\b(environment|environmental|ecology|pollution|climate|capitalism|industry|industrial|factory|agriculture|land)\b/.test(normalized)) {
     needles.push("environment", "pollution", "climate", "agriculture", "business", "economics", "industry", "capitalism");

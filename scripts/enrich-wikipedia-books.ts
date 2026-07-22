@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { data, getBookStats } from "../lib/data";
+import { data, getBookStats } from "./build/pipeline-data";
 import type { Book, PublisherEvidence, SourceRef, WikipediaBookEvidence } from "../lib/types";
 
 type WikipediaGeneratedPatch = {

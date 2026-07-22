@@ -3,15 +3,16 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   DEFAULT_SEMANTIC_EMBEDDING_MODEL,
-  corpusTermWeights,
+  createSemanticQueryContext,
   semanticHybridScore,
   semanticQueryText,
-  semanticRankingTerms,
   semanticRankFusion,
-  searchTerms,
+  semanticTermWeights,
   type SemanticBookIndex,
-  type SemanticQueryInterpretation,
+  type SemanticQueryExpansionModel,
 } from "../lib/semantic-search";
+import { readSemanticBookIndex } from "../lib/semantic-index-storage";
+import { embedSemanticQuery, interpretSemanticQuery } from "../app/api/search/semantic/route";
 
 type EvaluationQuery = {
   query: string;
@@ -31,21 +32,19 @@ type RelevanceJudgment = {
   rationale?: string;
 };
 
-type EmbeddingResponse = {
-  data: Array<{ embedding: number[] }>;
-};
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const indexPath = resolveRootPath(readArg("--index") ?? "data/public/book-semantic-index.json");
 const evaluationPath = path.join(root, "data", "semantic-evaluation-queries.json");
 const reportPath = resolveRootPath(readArg("--report") ?? "data/reports/semantic-evaluation-report.json");
 const limit = positiveNumber(readArg("--limit"), 25);
+const queryExpansionModel = queryModelArg(readArg("--query-model"));
+const queryFilter = readArg("--query");
 
 async function main() {
   await loadEnvLocal();
   if (!process.env.OPENAI_API_KEY) throw new Error("OPENAI_API_KEY is required to evaluate semantic search queries.");
-  const index = JSON.parse(await fs.readFile(indexPath, "utf8")) as SemanticBookIndex;
+  const index = await readSemanticBookIndex(indexPath);
   const evaluation = JSON.parse(await fs.readFile(evaluationPath, "utf8")) as EvaluationFile;
   const rows = [];
   const aggregate = {
@@ -55,15 +54,21 @@ async function main() {
     judgedAt10: 0,
     anchorRecallAt25: 0,
   };
-  for (const item of evaluation.queries) {
-    const interpretation = fallbackInterpretation(item.query);
+  const evaluationQueries = queryFilter
+    ? evaluation.queries.filter((item) => item.query.toLowerCase().includes(queryFilter.toLowerCase()))
+    : evaluation.queries;
+  if (!evaluationQueries.length) throw new Error(`No evaluation query matched: ${queryFilter}`);
+  for (const item of evaluationQueries) {
+    const interpretationResult = await interpretSemanticQuery(item.query, queryExpansionModel);
+    const interpretation = interpretationResult.interpretation;
     const embeddingInput = semanticQueryText(item.query, interpretation);
-    const queryEmbedding = await embedQuery(embeddingInput, index);
-    const rankingTerms = semanticRankingTerms(item.query, interpretation);
-    const termWeights = corpusTermWeights(rankingTerms, index.books);
+    const queryEmbedding = await embedSemanticQuery(embeddingInput, index);
+    const queryContext = createSemanticQueryContext(item.query, interpretation);
+    const rankingTerms = queryContext.terms;
+    const termWeights = semanticTermWeights(item.query, interpretation, index.books);
     const results = semanticRankFusion(index.books.map((row) => ({
       bookId: row.bookId,
-      ...semanticHybridScore({ interpretation, query: item.query, queryEmbedding, row, termWeights }),
+      ...semanticHybridScore({ context: queryContext, interpretation, query: item.query, queryEmbedding, row, termWeights }),
     }))).sort((a, b) => b.score - a.score || b.similarity - a.similarity);
     const judgments = normalizedJudgments(item);
     const negativeTitles = new Set((item.negativeTitles ?? []).map((title) => normalizeTitle(title)));
@@ -115,6 +120,11 @@ async function main() {
     rows.push({
       query: item.query,
       description: item.description,
+      rankingTerms,
+      interpretation,
+      interpretationModel: interpretationResult.model,
+      usedModelInterpretation: interpretationResult.usedModelInterpretation,
+      interpretationWarning: interpretationResult.warning,
       metrics,
       expected,
       top,
@@ -128,6 +138,7 @@ async function main() {
     generatedAt: new Date().toISOString(),
     indexGeneratedAt: index.generatedAt,
     embeddingModel: index.embeddingModel || DEFAULT_SEMANTIC_EMBEDDING_MODEL,
+    queryExpansionModel,
     queryCount: rows.length,
     expectedCount: expectedRows.length,
     averageNdcgAt10: round(aggregate.ndcgAt10 / queryCount),
@@ -191,35 +202,6 @@ function round(value: number) {
   return Number(value.toFixed(4));
 }
 
-function fallbackInterpretation(query: string): SemanticQueryInterpretation {
-  const concepts = searchTerms(query).slice(0, 10);
-  return {
-    expandedQuery: [query, concepts.length ? `Key terms: ${concepts.join(", ")}` : ""].filter(Boolean).join(" / "),
-    concepts,
-    eras: [],
-    subjects: [],
-  };
-}
-
-async function embedQuery(input: string, index: SemanticBookIndex) {
-  const response = await fetch("https://api.openai.com/v1/embeddings", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: index.embeddingModel || DEFAULT_SEMANTIC_EMBEDDING_MODEL,
-      input,
-      dimensions: index.dimensions,
-      encoding_format: "float",
-    }),
-  });
-  if (!response.ok) throw new Error(`Embedding request failed: ${response.status} ${await response.text()}`);
-  const json = await response.json() as EmbeddingResponse;
-  return json.data[0]?.embedding ?? [];
-}
-
 function normalizeTitle(input: string) {
   return input
     .toLowerCase()
@@ -265,6 +247,10 @@ function readArg(name: string) {
 function positiveNumber(value: string | undefined, fallback = 25) {
   const parsed = Number(value);
   return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
+}
+
+function queryModelArg(value: string | undefined): SemanticQueryExpansionModel {
+  return value === "gpt-5.4-mini" || value === "gemini-3.5-flash" ? value : "gpt-5.4-nano";
 }
 
 function resolveRootPath(value: string) {

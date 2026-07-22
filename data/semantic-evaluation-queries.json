@@ -227,6 +227,35 @@
         { "title": "Julius Caesar and the Roman People", "rating": 2, "rationale": "Ancient Roman history." },
         { "title": "Democracy and Knowledge", "rating": 1, "rationale": "Classical Greek political/intellectual history, somewhat more scholarly." }
       ]
+    },
+    {
+      "query": "beautifully written prose based in reporting",
+      "description": "Style-and-method query for literary reportage and immersive narrative nonfiction, not books chiefly about criticism or journalism as an institution.",
+      "relevantTitles": [
+        { "title": "Behind the Beautiful Forevers", "rating": 3, "rationale": "Immersive, deeply reported literary nonfiction." },
+        { "title": "The Outlaw Ocean", "rating": 3, "rationale": "Narrative reporting built from field investigation." },
+        { "title": "Say Nothing", "rating": 3, "rationale": "Literary narrative assembled through extensive reporting." },
+        { "title": "Random Family", "rating": 3, "rationale": "Long-form immersive reporting with literary prose." },
+        { "title": "Evicted", "rating": 3, "rationale": "Reported social nonfiction with narrative craft." },
+        { "title": "The Warmth of Other Suns", "rating": 2, "rationale": "Narrative history grounded in interviews and reporting." },
+        { "title": "Night Draws Near", "rating": 2, "rationale": "On-the-ground reporting with strong narrative prose." },
+        { "title": "Barbarian Days", "rating": 2, "rationale": "Literary first-person nonfiction, though less reporting-centered." }
+      ],
+      "negativeTitles": ["Covering America", "Everything and Less"]
+    },
+    {
+      "query": "books for dads who like Pavement",
+      "description": "Deliberately indirect taste query. The audience label should not become the subject, and a band reference should not match literal pavement, stones, or rocks.",
+      "relevantTitles": [
+        { "title": "Is It Still Good to Ya?", "rating": 3, "rationale": "Rock criticism and independent-music sensibility." },
+        { "title": "Songbook", "rating": 3, "rationale": "Literary personal essays organized around music." },
+        { "title": "Go Ahead in the Rain", "rating": 3, "rationale": "Literary music criticism and cultural memoir." },
+        { "title": "Pulphead", "rating": 2, "rationale": "Idiosyncratic cultural essays with music writing." },
+        { "title": "I'm Not With the Band", "rating": 2, "rationale": "Music-centered memoir and criticism." },
+        { "title": "Loitering", "rating": 2, "rationale": "Independent-minded literary and cultural essays." },
+        { "title": "Against Everything", "rating": 2, "rationale": "Dry, contrarian cultural essays adjacent to the requested sensibility." }
+      ],
+      "negativeTitles": ["Turning to Stone", "Dadland", "Priestdaddy"]
     }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T19:39:53.360Z",
+  "generatedAt": "2026-07-22T05:09:44.546Z",
   "files": [
     {
       "file": "ackerley.json",
@@ -52,6 +52,11 @@
       "records": 188
     },
     {
+      "file": "dayton-literary-peace.json",
+      "generatedAt": "2026-07-22T04:52:51.607Z",
+      "records": 102
+    },
+    {
       "file": "duff-cooper.json",
       "generatedAt": "2026-07-13T23:08:37.278Z",
       "records": 70
@@ -72,6 +77,11 @@
       "records": 119
     },
     {
+      "file": "george-polk-book.json",
+      "generatedAt": "2026-07-22T04:52:14.530Z",
+      "records": 24
+    },
+    {
       "file": "governor-general.json",
       "generatedAt": "2026-07-13T23:08:37.320Z",
       "records": 269
@@ -87,6 +97,11 @@
       "records": 65
     },
     {
+      "file": "hessell-tiltman.json",
+      "generatedAt": "2026-07-22T04:52:13.698Z",
+      "records": 114
+    },
+    {
       "file": "hilary-weston.json",
       "generatedAt": "2026-07-20T23:50:49.766Z",
       "records": 144
@@ -95,6 +110,11 @@
       "file": "hillman-book-journalism.json",
       "generatedAt": "2026-07-13T23:08:37.348Z",
       "records": 84
+    },
+    {
+      "file": "ire-books.json",
+      "generatedAt": "2026-07-22T05:09:36.728Z",
+      "records": 22
     },
     {
       "file": "j-anthony-lukas.json",
@@ -212,15 +232,25 @@
       "records": 175
     },
     {
+      "file": "truman-capote-criticism.json",
+      "generatedAt": "2026-07-22T04:52:14.190Z",
+      "records": 32
+    },
+    {
+      "file": "wellcome-book-prize.json",
+      "generatedAt": "2026-07-22T04:53:32.327Z",
+      "records": 39
+    },
+    {
       "file": "wolfson.json",
       "generatedAt": "2026-05-10T21:32:49.688Z",
       "records": 140
     }
   ],
   "totals": {
-    "records": 7996,
-    "awards": 43,
-    "categories": 105,
+    "records": 8329,
+    "awards": 49,
+    "categories": 111,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
@@ -509,6 +539,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "george-polk-awards",
+      "categoryId": "george-polk-book",
+      "categoryName": "Book Award",
+      "records": 24,
+      "winners": 24,
+      "finalists": 0,
+      "earliestYear": 1957,
+      "latestYear": 2007
+    },
+    {
       "awardId": "robert-f-kennedy-book-award",
       "categoryId": "rfk-book-award",
       "categoryName": "Book Award",
@@ -537,6 +577,16 @@
       "finalists": 0,
       "earliestYear": 2004,
       "latestYear": 2024
+    },
+    {
+      "awardId": "ire-awards",
+      "categoryId": "ire-books",
+      "categoryName": "Books",
+      "records": 22,
+      "winners": 11,
+      "finalists": 11,
+      "earliestYear": 2015,
+      "latestYear": 2025
     },
     {
       "awardId": "national-book-awards",
@@ -779,6 +829,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "pen-hessell-tiltman-prize",
+      "categoryId": "hessell-tiltman-history",
+      "categoryName": "Historical Nonfiction",
+      "records": 114,
+      "winners": 24,
+      "finalists": 0,
+      "earliestYear": 2002,
+      "latestYear": 2024
+    },
+    {
       "awardId": "cundill-history-prize",
       "categoryId": "cundill-history",
       "categoryName": "History",
@@ -959,6 +1019,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "truman-capote-award-criticism",
+      "categoryId": "truman-capote-literary-criticism",
+      "categoryName": "Literary Criticism",
+      "records": 32,
+      "winners": 32,
+      "finalists": 0,
+      "earliestYear": 1995,
+      "latestYear": 2025
+    },
+    {
       "awardId": "pen-eo-wilson-award",
       "categoryId": "pen-eo-wilson",
       "categoryName": "Literary Science Writing",
@@ -1069,6 +1139,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "dayton-literary-peace-prize",
+      "categoryId": "dayton-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 102,
+      "winners": 20,
+      "finalists": 82,
+      "earliestYear": 2006,
+      "latestYear": 2026
+    },
+    {
       "awardId": "chicago-tribune-heartland-prize",
       "categoryId": "heartland-nonfiction",
       "categoryName": "Nonfiction",
@@ -1127,6 +1207,16 @@
       "finalists": 33,
       "earliestYear": 2007,
       "latestYear": 2026
+    },
+    {
+      "awardId": "wellcome-book-prize",
+      "categoryId": "wellcome-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 39,
+      "winners": 7,
+      "finalists": 0,
+      "earliestYear": 2009,
+      "latestYear": 2019
     },
     {
       "awardId": "prose-awards",

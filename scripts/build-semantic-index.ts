@@ -11,6 +11,9 @@ import {
   type SemanticBookIndex,
   type SemanticBookIndexRow,
 } from "../lib/semantic-search";
+import { readSemanticBookIndex, semanticEmbeddingPath, writeSemanticBookIndex } from "../lib/semantic-index-storage";
+import { buildBrowseData } from "./build/browse-data";
+import type { BrowseBookRow } from "../lib/browse-types";
 import type { Award, AwardAppearance, Book, Imprint, PublicData, Publisher } from "../lib/types";
 
 type Args = {
@@ -26,7 +29,7 @@ type Args = {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const catalogPath = path.join(root, "data", "public", "catalog.json");
+const catalogPath = path.join(root, "data", "cache", "catalog.full.generated.json");
 const defaultOutputPath = path.join(root, "data", "public", "book-semantic-index.json");
 const defaultReportPath = path.join(root, "data", "reports", "book-semantic-index-report.json");
 const INPUT_VERSION = 1;
@@ -62,8 +65,13 @@ async function main() {
   const publishers = new Map(catalog.publishers.map((publisher) => [publisher.id, publisher]));
   const imprints = new Map(catalog.imprints.map((imprint) => [imprint.id, imprint]));
   const awardRows = awardsByBook(catalog.awards, catalog.appearances);
+  const browseRowsByBookId = new Map(buildBrowseData(catalog).books.map((row) => [row.id, row]));
   const books = catalog.books.slice(0, args.limit ?? catalog.books.length);
-  const prepared = books.map((book) => prepareBookRow(book, publishers, imprints, awardRows.get(book.id) ?? []));
+  const prepared = books.map((book) => {
+    const browseRow = browseRowsByBookId.get(book.id);
+    if (!browseRow) throw new Error(`Missing browse row for semantic book ${book.id}.`);
+    return prepareBookRow(book, publishers, imprints, awardRows.get(book.id) ?? [], browseRow);
+  });
   const missing = prepared.filter((row) => {
     if (args.force) return true;
     const cached = existingByBook.get(row.bookId);
@@ -115,12 +123,14 @@ async function main() {
     estimatedInputTokens,
     estimatedSpendUsd: Number(estimatedCost.toFixed(4)),
     outputPath: path.relative(root, args.outputPath),
+    vectorPath: path.relative(root, semanticEmbeddingPath(args.outputPath)),
+    vectorBytes: prepared.length * args.dimensions * Float32Array.BYTES_PER_ELEMENT,
   };
 
   await fs.mkdir(path.dirname(args.reportPath), { recursive: true });
   await fs.mkdir(path.dirname(args.outputPath), { recursive: true });
   await fs.writeFile(args.reportPath, `${JSON.stringify(report, null, 2)}\n`);
-  if (!args.dryRun) await fs.writeFile(args.outputPath, `${JSON.stringify(index)}\n`);
+  if (!args.dryRun) await writeSemanticBookIndex(index, args.outputPath);
   console.log(`Semantic index ready: ${report.books} books, embedded ${report.embedded}, reused ${report.reused}, estimated spend $${report.estimatedSpendUsd}.`);
 }
 
@@ -129,6 +139,7 @@ function prepareBookRow(
   publishers: Map<string, Publisher>,
   imprints: Map<string, Imprint>,
   awards: string[],
+  browseRow: BrowseBookRow,
 ): Omit<SemanticBookIndexRow, "embedding" | "norm"> {
   const publisher = book.publisherId ? publishers.get(book.publisherId)?.name : undefined;
   const imprint = book.imprintId ? imprints.get(book.imprintId)?.name : undefined;
@@ -160,6 +171,21 @@ function prepareBookRow(
     text,
     searchText: normalizeForSearch(text),
     inputHash: hash(text),
+    filter: {
+      awardIds: browseRow.awardIds,
+      publisherId: browseRow.publisherId,
+      recognitionByRegion: Object.fromEntries(
+        Object.entries(browseRow.recognitionByRegion ?? {}).map(([region, recognition]) => [region, {
+          awardIds: recognition.awardIds,
+          lists: recognition.lists,
+        }]),
+      ) as SemanticBookIndexRow["filter"]["recognitionByRegion"],
+      hasIsbn: browseRow.hasIsbn,
+      hasPageCount: browseRow.hasPageCount,
+      hasCover: browseRow.hasCover,
+      hasSummary: browseRow.hasSummary,
+      hasPublisher: browseRow.hasPublisher,
+    },
   };
 }
 
@@ -200,7 +226,7 @@ function statusLabel(status: AwardAppearance["status"]) {
 
 async function readExistingIndex(outputPath: string) {
   try {
-    return JSON.parse(await fs.readFile(outputPath, "utf8")) as SemanticBookIndex;
+    return await readSemanticBookIndex(outputPath);
   } catch {
     return null;
   }

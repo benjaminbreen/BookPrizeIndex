@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { appearancesByBookId, data, getBookStats } from "../lib/data";
+import { appearancesByBookId, data, getBookStats } from "./build/pipeline-data";
 import type { Book, SourceRef } from "../lib/types";
 import {
   catalogMissingFieldsForBook,

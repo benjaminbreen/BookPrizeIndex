@@ -1,6 +1,9 @@
 import type { AwardRegionFilter } from "@/lib/award-region";
-import type { BrowseBookRecognitionStats, BrowseBookRow } from "@/lib/browse-types";
+import { bookRecognition, compareBrowseBookRecognition } from "@/lib/browse-ranking";
+import type { BrowseBookRow } from "@/lib/browse-types";
 import { rollupSubjectName } from "@/lib/subject-rollup";
+
+export { bookRecognition } from "@/lib/browse-ranking";
 
 export type BookCatalogSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
 export type BookCatalogMetadataFilter = "all" | "complete" | "missing" | "has_cover" | "missing_cover" | "missing_publisher";
@@ -65,21 +68,6 @@ export function filterBookCatalogRows(books: BrowseBookRow[], query: BookCatalog
   });
 }
 
-export function bookRecognition(book: BrowseBookRow, region: AwardRegionFilter): BrowseBookRecognitionStats {
-  return book.recognitionByRegion?.[region] ?? {
-    awardIds: book.awardIds,
-    firstRecognitionYear: book.firstRecognitionYear,
-    lists: book.lists,
-    majorLonglists: book.majorLonglists,
-    majorShortlists: book.majorShortlists,
-    majorWins: book.majorWins,
-    normalLonglists: book.normalLonglists,
-    normalShortlists: book.normalShortlists,
-    score: book.score,
-    wins: book.wins,
-  };
-}
-
 export function bookCatalogSubjectOptions(books: BrowseBookRow[]) {
   return [...new Set(books.flatMap((book) => book.subjects.map(rollupSubjectName)))]
     .sort((a, b) => a.localeCompare(b))
@@ -108,19 +96,7 @@ function sortBookRows(books: BrowseBookRow[], sortKey: BookCatalogSortKey, regio
   return [...books].sort((a, b) => {
     const aStats = bookRecognition(a, region);
     const bStats = bookRecognition(b, region);
-    if (sortKey === "score") {
-      return (
-        bStats.score - aStats.score ||
-        bStats.majorWins - aStats.majorWins ||
-        bStats.wins - aStats.wins ||
-        bStats.majorShortlists - aStats.majorShortlists ||
-        bStats.normalShortlists - aStats.normalShortlists ||
-        bStats.majorLonglists - aStats.majorLonglists ||
-        bStats.normalLonglists - aStats.normalLonglists ||
-        (b.publicationYear ?? 0) - (a.publicationYear ?? 0) ||
-        a.title.localeCompare(b.title)
-      );
-    }
+    if (sortKey === "score") return compareBrowseBookRecognition(a, b, region);
     if (sortKey === "wins") return bStats.wins - aStats.wins || a.title.localeCompare(b.title);
     if (sortKey === "lists") return bStats.lists - aStats.lists || a.title.localeCompare(b.title);
     if (sortKey === "year") return (b.publicationYear ?? bStats.firstRecognitionYear ?? b.firstRecognitionYear ?? 0) - (a.publicationYear ?? aStats.firstRecognitionYear ?? a.firstRecognitionYear ?? 0) || a.title.localeCompare(b.title);

@@ -1,7 +1,7 @@
-import fs from "node:fs/promises";
+import { createHash } from "node:crypto";
 import path from "node:path";
-import { browseData } from "@/lib/browse-data";
-import { filterBookCatalogRows, type BookCatalogQuery } from "@/lib/book-catalog-query";
+import type { BookCatalogQuery } from "@/lib/book-catalog-query";
+import { readSemanticBookIndex } from "@/lib/semantic-index-storage";
 import {
   getSemanticSearchGuard,
   semanticSearchEnabled,
@@ -9,13 +9,14 @@ import {
 } from "@/lib/semantic-search-guard";
 import {
   DEFAULT_SEMANTIC_EMBEDDING_MODEL,
+  createSemanticQueryContext,
   inferPeriodRanges,
   semanticAdventurousConcepts,
   semanticCoreConcepts,
   semanticHybridScore,
   semanticQueryText,
-  semanticRankingTerms,
   semanticRankFusion,
+  semanticRowMatchesFilters,
   semanticTermWeights,
   searchTerms,
   type SemanticBookIndex,
@@ -49,6 +50,27 @@ type GeminiApiJson = {
 };
 
 let indexCache: Promise<SemanticBookIndex | null> | null = null;
+const interpretationCache = new Map<string, PromiseCacheEntry<SemanticInterpretationResult>>();
+const embeddingCache = new Map<string, PromiseCacheEntry<number[]>>();
+const semanticResultCache = new Map<string, ValueCacheEntry<SemanticSearchResponsePayload>>();
+
+type SemanticInterpretationResult = {
+  interpretation: SemanticQueryInterpretation | null;
+  model?: string;
+  usedModelInterpretation: boolean;
+  warning?: string;
+};
+
+type SemanticSearchResponsePayload = {
+  diagnostics: Record<string, unknown>;
+  query: string;
+  interpretation: SemanticQueryInterpretation | null;
+  results: SemanticSearchResult[];
+  warning?: string;
+};
+
+type PromiseCacheEntry<T> = { expiresAt: number; promise: Promise<T> };
+type ValueCacheEntry<T> = { expiresAt: number; value: T };
 
 const DEFAULT_QUERY_EXPANSION_MODEL: SemanticQueryExpansionModel = "gpt-5.4-nano";
 const QUERY_INTERPRETATION_PROMPT =
@@ -61,15 +83,19 @@ const QUERY_INTERPRETATION_PROMPT =
     "Set publicationDateIntent to older or newer only when the reader asks for classic/old/older/recent/newer books as publications. A historical period discussed inside a book belongs in eras instead. Set publicationYearCutoff to 0 unless the reader supplies or clearly implies a useful cutoff.",
     "This is semantic query expansion, not keyword extraction. Add only adjacent domains that materially improve retrieval.",
     "Core concepts are central meanings. Adventurous concepts are optional, surprising adjacent taste signals; omit them for straightforward topical queries.",
+    "Distinguish a requested writing method or reading experience from subject matter. For a query asking for reported, narrative, lyrical, accessible, or scholarly writing without naming a topic, keep subjects empty and express the method or style in coreConcepts.",
+    "Describe only desired attributes in expandedQuery and concept arrays. Do not restate exclusions as phrases such as 'rather than memoir' or 'not academic'; simply omit the excluded concept.",
     "Set concepts to the compact union of coreConcepts and adventurousConcepts.",
     "For taste or persona queries about a public figure, online handle, community, publication, movement, or cultural reference, infer broadly recognizable nonfiction themes, styles, and adjacent domains when supported.",
     "For persona/taste queries, prioritize taste signals over biographical facts or books literally about that person. Include canonical interests and surprising long-tail interests when culturally recognizable.",
+    "Separate the intended audience from the desired content. Put audience labels such as parents, students, beginners, or professionals in audienceTerms; do not repeat them in coreConcepts, subjects, or expandedQuery unless the reader explicitly wants books about that group.",
+    "Put bands, magazines, communities, movements, public figures used as taste references, and similar reference points in culturalReferences. Translate their recognizable sensibility into core concepts; do not turn a taste reference into a literal same-word subject.",
     "If a named reference is ambiguous, keep the name and add cautious adjacent concepts from the surrounding query rather than overcommitting to one same-name product or organization.",
     "Avoid generic filler such as books, stuff, things, someone, something, would like, recommendations, why, still, and matter.",
     "Examples:",
     "Query: books about the remaking of modern Paris -> expandedQuery: nonfiction about the planning, public works, political authority, and social consequences that reshaped modern Paris; coreConcepts: urban transformation, public works, planning power; adventurousConcepts: infrastructure politics; namedFigures: Georges-Eugène Haussmann; namedPlaces: Paris; eras: 19th century; subjects: urban history, architecture; publicationDateIntent: none; publicationYearCutoff: 0.",
     "Query: older works worth rediscovering -> expandedQuery: earlier nonfiction works whose arguments or influence merit renewed attention; coreConcepts: neglected works, intellectual rediscovery, changing reception; adventurousConcepts: empty; namedFigures: empty; namedPlaces: empty; eras: empty; subjects: criticism, intellectual history; publicationDateIntent: older; publicationYearCutoff: 1990.",
-    "Query: books Obama would like but weirder -> expandedQuery: politically serious, literary nonfiction adjacent to Barack Obama's public reading taste, with more unconventional or idea-driven choices; coreConcepts: democracy, race, power, global politics; adventurousConcepts: unusual natural history, experimental memoir; namedFigures: Barack Obama; namedPlaces: empty; subjects: politics, culture; publicationDateIntent: none; publicationYearCutoff: 0.",
+    "Query: books Obama would like but weirder -> expandedQuery: politically serious, literary nonfiction with unconventional or idea-driven choices; audienceTerms: empty; culturalReferences: Barack Obama; coreConcepts: democracy, race, power, global politics; adventurousConcepts: unusual natural history, experimental memoir; namedFigures: empty; namedPlaces: empty; subjects: politics, culture; publicationDateIntent: none; publicationYearCutoff: 0.",
     "Return JSON only.",
   ].join("\n");
 const GEMINI_STRICT_QUERY_INTERPRETATION_PROMPT =
@@ -83,6 +109,8 @@ const QUERY_INTERPRETATION_JSON_SCHEMA = {
   additionalProperties: false,
   properties: {
     expandedQuery: { type: "string", maxLength: 320 },
+    audienceTerms: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 4 },
+    culturalReferences: { type: "array", items: { type: "string", maxLength: 80 }, maxItems: 4 },
     concepts: { type: "array", items: { type: "string", maxLength: 72 }, maxItems: 8 },
     adventurousConcepts: { type: "array", items: { type: "string", maxLength: 72 }, maxItems: 3 },
     coreConcepts: { type: "array", items: { type: "string", maxLength: 72 }, maxItems: 6 },
@@ -93,10 +121,11 @@ const QUERY_INTERPRETATION_JSON_SCHEMA = {
     eras: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 3 },
     subjects: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 4 },
   },
-  required: ["expandedQuery", "concepts", "coreConcepts", "adventurousConcepts", "namedFigures", "namedPlaces", "publicationDateIntent", "publicationYearCutoff", "eras", "subjects"],
+  required: ["expandedQuery", "audienceTerms", "culturalReferences", "concepts", "coreConcepts", "adventurousConcepts", "namedFigures", "namedPlaces", "publicationDateIntent", "publicationYearCutoff", "eras", "subjects"],
 };
 
 export async function POST(request: Request) {
+  const requestStartedAt = performance.now();
   const body = await request.json().catch(() => null) as SemanticSearchRequest | null;
   const query = body?.query?.trim() ?? "";
   if (query.length < 3) {
@@ -119,11 +148,8 @@ export async function POST(request: Request) {
 
   const limit = Math.min(Math.max(body?.limit ?? 120, 1), 500);
   const candidateIds = new Set((body?.candidateBookIds ?? []).filter(Boolean));
-  const filteredIds = body?.filters
-    ? new Set(filterBookCatalogRows(browseData.books, body.filters).map((book) => book.id))
-    : null;
   const candidates = index.books.filter((row) =>
-    (!candidateIds.size || candidateIds.has(row.bookId)) && (!filteredIds || filteredIds.has(row.bookId)),
+    (!candidateIds.size || candidateIds.has(row.bookId)) && (!body?.filters || semanticRowMatchesFilters(row, body.filters)),
   );
   if (!candidates.length) {
     return privateJson({
@@ -142,27 +168,46 @@ export async function POST(request: Request) {
     });
   }
 
+  const queryExpansionModel = parseQueryExpansionModel(body?.queryExpansionModel);
+  const resultCacheKey = semanticResultCacheKey({ body, index, limit, query, queryExpansionModel });
+  const cachedResult = readValueCache(semanticResultCache, resultCacheKey);
+  if (cachedResult) {
+    const totalMs = elapsedMs(requestStartedAt);
+    return privateJson({
+      ...cachedResult,
+      diagnostics: { ...cachedResult.diagnostics, cacheHit: true, totalMs },
+    }, { headers: { "Server-Timing": `total;dur=${totalMs}, cache;desc=hit` } });
+  }
+
   const permit = getSemanticSearchGuard().acquire();
   if (!permit.allowed) return semanticSearchLimitResponse(permit);
 
   try {
-    const queryExpansionModel = parseQueryExpansionModel(body?.queryExpansionModel);
-    const { interpretation, model: interpretationModel, usedModelInterpretation, warning } = await interpretQuery(query, queryExpansionModel);
+    const interpretationStartedAt = performance.now();
+    const { interpretation, model: interpretationModel, usedModelInterpretation, warning } = await interpretSemanticQuery(query, queryExpansionModel);
+    const interpretationMs = elapsedMs(interpretationStartedAt);
     const embeddingInput = semanticQueryText(query, interpretation);
-    const queryEmbedding = await embedQuery(embeddingInput, index);
-    const rankingTerms = semanticRankingTerms(query, interpretation);
+    const embeddingStartedAt = performance.now();
+    const queryEmbedding = await embedSemanticQuery(embeddingInput, index);
+    const embeddingMs = elapsedMs(embeddingStartedAt);
+    const rankingStartedAt = performance.now();
+    const queryContext = createSemanticQueryContext(query, interpretation);
+    const rankingTerms = queryContext.terms;
     const termWeights = semanticTermWeights(query, interpretation, candidates);
     const scored = candidates
       .map((row): SemanticSearchResult => ({
         bookId: row.bookId,
-        ...semanticHybridScore({ interpretation, query, queryEmbedding, row, termWeights }),
+        ...semanticHybridScore({ context: queryContext, interpretation, query, queryEmbedding, row, termWeights }),
       }));
     const results = semanticRankFusion(scored)
       .sort((a, b) => b.score - a.score || b.similarity - a.similarity)
       .slice(0, limit);
+    const rankingMs = elapsedMs(rankingStartedAt);
+    const totalMs = elapsedMs(requestStartedAt);
 
-    return privateJson({
+    const responseBody: SemanticSearchResponsePayload = {
       diagnostics: {
+        cacheHit: false,
         candidateBookCount: candidates.length,
         embeddingInput,
         embeddingModel: index.embeddingModel || DEFAULT_SEMANTIC_EMBEDDING_MODEL,
@@ -172,13 +217,22 @@ export async function POST(request: Request) {
         queryExpansionModel,
         rankingTerms,
         resultCount: results.length,
+        timing: { embeddingMs, interpretationMs, rankingMs, totalMs },
+        totalMs,
         usedModelInterpretation,
       },
       query,
       interpretation,
       results,
       warning,
-    }, { headers: semanticSearchRateHeaders(permit) });
+    };
+    writeValueCache(semanticResultCache, resultCacheKey, responseBody, 10 * 60_000, 100);
+    return privateJson(responseBody, {
+      headers: {
+        ...semanticSearchRateHeaders(permit),
+        "Server-Timing": `interpretation;dur=${interpretationMs}, embedding;dur=${embeddingMs}, ranking;dur=${rankingMs}, total;dur=${totalMs}`,
+      },
+    });
   } finally {
     permit.release();
   }
@@ -213,8 +267,7 @@ function privateJson(body: unknown, init: ResponseInit = {}) {
 async function loadSemanticIndex() {
   if (indexCache) return indexCache;
   try {
-    const content = await fs.readFile(path.join(process.cwd(), "data", "public", "book-semantic-index.json"), "utf8");
-    const parsed = JSON.parse(content) as SemanticBookIndex;
+    const parsed = await readSemanticBookIndex(path.join(process.cwd(), "data", "public", "book-semantic-index.json"));
     indexCache = Promise.resolve(parsed);
     return parsed;
   } catch {
@@ -222,7 +275,13 @@ async function loadSemanticIndex() {
   }
 }
 
-async function embedQuery(input: string, index: SemanticBookIndex) {
+export async function embedSemanticQuery(input: string, index: SemanticBookIndex) {
+  const model = index.embeddingModel || DEFAULT_SEMANTIC_EMBEDDING_MODEL;
+  const cacheKey = `${model}:${index.dimensions}:${input}`;
+  return cachedPromise(embeddingCache, cacheKey, 30 * 60_000, 200, () => embedSemanticQueryUncached(input, index));
+}
+
+async function embedSemanticQueryUncached(input: string, index: SemanticBookIndex) {
   const response = await fetchWithRetry("https://api.openai.com/v1/embeddings", {
     method: "POST",
     headers: {
@@ -241,10 +300,18 @@ async function embedQuery(input: string, index: SemanticBookIndex) {
   return json.data[0]?.embedding ?? [];
 }
 
-async function interpretQuery(
+export async function interpretSemanticQuery(
   query: string,
   queryExpansionModel: SemanticQueryExpansionModel,
-): Promise<{ interpretation: SemanticQueryInterpretation | null; model?: string; usedModelInterpretation: boolean; warning?: string }> {
+): Promise<SemanticInterpretationResult> {
+  const cacheKey = `${queryExpansionModel}:${query.trim().toLowerCase().replace(/\s+/g, " ")}`;
+  return cachedPromise(interpretationCache, cacheKey, 30 * 60_000, 200, () => interpretSemanticQueryUncached(query, queryExpansionModel));
+}
+
+async function interpretSemanticQueryUncached(
+  query: string,
+  queryExpansionModel: SemanticQueryExpansionModel,
+): Promise<SemanticInterpretationResult> {
   if (!shouldInterpretQuery(query)) return { interpretation: null, usedModelInterpretation: false };
   const fallback = fallbackInterpretation(query);
   if (queryExpansionModel === "gemini-3.5-flash") return interpretQueryWithGemini(query, fallback);
@@ -413,6 +480,8 @@ function fallbackInterpretation(query: string): SemanticQueryInterpretation {
   const publicationPreference = inferPublicationPreference(query);
   return {
     expandedQuery: [query, concepts.length ? `Key terms: ${concepts.slice(0, 6).join(", ")}` : "", eras.length ? `Periods: ${eras.join(", ")}` : ""].filter(Boolean).join(" / ").slice(0, 320),
+    audienceTerms: [],
+    culturalReferences: [],
     concepts,
     adventurousConcepts: [],
     coreConcepts: concepts.slice(0, 6),
@@ -431,6 +500,8 @@ function sanitizeInterpretation(parsed: SemanticQueryInterpretation, fallback: S
   const parsedAdventurousConcepts = unique(parsed.adventurousConcepts ?? []);
   const parsedEras = unique(parsed.eras ?? []);
   const parsedSubjects = unique(parsed.subjects ?? []);
+  const audienceTerms = cleanPhrases(parsed.audienceTerms ?? [], 4, 60);
+  const culturalReferences = cleanPhrases(parsed.culturalReferences ?? [], 4, 80);
   const explicitPublicationPreference = inferPublicationPreference(fallback.expandedQuery.split(" / ")[0] ?? "");
   const coreConcepts = cleanPhrases(parsedCoreConcepts.length ? parsedCoreConcepts : parsedConcepts.length ? parsedConcepts : semanticCoreConcepts(fallback), 6, 72);
   const adventurousConcepts = parsedAdventurousConcepts
@@ -445,6 +516,8 @@ function sanitizeInterpretation(parsed: SemanticQueryInterpretation, fallback: S
     (Number.isInteger(parsedCutoff) && parsedCutoff >= 1400 && parsedCutoff <= 2100 ? parsedCutoff : null);
   return {
     expandedQuery: (parsed.expandedQuery || fallback.expandedQuery).replace(/\s+/g, " ").trim().slice(0, 320),
+    audienceTerms,
+    culturalReferences,
     concepts: unique([...coreConcepts, ...adventurousConcepts]).slice(0, 8),
     adventurousConcepts,
     coreConcepts,
@@ -514,6 +587,82 @@ function summarizeProviderError(body: string) {
   } catch {
     return body.replace(/\s+/g, " ").trim().slice(0, 180);
   }
+}
+
+function semanticResultCacheKey({
+  body,
+  index,
+  limit,
+  query,
+  queryExpansionModel,
+}: {
+  body: SemanticSearchRequest | null;
+  index: SemanticBookIndex;
+  limit: number;
+  query: string;
+  queryExpansionModel: SemanticQueryExpansionModel;
+}) {
+  return createHash("sha256").update(JSON.stringify({
+    candidateBookIds: body?.candidateBookIds ?? [],
+    filters: body?.filters ?? {},
+    indexGeneratedAt: index.generatedAt,
+    limit,
+    query: query.toLowerCase().replace(/\s+/g, " "),
+    queryExpansionModel,
+  })).digest("hex");
+}
+
+function cachedPromise<T>(
+  cache: Map<string, PromiseCacheEntry<T>>,
+  key: string,
+  ttlMs: number,
+  maxEntries: number,
+  load: () => Promise<T>,
+) {
+  const now = Date.now();
+  const cached = cache.get(key);
+  if (cached && cached.expiresAt > now) return cached.promise;
+  if (cached) cache.delete(key);
+  const promise = load();
+  cache.set(key, { expiresAt: now + ttlMs, promise });
+  trimCache(cache, maxEntries);
+  promise.catch(() => {
+    if (cache.get(key)?.promise === promise) cache.delete(key);
+  });
+  return promise;
+}
+
+function readValueCache<T>(cache: Map<string, ValueCacheEntry<T>>, key: string) {
+  const cached = cache.get(key);
+  if (!cached) return undefined;
+  if (cached.expiresAt <= Date.now()) {
+    cache.delete(key);
+    return undefined;
+  }
+  return cached.value;
+}
+
+function writeValueCache<T>(
+  cache: Map<string, ValueCacheEntry<T>>,
+  key: string,
+  value: T,
+  ttlMs: number,
+  maxEntries: number,
+) {
+  cache.set(key, { expiresAt: Date.now() + ttlMs, value });
+  trimCache(cache, maxEntries);
+}
+
+function trimCache<T>(cache: Map<string, T>, maxEntries: number) {
+  while (cache.size > maxEntries) {
+    const oldestKey = cache.keys().next().value;
+    if (oldestKey === undefined) break;
+    cache.delete(oldestKey);
+  }
+}
+
+function elapsedMs(startedAt: number) {
+  return Number((performance.now() - startedAt).toFixed(1));
 }
 
 async function fetchWithRetry(url: string, init: RequestInit, attempts: number, timeoutMs: number) {

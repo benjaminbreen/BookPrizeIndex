@@ -8,7 +8,7 @@ const root = path.resolve(__dirname, "..");
 const target = 0.95;
 
 async function main() {
-  const data = JSON.parse(await fs.readFile(path.join(root, "data", "public", "catalog.json"), "utf8")) as PublicData;
+  const data = JSON.parse(await fs.readFile(path.join(root, "data", "cache", "catalog.full.generated.json"), "utf8")) as PublicData;
   const stats = new Map(data.stats.map((row) => [row.bookId, row]));
   const books = data.books.filter((book) => (stats.get(book.id)?.lists ?? 0) >= 2);
   const fields = {

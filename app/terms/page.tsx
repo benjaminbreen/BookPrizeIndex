@@ -23,8 +23,8 @@ export default function TermsPage() {
       <TextPageSection id="use" title="Use">
         <p>
           The Book Prize Index is provided as a free public reference. You may use it for reading, research, discovery,
-          citation checking, and noncommercial analysis, provided you do not interfere with the service or misuse the
-          site.
+          citation checking, and analysis, provided you do not interfere with the service or misuse the site. Reuse of
+          the downloadable dataset is governed by the license stated on the Data &amp; API page.
         </p>
       </TextPageSection>
 
@@ -32,7 +32,8 @@ export default function TermsPage() {
         <p>
           The catalog is assembled from public award records, source links, enrichment data, and editorial curation. It is
           offered as-is and may contain gaps, provisional assignments, or errors. Please verify important claims against
-          primary sources.
+          primary sources. The CC BY 4.0 license for the downloadable core dataset does not cover third-party cover images,
+          logos, summaries, or other material identified as having separate rights.
         </p>
       </TextPageSection>
 

@@ -51,7 +51,7 @@ type ReviewedDistinctPairs = {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const catalogPath = path.join(root, "data", "public", "catalog.json");
+const catalogPath = path.join(root, "data", "cache", "catalog.full.generated.json");
 const reportPath = path.join(root, "data", "reports", "book-duplicate-review.json");
 const distinctPairsPath = path.join(root, "sources", "book-distinct-pairs.json");
 

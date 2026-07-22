@@ -4,7 +4,7 @@ import path from "node:path";
 import readline from "node:readline";
 import { createGunzip } from "node:zlib";
 import { fileURLToPath } from "node:url";
-import { appearancesByBookId, data, getBookStats } from "../lib/data";
+import { appearancesByBookId, data, getBookStats } from "./build/pipeline-data";
 import type { Book, BookSubjectCategory, SourceRef } from "../lib/types";
 import {
   catalogMissingFieldsForBook,

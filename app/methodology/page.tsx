@@ -104,7 +104,7 @@ export default function MethodologyPage() {
           <p>
             The catalog build deduplicates award appearances into books. It normalizes titles and authors, applies
             curation patches, merges generated enrichment, and writes the public catalog used by the Next.js app.
-            Generated files such as <Code>data/public/catalog.json</Code> and reports in <Code>data/reports/</Code> are
+            Generated browse rows, shared catalog indexes, per-book detail records, and reports in <Code>data/reports/</Code> are
             outputs, not hand-edited authority.
           </p>
           <p>
@@ -173,7 +173,7 @@ export default function MethodologyPage() {
           </p>
           <p>
             Meaning search is separate. The semantic index is generated from catalog-derived book text with OpenAI
-            embeddings and stored in <Code>data/public/book-semantic-index.json</Code>. At query time, the server embeds
+            embeddings stored as Float32 vectors alongside <Code>data/public/book-semantic-index.json</Code>. At query time, the server embeds
             the submitted query, optionally interprets longer natural-language prompts, and ranks candidates with a
             generic hybrid score: embedding similarity plus corpus-aware exact terms, subject/topic signals, period
             hints, and a small recognition boost. Ranking should remain generic and should not hard-code demo queries or

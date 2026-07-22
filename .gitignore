@@ -19,3 +19,6 @@ tsconfig.tsbuildinfo
 # Pipeline provider caches and attempt ledgers (regenerable; see data/cache/README.md)
 data/cache/*
 !data/cache/README.md
+
+# Full row-level QA output is retained for CI/local inspection; compact summaries are committed.
+data/reports/ci-artifacts/

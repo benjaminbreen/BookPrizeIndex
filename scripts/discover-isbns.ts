@@ -103,7 +103,7 @@ type GeneratedPatch = {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const catalogPath = path.join(root, "data", "public", "catalog.json");
+const catalogPath = path.join(root, "data", "cache", "catalog.full.generated.json");
 const outputPath = path.join(root, "sources", "enrichment", "isbn.generated.json");
 const reportPath = path.join(root, "data", "reports", "isbn-discovery-report.json");
 const reviewPath = path.join(root, "data", "reports", "isbn-review-queue.json");

@@ -1,7 +1,12 @@
-import rawData from "@/data/public/catalog.json";
+import rawBooks from "@/data/public/catalog-books.json";
+import rawEntities from "@/data/public/catalog-entities.json";
 import type { AwardStatus, Book, BookStats, PublicData } from "./types";
 
-export const data = rawData as PublicData;
+export const data = {
+  ...rawBooks,
+  ...rawEntities,
+  sources: [],
+} as PublicData;
 
 export const statusLabels: Record<AwardStatus, string> = {
   winner: "Winner",
@@ -30,11 +35,9 @@ export const publishersById = byId(data.publishers);
 export const publishersBySlug = new Map(data.publishers.map((publisher) => [publisher.id.replace(/^publisher-/, ""), publisher]));
 export const imprintsById = byId(data.imprints);
 export const imprintsBySlug = new Map(data.imprints.map((imprint) => [imprint.id.replace(/^imprint-/, ""), imprint]));
-export const sourcesById = byId(data.sources);
 export const subjectsByName = new Map(data.subjects.map((item) => [item.name.toLowerCase(), item]));
 export const subjectsBySlug = new Map(data.subjects.map((item) => [item.slug, item]));
 export const statsByBookId = new Map(data.stats.map((item) => [item.bookId, item]));
-export const wikipediaEvidenceByBook = new Map((data.wikipediaEvidence ?? []).map((item) => [item.bookId, item]));
 export const appearancesByBookId = groupBy(data.appearances, (appearance) => appearance.bookId);
 export const appearancesByAwardId = groupBy(data.appearances, (appearance) => appearance.awardId);
 export const booksByImprintId = groupBy(data.books, (book) => book.imprintId);

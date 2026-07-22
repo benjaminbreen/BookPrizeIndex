@@ -52,7 +52,7 @@ type BookReport = {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const catalogPath = path.join(root, "data", "public", "catalog.json");
+const catalogPath = path.join(root, "data", "cache", "catalog.full.generated.json");
 const subjectsPath = path.join(root, "sources", "subjects.json");
 const generatedPath = path.join(root, "sources", "enrichment", "subjects.generated.json");
 const reportPath = path.join(root, "data", "reports", "subject-llm-classification-report.json");

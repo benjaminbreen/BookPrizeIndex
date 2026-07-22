@@ -11,7 +11,7 @@ The current app is a polished prototype with an expanded but still incomplete co
 - `app/`: Next.js App Router pages.
 - `components/`: Client and server UI components.
 - `lib/types.ts`: Public data model types.
-- `lib/data.ts`: Loads `data/public/catalog.json` and exposes lookup maps/helpers.
+- `lib/data.ts`: Loads the compact shared catalog book/entity indexes and exposes lookup maps/helpers; per-book provenance is loaded on demand.
 - `lib/catalog.ts`: Book sorting and keyword search helpers.
 - `lib/semantic-search.ts`: Shared semantic-search text construction, vector scoring, query normalization, and generic hybrid ranking helpers.
 - `lib/browse-data.ts` and `lib/browse-types.ts`: Typed access to `data/public/browse.json` for precomputed browse/search rows.
@@ -20,7 +20,7 @@ The current app is a polished prototype with an expanded but still incomplete co
 - `lib/topics.ts`: Topic lookup and typing helpers.
 - `app/api/search/semantic/route.ts`: Server-side OpenAI-backed semantic search endpoint used by the catalog UI.
 - `components/use-semantic-book-search.ts`: Client hook for debounced semantic book search requests.
-- `scripts/build-data.ts`: Builds `data/public/catalog.json` from source inputs and enrichment/curation patches.
+- `scripts/build-data.ts`: Builds compact shared catalog artifacts plus on-demand per-book details from source inputs and enrichment/curation patches.
 - `scripts/build-semantic-index.ts`: Builds `data/public/book-semantic-index.json` from the public catalog using OpenAI embeddings.
 - `scripts/build/`: Shared build helpers for award programs, curation, paths, text normalization, title resolution, and browse-data generation.
 - `scripts/enrich-books.ts`: Book metadata completion from Open Library and Google Books, with persistent attempt tracking.
@@ -38,7 +38,7 @@ The current app is a polished prototype with an expanded but still incomplete co
 - `sources/`: Source manifest, curation patches, enrichment patches, taxonomy definitions, imprint normalization mappings, and the starter workbook.
 - `sources/enrichment/`: Generated or curated metadata patches for books, awards, publishers, imprints, and sources.
 - `data/raw/award-records/`: Source-backed raw award appearances before public catalog build.
-- `data/public/`: Generated app-consumed data artifacts: `catalog.json`, `browse.json`, and `book-semantic-index.json`.
+- `data/public/`: Generated app-consumed data artifacts: compact catalog indexes, `book-details/`, `browse.json`, and the semantic manifest/vector pair.
 - `data/reports/`: Generated QA reports, review queues, taxonomy reports, and analysis summaries (e.g. `topic-summary.json`, `import-report.json`).
 - `data/cache/`: Gitignored pipeline provider caches and attempt ledgers (see `data/cache/README.md`). Safe to regenerate; attempt ledgers should be deleted only when deliberately resetting enrichment attempts.
 - `public/award-logos/`, `public/imprint-logos/`, and `public/icons/`: Local UI assets for award marks, imprint marks, and retailer icons.
@@ -63,7 +63,7 @@ The semantic index was rebuilt on 2026-05-19 with `text-embedding-3-small`; it c
 
 ## Current Data Flow
 
-The current build reads `sources/manifest.json`, imports the seed workbook, imports normalized award records from `data/raw/award-records/*.json`, applies `sources/enrichment/*.json` except classifier internals, applies `sources/curation.json`, resolves subject/topic assignments from curated/generated/keyword evidence, and writes `data/public/catalog.json`, `data/public/browse.json`, and reports.
+The current build reads `sources/manifest.json`, imports the seed workbook, imports normalized award records from `data/raw/award-records/*.json`, applies `sources/enrichment/*.json` except classifier internals, applies `sources/curation.json`, resolves subject/topic assignments from curated/generated/keyword evidence, and writes compact shared catalog indexes, per-book details, `data/public/browse.json`, and reports. A full pipeline-only catalog is written to the gitignored `data/cache/catalog.full.generated.json`.
 
 The durable data flow is:
 
@@ -76,7 +76,7 @@ The durable data flow is:
 7. Build semantic search artifacts when catalog text materially changes.
 8. Rebuild public data and inspect reports/queues for unresolved cases.
 
-Treat `data/public/catalog.json`, `data/public/book-semantic-index.json`, and `data/reports/*-report.json` as generated artifacts. The durable source of truth is the seed/source files, raw award records, enrichment patches, and manual curation files.
+Treat `data/public/catalog-*.json`, `data/public/book-details/`, the semantic manifest/vector pair, and `data/reports/*-report.json` as generated artifacts. Full row-level QA output belongs in the gitignored `data/reports/ci-artifacts/`; commit the compact summaries. The durable source of truth is the seed/source files, raw award records, enrichment patches, and manual curation files.
 
 ## Parallel Data Workflows
 
@@ -142,7 +142,7 @@ Subjects and topics are separate:
 Semantic search is separate from topic classification:
 
 - Semantic book search is exposed in the UI through `SearchModeSelect` as `Keyword` vs. `Meaning`. The home page routes meaning searches to `/books?mode=semantic`, and `/books` plus subject detail pages call `/api/search/semantic`.
-- The semantic index lives at `data/public/book-semantic-index.json` and is generated by `npm run semantic:index`. It embeds catalog-derived book text with OpenAI embeddings and writes `data/reports/book-semantic-index-report.json`.
+- The semantic index manifest lives at `data/public/book-semantic-index.json`; Float32 vectors live in `data/public/book-semantic-index.f32`. Both are generated by `npm run semantic:index`, which also writes `data/reports/book-semantic-index-report.json`.
 - `OPENAI_API_KEY` must be available server-side for both index building and live query embedding. The API route returns a 503 if the key or semantic index is missing.
 - Query interpretation may use the OpenAI Responses API for natural-language searches, then falls back to local generic term/period extraction if unavailable.
 - Ranking should remain generic: combine embedding similarity with corpus-aware exact-term, subject/topic, period, and recognition signals. Do not hard-code specific demo queries, phrases, titles, subjects, or eras into semantic ranking.
@@ -236,7 +236,7 @@ Historical winners-only coverage is acceptable where finalist/shortlist records 
 - `npm run dev`: run the Next dev server.
 - `npm run build`: rebuild data and produce a production build.
 - `npm run lint`: run TypeScript checking with `tsc --noEmit`. Next 16 no longer supports the old `next lint` command.
-- `npm run data:build`: rebuild `data/public/catalog.json`.
+- `npm run data:build`: rebuild shared catalog indexes, browse rows, per-book detail artifacts, and the pipeline-only full catalog cache.
 - `npm run semantic:index`: rebuild `data/public/book-semantic-index.json` using OpenAI embeddings.
 - `npm run semantic:evaluate`: evaluate semantic search against `data/semantic-evaluation-queries.json`.
 - `npm run data:semantic`: rebuild public catalog data and then rebuild the semantic index.
@@ -319,4 +319,4 @@ The normalized award-record foundation, importer framework, and broad major-awar
 
 ## To Do
 
-- Remove the cold-start delay when opening a book from `/books`. The drawer endpoint currently imports the full `data/public/catalog.json` through `lib/data.ts`; the catalog is about 81 MB, and loading it also constructs all catalog-wide lookup and grouping maps before returning a roughly 22 KB single-book response. Local measurements showed approximately 6.2 seconds to load `lib/data`, 4.1 seconds for the first drawer request with an existing dev cache, and 11–28 ms for warm requests; a completely cold development compile can be substantially slower. Prefer generating compact per-book drawer JSON artifacts during `data:build` and fetching the relevant static artifact directly. Preserve the existing `BookDrawerPayload` contract, award-history details, experimental semantic profile, retailer links, and next/previous navigation. Hover/focus prefetching and a lightweight immediate drawer shell may be added afterward, but they should not substitute for removing the full-catalog import from the request path.
+- Book drawers and detail pages load generated per-book artifacts; do not reintroduce a full-catalog import into the drawer request path.

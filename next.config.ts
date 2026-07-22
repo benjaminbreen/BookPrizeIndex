@@ -11,6 +11,12 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "**" },
     ],
   },
+  outputFileTracingIncludes: {
+    "/api/v1/books": ["./public/data/latest/book-prize-index.json"],
+    "/api/v1/books/[id]": ["./public/data/latest/book-prize-index.json"],
+    "/api/v1/appearances": ["./public/data/latest/book-prize-index.json"],
+    "/api/v1/awards": ["./public/data/latest/book-prize-index.json"],
+  },
 };
 
 export default nextConfig;

@@ -1,0 +1,22 @@
+{
+  "generatedAt": "2026-07-22T02:55:34.728Z",
+  "sourceGeneratedAt": "2026-07-22T02:41:38.127Z",
+  "sourceInputHash": "e9d8d8f972174b59e373",
+  "input": "data/public/book-semantic-index.json",
+  "output": "public/fun/nonfiction-galaxy.json",
+  "books": 6466,
+  "dimensions": 512,
+  "subjects": 21,
+  "booksWithCovers": 4978,
+  "majorAwardWinners": 1085,
+  "outputBytes": 3106004,
+  "projection": {
+    "algorithm": "UMAP",
+    "metric": "cosine",
+    "neighbors": 24,
+    "minDist": 0.14,
+    "epochs": 350,
+    "seed": 1729
+  },
+  "note": "Placement is an unsupervised projection of semantic embeddings. Subject labels color and annotate the map but do not influence coordinates."
+}

@@ -18,7 +18,8 @@ const ideas = [
   {
     title: "The Nonfiction Galaxy",
     description: "A semantic map where nearby books share subjects, topics, people, and ideas.",
-    status: "Concept",
+    href: "/fun/nonfiction-galaxy",
+    status: "Live",
   },
   {
     title: "What Nonfiction Talks About",
@@ -26,9 +27,9 @@ const ideas = [
     status: "Concept",
   },
   {
-    title: "Cover Twins",
-    description: "Find the visual doppelgängers of any book by palette, brightness, and composition.",
-    status: "Concept",
+    title: "The Library of Congress Shelf",
+    description: "Reshelve prize-recognized books by Library of Congress class and call number, from A to Z.",
+    status: "To do",
   },
   {
     title: "The Infinite Bookshelf",
@@ -71,7 +72,7 @@ export default function FunPage() {
         </div>
         <p className="max-w-xl text-base leading-7 muted">
           Playful visualizations made from the books, covers, prize histories, titles, and relationships in the index.
-          One is live; the rest are sketches for future experiments.
+          Two are live; the rest are sketches for future experiments.
         </p>
       </header>
 
@@ -108,7 +109,7 @@ export default function FunPage() {
           );
 
           return idea.href ? (
-            <Link className="fun-idea-card focus-ring md:col-span-2 xl:col-span-2" href={idea.href} key={idea.title}>
+            <Link className={`fun-idea-card focus-ring ${index === 0 ? "md:col-span-2 xl:col-span-2" : ""}`} href={idea.href} key={idea.title}>
               {content}
             </Link>
           ) : (

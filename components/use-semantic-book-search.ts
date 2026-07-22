@@ -17,6 +17,7 @@ export type SemanticBookSearchState = {
 };
 
 export type SemanticSearchDiagnostics = {
+  cacheHit?: boolean;
   candidateBookCount?: number;
   embeddingInput?: string;
   embeddingModel?: string;
@@ -26,6 +27,13 @@ export type SemanticSearchDiagnostics = {
   rankingTerms?: string[];
   queryExpansionModel?: SemanticQueryExpansionModel;
   resultCount?: number;
+  timing?: {
+    embeddingMs: number;
+    interpretationMs: number;
+    rankingMs: number;
+    totalMs: number;
+  };
+  totalMs?: number;
   usedModelInterpretation?: boolean;
 };
 
@@ -63,9 +71,8 @@ export function useSemanticBookSearch({
     }
 
     const controller = new AbortController();
-    setState({ diagnostics: null, error: null, interpretation: null, loading: false, query: trimmed, results: [] });
-    const timeout = window.setTimeout(async () => {
-      setState({ diagnostics: null, error: null, interpretation: null, loading: true, query: trimmed, results: [] });
+    setState({ diagnostics: null, error: null, interpretation: null, loading: true, query: trimmed, results: [] });
+    void (async () => {
       try {
         const response = await fetch("/api/search/semantic", {
           method: "POST",
@@ -97,10 +104,9 @@ export function useSemanticBookSearch({
           results: [],
         });
       }
-    }, 320);
+    })();
 
     return () => {
-      window.clearTimeout(timeout);
       controller.abort();
     };
   }, [candidateKey, enabled, filtersKey, limit, query, queryExpansionModel]);

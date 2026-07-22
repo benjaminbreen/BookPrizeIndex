@@ -3,11 +3,11 @@ import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
-import rawData from "../data/public/catalog.json" with { type: "json" };
-import type { Imprint, PublicData } from "../lib/types";
+import rawData from "../data/public/catalog-entities.json" with { type: "json" };
+import type { Imprint } from "../lib/types";
 
 const execFileAsync = promisify(execFile);
-const data = rawData as PublicData;
+const data = rawData as { imprints: Imprint[] };
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputDir = path.join(root, "public", "imprint-logos");
 const originalDir = path.join(outputDir, "_originals");

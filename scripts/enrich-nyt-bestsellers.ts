@@ -3,7 +3,7 @@ import path from "node:path";
 import { execFile } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { promisify } from "node:util";
-import { data } from "../lib/data";
+import { data } from "./build/pipeline-data";
 import type { Book, NytBestsellerStats, SourceRef } from "../lib/types";
 
 type NytBook = {

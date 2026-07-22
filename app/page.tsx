@@ -1,5 +1,6 @@
 import { ExplorerHome } from "@/components/explorer-home";
 import { browseData } from "@/lib/browse-data";
+import { compareBrowseBookRecognition } from "@/lib/browse-ranking";
 import type { HomeBrowseData } from "@/components/explorer-home";
 import { Suspense } from "react";
 
@@ -11,14 +12,20 @@ export default async function Home() {
   );
 }
 
+const homeBookCandidates = [...new Map(
+  (["all", "us", "international"] as const)
+    .flatMap((region) => browseData.books
+      .slice()
+      .sort((a, b) => compareBrowseBookRecognition(a, b, region))
+      .slice(0, 500))
+    .map((book) => [book.id, book]),
+).values()];
+
 const homeBrowseData = {
   generatedAt: browseData.generatedAt,
   stats: browseData.stats,
   home: browseData.home,
-  books: browseData.books
-    .slice()
-    .sort(compareHomeRecognition)
-    .slice(0, 500)
+  books: homeBookCandidates
     .map((book) => ({
       id: book.id,
       slug: book.slug,
@@ -30,6 +37,7 @@ const homeBrowseData = {
       imprint: book.imprint,
       thumbnailUrl: book.thumbnailUrl,
       subjects: book.subjects,
+      awardIds: book.awardIds,
       wins: book.wins,
       lists: book.lists,
       score: book.score,
@@ -38,6 +46,7 @@ const homeBrowseData = {
       normalShortlists: book.normalShortlists,
       majorLonglists: book.majorLonglists,
       normalLonglists: book.normalLonglists,
+      recognitionByRegion: book.recognitionByRegion,
       searchText: [
         book.title,
         book.author,
@@ -52,18 +61,3 @@ const homeBrowseData = {
         .toLowerCase(),
     })),
 } satisfies HomeBrowseData;
-
-function compareHomeRecognition(a: (typeof browseData.books)[number], b: (typeof browseData.books)[number]) {
-  return (
-    b.score - a.score ||
-    b.majorWins - a.majorWins ||
-    b.majorShortlists - a.majorShortlists ||
-    b.wins - a.wins ||
-    b.lists - a.lists ||
-    b.normalShortlists - a.normalShortlists ||
-    b.majorLonglists - a.majorLonglists ||
-    b.normalLonglists - a.normalLonglists ||
-    (b.publicationYear ?? b.firstRecognitionYear ?? 0) - (a.publicationYear ?? a.firstRecognitionYear ?? 0) ||
-    a.title.localeCompare(b.title)
-  );
-}

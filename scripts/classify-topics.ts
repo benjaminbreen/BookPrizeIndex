@@ -79,7 +79,7 @@ type ReportFile = {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const catalogPath = path.join(root, "data", "public", "catalog.json");
+const catalogPath = path.join(root, "data", "cache", "catalog.full.generated.json");
 const topicsPath = path.join(root, "sources", "topics.json");
 const generatedPath = path.join(root, "sources", "enrichment", "topics.generated.json");
 const cachePath = path.join(root, "data", "cache", "topic-embedding-cache.json");

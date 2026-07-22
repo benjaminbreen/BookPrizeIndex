@@ -1214,5 +1214,151 @@
         "coverageNotes": "Book winners from 1926 through 2025, excluding explicit no-award years and three out-of-scope works: the poetry collection Nature Poems (1928) and the two fiction winners, Those of the Forest (1955) and Martin Marten (2017). The source has no 2019 entry, which remains an explicit unresolved gap rather than being labeled a no-award year. The 2018 lifetime-achievement medal for nature poetry is not a book record and is excluded."
       }
     ]
+  },
+  {
+    "id": "george-polk-awards",
+    "name": "George Polk Awards",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "Long Island University",
+    "geography": "United States / International",
+    "foundedYear": 1948,
+    "officialUrl": "https://www.liu.edu/polk-awards",
+    "notes": "Major journalism awards founded in memory of correspondent George Polk. This corpus imports only the historical Book category, which was awarded intermittently rather than in every annual cycle.",
+    "categories": [
+      {
+        "id": "george-polk-book",
+        "name": "Book Award",
+        "officialUrl": "https://www.liu.edu/polk-awards/past-winners",
+        "sourceUrl": "https://www.liu.edu/polk-awards/past-winners",
+        "sourceLabel": "Long Island University official George Polk Award winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-year-sections",
+        "activeYears": "intermittent historical category",
+        "coverageNotes": "Winner-only Book or Book Award rows explicitly labeled in the official archive. Years without such a row are not inferred as no-award years. Non-book reporting, criticism, career, and special awards are excluded."
+      }
+    ]
+  },
+  {
+    "id": "dayton-literary-peace-prize",
+    "name": "Dayton Literary Peace Prize",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Dayton Literary Peace Prize Foundation",
+    "geography": "United States / International",
+    "foundedYear": 2006,
+    "officialUrl": "https://www.daytonliterarypeaceprize.org/",
+    "notes": "Annual literary prize recognizing books that foster understanding of conflict, justice, cultures, religions, and political views. The corpus imports only the Nonfiction category and excludes fiction and lifetime-achievement honors.",
+    "categories": [
+      {
+        "id": "dayton-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://www.daytonliterarypeaceprize.org/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Dayton_Literary_Peace_Prize",
+        "sourceLabel": "Wikipedia: Dayton Literary Peace Prize nonfiction table",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-nonfiction-wikitable",
+        "activeYears": "2006-present",
+        "coverageNotes": "Nonfiction winners, runners-up, and published finalist slates. Runner-up is retained in record notes and normalized to finalist because the public status model has no separate runner-up value. Official releases are retained for subsequent row-level verification."
+      }
+    ]
+  },
+  {
+    "id": "pen-hessell-tiltman-prize",
+    "name": "PEN Hessell-Tiltman Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "English PEN",
+    "geography": "United Kingdom",
+    "foundedYear": 2002,
+    "officialUrl": "https://www.englishpen.org/prizes/pen-hessell-tiltman-prize/",
+    "notes": "Annual prize for literary nonfiction of specifically historical content, founded through Marjorie Hessell-Tiltman's 1999 bequest. Historical biography and primarily academic books are outside its stated remit.",
+    "categories": [
+      {
+        "id": "hessell-tiltman-history",
+        "name": "Historical Nonfiction",
+        "officialUrl": "https://www.englishpen.org/prizes/pen-hessell-tiltman-prize/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/PEN_Hessell-Tiltman_Prize",
+        "sourceLabel": "Wikipedia: PEN Hessell-Tiltman Prize winners and shortlists",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-year-bullet-lists",
+        "activeYears": "2002-present",
+        "coverageNotes": "Winners and available shortlist records from 2002 onward, including the 2005 joint winners and the explicit 2022 honorable mention. English PEN's official prize and tagged archive pages are retained for verification."
+      }
+    ]
+  },
+  {
+    "id": "truman-capote-award-criticism",
+    "name": "Truman Capote Award for Literary Criticism",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "University of Iowa / Truman Capote Literary Trust",
+    "geography": "United States / International",
+    "foundedYear": 1994,
+    "officialUrl": "https://writersworkshop.uiowa.edu/about/annual-prizes/truman-capote-award",
+    "notes": "Annual award for English-language literary criticism, established by the Truman Capote Literary Trust and administered by the University of Iowa.",
+    "categories": [
+      {
+        "id": "truman-capote-literary-criticism",
+        "name": "Literary Criticism",
+        "officialUrl": "https://writersworkshop.uiowa.edu/about/annual-prizes/truman-capote-award",
+        "sourceUrl": "https://writersworkshop.uiowa.edu/about/annual-prizes/truman-capote-award",
+        "sourceLabel": "University of Iowa official Truman Capote Award winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html",
+        "activeYears": "1995-present",
+        "coverageNotes": "Winner-only archive from the first listed award in 1995 onward. The official 2000 entry lists two recipients and two works, represented as co-winners."
+      }
+    ]
+  },
+  {
+    "id": "ire-awards",
+    "name": "IRE Awards",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "Investigative Reporters and Editors",
+    "geography": "United States / International",
+    "foundedYear": 1979,
+    "officialUrl": "https://www.ire.org/awards/",
+    "notes": "Professional awards for watchdog and investigative journalism. This corpus imports only the book-length reporting category and excludes broadcast, periodical, student, career, and special awards.",
+    "categories": [
+      {
+        "id": "ire-books",
+        "name": "Books",
+        "officialUrl": "https://www.ire.org/awards/",
+        "sourceUrl": "https://www.ire.org/past-award-winners/",
+        "sourceLabel": "Investigative Reporters and Editors official award archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-year-pages",
+        "activeYears": "book category archive currently exposed for 2015-present",
+        "coverageNotes": "Books/Book category winners and finalists from the official 2015-present archive. The category predates the web archive, but older rows are deferred until an authoritative structured source can be established."
+      }
+    ]
+  },
+  {
+    "id": "wellcome-book-prize",
+    "name": "Wellcome Book Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Wellcome Trust",
+    "geography": "United Kingdom / International",
+    "foundedYear": 2009,
+    "discontinuedYear": 2019,
+    "dormantYears": [[2013, 2013]],
+    "officialUrl": "https://wellcomecollection.org/series/wellcome-book-prize-authors-revealed",
+    "notes": "Defunct prize for books illuminating health and medicine. The prize considered both fiction and nonfiction; this corpus uses an explicit reviewed nonfiction whitelist and excludes all novels.",
+    "categories": [
+      {
+        "id": "wellcome-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://wellcomecollection.org/series/wellcome-book-prize-authors-revealed",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Wellcome_Book_Prize",
+        "sourceLabel": "Wikipedia: Wellcome Book Prize mixed winner and shortlist table",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-table-with-reviewed-nonfiction-filter",
+        "activeYears": "2009-2012; 2014-2019",
+        "coverageNotes": "Nonfiction winners and shortlisted works from all ten award editions. Fiction winners and nominees are excluded through an explicit reviewed title set; 2013 was a no-award relaunch year."
+      }
+    ]
   }
 ]

@@ -1,6 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { data } from "../lib/data";
+import { data } from "./build/pipeline-data";
 import type { Book, SourceRef } from "../lib/types";
 import { cacheDataDir, reportsDataDir, root } from "./build/paths";
 

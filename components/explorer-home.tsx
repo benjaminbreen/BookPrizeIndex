@@ -7,6 +7,7 @@ import { useMemo, useState } from "react";
 import type { SearchMode } from "@/components/ui/design-primitives";
 import { useAwardRegion } from "@/components/use-award-region";
 import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
+import { bookRecognition, compareBrowseBookRecognition } from "@/lib/browse-ranking";
 import type { BrowseData, BrowseLinkRow } from "@/lib/browse-types";
 import type { SemanticQueryExpansionModel } from "@/lib/semantic-search";
 
@@ -26,6 +27,7 @@ export type HomeBookRow = Pick<
   | "imprint"
   | "thumbnailUrl"
   | "subjects"
+  | "awardIds"
   | "wins"
   | "lists"
   | "score"
@@ -34,6 +36,7 @@ export type HomeBookRow = Pick<
   | "normalShortlists"
   | "majorLonglists"
   | "normalLonglists"
+  | "recognitionByRegion"
   | "searchText"
 >;
 
@@ -66,16 +69,17 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
     const subjectFilter = rankedSubjectFilters.find((filter) => filter.key === rankedSubject);
     const subjectSet = new Set(subjectFilter?.subjects ?? []);
     const filtered = data.books.filter((book) => {
+      if (bookRecognition(book, region).lists === 0) return false;
       if (q && !book.searchText.includes(q)) return false;
       if (subjectSet.size && !book.subjects.some((subject) => subjectSet.has(subject))) return false;
       return true;
     });
     return [...filtered].sort((a, b) => {
-      const primary = compareHomeBooks(a, b, sortKey);
+      const primary = compareHomeBooks(a, b, sortKey, region);
       if (primary) return sortDirection === "asc" ? primary : -primary;
-      return compareHomeRecognitionTieBreak(a, b);
+      return compareBrowseBookRecognition(a, b, region);
     });
-  }, [data.books, query, rankedSubject, sortDirection, sortKey]);
+  }, [data.books, query, rankedSubject, region, sortDirection, sortKey]);
 
   const topBooks = rankedBooks.slice(0, 12);
   const browseData = useMemo(() => getBrowseData(data, region), [data, region]);
@@ -112,14 +116,13 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
     <>
     <main>
       <section className="home-hero-section bg-[var(--paper)]">
-        <div className="home-hero-inner mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[1.04fr_0.96fr] lg:px-8 lg:pb-12 lg:pt-20">
+        <div className="home-hero-inner mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[0.96fr_1.04fr] lg:px-8 lg:pb-12 lg:pt-20">
           <div className="home-hero-copy">
             <h1 className="max-w-2xl font-[var(--font-serif)] text-4xl font-light leading-[1.02] sm:text-5xl lg:text-5xl">
               A searchable index of nonfiction book prizes.
             </h1>
             <p className="mt-6 max-w-2xl font-[var(--font-serif)] text-xl font-light leading-8 muted">
-              Explore {data.stats.books.toLocaleString()} winners, finalists, shortlists, and longlists across{" "}
-              {data.stats.programs.toLocaleString()} award programs, with a source for every imported appearance.
+              A free resource for browsing major nonfiction prizes and the books they recognize.
             </p>
           </div>
 
@@ -284,14 +287,15 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
             </thead>
             <tbody>
               {topBooks.map((book, index) => {
+                const stats = bookRecognition(book, region);
                 return (
                   <tr
                     key={book.id}
                     className="book-table-row fade-up border-b hairline transition hover:bg-[var(--accent-soft)]"
                     style={{ animationDelay: `${Math.min(index * 18, 140)}ms` }}
                   >
-                    <td className="plain-number px-4 py-4 text-sm font-medium">{book.score}</td>
-                    <td className="plain-number px-4 py-4 text-sm muted">{book.firstRecognitionYear ?? "—"}</td>
+                    <td className="plain-number px-4 py-4 text-sm font-medium">{stats.score}</td>
+                    <td className="plain-number px-4 py-4 text-sm muted">{stats.firstRecognitionYear ?? "—"}</td>
                     <td className="px-4 py-4">
                       <Link
                         className="focus-ring grid w-full grid-cols-[2.15rem_minmax(0,1fr)] items-center gap-3 text-left font-[var(--font-serif)] text-xl font-light transition hover:text-[var(--accent)]"
@@ -302,8 +306,8 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
                       </Link>
                     </td>
                     <td className="px-4 py-4 text-sm">{book.author}</td>
-                    <td className="plain-number px-4 py-4 text-sm">{book.wins}</td>
-                    <td className="plain-number px-4 py-4 text-sm">{book.lists}</td>
+                    <td className="plain-number px-4 py-4 text-sm">{stats.wins}</td>
+                    <td className="plain-number px-4 py-4 text-sm">{stats.lists}</td>
                     <td className={`px-4 py-4 text-sm ${book.imprint ? "" : "book-missing-value"}`}>{book.imprint || "Unknown"}</td>
                     <td className={`px-4 py-4 text-sm ${book.publisher ? "muted" : "book-missing-value"}`}>{book.publisher || "Not yet sourced"}</td>
                   </tr>
@@ -441,30 +445,17 @@ function HomeBookCover({ book }: { book: HomeBookRow }) {
   );
 }
 
-function compareHomeBooks(a: HomeBookRow, b: HomeBookRow, sortKey: SortKey) {
-  if (sortKey === "score") return a.score - b.score;
-  if (sortKey === "wins") return a.wins - b.wins;
-  if (sortKey === "lists") return a.lists - b.lists;
-  if (sortKey === "year") return (a.firstRecognitionYear ?? 0) - (b.firstRecognitionYear ?? 0);
+function compareHomeBooks(a: HomeBookRow, b: HomeBookRow, sortKey: SortKey, region: AwardRegionFilter) {
+  const aStats = bookRecognition(a, region);
+  const bStats = bookRecognition(b, region);
+  if (sortKey === "score") return aStats.score - bStats.score;
+  if (sortKey === "wins") return aStats.wins - bStats.wins;
+  if (sortKey === "lists") return aStats.lists - bStats.lists;
+  if (sortKey === "year") return (aStats.firstRecognitionYear ?? 0) - (bStats.firstRecognitionYear ?? 0);
   if (sortKey === "author") return a.author.localeCompare(b.author);
   if (sortKey === "imprint") return (a.imprint ?? "").localeCompare(b.imprint ?? "");
   if (sortKey === "publisher") return (a.publisher ?? "").localeCompare(b.publisher ?? "");
   return a.title.localeCompare(b.title);
-}
-
-function compareHomeRecognitionTieBreak(a: HomeBookRow, b: HomeBookRow) {
-  return (
-    b.score - a.score ||
-    b.majorWins - a.majorWins ||
-    b.majorShortlists - a.majorShortlists ||
-    b.wins - a.wins ||
-    b.lists - a.lists ||
-    b.normalShortlists - a.normalShortlists ||
-    b.majorLonglists - a.majorLonglists ||
-    b.normalLonglists - a.normalLonglists ||
-    (b.firstRecognitionYear ?? 0) - (a.firstRecognitionYear ?? 0) ||
-    a.title.localeCompare(b.title)
-  );
 }
 
 function defaultSortDirection(sortKey: SortKey): SortDirection {

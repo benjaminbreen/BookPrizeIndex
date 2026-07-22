@@ -11,8 +11,10 @@ import {
   type PrizeRegistryFileEntry,
 } from "./build/award-programs";
 import { buildBrowseData } from "./build/browse-data";
+import { writePublicCatalogArtifacts } from "./build/public-catalog-artifacts";
+import { writeAggregateQaArtifact, writeRowQaArtifact } from "./build/qa-artifacts";
 import { applyCuration, applySourcePatches, isTrustedWikipediaBookEvidence, mergeObject, readCuration, readEnrichment, type CurationFile } from "./build/curation";
-import { publicDataDir, rawAwardRecordsDir, reportsDataDir, sourcesDir } from "./build/paths";
+import { cacheDataDir, publicDataDir, rawAwardRecordsDir, reportsDataDir, sourcesDir } from "./build/paths";
 import { buildCanonicalTitleResolver, type CanonicalTitleResolver, type TitleCandidate } from "./build/title-resolver";
 import { clean, slugify } from "./build/text";
 import type {
@@ -1003,33 +1005,36 @@ async function main() {
   });
 
   await Promise.all([publicDataDir, reportsDataDir].map((dir) => fs.mkdir(dir, { recursive: true })));
-  await fs.writeFile(path.join(publicDataDir, "catalog.json"), `${JSON.stringify(publicData, null, 2)}\n`);
+  await writePublicCatalogArtifacts({
+    cacheDir: cacheDataDir,
+    data: publicData,
+    publicDir: publicDataDir,
+  });
   await fs.writeFile(path.join(publicDataDir, "browse.json"), `${JSON.stringify(buildBrowseData(publicData))}\n`);
   await fs.writeFile(
     path.join(reportsDataDir, "taxonomy-validation-report.json"),
     `${JSON.stringify(taxonomyValidationReport, null, 2)}\n`,
   );
-  await fs.writeFile(
-    path.join(reportsDataDir, "subject-classification-report.json"),
-    `${JSON.stringify(subjectClassificationReport, null, 2)}\n`,
-  );
-  await fs.writeFile(
-    path.join(reportsDataDir, "topic-classification-report.json"),
-    `${JSON.stringify(topicClassificationReport, null, 2)}\n`,
-  );
-  await fs.writeFile(
-    path.join(reportsDataDir, "subject-evidence-report.json"),
-    `${JSON.stringify(subjectEvidenceReport, null, 2)}\n`,
-  );
-  await fs.writeFile(
-    path.join(reportsDataDir, "subject-review-report.json"),
-    `${JSON.stringify(subjectReviewReport, null, 2)}\n`,
-  );
-  await fs.writeFile(
-    path.join(reportsDataDir, "suspicious-subject-topic-report.json"),
-    `${JSON.stringify(suspiciousSubjectTopicReport, null, 2)}\n`,
-  );
-  await fs.writeFile(path.join(reportsDataDir, "topic-summary.json"), `${JSON.stringify(topicSummary, null, 2)}\n`);
+  await Promise.all([
+    writeRowQaArtifact({ filename: "subject-classification-report.json", generatedAt, reportsDir: reportsDataDir, rows: subjectClassificationReport }),
+    writeRowQaArtifact({ filename: "topic-classification-report.json", generatedAt, reportsDir: reportsDataDir, rows: topicClassificationReport }),
+    writeRowQaArtifact({ filename: "subject-evidence-report.json", generatedAt, reportsDir: reportsDataDir, rows: subjectEvidenceReport }),
+    writeRowQaArtifact({ filename: "subject-review-report.json", generatedAt, reportsDir: reportsDataDir, rows: subjectReviewReport }),
+    writeRowQaArtifact({ filename: "suspicious-subject-topic-report.json", generatedAt, reportsDir: reportsDataDir, rows: suspiciousSubjectTopicReport }),
+    writeAggregateQaArtifact({
+      filename: "topic-summary.json",
+      generatedAt,
+      reportsDir: reportsDataDir,
+      report: topicSummary,
+      rowCounts: {
+        topics: topicSummary.topics.length,
+        byYear: topicSummary.byYear.length,
+        byAward: topicSummary.byAward.length,
+        byAwardYear: topicSummary.byAwardYear.length,
+      },
+      summary: { topics: topicSummary.topics },
+    }),
+  ]);
 
   const appearanceSourceUrlGaps = publicData.appearances.filter(
     (appearance) => !hasAppearanceUrl(appearance, publicData.sources),

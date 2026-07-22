@@ -8,8 +8,9 @@ import {
   imprintsById,
   publishersById,
   sourcesById,
-} from "../lib/data";
+} from "./build/pipeline-data";
 import type { Book, BookReaderProfile, SourceRef } from "../lib/types";
+import { writeAggregateQaArtifact } from "./build/qa-artifacts";
 
 type Lane = "central_figures" | "central_places" | "argument" | "null_control" | "mixed";
 
@@ -733,7 +734,21 @@ async function writeOutputs(
     estimatedApiCostUsd: Number(sum(completed.map((row) => row.estimatedCostUsd ?? 0)).toFixed(6)),
     rows,
   };
-  await fs.writeFile(outputPaths.report, `${JSON.stringify(report, null, 2)}\n`);
+  await writeAggregateQaArtifact({
+    filename: path.basename(outputPaths.report),
+    generatedAt,
+    reportsDir: path.dirname(outputPaths.report),
+    report,
+    rowCounts: { rows: rows.length, completed: completed.length, flagged: flaggedRows.length, review: reviewRows.length },
+    summary: {
+      notes: report.notes,
+      configuration: report.configuration,
+      summary: report.summary,
+      tokenUsage: report.tokenUsage,
+      pricingBasisUsdPerMillionTokens: report.pricingBasisUsdPerMillionTokens,
+      estimatedApiCostUsd: report.estimatedApiCostUsd,
+    },
+  });
   await fs.writeFile(
     outputPaths.candidatesJson,
     `${JSON.stringify({

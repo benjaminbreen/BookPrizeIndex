@@ -65,7 +65,7 @@ type Report = {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const catalogPath = path.join(root, "data", "public", "catalog.json");
+const catalogPath = path.join(root, "data", "cache", "catalog.full.generated.json");
 const mappingPath = path.join(root, "sources", "imprint-normalization.json");
 const reportPath = path.join(root, "data", "reports", "publisher-imprint-qa-report.json");
 

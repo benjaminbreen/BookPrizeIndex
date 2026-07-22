@@ -1,5 +1,5 @@
 {
-  "notes": "Manual source-backed corrections and enrichments. Use stable generated IDs from data/public/catalog.json.",
+  "notes": "Manual source-backed corrections and enrichments. Use stable generated IDs from data/public/catalog-books.json.",
   "books": {
     "book-caste-the-origins-of-our-discontents-isabel-wilkerson": {
       "publicationYear": 2020,
@@ -2174,6 +2174,10 @@
     },
     "book-civic-ideals-rogers-m-smith": {
       "title": "Civic Ideals: Conflicting Visions of Citizenship in U.S. History"
+    },
+    "book-tripping-on-utopia-margaret-mead-the-cold-war-and-the-troubled-birth-of-psychedelic-science-benj": {
+      "thumbnailUrl": "/book-covers/book-tripping-on-utopia-margaret-mead-the-cold-war-and-the-troubled-birth-of-psychedelic-science-benj.jpg",
+      "sourceIds": ["source-cover-tripping-on-utopia-us-hardcover"]
     }
   },
   "awards": {},
@@ -3445,6 +3449,14 @@
       "url": "https://coffeehousepress.org/products/when-women-kill",
       "confidence": "official",
       "field": "publisher"
+    },
+    "source-cover-tripping-on-utopia-us-hardcover": {
+      "id": "source-cover-tripping-on-utopia-us-hardcover",
+      "label": "Grand Central Publishing US hardcover edition of Tripping on Utopia",
+      "url": "https://www.hachettebookgroup.com/titles/benjamin-breen/tripping-on-utopia/9781538722374/",
+      "confidence": "official",
+      "field": "book",
+      "note": "US hardcover jacket supplied by the author; replaces the previously cached UK-edition cover."
     }
   }
 }
