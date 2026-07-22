@@ -13,7 +13,16 @@ import type { AwardStatus } from "@/lib/types";
 export const metadata = {
   title: "Trends / The Book Prize Index",
   description: "Interactive charts showing how nonfiction prizes, subjects, and publishing imprints have changed over time.",
+  alternates: { canonical: "/experiments" },
 };
+
+const CHART_LINKS = [
+  { href: "#imprint-leaderboard", label: "Imprint leaderboard" },
+  { href: "#prize-census", label: "Prize census" },
+  { href: "#subject-drift", label: "Subject drift" },
+  { href: "#consensus", label: "Consensus" },
+  { href: "#bestseller-convergence", label: "Prizes and bestsellers" },
+];
 
 export default function ExperimentsPage() {
   const events = buildImprintRankEvents();
@@ -42,6 +51,17 @@ export default function ExperimentsPage() {
           <HeroMetric label="Years" value={`${yearRange[0]}-${yearRange[1]}`} />
         </div>
       </section>
+
+      <nav aria-label="Charts on this page" className="border-b hairline py-4">
+        <p className="font-[var(--font-mono)] text-[0.65rem] uppercase tracking-[0.16em] muted">On this page</p>
+        <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+          {CHART_LINKS.map((item) => (
+            <a className="focus-ring rounded-sm transition hover:text-[var(--accent)]" href={item.href} key={item.href}>
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </nav>
 
       <ImprintRankExperiment events={events} yearRange={yearRange} />
 

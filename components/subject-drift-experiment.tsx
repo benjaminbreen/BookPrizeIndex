@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { PointerEvent, ReactNode } from "react";
+import { SectionPermalink } from "@/components/ui/section-permalink";
 
 export type SubjectDriftData = {
   /** Subject names ordered by total appearance count, descending. */
@@ -90,10 +91,13 @@ export function SubjectDriftExperiment({ data }: SubjectDriftExperimentProps) {
   }
 
   return (
-    <section className="mt-12 border-t hairline pt-8">
+    <section className="mt-12 scroll-mt-24 border-t hairline pt-8" id="subject-drift">
       <div className="border-b hairline pb-6">
         <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Subjects over time</p>
-        <h2 className="mt-3 font-[var(--font-serif)] text-3xl font-light leading-tight sm:text-4xl">Subject drift</h2>
+        <h2 className="mt-3 font-[var(--font-serif)] text-3xl font-light leading-tight sm:text-4xl">
+          Subject drift
+          <SectionPermalink id="subject-drift" label="Subject drift" />
+        </h2>
         <p className="mt-4 max-w-3xl text-base leading-7 muted">
           How the subjects of prize-winning nonfiction have changed over time.
         </p>

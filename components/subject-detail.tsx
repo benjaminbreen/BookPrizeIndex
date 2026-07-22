@@ -73,6 +73,13 @@ export function SubjectDetail({
   const activeSubdivisionLabel = subdivisions.find((item) => item.subject === activeSubdivision)?.label;
   const contextLine = `${subject.name}${activeSubdivisionLabel ? ` · ${activeSubdivisionLabel}` : ""} · ${semanticActive ? "Sorted by meaning match" : `Sorted by ${subjectSortLabel(sortKey).toLowerCase()}`} · Showing ${rows.length.toLocaleString()} of ${visibleBooks.length.toLocaleString()} books${activeQuery.trim() ? ` · Search: ${activeQuery.trim()}` : ""}`;
   const activeBookIndex = activeBookId ? rows.findIndex((book) => book.id === activeBookId) : -1;
+
+  function openBookFromLink(event: React.MouseEvent<HTMLAnchorElement>, book: BrowseBookRow) {
+    event.stopPropagation();
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    setActiveBookId(book.id);
+  }
   const semanticConceptLine = semanticActive && semanticSearch.interpretation
     ? [
         semanticSearch.interpretation.concepts.slice(0, 4).join(", "),
@@ -215,11 +222,11 @@ export function SubjectDetail({
                   const imprint = book.imprint ?? "";
                   const publisher = book.publisher ?? "";
                   return (
-                    <button
+                    <Link
                       className="book-mobile-card book-mobile-card-compact block w-full border-b hairline px-3 py-3 text-left text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
+                      href={`/books/${book.slug}`}
                       key={book.id}
-                      onClick={() => setActiveBookId(book.id)}
-                      type="button"
+                      onClick={(event) => openBookFromLink(event, book)}
                     >
                       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
                         <div className="min-w-0 overflow-hidden">
@@ -235,7 +242,7 @@ export function SubjectDetail({
                           {imprint || publisher || "Not yet sourced"}
                         </span>
                       </div>
-                    </button>
+                    </Link>
                   );
                 })}
               </div>
@@ -263,6 +270,7 @@ export function SubjectDetail({
                           key={book.id}
                           onClick={() => setActiveBookId(book.id)}
                           onKeyDown={(event) => {
+                            if ((event.target as HTMLElement).closest("a, button")) return;
                             if (event.key === "Enter" || event.key === " ") {
                               event.preventDefault();
                               setActiveBookId(book.id);
@@ -273,17 +281,14 @@ export function SubjectDetail({
                         >
                           <td className="plain-number px-4 py-3 text-xs">{book.publicationYear}</td>
                           <td className="px-4 py-3">
-                            <button
+                            <Link
                               className="focus-ring grid w-full grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-left text-base transition hover:text-[var(--accent)]"
-                              onClick={(event) => {
-                                event.stopPropagation();
-                                setActiveBookId(book.id);
-                              }}
-                              type="button"
+                              href={`/books/${book.slug}`}
+                              onClick={(event) => openBookFromLink(event, book)}
                             >
                               <SubjectBookCover book={book} />
                               <span className="line-clamp-2">{book.title}</span>
-                            </button>
+                            </Link>
                           </td>
                           <td className="px-4 py-3">{book.author}</td>
                           <td className="plain-number px-4 py-3 text-xs">{book.wins}</td>

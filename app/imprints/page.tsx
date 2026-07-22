@@ -6,6 +6,8 @@ import { getImprintLogo } from "@/lib/imprint-logos";
 
 export const metadata = {
   title: "Imprints / The Book Prize Index",
+  description: "Browse publishing imprints and their prize-recognized nonfiction books.",
+  alternates: { canonical: "/imprints" },
 };
 
 export default function ImprintsPage() {

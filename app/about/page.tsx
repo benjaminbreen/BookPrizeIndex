@@ -2,6 +2,8 @@ import Link from "next/link";
 
 export const metadata = {
   title: "About / The Book Prize Index",
+  description: "About The Book Prize Index, a free, source-backed catalog of nonfiction prizes and prize-recognized books.",
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

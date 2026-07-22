@@ -15,7 +15,12 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const subject = subjectsBySlug.get(slug);
-  return { title: subject ? `${subject.name} / The Book Prize Index` : "Subject / The Book Prize Index" };
+  if (!subject) return { title: "Subject / The Book Prize Index", robots: { index: false, follow: false } };
+  return {
+    title: `${subject.name} / The Book Prize Index`,
+    description: subject.description ?? `Browse prize-recognized nonfiction books about ${subject.name.toLowerCase()}.`,
+    alternates: { canonical: `/subjects/${subject.slug}` },
+  };
 }
 
 export default async function SubjectPage({ params }: PageProps) {

@@ -6,6 +6,7 @@ import type { CoverSpectrumData } from "@/lib/cover-spectrum-types";
 export const metadata = {
   title: "For Fun / The Book Prize Index",
   description: "Visual experiments and playful ways to explore the Book Prize Index.",
+  alternates: { canonical: "/fun" },
 };
 
 const ideas = [

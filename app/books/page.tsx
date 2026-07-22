@@ -5,6 +5,8 @@ import { bookCatalogPublisherOptions, bookCatalogSubjectOptions, queryBookCatalo
 
 export const metadata = {
   title: "Books / The Book Prize Index",
+  description: "Browse thousands of prize-recognized nonfiction books by award recognition, year, subject, author, publisher, and imprint.",
+  alternates: { canonical: "/books" },
 };
 
 type BooksPageProps = {

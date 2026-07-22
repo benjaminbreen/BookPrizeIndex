@@ -15,7 +15,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const topic = topicNameForSlug(slug);
-  return { title: topic ? `${topic} / The Book Prize Index` : "Topic / The Book Prize Index" };
+  if (!topic) return { title: "Topic / The Book Prize Index", robots: { index: false, follow: false } };
+  return {
+    title: `${topic} / The Book Prize Index`,
+    description: `Browse prize-recognized nonfiction books about ${topic.toLowerCase()}, with award results, subjects, authors, and imprints.`,
+    alternates: { canonical: `/topics/${slug}` },
+  };
 }
 
 export default async function TopicPage({ params }: PageProps) {

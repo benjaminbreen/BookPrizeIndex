@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, X } from "lucide-react";
+import { Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, Link2, X } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
@@ -36,6 +36,7 @@ export function BookDrawer({
   const [isClosing, setIsClosing] = useState(false);
   const [hasEntered, setHasEntered] = useState(false);
   const [citationCopied, setCitationCopied] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
   const panelRef = useRef<HTMLElement | null>(null);
   const animatedBookIdRef = useRef<string | null>(null);
 
@@ -67,6 +68,7 @@ export function BookDrawer({
       setSnapshot({ payload, currentLabel });
       setIsClosing(false);
       setCitationCopied(false);
+      setLinkCopied(false);
       if (!shouldAnimate) return;
       setHasEntered(false);
       let secondFrame = 0;
@@ -160,6 +162,15 @@ export function BookDrawer({
       void navigator.clipboard.writeText(citation);
     }
     window.setTimeout(() => setCitationCopied(false), 1600);
+  }
+
+  function copyBookLink() {
+    setLinkCopied(true);
+    if (navigator.clipboard) {
+      const bookUrl = new URL(`/books/${renderedBook.slug}`, window.location.origin).toString();
+      void navigator.clipboard.writeText(bookUrl);
+    }
+    window.setTimeout(() => setLinkCopied(false), 1600);
   }
 
   return (
@@ -307,7 +318,7 @@ export function BookDrawer({
 
         <div className="book-drawer-section mt-7">
           <h3 className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em]">Quick actions</h3>
-          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
             <Link className="focus-ring inline-flex items-center justify-center gap-3 border hairline px-4 py-4 text-sm transition hover:bg-[var(--panel)]" href={`/books/${renderedBook.slug}`}>
               <FileText size={17} />
               Full record
@@ -316,6 +327,10 @@ export function BookDrawer({
             <button className="focus-ring inline-flex items-center justify-center gap-3 border hairline px-4 py-4 text-sm transition hover:bg-[var(--panel)]" onClick={copyCitation}>
               {citationCopied ? <Check size={17} /> : <Clipboard size={17} />}
               {citationCopied ? "Copied" : "Copy citation"}
+            </button>
+            <button className="focus-ring inline-flex items-center justify-center gap-3 border hairline px-4 py-4 text-sm transition hover:bg-[var(--panel)]" onClick={copyBookLink}>
+              {linkCopied ? <Check size={17} /> : <Link2 size={17} />}
+              {linkCopied ? "Link copied" : "Copy link"}
             </button>
           </div>
           <p className="mt-2 text-[0.68rem] leading-4 muted">

@@ -30,7 +30,13 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const imprint = imprintsBySlug.get(slug);
-  return { title: imprint ? `${imprint.name} / The Book Prize Index` : "Imprint / The Book Prize Index" };
+  if (!imprint) return { title: "Imprint / The Book Prize Index", robots: { index: false, follow: false } };
+  const stats = imprintStats(imprint.id);
+  return {
+    title: `${imprint.name} / The Book Prize Index`,
+    description: `Explore ${stats.books} prize-recognized nonfiction books and ${stats.appearances} award appearances associated with ${imprint.name}.`,
+    alternates: { canonical: `/imprints/${slug}` },
+  };
 }
 
 export default async function ImprintPage({ params }: PageProps) {

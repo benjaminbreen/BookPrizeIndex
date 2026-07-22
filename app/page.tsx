@@ -4,6 +4,10 @@ import { compareBrowseBookRecognition } from "@/lib/browse-ranking";
 import type { HomeBrowseData } from "@/components/explorer-home";
 import { Suspense } from "react";
 
+export const metadata = {
+  alternates: { canonical: "/" },
+};
+
 export default async function Home() {
   return (
     <Suspense fallback={null}>

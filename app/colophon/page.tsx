@@ -1,5 +1,7 @@
 export const metadata = {
   title: "Colophon / The Book Prize Index",
+  description: "Design, typography, technology, and acknowledgments for The Book Prize Index.",
+  alternates: { canonical: "/colophon" },
 };
 
 export default function ColophonPage() {

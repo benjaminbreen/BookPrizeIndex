@@ -2,6 +2,8 @@ import { TextPageSection, TextPageShell, TextPageTitle } from "@/components/text
 
 export const metadata = {
   title: "Terms / The Book Prize Index",
+  description: "Terms for using The Book Prize Index website, data, and API.",
+  alternates: { canonical: "/terms" },
 };
 
 const navItems = [

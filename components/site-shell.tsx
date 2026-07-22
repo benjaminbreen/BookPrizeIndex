@@ -90,7 +90,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
         </div>
         {!immersive && breadcrumbs.length > 1 ? (
           <div className="breadcrumb-bar border-t hairline">
-            <nav className="mx-auto flex h-12 max-w-7xl items-center gap-4 overflow-x-auto px-4 text-sm muted sm:px-6 lg:px-8">
+            <nav aria-label="Breadcrumb" className="mx-auto flex h-12 max-w-7xl items-center gap-4 overflow-x-auto px-4 text-sm muted sm:px-6 lg:px-8">
               {breadcrumbs.map((crumb, index) => (
                 <span className="flex shrink-0 items-center gap-4" key={crumb.href}>
                   {index > 0 ? <span className="font-[var(--font-mono)] text-xs text-[var(--muted)]">/</span> : null}

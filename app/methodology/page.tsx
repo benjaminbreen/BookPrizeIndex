@@ -3,6 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Methodology / The Book Prize Index",
   description: "How The Book Prize Index imports award records, builds book records, assigns subjects, and ranks recognition.",
+  alternates: { canonical: "/methodology" },
 };
 
 export default function MethodologyPage() {

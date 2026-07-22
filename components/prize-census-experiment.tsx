@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { KeyboardEvent, PointerEvent } from "react";
+import { SectionPermalink } from "@/components/ui/section-permalink";
 import type { PrizeCensus } from "@/lib/prize-census";
 
 type PrizeCensusExperimentProps = {
@@ -62,13 +63,14 @@ export function PrizeCensusExperiment({ census }: PrizeCensusExperimentProps) {
   }
 
   return (
-    <section className="mt-12 border-t hairline pt-8">
+    <section className="mt-12 scroll-mt-24 border-t hairline pt-8" id="prize-census">
       <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
         <div className="min-w-0">
           <div className="border-b hairline pb-6">
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Prize history</p>
             <h2 className="mt-3 font-[var(--font-serif)] text-3xl font-light leading-tight sm:text-4xl">
               A century of nonfiction prizes
+              <SectionPermalink id="prize-census" label="A century of nonfiction prizes" />
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-7 muted">
               The number of nonfiction prize programs in this index that were active each year.

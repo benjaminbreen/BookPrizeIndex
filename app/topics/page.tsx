@@ -4,6 +4,8 @@ import { topicSummaries } from "@/lib/topics";
 
 export const metadata = {
   title: "Topics / The Book Prize Index",
+  description: "Explore granular topics represented across prize-recognized nonfiction books.",
+  alternates: { canonical: "/topics" },
 };
 
 export default function TopicsPage() {

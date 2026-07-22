@@ -28,7 +28,13 @@ type PageProps = {
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const publisher = publishersBySlug.get(slug);
-  return { title: publisher ? `${publisher.name} / The Book Prize Index` : "Publisher / The Book Prize Index" };
+  if (!publisher) return { title: "Publisher / The Book Prize Index", robots: { index: false, follow: false } };
+  const stats = publisherStats(publisher.id);
+  return {
+    title: `${publisher.name} / The Book Prize Index`,
+    description: `Explore ${stats.books} prize-recognized nonfiction books and ${stats.imprints} imprints associated with ${publisher.name}.`,
+    alternates: { canonical: `/publishers/${slug}` },
+  };
 }
 
 export default async function PublisherPage({ params }: PageProps) {

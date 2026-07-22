@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
+import { SectionPermalink } from "@/components/ui/section-permalink";
 
 export type ImprintRankEvent = {
   year: number;
@@ -85,13 +86,14 @@ export function ImprintRankExperiment({ events, yearRange }: ImprintRankExperime
   }
 
   return (
-    <section className="mt-10 border-t hairline pt-8">
+    <section className="mt-10 scroll-mt-24 border-t hairline pt-8" id="imprint-leaderboard">
       <div className="border-b hairline pb-6">
         <div className="grid gap-6 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end">
           <div>
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Publishing imprints</p>
             <h2 className="mt-3 font-[var(--font-serif)] text-3xl font-light leading-tight sm:text-4xl">
               Imprint leaderboard over time
+              <SectionPermalink id="imprint-leaderboard" label="Imprint leaderboard over time" />
             </h2>
             <p className="mt-4 max-w-3xl text-base leading-7 muted">
               See which publishing imprints led nonfiction prize recognition in each period.

@@ -6,6 +6,7 @@ import { imprintLogoManifest } from "@/lib/imprint-logos";
 
 export const metadata = {
   title: "Imprint logo QA / The Book Prize Index",
+  robots: { index: false, follow: false },
 };
 
 export default function ImprintLogoQaPage() {

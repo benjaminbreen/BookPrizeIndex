@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import type React from "react";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
@@ -19,6 +20,7 @@ import {
   statusLabels,
 } from "@/lib/data";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
+import { compactDescription } from "@/lib/site";
 import type { AwardAppearance, Book, ExperimentalSemanticEntity, ExperimentalSemanticProfile, WikipediaBookEvidence } from "@/lib/types";
 
 const STATIC_BOOK_PAGE_LIMIT = 250;
@@ -46,10 +48,31 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const book = booksBySlug.get(slug);
-  return { title: book ? `${book.title} / The Book Prize Index` : "Book / The Book Prize Index" };
+  if (!book) return { title: "Book / The Book Prize Index", robots: { index: false, follow: false } };
+  const authors = book.authors.map((author) => author.name).join(", ");
+  const title = `${book.title}${authors ? ` by ${authors}` : ""} / The Book Prize Index`;
+  const description = bookMetadataDescription(book);
+  const images = book.thumbnailUrl ? [{ url: book.thumbnailUrl, alt: `Cover of ${book.title}` }] : undefined;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/books/${book.slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `/books/${book.slug}`,
+      images,
+    },
+    twitter: {
+      card: images ? "summary_large_image" : "summary",
+      title,
+      description,
+      images,
+    },
+  };
 }
 
 export default async function BookPage({ params }: PageProps) {
@@ -487,6 +510,19 @@ function detailPageDescription(book: Book) {
   const source = book.summary ?? book.displaySummary;
   if (!source) return undefined;
   return source.replace(/\s+/g, " ").trim();
+}
+
+function bookMetadataDescription(book: Book) {
+  const authors = book.authors.map((author) => author.name).join(", ");
+  const identity = `${book.title}${authors ? ` by ${authors}` : ""}${book.publicationYear ? ` (${book.publicationYear})` : ""}`;
+  const summary = detailPageDescription(book);
+  if (summary) return compactDescription(`${identity}. ${summary}`);
+  const awardNames = [...new Set((appearancesByBookId.get(book.id) ?? [])
+    .map((appearance) => awardsById.get(appearance.awardId)?.name)
+    .filter((name): name is string => Boolean(name)))]
+    .slice(0, 3);
+  const recognition = awardNames.length ? ` Recognition includes ${awardNames.join(", ")}.` : "";
+  return compactDescription(`${identity}.${recognition} Explore its prize history, subjects, publisher metadata, sources, and related nonfiction.`);
 }
 
 function BookCover({ title, author, thumbnailUrl }: { title: string; author: string; thumbnailUrl?: string }) {

@@ -5,6 +5,7 @@ import type { CoverSpectrumData } from "@/lib/cover-spectrum-types";
 export const metadata = {
   title: "The Chromatic Index / The Book Prize Index",
   description: "Thousands of nonfiction book covers arranged by hue and brightness.",
+  alternates: { canonical: "/fun/chromatic-index" },
 };
 
 export default function ChromaticIndexPage() {

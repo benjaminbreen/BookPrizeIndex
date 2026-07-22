@@ -241,6 +241,13 @@ export function BookCatalog({
     setActiveBookId(book.id);
   }
 
+  function openBookFromLink(event: React.MouseEvent<HTMLAnchorElement>, book: BrowseBookRow) {
+    event.stopPropagation();
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    openBook(book);
+  }
+
   function resetFilters() {
     setQuery("");
     setSemanticQuery("");
@@ -764,6 +771,7 @@ export function BookCatalog({
                       isSelected={activeBookId === book.id}
                       key={book.id}
                       onOpen={() => openBook(book)}
+                      onOpenLink={(event) => openBookFromLink(event, book)}
                       region={region}
                       style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
                     />
@@ -831,20 +839,17 @@ export function BookCatalog({
                       >
                         <td className={`plain-number px-3 ${rowPadding} text-xs`}>{displayYear ?? "-"}</td>
                         <td className={`px-3 ${rowPadding}`}>
-                          <button
+                          <Link
                             aria-label={`Open ${book.title}`}
                             className={`focus-ring w-full items-center text-left transition hover:text-[var(--accent)] ${
                               showRowCovers ? (density === "roomy" ? "grid grid-cols-[3rem_1fr] gap-3.5" : "grid grid-cols-[2.35rem_1fr] gap-3") : "block"
                             }`}
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              openBook(book);
-                            }}
-                            type="button"
+                            href={`/books/${book.slug}`}
+                            onClick={(event) => openBookFromLink(event, book)}
                           >
                             {showRowCovers ? <BookRowCover book={book} size={coverSize} /> : null}
                             <span className="book-catalog-title text-base">{book.title}</span>
-                          </button>
+                          </Link>
                         </td>
                         <td className={`px-3 ${rowPadding}`}>
                           <span className="line-clamp-2">{book.author}</span>
@@ -1000,12 +1005,14 @@ function BookMobileCard({
   book,
   isSelected,
   onOpen,
+  onOpenLink,
   region,
   style,
 }: {
   book: BrowseBookRow;
   isSelected: boolean;
   onOpen: () => void;
+  onOpenLink: (event: React.MouseEvent<HTMLAnchorElement>) => void;
   region: AwardRegionFilter;
   style?: React.CSSProperties;
 }) {
@@ -1021,6 +1028,7 @@ function BookMobileCard({
       }`}
       onClick={onOpen}
       onKeyDown={(event) => {
+        if ((event.target as HTMLElement).closest("a, button")) return;
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           onOpen();
@@ -1033,7 +1041,13 @@ function BookMobileCard({
       <span className="grid grid-cols-[2.55rem_minmax(0,1fr)_auto] items-start gap-3">
         <BookRowCover book={book} />
         <span className="min-w-0 overflow-hidden">
-          <span className="book-mobile-title text-base font-medium leading-snug">{book.title}</span>
+          <Link
+            className="book-mobile-title focus-ring rounded-sm text-base font-medium leading-snug transition hover:text-[var(--accent)]"
+            href={`/books/${book.slug}`}
+            onClick={onOpenLink}
+          >
+            {book.title}
+          </Link>
           <span className="mt-0.5 block truncate text-sm leading-5 muted">{book.author}</span>
         </span>
         <span className="grid justify-items-end gap-1 font-[var(--font-mono)] text-xs">

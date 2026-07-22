@@ -16,7 +16,17 @@ export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const award = awardsBySlug.get(slug);
   const program = awardProgramsBySlug.get(slug);
-  return { title: program && shouldRenderProgram(program) ? `${program.name} / The Book Prize Index` : award ? `${award.name} / The Book Prize Index` : "Award / The Book Prize Index" };
+  if (program && shouldRenderProgram(program)) return {
+    title: `${program.name} / The Book Prize Index`,
+    description: program.description ?? `Explore sourced ${program.name} winners, finalists, shortlists, longlists, and award categories.`,
+    alternates: { canonical: `/awards/${program.slug}` },
+  };
+  if (award) return {
+    title: `${award.name} / The Book Prize Index`,
+    description: award.description ?? `Explore sourced ${award.name} winners, finalists, shortlists, longlists, and related nonfiction books.`,
+    alternates: { canonical: `/awards/${award.slug}` },
+  };
+  return { title: "Award / The Book Prize Index", robots: { index: false, follow: false } };
 }
 
 export default async function AwardPage({ params }: PageProps) {

@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { KeyboardEvent, PointerEvent } from "react";
+import { SectionPermalink } from "@/components/ui/section-permalink";
 import type { ConsensusData, ConsensusPoint } from "@/lib/consensus";
 
 type Mode = "all" | "winners";
@@ -50,11 +51,14 @@ export function ConsensusExperiment({ data }: { data: ConsensusData }) {
   }
 
   return (
-    <section className="mt-12 border-t hairline pt-8">
+    <section className="mt-12 scroll-mt-24 border-t hairline pt-8" id="consensus">
       <div className="grid gap-6 border-b hairline pb-6 lg:grid-cols-[minmax(0,1fr)_28rem] lg:items-end">
         <div>
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Cross-prize agreement</p>
-          <h2 className="mt-3 font-[var(--font-serif)] text-3xl font-light leading-tight sm:text-4xl">Consensus and fracture</h2>
+          <h2 className="mt-3 font-[var(--font-serif)] text-3xl font-light leading-tight sm:text-4xl">
+            Consensus and fracture
+            <SectionPermalink id="consensus" label="Consensus and fracture" />
+          </h2>
           <p className="mt-4 max-w-3xl text-base leading-7 muted">How often four long-running prizes recognized the same books.</p>
         </div>
         <div className="grid grid-cols-3 gap-5">

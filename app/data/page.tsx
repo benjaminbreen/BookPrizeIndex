@@ -6,6 +6,7 @@ import { TextPageSection, TextPageShell, TextPageTitle } from "@/components/text
 export const metadata = {
   title: "Data & API / The Book Prize Index",
   description: "Download and query the public Book Prize Index dataset.",
+  alternates: { canonical: "/data" },
 };
 
 const navItems = [

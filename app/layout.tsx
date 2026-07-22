@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Atkinson_Hyperlegible_Mono, Atkinson_Hyperlegible_Next, IM_Fell_English, IM_Fell_English_SC, Newsreader, Public_Sans } from "next/font/google";
 import { SiteShell } from "@/components/site-shell";
+import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 import "./globals.css";
 
 const sans = Atkinson_Hyperlegible_Next({
@@ -46,8 +47,20 @@ const fellSc = IM_Fell_English_SC({
 });
 
 export const metadata: Metadata = {
-  title: "The Book Prize Index",
-  description: "A sourced index of nonfiction book awards, publishers, imprints, subjects, and prize records.",
+  metadataBase: getSiteUrl(),
+  title: SITE_NAME,
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+  },
+  twitter: {
+    card: "summary",
+    title: SITE_NAME,
+    description: SITE_DESCRIPTION,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
