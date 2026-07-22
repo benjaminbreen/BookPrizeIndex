@@ -5,8 +5,17 @@ export type BookDrawerAppearance = AwardAppearance & {
   statusLabel: string;
 };
 
+export type BookAuthorPlatformLink = {
+  authorName: string;
+  personId: string;
+  service: "substack";
+  title?: string;
+  url: string;
+};
+
 export type BookDrawerPayload = {
   appearances: BookDrawerAppearance[];
+  authorPlatforms?: BookAuthorPlatformLink[];
   book: Book;
   imprint?: string;
   publisher?: string;

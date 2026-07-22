@@ -8,6 +8,7 @@ export const metadata = {
 
 const navItems = [
   { href: "#collection", label: "Collection" },
+  { href: "#catalog-people", label: "Authors" },
   { href: "#use", label: "Use" },
   { href: "#third-parties", label: "Services" },
   { href: "#children", label: "Children" },
@@ -18,21 +19,35 @@ export default function PrivacyPage() {
     <TextPageShell label="Privacy" navItems={navItems}>
       <TextPageTitle>Privacy</TextPageTitle>
       <p className="mt-5 font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.16em] muted">
-        Last updated July 21, 2026
+        Last updated July 22, 2026
       </p>
 
       <TextPageSection id="collection" title="Collection">
         <p>
-          The Book Prize Index does not collect or store personal data. It has no user accounts, on-site email signup,
+          The Book Prize Index does not collect or store visitor personal data. It has no user accounts, on-site email signup,
           mailing list, analytics, advertising, tracking pixels, tracking cookies, or stored search history. Theme and
           award-region preferences are saved only in your browser&apos;s local storage and are never added to a visitor
           profile or database.
         </p>
       </TextPageSection>
 
+      <TextPageSection id="catalog-people" title="Public author information">
+        <p>
+          To improve book discovery, the catalog may retain a small set of source-backed, professionally relevant facts
+          about authors: coarse country connections, living/deceased/unknown status, and links to public writing
+          platforms such as Substack. These records come from public reference sources, preserve provenance, and are not
+          built from visitor activity.
+        </p>
+        <p>
+          The project does not collect authors&apos; addresses, exact birth dates, contact details, family information,
+          follower graphs, reading activity, or inferred sensitive traits such as religion, ethnicity, sexuality,
+          health, or political affiliation. Ambiguous matches remain unpublished until reviewed.
+        </p>
+      </TextPageSection>
+
       <TextPageSection id="use" title="Use">
         <p>
-          Because the project does not collect personal data, it does not sell, rent, share, or use personal data for
+          Because the project does not collect visitor personal data, it does not sell, rent, share, or use visitor data for
           profiling or marketing. Search and browse activity is not retained by The Book Prize Index.
         </p>
       </TextPageSection>

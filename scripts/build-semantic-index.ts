@@ -11,6 +11,7 @@ import {
   type SemanticBookIndex,
   type SemanticBookIndexRow,
 } from "../lib/semantic-search";
+import type { AuthorDiscoveryFile, AuthorDiscoveryProfile, SemanticAuthorFacet } from "../lib/author-discovery";
 import { readSemanticBookIndex, semanticEmbeddingPath, writeSemanticBookIndex } from "../lib/semantic-index-storage";
 import { buildBrowseData } from "./build/browse-data";
 import type { BrowseBookRow } from "../lib/browse-types";
@@ -30,6 +31,8 @@ type Args = {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const catalogPath = path.join(root, "data", "cache", "catalog.full.generated.json");
+const authorDiscoveryPath = path.join(root, "sources", "enrichment", "people.generated.json");
+const authorPlatformsPath = path.join(root, "sources", "author-platforms.json");
 const defaultOutputPath = path.join(root, "data", "public", "book-semantic-index.json");
 const defaultReportPath = path.join(root, "data", "reports", "book-semantic-index-report.json");
 const INPUT_VERSION = 1;
@@ -56,6 +59,9 @@ async function main() {
   await loadEnvLocal();
   const args = parseArgs();
   const catalog = JSON.parse(await fs.readFile(catalogPath, "utf8")) as PublicData;
+  const authorDiscovery = await readAuthorDiscovery();
+  const authorProfiles = new Map(Object.entries(authorDiscovery?.profiles ?? {}));
+  const curatedAuthorPlatforms = await readCuratedAuthorPlatforms();
   const existing = await readExistingIndex(args.outputPath);
   const existingByBook = new Map(
     existing?.embeddingModel === args.embeddingModel && existing.dimensions === args.dimensions && existing.inputVersion === INPUT_VERSION
@@ -70,7 +76,7 @@ async function main() {
   const prepared = books.map((book) => {
     const browseRow = browseRowsByBookId.get(book.id);
     if (!browseRow) throw new Error(`Missing browse row for semantic book ${book.id}.`);
-    return prepareBookRow(book, publishers, imprints, awardRows.get(book.id) ?? [], browseRow);
+    return prepareBookRow(book, publishers, imprints, awardRows.get(book.id) ?? [], browseRow, authorProfiles, curatedAuthorPlatforms);
   });
   const missing = prepared.filter((row) => {
     if (args.force) return true;
@@ -140,16 +146,34 @@ function prepareBookRow(
   imprints: Map<string, Imprint>,
   awards: string[],
   browseRow: BrowseBookRow,
+  authorProfiles: Map<string, AuthorDiscoveryProfile>,
+  curatedAuthorPlatforms: Map<string, string[]>,
 ): Omit<SemanticBookIndexRow, "embedding" | "norm"> {
   const publisher = book.publisherId ? publishers.get(book.publisherId)?.name : undefined;
   const imprint = book.imprintId ? imprints.get(book.imprintId)?.name : undefined;
-  const text = semanticTextForBook({ awards, book, imprint, publisher });
+  const authorFacets = book.authors.flatMap((author): SemanticAuthorFacet[] => {
+    const profile = authorProfiles.get(author.id);
+    const curatedPlatforms = curatedAuthorPlatforms.get(author.id) ?? [];
+    if (!profile && !curatedPlatforms.length) return [];
+    return [{
+      personId: author.id,
+      name: author.name,
+      countries: profile?.countryConnections.map((country) => ({ code: country.countryCode, name: country.countryName })) ?? [],
+      lifeStatus: profile?.lifeStatus.value ?? "unknown",
+      platforms: [...new Set([
+        ...(profile?.platforms.map((platform) => platform.service) ?? []),
+        ...curatedPlatforms,
+      ])],
+    }];
+  });
+  const text = semanticTextForBook({ awards, authorFacets, book, imprint, publisher });
   const recognitionScore = recognitionScoreForAwards(awards);
   return {
     bookId: book.id,
     slug: book.slug,
     title: book.title,
     author: book.authors.map((author) => author.name).join(", "),
+    authors: authorFacets,
     publicationYear: book.publicationYear,
     primarySubject: book.primarySubject,
     subjects: book.subjects,
@@ -187,6 +211,29 @@ function prepareBookRow(
       hasPublisher: browseRow.hasPublisher,
     },
   };
+}
+
+async function readAuthorDiscovery() {
+  try {
+    return JSON.parse(await fs.readFile(authorDiscoveryPath, "utf8")) as AuthorDiscoveryFile;
+  } catch {
+    return null;
+  }
+}
+
+async function readCuratedAuthorPlatforms() {
+  try {
+    const data = JSON.parse(await fs.readFile(authorPlatformsPath, "utf8")) as {
+      profiles?: Record<string, { platforms?: Array<{ service?: string }> }>;
+    };
+    return new Map(Object.entries(data.profiles ?? {}).map(([personId, profile]) => [
+      personId,
+      [...new Set((profile.platforms ?? []).flatMap((platform) => platform.service ? [platform.service] : []))],
+    ]));
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return new Map<string, string[]>();
+    throw error;
+  }
 }
 
 function awardsByBook(awards: Award[], appearances: AwardAppearance[]) {

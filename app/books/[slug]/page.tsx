@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { ExpandableBookDescription } from "@/components/expandable-book-description";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
 import { withAmazonAssociateTag } from "@/lib/affiliate-links";
+import { authorPlatformLinksFor } from "@/lib/author-platform-links";
 import { readBookDetailArtifact } from "@/lib/book-detail-artifacts";
 import {
   appearancesByBookId,
@@ -22,6 +23,7 @@ import {
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 import { compactDescription } from "@/lib/site";
 import type { AwardAppearance, Book, ExperimentalSemanticEntity, ExperimentalSemanticProfile, WikipediaBookEvidence } from "@/lib/types";
+import type { BookAuthorPlatformLink } from "@/lib/book-drawer-types";
 
 const STATIC_BOOK_PAGE_LIMIT = 250;
 
@@ -87,6 +89,7 @@ export default async function BookPage({ params }: PageProps) {
   const imprint = book.imprintId ? imprintsById.get(book.imprintId) : undefined;
   const publisher = book.publisherId ? publishersById.get(book.publisherId) : undefined;
   const wikipediaEvidence = detail?.wikipediaEvidence;
+  const authorPlatforms = authorPlatformLinksFor(book.authors);
   const detailSourcesById = new Map((detail?.sources ?? []).map((source) => [source.id, source]));
   const firstAwardYear = appearances.length ? Math.min(...appearances.map((appearance) => appearance.year)) : undefined;
   const latestRecognition = appearances.length ? Math.max(...appearances.map((appearance) => appearance.year)) : undefined;
@@ -108,7 +111,7 @@ export default async function BookPage({ params }: PageProps) {
         <aside className="border-r-0 hairline lg:border-r lg:pr-6">
           <BookCover title={book.title} author={book.authors.map((author) => author.name).join(", ")} thumbnailUrl={book.thumbnailUrl} />
           <dl className="mt-3 grid text-[0.72rem]">
-            <RailMeta label="Author" value={book.authors.map((author) => author.name).join(", ")} />
+            <RailMeta label="Author" value={<AuthorRailValue authors={book.authors} platforms={authorPlatforms} />} />
             <RailMeta label="Publisher" value={metadataValue(publisher?.name, wikipediaInfobox?.publisher, "Not yet sourced")} />
             <RailMeta
               label="Imprint"
@@ -546,6 +549,27 @@ function RailMeta({ label, value }: { label: string; value: React.ReactNode }) {
       <dt className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.12em] muted">{label}</dt>
       <dd className="plain-number text-right">{value}</dd>
     </div>
+  );
+}
+
+function AuthorRailValue({ authors, platforms }: { authors: Book["authors"]; platforms: BookAuthorPlatformLink[] }) {
+  return (
+    <span className="flex flex-col items-end gap-1">
+      <span>{authors.map((author) => author.name).join(", ")}</span>
+      {platforms.map((platform) => (
+        <a
+          className="book-detail-text-link inline-flex items-center gap-1 text-[0.68rem]"
+          href={platform.url}
+          key={`${platform.personId}-${platform.url}`}
+          rel="noreferrer"
+          target="_blank"
+          title={platform.title ?? `${platform.authorName} on Substack`}
+        >
+          {platform.title ? `${platform.title} · Substack` : "Substack"}
+          <ArrowUpRight size={10} />
+        </a>
+      ))}
+    </span>
   );
 }
 

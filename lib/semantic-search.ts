@@ -1,4 +1,5 @@
 import type { Book } from "@/lib/types";
+import type { SemanticAuthorFacet, SemanticAuthorIntent } from "@/lib/author-discovery";
 import type { AwardRegionFilter } from "@/lib/award-region";
 import type { BookCatalogMetadataFilter } from "@/lib/book-catalog-query";
 import { rollupSubjectName } from "@/lib/subject-rollup";
@@ -24,6 +25,7 @@ export type SemanticBookIndexRow = {
   slug: string;
   title: string;
   author: string;
+  authors?: SemanticAuthorFacet[];
   publicationYear?: number;
   primarySubject?: string;
   subjects: string[];
@@ -71,6 +73,7 @@ export type SemanticQueryInterpretation = {
   publicationYearCutoff?: number | null;
   eras: string[];
   subjects: string[];
+  authorIntent?: SemanticAuthorIntent;
 };
 
 export type SemanticQueryExpansionModel = "gpt-5.4-nano" | "gpt-5.4-mini" | "gemini-3.5-flash";
@@ -103,17 +106,20 @@ export type SemanticSearchResult = {
   publicationBoost?: number;
   recognitionBoost: number;
   readerIntentBoost?: number;
+  authorFacetBoost?: number;
   evidenceConfidence?: number;
   reasons: string[];
 };
 
 export function semanticTextForBook({
   awards,
+  authorFacets,
   book,
   imprint,
   publisher,
 }: {
   awards: string[];
+  authorFacets?: SemanticAuthorFacet[];
   book: Book;
   imprint?: string;
   publisher?: string;
@@ -128,6 +134,7 @@ export function semanticTextForBook({
   const parts = [
     `Title: ${[book.title, book.subtitle].filter(Boolean).join(": ")}`,
     `Author: ${book.authors.map((author) => author.name).join(", ")}`,
+    authorFacets?.length ? `Author public discovery: ${authorFacets.map(authorFacetText).filter(Boolean).join("; ")}` : "",
     summary ? `Description: ${summary}` : "",
     experimentalProfile?.argument.present ? `Interpretive claim: ${experimentalProfile.argument.statement}` : "",
     centralFigures.length ? `Central figures: ${centralFigures.join(", ")}` : "",
@@ -174,8 +181,20 @@ export function semanticQueryText(query: string, interpretation?: SemanticQueryI
       : "",
     interpretation?.eras.length ? `Eras and periods: ${interpretation.eras.join(", ")}` : "",
     interpretation?.subjects.length ? `Likely subjects: ${interpretation.subjects.join(", ")}` : "",
+    interpretation?.authorIntent?.countries?.length ? `Author country connections: ${interpretation.authorIntent.countries.join(", ")}` : "",
+    interpretation?.authorIntent?.lifeStatus && interpretation.authorIntent.lifeStatus !== "any" ? `Author life status: ${interpretation.authorIntent.lifeStatus}` : "",
+    interpretation?.authorIntent?.platforms?.length ? `Author public platforms: ${interpretation.authorIntent.platforms.join(", ")}` : "",
   ];
   return parts.filter(Boolean).join("\n");
+}
+
+function authorFacetText(author: SemanticAuthorFacet) {
+  const facts = [
+    author.countries.length ? author.countries.map((country) => country.name).join(", ") : "",
+    author.lifeStatus !== "unknown" ? author.lifeStatus : "",
+    author.platforms.length ? author.platforms.join(", ") : "",
+  ].filter(Boolean);
+  return facts.length ? `${author.name}: ${facts.join(", ")}` : "";
 }
 
 export function semanticRankingTerms(query: string, interpretation?: SemanticQueryInterpretation | null) {

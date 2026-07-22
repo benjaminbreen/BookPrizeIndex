@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import path from "node:path";
+import { bookAuthorsMatchIntent, fallbackAuthorIntent } from "@/lib/author-discovery";
 import type { BookCatalogQuery } from "@/lib/book-catalog-query";
 import { readSemanticBookIndex } from "@/lib/semantic-index-storage";
 import {
@@ -89,6 +90,9 @@ const QUERY_INTERPRETATION_PROMPT =
     "For taste or persona queries about a public figure, online handle, community, publication, movement, or cultural reference, infer broadly recognizable nonfiction themes, styles, and adjacent domains when supported.",
     "For persona/taste queries, prioritize taste signals over biographical facts or books literally about that person. Include canonical interests and surprising long-tail interests when culturally recognizable.",
     "Separate the intended audience from the desired content. Put audience labels such as parents, students, beginners, or professionals in audienceTerms; do not repeat them in coreConcepts, subjects, or expandedQuery unless the reader explicitly wants books about that group.",
+    "Use authorIntent only for public author facets: country connections, living/deceased status, and public platforms such as Substack.",
+    "Set authorIntent.mode to filter when the reader explicitly asks for books by authors with those attributes, such as 'by living Irish writers' or 'writers on Substack'. Set it to boost for audience-taste guesses such as 'books Substack readers would like'. Otherwise use none.",
+    "Do not confuse a book's subject geography with its author's country. 'Biographies about Latin America' is a book-topic/place request; 'biographies by Latin American writers' is an author request.",
     "Put bands, magazines, communities, movements, public figures used as taste references, and similar reference points in culturalReferences. Translate their recognizable sensibility into core concepts; do not turn a taste reference into a literal same-word subject.",
     "If a named reference is ambiguous, keep the name and add cautious adjacent concepts from the surrounding query rather than overcommitting to one same-name product or organization.",
     "Avoid generic filler such as books, stuff, things, someone, something, would like, recommendations, why, still, and matter.",
@@ -120,8 +124,19 @@ const QUERY_INTERPRETATION_JSON_SCHEMA = {
     publicationYearCutoff: { type: "integer", minimum: 0, maximum: 2100 },
     eras: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 3 },
     subjects: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 4 },
+    authorIntent: {
+      type: "object",
+      additionalProperties: false,
+      properties: {
+        countries: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 4 },
+        lifeStatus: { type: "string", enum: ["living", "deceased", "unknown", "any"] },
+        platforms: { type: "array", items: { type: "string", enum: ["substack"] }, maxItems: 2 },
+        mode: { type: "string", enum: ["filter", "boost", "none"] },
+      },
+      required: ["countries", "lifeStatus", "platforms", "mode"],
+    },
   },
-  required: ["expandedQuery", "audienceTerms", "culturalReferences", "concepts", "coreConcepts", "adventurousConcepts", "namedFigures", "namedPlaces", "publicationDateIntent", "publicationYearCutoff", "eras", "subjects"],
+  required: ["expandedQuery", "audienceTerms", "culturalReferences", "concepts", "coreConcepts", "adventurousConcepts", "namedFigures", "namedPlaces", "publicationDateIntent", "publicationYearCutoff", "eras", "subjects", "authorIntent"],
 };
 
 export async function POST(request: Request) {
@@ -193,12 +208,24 @@ export async function POST(request: Request) {
     const rankingStartedAt = performance.now();
     const queryContext = createSemanticQueryContext(query, interpretation);
     const rankingTerms = queryContext.terms;
-    const termWeights = semanticTermWeights(query, interpretation, candidates);
-    const scored = candidates
-      .map((row): SemanticSearchResult => ({
-        bookId: row.bookId,
-        ...semanticHybridScore({ context: queryContext, interpretation, query, queryEmbedding, row, termWeights }),
-      }));
+    const authorIntent = interpretation?.authorIntent;
+    const rankedCandidates = authorIntent?.mode === "filter"
+      ? candidates.filter((row) => bookAuthorsMatchIntent(row.authors, authorIntent))
+      : candidates;
+    const termWeights = semanticTermWeights(query, interpretation, rankedCandidates);
+    const scored = rankedCandidates
+      .map((row): SemanticSearchResult => {
+        const base = semanticHybridScore({ context: queryContext, interpretation, query, queryEmbedding, row, termWeights });
+        const authorMatch = bookAuthorsMatchIntent(row.authors, authorIntent);
+        const authorFacetBoost = authorIntent?.mode === "boost" && authorMatch ? 0.55 : 0;
+        return {
+          bookId: row.bookId,
+          ...base,
+          score: base.score + authorFacetBoost,
+          authorFacetBoost,
+          reasons: authorFacetBoost ? [...base.reasons, "public author profile matches the requested preference"] : base.reasons,
+        };
+      });
     const results = semanticRankFusion(scored)
       .sort((a, b) => b.score - a.score || b.similarity - a.similarity)
       .slice(0, limit);
@@ -208,7 +235,8 @@ export async function POST(request: Request) {
     const responseBody: SemanticSearchResponsePayload = {
       diagnostics: {
         cacheHit: false,
-        candidateBookCount: candidates.length,
+        candidateBookCount: rankedCandidates.length,
+        authorFacetMode: authorIntent?.mode ?? "none",
         embeddingInput,
         embeddingModel: index.embeddingModel || DEFAULT_SEMANTIC_EMBEDDING_MODEL,
         indexBookCount: index.books.length,
@@ -491,6 +519,7 @@ function fallbackInterpretation(query: string): SemanticQueryInterpretation {
     publicationYearCutoff: publicationPreference.cutoff,
     eras: unique(eras),
     subjects: [],
+    authorIntent: fallbackAuthorIntent(query),
   };
 }
 
@@ -514,6 +543,16 @@ function sanitizeInterpretation(parsed: SemanticQueryInterpretation, fallback: S
   const parsedCutoff = Number(parsed.publicationYearCutoff);
   const publicationYearCutoff = explicitPublicationPreference.cutoff ??
     (Number.isInteger(parsedCutoff) && parsedCutoff >= 1400 && parsedCutoff <= 2100 ? parsedCutoff : null);
+  const fallbackIntent = fallback.authorIntent;
+  const parsedIntent = parsed.authorIntent;
+  const parsedLifeStatus = parsedIntent?.lifeStatus;
+  const parsedMode = parsedIntent?.mode;
+  const authorIntent = parsedIntent || fallbackIntent ? {
+    countries: cleanPhrases(parsedIntent?.countries?.length ? parsedIntent.countries : fallbackIntent?.countries ?? [], 4, 60),
+    lifeStatus: ["living", "deceased", "unknown", "any"].includes(parsedLifeStatus ?? "") ? parsedLifeStatus : fallbackIntent?.lifeStatus ?? "any",
+    platforms: (parsedIntent?.platforms ?? fallbackIntent?.platforms ?? []).filter((platform) => platform === "substack").slice(0, 2),
+    mode: fallbackIntent?.mode === "filter" ? "filter" : ["filter", "boost", "none"].includes(parsedMode ?? "") ? parsedMode : fallbackIntent?.mode ?? "none",
+  } satisfies NonNullable<SemanticQueryInterpretation["authorIntent"]> : undefined;
   return {
     expandedQuery: (parsed.expandedQuery || fallback.expandedQuery).replace(/\s+/g, " ").trim().slice(0, 320),
     audienceTerms,
@@ -527,6 +566,7 @@ function sanitizeInterpretation(parsed: SemanticQueryInterpretation, fallback: S
     publicationYearCutoff,
     eras: cleanPhrases(unique([...(parsedEras.length ? parsedEras : []), ...fallback.eras]), 3, 60),
     subjects: cleanPhrases(parsedSubjects.length ? parsedSubjects : fallback.subjects, 4, 60),
+    authorIntent,
   };
 }
 

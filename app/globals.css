@@ -2538,6 +2538,18 @@ time,
   line-height: 1;
 }
 
+.substack-action-mark {
+  display: inline-grid;
+  width: 1rem;
+  height: 1rem;
+  place-items: center;
+  color: var(--accent);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
 .metadata-fallback {
   display: inline-flex;
   align-items: baseline;

@@ -181,6 +181,14 @@ export default function MethodologyPage() {
             favored phrases.
           </p>
           <p>
+            Meaning search may also use a deliberately small public-author facet index. For a limited set of
+            high-recognition authors, source-backed Wikidata records provide coarse country connections,
+            living/deceased/unknown status, and explicit public-platform identifiers such as a Substack handle. Explicit
+            requests such as “books by living Irish writers” act as author filters; audience guesses such as “books
+            Substack readers would like” use the platform connection only as a modest, explained boost. Unknown or
+            ambiguous author matches are not treated as negative evidence.
+          </p>
+          <p>
             The public meaning-search endpoint does not retain queries or client identifiers. A process-wide request
             budget and concurrency cap are applied before provider calls, and operators can disable meaning search with
             a server-side kill switch if traffic or cost becomes abnormal.

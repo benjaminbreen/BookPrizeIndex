@@ -149,6 +149,7 @@ export function BookDrawer({
   const wikipediaEvidence = renderedPayload.wikipediaEvidence;
   const wikipediaInfobox = wikipediaEvidence?.infobox;
   const wikipediaUrl = renderedBook.links.wikipedia ?? wikipediaEvidence?.url;
+  const authorPlatforms = renderedPayload.authorPlatforms ?? [];
   const semanticProfile = renderedBook.experimentalSemanticProfile;
   const sortedAppearances = sortAwardAppearances(renderedAppearances);
   const winsCount = sortedAppearances.filter((appearance) => isWinningStatus(appearance.status)).length;
@@ -229,6 +230,20 @@ export function BookDrawer({
                 Wikipedia
               </a>
             ) : null}
+            {authorPlatforms.map((platform) => (
+              <a
+                aria-label={`Open ${platform.authorName}'s ${platform.title ?? "Substack"}`}
+                className="focus-ring inline-flex w-32 items-center justify-center gap-2 border hairline px-3 py-2 text-sm transition hover:bg-[var(--panel)]"
+                href={platform.url}
+                key={`${platform.personId}-${platform.url}`}
+                rel="noreferrer"
+                target="_blank"
+                title={`${platform.authorName} · ${platform.title ?? "Substack"}`}
+              >
+                <SubstackMark />
+                Substack
+              </a>
+            ))}
           </div>
           <div className="self-center">
             <h2 className="text-[1.9rem] font-medium leading-[1.12] sm:text-[2.2rem]">{renderedBook.title}</h2>
@@ -476,6 +491,14 @@ function WikipediaMark() {
   return (
     <span className="wikipedia-action-mark" aria-hidden="true">
       W
+    </span>
+  );
+}
+
+function SubstackMark() {
+  return (
+    <span className="substack-action-mark" aria-hidden="true">
+      S
     </span>
   );
 }
