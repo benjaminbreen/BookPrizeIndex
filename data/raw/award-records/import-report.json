@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T05:09:44.546Z",
+  "generatedAt": "2026-07-22T18:15:16.025Z",
   "files": [
     {
       "file": "ackerley.json",
@@ -72,9 +72,19 @@
       "records": 69
     },
     {
+      "file": "frederick-douglass.json",
+      "generatedAt": "2026-07-22T17:20:14.193Z",
+      "records": 87
+    },
+    {
       "file": "ft-business-book.json",
       "generatedAt": "2026-05-11T21:06:49.513Z",
       "records": 119
+    },
+    {
+      "file": "george-perkins-marsh.json",
+      "generatedAt": "2026-07-22T16:29:17.023Z",
+      "records": 36
     },
     {
       "file": "george-polk-book.json",
@@ -142,6 +152,11 @@
       "records": 751
     },
     {
+      "file": "laura-shannon.json",
+      "generatedAt": "2026-07-22T17:19:50.428Z",
+      "records": 49
+    },
+    {
       "file": "lionel-gelber.json",
       "generatedAt": "2026-07-14T21:27:08.100Z",
       "records": 88
@@ -158,8 +173,13 @@
     },
     {
       "file": "nbcc.json",
-      "generatedAt": "2026-05-09T17:39:59.054Z",
-      "records": 736
+      "generatedAt": "2026-07-22T17:23:00.933Z",
+      "records": 776
+    },
+    {
+      "file": "ncr-book-award.json",
+      "generatedAt": "2026-07-22T16:29:20.547Z",
+      "records": 10
     },
     {
       "file": "ny-history-book-prize.json",
@@ -190,6 +210,11 @@
       "file": "pen-weld-biography.json",
       "generatedAt": "2026-05-12T18:30:08.792Z",
       "records": 23
+    },
+    {
+      "file": "pfizer.json",
+      "generatedAt": "2026-07-22T16:29:19.957Z",
+      "records": 69
     },
     {
       "file": "phi-beta-kappa.json",
@@ -237,6 +262,11 @@
       "records": 32
     },
     {
+      "file": "wainwright.json",
+      "generatedAt": "2026-07-22T17:22:38.515Z",
+      "records": 173
+    },
+    {
       "file": "wellcome-book-prize.json",
       "generatedAt": "2026-07-22T04:53:32.327Z",
       "records": 39
@@ -248,9 +278,9 @@
     }
   ],
   "totals": {
-    "records": 8329,
-    "awards": 49,
-    "categories": 111,
+    "records": 8793,
+    "awards": 55,
+    "categories": 118,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
@@ -452,7 +482,7 @@
       "awardId": "national-book-critics-circle-awards",
       "categoryId": "nbcc-biography",
       "categoryName": "Biography",
-      "records": 214,
+      "records": 224,
       "winners": 43,
       "finalists": 171,
       "earliestYear": 1983,
@@ -659,6 +689,16 @@
       "latestYear": 2018
     },
     {
+      "awardId": "wainwright-prize",
+      "categoryId": "wainwright-conservation-writing",
+      "categoryName": "Conservation Writing",
+      "records": 66,
+      "winners": 6,
+      "finalists": 0,
+      "earliestYear": 2020,
+      "latestYear": 2025
+    },
+    {
       "awardId": "overseas-press-club-awards",
       "categoryId": "cornelius-ryan-award",
       "categoryName": "Cornelius Ryan Award",
@@ -672,7 +712,7 @@
       "awardId": "national-book-critics-circle-awards",
       "categoryId": "nbcc-criticism",
       "categoryName": "Criticism",
-      "records": 167,
+      "records": 177,
       "winners": 51,
       "finalists": 116,
       "earliestYear": 1975,
@@ -746,6 +786,26 @@
       "winners": 18,
       "finalists": 0,
       "earliestYear": 2008,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "george-perkins-marsh-prize",
+      "categoryId": "george-perkins-marsh-environmental-history",
+      "categoryName": "Environmental History",
+      "records": 36,
+      "winners": 36,
+      "finalists": 0,
+      "earliestYear": 1989,
+      "latestYear": 2025
+    },
+    {
+      "awardId": "laura-shannon-prize",
+      "categoryId": "laura-shannon-european-studies",
+      "categoryName": "European Studies",
+      "records": 49,
+      "winners": 17,
+      "finalists": 32,
+      "earliestYear": 2010,
       "latestYear": 2026
     },
     {
@@ -919,6 +979,16 @@
       "latestYear": 1983
     },
     {
+      "awardId": "pfizer-award",
+      "categoryId": "pfizer-history-of-science",
+      "categoryName": "History of Science",
+      "records": 69,
+      "winners": 69,
+      "finalists": 0,
+      "earliestYear": 1959,
+      "latestYear": 2025
+    },
+    {
       "awardId": "prose-awards",
       "categoryId": "prose-history-of-science-medicine-and-technology",
       "categoryName": "History of Science, Medicine, and Technology",
@@ -1072,7 +1142,7 @@
       "awardId": "national-book-critics-circle-awards",
       "categoryId": "nbcc-memoir-and-autobiography",
       "categoryName": "Memoir and Autobiography",
-      "records": 99,
+      "records": 109,
       "winners": 21,
       "finalists": 78,
       "earliestYear": 2005,
@@ -1107,6 +1177,16 @@
       "finalists": 0,
       "earliestYear": 2007,
       "latestYear": 2026
+    },
+    {
+      "awardId": "wainwright-prize",
+      "categoryId": "wainwright-nature-writing",
+      "categoryName": "Nature Writing",
+      "records": 107,
+      "winners": 12,
+      "finalists": 0,
+      "earliestYear": 2014,
+      "latestYear": 2025
     },
     {
       "awardId": "baillie-gifford-prize",
@@ -1192,11 +1272,21 @@
       "awardId": "national-book-critics-circle-awards",
       "categoryId": "nbcc-nonfiction",
       "categoryName": "Nonfiction",
-      "records": 256,
+      "records": 266,
       "winners": 52,
       "finalists": 204,
       "earliestYear": 1975,
       "latestYear": 2025
+    },
+    {
+      "awardId": "ncr-book-award",
+      "categoryId": "ncr-book-award-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 10,
+      "winners": 10,
+      "finalists": 0,
+      "earliestYear": 1988,
+      "latestYear": 1997
     },
     {
       "awardId": "pen-galbraith-award",
@@ -1337,6 +1427,16 @@
       "finalists": 15,
       "earliestYear": 1980,
       "latestYear": 1983
+    },
+    {
+      "awardId": "frederick-douglass-book-prize",
+      "categoryId": "frederick-douglass-slavery-abolition",
+      "categoryName": "Slavery, Resistance, and Abolition",
+      "records": 87,
+      "winners": 36,
+      "finalists": 51,
+      "earliestYear": 1999,
+      "latestYear": 2025
     },
     {
       "awardId": "prose-awards",

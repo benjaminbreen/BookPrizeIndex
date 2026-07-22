@@ -1,44 +1,48 @@
 {
-  "generatedAt": "2026-05-09T17:39:59.054Z",
+  "generatedAt": "2026-07-22T17:23:00.933Z",
   "metadata": {
     "importer": "scripts/import-award-records/nbcc.ts",
-    "source": "MediaWiki wikitables for National Book Critics Circle category pages",
-    "notes": "The official NBCC awards page is retained in sources/prizes.json, but this first historical importer uses Wikipedia category tables as deterministic secondary sources. Memoir and Autobiography is filtered to 2005 onward to avoid duplicating the earlier Biography/Autobiography lineage.",
+    "source": "MediaWiki category tables plus official NBCC longlist announcements",
+    "notes": "Historical winners and finalists use deterministic Wikipedia category tables; 2024 and 2025 longlists use official NBCC announcements. Books that advanced retain only finalist or winner status. Memoir and Autobiography is filtered to 2005 onward to avoid duplicating the earlier Biography/Autobiography lineage.",
     "categories": [
       {
         "categoryId": "nbcc-nonfiction",
         "categoryName": "Nonfiction",
         "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Nonfiction",
-        "records": 256,
+        "records": 266,
         "winners": 52,
         "finalists": 204,
+        "longlisted": 10,
         "yearRange": "1975-2025"
       },
       {
         "categoryId": "nbcc-biography",
         "categoryName": "Biography",
         "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Biography",
-        "records": 214,
+        "records": 224,
         "winners": 43,
         "finalists": 171,
+        "longlisted": 10,
         "yearRange": "1983-2025"
       },
       {
         "categoryId": "nbcc-memoir-and-autobiography",
         "categoryName": "Memoir and Autobiography",
         "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Memoir_and_Autobiography",
-        "records": 99,
+        "records": 109,
         "winners": 21,
         "finalists": 78,
+        "longlisted": 10,
         "yearRange": "2005-2025"
       },
       {
         "categoryId": "nbcc-criticism",
         "categoryName": "Criticism",
         "sourceUrl": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Criticism",
-        "records": 167,
+        "records": 177,
         "winners": 51,
         "finalists": 116,
+        "longlisted": 10,
         "yearRange": "1975-2025"
       }
     ]
@@ -129,6 +133,87 @@
       "awardName": "National Book Critics Circle Awards",
       "categoryId": "nbcc-biography",
       "categoryName": "Biography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Buckley: The Life and the Revolution That Changed America",
+      "authors": [
+        "Sam Tanenhaus"
+      ],
+      "publisher": "Random House",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-biography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Constantine Cavafy: A New Biography",
+      "authors": [
+        "Gregory Jusdanis",
+        "Peter Jeffreys"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-biography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Sister, Sinner: The Miraculous Life and Mysterious Disappearance of Aimee Semple McPherson",
+      "authors": [
+        "Claire Hoffman"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-biography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Wild Thing: A Life of Paul Gauguin",
+      "authors": [
+        "Sue Prideaux"
+      ],
+      "publisher": "W. W. Norton",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-biography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "William Blake and the Sea Monsters of Love",
+      "authors": [
+        "Philip Hoare"
+      ],
+      "publisher": "Pegasus Books",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-biography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
       "year": 2024,
       "status": "winner",
       "title": "Candy Darling: Dreamer, Icon, Superstar",
@@ -203,6 +288,86 @@
       "sourceLabel": "Wikipedia: National Book Critics Circle Award for Biography",
       "sourceConfidence": "secondary",
       "notes": "Official awards URL: https://www.bookcritics.org/awards/"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "John Lewis: A Life",
+      "authors": [
+        "David Greenberg"
+      ],
+      "publisher": "Simon and Schuster",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Monet: The Restless Vision",
+      "authors": [
+        "Jackie Wullschläger"
+      ],
+      "publisher": "Knopf",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Reagan: His Life and Legend",
+      "authors": [
+        "Max Boot"
+      ],
+      "publisher": "Liveright",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The Rebel’s Clinic: The Revolutionary Lives of Frantz Fanon",
+      "authors": [
+        "Adam Shatz"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-biography",
+      "categoryName": "Biography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "True Believer: Hubert Humphrey’s Quest for a More Just America",
+      "authors": [
+        "James Traub"
+      ],
+      "publisher": "Basic Books",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
     },
     {
       "awardId": "national-book-critics-circle-awards",
@@ -3481,7 +3646,7 @@
       "categoryName": "Criticism",
       "year": 2025,
       "status": "winner",
-      "title": "Hayek’s Bastards: Race, Gold, IQ, and the Capitalism of the Far Right",
+      "title": "Hayek's Bastards: Race, Gold, IQ, and the Capitalism of the Far Right",
       "authors": [
         "Quinn Slobodian"
       ],
@@ -3553,6 +3718,86 @@
       "sourceLabel": "Wikipedia: National Book Critics Circle Award for Criticism",
       "sourceConfidence": "secondary",
       "notes": "Official awards URL: https://www.bookcritics.org/awards/"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Algorithm of the Night: Film Writing, 2019-2025",
+      "authors": [
+        "A.S. Hamrah"
+      ],
+      "publisher": "n+1",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/15/2025-nbcc-awards-longlist-criticism/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Authority: Essays",
+      "authors": [
+        "Andrea Long Chu"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/15/2025-nbcc-awards-longlist-criticism/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Dismantling the Master’s Clock: On Race, Space, and Time",
+      "authors": [
+        "Rasheedah Phillips"
+      ],
+      "publisher": "AK Press",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/15/2025-nbcc-awards-longlist-criticism/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Erik Satie Three Piece Suite",
+      "authors": [
+        "Ian Penman"
+      ],
+      "publisher": "Semiotext(e)",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/15/2025-nbcc-awards-longlist-criticism/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Medium Hot: Images in the Age of Heat",
+      "authors": [
+        "Hito Steyerl"
+      ],
+      "publisher": "Verso Books",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/15/2025-nbcc-awards-longlist-criticism/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
     },
     {
       "awardId": "national-book-critics-circle-awards",
@@ -3633,6 +3878,86 @@
       "sourceLabel": "Wikipedia: National Book Critics Circle Award for Criticism",
       "sourceConfidence": "secondary",
       "notes": "Official awards URL: https://www.bookcritics.org/awards/"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Magical/Realism: Essays on Music, Memory, Fantasy, and Borders",
+      "authors": [
+        "Vanessa Angélica Villarreal"
+      ],
+      "publisher": "Tiny Reparations",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Opacities: On Writing and the Writing Life",
+      "authors": [
+        "Sofia Samatar"
+      ],
+      "publisher": "Soft Skull",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Recognizing the Stranger: On Palestine and Narrative",
+      "authors": [
+        "Isabella Hammad"
+      ],
+      "publisher": "Black Cat",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2024,
+      "status": "longlist",
+      "title": "When The Clock Broke: Con Men, Conspiracists, and How America Cracked Up in the Early 1990s",
+      "authors": [
+        "John Ganz"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-criticism",
+      "categoryName": "Criticism",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Write like a Man: Jewish Masculinity and the New York Intellectuals",
+      "authors": [
+        "Ronnie A. Grinberg"
+      ],
+      "publisher": "Princeton University",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
     },
     {
       "awardId": "national-book-critics-circle-awards",
@@ -6233,6 +6558,86 @@
       "awardName": "National Book Critics Circle Awards",
       "categoryId": "nbcc-memoir-and-autobiography",
       "categoryName": "Memoir and Autobiography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Book of Lives: A Memoir of Sorts",
+      "authors": [
+        "Margaret Atwood"
+      ],
+      "publisher": "Doubleday",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-autobiography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "I’ll Tell You When I’m Home",
+      "authors": [
+        "Hala Alyan"
+      ],
+      "publisher": "Avid Reader Press",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-autobiography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "The Broken King",
+      "authors": [
+        "Michael Thomas"
+      ],
+      "publisher": "Grove",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-autobiography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Things in Nature Merely Grow",
+      "authors": [
+        "Yiyun Li"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-autobiography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Twice Born: Finding My Father In the Margins of Biography",
+      "authors": [
+        "Hester Kaplan"
+      ],
+      "publisher": "Catapult",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/16/2025-nbcc-awards-longlist-autobiography/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
       "year": 2024,
       "status": "winner",
       "title": "Patriot: A Memoir",
@@ -6307,6 +6712,86 @@
       "sourceLabel": "Wikipedia: National Book Critics Circle Award for Memoir and Autobiography",
       "sourceConfidence": "secondary",
       "notes": "Official awards URL: https://www.bookcritics.org/awards/"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Feeding Ghosts: A Graphic Memoir",
+      "authors": [
+        "Tessa Hulls"
+      ],
+      "publisher": "MCD/Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Like a Sky Inside",
+      "authors": [
+        "Jakuta Alikavazovic"
+      ],
+      "publisher": "Fern",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Manboobs: A Memoir of Musicals, Visas, Hope, and Cake",
+      "authors": [
+        "Komail Aijazuddin"
+      ],
+      "publisher": "Abrams Press",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "My Good Bright Wolf: A Memoir",
+      "authors": [
+        "Sarah Moss"
+      ],
+      "publisher": "Farrar, Straus and Giroux",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-memoir-and-autobiography",
+      "categoryName": "Memoir and Autobiography",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Women Surrounded",
+      "authors": [
+        "Water: A Memoir by Patricia Coral"
+      ],
+      "publisher": "Mad Creek",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
     },
     {
       "awardId": "national-book-critics-circle-awards",
@@ -7817,6 +8302,86 @@
       "awardName": "National Book Critics Circle Awards",
       "categoryId": "nbcc-nonfiction",
       "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "A Return to Self: Excursions in Exile",
+      "authors": [
+        "Aatish Taseer"
+      ],
+      "publisher": "Catapult",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/17/2025-nbcc-awards-longlist-nonfiction/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Misbehaving at the Crossroads: Essays & Writing s",
+      "authors": [
+        "Honorée Fanonne Jeffers"
+      ],
+      "publisher": "Harper",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/17/2025-nbcc-awards-longlist-nonfiction/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Sick and Dirty: Hollywood’s Gay Golden Age and the Making of Modern Queerness",
+      "authors": [
+        "Michael Koresky"
+      ],
+      "publisher": "Bloomsbury",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/17/2025-nbcc-awards-longlist-nonfiction/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Strangers in the Land: Exclusion, Belonging, and the Epic Story of the Chinese in America",
+      "authors": [
+        "Michael Luo"
+      ],
+      "publisher": "Doubleday",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/17/2025-nbcc-awards-longlist-nonfiction/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "The Intermediaries: A Weimar Story",
+      "authors": [
+        "Brandy Schillace"
+      ],
+      "publisher": "W.W. Norton",
+      "sourceUrl": "https://www.bookcritics.org/2025/12/17/2025-nbcc-awards-longlist-nonfiction/",
+      "sourceLabel": "National Book Critics Circle 2025 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
       "year": 2024,
       "status": "winner",
       "title": "Challenger: A True Story of Heroism and Disaster on the Edge of Space",
@@ -7891,6 +8456,86 @@
       "sourceLabel": "Wikipedia: National Book Critics Circle Award for Nonfiction",
       "sourceConfidence": "secondary",
       "notes": "Official awards URL: https://www.bookcritics.org/awards/"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "A Fatal Inheritance: How a Family Misfortune Revealed a Deadly Medical Mystery",
+      "authors": [
+        "Lawrence Ingrassia"
+      ],
+      "publisher": "Holt",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Kent State: An American Tragedy",
+      "authors": [
+        "Brian VanDeMark"
+      ],
+      "publisher": "W. W. Norton",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Slaveroad",
+      "authors": [
+        "John Edgar Wideman"
+      ],
+      "publisher": "Scribner",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The Light Eaters: How the Unseen World of Plant Intelligence Offers a New Understanding of Life on Earth",
+      "authors": [
+        "Zoë Schlanger"
+      ],
+      "publisher": "Harper",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "national-book-critics-circle-awards",
+      "awardName": "National Book Critics Circle Awards",
+      "categoryId": "nbcc-nonfiction",
+      "categoryName": "Nonfiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "There’s Always This Year: On Basketball and Ascension",
+      "authors": [
+        "Hanif Abdurraqib"
+      ],
+      "publisher": "Random House",
+      "sourceUrl": "https://www.bookcritics.org/2025/01/19/2024-nbcc-awards-longlists/",
+      "sourceLabel": "National Book Critics Circle 2024 official longlist",
+      "sourceConfidence": "official"
     },
     {
       "awardId": "national-book-critics-circle-awards",

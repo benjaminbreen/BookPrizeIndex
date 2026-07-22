@@ -1,73 +1,202 @@
 {
-  "generatedAt": "2026-07-15T16:22:46.412Z",
-  "count": 9,
+  "generatedAt": "2026-07-22T17:56:56.752Z",
+  "count": 27,
   "note": "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
   "review": [
     {
-      "rawPublisher": "HarperLuxe",
-      "bookCount": 2,
+      "rawPublisher": "HarperCollins UK",
+      "bookCount": 6,
       "sampleBooks": [
         {
-          "bookId": "book-jerry-lee-lewis-his-own-story-rick-bragg",
-          "title": "Jerry Lee Lewis: His Own Story",
-          "author": "Rick Bragg",
+          "bookId": "book-the-lost-rainforests-of-britain-guy-shrubsole",
+          "title": "The Lost Rainforests of Britain",
+          "author": "Guy Shrubsole",
           "status": "enriched",
-          "matchTitle": "Jerry Lee Lewis: His Own Story",
-          "matchAuthor": "Rick Bragg",
+          "matchTitle": "The Lost Rainforests of Britain",
+          "matchAuthor": "Guy Shrubsole",
           "matchScore": 1
         },
         {
-          "bookId": "book-john-quincy-adams-american-visionary-fred-kaplan",
-          "title": "John Quincy Adams: American Visionary",
-          "author": "Fred Kaplan",
+          "bookId": "book-bothy-in-search-of-simple-shelter-kat-hill",
+          "title": "Bothy: In Search of Simple Shelter",
+          "author": "Kat Hill",
           "status": "enriched",
-          "matchTitle": "John Quincy Adams: American Visionary",
-          "matchAuthor": "Fred Kaplan",
+          "matchTitle": "Bothy: In Search of Simple Shelter",
+          "matchAuthor": "Kat Hill",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-net-zero-how-we-stop-causing-climate-change-dieter-helm",
+          "title": "Net Zero: How We Stop Causing Climate Change",
+          "author": "Dieter Helm",
+          "status": "enriched",
+          "matchTitle": "Net Zero: How We Stop Causing Climate Change",
+          "matchAuthor": "Dieter Helm",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-nature-s-ghosts-the-world-we-lost-and-how-to-bring-it-back-sophie-yeo",
+          "title": "Nature's Ghosts: The World We Lost and How to Bring it Back",
+          "author": "Sophie Yeo",
+          "status": "enriched",
+          "matchTitle": "Nature’s Ghosts: The world we lost and how to bring it back",
+          "matchAuthor": "Sophie Yeo",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-rural-the-lives-of-the-working-class-countryside-rebecca-smith",
+          "title": "Rural: The Lives of the Working Class Countryside",
+          "author": "Rebecca Smith",
+          "status": "enriched",
+          "matchTitle": "Rural: The Lives of the Working Class Countryside",
+          "matchAuthor": "Rebecca Smith",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-otters-tale-simon-cooper",
+          "title": "The Otters' Tale",
+          "author": "Simon Cooper",
+          "status": "enriched",
+          "matchTitle": "The Otters’ Tale",
+          "matchAuthor": "Simon Cooper",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "ALLEN LANE (PENG)",
+      "rawPublisher": "UNC Press Books",
+      "bookCount": 5,
+      "sampleBooks": [
+        {
+          "bookId": "book-a-black-jurist-in-a-slave-society-antonio-pereira-reboucas-and-the-trials-of-brazilian-citizensh",
+          "title": "A Black Jurist in a Slave Society: Antonio Pereira Rebouças and the Trials of Brazilian Citizenship",
+          "author": "Keila Grinberg",
+          "status": "enriched",
+          "matchTitle": "A Black Jurist in a Slave Society",
+          "matchAuthor": "Keila Grinberg",
+          "matchScore": 0.533
+        },
+        {
+          "bookId": "book-bonds-of-alliance-indigenous-and-atlantic-slaveries-in-new-france-brett-rushforth",
+          "title": "Bonds of Alliance: Indigenous & Atlantic Slaveries in New France",
+          "author": "Brett Rushforth",
+          "status": "enriched",
+          "matchTitle": "Bonds of Alliance",
+          "matchAuthor": "Brett Rushforth",
+          "matchScore": 0.533
+        },
+        {
+          "bookId": "book-conceiving-freedom-women-of-color-gender-and-the-abolition-of-slavery-in-havana-and-rio-de-janei",
+          "title": "Conceiving Freedom: Women of Color, Gender, and the Abolition of Slavery in Havana and Rio de Janeiro",
+          "author": "Camillia Cowling",
+          "status": "enriched",
+          "matchTitle": "Conceiving Freedom",
+          "matchAuthor": "Camillia Cowling",
+          "matchScore": 0.393
+        },
+        {
+          "bookId": "book-consent-in-the-presence-of-force-sexual-violence-and-black-women-s-survival-in-antebellum-new-or",
+          "title": "Consent in the Presence of Force: Sexual Violence and Black Women’s Survival in Antebellum New Orleans",
+          "author": "Emily A. Owens",
+          "status": "enriched",
+          "matchTitle": "Consent in the Presence of Force",
+          "matchAuthor": "Emily A. Owens",
+          "matchScore": 0.58
+        },
+        {
+          "bookId": "book-the-souls-of-womenfolk-the-religious-cultures-of-enslaved-women-in-the-lower-south-alexis-wells-",
+          "title": "The Souls of Womenfolk: The Religious Cultures of Enslaved Women in the Lower South",
+          "author": "Alexis Wells-Oghoghomeh",
+          "status": "enriched",
+          "matchTitle": "The Souls of Womenfolk",
+          "matchAuthor": "Alexis Wells-Oghoghomeh",
+          "matchScore": 0.555
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin UK",
+      "bookCount": 4,
+      "sampleBooks": [
+        {
+          "bookId": "book-otherlands-a-world-in-the-making-thomas-halliday",
+          "title": "Otherlands: A World in the Making",
+          "author": "Thomas Halliday",
+          "status": "enriched",
+          "matchTitle": "Otherlands",
+          "matchAuthor": "Thomas Halliday",
+          "matchScore": 0.44
+        },
+        {
+          "bookId": "book-rooted-how-regenerative-farming-can-change-the-world-sarah-langford",
+          "title": "Rooted: How Regenerative Farming Can Change the World",
+          "author": "Sarah Langford",
+          "status": "enriched",
+          "matchTitle": "Rooted",
+          "matchAuthor": "Sarah Langford",
+          "matchScore": 0.387
+        },
+        {
+          "bookId": "book-the-wild-silence-raynor-winn",
+          "title": "The Wild Silence",
+          "author": "Raynor Winn",
+          "status": "enriched",
+          "matchTitle": "The Wild Silence",
+          "matchAuthor": "Raynor Winn",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-time-s-witness-history-in-the-age-of-romanticism-rosemary-hill",
+          "title": "Time’s Witness: History in the Age of Romanticism",
+          "author": "Rosemary Hill",
+          "status": "enriched",
+          "matchTitle": "Time's Witness",
+          "matchAuthor": "Rosemary Hill",
+          "matchScore": 0.475
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Aster",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-third-reich-in-power-volume-2-of-the-third-reich-series-richard-j-evans",
-          "title": "The Third Reich in Power: Volume 2 of The Third Reich Series",
-          "author": "Richard J. Evans",
+          "bookId": "book-thinking-on-my-feet-kate-humble",
+          "title": "Thinking on My Feet",
+          "author": "Kate Humble",
           "status": "enriched",
-          "matchTitle": "Third Reich in Power",
-          "matchAuthor": "Richard J. Evans",
+          "matchTitle": "Thinking on My Feet",
+          "matchAuthor": "Kate Humble",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Amistad",
+      "rawPublisher": "Bond Street Books",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-toni-at-random-the-iconic-writer-s-legendary-editorship-dana-a-williams",
-          "title": "Toni at Random: The Iconic Writer’s Legendary Editorship",
-          "author": "Dana A. Williams",
+          "bookId": "book-red-pockets-alice-mah",
+          "title": "Red Pockets",
+          "author": "Alice Mah",
           "status": "enriched",
-          "matchTitle": "Toni at Random: The Iconic Writer’s Legendary Editorship: The Iconic Writer’s Legendary Editorship",
-          "matchAuthor": "Dana A. Williams",
+          "matchTitle": "Red Pockets",
+          "matchAuthor": "Alice Mah",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Catapult",
+      "rawPublisher": "Bonnier Books UK",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-in-the-country-of-women-susan-straight",
-          "title": "In the Country of Women",
-          "author": "Susan Straight",
+          "bookId": "book-intertidal-yuvan-aves",
+          "title": "Intertidal",
+          "author": "Yuvan Aves",
           "status": "enriched",
-          "matchTitle": "In the Country of Women: A Memoir",
-          "matchAuthor": "Susan Straight",
+          "matchTitle": "Intertidal",
+          "matchAuthor": "Yuvan Aves",
           "matchScore": 1
         }
       ]
@@ -77,73 +206,313 @@
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-the-viral-underclass-the-human-toll-when-inequality-and-disease-collide-steven-thrasher",
-          "title": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
-          "author": "Steven Thrasher",
+          "bookId": "book-birdgirl-mya-rose-craig",
+          "title": "Birdgirl",
+          "author": "Mya-Rose Craig",
           "status": "enriched",
-          "matchTitle": "The Viral Underclass: The Human Toll When Inequality and Disease Collide",
-          "matchAuthor": "Steven Thrasher",
+          "matchTitle": "Birdgirl",
+          "matchAuthor": "Mya-Rose Craig",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Gotham Books",
+      "rawPublisher": "Courier Corporation",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-on-the-map-a-mind-expanding-exploration-of-the-way-the-world-looks-simon-garfield",
-          "title": "On the Map: A Mind-Expanding Exploration of the Way the World Looks",
-          "author": "Simon Garfield",
+          "bookId": "book-the-chemical-philosophy-paracelsian-science-and-medicine-in-the-sixteenth-and-seventeenth-centur",
+          "title": "The Chemical Philosophy: Paracelsian Science and Medicine in the Sixteenth and Seventeenth Centuries",
+          "author": "Allen G. Debus",
           "status": "enriched",
-          "matchTitle": "On the map: a mind-expanding exploration of the way the world looks",
-          "matchAuthor": "Simon Garfield",
+          "matchTitle": "The Chemical Philosophy",
+          "matchAuthor": "Allen G. Debus",
+          "matchScore": 0.491
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Dawson",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-science-in-culture-the-early-victorian-period-susan-faye-cannon",
+          "title": "Science in Culture: The Early Victorian Period",
+          "author": "Susan Faye Cannon",
+          "status": "enriched",
+          "matchTitle": "Science in Culture",
+          "matchAuthor": "Susan Faye Cannon",
+          "matchScore": 0.6
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Dovecote Press, The",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-screaming-sky-charles-foster",
+          "title": "The Screaming Sky",
+          "author": "Charles Foster",
+          "status": "enriched",
+          "matchTitle": "The Screaming Sky",
+          "matchAuthor": "Charles Foster",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Harvill, HarperCollins Publishers, Limited",
+      "rawPublisher": "Duke University Press Books",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-violet-the-life-and-loves-of-violet-gordon-woodhouse-jessica-douglas-home",
-          "title": "Violet: The Life and Loves of Violet Gordon Woodhouse",
-          "author": "Jessica Douglas-Home",
+          "bookId": "book-reckoning-with-slavery-gender-kinship-and-capitalism-in-the-early-black-atlantic-jennifer-l-morg",
+          "title": "Reckoning with Slavery: Gender, Kinship, and Capitalism in the Early Black Atlantic",
+          "author": "Jennifer L. Morgan",
           "status": "enriched",
-          "matchTitle": "Violet : The Life & Loves of Violet Gordon Woodhouse",
-          "matchAuthor": "Jessica Douglas-Home",
+          "matchTitle": "Reckoning with Slavery",
+          "matchAuthor": "Jennifer L. Morgan",
+          "matchScore": 0.475
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Dutton Adult",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-edge-of-an-unfamiliar-world-a-history-of-oceanography-susan-schlee",
+          "title": "The Edge of an Unfamiliar World: A History of Oceanography",
+          "author": "Susan Schlee",
+          "status": "enriched",
+          "matchTitle": "The Edge of an Unfamiliar World; a History of Oceanography",
+          "matchAuthor": "Susan Schlee",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Penguin Random House",
+      "rawPublisher": "Elsevier Science Pub Co",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-cold-crematorium-reporting-from-the-land-of-auschwitz-jozsef-debreczeni",
-          "title": "Cold Crematorium: Reporting from the Land of Auschwitz",
-          "author": "József Debreczeni",
+          "bookId": "book-the-kind-of-motion-we-call-heat-stephen-g-brush",
+          "title": "The Kind of Motion We Call Heat",
+          "author": "Stephen G. Brush",
           "status": "enriched",
-          "matchTitle": "Cold Crematorium: Reporting from the Land of Auschwitz",
-          "matchAuthor": "József Debreczeni",
+          "matchTitle": "The Kind of Motion We Call Heat",
+          "matchAuthor": "Stephen G. Brush",
           "matchScore": 1
         }
       ]
     },
     {
-      "rawPublisher": "Simon & Schuster Australia",
+      "rawPublisher": "Faber & Faber Non Fiction",
       "bookCount": 1,
       "sampleBooks": [
         {
-          "bookId": "book-black-convicts-how-slavery-shaped-australia-santilla-chingaipe",
-          "title": "Black Convicts: How Slavery Shaped Australia",
-          "author": "Santilla Chingaipe",
+          "bookId": "book-the-moor-william-atkins",
+          "title": "The Moor",
+          "author": "William Atkins",
           "status": "enriched",
-          "matchTitle": "Black Convicts: How Slavery Shaped Australia",
-          "matchAuthor": "Santilla Chingaipe",
+          "matchTitle": "The Moor",
+          "matchAuthor": "William Atkins",
           "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Folk by the Oak",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-lost-words-robert-macfarlane-and-jackie-morris",
+          "title": "The Lost Words",
+          "author": "Robert Macfarlane Jackie Morris",
+          "status": "enriched",
+          "matchTitle": "The Lost Words",
+          "matchAuthor": "Robert Macfarlane Jackie Morris",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Gordon & Breach Science Pub",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-lavoisier-the-crucial-year-the-background-and-origin-of-his-first-experiments-on-combustion-in-1",
+          "title": "Lavoisier, The Crucial Year: The Background and Origin of His First Experiments on Combustion in 1772",
+          "author": "Henry Guerlac",
+          "status": "enriched",
+          "matchTitle": "Lavoisier, the Crucial Year",
+          "matchAuthor": "Henry Guerlac",
+          "matchScore": 0.487
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Hachette UK",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-orchid-outlaw-ben-jacob",
+          "title": "The Orchid Outlaw",
+          "author": "Ben Jacob",
+          "status": "enriched",
+          "matchTitle": "The Orchid Outlaw",
+          "matchAuthor": "Ben Jacob",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "JHU Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-women-scientists-in-america-before-affirmative-action-1940-1972-margaret-w-rossiter",
+          "title": "Women Scientists in America: Before Affirmative Action, 1940-1972",
+          "author": "Margaret W. Rossiter",
+          "status": "enriched",
+          "matchTitle": "Women Scientists in America",
+          "matchAuthor": "Margaret W. Rossiter",
+          "matchScore": 0.611
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Milkweed+ORM",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-cacophony-of-bone-kerri-ni-dochartaigh",
+          "title": "Cacophony of Bone",
+          "author": "Kerri ní Dochartaigh",
+          "status": "enriched",
+          "matchTitle": "Cacophony of Bone",
+          "matchAuthor": "Kerri ní Dochartaigh",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "National Geographic Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-salt-path-raynor-winn",
+          "title": "The Salt Path",
+          "author": "Raynor Winn",
+          "status": "enriched",
+          "matchTitle": "The Salt Path",
+          "matchAuthor": "Raynor Winn",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "ReadHowYouWant.com",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-joining-places-slave-neighborhoods-in-the-old-south-anthony-e-kaye",
+          "title": "Joining Places: Slave Neighborhoods in the Old South",
+          "author": "Anthony E. Kaye",
+          "status": "enriched",
+          "matchTitle": "Joining Places",
+          "matchAuthor": "Anthony E. Kaye",
+          "matchScore": 0.475
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Sandstone Press Ltd",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-easternmost-house-juliet-blaxland",
+          "title": "The Easternmost House",
+          "author": "Juliet Blaxland",
+          "status": "enriched",
+          "matchTitle": "The Easternmost House",
+          "matchAuthor": "Juliet Blaxland",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Tinder Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-last-wilderness-neil-ansell",
+          "title": "The Last Wilderness",
+          "author": "Neil Ansell",
+          "status": "enriched",
+          "matchTitle": "The Last Wilderness",
+          "matchAuthor": "Neil Ansell",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "U of Nebraska Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-ogallala-water-for-a-dry-land-john-opie",
+          "title": "Ogallala: Water for a Dry Land",
+          "author": "John Opie",
+          "status": "enriched",
+          "matchTitle": "Ogallala",
+          "matchAuthor": "John Opie",
+          "matchScore": 0.44
+        }
+      ]
+    },
+    {
+      "rawPublisher": "University of Georgia Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-irreplaceable-julian-hoffman",
+          "title": "Irreplaceable",
+          "author": "Julian Hoffman",
+          "status": "enriched",
+          "matchTitle": "Irreplaceable",
+          "matchAuthor": "Julian Hoffman Anonymous",
+          "matchScore": 0.9
+        }
+      ]
+    },
+    {
+      "rawPublisher": "University of Wisconsin Pres",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-best-weapon-for-peace-maria-montessori-education-and-children-s-rights-erica-moretti",
+          "title": "The Best Weapon for Peace: Maria Montessori, Education, and Children’s Rights",
+          "author": "Erica Moretti",
+          "status": "enriched",
+          "matchTitle": "The Best Weapon for Peace",
+          "matchAuthor": "Erica Moretti",
+          "matchScore": 0.618
+        }
+      ]
+    },
+    {
+      "rawPublisher": "UNM Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-way-to-the-west-essays-on-the-central-plains-elliott-west",
+          "title": "The Way to the West: Essays on the Central Plains",
+          "author": "Elliott West",
+          "status": "enriched",
+          "matchTitle": "The Way to the West",
+          "matchAuthor": "Elliott West",
+          "matchScore": 0.65
         }
       ]
     }

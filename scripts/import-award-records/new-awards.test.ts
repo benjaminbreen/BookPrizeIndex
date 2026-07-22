@@ -10,6 +10,15 @@ import { parseJohnBurroughs } from "./john-burroughs";
 import { parseRfkArchive, parseRfkLaureate } from "./rfk-book";
 import { parseTrumanCapote } from "./truman-capote-criticism";
 import { parseWellcomeNonfiction } from "./wellcome-book-prize";
+import { parseNcrBookAward } from "./ncr-book-award";
+import { parseLauraShannon } from "./laura-shannon";
+import { parsePfizer } from "./pfizer";
+import { parseFrederickDouglass } from "./frederick-douglass";
+import { parseGeorgePerkinsMarsh } from "./george-perkins-marsh";
+import { parseWainwrightArchive } from "./wainwright";
+import { parseNbccOfficialLonglist } from "./nbcc";
+import { parseFrederickDouglassArchiveFinalists, parseFrederickDouglassFinalistAnnouncement } from "./frederick-douglass";
+import { parseWainwrightLonglist, parseWainwrightShortlists } from "./wainwright";
 
 const category = (id: string): PrizeCategoryRegistryEntry => ({
   id,
@@ -181,4 +190,127 @@ test("Wellcome parser retains reviewed nonfiction and omits fiction from the mix
     "The Immortal Life of Henrietta Lacks",
     "Teach Us to Sit Still: A Sceptic's Search for Health and Healing",
   ]);
+});
+
+test("NCR parser reads the compact historical winner list", () => {
+  const award = prize("ncr-book-award");
+  const records = parseNcrBookAward(award, award.categories[0], `
+==Winners==
+* 1989 [[Joe Simpson (mountaineer)|Joe Simpson]], ''[[Touching the Void (book)|Touching the Void]]'' (Jonathan Cape)
+==References==`);
+  assert.deepEqual(records.map((record) => [record.year, record.title, record.authors[0]]), [
+    [1989, "Touching the Void", "Joe Simpson"],
+  ]);
+});
+
+test("Laura Shannon parser reads official winner cards", () => {
+  const award = prize("laura-shannon-prize");
+  const records = parseLauraShannon(award, award.categories[0], `
+    <li class="card shannon-prize-card">
+      <h2 class="card-title"><a href="/winner/">The Sleepwalkers</a></h2>
+      <p><em>Sir Christopher Clark</em></p><p>2015</p>
+    </li>`);
+  assert.equal(records[0].title, "The Sleepwalkers");
+  assert.deepEqual(records[0].authors, ["Christopher Clark"]);
+});
+
+test("Pfizer parser handles ill templates and malformed italic title markup", () => {
+  const award = prize("pfizer-award");
+  const records = parsePfizer(award, award.categories[0], `
+== Recipients ==
+* 1964 {{ill|Robert E. Schofield|fr}}, ''The Lunar Society of Birmingham'' (Oxford University Press).
+* 2002 [[James A. Secord]], ''Victorian Sensation: The Extraordinary Publication, Reception, and Secret Authorship of ''Vestiges of the Natural History of Creation (University of Chicago Press, 2000).
+==References==`);
+  assert.deepEqual(records[0].authors, ["Robert E. Schofield"]);
+  assert.match(records[1].title, /Vestiges of the Natural History of Creation$/);
+});
+
+test("Frederick Douglass parser ignores multiline citations and preserves rowspan years", () => {
+  const award = prize("frederick-douglass-book-prize");
+  const records = parseFrederickDouglass(award, award.categories[0], `
+==List of recipients==
+{| class="wikitable"
+|-
+| rowspan="2" |2024 (joint)<ref>{{Cite web |title=Announcement
+ |url=https://example.org/ |language=en}}</ref>
+|Marlene L. Daut
+|''Awakening the Ashes''
+|-
+|Sara E. Johnson
+|''Encyclopédie noire''
+|}
+==See also==`);
+  assert.deepEqual(records.map((record) => [record.year, record.status, record.authors[0], record.title]), [
+    [2024, "co_winner", "Marlene L. Daut", "Awakening the Ashes"],
+    [2024, "co_winner", "Sara E. Johnson", "Encyclopédie noire"],
+  ]);
+});
+
+test("Frederick Douglass official parsers read historical and annual finalists", () => {
+  const award = prize("frederick-douglass-book-prize");
+  const historical = parseFrederickDouglassArchiveFinalists(award, award.categories[0], `
+    <h2>2015</h2><p>Finalists:</p>
+    <p>Ezra Greenspan, William Wells Brown: An African American Life</p>
+    <p>Michael Guasco, Slaves and Englishmen</p><p>More about the 2015 winner</p>`, "https://official.example/archive");
+  const annual = parseFrederickDouglassFinalistAnnouncement(award, award.categories[0], `
+    <p>The finalists are: Aisha K. Finch for “Rethinking Slave Rebellion in Cuba” (UNC Press);
+    Jeff Forret for “Slave Against Slave” (LSU Press); and Matthew S. Hopper for “Slaves of One Master” (Yale).</p>`, 2016, "https://official.example/2016");
+  assert.deepEqual(historical.map((record) => record.title), ["William Wells Brown: An African American Life", "Slaves and Englishmen"]);
+  assert.deepEqual(annual.map((record) => record.title), ["Rethinking Slave Rebellion in Cuba", "Slave Against Slave", "Slaves of One Master"]);
+});
+
+test("NBCC official longlist parser reads ten title-author-publisher lines", () => {
+  const award = prize("national-book-critics-circle-awards");
+  const rows = Array.from({ length: 10 }, (_, index) => `<p>Book ${index + 1} by Author ${index + 1} (Press ${index + 1})</p>`).join("");
+  const records = parseNbccOfficialLonglist(award, award.categories[0], rows, 2025, "https://official.example/longlist");
+  assert.equal(records.length, 10);
+  assert.deepEqual([records[0].title, records[0].authors[0], records[0].publisher], ["Book 1", "Author 1", "Press 1"]);
+});
+
+test("George Perkins Marsh parser stays inside the official book-prize section", () => {
+  const award = prize("george-perkins-marsh-prize");
+  const records = parseGeorgePerkinsMarsh(award, award.categories[0], `
+    George Perkins Marsh Prize
+    <p>2024 Tamar Novick, <a href="/milk">Milk and Honey</a>. MIT Press.</p>
+    <p>Finalists:</p><p>Someone Else, <a href="/other">Another Book</a>.</p>
+    Alice Hamilton Prize`);
+  assert.deepEqual(records.map((record) => [record.year, record.title]), [[2024, "Milk and Honey"]]);
+});
+
+test("Wainwright parser reads adult winner cards", () => {
+  const award = prize("wainwright-prize");
+  const records = parseWainwrightArchive(award, award.categories[0], `
+    <h5 class="elementor-heading-title"><span>2020</span> Winner</h5>
+    <h2 class="elementor-heading-title">Dara McAnulty</h2>
+    <h5 class="elementor-heading-title">Diary of A Young Naturalist</h5>`);
+  assert.deepEqual(records.map((record) => [record.year, record.authors[0], record.title]), [
+    [2020, "Dara McAnulty", "Diary of a Young Naturalist"],
+  ]);
+});
+
+test("Wainwright parsers read adult shortlist tables and official longlist rows", () => {
+  const award = prize("wainwright-prize");
+  const nature = category("wainwright-nature-writing");
+  const conservation = category("wainwright-conservation-writing");
+  const shortlists = parseWainwrightShortlists(award, nature, conservation, `
+==Winners and shortlisted titles==
+{| class="wikitable"
+|-
+!Year || Author || Book || Publisher
+|-
+!2020:<br />Global<br />Conservation
+|Benedict Macdonald || ''Rebirding'' || Pelagic
+|-
+|Chris Goodall || ''What We Need to Do Now'' || Profile
+|}
+==References==`);
+  assert.deepEqual(shortlists.map((record) => [record.categoryId, record.title]), [
+    ["wainwright-conservation-writing", "Rebirding"],
+    ["wainwright-conservation-writing", "What We Need to Do Now"],
+  ]);
+
+  const lines = Array.from({ length: 13 }, (_, index) => `<p>Nature Book ${index + 1}, Author ${index + 1}, Press ${index + 1}</p>`).join("");
+  const longlists = parseWainwrightLonglist(award, nature, `<h2>The 2021 Wainwright Prize for UK nature writing longlist is:</h2>${lines}`, 2021, "https://official.example/2021");
+  assert.equal(longlists.length, 13);
+  assert.equal(longlists[0].status, "longlist");
 });

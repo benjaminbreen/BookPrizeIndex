@@ -95,7 +95,7 @@
     "geography": "United States",
     "foundedYear": 1975,
     "officialUrl": "https://www.bookcritics.org/awards/",
-    "notes": "Initial importer uses Wikipedia category pages as deterministic secondary sources while retaining the official NBCC awards and past-awards pages for later source verification and publisher enrichment.",
+    "notes": "Historical winners and finalists use deterministic Wikipedia category tables; the NBCC's first published longlists, for the 2024 and 2025 award years, come from official announcements.",
     "categories": [
       {
         "id": "nbcc-nonfiction",
@@ -106,7 +106,7 @@
         "sourceConfidence": "secondary",
         "importStrategy": "mediawiki-wikitable",
         "activeYears": "1975-present",
-        "coverageNotes": "Covers winners and finalists listed in the NBCC Nonfiction table."
+        "coverageNotes": "Covers winners and finalists listed in the NBCC Nonfiction table, plus official 2024 and 2025 longlists. Books retain only their highest status."
       },
       {
         "id": "nbcc-biography",
@@ -117,7 +117,7 @@
         "sourceConfidence": "secondary",
         "importStrategy": "mediawiki-wikitable",
         "activeYears": "1983-present",
-        "coverageNotes": "Covers winners and finalists listed in the NBCC Biography table."
+        "coverageNotes": "Covers winners and finalists listed in the NBCC Biography table, plus official 2024 and 2025 longlists. Books retain only their highest status."
       },
       {
         "id": "nbcc-memoir-and-autobiography",
@@ -128,7 +128,7 @@
         "sourceConfidence": "secondary",
         "importStrategy": "mediawiki-wikitable",
         "activeYears": "2005-present",
-        "coverageNotes": "Importer keeps 2005 onward records so this split category does not duplicate the earlier Biography/Autobiography lineage."
+        "coverageNotes": "Importer keeps 2005 onward records so this split category does not duplicate the earlier Biography/Autobiography lineage, and adds official 2024 and 2025 longlists. Books retain only their highest status."
       },
       {
         "id": "nbcc-criticism",
@@ -139,7 +139,7 @@
         "sourceConfidence": "secondary",
         "importStrategy": "mediawiki-wikitable",
         "activeYears": "1975-present",
-        "coverageNotes": "Covers winners and finalists listed in the NBCC Criticism table."
+        "coverageNotes": "Covers winners and finalists listed in the NBCC Criticism table, plus official 2024 and 2025 longlists. Books retain only their highest status."
       }
     ]
   },
@@ -1358,6 +1358,162 @@
         "importStrategy": "mediawiki-table-with-reviewed-nonfiction-filter",
         "activeYears": "2009-2012; 2014-2019",
         "coverageNotes": "Nonfiction winners and shortlisted works from all ten award editions. Fiction winners and nominees are excluded through an explicit reviewed title set; 2013 was a no-award relaunch year."
+      }
+    ]
+  },
+  {
+    "id": "ncr-book-award",
+    "name": "NCR Book Award",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "NCR Corporation",
+    "geography": "United Kingdom",
+    "foundedYear": 1987,
+    "discontinuedYear": 1997,
+    "officialUrl": "https://en.wikipedia.org/wiki/NCR_Book_Award",
+    "notes": "Defunct British general nonfiction prize and direct historical forerunner of the Samuel Johnson Prize. No surviving official archive is available; the compact historical winner list is imported from cited secondary sources collected by Wikipedia.",
+    "categories": [
+      {
+        "id": "ncr-book-award-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://en.wikipedia.org/wiki/NCR_Book_Award",
+        "sourceUrl": "https://en.wikipedia.org/wiki/NCR_Book_Award",
+        "sourceLabel": "Wikipedia: NCR Book Award winners",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-year-bullet-list",
+        "activeYears": "1988-1997",
+        "coverageNotes": "Winner-only coverage for every edition of the prize."
+      }
+    ]
+  },
+  {
+    "id": "laura-shannon-prize",
+    "name": "Laura Shannon Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Nanovic Institute for European Studies, University of Notre Dame",
+    "geography": "United States / International",
+    "foundedYear": 2010,
+    "officialUrl": "https://nanovic.nd.edu/about/laura-shannon-prize/",
+    "notes": "Annual prize for an outstanding book in contemporary European studies, alternating between Humanities and History and Social Sciences. The corpus includes winners from 2010 onward and the official five-book shortlists from 2019 onward.",
+    "categories": [
+      {
+        "id": "laura-shannon-european-studies",
+        "name": "European Studies",
+        "officialUrl": "https://nanovic.nd.edu/about/laura-shannon-prize/",
+        "sourceUrl": "https://nanovic.nd.edu/about/laura-shannon-prize/winners/",
+        "sourceLabel": "Nanovic Institute official Laura Shannon Prize winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-cards-and-curated-official-shortlists",
+        "activeYears": "2010-present",
+        "coverageNotes": "Winner coverage from the first award in 2010 onward, plus official five-book shortlists for 2019-2026. Winners retain only winner status; silver medals and honorable mentions are deferred."
+      }
+    ]
+  },
+  {
+    "id": "pfizer-award",
+    "name": "Pfizer Award",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "History of Science Society",
+    "geography": "United States / International",
+    "foundedYear": 1958,
+    "officialUrl": "https://hssonline.org/page/pfizeraward",
+    "notes": "Annual History of Science Society award for an outstanding English-language book in the history of science. The official archive is canonical but blocks automated fetching, so the historical importer uses the cited Wikipedia recipient list and replaces the latest row from the official page.",
+    "categories": [
+      {
+        "id": "pfizer-history-of-science",
+        "name": "History of Science",
+        "officialUrl": "https://hssonline.org/page/pfizeraward",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Pfizer_Award",
+        "sourceLabel": "Wikipedia: Pfizer Award recipients",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-year-bullet-list-with-official-latest-row",
+        "activeYears": "1959-present",
+        "coverageNotes": "Winner-only coverage from 1959 onward, including joint award years."
+      }
+    ]
+  },
+  {
+    "id": "frederick-douglass-book-prize",
+    "name": "Frederick Douglass Book Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Gilder Lehrman Institute of American History / Gilder Lehrman Center at Yale University",
+    "geography": "United States / International",
+    "foundedYear": 1999,
+    "officialUrl": "https://www.gilderlehrman.org/book-prizes/douglass",
+    "notes": "Annual prize for an outstanding English-language nonfiction book on slavery, resistance, or abolition. Winners use the cited Wikipedia recipient table; published finalists come from official Gilder Lehrman Center archives and annual announcements.",
+    "categories": [
+      {
+        "id": "frederick-douglass-slavery-abolition",
+        "name": "Slavery, Resistance, and Abolition",
+        "officialUrl": "https://www.gilderlehrman.org/book-prizes/douglass",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Frederick_Douglass_Book_Prize",
+        "sourceLabel": "Wikipedia: Frederick Douglass Book Prize recipients",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable-plus-official-finalist-archives",
+        "activeYears": "1999-present",
+        "coverageNotes": "Winner coverage from 1999 onward, with official finalists for 1999, 2004-2015, and 2016-2025. Years with two recipient books are represented as co-winners; winners retain only winner status."
+      }
+    ]
+  },
+  {
+    "id": "george-perkins-marsh-prize",
+    "name": "George Perkins Marsh Prize",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "American Society for Environmental History",
+    "geography": "United States / International",
+    "foundedYear": 1989,
+    "officialUrl": "https://www.aseh.org/awards-funding",
+    "notes": "American Society for Environmental History prize for the best book in environmental history. The corpus initially imports winners only.",
+    "categories": [
+      {
+        "id": "george-perkins-marsh-environmental-history",
+        "name": "Environmental History",
+        "officialUrl": "https://www.aseh.org/awards-funding",
+        "sourceUrl": "https://www.aseh.org/past-recipients",
+        "sourceLabel": "American Society for Environmental History official past recipients archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-section",
+        "activeYears": "1989-present",
+        "coverageNotes": "Winner-only coverage from the first listed award in 1989 onward; published finalists are deferred."
+      }
+    ]
+  },
+  {
+    "id": "wainwright-prize",
+    "name": "Wainwright Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "The Wainwright Prize",
+    "geography": "United Kingdom",
+    "foundedYear": 2014,
+    "officialUrl": "https://wainwrightprize.com/",
+    "notes": "British prize for adult nature and conservation writing. The corpus includes adult winners and shortlists through 2025, plus official longlists from 2021 onward. Children's and illustrated-book categories are outside this corpus.",
+    "categories": [
+      {
+        "id": "wainwright-nature-writing",
+        "name": "Nature Writing",
+        "officialUrl": "https://wainwrightprize.com/",
+        "sourceUrl": "https://wainwrightprize.com/previous_winners/nature/",
+        "sourceLabel": "Wainwright Prize official Nature Writing winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-winners-and-longlists-plus-cited-wikipedia-shortlists",
+        "activeYears": "2014-present",
+        "coverageNotes": "Adult Nature Writing winners and shortlists for 2014-2025, plus official longlists for 2021-2025. Books retain only their highest status."
+      },
+      {
+        "id": "wainwright-conservation-writing",
+        "name": "Conservation Writing",
+        "officialUrl": "https://wainwrightprize.com/",
+        "sourceUrl": "https://wainwrightprize.com/previous_winners/conservation/",
+        "sourceLabel": "Wainwright Prize official Conservation Writing winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-winners-and-longlists-plus-cited-wikipedia-shortlists",
+        "activeYears": "2020-present",
+        "coverageNotes": "Adult Conservation Writing winners and shortlists for 2020-2025, plus official longlists for 2021-2025. The category was formerly styled Writing on Global Conservation; books retain only their highest status."
       }
     ]
   }
