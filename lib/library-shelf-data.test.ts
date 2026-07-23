@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import rawShelf from "@/data/public/library-shelf.json";
 import { compareLibraryCallNumbers, parseLibraryCallNumber } from "@/lib/library-call-number";
+import { getLibraryShelfWindow } from "@/lib/library-shelf-data";
 import type { LibraryShelfArtifact } from "@/lib/library-shelf-types";
 
 const shelf = rawShelf as LibraryShelfArtifact;
@@ -54,4 +55,10 @@ test("class ranges are contiguous and cover every shelf row", () => {
     covered += shelfClass.count;
   }
   assert.equal(covered, shelf.rows.length);
+});
+
+test("a clean shelf visit begins at the natural start of shelf order", () => {
+  const window = getLibraryShelfWindow();
+  assert.equal(window.selectedIndex, 0);
+  assert.equal(window.rows[0].id, shelf.rows[0].id);
 });

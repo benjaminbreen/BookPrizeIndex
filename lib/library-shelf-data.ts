@@ -49,9 +49,8 @@ export function getLibraryShelfWindow({
   const classPosition = classCode
     ? libraryShelf.classes.find((row) => row.code === classCode.toUpperCase())?.startIndex
     : undefined;
-  const defaultPosition = libraryShelf.classes.find((row) => row.code === "H")?.startIndex ?? 0;
   const selectedIndex = clamp(
-    requestedPosition ?? matches[0]?.rowIndex ?? classPosition ?? index ?? defaultPosition,
+    requestedPosition ?? matches[0]?.rowIndex ?? classPosition ?? index ?? 0,
     0,
     Math.max(libraryShelf.rows.length - 1, 0),
   );

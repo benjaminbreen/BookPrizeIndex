@@ -23,18 +23,10 @@ export function LibraryShelf({ initialData }: { initialData: LibraryShelfWindow 
 
   useEffect(() => {
     if (!selected) return;
-    if (!(data.query && data.matchCount === 0)) {
-      const url = new URL(window.location.href);
-      url.searchParams.set("book", selected.slug);
-      url.searchParams.delete("class");
-      url.searchParams.delete("index");
-      url.searchParams.delete("q");
-      window.history.replaceState(null, "", `${url.pathname}${url.search}`);
-    }
     shelfRef.current
       ?.querySelector<HTMLElement>('[aria-current="true"]')
       ?.scrollIntoView({ block: "nearest", inline: "center" });
-  }, [data.matchCount, data.query, selected]);
+  }, [selected]);
 
   async function load(params: URLSearchParams) {
     setLoading(true);
@@ -42,7 +34,11 @@ export function LibraryShelf({ initialData }: { initialData: LibraryShelfWindow 
     try {
       const response = await fetch(`/api/library-shelf?${params.toString()}`);
       if (!response.ok) throw new Error("The shelf could not be loaded.");
-      setData(await response.json() as LibraryShelfWindow);
+      const nextData = await response.json() as LibraryShelfWindow;
+      setData(nextData);
+      if (!(nextData.query && nextData.matchCount === 0)) {
+        syncUrlToSelectedBook(nextData);
+      }
     } catch (error) {
       setLoadError(error instanceof Error ? error.message : String(error));
     } finally {
@@ -56,6 +52,8 @@ export function LibraryShelf({ initialData }: { initialData: LibraryShelfWindow 
       void load(new URLSearchParams({ index: String(index), radius: "15" }));
       return;
     }
+    const nextSelected = rowAt(data, index);
+    if (nextSelected) syncUrlToBook(nextSelected);
     setData((current) => ({
       ...current,
       selectedIndex: index,
@@ -222,6 +220,20 @@ export function LibraryShelf({ initialData }: { initialData: LibraryShelfWindow 
 
 function rowAt(data: LibraryShelfWindow, index: number) {
   return data.rows[index - data.windowStart];
+}
+
+function syncUrlToSelectedBook(data: LibraryShelfWindow) {
+  const selected = rowAt(data, data.selectedIndex);
+  if (selected) syncUrlToBook(selected);
+}
+
+function syncUrlToBook(book: LibraryShelfRow) {
+  const url = new URL(window.location.href);
+  url.searchParams.set("book", book.slug);
+  url.searchParams.delete("class");
+  url.searchParams.delete("index");
+  url.searchParams.delete("q");
+  window.history.replaceState(null, "", `${url.pathname}${url.search}`);
 }
 
 function ShelfCover({ row }: { row: LibraryShelfRow }) {
