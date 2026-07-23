@@ -12,6 +12,7 @@ const navItems = [
   { href: "/books", label: "Books", match: ["/books"] },
   { href: "/awards", label: "Awards", match: ["/awards"] },
   { href: "/subjects", label: "Subjects", match: ["/subjects", "/topics"] },
+  { href: "/fun/library-of-congress-shelf", label: "Shelf", match: ["/fun/library-of-congress-shelf"] },
   { href: "/publishers", label: "Publishers", match: ["/publishers", "/imprints", "/imprint-logos"] },
   { href: "/experiments", label: "Trends", match: ["/experiments"] },
   { href: DONATE_URL, label: "Donate", match: [] },
@@ -58,7 +59,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           <Link className="nav-mark font-[var(--font-mono)] text-md font-medium uppercase tracking-[0.2em]" href="/">
             The Book Prize Index
           </Link>
-          <nav className="hidden items-center justify-end gap-7 text-sm md:flex">
+          <nav className="hidden items-center justify-end gap-4 text-sm lg:flex xl:gap-7">
             {navItems.map((item) => {
               const active = item.match.some((href) => pathname === href || pathname.startsWith(`${href}/`));
               return (
@@ -80,7 +81,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             aria-controls="mobile-site-menu"
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            className={`mobile-menu-button focus-ring grid h-10 w-10 place-items-center border hairline md:hidden ${menuOpen ? "mobile-menu-button-open" : ""}`}
+            className={`mobile-menu-button focus-ring grid h-10 w-10 place-items-center border hairline lg:hidden ${menuOpen ? "mobile-menu-button-open" : ""}`}
             onClick={() => setMenuOpen((open) => !open)}
             type="button"
           >
@@ -106,7 +107,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             </nav>
           </div>
         ) : null}
-        <div aria-hidden={!menuOpen} className={`mobile-menu-shell md:hidden ${menuOpen ? "mobile-menu-shell-open" : ""}`} id="mobile-site-menu">
+        <div aria-hidden={!menuOpen} className={`mobile-menu-shell lg:hidden ${menuOpen ? "mobile-menu-shell-open" : ""}`} id="mobile-site-menu">
           <div className="mobile-menu-panel border-t hairline bg-[color-mix(in_srgb,var(--paper)_96%,var(--panel))] shadow-[0_24px_60px_color-mix(in_srgb,var(--ink)_13%,transparent)]">
             <nav aria-label="Mobile navigation" className="mx-auto grid max-w-7xl px-4 py-3">
               {navItems.map((item) => {

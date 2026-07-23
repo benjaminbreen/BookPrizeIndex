@@ -1,5 +1,6 @@
 import { readBookDetailArtifact } from "@/lib/book-detail-artifacts";
 import { authorPlatformLinksFor } from "@/lib/author-platform-links";
+import { libraryShelfNeighborhoodFor } from "@/lib/library-shelf-data";
 
 export const dynamic = "force-dynamic";
 
@@ -11,5 +12,6 @@ export async function GET(request: Request) {
   return Response.json({
     ...payload,
     authorPlatforms: authorPlatformLinksFor(payload.book.authors),
+    shelfNeighborhood: libraryShelfNeighborhoodFor(payload.book.id),
   }, { headers: { "Cache-Control": "public, max-age=300, stale-while-revalidate=86400" } });
 }

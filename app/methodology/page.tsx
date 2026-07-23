@@ -18,6 +18,7 @@ export default function MethodologyPage() {
           <li><a className="transition hover:text-[var(--ink)]" href="#imports">Imports</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#books">Books</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#subjects">Subjects</a></li>
+          <li><a className="transition hover:text-[var(--ink)]" href="#library-shelf">Library shelf</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#ranking">Ranking</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#search">Search</a></li>
           <li><a className="transition hover:text-[var(--ink)]" href="#limits">Limits</a></li>
@@ -139,6 +140,30 @@ export default function MethodologyPage() {
             may be imprints, parent companies, publisher groups, or edition labels. The project therefore uses a curated
             normalization map to turn raw publisher strings into explicit imprint and parent-publisher records. Generated
             imprint output should be regenerated from that map rather than edited directly.
+          </p>
+        </MethodSection>
+
+        <MethodSection id="library-shelf" title="Library of Congress shelf">
+          <p>
+            The library-shelf view is a discovery aid built from Library of Congress Classification call numbers. A call
+            number describes where a particular cataloged edition files on a shelf; it is not the same as an LCCN, which
+            identifies a Library of Congress catalog record. The view orders only books with a parseable, sufficiently
+            complete call number. Broad class-only values are retained for review but are not presented as precise shelf
+            placements.
+          </p>
+          <p>
+            Placements are extracted conservatively from cached Open Library edition records. Exact ISBN matches are
+            preferred. When exact-edition evidence is unavailable, a placement may be accepted from matching editions of
+            the same Open Library work only when the evidence reaches a clear consensus and no conflicting edition data
+            makes the result ambiguous. Electronic-resource, audiobook, large-print, school-binding, and other unsuitable
+            edition records are excluded. Each accepted placement retains its source record and confidence tier.
+          </p>
+          <p>
+            Filing follows parsed classification letters, class number, decimal, Cutter numbers, date, and suffix rather
+            than ordinary text sorting. The neighboring books are therefore the prize-recognized books represented in
+            this index—not every title that would stand beside the book in a complete library collection. Current
+            coverage and unresolved conflicts are reported explicitly, and missing call numbers are never guessed from a
+            book&apos;s subject.
           </p>
         </MethodSection>
 

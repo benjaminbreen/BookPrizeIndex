@@ -11,6 +11,7 @@ import {
   type PrizeRegistryFileEntry,
 } from "./build/award-programs";
 import { buildBrowseData } from "./build/browse-data";
+import { buildLibraryShelf, type LibraryClassDefinition } from "./build/library-shelf";
 import { writePublicCatalogArtifacts } from "./build/public-catalog-artifacts";
 import { writeAggregateQaArtifact, writeRowQaArtifact } from "./build/qa-artifacts";
 import { applyCuration, applySourcePatches, isTrustedWikipediaBookEvidence, mergeObject, readCuration, readEnrichment, type CurationFile } from "./build/curation";
@@ -58,6 +59,17 @@ type RawAppearanceRow = {
   Status?: string;
   Award?: string;
 };
+
+async function readLibraryClassDefinitions(): Promise<LibraryClassDefinition[]> {
+  try {
+    const parsed = JSON.parse(
+      await fs.readFile(path.join(sourcesDir, "library-of-congress-classes.json"), "utf8"),
+    ) as { classes?: LibraryClassDefinition[] };
+    return parsed.classes ?? [];
+  } catch {
+    return [];
+  }
+}
 
 type SubjectClassificationReportEntry = {
   bookId: string;
@@ -663,6 +675,7 @@ async function main() {
   const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8")) as ManifestEntry[];
   const subjectDefinitions = await readSubjectDefinitions();
   const topicDefinitions = await readTopicDefinitions();
+  const libraryClassDefinitions = await readLibraryClassDefinitions();
   const subjectMapRules = await readSubjectMapRules(subjectDefinitions);
   const curation = await readCuration();
   const enrichment = await readEnrichment();
@@ -1011,6 +1024,10 @@ async function main() {
     publicDir: publicDataDir,
   });
   await fs.writeFile(path.join(publicDataDir, "browse.json"), `${JSON.stringify(buildBrowseData(publicData))}\n`);
+  await fs.writeFile(
+    path.join(publicDataDir, "library-shelf.json"),
+    `${JSON.stringify(buildLibraryShelf(publicData, libraryClassDefinitions))}\n`,
+  );
   await fs.writeFile(
     path.join(reportsDataDir, "taxonomy-validation-report.json"),
     `${JSON.stringify(taxonomyValidationReport, null, 2)}\n`,

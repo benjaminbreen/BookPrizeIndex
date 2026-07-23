@@ -30,7 +30,8 @@ const ideas = [
   {
     title: "The Library of Congress Shelf",
     description: "Reshelve prize-recognized books by Library of Congress class and call number, from A to Z.",
-    status: "To do",
+    href: "/fun/library-of-congress-shelf",
+    status: "Live",
   },
   {
     title: "The Infinite Bookshelf",

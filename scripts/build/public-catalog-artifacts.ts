@@ -104,6 +104,7 @@ function compactBook(book: Book): Book {
   const {
     displaySummary: _displaySummary,
     experimentalSemanticProfile: _experimentalSemanticProfile,
+    libraryShelf: _libraryShelf,
     nytBestseller: _nytBestseller,
     readerProfile: _readerProfile,
     relatedBookIds: _relatedBookIds,

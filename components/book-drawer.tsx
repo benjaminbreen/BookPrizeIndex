@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
 import { withAmazonAssociateTag } from "@/lib/affiliate-links";
 import type { BookDrawerAppearance, BookDrawerPayload } from "@/lib/book-drawer-types";
+import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 import type { Book, WikipediaBookEvidence } from "@/lib/types";
 
@@ -283,6 +284,12 @@ export function BookDrawer({
             <DrawerRetailerLinks book={renderedBook} />
           </div>
         </dl>
+
+        {renderedPayload.shelfNeighborhood ? (
+          <div className="book-drawer-section mt-6">
+            <ShelfNeighborhood mode="drawer" neighborhood={renderedPayload.shelfNeighborhood} />
+          </div>
+        ) : null}
 
         <div className="book-drawer-section mt-5">
           <div className="flex items-center justify-between">

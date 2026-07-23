@@ -67,6 +67,9 @@ export function buildBrowseData(data: PublicData): BrowseData {
         majorLonglists: stats?.majorLonglists ?? 0,
         normalLonglists: stats?.normalLonglists ?? 0,
         hasIsbn: book.isbn13.length > 0,
+        ...(book.libraryShelf?.completeness === "full_call_number"
+          ? { hasLibraryShelfPlacement: true }
+          : {}),
         hasPageCount: Boolean(book.pageCount),
         hasCover: Boolean(book.thumbnailUrl),
         hasSummary: Boolean(book.summary || book.displaySummary),

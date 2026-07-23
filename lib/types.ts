@@ -103,6 +103,39 @@ export type BookReaderProfile = {
   method?: string;
 };
 
+export type LibraryCallNumberSortParts = {
+  classLetters: string;
+  classWholeNumber: number;
+  classDecimalDigits?: string;
+  cutters: Array<{
+    letters: string;
+    decimalDigits: string;
+  }>;
+  year?: number;
+  suffix?: string;
+  trailingTokens?: string[];
+};
+
+export type LibraryShelfPlacement = {
+  scheme: "lcc";
+  callNumber: string;
+  rawCallNumber: string;
+  mainClass: string;
+  subclass: string;
+  completeness: "full_call_number" | "classification_only";
+  confidence: "high" | "medium";
+  matchedBy:
+    | "manual"
+    | "loc_exact_isbn"
+    | "open_library_exact_isbn"
+    | "open_library_work_consensus";
+  sourceId: string;
+  sourceEditionId?: string;
+  sourceWorkId?: string;
+  sourceIsbn13?: string;
+  sort: LibraryCallNumberSortParts;
+};
+
 export type ExperimentalSemanticEntity = {
   name: string;
   confidence: number;
@@ -147,6 +180,7 @@ export type Book = {
   imprintId?: string;
   pageCount?: number;
   isbn13: string[];
+  libraryShelf?: LibraryShelfPlacement;
   primarySubject?: string;
   subjects: string[];
   subjectCategories?: BookSubjectCategory[];

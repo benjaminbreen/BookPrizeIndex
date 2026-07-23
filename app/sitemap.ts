@@ -20,6 +20,7 @@ const DATA_ROUTES = [
   "/experiments",
   "/fun",
   "/fun/chromatic-index",
+  "/fun/library-of-congress-shelf",
   "/fun/nonfiction-galaxy",
   "/imprints",
   "/publishers",

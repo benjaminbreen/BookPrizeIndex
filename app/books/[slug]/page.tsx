@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
 import { ExpandableBookDescription } from "@/components/expandable-book-description";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
+import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { withAmazonAssociateTag } from "@/lib/affiliate-links";
 import { authorPlatformLinksFor } from "@/lib/author-platform-links";
 import { readBookDetailArtifact } from "@/lib/book-detail-artifacts";
@@ -22,6 +23,7 @@ import {
 } from "@/lib/data";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 import { compactDescription } from "@/lib/site";
+import { libraryShelfNeighborhoodFor } from "@/lib/library-shelf-data";
 import type { AwardAppearance, Book, ExperimentalSemanticEntity, ExperimentalSemanticProfile, WikipediaBookEvidence } from "@/lib/types";
 import type { BookAuthorPlatformLink } from "@/lib/book-drawer-types";
 
@@ -104,6 +106,7 @@ export default async function BookPage({ params }: PageProps) {
     .slice(0, 4);
   const detailDescription = detailPageDescription(book);
   const wikipediaInfobox = wikipediaEvidence?.infobox;
+  const shelfNeighborhood = libraryShelfNeighborhoodFor(book.id);
 
   return (
     <main className="book-detail-page">
@@ -171,6 +174,14 @@ export default async function BookPage({ params }: PageProps) {
           <RetailerLinks book={book} />
         </aside>
       </section>
+
+      {shelfNeighborhood ? (
+        <section className="border-t hairline">
+          <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+            <ShelfNeighborhood neighborhood={shelfNeighborhood} />
+          </div>
+        </section>
+      ) : null}
 
       <section className="border-t hairline">
         <div className="mx-auto grid max-w-7xl gap-0 px-4 sm:px-6 lg:grid-cols-[1fr_24rem] lg:px-8">

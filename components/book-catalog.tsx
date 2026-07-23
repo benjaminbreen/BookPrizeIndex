@@ -3,15 +3,17 @@
 import Link from "next/link";
 import type React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Info, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { BookOpen, CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Info, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { BookDrawer } from "@/components/book-drawer";
+import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
 import { useAwardRegion } from "@/components/use-award-region";
 import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import { bookRecognition, compareBrowseBookRecognition } from "@/lib/browse-ranking";
 import type { BrowseBookRow } from "@/lib/browse-types";
+import type { LibraryShelfNeighborhood } from "@/lib/library-shelf-types";
 import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryExpansionModel, type SemanticQueryInterpretation } from "@/lib/semantic-search";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 
@@ -86,6 +88,9 @@ export function BookCatalog({
   const [showOptions, setShowOptions] = useState(false);
   const [page, setPage] = useState(1);
   const [activeBookId, setActiveBookId] = useState<string | null>(null);
+  const [expandedShelfBookId, setExpandedShelfBookId] = useState<string | null>(null);
+  const [shelfLoadingBookId, setShelfLoadingBookId] = useState<string | null>(null);
+  const [shelfNeighborhoods, setShelfNeighborhoods] = useState<Record<string, LibraryShelfNeighborhood | null>>({});
   const [density, setDensity] = useState<"compact" | "normal" | "roomy">("normal");
   const [showSemanticDetails, setShowSemanticDetails] = useState(false);
   const [remoteRows, setRemoteRows] = useState(books);
@@ -199,6 +204,7 @@ export function BookCatalog({
 
   useEffect(() => {
     setActiveBookId(null);
+    setExpandedShelfBookId(null);
   }, [searchParams]);
 
   useEffect(() => {
@@ -257,6 +263,27 @@ export function BookCatalog({
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
     openBook(book);
+  }
+
+  async function toggleShelf(event: React.MouseEvent, book: BrowseBookRow) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (expandedShelfBookId === book.id) {
+      setExpandedShelfBookId(null);
+      return;
+    }
+    setExpandedShelfBookId(book.id);
+    if (shelfNeighborhoods[book.id] !== undefined) return;
+    setShelfLoadingBookId(book.id);
+    try {
+      const response = await fetch(`/api/books/detail?id=${encodeURIComponent(book.id)}`);
+      const payload = await response.json() as { shelfNeighborhood?: LibraryShelfNeighborhood };
+      setShelfNeighborhoods((current) => ({ ...current, [book.id]: payload.shelfNeighborhood ?? null }));
+    } catch {
+      setShelfNeighborhoods((current) => ({ ...current, [book.id]: null }));
+    } finally {
+      setShelfLoadingBookId((current) => current === book.id ? null : current);
+    }
   }
 
   function resetFilters() {
@@ -783,7 +810,11 @@ export function BookCatalog({
                       key={book.id}
                       onOpen={() => openBook(book)}
                       onOpenLink={(event) => openBookFromLink(event, book)}
+                      onToggleShelf={(event) => void toggleShelf(event, book)}
                       region={region}
+                      shelfExpanded={expandedShelfBookId === book.id}
+                      shelfLoading={shelfLoadingBookId === book.id}
+                      shelfNeighborhood={shelfNeighborhoods[book.id] ?? undefined}
                       style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
                     />
                   ))}
@@ -839,45 +870,76 @@ export function BookCatalog({
                     const imprint = book.imprint ?? "";
                     const publisher = book.publisher ?? "";
                     const displayYear = book.publicationYear ?? stats.firstRecognitionYear ?? book.firstRecognitionYear;
+                    const shelfExpanded = expandedShelfBookId === book.id;
+                    const shelfNeighborhood = shelfNeighborhoods[book.id];
                     return (
-                      <tr
-                        key={book.id}
-                        className={`book-table-row fade-up cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)] ${
-                          activeBookId === book.id ? "book-table-row-active" : ""
-                        }`}
-                        style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
-                        onClick={() => openBook(book)}
-                      >
-                        <td className={`plain-number px-3 ${rowPadding} text-xs`}>{displayYear ?? "-"}</td>
-                        <td className={`px-3 ${rowPadding}`}>
-                          <Link
-                            aria-label={`Open ${book.title}`}
-                            className={`focus-ring w-full items-center text-left transition hover:text-[var(--accent)] ${
-                              showRowCovers ? (density === "roomy" ? "grid grid-cols-[3rem_1fr] gap-3.5" : "grid grid-cols-[2.35rem_1fr] gap-3") : "block"
-                            }`}
-                            href={`/books/${book.slug}`}
-                            onClick={(event) => openBookFromLink(event, book)}
-                          >
-                            {showRowCovers ? <BookRowCover book={book} size={coverSize} /> : null}
-                            <span className="book-catalog-title text-base">{book.title}</span>
-                          </Link>
-                        </td>
-                        <td className={`px-3 ${rowPadding}`}>
-                          <span className="line-clamp-2">{book.author}</span>
-                        </td>
-                        <td className={`px-3 ${rowPadding}`}>
-                          <BookPrimarySubject book={book} />
-                        </td>
-                        <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.score}</td>
-                        <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.wins}</td>
-                        <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.lists}</td>
-                        <td className={`px-3 ${rowPadding}`}>
-                          <span className={`line-clamp-2 ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</span>
-                        </td>
-                        <td className={`px-3 ${rowPadding}`}>
-                          <span className={`line-clamp-2 ${publisher ? "" : "book-missing-value"}`}>{publisher || "Not yet sourced"}</span>
-                        </td>
-                      </tr>
+                      <Fragment key={book.id}>
+                        <tr
+                          className={`book-table-row fade-up cursor-pointer border-b hairline text-sm transition hover:bg-[var(--accent-soft)] ${
+                            activeBookId === book.id ? "book-table-row-active" : ""
+                          }`}
+                          style={{ animationDelay: `${Math.min(index * 10, 100)}ms` }}
+                          onClick={() => openBook(book)}
+                        >
+                          <td className={`plain-number px-3 ${rowPadding} text-xs`}>{displayYear ?? "-"}</td>
+                          <td className={`px-3 ${rowPadding}`}>
+                            <div className="book-title-with-shelf">
+                              <Link
+                                aria-label={`Open ${book.title}`}
+                                className={`focus-ring w-full items-center text-left transition hover:text-[var(--accent)] ${
+                                  showRowCovers ? (density === "roomy" ? "grid grid-cols-[3rem_1fr] gap-3.5" : "grid grid-cols-[2.35rem_1fr] gap-3") : "block"
+                                }`}
+                                href={`/books/${book.slug}`}
+                                onClick={(event) => openBookFromLink(event, book)}
+                              >
+                                {showRowCovers ? <BookRowCover book={book} size={coverSize} /> : null}
+                                <span className="book-catalog-title text-base">{book.title}</span>
+                              </Link>
+                              {book.hasLibraryShelfPlacement ? (
+                                <button
+                                  aria-controls={`catalog-shelf-${book.id}`}
+                                  aria-expanded={shelfExpanded}
+                                  aria-label={`${shelfExpanded ? "Close" : "Browse"} the library shelf around ${book.title}`}
+                                  className="catalog-shelf-toggle focus-ring"
+                                  onClick={(event) => void toggleShelf(event, book)}
+                                  type="button"
+                                >
+                                  <BookOpen aria-hidden="true" size={13} />
+                                  Shelf
+                                </button>
+                              ) : null}
+                            </div>
+                          </td>
+                          <td className={`px-3 ${rowPadding}`}>
+                            <span className="line-clamp-2">{book.author}</span>
+                          </td>
+                          <td className={`px-3 ${rowPadding}`}>
+                            <BookPrimarySubject book={book} />
+                          </td>
+                          <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.score}</td>
+                          <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.wins}</td>
+                          <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.lists}</td>
+                          <td className={`px-3 ${rowPadding}`}>
+                            <span className={`line-clamp-2 ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</span>
+                          </td>
+                          <td className={`px-3 ${rowPadding}`}>
+                            <span className={`line-clamp-2 ${publisher ? "" : "book-missing-value"}`}>{publisher || "Not yet sourced"}</span>
+                          </td>
+                        </tr>
+                        {shelfExpanded ? (
+                          <tr className="catalog-shelf-expanded-row" id={`catalog-shelf-${book.id}`}>
+                            <td colSpan={9}>
+                              {shelfLoadingBookId === book.id ? (
+                                <p className="catalog-shelf-status" role="status">Finding the neighboring books…</p>
+                              ) : shelfNeighborhood ? (
+                                <ShelfNeighborhood mode="inline" neighborhood={shelfNeighborhood} />
+                              ) : (
+                                <p className="catalog-shelf-status">A shelf neighborhood is not available for this record.</p>
+                              )}
+                            </td>
+                          </tr>
+                        ) : null}
+                      </Fragment>
                     );
                   })}
                 </tbody>
@@ -1017,14 +1079,22 @@ function BookMobileCard({
   isSelected,
   onOpen,
   onOpenLink,
+  onToggleShelf,
   region,
+  shelfExpanded,
+  shelfLoading,
+  shelfNeighborhood,
   style,
 }: {
   book: BrowseBookRow;
   isSelected: boolean;
   onOpen: () => void;
   onOpenLink: (event: React.MouseEvent<HTMLAnchorElement>) => void;
+  onToggleShelf: (event: React.MouseEvent<HTMLButtonElement>) => void;
   region: AwardRegionFilter;
+  shelfExpanded: boolean;
+  shelfLoading: boolean;
+  shelfNeighborhood?: LibraryShelfNeighborhood;
   style?: React.CSSProperties;
 }) {
   const stats = bookRecognition(book, region);
@@ -1086,6 +1156,33 @@ function BookMobileCard({
           <span className="plain-number text-[0.58rem] text-[var(--muted)]">+{Math.max(book.topics.length - 1, 0)}</span>
         ) : null}
       </span>
+      {book.hasLibraryShelfPlacement ? (
+        <button
+          aria-controls={`catalog-mobile-shelf-${book.id}`}
+          aria-expanded={shelfExpanded}
+          className="catalog-mobile-shelf-toggle focus-ring"
+          onClick={onToggleShelf}
+          type="button"
+        >
+          <BookOpen aria-hidden="true" size={13} />
+          {shelfExpanded ? "Close shelf" : "Browse nearby on the shelf"}
+        </button>
+      ) : null}
+      {shelfExpanded ? (
+        <div
+          className="catalog-mobile-shelf"
+          id={`catalog-mobile-shelf-${book.id}`}
+          onClick={(event) => event.stopPropagation()}
+        >
+          {shelfLoading ? (
+            <p className="catalog-shelf-status" role="status">Finding the neighboring books…</p>
+          ) : shelfNeighborhood ? (
+            <ShelfNeighborhood mode="inline" neighborhood={shelfNeighborhood} />
+          ) : (
+            <p className="catalog-shelf-status">A shelf neighborhood is not available for this record.</p>
+          )}
+        </div>
+      ) : null}
     </div>
   );
 }

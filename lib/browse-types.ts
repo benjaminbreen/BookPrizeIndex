@@ -26,6 +26,7 @@ export type BrowseBookRow = {
   majorLonglists: number;
   normalLonglists: number;
   hasIsbn: boolean;
+  hasLibraryShelfPlacement?: boolean;
   hasPageCount: boolean;
   hasCover: boolean;
   hasSummary: boolean;

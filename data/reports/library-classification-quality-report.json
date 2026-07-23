@@ -1,0 +1,83 @@
+{
+  "generatedAt": "2026-07-23T18:23:43.075Z",
+  "catalogBooks": 7066,
+  "booksWithIsbn": 4696,
+  "accepted": 1679,
+  "coveragePercent": 23.8,
+  "highConfidence": 1217,
+  "mediumConfidence": 462,
+  "status": {
+    "accepted": 1679,
+    "classification_only": 100,
+    "conflict": 443,
+    "insufficient_consensus": 389,
+    "not_found": 4455
+  },
+  "byMethod": {
+    "open_library_exact_isbn": 1322,
+    "open_library_work_consensus": 357
+  },
+  "byMainClass": {
+    "H": 270,
+    "D": 244,
+    "P": 213,
+    "Q": 188,
+    "E": 177,
+    "B": 85,
+    "F": 70,
+    "G": 66,
+    "R": 62,
+    "N": 56,
+    "J": 47,
+    "T": 46,
+    "K": 45,
+    "M": 38,
+    "C": 22,
+    "U": 17,
+    "S": 11,
+    "L": 10,
+    "Z": 8,
+    "A": 4
+  },
+  "bySubject": {
+    "Biography": 259,
+    "Science": 184,
+    "American History": 164,
+    "Memoir & Autobiography": 125,
+    "History": 123,
+    "World History": 112,
+    "Politics & Government": 108,
+    "Arts & Criticism": 89,
+    "Society & Culture": 85,
+    "Business & Economics": 76,
+    "Race & Ethnicity": 76,
+    "Nature & Environment": 64,
+    "War & Military": 48,
+    "True Crime & Justice": 34,
+    "Medicine & Public Health": 30,
+    "Gender & Sexuality": 27,
+    "Religion": 24,
+    "Technology": 21,
+    "Journalism & Reportage": 18,
+    "Travel & Place": 8,
+    "Sports": 4
+  },
+  "byDecade": {
+    "2010s": 660,
+    "2000s": 396,
+    "2020s": 220,
+    "1990s": 149,
+    "Unknown": 97,
+    "1980s": 70,
+    "1970s": 63,
+    "1960s": 14,
+    "1950s": 6,
+    "1940s": 2,
+    "1920s": 1,
+    "1930s": 1
+  },
+  "notes": [
+    "Counts are cache-first and exclude classification-only, electronic-suffix, disallowed-format, unparseable, and materially conflicting evidence.",
+    "Coverage is not expected to be uniform across publication periods, regions, or languages."
+  ]
+}
