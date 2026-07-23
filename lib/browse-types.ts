@@ -56,6 +56,7 @@ export type BrowseLinkRow = {
 
 export type BrowseAwardRow = {
   id: string;
+  awardIds: string[];
   slug: string;
   name: string;
   shortName?: string;

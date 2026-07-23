@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { BookCatalogQuery } from "@/lib/book-catalog-query";
 import type { SemanticQueryExpansionModel, SemanticQueryInterpretation, SemanticSearchResult } from "@/lib/semantic-search";
 
-type SemanticCandidateFilters = Pick<BookCatalogQuery, "awardId" | "metadata" | "publisherId" | "region" | "subject" | "topic">;
+type SemanticCandidateFilters = Pick<BookCatalogQuery, "awardIds" | "metadata" | "publisherId" | "region" | "subject" | "topic">;
 
 export type SemanticBookSearchState = {
   diagnostics: SemanticSearchDiagnostics | null;

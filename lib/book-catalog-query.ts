@@ -9,7 +9,7 @@ export type BookCatalogSortKey = "score" | "year" | "title" | "author" | "wins" 
 export type BookCatalogMetadataFilter = "all" | "complete" | "missing" | "has_cover" | "missing_cover" | "missing_publisher";
 
 export type BookCatalogQuery = {
-  awardId?: string;
+  awardIds?: string[];
   metadata?: BookCatalogMetadataFilter;
   page?: number;
   pageSize?: number;
@@ -62,7 +62,7 @@ export function filterBookCatalogRows(books: BrowseBookRow[], query: BookCatalog
     if (recognition.lists === 0) return false;
     if (query.topic && !book.topics.includes(query.topic)) return false;
     if (query.subject && !book.subjects.some((subject) => rollupSubjectName(subject) === query.subject)) return false;
-    if (query.awardId && !recognition.awardIds.includes(query.awardId)) return false;
+    if (query.awardIds?.length && !query.awardIds.some((awardId) => recognition.awardIds.includes(awardId))) return false;
     if (query.publisherId && book.publisherId !== query.publisherId) return false;
     return matchesMetadataFilter(book, metadata);
   });

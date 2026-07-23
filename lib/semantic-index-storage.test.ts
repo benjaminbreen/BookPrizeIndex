@@ -18,12 +18,12 @@ test("binary semantic vectors load and embedded filter metadata matches browse f
   assert.equal(index.books[0]?.embedding.length, index.dimensions);
   assert.ok(index.books[0]?.embedding instanceof Float32Array);
 
-  const queries: Array<Pick<BookCatalogQuery, "awardId" | "metadata" | "publisherId" | "region" | "subject" | "topic">> = [
+  const queries: Array<Pick<BookCatalogQuery, "awardIds" | "metadata" | "publisherId" | "region" | "subject" | "topic">> = [
     ...(["us", "international", "all"] as const).flatMap((region) =>
       (["all", "complete", "missing", "has_cover", "missing_cover", "missing_publisher"] as const)
         .map((metadata) => ({ region, metadata }))),
     ...browse.books.slice(0, 30).flatMap((book) => [
-      { region: "all" as const, awardId: book.awardIds[0] },
+      { region: "all" as const, awardIds: book.awardIds.slice(0, 2) },
       { region: "all" as const, publisherId: book.publisherId },
       { region: "all" as const, subject: book.subjects[0] },
       { region: "all" as const, topic: book.topics[0] },

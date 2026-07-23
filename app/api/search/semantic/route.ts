@@ -31,7 +31,7 @@ export const dynamic = "force-dynamic";
 
 type SemanticSearchRequest = {
   candidateBookIds?: string[];
-  filters?: Pick<BookCatalogQuery, "awardId" | "metadata" | "publisherId" | "region" | "subject" | "topic">;
+  filters?: Pick<BookCatalogQuery, "awardIds" | "metadata" | "publisherId" | "region" | "subject" | "topic">;
   limit?: number;
   query?: string;
   queryExpansionModel?: SemanticQueryExpansionModel;

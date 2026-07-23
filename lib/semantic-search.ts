@@ -338,7 +338,7 @@ export function cosineSimilarity(a: SemanticVector, b: SemanticVector, bNorm = v
 export function semanticRowMatchesFilters(
   row: SemanticBookIndexRow,
   filters: {
-    awardId?: string;
+    awardIds?: string[];
     metadata?: BookCatalogMetadataFilter;
     publisherId?: string;
     region?: AwardRegionFilter;
@@ -351,7 +351,7 @@ export function semanticRowMatchesFilters(
   if (!recognition || recognition.lists === 0) return false;
   if (filters.topic && !row.topics.includes(filters.topic)) return false;
   if (filters.subject && !row.subjects.some((subject) => rollupSubjectName(subject) === filters.subject)) return false;
-  if (filters.awardId && !recognition.awardIds.includes(filters.awardId)) return false;
+  if (filters.awardIds?.length && !filters.awardIds.some((awardId) => recognition.awardIds.includes(awardId))) return false;
   if (filters.publisherId && row.filter.publisherId !== filters.publisherId) return false;
 
   const metadata = filters.metadata ?? "all";

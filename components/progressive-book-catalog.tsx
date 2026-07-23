@@ -5,7 +5,7 @@ import { useMemo, useState } from "react";
 import { BookCatalog } from "@/components/book-catalog";
 import type { BrowseBookRow } from "@/lib/browse-types";
 
-type AwardOption = { id: string; name: string; shortName?: string };
+type AwardOption = { id: string; awardIds: string[]; name: string; shortName?: string };
 
 type EntityType = "imprint" | "publisher";
 

@@ -184,6 +184,7 @@ function buildAwardRows(data: PublicData, appearancesByAwardId: Map<string, Awar
       const description = `${awards.length} categories represented: ${categories.slice(0, 3).join(", ")}${categories.length > 3 ? ", ..." : ""}`;
       return {
         id: `program-${program.id}`,
+        awardIds: [...awardIds],
         slug: program.slug,
         name: program.name,
         description,
@@ -206,6 +207,7 @@ function buildAwardRows(data: PublicData, appearancesByAwardId: Map<string, Awar
       const description = award.criteria ?? award.description ?? awardBrowseDescription(award);
       return {
         id: award.id,
+        awardIds: [award.id],
         slug: award.slug,
         name: award.name,
         shortName: award.shortName,

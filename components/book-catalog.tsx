@@ -16,7 +16,7 @@ import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryEx
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 
 type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
-type AwardOption = { id: string; name: string; shortName?: string };
+type AwardOption = { id: string; awardIds: string[]; name: string; shortName?: string };
 type CatalogOption = { value: string; label: string };
 type RemoteBookCatalog = {
   initialTotal: number;
@@ -98,10 +98,21 @@ export function BookCatalog({
   const [semanticQuery, setSemanticQuery] = useState(urlQuery);
   const activeQuery = mode === "semantic" ? semanticQuery : query;
   const pageSize = 100;
+  const selectedAwardIds = useMemo(
+    () => awardOptions.find((award) => award.id === awardFilter)?.awardIds ?? [],
+    [awardFilter, awardOptions],
+  );
   const awardBookIds = useMemo(() => {
-    if (!awardFilter) return null;
-    return new Set(books.filter((book) => bookRecognition(book, region).awardIds.includes(awardFilter)).map((book) => book.id));
-  }, [awardFilter, books, region]);
+    if (!selectedAwardIds.length) return null;
+    return new Set(
+      books
+        .filter((book) => {
+          const recognition = bookRecognition(book, region);
+          return selectedAwardIds.some((awardId) => recognition.awardIds.includes(awardId));
+        })
+        .map((book) => book.id),
+    );
+  }, [books, region, selectedAwardIds]);
   const publisherOptions = useMemo(() => remote?.publisherOptions ??
     [...new Map(books.filter((book) => book.publisherId && book.publisher).map((book) => [book.publisherId!, { id: book.publisherId!, name: book.publisher! }])).values()]
       .sort((a, b) => a.name.localeCompare(b.name)), [books, remote?.publisherOptions]);
@@ -120,13 +131,13 @@ export function BookCatalog({
   }, [awardBookIds, books, metadataFilter, publisherFilter, region, subjectFilter, topicFilter]);
   const semanticCandidateBookIds = useMemo(() => remote ? [] : structuredRows.map((book) => book.id), [remote, structuredRows]);
   const semanticCandidateFilters = useMemo(() => remote ? ({
-    awardId: awardFilter || undefined,
+    awardIds: selectedAwardIds.length ? selectedAwardIds : undefined,
     metadata: metadataFilter,
     publisherId: publisherFilter || undefined,
     region,
     subject: subjectFilter || undefined,
     topic: topicFilter || undefined,
-  }) : undefined, [awardFilter, metadataFilter, publisherFilter, region, remote, subjectFilter, topicFilter]);
+  }) : undefined, [metadataFilter, publisherFilter, region, remote, selectedAwardIds, subjectFilter, topicFilter]);
   const semanticSearch = useSemanticBookSearch({
     candidateBookIds: semanticCandidateBookIds,
     enabled: mode === "semantic",
@@ -204,7 +215,7 @@ export function BookCatalog({
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            awardId: awardFilter || undefined,
+            awardIds: selectedAwardIds.length ? selectedAwardIds : undefined,
             metadata: metadataFilter,
             page,
             pageSize,
@@ -235,7 +246,7 @@ export function BookCatalog({
       window.clearTimeout(timeout);
       controller.abort();
     };
-  }, [activeQuery, awardFilter, metadataFilter, mode, page, publisherFilter, region, remote, remoteSemanticBookIds, remoteSemanticKey, remoteSemanticReady, semanticQuery, semanticSearch.error, sortKey, subjectFilter, topicFilter]);
+  }, [activeQuery, metadataFilter, mode, page, publisherFilter, region, remote, remoteSemanticBookIds, remoteSemanticKey, remoteSemanticReady, selectedAwardIds, semanticQuery, semanticSearch.error, sortKey, subjectFilter, topicFilter]);
 
   function openBook(book: BrowseBookRow) {
     setActiveBookId(book.id);
