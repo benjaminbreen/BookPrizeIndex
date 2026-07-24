@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CornerDownLeft, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import type React from "react";
+import { AuthorLinks } from "@/components/author-links";
 import { BookDrawer } from "@/components/book-drawer";
 import { EntityMetricGrid, SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch } from "@/components/use-semantic-book-search";
@@ -222,16 +223,30 @@ export function SubjectDetail({
                   const imprint = book.imprint ?? "";
                   const publisher = book.publisher ?? "";
                   return (
-                    <Link
-                      className="book-mobile-card book-mobile-card-compact block w-full border-b hairline px-3 py-3 text-left text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
-                      href={`/books/${book.slug}`}
+                    <div
+                      className="book-mobile-card book-mobile-card-compact block w-full cursor-pointer border-b hairline px-3 py-3 text-left text-sm transition last:border-b-0 hover:bg-[var(--accent-soft)]"
                       key={book.id}
-                      onClick={(event) => openBookFromLink(event, book)}
+                      onClick={() => setActiveBookId(book.id)}
+                      onKeyDown={(event) => {
+                        if ((event.target as HTMLElement).closest("a, button")) return;
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault();
+                          setActiveBookId(book.id);
+                        }
+                      }}
+                      role="button"
+                      tabIndex={0}
                     >
                       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3">
                         <div className="min-w-0 overflow-hidden">
-                          <p className="book-mobile-title-one-line text-base font-medium leading-snug">{book.title}</p>
-                          <p className="mt-0.5 truncate text-sm leading-5 muted">{book.author}</p>
+                          <Link
+                            className="book-mobile-title-one-line focus-ring block text-base font-medium leading-snug"
+                            href={`/books/${book.slug}`}
+                            onClick={(event) => openBookFromLink(event, book)}
+                          >
+                            {book.title}
+                          </Link>
+                          <AuthorLinks authors={book.authors} className="mt-0.5 text-sm leading-5 muted" />
                         </div>
                         <span className="plain-number shrink-0 font-[var(--font-mono)] text-xs">{book.publicationYear ?? "-"}</span>
                       </div>
@@ -242,7 +257,7 @@ export function SubjectDetail({
                           {imprint || publisher || "Not yet sourced"}
                         </span>
                       </div>
-                    </Link>
+                    </div>
                   );
                 })}
               </div>
@@ -290,7 +305,7 @@ export function SubjectDetail({
                               <span className="line-clamp-2">{book.title}</span>
                             </Link>
                           </td>
-                          <td className="px-4 py-3">{book.author}</td>
+                          <td className="px-4 py-3"><AuthorLinks authors={book.authors} /></td>
                           <td className="plain-number px-4 py-3 text-xs">{book.wins}</td>
                           <td className="plain-number px-4 py-3 text-xs">{book.lists}</td>
                           <td className={`px-4 py-3 ${imprint || publisher ? "" : "book-missing-value"}`}>{imprint || publisher || "Not yet sourced"}</td>

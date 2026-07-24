@@ -5,6 +5,11 @@ export type BrowseBookRow = {
   slug: string;
   title: string;
   author: string;
+  authors: Array<{
+    id: string;
+    name: string;
+    slug: string;
+  }>;
   publicationYear?: number;
   firstRecognitionYear?: number;
   publisherId?: string;

@@ -30,6 +30,7 @@ function book(
     slug: id,
     title: id,
     author: "Author",
+    authors: [{ id: "person-author", name: "Author", slug: "author" }],
     subjects: [],
     topics: [],
     awardIds: [],

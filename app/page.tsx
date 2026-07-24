@@ -35,6 +35,7 @@ const homeBrowseData = {
       slug: book.slug,
       title: book.title,
       author: book.author,
+      authors: book.authors,
       publicationYear: book.publicationYear,
       firstRecognitionYear: book.firstRecognitionYear,
       publisher: book.publisher,

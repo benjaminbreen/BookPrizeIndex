@@ -5,6 +5,7 @@ import type React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { BookOpen, CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Info, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
+import { AuthorLinks } from "@/components/author-links";
 import { BookDrawer } from "@/components/book-drawer";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
@@ -987,7 +988,7 @@ export function BookCatalog({
                             </div>
                           </td>
                           <td className={`px-3 ${rowPadding}`}>
-                            <span className="line-clamp-2">{book.author}</span>
+                            <AuthorLinks authors={book.authors} />
                           </td>
                           <td className={`hidden px-3 xl:table-cell ${rowPadding}`}>
                             <BookPrimarySubject book={book} />
@@ -1206,7 +1207,7 @@ function BookMobileCard({
           >
             {book.title}
           </Link>
-          <span className="mt-0.5 block truncate text-sm leading-5 muted">{book.author}</span>
+          <AuthorLinks authors={book.authors} className="mt-0.5 text-sm leading-5 muted" />
         </span>
         <span className="grid justify-items-end gap-1 font-[var(--font-mono)] text-xs">
           <span className="plain-number text-[var(--ink)]">{displayYear ?? "-"}</span>

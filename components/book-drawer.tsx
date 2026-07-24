@@ -248,7 +248,13 @@ export function BookDrawer({
           </div>
           <div className="self-center">
             <h2 className="text-[1.9rem] font-medium leading-[1.12] sm:text-[2.2rem]">{renderedBook.title}</h2>
-            <p className="mt-2.5 text-lg muted">{renderedBook.authors.map((author) => author.name).join(", ")}</p>
+            <p className="mt-2.5 flex flex-wrap gap-x-2 text-lg muted">
+              {renderedBook.authors.map((author) => (
+                <Link className="book-detail-text-link" href={`/authors/${author.id.replace(/^person-/, "")}`} key={author.id}>
+                  {author.name}
+                </Link>
+              ))}
+            </p>
             {summaryPreview ? (
               <p className="mt-3.5 max-w-2xl font-[var(--font-serif)] text-base italic leading-7 muted">
                 {summaryPreview}{" "}

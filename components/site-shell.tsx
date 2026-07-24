@@ -272,7 +272,7 @@ function SiteFooter() {
           <div className="mt-5 flex flex-wrap gap-2">
             <Link
               aria-label="Donate via Stripe"
-              className="focus-ring inline-flex bg-[var(--ink)] px-4 py-3 text-sm text-[var(--paper)] transition hover:bg-[var(--accent)]"
+              className="footer-donate-action focus-ring inline-flex px-4 py-3 text-sm"
               href={DONATE_URL}
             >
               Donate

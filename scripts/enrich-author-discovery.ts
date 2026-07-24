@@ -139,10 +139,15 @@ function buildProfile(author: RankedAuthor, entity: Entity, entities: Record<str
   });
   const platforms = substackPlatforms(entity, sourceId);
   const wikipediaTitle = entity.sitelinks?.enwiki?.title;
+  const imageFileName = claimString(entity, "P18");
   return {
     ...author,
+    description: entity.descriptions?.en?.value,
     wikidataId: entity.id,
     wikipediaUrl: wikipediaTitle ? `https://en.wikipedia.org/wiki/${encodeURIComponent(wikipediaTitle.replaceAll(" ", "_"))}` : undefined,
+    imageFileName,
+    imageUrl: imageFileName ? `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(imageFileName.replaceAll(" ", "_"))}?width=640` : undefined,
+    imageSourceUrl: imageFileName ? `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(imageFileName.replaceAll(" ", "_"))}` : undefined,
     countryConnections,
     lifeStatus,
     platforms,

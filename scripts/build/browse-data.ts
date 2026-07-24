@@ -46,6 +46,11 @@ export function buildBrowseData(data: PublicData): BrowseData {
         slug: book.slug,
         title: book.title,
         author: book.authors.map((author) => author.name).join(", "),
+        authors: book.authors.map((author) => ({
+          id: author.id,
+          name: author.name,
+          slug: author.id.replace(/^person-/, ""),
+        })),
         publicationYear: book.publicationYear,
         firstRecognitionYear: years.length ? Math.min(...years) : undefined,
         publisherId: book.publisherId,

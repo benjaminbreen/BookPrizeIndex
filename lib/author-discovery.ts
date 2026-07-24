@@ -21,11 +21,15 @@ export type AuthorPlatform = {
 export type AuthorDiscoveryProfile = {
   personId: string;
   name: string;
+  description?: string;
   rank: number;
   recognitionScore: number;
   bookCount: number;
   wikidataId: string;
   wikipediaUrl?: string;
+  imageFileName?: string;
+  imageUrl?: string;
+  imageSourceUrl?: string;
   countryConnections: AuthorCountryConnection[];
   lifeStatus: {
     value: AuthorLifeStatus;

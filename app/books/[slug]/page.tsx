@@ -129,7 +129,13 @@ export default async function BookPage({ params }: PageProps) {
         <section className="min-w-0">
           <h1 className="font-[var(--font-serif)] text-4xl font-light leading-[1.06] sm:text-5xl">{book.title}</h1>
           {book.subtitle ? <p className="mt-2 text-xl">{book.subtitle}</p> : null}
-          <p className="mt-3 text-lg muted">{book.authors.map((author) => author.name).join(", ")}</p>
+          <p className="mt-3 flex flex-wrap gap-x-2 text-lg muted">
+            {book.authors.map((author) => (
+              <Link className="book-detail-text-link" href={`/authors/${author.id.replace(/^person-/, "")}`} key={author.id}>
+                {author.name}
+              </Link>
+            ))}
+          </p>
 
           <div className="mt-6 max-w-3xl space-y-4 text-base leading-7">
             {detailDescription ? (
@@ -566,7 +572,13 @@ function RailMeta({ label, value }: { label: string; value: React.ReactNode }) {
 function AuthorRailValue({ authors, platforms }: { authors: Book["authors"]; platforms: BookAuthorPlatformLink[] }) {
   return (
     <span className="flex flex-col items-end gap-1">
-      <span>{authors.map((author) => author.name).join(", ")}</span>
+      <span className="flex flex-wrap justify-end gap-x-1.5">
+        {authors.map((author) => (
+          <Link className="book-detail-text-link" href={`/authors/${author.id.replace(/^person-/, "")}`} key={author.id}>
+            {author.name}
+          </Link>
+        ))}
+      </span>
       {platforms.map((platform) => (
         <a
           className="book-detail-text-link inline-flex items-center gap-1 text-[0.68rem]"

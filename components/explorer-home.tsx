@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown, ChevronUp, ChevronsUpDown, CornerDownLeft, Filter, Search } from "lucide-react";
 import { useMemo, useState } from "react";
+import { AuthorLinks } from "@/components/author-links";
 import type { SearchMode } from "@/components/ui/design-primitives";
 import { useAwardRegion } from "@/components/use-award-region";
 import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
@@ -21,6 +22,7 @@ export type HomeBookRow = Pick<
   | "slug"
   | "title"
   | "author"
+  | "authors"
   | "publicationYear"
   | "firstRecognitionYear"
   | "publisher"
@@ -305,7 +307,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
                         <span className="line-clamp-2">{book.title}</span>
                       </Link>
                     </td>
-                    <td className="px-4 py-4 text-sm">{book.author}</td>
+                    <td className="px-4 py-4 text-sm"><AuthorLinks authors={book.authors} /></td>
                     <td className="plain-number px-4 py-4 text-sm">{stats.wins}</td>
                     <td className="plain-number px-4 py-4 text-sm">{stats.lists}</td>
                     <td className={`px-4 py-4 text-sm ${book.imprint ? "" : "book-missing-value"}`}>{book.imprint || "Unknown"}</td>

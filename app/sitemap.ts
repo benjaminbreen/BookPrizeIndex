@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { authors } from "@/lib/authors";
 import { data } from "@/lib/data";
 import { getSiteUrl } from "@/lib/site";
 import { topicSummaries } from "@/lib/topics";
@@ -39,6 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const dataPaths = [
     ...DATA_ROUTES,
     ...data.books.map((book) => `/books/${book.slug}`),
+    ...authors.map((author) => `/authors/${author.id.replace(/^person-/, "")}`),
     ...data.awards.map((award) => `/awards/${award.slug}`),
     ...awardProgramSlugs.map((slug) => `/awards/${slug}`),
     ...data.subjects.map((subject) => `/subjects/${subject.slug}`),
