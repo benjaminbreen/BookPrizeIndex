@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 const DONATE_URL = "https://buy.stripe.com/5kQaEXfJLgRGbqrf1L4F201";
@@ -18,10 +18,14 @@ const navItems = [
   { href: DONATE_URL, label: "Donate", match: [] },
 ];
 
+const primaryNavItems = navItems.slice(0, 3);
+const overflowNavItems = navItems.slice(3);
+
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const breadcrumbs = useMemo(() => getBreadcrumbs(pathname), [pathname]);
   const immersive = pathname === "/fun/chromatic-index";
 
@@ -34,7 +38,17 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     setMenuOpen(false);
+    setMoreOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (!moreOpen) return;
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMoreOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, [moreOpen]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -59,7 +73,41 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
           <Link className="nav-mark font-[var(--font-mono)] text-md font-medium uppercase tracking-[0.2em]" href="/">
             The Book Prize Index
           </Link>
-          <nav className="hidden items-center justify-end gap-4 text-sm lg:flex xl:gap-7">
+          <nav className="hidden items-center justify-end gap-4 text-sm lg:flex xl:hidden">
+            {primaryNavItems.map((item) => {
+              const active = item.match.some((href) => pathname === href || pathname.startsWith(`${href}/`));
+              return (
+                <Link aria-current={active ? "page" : undefined} className={`nav-link ${active ? "nav-link-active" : ""}`} href={item.href} key={item.href}>
+                  {item.label}
+                </Link>
+              );
+            })}
+            <div className="header-more-menu">
+              <button
+                aria-controls="header-more-links"
+                aria-expanded={moreOpen}
+                className={`nav-link focus-ring inline-flex items-center gap-1 ${overflowNavItems.some((item) => item.match.some((href) => pathname === href || pathname.startsWith(`${href}/`))) ? "nav-link-active" : ""}`}
+                onClick={() => setMoreOpen((open) => !open)}
+                type="button"
+              >
+                More
+                <ChevronDown aria-hidden="true" className={moreOpen ? "rotate-180" : ""} size={13} />
+              </button>
+              {moreOpen ? (
+                <div className="header-more-popover" id="header-more-links">
+                  {overflowNavItems.map((item) => {
+                    const active = item.match.some((href) => pathname === href || pathname.startsWith(`${href}/`));
+                    return (
+                      <Link aria-current={active ? "page" : undefined} className={active ? "header-more-link header-more-link-active" : "header-more-link"} href={item.href} key={item.href}>
+                        {item.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              ) : null}
+            </div>
+          </nav>
+          <nav className="hidden items-center justify-end gap-4 text-sm xl:flex xl:gap-7">
             {navItems.map((item) => {
               const active = item.match.some((href) => pathname === href || pathname.startsWith(`${href}/`));
               return (

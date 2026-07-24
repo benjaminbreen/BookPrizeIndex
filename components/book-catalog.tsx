@@ -4,7 +4,7 @@ import Link from "next/link";
 import type React from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { BookOpen, CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, ChevronsUpDown, Info, Rows2, Rows3, Rows4, Search, SlidersHorizontal, X } from "lucide-react";
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { BookDrawer } from "@/components/book-drawer";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
@@ -86,6 +86,7 @@ export function BookCatalog({
   const [publisherFilter, setPublisherFilter] = useState("");
   const [metadataFilter, setMetadataFilter] = useState<MetadataFilter>("all");
   const [showOptions, setShowOptions] = useState(false);
+  const [showStickyCatalogSummary, setShowStickyCatalogSummary] = useState(false);
   const [page, setPage] = useState(1);
   const [activeBookId, setActiveBookId] = useState<string | null>(null);
   const [expandedShelfBookId, setExpandedShelfBookId] = useState<string | null>(null);
@@ -97,6 +98,7 @@ export function BookCatalog({
   const [remoteTotal, setRemoteTotal] = useState(remote?.initialTotal ?? books.length);
   const [remoteLoading, setRemoteLoading] = useState(false);
   const [remoteError, setRemoteError] = useState<string | null>(null);
+  const catalogPanelRef = useRef<HTMLDivElement>(null);
   const topicFilter = searchParams.get("topic");
   const urlQuery = searchParams.get("q") ?? "";
   const [query, setQuery] = useState(urlQuery);
@@ -185,7 +187,10 @@ export function BookCatalog({
   const rowPadding = density === "compact" ? "py-1.5" : density === "roomy" ? "py-4" : "py-2.5";
   const coverSize = density === "roomy" ? "large" : "standard";
   const showRowCovers = density !== "compact";
-  const tableMinWidth = wideLayout ? "min-w-[1320px]" : "min-w-[1180px]";
+  // At tablet widths, prioritize the columns needed to identify and compare a book.
+  // The secondary bibliographic columns return on larger screens, where they no
+  // longer take space from titles.
+  const tableMinWidth = wideLayout ? "min-w-[760px] xl:min-w-[1320px]" : "min-w-[760px] xl:min-w-[1180px]";
   const showDenseCatalogControls = wideLayout && !compactHeader;
   const activeBookIndex = activeBookId ? rows.findIndex((book) => book.id === activeBookId) : -1;
   useEffect(() => {
@@ -206,6 +211,21 @@ export function BookCatalog({
     setActiveBookId(null);
     setExpandedShelfBookId(null);
   }, [searchParams]);
+
+  useEffect(() => {
+    const updateStickySummary = () => {
+      const panel = catalogPanelRef.current;
+      if (!panel) return;
+      setShowStickyCatalogSummary(panel.getBoundingClientRect().top < 76);
+    };
+    updateStickySummary();
+    window.addEventListener("scroll", updateStickySummary, { passive: true });
+    window.addEventListener("resize", updateStickySummary);
+    return () => {
+      window.removeEventListener("scroll", updateStickySummary);
+      window.removeEventListener("resize", updateStickySummary);
+    };
+  }, []);
 
   useEffect(() => {
     if (!remote) return;
@@ -426,7 +446,7 @@ export function BookCatalog({
 
   return (
     <>
-    <section className={`mx-auto ${wideLayout ? "max-w-[90rem]" : "max-w-7xl"} px-4 sm:px-6 lg:px-8 ${compactHeader ? "pb-10" : wideLayout ? "py-4" : "py-10"}`}>
+    <section className={`mx-auto ${wideLayout ? "max-w-[86rem] min-[1440px]:max-w-[96rem] min-[1800px]:max-w-[118rem]" : "max-w-7xl"} px-4 sm:px-6 lg:px-8 ${compactHeader ? "pb-10" : wideLayout ? "py-4" : "py-10"}`}>
       <div className={`mx-auto mb-6 grid max-w-7xl gap-8 lg:items-center ${wideLayout ? "min-[1345px]:px-8" : ""} ${compactHeader ? "lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.9fr)]" : "lg:grid-cols-[0.86fr_1fr]"}`}>
         <div>
           {title === null ? null : (
@@ -516,7 +536,7 @@ export function BookCatalog({
             </div>
           </div>
       {showOptions && !showDenseCatalogControls ? (
-            <div className="panel rounded-[2px] border hairline p-4 shadow-[0_14px_32px_color-mix(in_srgb,var(--ink)_4%,transparent)]">
+            <div className="panel hidden rounded-[2px] border hairline p-4 shadow-[0_14px_32px_color-mix(in_srgb,var(--ink)_4%,transparent)] md:block">
               <div className="filter-group border-b hairline pb-3 font-[var(--font-mono)] text-xs">
                 <span className="filter-label mr-1">Awards</span>
                 {(["us", "international", "all"] as const).map((item) => (
@@ -677,7 +697,7 @@ export function BookCatalog({
       ) : null}
 
       {showOptions && showDenseCatalogControls ? (
-        <div className="panel mx-auto mb-4 max-w-7xl border hairline p-4 shadow-[0_14px_32px_color-mix(in_srgb,var(--ink)_4%,transparent)] min-[1345px]:px-5">
+        <div className="panel mx-auto mb-4 hidden max-w-7xl border hairline p-4 shadow-[0_14px_32px_color-mix(in_srgb,var(--ink)_4%,transparent)] min-[1345px]:px-5 md:block">
           <div className="grid gap-3 font-[var(--font-mono)] text-xs sm:grid-cols-2 xl:grid-cols-3">
             <FilterSelect
               label="Award"
@@ -716,7 +736,62 @@ export function BookCatalog({
         </div>
       ) : null}
 
-      <div className="border hairline panel">
+      {showOptions && wideLayout ? (
+        <MobileCatalogFilterSheet
+          awardOptions={awardOptions}
+          awardFilter={awardFilter}
+          catalogSubjectOptions={catalogSubjectOptions}
+          metadataFilter={metadataFilter}
+          onClose={() => setShowOptions(false)}
+          onAwardChange={(value) => {
+            setAwardFilter(value);
+            setPage(1);
+          }}
+          onMetadataChange={(value) => {
+            setMetadataFilter(value);
+            setPage(1);
+          }}
+          onPublisherChange={(value) => {
+            setPublisherFilter(value);
+            setPage(1);
+          }}
+          onRegionChange={setRegion}
+          onSortChange={(value) => {
+            setSortKey(value);
+            setPage(1);
+          }}
+          onSubjectChange={(value) => {
+            setSubjectFilter(value);
+            setPage(1);
+          }}
+          publisherFilter={publisherFilter}
+          publisherOptions={publisherOptions}
+          region={region}
+          semanticActive={semanticActive}
+          sortKey={sortKey}
+          subjectFilter={subjectFilter}
+        />
+      ) : null}
+
+      {showStickyCatalogSummary ? (
+        <div className="catalog-sticky-summary hidden md:flex">
+          <span className="plain-number text-[var(--ink)]">{totalRows.toLocaleString()}</span>
+          <span>{totalRows === 1 ? "book" : "books"}</span>
+          {activeFilterChips.slice(0, 2).map((chip) => (
+            <button className="catalog-sticky-chip focus-ring" key={chip.id} onClick={chip.onRemove} type="button">
+              {chip.label}
+              <X size={11} />
+            </button>
+          ))}
+          {activeFilterChips.length > 2 ? <span>+{activeFilterChips.length - 2} filters</span> : null}
+          <button className="catalog-sticky-filter focus-ring" onClick={() => setShowOptions(true)} type="button">
+            <SlidersHorizontal size={13} />
+            Filters
+          </button>
+        </div>
+      ) : null}
+
+      <div className="border hairline panel" ref={catalogPanelRef}>
         <div className={`flex flex-col gap-2 border-b hairline px-3 py-1.5 font-[var(--font-mono)] text-xs md:flex-row md:items-center md:justify-between`}>
           <div className="flex items-center gap-2 muted">
             <span>
@@ -819,18 +894,19 @@ export function BookCatalog({
                     />
                   ))}
             </div>
-            <div className="hidden overflow-x-auto md:block">
-              <table className={`w-full ${tableMinWidth} table-fixed border-collapse text-left`}>
+            <div className="catalog-table-scroll-shell hidden md:block">
+              <div className="catalog-table-scroll overflow-x-auto">
+              <table className={`catalog-table w-full ${tableMinWidth} table-fixed border-collapse text-left`}>
                 <colgroup>
                   <col className="w-[5%]" />
                   <col className="w-[26%]" />
                   <col className="w-[12%]" />
-                  <col className="w-[12%]" />
+                  <col className="hidden w-[12%] xl:table-column" />
                   <col className="w-[5%]" />
                   <col className="w-[5%]" />
                   <col className="w-[5%]" />
-                  <col className="w-[12%]" />
-                  <col className="w-[18%]" />
+                  <col className="hidden w-[12%] xl:table-column" />
+                  <col className="hidden w-[18%] xl:table-column" />
                 </colgroup>
                 <thead className="bg-[var(--panel)] font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.11em] muted">
                   <tr className="border-b hairline">
@@ -845,7 +921,7 @@ export function BookCatalog({
                       ["Imprint", "imprint"],
                       ["Publisher", "publisher"],
                     ] as [string, BookSortKey][]).map(([heading, key]) => (
-                      <th className="px-3 py-3 align-bottom font-normal" key={heading}>
+                      <th className={`px-3 py-3 align-bottom font-normal ${key === "subject" || key === "imprint" || key === "publisher" ? "hidden xl:table-cell" : ""}`} key={heading}>
                         <button
                           className={`focus-ring inline-flex items-center gap-1 transition hover:text-[var(--ink)] ${
                             sortKey === key ? "text-[var(--ink)]" : ""
@@ -913,16 +989,16 @@ export function BookCatalog({
                           <td className={`px-3 ${rowPadding}`}>
                             <span className="line-clamp-2">{book.author}</span>
                           </td>
-                          <td className={`px-3 ${rowPadding}`}>
+                          <td className={`hidden px-3 xl:table-cell ${rowPadding}`}>
                             <BookPrimarySubject book={book} />
                           </td>
                           <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.score}</td>
                           <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.wins}</td>
                           <td className={`plain-number px-3 ${rowPadding} text-xs`}>{stats.lists}</td>
-                          <td className={`px-3 ${rowPadding}`}>
+                          <td className={`hidden px-3 xl:table-cell ${rowPadding}`}>
                             <span className={`line-clamp-2 ${imprint ? "" : "book-missing-value"}`}>{imprint || "Unknown"}</span>
                           </td>
-                          <td className={`px-3 ${rowPadding}`}>
+                          <td className={`hidden px-3 xl:table-cell ${rowPadding}`}>
                             <span className={`line-clamp-2 ${publisher ? "" : "book-missing-value"}`}>{publisher || "Not yet sourced"}</span>
                           </td>
                         </tr>
@@ -944,6 +1020,7 @@ export function BookCatalog({
                   })}
                 </tbody>
               </table>
+            </div>
             </div>
           </>
         )}
@@ -1227,6 +1304,92 @@ function BookSubjectTags({ book, interactive = true }: { book: BrowseBookRow; in
   );
 }
 
+function MobileCatalogFilterSheet({
+  awardFilter,
+  awardOptions,
+  catalogSubjectOptions,
+  metadataFilter,
+  onAwardChange,
+  onClose,
+  onMetadataChange,
+  onPublisherChange,
+  onRegionChange,
+  onSortChange,
+  onSubjectChange,
+  publisherFilter,
+  publisherOptions,
+  region,
+  semanticActive,
+  sortKey,
+  subjectFilter,
+}: {
+  awardFilter: string;
+  awardOptions: AwardOption[];
+  catalogSubjectOptions: CatalogOption[];
+  metadataFilter: MetadataFilter;
+  onAwardChange: (value: string) => void;
+  onClose: () => void;
+  onMetadataChange: (value: MetadataFilter) => void;
+  onPublisherChange: (value: string) => void;
+  onRegionChange: (value: AwardRegionFilter) => void;
+  onSortChange: (value: BookSortKey) => void;
+  onSubjectChange: (value: string) => void;
+  publisherFilter: string;
+  publisherOptions: Array<{ id: string; name: string }>;
+  region: AwardRegionFilter;
+  semanticActive: boolean;
+  sortKey: BookSortKey;
+  subjectFilter: string;
+}) {
+  return (
+    <div className="catalog-filter-sheet md:hidden" role="presentation">
+      <button aria-label="Close filters" className="catalog-filter-sheet-backdrop" onClick={onClose} type="button" />
+      <section aria-label="Catalog filters" aria-modal="true" className="catalog-filter-sheet-panel" role="dialog">
+        <div className="catalog-filter-sheet-handle" aria-hidden="true" />
+        <div className="flex items-center justify-between gap-4 border-b hairline pb-3">
+          <div>
+            <p className="filter-label">Books</p>
+            <h2 className="mt-1 text-lg font-medium">Filters and sorting</h2>
+          </div>
+          <button aria-label="Close filters" className="focus-ring grid h-10 w-10 place-items-center border hairline" onClick={onClose} type="button">
+            <X size={16} />
+          </button>
+        </div>
+        <div className="grid gap-5 py-5">
+          <div className="grid gap-2">
+            <span className="filter-label">Award geography</span>
+            <div className="segmented-control w-full">
+              {(["us", "international", "all"] as const).map((item) => (
+                <button className={`segment-button flex-1 ${region === item ? "segment-button-active" : ""}`} key={item} onClick={() => onRegionChange(item)} type="button">
+                  {regionLabel(item)}
+                </button>
+              ))}
+            </div>
+          </div>
+          <label className="grid gap-1.5">
+            <span className="filter-label">Sort</span>
+            <select className="filter-select focus-ring font-sans normal-case tracking-normal" disabled={semanticActive} onChange={(event) => onSortChange(event.target.value as BookSortKey)} value={sortKey}>
+              {Object.entries(bookSortLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+            </select>
+          </label>
+          <div className="grid gap-3">
+            <FilterSelect label="Subject" onChange={onSubjectChange} options={catalogSubjectOptions} value={subjectFilter} />
+            <FilterSelect label="Award" onChange={onAwardChange} options={awardOptions.map((award) => ({ value: award.id, label: award.shortName ?? award.name }))} value={awardFilter} />
+            <FilterSelect label="Publisher" onChange={onPublisherChange} options={publisherOptions.map((publisher) => ({ value: publisher.id, label: publisher.name }))} value={publisherFilter} />
+            <FilterSelect
+              label="Metadata"
+              onChange={(value) => onMetadataChange(value as MetadataFilter)}
+              options={Object.entries(metadataFilterLabels).filter(([value]) => value !== "all").map(([value, label]) => ({ value, label }))}
+              value={metadataFilter}
+            />
+          </div>
+        </div>
+        <button className="filter-action focus-ring w-full px-4 py-3" onClick={onClose} type="button">Show results</button>
+      </section>
+    </div>
+  );
+}
+
 function FilterSelect({
   label,
   value,
@@ -1503,7 +1666,7 @@ function titleCaseLabel(value: string) {
 }
 
 function DensityIcon({ density }: { density: "compact" | "normal" | "roomy" }) {
-  if (density === "compact") return <Rows2 size={16} strokeWidth={1.8} />;
-  if (density === "roomy") return <Rows4 size={16} strokeWidth={1.8} />;
+  if (density === "compact") return <Rows4 size={16} strokeWidth={1.8} />;
+  if (density === "roomy") return <Rows2 size={16} strokeWidth={1.8} />;
   return <Rows3 size={16} strokeWidth={1.8} />;
 }
