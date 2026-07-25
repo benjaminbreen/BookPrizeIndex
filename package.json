@@ -44,6 +44,7 @@
     "semantic:test-ranking": "tsx --test lib/semantic-search-ranking.test.ts",
     "semantic:test-index": "tsx --test lib/semantic-index-storage.test.ts",
     "semantic:test-authors": "tsx --test lib/author-discovery.test.ts",
+    "affiliate:test": "tsx --test lib/affiliate-links.test.ts",
     "data:semantic": "npm run data:build && npm run semantic:index && npm run fun:galaxy",
     "imprints:normalize": "tsx scripts/normalize-imprints.ts",
     "imprints:enrich-editions": "tsx scripts/enrich-imprint-editions.ts",

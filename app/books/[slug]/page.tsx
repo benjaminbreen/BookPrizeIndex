@@ -3,10 +3,10 @@ import type { Metadata } from "next";
 import type React from "react";
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
+import { BookRetailerLinks } from "@/components/book-retailer-links";
 import { ExpandableBookDescription } from "@/components/expandable-book-description";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
-import { withAmazonAssociateTag } from "@/lib/affiliate-links";
 import { authorPlatformLinksFor } from "@/lib/author-platform-links";
 import { readBookDetailArtifact } from "@/lib/book-detail-artifacts";
 import {
@@ -177,7 +177,7 @@ export default async function BookPage({ params }: PageProps) {
           </dl>
           {book.nytBestseller ? <NytBestsellerPanel stats={book.nytBestseller} /> : null}
           <LibraryLookupLink book={book} />
-          <RetailerLinks book={book} />
+          <BookRetailerLinks book={book} />
         </aside>
       </section>
 
@@ -634,43 +634,6 @@ function formatBestsellerDate(value: string) {
   return Number.isFinite(date.getTime())
     ? new Intl.DateTimeFormat("en-US", { month: "short", year: "numeric", timeZone: "UTC" }).format(date)
     : value;
-}
-
-function RetailerLinks({ book }: { book: Book }) {
-  const links = retailerLinks(book);
-  if (!links.length) return null;
-  return (
-    <div className="book-retailer-links">
-      <p className="font-[var(--font-mono)] text-[0.66rem] uppercase tracking-[0.18em] muted">Find this book</p>
-      <div className="mt-3 flex flex-nowrap items-center gap-2">
-        {links.map((link) => (
-          <a
-            aria-label={link.label}
-            className="book-retailer-link focus-ring"
-            href={link.href}
-            key={link.label}
-            rel="noreferrer"
-            target="_blank"
-            title={link.label}
-          >
-            <img alt="" src={link.icon} />
-            <span className="book-retailer-tooltip" role="tooltip">{`Buy on ${link.label}`}</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function retailerLinks(book: Book) {
-  const query = encodeURIComponent([book.title, book.authors[0]?.name].filter(Boolean).join(" "));
-  const isbn = book.isbn13[0];
-  return [
-    book.links.bookshop ? { label: "Bookshop.org", href: book.links.bookshop, icon: "/icons/bookshop.png" } : undefined,
-    book.links.indiebound ? { label: "IndieBound", href: book.links.indiebound, icon: "/icons/indiebound.png" } : undefined,
-    { label: "Barnes & Noble", href: `https://www.barnesandnoble.com/s/${encodeURIComponent(isbn ?? [book.title, book.authors[0]?.name].filter(Boolean).join(" "))}`, icon: "/icons/bn.png" },
-    book.links.amazon ? { label: "Amazon", href: withAmazonAssociateTag(book.links.amazon), icon: "/icons/amazon.png" } : undefined,
-  ].filter((link): link is { label: string; href: string; icon: string } => Boolean(link?.href) && Boolean(query || isbn));
 }
 
 function ConnectionRow({ book, href, label, meta }: { book?: Book; href: string; label: string; meta: string }) {

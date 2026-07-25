@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Check, ChevronLeft, ChevronRight, Clipboard, ExternalLink, FileText, Link2, X } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
+import { BookRetailerLinks } from "@/components/book-retailer-links";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
-import { withAmazonAssociateTag } from "@/lib/affiliate-links";
 import type { BookDrawerAppearance, BookDrawerPayload } from "@/lib/book-drawer-types";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
@@ -287,7 +287,7 @@ export function BookDrawer({
           <div className="sm:pl-6">
             <Meta label="Pages" value={metadataValue(renderedBook.pageCount ? `${renderedBook.pageCount} pp` : undefined, wikipediaInfobox?.pages, "Not yet sourced")} missing={!renderedBook.pageCount && !wikipediaInfobox?.pages} />
             <Meta label="Language" value="English" />
-            <DrawerRetailerLinks book={renderedBook} />
+            <BookRetailerLinks book={renderedBook} compact />
           </div>
         </dl>
 
@@ -440,43 +440,6 @@ function DrawerEntityList({ entities, linkToWikipedia = false }: { entities: str
 
 function wikipediaPersonUrl(name: string) {
   return `https://en.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(name)}&go=Go`;
-}
-
-function DrawerRetailerLinks({ book }: { book: Book }) {
-  const links = retailerLinks(book);
-  if (!links.length) return null;
-  return (
-    <div className="grid gap-2 border-b hairline py-2.5">
-      <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">Find this book</dt>
-      <dd className="flex flex-nowrap items-center gap-2">
-        {links.map((link) => (
-          <a
-            aria-label={link.label}
-            className="book-retailer-link focus-ring"
-            href={link.href}
-            key={link.label}
-            rel="noreferrer"
-            target="_blank"
-            title={link.label}
-          >
-            <img alt="" src={link.icon} />
-            <span className="book-retailer-tooltip" role="tooltip">{`Buy on ${link.label}`}</span>
-          </a>
-        ))}
-      </dd>
-    </div>
-  );
-}
-
-function retailerLinks(book: Book) {
-  const searchText = [book.title, book.authors[0]?.name].filter(Boolean).join(" ");
-  const isbn = book.isbn13[0];
-  return [
-    book.links.bookshop ? { label: "Bookshop.org", href: book.links.bookshop, icon: "/icons/bookshop.png" } : undefined,
-    book.links.indiebound ? { label: "IndieBound", href: book.links.indiebound, icon: "/icons/indiebound.png" } : undefined,
-    { label: "Barnes & Noble", href: `https://www.barnesandnoble.com/s/${encodeURIComponent(isbn ?? searchText)}`, icon: "/icons/bn.png" },
-    book.links.amazon ? { label: "Amazon", href: withAmazonAssociateTag(book.links.amazon), icon: "/icons/amazon.png" } : undefined,
-  ].filter((link): link is { label: string; href: string; icon: string } => Boolean(link?.href) && Boolean(searchText || isbn));
 }
 
 function WikipediaDrawerReference({ evidence }: { evidence: WikipediaBookEvidence }) {

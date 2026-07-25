@@ -57,6 +57,7 @@ export default function AboutPage() {
           <p className="mt-4 text-lg leading-9 muted">
             Some book links are affiliate links. If you make a purchase after following one, I may receive a small
             commission at no additional cost to you. This helps offset the costs of developing and hosting the site.
+            As an Amazon Associate I earn from qualifying purchases.
           </p>
         </section>
 
