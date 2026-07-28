@@ -243,6 +243,7 @@ export function SubjectDetail({
                             className="book-mobile-title-one-line focus-ring block text-base font-medium leading-snug"
                             href={`/books/${book.slug}`}
                             onClick={(event) => openBookFromLink(event, book)}
+                            title={book.title}
                           >
                             {book.title}
                           </Link>
@@ -300,6 +301,7 @@ export function SubjectDetail({
                               className="focus-ring grid w-full grid-cols-[2rem_minmax(0,1fr)] items-center gap-3 text-left text-base transition hover:text-[var(--accent)]"
                               href={`/books/${book.slug}`}
                               onClick={(event) => openBookFromLink(event, book)}
+                              title={book.title}
                             >
                               <SubjectBookCover book={book} />
                               <span className="line-clamp-2">{book.title}</span>

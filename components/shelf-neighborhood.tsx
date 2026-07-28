@@ -33,7 +33,7 @@ export function ShelfNeighborhood({
       <ol className="shelf-neighborhood-list">
         {rows.map(({ row, selected }) => (
           <li className={selected ? "is-selected" : ""} key={row.id}>
-            <Link aria-current={selected ? "true" : undefined} href={`/books/${row.slug}`}>
+            <Link aria-current={selected ? "true" : undefined} href={`/books/${row.slug}`} title={`${row.title} — ${row.author}`}>
               <span className="shelf-neighborhood-call">{row.callNumber}</span>
               <span className="shelf-neighborhood-title">{row.title}</span>
               <span className="shelf-neighborhood-author">{row.author}</span>

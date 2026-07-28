@@ -1173,7 +1173,12 @@
     "organization": "Society of American Historians",
     "geography": "United States / International",
     "foundedYear": 1957,
-    "dormantYears": [[1968, 1968]],
+    "dormantYears": [
+      [
+        1968,
+        1968
+      ]
+    ],
     "officialUrl": "https://sah.columbia.edu/content/prizes/francis-parkman-prize",
     "notes": "Annual prize for a nonfiction work of history on an American theme, judged for both literary merit and historical contribution.",
     "categories": [
@@ -1198,7 +1203,44 @@
     "organization": "John Burroughs Association",
     "geography": "United States / International",
     "foundedYear": 1926,
-    "dormantYears": [[1931, 1931], [1935, 1935], [1937, 1937], [1944, 1944], [1947, 1947], [1951, 1951], [1959, 1959], [1975, 1975], [1980, 1980]],
+    "dormantYears": [
+      [
+        1931,
+        1931
+      ],
+      [
+        1935,
+        1935
+      ],
+      [
+        1937,
+        1937
+      ],
+      [
+        1944,
+        1944
+      ],
+      [
+        1947,
+        1947
+      ],
+      [
+        1951,
+        1951
+      ],
+      [
+        1959,
+        1959
+      ],
+      [
+        1975,
+        1975
+      ],
+      [
+        1980,
+        1980
+      ]
+    ],
     "officialUrl": "https://www.johnburroughsassociation.org/literary-awards/about-the-awards",
     "notes": "Long-running medal for distinguished natural-history writing, first awarded in 1926. The current official historical archive is unavailable to automated retrieval, so the importer preserves a deterministic secondary list and uses publisher evidence for the newest winner.",
     "categories": [
@@ -1344,7 +1386,12 @@
     "geography": "United Kingdom / International",
     "foundedYear": 2009,
     "discontinuedYear": 2019,
-    "dormantYears": [[2013, 2013]],
+    "dormantYears": [
+      [
+        2013,
+        2013
+      ]
+    ],
     "officialUrl": "https://wellcomecollection.org/series/wellcome-book-prize-authors-revealed",
     "notes": "Defunct prize for books illuminating health and medicine. The prize considered both fiction and nonfiction; this corpus uses an explicit reviewed nonfiction whitelist and excludes all novels.",
     "categories": [
@@ -1514,6 +1561,707 @@
         "importStrategy": "official-winners-and-longlists-plus-cited-wikipedia-shortlists",
         "activeYears": "2020-present",
         "coverageNotes": "Adult Conservation Writing winners and shortlists for 2020-2025, plus official longlists for 2021-2025. The category was formerly styled Writing on Global Conservation; books retain only their highest status."
+      }
+    ]
+  },
+  {
+    "id": "oah-book-prizes",
+    "name": "Organization of American Historians Book Prizes",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "Organization of American Historians",
+    "geography": "United States",
+    "foundedYear": 1959,
+    "officialUrl": "https://www.oah.org/awards/book-awards-and-prizes/",
+    "notes": "Selected OAH book prizes covering United States history. The live oah.org award pages are behind Cloudflare and return HTTP 403 to automated clients, so the importer reads archived snapshots of the official pages from the Internet Archive (id_ raw-content URLs) and falls back to Wikipedia for years published after the latest snapshot. Official pages list Past Winners plus Honorable Mentions; Wikipedia is used only to fill recent years.",
+    "categories": [
+      {
+        "id": "oah-frederick-jackson-turner-award",
+        "name": "Frederick Jackson Turner Award",
+        "officialUrl": "https://www.oah.org/awards/book-awards-and-prizes/frederick-jackson-turner-award/",
+        "sourceUrl": "https://web.archive.org/web/20251220144221id_/https://www.oah.org/awards/book-awards-and-prizes/frederick-jackson-turner-award/",
+        "sourceLabel": "OAH Frederick Jackson Turner Award official page (Internet Archive snapshot)",
+        "sourceConfidence": "official",
+        "importStrategy": "archived-official-html",
+        "activeYears": "1959-present",
+        "coverageNotes": "For an author's first book on American history; founded 1959 by the Mississippi Valley Historical Association as the Prize Studies Award. Archived official page covers 1959-2025 with no gaps (67 year headings, 96 records including 27 honorable mentions). The 2026 winner is available only from Wikipedia, whose wikitable encodes honorable mentions inside the year cell as '2006 Honorable Mention'."
+      },
+      {
+        "id": "oah-merle-curti-award",
+        "name": "Merle Curti Award",
+        "officialUrl": "https://www.oah.org/awards/book-awards-and-prizes/merle-curti-intellectual-history-award/",
+        "sourceUrl": "https://web.archive.org/web/20251119132437id_/https://www.oah.org/awards/book-awards-and-prizes/merle-curti-intellectual-history-award/",
+        "sourceLabel": "OAH Merle Curti Award official page (Internet Archive snapshot)",
+        "sourceConfidence": "official",
+        "importStrategy": "archived-official-html",
+        "activeYears": "1977-present",
+        "coverageNotes": "Best book in American social and/or intellectual history. Since 2004 the committee may name one intellectual-history and one social-history winner, so co-winners are routine. OAH publishes two URLs whose Past Winners lists are identical except for 2017, 2023, 2024 and 2025; only the intellectual-history page is imported to avoid duplicates, with the four divergent years merged in from the social-history snapshot (https://web.archive.org/web/20251208060744id_/https://www.oah.org/awards/book-awards-and-prizes/merle-curti-social-history-award/). Archived page covers 1977-2025 (46 year headings; 1978 absent; 78 records including 7 honorable mentions). Post-2003 entries are prefixed 'Intellectual History:' or 'Social History:'; the 2002 winner is embedded inside the 2003 block in the source markup."
+      },
+      {
+        "id": "oah-civil-war-and-reconstruction-book-award",
+        "name": "Civil War and Reconstruction Book Award",
+        "officialUrl": "https://www.oah.org/awards/book-awards-and-prizes/civil-war-and-reconstruction-book-award/",
+        "sourceUrl": "https://web.archive.org/web/20251124053017id_/https://www.oah.org/awards/book-awards-and-prizes/civil-war-and-reconstruction-book-award/",
+        "sourceLabel": "OAH Civil War and Reconstruction Book Award official page (Internet Archive snapshot)",
+        "sourceConfidence": "official",
+        "importStrategy": "archived-official-html",
+        "activeYears": "1985-present",
+        "coverageNotes": "Known as the Avery O. Craven Award through 2020; renamed in 2021. Archived official page covers 1985-2025 (41 year headings, 50 records including 7 honorable mentions). No Wikipedia article exists for this prize under either name, so the archived official page is the only machine-parseable source."
+      },
+      {
+        "id": "oah-ellis-w-hawley-prize",
+        "name": "Ellis W. Hawley Prize",
+        "officialUrl": "https://www.oah.org/awards/book-awards-and-prizes/ellis-w-hawley-prize/",
+        "sourceUrl": "https://web.archive.org/web/20251230091539id_/https://www.oah.org/awards/book-awards-and-prizes/ellis-w-hawley-prize/",
+        "sourceLabel": "OAH Ellis W. Hawley Prize official page (Internet Archive snapshot)",
+        "sourceConfidence": "official",
+        "importStrategy": "archived-official-html",
+        "activeYears": "1997-present",
+        "coverageNotes": "Best study of the political economy, politics or institutions of the United States since the Civil War; approved 1995, first awarded 1997. Archived official page covers 1997-2025 with no listings for 2008 or 2023 (28 year headings, 30 records, 1 honorable mention). The 2026 winner is available only from Wikipedia."
+      },
+      {
+        "id": "oah-liberty-legacy-foundation-award",
+        "name": "Liberty Legacy Foundation Award",
+        "officialUrl": "https://www.oah.org/awards/book-awards-and-prizes/liberty-legacy-foundation-award/",
+        "sourceUrl": "https://web.archive.org/web/20251122073712id_/https://www.oah.org/awards/book-awards-and-prizes/liberty-legacy-foundation-award/",
+        "sourceLabel": "OAH Liberty Legacy Foundation Award official page (Internet Archive snapshot)",
+        "sourceConfidence": "official",
+        "importStrategy": "archived-official-html",
+        "activeYears": "2003-present",
+        "coverageNotes": "Best book by a professional historian on the struggle for civil rights in the United States from 1776 to the present. Archived official page covers 2003-2025 with no gaps (23 year headings, 36 records including 3 honorable mentions and 3 finalists). Wikipedia lists winners only through 2018 and is stale."
+      },
+      {
+        "id": "oah-darlene-clark-hine-award",
+        "name": "Darlene Clark Hine Award",
+        "officialUrl": "https://www.oah.org/awards/book-awards-and-prizes/darlene-clark-hine-award/",
+        "sourceUrl": "https://web.archive.org/web/20250803161403id_/https://www.oah.org/awards/book-awards-and-prizes/darlene-clark-hine-award/",
+        "sourceLabel": "OAH Darlene Clark Hine Award official page (Internet Archive snapshot)",
+        "sourceConfidence": "official",
+        "importStrategy": "archived-official-html",
+        "activeYears": "2010-present",
+        "coverageNotes": "Best book in African American women's and gender history. Archived official page covers 2010-2025 with no gaps (16 year headings, 31 records, of which 15 are honorable mentions). 2025 has two co-winners."
+      },
+      {
+        "id": "oah-lawrence-w-levine-award",
+        "name": "Lawrence W. Levine Award",
+        "officialUrl": "https://www.oah.org/awards/book-awards-and-prizes/lawrence-w-levine-award/",
+        "sourceUrl": "https://web.archive.org/web/20251122072651id_/https://www.oah.org/awards/book-awards-and-prizes/lawrence-w-levine-award/",
+        "sourceLabel": "OAH Lawrence W. Levine Award official page (Internet Archive snapshot)",
+        "sourceConfidence": "official",
+        "importStrategy": "archived-official-html",
+        "activeYears": "2008-present",
+        "coverageNotes": "Best book in American cultural history. Archived official page covers 2008-2025 with no gaps (18 year headings, 20 records including 2 honorable mentions). Wikipedia carries the same 18 winners, winners only."
+      }
+    ]
+  },
+  {
+    "id": "national-jewish-book-awards",
+    "name": "National Jewish Book Awards",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Jewish Book Council",
+    "geography": "North America",
+    "foundedYear": 1949,
+    "officialUrl": "https://www.jewishbookcouncil.org/awards",
+    "notes": "North America's longest-running Jewish book award program, presented by the Jewish Book Council since 1950 (the earliest winner listed is 1949). The awards span more than forty categories; this corpus imports only the non-fiction categories and excludes fiction, debut fiction, poetry, children's, middle-grade, young-adult, illustrated, anthology, mixed-genre, cookbook, and non-book (Mentorship) categories. All categories are parsed from section wikitables on a single Wikipedia list page; the Jewish Book Council announces finalists in recent years but no finalist slates appear in this source, so only winners are imported.",
+    "categories": [
+      {
+        "id": "njba-american-jewish-history",
+        "name": "American Jewish History",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#American_Jewish_History",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2005-present",
+        "coverageNotes": "Non-fiction on the Jewish experience in North America; sponsored as the Celebrate 350 award. Winners only; 21 rows through 2025."
+      },
+      {
+        "id": "njba-jewish-book-of-the-year",
+        "name": "Jewish Book of the Year",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Jewish_Book_of_the_Year",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2002-present",
+        "coverageNotes": "Everett Family Foundation Award; since 2002 a non-fiction book has been named Jewish Book of the Year. Titles here usually also win a subject category, so records overlap other categories. 22 rows through 2024."
+      },
+      {
+        "id": "njba-autobiography-memoir",
+        "name": "Autobiography and Memoir",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Autobiography_and_Memoir",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1984-present",
+        "coverageNotes": "Krauss Family Awards in Memory of Simon and Shulamith Goldberg. No award in 1987, 1988, and 2002-2006. 35 rows through 2025."
+      },
+      {
+        "id": "njba-biography",
+        "name": "Biography",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Biography",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1984-present",
+        "coverageNotes": "In Memory of Sara Berenson Stone. Dormant from 1986 to 2018, when the category was revived. 11 rows through 2025."
+      },
+      {
+        "id": "njba-biography-autobiography",
+        "name": "Biography and Autobiography",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Biography_and_Autobiography",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2005-2006",
+        "coverageNotes": "Short-lived merged category that briefly replaced the separate Biography and Autobiography awards. 2 rows."
+      },
+      {
+        "id": "njba-history",
+        "name": "History",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#History",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2006-present",
+        "coverageNotes": "Gerrard and Ella Berman Memorial Award for non-fiction on Jewish history; successor to the earlier Jewish History category. 19 rows through 2024."
+      },
+      {
+        "id": "njba-jewish-history",
+        "name": "Jewish History",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Jewish_history",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1963-2005",
+        "coverageNotes": "Predecessor of the History category, retired after 2005. Includes one combined 2002-2003 award year. 30 rows."
+      },
+      {
+        "id": "njba-holocaust",
+        "name": "Holocaust",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Holocaust",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1966-present",
+        "coverageNotes": "Two winners in 1969, normalized as co-winners; includes one combined 2002-2003 award year. 52 rows through 2024."
+      },
+      {
+        "id": "njba-holocaust-memoir",
+        "name": "Holocaust Memoir",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Holocaust_Memoir_Award",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2022-present",
+        "coverageNotes": "Split from the Holocaust category in 2022. 3 rows through 2024."
+      },
+      {
+        "id": "njba-scholarship",
+        "name": "Scholarship",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Scholarship",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1983-present",
+        "coverageNotes": "Academic Jewish studies monographs; includes one combined 2002-2003 award year. 41 rows through 2024."
+      },
+      {
+        "id": "njba-jewish-thought",
+        "name": "Jewish Thought",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Jewish_Thought",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1949-2001",
+        "coverageNotes": "Earliest category on the list; two winners in 1973, normalized as co-winners. Superseded by Modern Jewish Thought and Experience. 40 rows."
+      },
+      {
+        "id": "njba-modern-jewish-thought-and-experience",
+        "name": "Modern Jewish Thought and Experience",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Modern_Jewish_thought_and_experience",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2004-present",
+        "coverageNotes": "Successor to the Jewish Thought category. 19 rows through 2024."
+      },
+      {
+        "id": "njba-contemporary-jewish-life-and-practices",
+        "name": "Contemporary Jewish Life and Practices",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Contemporary_Jewish_life_and_practices",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1988-present",
+        "coverageNotes": "Known as the Mimi Frank Award in 2002-2003 and the Myra H. Kraft Memorial Award since 2011. 28 rows through 2024."
+      },
+      {
+        "id": "njba-israel",
+        "name": "Israel",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Israel",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1974-2000",
+        "coverageNotes": "Retired after 2000. 26 rows."
+      },
+      {
+        "id": "njba-womens-studies",
+        "name": "Women's Studies",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Women's_Studies",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1998-present",
+        "coverageNotes": "Barbara Dobkin Award. 23 rows through 2024."
+      },
+      {
+        "id": "njba-visual-arts",
+        "name": "Visual Arts",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Visual_Arts",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1981-present",
+        "coverageNotes": "Art, architecture, photography, and illustrated non-fiction. 28 rows through 2024."
+      },
+      {
+        "id": "njba-writing-based-on-archival-material",
+        "name": "Writing Based on Archival Material",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Writing_Based_on_Archival_Material",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2008-present",
+        "coverageNotes": "The JDC-Herbert Katzki Award for archivally grounded non-fiction. 17 rows through 2024."
+      },
+      {
+        "id": "njba-sephardic-culture",
+        "name": "Sephardic Culture",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Sephardic_Culture",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2005-present",
+        "coverageNotes": "Mimi Frank Award in Memory of Becky Levy. Some rows credit editors rather than authors. The year column header is lowercase 'date' in the source table. 20 rows through 2024."
+      },
+      {
+        "id": "njba-sephardic-studies",
+        "name": "Sephardic Studies",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Sephardic_Studies",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1992-2001",
+        "coverageNotes": "Maurice Amado Foundation Awards, renamed the Jewish Book Council Award in 2001. Some rows credit translators. 9 rows."
+      },
+      {
+        "id": "njba-sephardic-ashkenazic-culture-and-customs",
+        "name": "Sephardic and Ashkenazic Culture and Customs",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Sephardic_and_Ashkenazic_Culture_and_Customs",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1997-2001",
+        "coverageNotes": "Mimi Frank Award 1997-2000 and Maurice Amado Foundation Award in 2001. 5 rows."
+      },
+      {
+        "id": "njba-eastern-european-studies",
+        "name": "Eastern European Studies",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Eastern_European_studies",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2000-2007",
+        "coverageNotes": "Ronald S. Lauder Awards. No winners in 2001, 2003, and 2004. 5 rows."
+      },
+      {
+        "id": "njba-education-and-jewish-identity",
+        "name": "Education and Jewish Identity",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Education_and_Jewish_identity",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2006-present",
+        "coverageNotes": "Presented in memory of Dorothy Kripke since 2008. No winners in 2007, 2009, and 2011. 15 rows through 2024."
+      },
+      {
+        "id": "njba-jewish-education",
+        "name": "Jewish Education",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Jewish_education",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1994-2004",
+        "coverageNotes": "Leon Jolson Awards; predecessor of Education and Jewish Identity. 6 rows."
+      },
+      {
+        "id": "njba-jewish-christian-relations",
+        "name": "Jewish-Christian Relations",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Jewish-Christian_relations",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1995-2002",
+        "coverageNotes": "Charles H. Revson Foundation Awards. 7 rows."
+      },
+      {
+        "id": "njba-jewish-folklore-and-anthropology",
+        "name": "Jewish Folklore and Anthropology",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Jewish_folklore_and_anthropology",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1993-1995",
+        "coverageNotes": "Raphael Patai Award. Some rows credit editors rather than authors. 3 rows."
+      },
+      {
+        "id": "njba-yiddish-language-and-culture",
+        "name": "Yiddish Language and Culture",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Yiddish_Language_and_Culture",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1999-2001",
+        "coverageNotes": "Non-fiction studies of Yiddish language and culture, distinct from the Yiddish Literature category. The source table is tagged as unreferenced. 3 rows."
+      },
+      {
+        "id": "njba-reference",
+        "name": "Reference",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#References",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1999-2007",
+        "coverageNotes": "Encyclopedias and reference works; most rows credit editors rather than authors. The source section heading collides with the article's citation list, so the importer must select the section by position rather than by anchor. 5 rows."
+      },
+      {
+        "id": "njba-non-fiction",
+        "name": "Non-fiction",
+        "officialUrl": "https://www.jewishbookcouncil.org/awards",
+        "sourceUrl": "https://en.wikipedia.org/wiki/List_of_winners_of_the_National_Jewish_Book_Award#Non-fiction",
+        "sourceLabel": "Wikipedia: List of winners of the National Jewish Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "1995-2001",
+        "coverageNotes": "Short-lived general non-fiction category, retired after 2001. 7 rows."
+      }
+    ]
+  },
+  {
+    "id": "lincoln-prize",
+    "name": "Gilder Lehrman Lincoln Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Gilder Lehrman Institute of American History / Gettysburg College",
+    "geography": "United States",
+    "foundedYear": 1991,
+    "officialUrl": "https://www.gilderlehrman.org/programs-and-events/national-book-prizes/gilder-lehrman-lincoln-prize",
+    "notes": "Annual prize for the finest scholarly work in English on Abraham Lincoln, the American Civil War soldier, or the Civil War era. Official gilderlehrman.org pages sit behind a Cloudflare challenge and return HTTP 403 to automated fetches, so the importer uses the co-administering Gettysburg College archive, which is cleanly structured and lists winners, finalists, honorable mentions, and special achievement awards by year.",
+    "categories": [
+      {
+        "id": "lincoln-prize-civil-war-era",
+        "name": "Civil War Era",
+        "officialUrl": "https://www.gilderlehrman.org/programs-and-events/national-book-prizes/gilder-lehrman-lincoln-prize",
+        "sourceUrl": "https://www.gettysburg.edu/lincoln-prize/previous-winners/",
+        "sourceLabel": "Gettysburg College: Previous winners of the Gilder Lehrman Lincoln Prize",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-year-sections-with-cited-wikipedia-recent-winners",
+        "activeYears": "1991-present",
+        "coverageNotes": "Gettysburg College co-administers the prize and publishes winners, finalists, honorable mentions, and special achievement awards by year for 1991-2024. Winners for 2025-2026 are supplemented from the cited Wikipedia recipient table because the Gettysburg archive stops at 2024 and gilderlehrman.org blocks automated fetching; finalist slates for 2025-2026 are not covered. Years with two First Place books (1992, 2000, 2008, 2009, 2012, 2014, 2017) are recorded as co-winners; note that Wikipedia's prose undercounts these and packs the two 2017 winners into a single table row. Non-book honorees, including the 1991 award to a television miniseries, are excluded."
+      }
+    ]
+  },
+  {
+    "id": "george-washington-book-prize",
+    "name": "George Washington Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Washington College C.V. Starr Center / George Washington's Mount Vernon / Gilder Lehrman Institute",
+    "geography": "United States",
+    "foundedYear": 2005,
+    "officialUrl": "https://www.gilderlehrman.org/book-prizes/washington",
+    "notes": "Awarded for the year's best book on the founding era of the United States, co-sponsored by Washington College's C.V. Starr Center for the Study of the American Experience, George Washington's Mount Vernon, and the Gilder Lehrman Institute. Formerly styled the George Washington Book Prize. Official Gilder Lehrman and Mount Vernon pages return HTTP 403 to automated fetches, so the cited Wikipedia table is used.",
+    "categories": [
+      {
+        "id": "george-washington-founding-era",
+        "name": "Founding Era",
+        "officialUrl": "https://www.gilderlehrman.org/book-prizes/washington",
+        "sourceUrl": "https://en.wikipedia.org/wiki/George_Washington_Book_Prize",
+        "sourceLabel": "Wikipedia: George Washington Book Prize winners and finalists",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2005-present",
+        "coverageNotes": "Coverage runs 2005-2025 from the Past finalists wikitable, in which the winner of each year is flagged and the year cell is blank on continuation rows. The 2015 Special Achievement Award to the musical Hamilton is excluded as a non-book award."
+      }
+    ]
+  },
+  {
+    "id": "gilder-lehrman-military-history-prize",
+    "name": "Gilder Lehrman Military History Prize",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Gilder Lehrman Institute of American History",
+    "geography": "United States",
+    "foundedYear": 2013,
+    "officialUrl": "https://www.gilderlehrman.org/book-prizes/military-history",
+    "notes": "Established in 2013 as the Guggenheim-Lehrman Prize in Military History, renamed the Gilder Lehrman Prize for Military History at the New-York Historical Society in 2016, and now administered directly by the Gilder Lehrman Institute. Official pages block automated fetching, so the cited Wikipedia section is used.",
+    "categories": [
+      {
+        "id": "gilder-lehrman-military-history",
+        "name": "Military History",
+        "officialUrl": "https://www.gilderlehrman.org/book-prizes/military-history",
+        "sourceUrl": "https://en.wikipedia.org/wiki/New_York_Historical_book_prizes#Gilder_Lehrman_Prize_for_Military_History",
+        "sourceLabel": "Wikipedia: New York Historical book prizes, Gilder Lehrman Prize for Military History",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-bullets",
+        "activeYears": "2013-present",
+        "coverageNotes": "Covers winners for 2013-2024; year labels denote the award cycle, which is announced the following year. Finalist slates appear only in Gilder Lehrman press releases, which block automated fetching, so finalists are not covered."
+      }
+    ]
+  },
+  {
+    "id": "womens-prize-nonfiction",
+    "name": "Women's Prize for Non-Fiction",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Women's Prize Trust",
+    "geography": "United Kingdom",
+    "foundedYear": 2024,
+    "officialUrl": "https://womensprize.com/prizes/womens-prize-for-non-fiction/",
+    "notes": "Sister prize to the Women's Prize for Fiction, announced February 2023 and first awarded in 2024 for books published in 2023. Open to narrative non-fiction in English by women of any nationality published in the UK. A 16-title longlist is announced in February, a 6-title shortlist in March, and the winner in June. Wikipedia carries winners and shortlists only; the longlists are recovered from the official site's WordPress REST API, which is unauthenticated and unblocked by robots.txt.",
+    "categories": [
+      {
+        "id": "womens-prize-nonfiction",
+        "name": "Non-Fiction",
+        "officialUrl": "https://womensprize.com/prizes/womens-prize-for-non-fiction/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+        "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable-with-official-rest-longlist",
+        "activeYears": "2024-present",
+        "coverageNotes": "Winners and six-title shortlists from the Wikipedia table for 2024-2026, merged with the official sixteen-title longlists from the womensprize.com REST API for the same years. Each book keeps only its highest status, so each edition yields sixteen records. REST prize_year term ids are opaque and must be resolved at import time rather than hardcoded."
+      }
+    ]
+  },
+  {
+    "id": "nero-book-awards",
+    "name": "Nero Book Awards",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Caffe Nero / Booksellers Association",
+    "geography": "United Kingdom",
+    "foundedYear": 2023,
+    "officialUrl": "https://nerobookawards.com/",
+    "notes": "Successor to the Costa Book Awards, which ended with the 2021 awards; the Nero Book Awards were inaugurated in 2023 with backing from Caffe Nero and the Booksellers Association. Four categories are awarded (fiction, debut fiction, children's fiction, non-fiction); only Non-Fiction is imported here.",
+    "categories": [
+      {
+        "id": "nero-nonfiction",
+        "name": "Non-Fiction",
+        "officialUrl": "https://nerobookawards.com/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+        "sourceLabel": "Wikipedia: Nero Book Awards",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2023-present",
+        "coverageNotes": "Non-fiction winners and four-title shortlists for the 2023-2025 award years, taken from the combined shortlists-and-winners table. Fiction, debut fiction, and children's fiction rows are excluded. The overall Golden Nero Book of the Year is recorded as a note on the category winner rather than as a separate record. Succeeds costa-book-awards, which ends in 2021. Year headers use inconsistent rowspans across editions, so the importer asserts exactly four non-fiction records and one winner per year."
+      }
+    ]
+  },
+  {
+    "id": "arthur-ross-book-award",
+    "name": "Arthur Ross Book Award",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Council on Foreign Relations",
+    "geography": "United States / International",
+    "foundedYear": 2002,
+    "officialUrl": "https://www.cfr.org/arthur-ross-book-award",
+    "notes": "Endowed in 2001 by Arthur Ross and administered by the Council on Foreign Relations for nonfiction that makes an outstanding contribution to the understanding of foreign policy or international relations. Awards a Gold Medal, a Silver Medal, and a third-tier medal that was called an Honorable Mention through 2015 and a Bronze Medal since 2016. The official CFR winners page omits 2002 and 2010, so the Wikipedia list is used as the more complete source.",
+    "categories": [
+      {
+        "id": "arthur-ross-international-affairs",
+        "name": "International Affairs",
+        "officialUrl": "https://www.cfr.org/arthur-ross-book-award",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Arthur_Ross_Book_Award",
+        "sourceLabel": "Wikipedia: Arthur Ross Book Award",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-year-bullet-list",
+        "activeYears": "2002-present",
+        "coverageNotes": "Three medalists per year for every year 2002-2025. Gold Medal is recorded as winner and Silver Medal as finalist. The third tier follows the source label: honorable_mention for the Honorable Mention years (2002-2015) and finalist for the Bronze Medal years (2016-present). No shortlist archive survives."
+      }
+    ]
+  },
+  {
+    "id": "elizabeth-longford-prize",
+    "name": "Elizabeth Longford Prize for Historical Biography",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Society of Authors",
+    "geography": "United Kingdom",
+    "foundedYear": 2003,
+    "officialUrl": "https://elhb.uk/",
+    "notes": "Established in 2003 in memory of the biographer Elizabeth Longford (1906-2002), sponsored by Flora Fraser and Peter Soros and administered by the Society of Authors. Awarded annually for a historical biography published in the preceding year. The official site publishes only the current year's shortlist, so Wikipedia is used for the archived shortlists.",
+    "categories": [
+      {
+        "id": "elizabeth-longford-historical-biography",
+        "name": "Historical Biography",
+        "officialUrl": "https://elhb.uk/winners/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Elizabeth_Longford_Prize",
+        "sourceLabel": "Wikipedia: Elizabeth Longford Prize",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-year-bullet-list",
+        "activeYears": "2003-present",
+        "coverageNotes": "Winners for every year 2003-2026 (24 winners, no gaps, no co-winners). Shortlists are archived only from 2019 onward (four shortlisted titles per year, except three in 2019 and 2021); 2003-2018 record the winner only. Pre-2019 winner bullets carry no 'Winner:' prefix, so status must be driven by the year heading and the literal 'Shortlist:' marker."
+      }
+    ]
+  },
+  {
+    "id": "james-beard-book-awards",
+    "name": "James Beard Foundation Book Awards",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "James Beard Foundation",
+    "geography": "United States",
+    "foundedYear": 1991,
+    "dormantYears": [
+      [
+        2021,
+        2021
+      ]
+    ],
+    "officialUrl": "https://www.jamesbeard.org/awards/media-awards/book-awards",
+    "notes": "The James Beard Book Awards are overwhelmingly a cookbook prize: the large majority of categories (General, International, Single Subject, Baking, Vegetable-Focused, Photography, Professional, Hall of Fame, Cookbook of the Year) recognize recipe collections, visual work, or lifetime honors and are out of scope for a narrative nonfiction index. The importer keeps only the three lineages that reward authored prose. Because the Foundation renames categories almost every year, each registry category is a lineage the parser resolves by alias table rather than by exact string match. The official jamesbeard.org awards search is a client-side JavaScript application with no server-rendered records and no discoverable JSON endpoint, so Wikipedia's decade pages are used as a deterministic secondary source; they publish winners only.",
+    "categories": [
+      {
+        "id": "beard-writing",
+        "name": "Writing and Literature",
+        "sourceUrl": "https://en.wikipedia.org/wiki/James_Beard_Foundation_Award:_2020s",
+        "sourceLabel": "Wikipedia: James Beard Foundation Award decade pages (1990s-2020s)",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-section-list",
+        "activeYears": "1991-present",
+        "coverageNotes": "Aliases across years: Writings on Food, Writing on Food, Writing and Reference, Literary Writing About Food Wine & Spirits, Writing and Literature, Nonfiction (2017), Writing, Literary Writing, and the 2023-2024 'Literacy Writing' typo in the source. The importer reads all four decade pages and records each row against its own decade page URL. Winners only; 32 records."
+      },
+      {
+        "id": "beard-reference-and-scholarship",
+        "name": "Reference, History, and Scholarship",
+        "sourceUrl": "https://en.wikipedia.org/wiki/James_Beard_Foundation_Award:_2020s",
+        "sourceLabel": "Wikipedia: James Beard Foundation Award decade pages (1990s-2020s)",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-section-list",
+        "activeYears": "1994-present",
+        "coverageNotes": "Aliases: References & Resources, Technical & Reference, Food Reference & Technique, Reference and Food Guides, Reference and Writings on Food, Reference, Reference and Scholarship, Reference History and Scholarship. Pre-2008 winners in this lineage are sometimes recipe encyclopedias rather than scholarship and are flagged for manual review. Winners only; 31 records."
+      },
+      {
+        "id": "beard-food-issues-and-advocacy",
+        "name": "Food Issues and Advocacy",
+        "sourceUrl": "https://en.wikipedia.org/wiki/James_Beard_Foundation_Award:_2020s",
+        "sourceLabel": "Wikipedia: James Beard Foundation Award decade pages (2020s)",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-section-list",
+        "activeYears": "2023-present",
+        "coverageNotes": "Newest narrative category, argument-driven food journalism and scholarship. Winners only; 4 records."
+      }
+    ]
+  },
+  {
+    "id": "shaughnessy-cohen-prize",
+    "name": "Shaughnessy Cohen Prize for Political Writing",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "Writers' Trust of Canada",
+    "geography": "Canada",
+    "foundedYear": 2001,
+    "officialUrl": "https://www.writerstrust.com/awards/shaughnessy-cohen-prize-for-political-writing",
+    "notes": "Canadian prize for the best nonfiction book on Canadian political and social issues, presented annually at the Writers' Trust Politics and the Pen gala in Ottawa and named for MP Shaughnessy Cohen (1948-1998). As with the Hilary Weston Prize from the same organization, the deterministic secondary table is used because the official archive blocks command-line retrieval (HTTP 429).",
+    "categories": [
+      {
+        "id": "shaughnessy-cohen-political-writing",
+        "name": "Political Writing",
+        "officialUrl": "https://www.writerstrust.com/awards/shaughnessy-cohen-prize-for-political-writing",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Shaughnessy_Cohen_Prize_for_Political_Writing",
+        "sourceLabel": "Wikipedia: Shaughnessy Cohen Prize for Political Writing",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable-with-jury-column",
+        "activeYears": "2001-present",
+        "coverageNotes": "Winners and five-title shortlists for every edition from 2001 through 2026. Most years carry a winner plus four shortlisted titles; 2004 lists a winner plus only two. The source tables carry an extra jury column that must be discarded before row parsing, because the shared wikitable parser otherwise shifts every cell and silently mislabels all winners as shortlist entries."
+      }
+    ]
+  },
+  {
+    "id": "rbc-taylor-prize",
+    "name": "RBC Taylor Prize",
+    "awardType": "award",
+    "scope": "general",
+    "organization": "Charles Taylor Foundation / RBC Wealth Management",
+    "geography": "Canada",
+    "foundedYear": 2000,
+    "discontinuedYear": 2020,
+    "officialUrl": "https://web.archive.org/web/20200403063253/http://www.rbctaylorprize.ca/",
+    "notes": "Defunct Canadian prize for literary non-fiction, named for historian Charles P. B. Taylor. Known as the Charles Taylor Prize from 2000 until December 2013, when RBC Wealth Management became sponsor. Biennial through 2002 and annual from 2004; the 2020 edition was the last, and the rbctaylorprize.ca domain has since lapsed and now redirects to an unrelated site, so the cited secondary table is the only machine-readable archive and cannot be re-verified against a primary source.",
+    "categories": [
+      {
+        "id": "rbc-taylor-nonfiction",
+        "name": "Literary Non-Fiction",
+        "officialUrl": "https://web.archive.org/web/20200403063253/http://www.rbctaylorprize.ca/",
+        "sourceUrl": "https://en.wikipedia.org/wiki/RBC_Taylor_Prize",
+        "sourceLabel": "Wikipedia: RBC Taylor Prize winners and finalists",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable",
+        "activeYears": "2000; 2002; 2004-2020",
+        "coverageNotes": "Winners and finalists for all nineteen editions. The prize was biennial at first, so there is no 2001 or 2003 edition. Finalist slates run three to six titles; the separate RBC Taylor Emerging Writer Award is excluded."
+      }
+    ]
+  },
+  {
+    "id": "rossiter-prize",
+    "name": "Margaret W. Rossiter History of Women in Science Prize",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "History of Science Society",
+    "geography": "United States / International",
+    "foundedYear": 1987,
+    "officialUrl": "https://hssonline.org/page/rossiter",
+    "notes": "History of Science Society prize awarded for an outstanding book on the history of women in science in odd-numbered years and an outstanding article in even-numbered years. The official archive blocks automated fetching (HTTP 403), so the importer uses the cited Wikipedia recipient table and keeps only the odd-year book winners. Originally called the Women's Prize; renamed in 2004 for Margaret W. Rossiter.",
+    "categories": [
+      {
+        "id": "rossiter-history-of-women-in-science",
+        "name": "History of Women in Science",
+        "officialUrl": "https://hssonline.org/page/rossiter",
+        "sourceUrl": "https://en.wikipedia.org/wiki/Margaret_W._Rossiter_History_of_Women_in_Science_Prize",
+        "sourceLabel": "Wikipedia: Margaret W. Rossiter History of Women in Science Prize recipients",
+        "sourceConfidence": "secondary",
+        "importStrategy": "mediawiki-wikitable-book-years-only",
+        "activeYears": "1987-present (books in odd-numbered years)",
+        "coverageNotes": "Winner-only coverage of the odd-year book awards from 1987 onward; the even-year article awards are excluded because they do not honour books. Book rows are identified by an italic marker anchored at the start of the Work cell, which must agree with the odd-year rule; article rows contain italicised container-volume titles that a non-anchored match would wrongly accept. No shared or joint book years to date."
       }
     ]
   }

@@ -968,6 +968,7 @@ export function BookCatalog({
                                 }`}
                                 href={`/books/${book.slug}`}
                                 onClick={(event) => openBookFromLink(event, book)}
+                                title={book.title}
                               >
                                 {showRowCovers ? <BookRowCover book={book} size={coverSize} /> : null}
                                 <span className="book-catalog-title text-base">{book.title}</span>
@@ -1204,6 +1205,7 @@ function BookMobileCard({
             className="book-mobile-title focus-ring rounded-sm text-base font-medium leading-snug transition hover:text-[var(--accent)]"
             href={`/books/${book.slug}`}
             onClick={onOpenLink}
+            title={book.title}
           >
             {book.title}
           </Link>

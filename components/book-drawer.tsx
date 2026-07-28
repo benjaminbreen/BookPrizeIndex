@@ -39,7 +39,7 @@ export function BookDrawer({
   const [citationCopied, setCitationCopied] = useState(false);
   const [linkCopied, setLinkCopied] = useState(false);
   const panelRef = useRef<HTMLElement | null>(null);
-  const animatedBookIdRef = useRef<string | null>(null);
+  const isDrawerRequested = bookId !== null;
 
   useEffect(() => {
     if (!bookId) {
@@ -62,32 +62,32 @@ export function BookDrawer({
   }, [bookId]);
 
   useEffect(() => {
-    if (bookId) {
-      if (!payload || payload.book.id !== bookId) return;
-      const shouldAnimate = animatedBookIdRef.current !== payload.book.id;
-      animatedBookIdRef.current = payload.book.id;
-      setSnapshot({ payload, currentLabel });
-      setIsClosing(false);
-      setCitationCopied(false);
-      setLinkCopied(false);
-      if (!shouldAnimate) return;
-      setHasEntered(false);
-      let secondFrame = 0;
-      const firstFrame = window.requestAnimationFrame(() => {
-        secondFrame = window.requestAnimationFrame(() => setHasEntered(true));
-      });
-      return () => {
-        window.cancelAnimationFrame(firstFrame);
-        window.cancelAnimationFrame(secondFrame);
-      };
-    }
+    if (!isDrawerRequested) return;
+    setIsClosing(false);
+    setHasEntered(false);
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => setHasEntered(true));
+    });
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+    };
+  }, [isDrawerRequested]);
 
+  useEffect(() => {
+    if (!bookId || !payload || payload.book.id !== bookId) return;
+    setSnapshot({ payload, currentLabel });
+    setCitationCopied(false);
+    setLinkCopied(false);
+  }, [bookId, currentLabel, payload]);
+
+  useEffect(() => {
+    if (bookId) return;
     if (!snapshot) {
       setHasEntered(false);
       return;
     }
-
-    animatedBookIdRef.current = null;
     setIsClosing(true);
     setHasEntered(false);
     const timeout = window.setTimeout(() => {
@@ -96,7 +96,7 @@ export function BookDrawer({
     }, DRAWER_EXIT_MS);
 
     return () => window.clearTimeout(timeout);
-  }, [bookId, currentLabel, payload]);
+  }, [bookId, snapshot]);
 
   useEffect(() => {
     if (!snapshot || isClosing) return;
@@ -125,10 +125,12 @@ export function BookDrawer({
     panelRef.current?.scrollTo({ top: 0 });
   }, [payload?.book.id]);
 
+  const layerState = isClosing ? "is-closing" : hasEntered ? "is-open" : "is-entering";
+
   if (!snapshot) {
     if (!bookId) return null;
     return (
-      <div className="book-drawer-layer fixed inset-0 z-30 is-open">
+      <div className={`book-drawer-layer fixed inset-0 z-30 ${layerState}`}>
         <button aria-label="Close detail panel" className="book-drawer-backdrop absolute inset-0 bg-black/45 backdrop-blur-[1px]" onClick={onClose} />
         <aside className="book-drawer-panel absolute bottom-0 right-0 top-0 grid w-full max-w-[45rem] place-items-center border-l hairline bg-[var(--paper)] p-7 shadow-2xl">
           <div className="text-center">
@@ -154,7 +156,6 @@ export function BookDrawer({
   const semanticProfile = renderedBook.experimentalSemanticProfile;
   const sortedAppearances = sortAwardAppearances(renderedAppearances);
   const winsCount = sortedAppearances.filter((appearance) => isWinningStatus(appearance.status)).length;
-  const layerState = isClosing ? "is-closing" : hasEntered ? "is-open" : "is-entering";
   const citation = formatCitation(renderedBook, publisher);
   const summaryPreview = renderedBook.displaySummary ?? renderedBook.summary ? makeSummaryPreview(renderedBook.displaySummary ?? renderedBook.summary ?? "") : "";
 

@@ -163,6 +163,7 @@ export function LibraryShelf({ initialData }: { initialData: LibraryShelfWindow 
                 aria-current={globalIndex === data.selectedIndex ? "true" : undefined}
                 className="focus-ring library-shelf-book"
                 onClick={() => selectIndex(globalIndex)}
+                title={`${row.title} — ${row.author}`}
                 type="button"
               >
                 <ShelfCover row={row} />

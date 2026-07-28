@@ -1,0 +1,758 @@
+{
+  "generatedAt": "2026-07-28T17:55:34.229Z",
+  "metadata": {
+    "importer": "scripts/import-award-records/womens-prize-nonfiction.ts",
+    "source": "Wikipedia winners/shortlist table joined with the official womensprize.com WordPress REST API longlists",
+    "notes": "Wikipedia carries no longlists for this prize, and the womensprize.com REST API carries no tier field, so the two are joined on normalized author plus title prefix and each book keeps only its highest status. prize_year taxonomy term ids are resolved at import time because they are opaque and unstable.",
+    "records": 48,
+    "winners": 3,
+    "shortlisted": 15,
+    "longlisted": 30,
+    "yearRange": "2024-2026",
+    "yearCounts": {
+      "2024": 16,
+      "2025": 16,
+      "2026": 16
+    }
+  },
+  "records": [
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "winner",
+      "title": "The Finest Hotel in Kabul: A People’s History of Afghanistan",
+      "authors": [
+        "Lyse Doucet"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Art Cure: The Science of How the Arts Transform Our Health",
+      "authors": [
+        "Daisy Fancourt"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Artists, Siblings, Visionaries: The lives and loves of Gwen and Augustus John",
+      "authors": [
+        "Judith Mackrell"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Hotel Exile: Paris in the Shadow of War",
+      "authors": [
+        "Jane Rogoyska"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Mother Mary Comes to Me",
+      "authors": [
+        "Arundhati Roy"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "shortlist",
+      "title": "Nation of Strangers: Rebuilding Home in the 21st Century",
+      "authors": [
+        "Ece Temelkuran"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Ask Me: A Memoir of Daring to Love Differently",
+      "authors": [
+        "Deepa Paul"
+      ],
+      "sourceUrl": "https://womensprize.com/library/ask-me-how-it-works-love-in-an-open-marriage/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Daughters of the Bamboo Grove: China’s Stolen Children and a Story of Separated Twins",
+      "authors": [
+        "Barbara Demick"
+      ],
+      "sourceUrl": "https://womensprize.com/library/daughters-of-the-bamboo-grove-chinas-stolen-children-and-a-story-of-separated-twins/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Death of an Ordinary Man",
+      "authors": [
+        "Sarah Perry"
+      ],
+      "sourceUrl": "https://womensprize.com/library/death-of-an-ordinary-man/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Don’t Let It Break You, Honey: A Memoir About Saving Yourself",
+      "authors": [
+        "Jenny Evans"
+      ],
+      "sourceUrl": "https://womensprize.com/library/dont-let-it-break-you-honey-a-memoir-about-saving-yourself/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Finding Albion: Myth, Folklore and the Quest for a Hidden Britain",
+      "authors": [
+        "Zakia Sewell"
+      ],
+      "sourceUrl": "https://womensprize.com/library/finding-albion-myth-folklore-and-the-quest-for-a-new-britain/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "Indignity: A Life Reimagined",
+      "authors": [
+        "Lea Ypi"
+      ],
+      "sourceUrl": "https://womensprize.com/library/indignity-a-life-reimagined/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "The Genius of Trees: How Trees Mastered the Elements and Shaped the World",
+      "authors": [
+        "Harriet Rix"
+      ],
+      "sourceUrl": "https://womensprize.com/library/the-genius-of-trees-how-trees-mastered-the-elements-and-shaped-the-world/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "To Be Young, Gifted and Black: Creativity and Race in the 21st Century",
+      "authors": [
+        "Kadiatu Kanneh-Mason"
+      ],
+      "sourceUrl": "https://womensprize.com/library/to-be-young-gifted-and-black-creativity-and-race-in-the-21st-century/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "To Exist As I Am: A Doctor’s Notes on Recovery and Radical Acceptance",
+      "authors": [
+        "Grace Spence Green"
+      ],
+      "sourceUrl": "https://womensprize.com/library/to-exist-as-i-am-a-doctors-notes-on-recovery-and-radical-acceptance/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2026,
+      "status": "longlist",
+      "title": "With the Law on Our Side: How the Law Works for Everyone and How We Can Make It Work Better",
+      "authors": [
+        "Lady Hale"
+      ],
+      "sourceUrl": "https://womensprize.com/library/with-the-law-on-our-side-how-the-law-works-for-everyone-and-how-we-can-make-it-work-better/",
+      "sourceLabel": "Women's Prize official 2026 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "winner",
+      "title": "The Story of a Heart: Two Families, One Heart, and a Medical Miracle",
+      "authors": [
+        "Rachel Clarke"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "shortlist",
+      "title": "A Thousand Threads",
+      "authors": [
+        "Neneh Cherry"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "shortlist",
+      "title": "Agent Zo: The Untold Story of a Fearless World War II Resistance Fighter",
+      "authors": [
+        "Clare Mulley"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "shortlist",
+      "title": "Private Revolutions: Four Women Face China's New Social Order",
+      "authors": [
+        "Yuan Yang"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "shortlist",
+      "title": "Raising Hare",
+      "authors": [
+        "Chloe Dalton"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "shortlist",
+      "title": "What the Wild Sea Can Be: The Future of the World’s Ocean",
+      "authors": [
+        "Helen Scales"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Autocracy, Inc: The Dictators Who Want to Run the World",
+      "authors": [
+        "Anne Applebaum"
+      ],
+      "sourceUrl": "https://womensprize.com/library/autocracy-inc-the-dictators-who-want-to-run-the-world/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "By the Fire We Carry: The Generations-Long Fight for Justice on Native Land",
+      "authors": [
+        "Rebecca Nagle"
+      ],
+      "sourceUrl": "https://womensprize.com/library/by-the-fire-we-carry-the-generations-long-fight-for-justice-on-native-land/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Embers of the Hands: Hidden Histories of the Viking Age",
+      "authors": [
+        "Eleanor Barraclough"
+      ],
+      "sourceUrl": "https://womensprize.com/library/embers-of-the-hands-hidden-histories-of-the-viking-age/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Ootlin",
+      "authors": [
+        "Jenni Fagan"
+      ],
+      "sourceUrl": "https://womensprize.com/library/ootlin/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Sister In Law: Fighting for Justice in a System Designed by Men",
+      "authors": [
+        "Harriet Wistrich"
+      ],
+      "sourceUrl": "https://womensprize.com/library/sister-in-law-fighting-for-justice-in-a-system-designed-by-men/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "The Eagle and the Hart: The Tragedy of Richard II and Henry IV",
+      "authors": [
+        "Helen Castor"
+      ],
+      "sourceUrl": "https://womensprize.com/library/the-eagle-and-the-hart-the-tragedy-of-richard-ii-and-henry-iv/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "The Peepshow: The Murders at 10 Rillington Place",
+      "authors": [
+        "Kate Summerscale"
+      ],
+      "sourceUrl": "https://womensprize.com/library/the-peepshow-the-murders-at-10-rillington-place/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Tracker",
+      "authors": [
+        "Alexis Wright"
+      ],
+      "sourceUrl": "https://womensprize.com/library/tracker/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Why Fish Don’t Exist: A Story of Loss, Love and the Hidden Order of Life",
+      "authors": [
+        "Lulu Miller"
+      ],
+      "sourceUrl": "https://womensprize.com/library/why-fish-dont-exist/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "longlist",
+      "title": "Wild Thing: A Life of Paul Gauguin",
+      "authors": [
+        "Sue Prideaux"
+      ],
+      "sourceUrl": "https://womensprize.com/library/wild-thing-a-life-of-paul-gauguin/",
+      "sourceLabel": "Women's Prize official 2025 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "winner",
+      "title": "Doppelganger",
+      "authors": [
+        "Naomi Klein"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "shortlist",
+      "title": "A Flat Place",
+      "authors": [
+        "Noreen Masud"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "shortlist",
+      "title": "All That She Carried",
+      "authors": [
+        "Tiya Miles"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "shortlist",
+      "title": "Code Dependent",
+      "authors": [
+        "Madhumita Murgia"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "shortlist",
+      "title": "How to Say Babylon",
+      "authors": [
+        "Safiya Sinclair"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "shortlist",
+      "title": "Thunderclap",
+      "authors": [
+        "Laura Cumming"
+      ],
+      "sourceUrl": "https://en.wikipedia.org/wiki/Women%27s_Prize_for_Non-Fiction",
+      "sourceLabel": "Wikipedia: Women's Prize for Non-Fiction",
+      "sourceConfidence": "secondary",
+      "notes": "Winner and shortlist tiers come from the cited Wikipedia table; the longlist comes from the official site."
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Eve",
+      "authors": [
+        "Cat Bohannon"
+      ],
+      "sourceUrl": "https://womensprize.com/library/eve/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Intervals",
+      "authors": [
+        "Marianne Brooker"
+      ],
+      "sourceUrl": "https://womensprize.com/library/intervals/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Matrescence",
+      "authors": [
+        "Lucy Jones"
+      ],
+      "sourceUrl": "https://womensprize.com/library/matrescence/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Shadows at Noon",
+      "authors": [
+        "Joya Chatterji"
+      ],
+      "sourceUrl": "https://womensprize.com/library/shadows-at-noon/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Some People Need Killing",
+      "authors": [
+        "Patricia Evangelista"
+      ],
+      "sourceUrl": "https://womensprize.com/library/some-people-need-killing/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The Britannias",
+      "authors": [
+        "Alice Albinia"
+      ],
+      "sourceUrl": "https://womensprize.com/library/the-britannias/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "The Dictionary People",
+      "authors": [
+        "Sarah Ogilvie"
+      ],
+      "sourceUrl": "https://womensprize.com/library/the-dictionary-people/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Vulture Capitalism",
+      "authors": [
+        "Grace Blakeley"
+      ],
+      "sourceUrl": "https://womensprize.com/library/vulture-capitalism/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Wifedom",
+      "authors": [
+        "Anna Funder"
+      ],
+      "sourceUrl": "https://womensprize.com/library/wifedom/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    },
+    {
+      "awardId": "womens-prize-nonfiction",
+      "awardName": "Women's Prize for Non-Fiction",
+      "categoryId": "womens-prize-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "longlist",
+      "title": "Young Queens",
+      "authors": [
+        "Leah Redmond Chang"
+      ],
+      "sourceUrl": "https://womensprize.com/library/young-queens/",
+      "sourceLabel": "Women's Prize official 2024 non-fiction longlist entry",
+      "sourceConfidence": "official"
+    }
+  ]
+}

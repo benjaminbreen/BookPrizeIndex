@@ -1,14 +1,2113 @@
 {
-  "generatedAt": "2026-07-23T18:35:11.125Z",
-  "totalBooks": 7066,
-  "candidateGroups": 9,
-  "candidateBooks": 18,
-  "unresolvedGroups": 0,
-  "unresolvedBooks": 0,
+  "generatedAt": "2026-07-28T18:08:22.784Z",
+  "totalBooks": 8353,
+  "candidateGroups": 38,
+  "candidateBooks": 79,
+  "unresolvedGroups": 29,
+  "unresolvedBooks": 61,
   "actionSummary": {
+    "auto_merge_candidate": 5,
+    "manual_review": 24,
     "ignore": 9
   },
   "groups": [
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-civic-ideals-conflicting-visions-of-citizenship-in-u-s-history-rogers-m-smith",
+      "score": 0.983,
+      "books": [
+        {
+          "id": "book-civic-ideals-conflicting-visions-of-citizenship-in-u-s-history-rogers-m-smith",
+          "title": "Civic Ideals: Conflicting Visions of Citizenship in U.S. History",
+          "authors": [
+            "Rogers M. Smith"
+          ],
+          "publicationYear": 1997,
+          "isbn13": [
+            "9780300078770"
+          ],
+          "publisherId": "publisher-yale-university-press",
+          "imprintId": "imprint-yale-university-press",
+          "sourceCount": 9,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-merle-curti-award",
+              "awardName": "Organization of American Historians Book Prizes: Merle Curti Award",
+              "year": 1999,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-prose-award-for-government-and-politics",
+              "awardName": "PROSE Award for Government and Politics",
+              "year": 1997,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-civic-ideals-rogers-m-smith",
+          "title": "Civic Ideals: Conflicting Visions of Citizenship in U.S. History",
+          "authors": [
+            "Rogers Smith"
+          ],
+          "publicationYear": 1997,
+          "isbn13": [
+            "9780300078770"
+          ],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-history",
+              "awardName": "Pulitzer Prize in History",
+              "year": 1998,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 4
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-civic-ideals-conflicting-visions-of-citizenship-in-u-s-history-rogers-m-smith",
+            "book-civic-ideals-rogers-m-smith"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": true,
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
+        }
+      ]
+    },
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Very similar title and author strings.",
+      "recommendedCanonicalBookId": "book-an-example-for-all-the-land-emancipation-and-the-struggle-over-equality-in-washington-d-c-kate-m",
+      "score": 0.95,
+      "books": [
+        {
+          "id": "book-an-example-for-all-the-land-emancipation-and-the-struggle-over-equality-in-washington-d-c-kate-m",
+          "title": "An Example for All the Land: Emancipation and the Struggle over Equality in Washington, D.C",
+          "authors": [
+            "Kate Masur"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-university-of-north-carolina-press",
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-civil-war-and-reconstruction-book-award",
+              "awardName": "Organization of American Historians Book Prizes: Civil War and Reconstruction Book Award",
+              "year": 2011,
+              "status": "honorable_mention"
+            }
+          ],
+          "completenessScore": 1
+        },
+        {
+          "id": "book-an-example-of-all-the-land-emancipation-and-the-struggle-over-equality-in-washington-d-c-kate-ma",
+          "title": "An Example of All the Land: Emancipation and the Struggle over Equality in Washington D.C.",
+          "authors": [
+            "Kate Masur"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
+              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
+              "year": 2011,
+              "status": "honorable_mention"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-an-example-for-all-the-land-emancipation-and-the-struggle-over-equality-in-washington-d-c-kate-m",
+            "book-an-example-of-all-the-land-emancipation-and-the-struggle-over-equality-in-washington-d-c-kate-ma"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Very similar title and author strings.",
+      "recommendedCanonicalBookId": "book-there-is-a-season-a-memoir-in-the-garden-patrick-lane",
+      "score": 0.95,
+      "books": [
+        {
+          "id": "book-there-is-a-season-a-memoir-in-a-garden-patrick-lane",
+          "title": "There is a Season: A Memoir in a Garden",
+          "authors": [
+            "Patrick Lane"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-hilary-weston-writers-trust-prize-for-nonfiction",
+              "awardName": "Hilary Weston Writers' Trust Prize for Nonfiction",
+              "year": 2004,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-there-is-a-season-a-memoir-in-the-garden-patrick-lane",
+          "title": "There is a Season: A Memoir in the Garden",
+          "authors": [
+            "Patrick Lane"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
+              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
+              "year": 2005,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-there-is-a-season-a-memoir-in-a-garden-patrick-lane",
+            "book-there-is-a-season-a-memoir-in-the-garden-patrick-lane"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Very similar title and author strings.",
+      "recommendedCanonicalBookId": "book-like-a-family-the-making-of-a-southern-cotton-mill-world-jacquelyn-dowd-hall-and-james-leloudis-",
+      "score": 0.925,
+      "books": [
+        {
+          "id": "book-like-a-family-the-making-of-a-southern-cotton-mill-world-jacquelyn-dowd-hall-and-james-leloudis-",
+          "title": "Like a Family: The Making of a Southern Cotton Mill World",
+          "authors": [
+            "Jacquelyn Dowd Hall",
+            "James Leloudis",
+            "Robert Korstad",
+            "Mary Murphy",
+            "Lu Ann Jones",
+            "Christopher Daly"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-university-of-north-carolina-press",
+          "imprintId": "imprint-university-of-north-carolina-press",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-american-historical-association-book-prizes-beveridge-family-prize-in-american-history",
+              "awardName": "American Historical Association Book Prizes: Beveridge Family Prize in American History",
+              "year": 1988,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 2
+        },
+        {
+          "id": "book-like-a-family-the-making-of-a-southern-cotton-mill-world-jacquelyn-hall-and-james-leloudis-and-r",
+          "title": "Like a Family: The Making of a Southern Cotton Mill World",
+          "authors": [
+            "Jacquelyn Hall",
+            "James Leloudis",
+            "Robert Korstad",
+            "Mary Murphy",
+            "Lu Ann Jones",
+            "Christopher B. Daly"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-the-university-of-north-carolina-press",
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-merle-curti-award",
+              "awardName": "Organization of American Historians Book Prizes: Merle Curti Award",
+              "year": 1988,
+              "status": "co_winner"
+            }
+          ],
+          "completenessScore": 1
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-like-a-family-the-making-of-a-southern-cotton-mill-world-jacquelyn-dowd-hall-and-james-leloudis-",
+            "book-like-a-family-the-making-of-a-southern-cotton-mill-world-jacquelyn-hall-and-james-leloudis-and-r"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.929,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Very similar title and author strings.",
+      "recommendedCanonicalBookId": "book-underground-empire-how-america-weaponized-the-world-economy-henry-farrell-and-abraham-l-newman",
+      "score": 0.88,
+      "books": [
+        {
+          "id": "book-underground-empire-how-america-weaponized-the-world-economy-henry-farrell-and-abraham-l-newman",
+          "title": "Underground Empire: How America Weaponized the World Economy",
+          "authors": [
+            "Henry Farrell",
+            "Abraham L. Newman"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-arthur-ross-book-award-international-affairs",
+              "awardName": "Arthur Ross Book Award: International Affairs",
+              "year": 2024,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-underground-empire-how-america-weaponized-the-world-economy-henry-farrell-and-abraham-newman",
+          "title": "Underground Empire: How America Weaponized the World Economy",
+          "authors": [
+            "Henry Farrell",
+            "Abraham Newman"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-lionel-gelber-prize-international-affairs",
+              "awardName": "Lionel Gelber Prize: International Affairs",
+              "year": 2024,
+              "status": "shortlist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-underground-empire-how-america-weaponized-the-world-economy-henry-farrell-and-abraham-l-newman",
+            "book-underground-empire-how-america-weaponized-the-world-economy-henry-farrell-and-abraham-newman"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.8,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Likely duplicate or related volume; volume language requires review.",
+      "recommendedCanonicalBookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
+      "score": 0.95,
+      "books": [
+        {
+          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume One: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-governor-general-s-literary-awards-english-language-non-fiction",
+              "awardName": "Governor General's Literary Awards: English-language Non-fiction",
+              "year": 2007,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 1
+        },
+        {
+          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Vol. One: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
+              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
+              "year": 2007,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume 1: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-shaughnessy-cohen-prize-for-political-writing",
+              "awardName": "Shaughnessy Cohen Prize for Political Writing",
+              "year": 2007,
+              "status": "shortlist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        },
+        {
+          "bookIds": [
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english"
+          ],
+          "titleSimilarity": 0.875,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        },
+        {
+          "bookIds": [
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english"
+          ],
+          "titleSimilarity": 0.875,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Likely duplicate or related volume; volume language requires review.",
+      "recommendedCanonicalBookId": "book-john-a-the-man-who-made-us-the-life-and-times-of-john-a-macdonald-volume-one-1815-1867-richard-g",
+      "score": 0.95,
+      "books": [
+        {
+          "id": "book-john-a-the-man-who-made-us-the-life-and-times-of-john-a-macdonald-volume-one-1815-1867-richard-g",
+          "title": "John A: The Man Who Made Us; The Life and Times of John A. Macdonald, Volume One: 1815–1867",
+          "authors": [
+            "Richard Gwyn"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-shaughnessy-cohen-prize-for-political-writing",
+              "awardName": "Shaughnessy Cohen Prize for Political Writing",
+              "year": 2008,
+              "status": "shortlist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-john-a-the-man-who-made-us-the-life-and-times-of-john-a-macdonald-vol-one-1815-1867-richard-gwyn",
+          "title": "John A.: The Man Who Made Us: The Life and Times of John A. Macdonald, Vol. One: 1815-1867",
+          "authors": [
+            "Richard Gwyn"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
+              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
+              "year": 2008,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-john-a-the-man-who-made-us-the-life-and-times-of-john-a-macdonald-volume-one-1815-1867-richard-g",
+            "book-john-a-the-man-who-made-us-the-life-and-times-of-john-a-macdonald-vol-one-1815-1867-richard-gwyn"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": false
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Likely duplicate or related volume; volume language requires review.",
+      "recommendedCanonicalBookId": "book-the-years-of-persecution-nazi-germany-and-the-jews-1933-1939-saul-friedlander",
+      "score": 0.95,
+      "books": [
+        {
+          "id": "book-nazi-germany-and-the-jews-volume-1-the-years-of-persecution-1933-1939-saul-friedlander",
+          "title": "Nazi Germany and the Jews: Volume 1. The Years of Persecution, 1933-1939",
+          "authors": [
+            "Saul Friedländer"
+          ],
+          "publicationYear": 1997,
+          "isbn13": [
+            "9780060928780"
+          ],
+          "publisherId": "publisher-harpercollins",
+          "imprintId": "imprint-harper-perennial",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-history",
+              "awardName": "Los Angeles Times Book Prize for History",
+              "year": 1997,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-the-years-of-persecution-nazi-germany-and-the-jews-1933-1939-saul-friedlander",
+          "title": "The Years of Persecution: Nazi Germany and the Jews, 1933-1939",
+          "authors": [
+            "Saul Friedländer"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-jewish-book-awards-holocaust",
+              "awardName": "National Jewish Book Awards: Holocaust",
+              "year": 1997,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-nazi-germany-and-the-jews-volume-1-the-years-of-persecution-1933-1939-saul-friedlander",
+            "book-the-years-of-persecution-nazi-germany-and-the-jews-1933-1939-saul-friedlander"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": false
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-a-clearing-in-the-distance-frederick-law-olmsted-and-north-america-in-the-nineteenth-century-wit",
+      "score": 0.883,
+      "books": [
+        {
+          "id": "book-a-clearing-in-the-distance-frederick-law-olmsted-and-america-in-the-nineteenth-century-witold-ry",
+          "title": "A Clearing in the Distance: Frederick Law Olmsted and America in the Nineteenth Century",
+          "authors": [
+            "Witold Rybczynski"
+          ],
+          "isbn13": [
+            "9780006386438"
+          ],
+          "publisherId": "publisher-simon-and-schuster",
+          "imprintId": "imprint-scribner",
+          "sourceCount": 6,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-j-anthony-lukas-book-prize",
+              "awardName": "J. Anthony Lukas Book Prize",
+              "year": 2000,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 6
+        },
+        {
+          "id": "book-a-clearing-in-the-distance-frederick-law-olmsted-and-north-america-in-the-nineteenth-century-wit",
+          "title": "A Clearing in the Distance: Frederick Law Olmsted and North America in the Nineteenth Century",
+          "authors": [
+            "Witold Rybczynski"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
+              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
+              "year": 2000,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-a-clearing-in-the-distance-frederick-law-olmsted-and-america-in-the-nineteenth-century-witold-ry",
+            "book-a-clearing-in-the-distance-frederick-law-olmsted-and-north-america-in-the-nineteenth-century-wit"
+          ],
+          "titleSimilarity": 0.889,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Likely duplicate or related volume; volume language requires review.",
+      "recommendedCanonicalBookId": "book-john-maynard-keynes-fighting-for-britain-1937-1946-robert-skidelsky",
+      "score": 0.864,
+      "books": [
+        {
+          "id": "book-john-maynard-keynes-fighting-for-britain-1937-1946-robert-skidelsky",
+          "title": "John Maynard Keynes, Fighting for Britain 1937-1946",
+          "authors": [
+            "Robert Skidelsky"
+          ],
+          "publicationYear": 2001,
+          "isbn13": [
+            "9780670030224"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-viking",
+          "sourceCount": 6,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2001,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-james-tait-black-prizes-biography",
+              "awardName": "James Tait Black Prizes: Biography",
+              "year": 2001,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-lionel-gelber-prize-international-affairs",
+              "awardName": "Lionel Gelber Prize: International Affairs",
+              "year": 2001,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-john-maynard-keynes-vol-2-the-economist-as-saviour-1920-1937-robert-skidelsky",
+          "title": "John Maynard Keynes, vol. 2: the Economist as Saviour 1920-1937",
+          "authors": [
+            "Robert Skidelsky"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-macmillan",
+          "imprintId": "imprint-macmillan",
+          "sourceCount": 3,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-duff-cooper-prize-history-biography-and-political-science",
+              "awardName": "Duff Cooper Prize: History, Biography & Political Science",
+              "year": 2000,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-wolfson-history-prize",
+              "awardName": "Wolfson History Prize",
+              "year": 1993,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 2
+        },
+        {
+          "id": "book-john-maynard-keynes-fighting-for-freedom-1937-1946-robert-skidelsky",
+          "title": "John Maynard Keynes: Fighting for Freedom 1937–1946",
+          "authors": [
+            "Robert Skidelsky"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-arthur-ross-book-award-international-affairs",
+              "awardName": "Arthur Ross Book Award: International Affairs",
+              "year": 2002,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-john-maynard-keynes-fighting-for-britain-1937-1946-robert-skidelsky",
+            "book-john-maynard-keynes-fighting-for-freedom-1937-1946-robert-skidelsky"
+          ],
+          "titleSimilarity": 0.857,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": false
+        },
+        {
+          "bookIds": [
+            "book-john-maynard-keynes-vol-2-the-economist-as-saviour-1920-1937-robert-skidelsky",
+            "book-john-maynard-keynes-fighting-for-freedom-1937-1946-robert-skidelsky"
+          ],
+          "titleSimilarity": 0.571,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-dispatches-from-the-front-the-life-of-matthew-halton-canada-s-voice-at-war-david-halton",
+      "score": 0.864,
+      "books": [
+        {
+          "id": "book-dispatches-from-the-front-matthew-halton-canada-s-voice-at-war-david-halton",
+          "title": "Dispatches from the Front: Matthew Halton, Canada's Voice at War",
+          "authors": [
+            "David Halton"
+          ],
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-governor-general-s-literary-awards-english-language-non-fiction",
+              "awardName": "Governor General's Literary Awards: English-language Non-fiction",
+              "year": 2015,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 1
+        },
+        {
+          "id": "book-dispatches-from-the-front-the-life-of-matthew-halton-canada-s-voice-at-war-david-halton",
+          "title": "Dispatches from the Front: The Life of Matthew Halton, Canada’s Voice at War",
+          "authors": [
+            "David Halton"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
+              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
+              "year": 2016,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-dispatches-from-the-front-matthew-halton-canada-s-voice-at-war-david-halton",
+            "book-dispatches-from-the-front-the-life-of-matthew-halton-canada-s-voice-at-war-david-halton"
+          ],
+          "titleSimilarity": 0.857,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-inventing-the-people-the-rise-of-popular-sovereignty-in-england-and-america-edmund-s-morgan",
+      "score": 0.864,
+      "books": [
+        {
+          "id": "book-inventing-the-people-the-rise-of-popular-sovereignty-in-england-and-america-edmund-s-morgan",
+          "title": "Inventing the People: The Rise of Popular Sovereignty in England and America",
+          "authors": [
+            "Edmund S. Morgan"
+          ],
+          "publicationYear": 1988,
+          "isbn13": [
+            "9780393347494"
+          ],
+          "publisherId": "publisher-w-w-norton-and-company",
+          "imprintId": "imprint-w-w-norton",
+          "sourceCount": 5,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-bancroft-prize",
+              "awardName": "Bancroft Prize",
+              "year": 1989,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-inventing-the-people-the-rise-of-popular-soverignty-in-england-and-america-edmund-s-morgan",
+          "title": "Inventing the People: The Rise of Popular Soverignty in England and America",
+          "authors": [
+            "Edmund S. Morgan"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-w-w-norton-and-company",
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-merle-curti-award",
+              "awardName": "Organization of American Historians Book Prizes: Merle Curti Award",
+              "year": 1989,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 1
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-inventing-the-people-the-rise-of-popular-sovereignty-in-england-and-america-edmund-s-morgan",
+            "book-inventing-the-people-the-rise-of-popular-soverignty-in-england-and-america-edmund-s-morgan"
+          ],
+          "titleSimilarity": 0.857,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "high",
+      "reason": "Likely duplicate with minor title or author variation.",
+      "recommendedCanonicalBookId": "book-race-for-profit-how-banks-and-the-real-estate-industry-undermined-black-home-ownership-keeanga-y",
+      "score": 0.841,
+      "books": [
+        {
+          "id": "book-race-for-profit-how-banks-and-the-real-estate-industry-undermined-black-home-ownership-keeanga-y",
+          "title": "Race for Profit: How Banks and the Real Estate Industry Undermined Black Home Ownership",
+          "authors": [
+            "Keeanga-Yamahtta Taylor"
+          ],
+          "publicationYear": 2020,
+          "isbn13": [],
+          "publisherId": "publisher-university-of-north-carolina-press",
+          "imprintId": "imprint-university-of-north-carolina-press",
+          "sourceCount": 4,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-ellis-w-hawley-prize",
+              "awardName": "Organization of American Historians Book Prizes: Ellis W. Hawley Prize",
+              "year": 2020,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-liberty-legacy-foundation-award",
+              "awardName": "Organization of American Historians Book Prizes: Liberty Legacy Foundation Award",
+              "year": 2020,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-pulitzer-prize-in-history",
+              "awardName": "Pulitzer Prize in History",
+              "year": 2020,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 3
+        },
+        {
+          "id": "book-race-for-profit-how-banks-and-the-real-estate-industry-undermined-black-homeownership-keeanga-ya",
+          "title": "Race for Profit: How Banks and the Real Estate Industry Undermined Black Homeownership",
+          "authors": [
+            "Keeanga-Yamahtta Taylor"
+          ],
+          "isbn13": [
+            "9781469653662"
+          ],
+          "publisherId": "publisher-university-of-north-carolina-press",
+          "imprintId": "imprint-university-of-north-carolina-press",
+          "sourceCount": 8,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-history",
+              "awardName": "Pulitzer Prize in History",
+              "year": 2020,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 6
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-race-for-profit-how-banks-and-the-real-estate-industry-undermined-black-home-ownership-keeanga-y",
+            "book-race-for-profit-how-banks-and-the-real-estate-industry-undermined-black-homeownership-keeanga-ya"
+          ],
+          "titleSimilarity": 0.818,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-atlantic-crossings-social-politics-in-a-progressive-age-daniel-t-rodgers",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-atlantic-crossings-social-politics-in-a-progressive-age-daniel-rodgers",
+          "title": "Atlantic Crossings: Social Politics in a Progressive Age",
+          "authors": [
+            "Daniel Rodgers"
+          ],
+          "publicationYear": 1998,
+          "isbn13": [
+            "9780674002012"
+          ],
+          "publisherId": "publisher-harvard-university-press",
+          "imprintId": "imprint-belknap-press",
+          "sourceCount": 6,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-american-historical-association-book-prizes-aha-prize-in-european-international-history",
+              "awardName": "American Historical Association Book Prizes: AHA Prize in European International History",
+              "year": 1999,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-atlantic-crossings-social-politics-in-a-progressive-age-daniel-t-rodgers",
+          "title": "Atlantic Crossings: Social Politics in a Progressive Age",
+          "authors": [
+            "Daniel T. Rodgers"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-harvard-university-press",
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-ellis-w-hawley-prize",
+              "awardName": "Organization of American Historians Book Prizes: Ellis W. Hawley Prize",
+              "year": 1999,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 1
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-atlantic-crossings-social-politics-in-a-progressive-age-daniel-rodgers",
+            "book-atlantic-crossings-social-politics-in-a-progressive-age-daniel-t-rodgers"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-before-the-movement-the-hidden-history-of-black-civil-rights-dylan-c-penningroth",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-before-the-movement-the-hidden-history-of-black-civil-rights-dylan-c-penningroth",
+          "title": "Before the Movement: The Hidden History of Black Civil Rights",
+          "authors": [
+            "Dylan C. Penningroth"
+          ],
+          "publicationYear": 2024,
+          "isbn13": [
+            "9781324095644"
+          ],
+          "publisherId": "publisher-w-w-norton-and-company",
+          "imprintId": "imprint-liveright",
+          "sourceCount": 11,
+          "appearanceCount": 3,
+          "awards": [
+            {
+              "awardId": "award-american-historical-association-book-prizes-beveridge-family-prize-in-american-history",
+              "awardName": "American Historical Association Book Prizes: Beveridge Family Prize in American History",
+              "year": 2024,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2024,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-mark-lynton-history-prize",
+              "awardName": "Mark Lynton History Prize",
+              "year": 2024,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-before-the-movement-the-hidden-history-of-black-civil-rights-dylan-penningroth",
+          "title": "Before the Movement: The Hidden History of Black Civil Rights",
+          "authors": [
+            "Dylan Penningroth"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-liveright",
+          "sourceCount": 2,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-ellis-w-hawley-prize",
+              "awardName": "Organization of American Historians Book Prizes: Ellis W. Hawley Prize",
+              "year": 2024,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-merle-curti-award",
+              "awardName": "Organization of American Historians Book Prizes: Merle Curti Award",
+              "year": 2024,
+              "status": "co_winner"
+            }
+          ],
+          "completenessScore": 1
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-before-the-movement-the-hidden-history-of-black-civil-rights-dylan-c-penningroth",
+            "book-before-the-movement-the-hidden-history-of-black-civil-rights-dylan-penningroth"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-braddock-s-defeat-the-battle-of-the-monongahela-and-the-road-to-revolution-david-preston",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-braddock-s-defeat-the-battle-of-the-monongahela-and-the-road-to-revolution-david-preston",
+          "title": "Braddock's Defeat: The Battle of the Monongahela and the Road to Revolution",
+          "authors": [
+            "David Preston"
+          ],
+          "publicationYear": 2015,
+          "isbn13": [
+            "9780199845323"
+          ],
+          "publisherId": "publisher-oxford-university-press",
+          "imprintId": "imprint-oxford-university-press",
+          "sourceCount": 7,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-george-washington-prize-founding-era",
+              "awardName": "George Washington Prize: Founding Era",
+              "year": 2016,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-prose-award-for-u-s-history",
+              "awardName": "PROSE Award for U.S. History",
+              "year": 2016,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-braddock-s-defeat-the-battle-of-the-monongahela-and-the-road-to-revolution-david-l-preston",
+          "title": "Braddock's Defeat: The Battle of the Monongahela and the Road to Revolution",
+          "authors": [
+            "David L. Preston"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-gilder-lehrman-military-history-prize",
+              "awardName": "Gilder Lehrman Military History Prize",
+              "year": 2015,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-braddock-s-defeat-the-battle-of-the-monongahela-and-the-road-to-revolution-david-preston",
+            "book-braddock-s-defeat-the-battle-of-the-monongahela-and-the-road-to-revolution-david-l-preston"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-dean-acheson-a-life-in-the-cold-war-robert-l-beisner",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-dean-acheson-a-life-in-the-cold-war-robert-beisner",
+          "title": "Dean Acheson: A Life in the Cold War",
+          "authors": [
+            "Robert Beisner"
+          ],
+          "publicationYear": 2006,
+          "isbn13": [
+            "9780195045789"
+          ],
+          "publisherId": "publisher-oxford-university-press",
+          "imprintId": "imprint-oxford-university-press",
+          "sourceCount": 6,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-prose-award-for-biography-and-autobiography",
+              "awardName": "PROSE Award for Biography and Autobiography",
+              "year": 2006,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-dean-acheson-a-life-in-the-cold-war-robert-l-beisner",
+          "title": "Dean Acheson: A Life in the Cold War",
+          "authors": [
+            "Robert L. Beisner"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-arthur-ross-book-award-international-affairs",
+              "awardName": "Arthur Ross Book Award: International Affairs",
+              "year": 2007,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-dean-acheson-a-life-in-the-cold-war-robert-l-beisner",
+            "book-dean-acheson-a-life-in-the-cold-war-robert-beisner"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+          "title": "Frederick Douglass: Prophet of Freedom",
+          "authors": [
+            "David W. Blight"
+          ],
+          "publicationYear": 2018,
+          "isbn13": [
+            "9781416593881"
+          ],
+          "publisherId": "publisher-simon-and-schuster",
+          "imprintId": "imprint-simon-and-schuster",
+          "sourceCount": 14,
+          "appearanceCount": 8,
+          "awards": [
+            {
+              "awardId": "award-bancroft-prize",
+              "awardName": "Bancroft Prize",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2019,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-dayton-literary-peace-prize-nonfiction",
+              "awardName": "Dayton Literary Peace Prize: Nonfiction",
+              "year": 2019,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-francis-parkman-prize",
+              "awardName": "Francis Parkman Prize",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-mark-lynton-history-prize",
+              "awardName": "Mark Lynton History Prize",
+              "year": 2019,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-plutarch-award-biography",
+              "awardName": "Plutarch Award: Biography",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-pulitzer-prize-in-history",
+              "awardName": "Pulitzer Prize in History",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-biography",
+              "awardName": "Los Angeles Times Book Prize for Biography",
+              "year": 2018,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-frederick-douglass-prophet-of-freedom-david-blight",
+          "title": "Frederick Douglass: Prophet of Freedom",
+          "authors": [
+            "David Blight"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
+              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
+              "year": 2019,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+            "book-frederick-douglass-prophet-of-freedom-david-blight"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "low",
+      "reason": "Loose similarity candidate; inspect before merging.",
+      "recommendedCanonicalBookId": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+          "title": "John Brown’s War Against Slavery",
+          "authors": [
+            "Robert E. McGlone"
+          ],
+          "publicationYear": 2013,
+          "isbn13": [
+            "9781107617964"
+          ],
+          "publisherId": "publisher-cambridge-university-press",
+          "imprintId": "imprint-cambridge-university-press",
+          "sourceCount": 5,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-frederick-douglass-book-prize-slavery-resistance-and-abolition",
+              "awardName": "Frederick Douglass Book Prize: Slavery, Resistance, and Abolition",
+              "year": 2010,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-john-brown-s-war-against-slavery-robert-mcglone",
+          "title": "John Brown’s War Against Slavery",
+          "authors": [
+            "Robert McGlone"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
+              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
+              "year": 2010,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+            "book-john-brown-s-war-against-slavery-robert-mcglone"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": false
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-louis-d-brandeis-a-life-melvin-i-urofsky",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-louis-d-brandeis-a-life-melvin-i-urofsky",
+          "title": "Louis D. Brandeis: A Life",
+          "authors": [
+            "Melvin I. Urofsky"
+          ],
+          "publicationYear": 2009,
+          "isbn13": [],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-pantheon",
+          "sourceCount": 3,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-biography",
+              "awardName": "Los Angeles Times Book Prize for Biography",
+              "year": 2009,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 5
+        },
+        {
+          "id": "book-louis-d-brandeis-a-life-melvin-urofsky",
+          "title": "Louis D. Brandeis: A Life",
+          "authors": [
+            "Melvin Urofsky"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-jewish-book-awards-jewish-book-of-the-year",
+              "awardName": "National Jewish Book Awards: Jewish Book of the Year",
+              "year": 2009,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-louis-d-brandeis-a-life-melvin-i-urofsky",
+            "book-louis-d-brandeis-a-life-melvin-urofsky"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-merze-tate-the-global-odyssey-of-a-black-woman-scholar-barbara-d-savage",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-merze-tate-the-global-odyssey-of-a-black-woman-scholar-barbara-d-savage",
+          "title": "Merze Tate: The Global Odyssey of a Black Woman Scholar",
+          "authors": [
+            "Barbara D. Savage"
+          ],
+          "publicationYear": 2023,
+          "isbn13": [
+            "9780300270273"
+          ],
+          "publisherId": "publisher-yale-university-press",
+          "imprintId": "imprint-yale-university-press",
+          "sourceCount": 5,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-plutarch-award-biography",
+              "awardName": "Plutarch Award: Biography",
+              "year": 2024,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-merze-tate-the-global-odyssey-of-a-black-woman-scholar-barbara-savage",
+          "title": "Merze Tate: The Global Odyssey of a Black Woman Scholar",
+          "authors": [
+            "Barbara Savage"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-yale-university-press",
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-darlene-clark-hine-award",
+              "awardName": "Organization of American Historians Book Prizes: Darlene Clark Hine Award",
+              "year": 2024,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 1
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-merze-tate-the-global-odyssey-of-a-black-woman-scholar-barbara-savage",
+            "book-merze-tate-the-global-odyssey-of-a-black-woman-scholar-barbara-d-savage"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "low",
+      "reason": "Loose similarity candidate; inspect before merging.",
+      "recommendedCanonicalBookId": "book-overreach-how-china-derailed-its-peaceful-rise-susan-l-shirk",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-overreach-how-china-derailed-its-peaceful-rise-susan-l-shirk",
+          "title": "Overreach: How China Derailed Its Peaceful Rise",
+          "authors": [
+            "Susan L. Shirk"
+          ],
+          "publicationYear": 2023,
+          "isbn13": [
+            "9780190068516"
+          ],
+          "publisherId": "publisher-oxford-university-press",
+          "imprintId": "imprint-oxford-university-press",
+          "sourceCount": 5,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-lionel-gelber-prize-international-affairs",
+              "awardName": "Lionel Gelber Prize: International Affairs",
+              "year": 2023,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-overreach-how-china-derailed-its-peaceful-rise-susan-shirk",
+          "title": "Overreach: How China Derailed Its Peaceful Rise",
+          "authors": [
+            "Susan Shirk"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-arthur-ross-book-award-international-affairs",
+              "awardName": "Arthur Ross Book Award: International Affairs",
+              "year": 2023,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-overreach-how-china-derailed-its-peaceful-rise-susan-shirk",
+            "book-overreach-how-china-derailed-its-peaceful-rise-susan-l-shirk"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": false
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+          "title": "The Abandonment of the Jews: America and the Holocaust 1941-1945",
+          "authors": [
+            "David S. Wyman"
+          ],
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-anisfield-wolf-book-awards-nonfiction",
+              "awardName": "Anisfield-Wolf Book Awards: Nonfiction",
+              "year": 1985,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-national-jewish-book-awards-holocaust",
+              "awardName": "National Jewish Book Awards: Holocaust",
+              "year": 1985,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman",
+          "title": "The Abandonment of the Jews: America and the Holocaust 1941–1945",
+          "authors": [
+            "David Wyman"
+          ],
+          "publicationYear": 1984,
+          "isbn13": [
+            "9781595581747"
+          ],
+          "publisherId": "publisher-the-new-press",
+          "imprintId": "imprint-the-new-press",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-nonfiction",
+              "awardName": "National Book Critics Circle Award for Nonfiction",
+              "year": 1984,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+            "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-dred-scott-case-its-significance-in-american-law-and-politics-don-e-fehrenbacher",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-the-dred-scott-case-its-significance-in-american-law-and-politics-don-fehrenbacher",
+          "title": "The Dred Scott Case: Its Significance in American Law and Politics",
+          "authors": [
+            "Don Fehrenbacher"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
+              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
+              "year": 1997,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-the-dred-scott-case-its-significance-in-american-law-and-politics-don-e-fehrenbacher",
+          "title": "The Dred Scott Case: Its Significance in American Law and Politics",
+          "authors": [
+            "Don E. Fehrenbacher"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-pulitzer-prize-in-history",
+              "awardName": "Pulitzer Prize in History",
+              "year": 1979,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-dred-scott-case-its-significance-in-american-law-and-politics-don-fehrenbacher",
+            "book-the-dred-scott-case-its-significance-in-american-law-and-politics-don-e-fehrenbacher"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "low",
+      "reason": "Loose similarity candidate; inspect before merging.",
+      "recommendedCanonicalBookId": "book-the-enlightenment-in-america-henry-f-may",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-the-enlightenment-in-america-henry-may",
+          "title": "The Enlightenment in America",
+          "authors": [
+            "Henry May"
+          ],
+          "publicationYear": 1978,
+          "isbn13": [],
+          "publisherId": "publisher-oxford-university-press",
+          "imprintId": "imprint-oxford-university-press",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-american-historical-association-book-prizes-beveridge-family-prize-in-american-history",
+              "awardName": "American Historical Association Book Prizes: Beveridge Family Prize in American History",
+              "year": 1977,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-the-enlightenment-in-america-henry-f-may",
+          "title": "The Enlightenment in America",
+          "authors": [
+            "Henry F. May"
+          ],
+          "isbn13": [],
+          "publisherId": "publisher-oxford-university-press",
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-merle-curti-award",
+              "awardName": "Organization of American Historians Book Prizes: Merle Curti Award",
+              "year": 1977,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 1
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-enlightenment-in-america-henry-may",
+            "book-the-enlightenment-in-america-henry-f-may"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": false
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-the-thin-light-of-freedom-the-civil-war-and-emancipation-in-the-heart-of-america-edward-l-ayers",
+      "score": 0.833,
+      "books": [
+        {
+          "id": "book-the-thin-light-of-freedom-the-civil-war-and-emancipation-in-the-heart-of-america-edward-l-ayers",
+          "title": "The Thin Light of Freedom: The Civil War and Emancipation in the Heart of America",
+          "authors": [
+            "Edward L. Ayers"
+          ],
+          "publicationYear": 2018,
+          "isbn13": [
+            "9780393356434"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-viking",
+          "sourceCount": 6,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-mark-lynton-history-prize",
+              "awardName": "Mark Lynton History Prize",
+              "year": 2018,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-organization-of-american-historians-book-prizes-civil-war-and-reconstruction-book-award",
+              "awardName": "Organization of American Historians Book Prizes: Civil War and Reconstruction Book Award",
+              "year": 2018,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-the-thin-light-of-freedom-the-civil-war-and-emancipation-in-the-heart-of-america-edward-ayers",
+          "title": "The Thin Light of Freedom: The Civil War and Emancipation in the Heart of America",
+          "authors": [
+            "Edward Ayers"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
+              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
+              "year": 2018,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-thin-light-of-freedom-the-civil-war-and-emancipation-in-the-heart-of-america-edward-l-ayers",
+            "book-the-thin-light-of-freedom-the-civil-war-and-emancipation-in-the-heart-of-america-edward-ayers"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
+      "score": 0.75,
+      "books": [
+        {
+          "id": "book-margaret-thatcher-the-authorised-biography-charles-moore",
+          "title": "Margaret Thatcher: The Authorised Biography",
+          "authors": [
+            "Charles Moore"
+          ],
+          "publicationYear": 2014,
+          "isbn13": [
+            "9780713992823"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-allen-lane",
+          "sourceCount": 5,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2013,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
+          "title": "Margaret Thatcher: The Authorized Biography—Volume II: Everything She Wants",
+          "authors": [
+            "Charles Moore"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-arthur-ross-book-award-international-affairs",
+              "awardName": "Arthur Ross Book Award: International Affairs",
+              "year": 2016,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 0
+        },
+        {
+          "id": "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore",
+          "title": "Margaret Thatcher: The Authorized Biography. Volume 1",
+          "authors": [
+            "Charles Moore"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-elizabeth-longford-prize-for-historical-biography",
+              "awardName": "Elizabeth Longford Prize for Historical Biography",
+              "year": 2014,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-margaret-thatcher-the-authorised-biography-charles-moore",
+            "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore"
+          ],
+          "titleSimilarity": 0.667,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        },
+        {
+          "bookIds": [
+            "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
+            "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore"
+          ],
+          "titleSimilarity": 0.5,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        },
+        {
+          "bookIds": [
+            "book-margaret-thatcher-the-authorised-biography-charles-moore",
+            "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore"
+          ],
+          "titleSimilarity": 0.333,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-daughters-of-the-bamboo-grove-from-china-to-america-a-true-story-of-abduction-adoption-and-separ",
+      "score": 0.732,
+      "books": [
+        {
+          "id": "book-daughters-of-the-bamboo-grove-from-china-to-america-a-true-story-of-abduction-adoption-and-separ",
+          "title": "Daughters of the Bamboo Grove: From China to America, a True Story of Abduction, Adoption, and Separated Twins",
+          "authors": [
+            "Barbara Demick"
+          ],
+          "publicationYear": 2025,
+          "isbn13": [
+            "9780593132746"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-random-house",
+          "sourceCount": 9,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-nonfiction",
+              "awardName": "National Book Critics Circle Award for Nonfiction",
+              "year": 2025,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-overseas-press-club-awards-cornelius-ryan-award",
+              "awardName": "Overseas Press Club Awards: Cornelius Ryan Award",
+              "year": 2025,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-daughters-of-the-bamboo-grove-china-s-stolen-children-and-a-story-of-separated-twins-barbara-dem",
+          "title": "Daughters of the Bamboo Grove: China’s Stolen Children and a Story of Separated Twins",
+          "authors": [
+            "Barbara Demick"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-women-s-prize-for-non-fiction",
+              "awardName": "Women's Prize for Non-Fiction",
+              "year": 2026,
+              "status": "longlist"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-daughters-of-the-bamboo-grove-china-s-stolen-children-and-a-story-of-separated-twins-barbara-dem",
+            "book-daughters-of-the-bamboo-grove-from-china-to-america-a-true-story-of-abduction-adoption-and-separ"
+          ],
+          "titleSimilarity": 0.636,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
+    {
+      "action": "manual_review",
+      "confidence": "medium",
+      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
+      "recommendedCanonicalBookId": "book-fire-weather-a-true-story-from-a-hotter-world-john-vaillant",
+      "score": 0.55,
+      "books": [
+        {
+          "id": "book-fire-weather-a-true-story-from-a-hotter-world-john-vaillant",
+          "title": "Fire Weather: A True Story from a Hotter World",
+          "authors": [
+            "John Vaillant"
+          ],
+          "publicationYear": 2024,
+          "isbn13": [
+            "9781524732868"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-knopf",
+          "sourceCount": 14,
+          "appearanceCount": 6,
+          "awards": [
+            {
+              "awardId": "award-pen-john-kenneth-galbraith-award-for-nonfiction",
+              "awardName": "PEN/John Kenneth Galbraith Award for Nonfiction",
+              "year": 2024,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-pulitzer-prize-in-general-nonfiction",
+              "awardName": "Pulitzer Prize in General Nonfiction",
+              "year": 2024,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-wainwright-prize-conservation-writing",
+              "awardName": "Wainwright Prize: Conservation Writing",
+              "year": 2024,
+              "status": "shortlist"
+            },
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2023,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-hilary-weston-writers-trust-prize-for-nonfiction",
+              "awardName": "Hilary Weston Writers' Trust Prize for Nonfiction",
+              "year": 2023,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-national-book-award-for-nonfiction",
+              "awardName": "National Book Award for Nonfiction",
+              "year": 2023,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-fire-weather-the-making-of-a-beast-john-vaillant",
+          "title": "Fire Weather: The Making of a Beast",
+          "authors": [
+            "John Vaillant"
+          ],
+          "isbn13": [],
+          "sourceCount": 1,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-shaughnessy-cohen-prize-for-political-writing",
+              "awardName": "Shaughnessy Cohen Prize for Political Writing",
+              "year": 2024,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 0
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-fire-weather-a-true-story-from-a-hotter-world-john-vaillant",
+            "book-fire-weather-the-making-of-a-beast-john-vaillant"
+          ],
+          "titleSimilarity": 0.333,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
     {
       "action": "ignore",
       "confidence": "high",

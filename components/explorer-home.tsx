@@ -302,6 +302,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
                       <Link
                         className="focus-ring grid w-full grid-cols-[2.15rem_minmax(0,1fr)] items-center gap-3 text-left font-[var(--font-serif)] text-xl font-light transition hover:text-[var(--accent)]"
                         href={`/books/${book.slug}`}
+                        title={book.title}
                       >
                         <HomeBookCover book={book} />
                         <span className="line-clamp-2">{book.title}</span>

@@ -1,0 +1,210 @@
+{
+  "generatedAt": "2026-07-28T17:56:18.464Z",
+  "metadata": {
+    "importer": "scripts/import-award-records/nero-book-awards.ts",
+    "source": "Wikipedia: Nero Book Awards combined shortlists-and-winners table",
+    "notes": "Imports only the Non-fiction category; fiction, debut fiction and children's fiction rows are dropped. The overall Golden Nero Book of the Year is recorded as a note on the category winner rather than as a separate record. Year header rowspans differ between the 2023 and the 2024/2025 layouts, so the parser tracks the year and the rowspan Result cell independently and the import asserts four records and one winner per year.",
+    "records": 12,
+    "winners": 3,
+    "shortlisted": 9,
+    "yearRange": "2023-2025",
+    "overallWinners": [
+      "2024: Maurice and Maralyn"
+    ]
+  },
+  "records": [
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "winner",
+      "title": "Death of an Ordinary Man",
+      "authors": [
+        "Sarah Perry"
+      ],
+      "publisher": "Jonathan Cape",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "shortlist",
+      "title": "Craftland",
+      "authors": [
+        "James Fox"
+      ],
+      "publisher": "Allen Lane",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "shortlist",
+      "title": "The Finest Hotel in Kabul",
+      "authors": [
+        "Lyse Doucet"
+      ],
+      "publisher": "Weidenfeld & Nicolson",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2025,
+      "status": "shortlist",
+      "title": "We Came by Sea",
+      "authors": [
+        "Horatio Clare"
+      ],
+      "publisher": "Little, Brown",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "winner",
+      "title": "Maurice and Maralyn",
+      "authors": [
+        "Sophie Elmhirst"
+      ],
+      "publisher": "Chatto & Windus",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary",
+      "notes": "Also named the overall Golden Nero Book of the Year for 2024."
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "shortlist",
+      "title": "All That Glitters",
+      "authors": [
+        "Orlando Whitfield"
+      ],
+      "publisher": "Profile Books",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "shortlist",
+      "title": "An African History of Africa",
+      "authors": [
+        "Zeinab Badawi"
+      ],
+      "publisher": "W. H. Allen & Co.",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2024,
+      "status": "shortlist",
+      "title": "Pixel Flesh",
+      "authors": [
+        "Ellen Atlanta"
+      ],
+      "publisher": "Headline",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2023,
+      "status": "winner",
+      "title": "Strong Female Character",
+      "authors": [
+        "Fern Brady"
+      ],
+      "publisher": "Brazen",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2023,
+      "status": "shortlist",
+      "title": "Hags",
+      "authors": [
+        "Victoria Smith"
+      ],
+      "publisher": "Fleet",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2023,
+      "status": "shortlist",
+      "title": "The Tidal Year",
+      "authors": [
+        "Freya Bromley"
+      ],
+      "publisher": "Coronet",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    },
+    {
+      "awardId": "nero-book-awards",
+      "awardName": "Nero Book Awards",
+      "categoryId": "nero-nonfiction",
+      "categoryName": "Non-Fiction",
+      "year": 2023,
+      "status": "shortlist",
+      "title": "Undercurrent",
+      "authors": [
+        "Natasha Carthew"
+      ],
+      "publisher": "Coronet",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Nero_Book_Awards",
+      "sourceLabel": "Wikipedia: Nero Book Awards",
+      "sourceConfidence": "secondary"
+    }
+  ]
+}
