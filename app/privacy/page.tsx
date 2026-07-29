@@ -29,6 +29,11 @@ export default function PrivacyPage() {
           browser&apos;s local storage and are never added to a visitor profile or database.
         </p>
         <p>
+          To decide when to show its one-time support message, the site keeps a temporary set of book records opened
+          during the current page session. That set remains only in browser memory, resets when the page is reloaded or
+          closed, and is never stored or sent to the server.
+        </p>
+        <p>
           The site uses Vercel Web Analytics for anonymous, aggregated page-view statistics. It does not use cookies or
           track visitors across websites or days. Vercel uses a request-derived identifier that resets daily to count
           unique visitors, and analytics records are not associated with an IP address. Page and route, timestamp,

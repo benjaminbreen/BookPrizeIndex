@@ -1627,6 +1627,80 @@ input {
   transform: translateY(0);
 }
 
+.support-prompt-layer {
+  isolation: isolate;
+}
+
+.support-prompt-backdrop {
+  background: color-mix(in srgb, var(--ink) 48%, transparent);
+  backdrop-filter: blur(2px);
+  animation: support-prompt-backdrop-in 180ms ease both;
+}
+
+.support-prompt-dialog {
+  border-radius: 2px;
+  box-shadow: 0 28px 80px color-mix(in srgb, var(--ink) 24%, transparent);
+  animation: support-prompt-dialog-in 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.support-prompt-dialog::before {
+  position: absolute;
+  inset: -1px auto -1px -1px;
+  width: 3px;
+  background: var(--accent);
+  content: "";
+}
+
+.support-prompt-primary {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.support-prompt-primary:hover,
+.support-prompt-primary:focus-visible {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+@keyframes support-prompt-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes support-prompt-dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .support-prompt-backdrop,
+  .support-prompt-dialog {
+    animation: none;
+  }
+
+  .support-prompt-primary {
+    transition: none;
+  }
+}
+
 html.dark .footer-band {
   background:
     linear-gradient(

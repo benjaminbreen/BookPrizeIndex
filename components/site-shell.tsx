@@ -4,9 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-
-const DONATE_URL = "https://buy.stripe.com/5kQaEXfJLgRGbqrf1L4F201";
-const NEWSLETTER_URL = "https://resobscura.substack.com/subscribe?";
+import { DONATE_URL, NEWSLETTER_URL } from "@/lib/support-links";
 
 const navItems = [
   { href: "/books", label: "Books", match: ["/books"] },

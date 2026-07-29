@@ -6,6 +6,7 @@ import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { BookRetailerLinks } from "@/components/book-retailer-links";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
+import { useSupportPrompt } from "@/components/support-prompt";
 import type { BookDrawerAppearance, BookDrawerPayload } from "@/lib/book-drawer-types";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
@@ -40,6 +41,7 @@ export function BookDrawer({
   const [linkCopied, setLinkCopied] = useState(false);
   const panelRef = useRef<HTMLElement | null>(null);
   const isDrawerRequested = bookId !== null;
+  const { recordBookView } = useSupportPrompt();
 
   useEffect(() => {
     if (!bookId) {
@@ -78,9 +80,10 @@ export function BookDrawer({
   useEffect(() => {
     if (!bookId || !payload || payload.book.id !== bookId) return;
     setSnapshot({ payload, currentLabel });
+    recordBookView(payload.book.id);
     setCitationCopied(false);
     setLinkCopied(false);
-  }, [bookId, currentLabel, payload]);
+  }, [bookId, currentLabel, payload, recordBookView]);
 
   useEffect(() => {
     if (bookId) return;
