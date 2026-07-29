@@ -19,15 +19,22 @@ export default function PrivacyPage() {
     <TextPageShell label="Privacy" navItems={navItems}>
       <TextPageTitle>Privacy</TextPageTitle>
       <p className="mt-5 font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.16em] muted">
-        Last updated July 22, 2026
+        Last updated July 29, 2026
       </p>
 
       <TextPageSection id="collection" title="Collection">
         <p>
-          The Book Prize Index does not collect or store visitor personal data. It has no user accounts, on-site email signup,
-          mailing list, analytics, advertising, tracking pixels, tracking cookies, or stored search history. Theme and
-          award-region preferences are saved only in your browser&apos;s local storage and are never added to a visitor
-          profile or database.
+          The Book Prize Index has no user accounts, on-site email signup, mailing list, advertising, tracking pixels,
+          tracking cookies, or stored search history. Theme and award-region preferences are saved only in your
+          browser&apos;s local storage and are never added to a visitor profile or database.
+        </p>
+        <p>
+          The site uses Vercel Web Analytics for anonymous, aggregated page-view statistics. It does not use cookies or
+          track visitors across websites or days. Vercel uses a request-derived identifier that resets daily to count
+          unique visitors, and analytics records are not associated with an IP address. Page and route, timestamp,
+          referrer, approximate location, browser, operating system, and device type may be included. Query strings and
+          URL fragments are removed before page-view events are sent, so searches and other URL parameters are not
+          included.
         </p>
       </TextPageSection>
 
@@ -47,17 +54,21 @@ export default function PrivacyPage() {
 
       <TextPageSection id="use" title="Use">
         <p>
-          Because the project does not collect visitor personal data, it does not sell, rent, share, or use visitor data for
-          profiling or marketing. Search and browse activity is not retained by The Book Prize Index.
+          The project does not sell, rent, share, or use visitor data for profiling, advertising, or marketing. Search
+          queries are not retained by The Book Prize Index or included in its analytics.
         </p>
       </TextPageSection>
 
       <TextPageSection id="third-parties" title="Services">
         <p>
+          Vercel hosts the site and provides the anonymous web analytics described above. Like any hosting provider,
+          Vercel necessarily processes requests under its own privacy practices.
+        </p>
+        <p>
           If you actively submit a Meaning search, the text of that query is sent to OpenAI solely to generate search
-          results. The Book Prize Index does not store the query or associate it with an identifier. The hosting provider
-          and OpenAI necessarily process requests under their own privacy practices, but this project does not use those
-          services to build visitor profiles or retain analytics.
+          results. The Book Prize Index does not store the query or associate it with an identifier. OpenAI necessarily
+          processes the request under its own privacy practices, but this project does not use that service to build
+          visitor profiles.
         </p>
         <p>
           Donations are optional and take place on a Stripe-hosted checkout page. Newsletter subscriptions are optional

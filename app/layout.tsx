@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Atkinson_Hyperlegible_Mono, Atkinson_Hyperlegible_Next, IM_Fell_English, IM_Fell_English_SC, Newsreader, Public_Sans } from "next/font/google";
+import { PrivacyFriendlyAnalytics } from "@/components/privacy-friendly-analytics";
 import { SiteShell } from "@/components/site-shell";
 import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
 import "./globals.css";
@@ -68,6 +69,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${sans.variable} ${serif.variable} ${mono.variable} ${number.variable} ${fell.variable} ${fellSc.variable}`}>
       <body className="font-[var(--font-sans)]">
         <SiteShell>{children}</SiteShell>
+        <PrivacyFriendlyAnalytics />
       </body>
     </html>
   );
