@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-28T18:08:23.723Z",
-  "totalBooks": 8353,
-  "hardIssueCount": 30,
-  "duplicateReviewGeneratedAt": "2026-07-28T18:08:22.784Z",
+  "generatedAt": "2026-07-29T18:12:31.003Z",
+  "totalBooks": 8394,
+  "hardIssueCount": 36,
+  "duplicateReviewGeneratedAt": "2026-07-29T18:12:30.269Z",
   "totals": {
-    "sharedIsbnGroups": 1,
+    "sharedIsbnGroups": 7,
     "duplicateIdentityGroups": 0,
     "unresolvedDuplicateGroups": 29,
     "unresolvedDuplicateBooks": 61,
@@ -13,6 +13,27 @@
     "possiblyTruncatedSummaries": 0
   },
   "sharedIsbn": [
+    {
+      "isbn13": "9780676975215",
+      "books": [
+        {
+          "bookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Vol. One: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "publicationYear": 2006
+        },
+        {
+          "bookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume 1: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "publicationYear": 2006
+        }
+      ]
+    },
     {
       "isbn13": "9780300078770",
       "books": [
@@ -33,10 +54,143 @@
           "publicationYear": 1997
         }
       ]
+    },
+    {
+      "isbn13": "9781416593881",
+      "books": [
+        {
+          "bookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+          "title": "Frederick Douglass: Prophet of Freedom",
+          "authors": [
+            "David W. Blight"
+          ],
+          "publicationYear": 2018
+        },
+        {
+          "bookId": "book-frederick-douglass-prophet-of-freedom-david-blight",
+          "title": "Frederick Douglass: Prophet of Freedom",
+          "authors": [
+            "David Blight"
+          ],
+          "publicationYear": 2018
+        }
+      ]
+    },
+    {
+      "isbn13": "9781107617964",
+      "books": [
+        {
+          "bookId": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+          "title": "John Brown’s War Against Slavery",
+          "authors": [
+            "Robert E. McGlone"
+          ],
+          "publicationYear": 2013
+        },
+        {
+          "bookId": "book-john-brown-s-war-against-slavery-robert-mcglone",
+          "title": "John Brown’s War Against Slavery",
+          "authors": [
+            "Robert McGlone"
+          ],
+          "publicationYear": 2013
+        }
+      ]
+    },
+    {
+      "isbn13": "9781101873830",
+      "books": [
+        {
+          "bookId": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
+          "title": "Margaret Thatcher: The Authorized Biography—Volume II: Everything She Wants",
+          "authors": [
+            "Charles Moore"
+          ],
+          "publicationYear": 2015
+        },
+        {
+          "bookId": "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore",
+          "title": "Margaret Thatcher: The Authorized Biography. Volume 1",
+          "authors": [
+            "Charles Moore"
+          ],
+          "publicationYear": 2015
+        }
+      ]
+    },
+    {
+      "isbn13": "9781553654186",
+      "books": [
+        {
+          "bookId": "book-polar-imperative-a-history-of-arctic-sovereignty-in-north-america-shelagh-grant",
+          "title": "Polar Imperative: A History of Arctic Sovereignty in North America",
+          "authors": [
+            "Shelagh Grant"
+          ],
+          "publicationYear": 2011
+        },
+        {
+          "bookId": "book-polar-imperatives-a-history-of-arctic-sovereignty-in-north-america-shelagh-d-grant",
+          "title": "Polar Imperatives: A History of Arctic Sovereignty in North America",
+          "authors": [
+            "Shelagh D. Grant"
+          ],
+          "publicationYear": 2010
+        }
+      ]
+    },
+    {
+      "isbn13": "9781595581747",
+      "books": [
+        {
+          "bookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+          "title": "The Abandonment of the Jews: America and the Holocaust 1941-1945",
+          "authors": [
+            "David S. Wyman"
+          ],
+          "publicationYear": 1984
+        },
+        {
+          "bookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman",
+          "title": "The Abandonment of the Jews: America and the Holocaust 1941–1945",
+          "authors": [
+            "David Wyman"
+          ],
+          "publicationYear": 1984
+        }
+      ]
     }
   ],
   "duplicateIdentities": [],
   "unresolvedDuplicateGroups": [
+    {
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
+      "books": [
+        {
+          "bookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Vol. One: 1919-1968",
+          "authors": [
+            "John English"
+          ]
+        },
+        {
+          "bookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume 1: 1919-1968",
+          "authors": [
+            "John English"
+          ]
+        },
+        {
+          "bookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume One: 1919-1968",
+          "authors": [
+            "John English"
+          ]
+        }
+      ]
+    },
     {
       "confidence": "high",
       "reason": "Shared ISBN and similar title.",
@@ -54,6 +208,69 @@
           "title": "Civic Ideals: Conflicting Visions of Citizenship in U.S. History",
           "authors": [
             "Rogers Smith"
+          ]
+        }
+      ]
+    },
+    {
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+      "books": [
+        {
+          "bookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+          "title": "Frederick Douglass: Prophet of Freedom",
+          "authors": [
+            "David W. Blight"
+          ]
+        },
+        {
+          "bookId": "book-frederick-douglass-prophet-of-freedom-david-blight",
+          "title": "Frederick Douglass: Prophet of Freedom",
+          "authors": [
+            "David Blight"
+          ]
+        }
+      ]
+    },
+    {
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+      "books": [
+        {
+          "bookId": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+          "title": "John Brown’s War Against Slavery",
+          "authors": [
+            "Robert E. McGlone"
+          ]
+        },
+        {
+          "bookId": "book-john-brown-s-war-against-slavery-robert-mcglone",
+          "title": "John Brown’s War Against Slavery",
+          "authors": [
+            "Robert McGlone"
+          ]
+        }
+      ]
+    },
+    {
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+      "books": [
+        {
+          "bookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+          "title": "The Abandonment of the Jews: America and the Holocaust 1941-1945",
+          "authors": [
+            "David S. Wyman"
+          ]
+        },
+        {
+          "bookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman",
+          "title": "The Abandonment of the Jews: America and the Holocaust 1941–1945",
+          "authors": [
+            "David Wyman"
           ]
         }
       ]
@@ -85,15 +302,15 @@
       "recommendedCanonicalBookId": "book-there-is-a-season-a-memoir-in-the-garden-patrick-lane",
       "books": [
         {
-          "bookId": "book-there-is-a-season-a-memoir-in-a-garden-patrick-lane",
-          "title": "There is a Season: A Memoir in a Garden",
+          "bookId": "book-there-is-a-season-a-memoir-in-the-garden-patrick-lane",
+          "title": "There is a Season: A Memoir in the Garden",
           "authors": [
             "Patrick Lane"
           ]
         },
         {
-          "bookId": "book-there-is-a-season-a-memoir-in-the-garden-patrick-lane",
-          "title": "There is a Season: A Memoir in the Garden",
+          "bookId": "book-there-is-a-season-a-memoir-in-a-garden-patrick-lane",
+          "title": "There is a Season: A Memoir in a Garden",
           "authors": [
             "Patrick Lane"
           ]
@@ -155,29 +372,29 @@
       ]
     },
     {
-      "confidence": "medium",
-      "reason": "Likely duplicate or related volume; volume language requires review.",
-      "recommendedCanonicalBookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
       "books": [
         {
-          "bookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
-          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume One: 1919-1968",
+          "bookId": "book-margaret-thatcher-the-authorised-biography-charles-moore",
+          "title": "Margaret Thatcher: The Authorised Biography",
           "authors": [
-            "John English"
+            "Charles Moore"
           ]
         },
         {
-          "bookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
-          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Vol. One: 1919-1968",
+          "bookId": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
+          "title": "Margaret Thatcher: The Authorized Biography—Volume II: Everything She Wants",
           "authors": [
-            "John English"
+            "Charles Moore"
           ]
         },
         {
-          "bookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
-          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume 1: 1919-1968",
+          "bookId": "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore",
+          "title": "Margaret Thatcher: The Authorized Biography. Volume 1",
           "authors": [
-            "John English"
+            "Charles Moore"
           ]
         }
       ]
@@ -279,15 +496,15 @@
       "recommendedCanonicalBookId": "book-dispatches-from-the-front-the-life-of-matthew-halton-canada-s-voice-at-war-david-halton",
       "books": [
         {
-          "bookId": "book-dispatches-from-the-front-matthew-halton-canada-s-voice-at-war-david-halton",
-          "title": "Dispatches from the Front: Matthew Halton, Canada's Voice at War",
+          "bookId": "book-dispatches-from-the-front-the-life-of-matthew-halton-canada-s-voice-at-war-david-halton",
+          "title": "Dispatches from the Front: The Life of Matthew Halton, Canada’s Voice at War",
           "authors": [
             "David Halton"
           ]
         },
         {
-          "bookId": "book-dispatches-from-the-front-the-life-of-matthew-halton-canada-s-voice-at-war-david-halton",
-          "title": "Dispatches from the Front: The Life of Matthew Halton, Canada’s Voice at War",
+          "bookId": "book-dispatches-from-the-front-matthew-halton-canada-s-voice-at-war-david-halton",
+          "title": "Dispatches from the Front: Matthew Halton, Canada's Voice at War",
           "authors": [
             "David Halton"
           ]
@@ -423,48 +640,6 @@
     {
       "confidence": "medium",
       "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
-      "recommendedCanonicalBookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
-      "books": [
-        {
-          "bookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
-          "title": "Frederick Douglass: Prophet of Freedom",
-          "authors": [
-            "David W. Blight"
-          ]
-        },
-        {
-          "bookId": "book-frederick-douglass-prophet-of-freedom-david-blight",
-          "title": "Frederick Douglass: Prophet of Freedom",
-          "authors": [
-            "David Blight"
-          ]
-        }
-      ]
-    },
-    {
-      "confidence": "low",
-      "reason": "Loose similarity candidate; inspect before merging.",
-      "recommendedCanonicalBookId": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
-      "books": [
-        {
-          "bookId": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
-          "title": "John Brown’s War Against Slavery",
-          "authors": [
-            "Robert E. McGlone"
-          ]
-        },
-        {
-          "bookId": "book-john-brown-s-war-against-slavery-robert-mcglone",
-          "title": "John Brown’s War Against Slavery",
-          "authors": [
-            "Robert McGlone"
-          ]
-        }
-      ]
-    },
-    {
-      "confidence": "medium",
-      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
       "recommendedCanonicalBookId": "book-louis-d-brandeis-a-life-melvin-i-urofsky",
       "books": [
         {
@@ -528,27 +703,6 @@
     {
       "confidence": "medium",
       "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
-      "recommendedCanonicalBookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
-      "books": [
-        {
-          "bookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
-          "title": "The Abandonment of the Jews: America and the Holocaust 1941-1945",
-          "authors": [
-            "David S. Wyman"
-          ]
-        },
-        {
-          "bookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman",
-          "title": "The Abandonment of the Jews: America and the Holocaust 1941–1945",
-          "authors": [
-            "David Wyman"
-          ]
-        }
-      ]
-    },
-    {
-      "confidence": "medium",
-      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
       "recommendedCanonicalBookId": "book-the-dred-scott-case-its-significance-in-american-law-and-politics-don-e-fehrenbacher",
       "books": [
         {
@@ -605,34 +759,6 @@
           "title": "The Thin Light of Freedom: The Civil War and Emancipation in the Heart of America",
           "authors": [
             "Edward Ayers"
-          ]
-        }
-      ]
-    },
-    {
-      "confidence": "medium",
-      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
-      "recommendedCanonicalBookId": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
-      "books": [
-        {
-          "bookId": "book-margaret-thatcher-the-authorised-biography-charles-moore",
-          "title": "Margaret Thatcher: The Authorised Biography",
-          "authors": [
-            "Charles Moore"
-          ]
-        },
-        {
-          "bookId": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
-          "title": "Margaret Thatcher: The Authorized Biography—Volume II: Everything She Wants",
-          "authors": [
-            "Charles Moore"
-          ]
-        },
-        {
-          "bookId": "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore",
-          "title": "Margaret Thatcher: The Authorized Biography. Volume 1",
-          "authors": [
-            "Charles Moore"
           ]
         }
       ]

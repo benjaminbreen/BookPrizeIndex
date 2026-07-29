@@ -1,16 +1,125 @@
 {
-  "generatedAt": "2026-07-28T18:08:22.784Z",
-  "totalBooks": 8353,
+  "generatedAt": "2026-07-29T18:12:30.269Z",
+  "totalBooks": 8394,
   "candidateGroups": 38,
   "candidateBooks": 79,
   "unresolvedGroups": 29,
   "unresolvedBooks": 61,
   "actionSummary": {
-    "auto_merge_candidate": 5,
-    "manual_review": 24,
+    "auto_merge_candidate": 10,
+    "manual_review": 19,
     "ignore": 9
   },
   "groups": [
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
+      "score": 1.025,
+      "books": [
+        {
+          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Vol. One: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "publicationYear": 2006,
+          "isbn13": [
+            "9780676975215"
+          ],
+          "publisherId": "publisher-penguin-random-house-canada",
+          "imprintId": "imprint-knopf-canada",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
+              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
+              "year": 2007,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume 1: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "publicationYear": 2006,
+          "isbn13": [
+            "9780676975215"
+          ],
+          "publisherId": "publisher-penguin-random-house-canada",
+          "imprintId": "imprint-knopf-canada",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-shaughnessy-cohen-prize-for-political-writing",
+              "awardName": "Shaughnessy Cohen Prize for Political Writing",
+              "year": 2007,
+              "status": "shortlist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
+          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume One: 1919-1968",
+          "authors": [
+            "John English"
+          ],
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-governor-general-s-literary-awards-english-language-non-fiction",
+              "awardName": "Governor General's Literary Awards: English-language Non-fiction",
+              "year": 2007,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 1
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        },
+        {
+          "bookIds": [
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english"
+          ],
+          "titleSimilarity": 0.875,
+          "authorSimilarity": 1,
+          "sharedIsbn": true,
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
+        },
+        {
+          "bookIds": [
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
+            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english"
+          ],
+          "titleSimilarity": 0.875,
+          "authorSimilarity": 1,
+          "sharedIsbn": false,
+          "sharedTitlePrefix": true
+        }
+      ]
+    },
     {
       "action": "auto_merge_candidate",
       "confidence": "high",
@@ -88,6 +197,264 @@
     {
       "action": "auto_merge_candidate",
       "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+      "score": 0.983,
+      "books": [
+        {
+          "id": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+          "title": "Frederick Douglass: Prophet of Freedom",
+          "authors": [
+            "David W. Blight"
+          ],
+          "publicationYear": 2018,
+          "isbn13": [
+            "9781416593881"
+          ],
+          "publisherId": "publisher-simon-and-schuster",
+          "imprintId": "imprint-simon-and-schuster",
+          "sourceCount": 14,
+          "appearanceCount": 8,
+          "awards": [
+            {
+              "awardId": "award-bancroft-prize",
+              "awardName": "Bancroft Prize",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-cundill-history-prize",
+              "awardName": "Cundill History Prize",
+              "year": 2019,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-dayton-literary-peace-prize-nonfiction",
+              "awardName": "Dayton Literary Peace Prize: Nonfiction",
+              "year": 2019,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-francis-parkman-prize",
+              "awardName": "Francis Parkman Prize",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-mark-lynton-history-prize",
+              "awardName": "Mark Lynton History Prize",
+              "year": 2019,
+              "status": "finalist"
+            },
+            {
+              "awardId": "award-plutarch-award-biography",
+              "awardName": "Plutarch Award: Biography",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-pulitzer-prize-in-history",
+              "awardName": "Pulitzer Prize in History",
+              "year": 2019,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-los-angeles-times-book-prize-for-biography",
+              "awardName": "Los Angeles Times Book Prize for Biography",
+              "year": 2018,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-frederick-douglass-prophet-of-freedom-david-blight",
+          "title": "Frederick Douglass: Prophet of Freedom",
+          "authors": [
+            "David Blight"
+          ],
+          "publicationYear": 2018,
+          "isbn13": [
+            "9781416593881"
+          ],
+          "publisherId": "publisher-simon-and-schuster",
+          "imprintId": "imprint-simon-and-schuster",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
+              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
+              "year": 2019,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-frederick-douglass-prophet-of-freedom-david-w-blight",
+            "book-frederick-douglass-prophet-of-freedom-david-blight"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": true,
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
+        }
+      ]
+    },
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+      "score": 0.983,
+      "books": [
+        {
+          "id": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+          "title": "John Brown’s War Against Slavery",
+          "authors": [
+            "Robert E. McGlone"
+          ],
+          "publicationYear": 2013,
+          "isbn13": [
+            "9781107617964"
+          ],
+          "publisherId": "publisher-cambridge-university-press",
+          "imprintId": "imprint-cambridge-university-press",
+          "sourceCount": 5,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-frederick-douglass-book-prize-slavery-resistance-and-abolition",
+              "awardName": "Frederick Douglass Book Prize: Slavery, Resistance, and Abolition",
+              "year": 2010,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-john-brown-s-war-against-slavery-robert-mcglone",
+          "title": "John Brown’s War Against Slavery",
+          "authors": [
+            "Robert McGlone"
+          ],
+          "publicationYear": 2013,
+          "isbn13": [
+            "9781107617964"
+          ],
+          "publisherId": "publisher-cambridge-university-press",
+          "imprintId": "imprint-cambridge-university-press",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
+              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
+              "year": 2010,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-john-brown-s-war-against-slavery-robert-e-mcglone",
+            "book-john-brown-s-war-against-slavery-robert-mcglone"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": true,
+          "sharedTitlePrefix": false,
+          "yearDelta": 0
+        }
+      ]
+    },
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+      "score": 0.983,
+      "books": [
+        {
+          "id": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+          "title": "The Abandonment of the Jews: America and the Holocaust 1941-1945",
+          "authors": [
+            "David S. Wyman"
+          ],
+          "publicationYear": 1984,
+          "isbn13": [
+            "9781595581747"
+          ],
+          "publisherId": "publisher-the-new-press",
+          "imprintId": "imprint-the-new-press",
+          "sourceCount": 4,
+          "appearanceCount": 2,
+          "awards": [
+            {
+              "awardId": "award-anisfield-wolf-book-awards-nonfiction",
+              "awardName": "Anisfield-Wolf Book Awards: Nonfiction",
+              "year": 1985,
+              "status": "winner"
+            },
+            {
+              "awardId": "award-national-jewish-book-awards-holocaust",
+              "awardName": "National Jewish Book Awards: Holocaust",
+              "year": 1985,
+              "status": "winner"
+            }
+          ],
+          "completenessScore": 8
+        },
+        {
+          "id": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman",
+          "title": "The Abandonment of the Jews: America and the Holocaust 1941–1945",
+          "authors": [
+            "David Wyman"
+          ],
+          "publicationYear": 1984,
+          "isbn13": [
+            "9781595581747"
+          ],
+          "publisherId": "publisher-the-new-press",
+          "imprintId": "imprint-the-new-press",
+          "sourceCount": 4,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-national-book-critics-circle-award-for-nonfiction",
+              "awardName": "National Book Critics Circle Award for Nonfiction",
+              "year": 1984,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 8
+        }
+      ],
+      "pairSignals": [
+        {
+          "bookIds": [
+            "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
+            "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman"
+          ],
+          "titleSimilarity": 1,
+          "authorSimilarity": 0.667,
+          "sharedIsbn": true,
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
+        }
+      ]
+    },
+    {
+      "action": "auto_merge_candidate",
+      "confidence": "high",
       "reason": "Very similar title and author strings.",
       "recommendedCanonicalBookId": "book-an-example-for-all-the-land-emancipation-and-the-struggle-over-equality-in-washington-d-c-kate-m",
       "score": 0.95,
@@ -98,9 +465,12 @@
           "authors": [
             "Kate Masur"
           ],
-          "isbn13": [],
+          "publicationYear": 2010,
+          "isbn13": [
+            "9780807872666"
+          ],
           "publisherId": "publisher-university-of-north-carolina-press",
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -110,7 +480,7 @@
               "status": "honorable_mention"
             }
           ],
-          "completenessScore": 1
+          "completenessScore": 6
         },
         {
           "id": "book-an-example-of-all-the-land-emancipation-and-the-struggle-over-equality-in-washington-d-c-kate-ma",
@@ -153,6 +523,30 @@
       "score": 0.95,
       "books": [
         {
+          "id": "book-there-is-a-season-a-memoir-in-the-garden-patrick-lane",
+          "title": "There is a Season: A Memoir in the Garden",
+          "authors": [
+            "Patrick Lane"
+          ],
+          "publicationYear": 2004,
+          "isbn13": [
+            "9780771046346"
+          ],
+          "publisherId": "publisher-penguin-random-house-canada",
+          "imprintId": "imprint-mcclelland-and-stewart",
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
+              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
+              "year": 2005,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
           "id": "book-there-is-a-season-a-memoir-in-a-garden-patrick-lane",
           "title": "There is a Season: A Memoir in a Garden",
           "authors": [
@@ -166,25 +560,6 @@
               "awardId": "award-hilary-weston-writers-trust-prize-for-nonfiction",
               "awardName": "Hilary Weston Writers' Trust Prize for Nonfiction",
               "year": 2004,
-              "status": "finalist"
-            }
-          ],
-          "completenessScore": 0
-        },
-        {
-          "id": "book-there-is-a-season-a-memoir-in-the-garden-patrick-lane",
-          "title": "There is a Season: A Memoir in the Garden",
-          "authors": [
-            "Patrick Lane"
-          ],
-          "isbn13": [],
-          "sourceCount": 1,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
-              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
-              "year": 2005,
               "status": "finalist"
             }
           ],
@@ -290,8 +665,9 @@
             "Henry Farrell",
             "Abraham L. Newman"
           ],
+          "publicationYear": 2023,
           "isbn13": [],
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -301,7 +677,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 3
         },
         {
           "id": "book-underground-empire-how-america-weaponized-the-world-economy-henry-farrell-and-abraham-newman",
@@ -338,100 +714,118 @@
       ]
     },
     {
-      "action": "manual_review",
-      "confidence": "medium",
-      "reason": "Likely duplicate or related volume; volume language requires review.",
-      "recommendedCanonicalBookId": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
-      "score": 0.95,
+      "action": "auto_merge_candidate",
+      "confidence": "high",
+      "reason": "Shared ISBN and similar title.",
+      "recommendedCanonicalBookId": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
+      "score": 0.8,
       "books": [
         {
-          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english",
-          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume One: 1919-1968",
+          "id": "book-margaret-thatcher-the-authorised-biography-charles-moore",
+          "title": "Margaret Thatcher: The Authorised Biography",
           "authors": [
-            "John English"
+            "Charles Moore"
           ],
-          "isbn13": [],
+          "publicationYear": 2014,
+          "isbn13": [
+            "9780713992823"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-allen-lane",
+          "sourceCount": 5,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-baillie-gifford-prize-for-non-fiction",
+              "awardName": "Baillie Gifford Prize for Non-Fiction",
+              "year": 2013,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 7
+        },
+        {
+          "id": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
+          "title": "Margaret Thatcher: The Authorized Biography—Volume II: Everything She Wants",
+          "authors": [
+            "Charles Moore"
+          ],
+          "publicationYear": 2015,
+          "isbn13": [
+            "9781101873830"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-vintage-books",
           "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
-              "awardId": "award-governor-general-s-literary-awards-english-language-non-fiction",
-              "awardName": "Governor General's Literary Awards: English-language Non-fiction",
-              "year": 2007,
+              "awardId": "award-arthur-ross-book-award-international-affairs",
+              "awardName": "Arthur Ross Book Award: International Affairs",
+              "year": 2016,
               "status": "finalist"
             }
           ],
-          "completenessScore": 1
+          "completenessScore": 7
         },
         {
-          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
-          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Vol. One: 1919-1968",
+          "id": "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore",
+          "title": "Margaret Thatcher: The Authorized Biography. Volume 1",
           "authors": [
-            "John English"
+            "Charles Moore"
           ],
-          "isbn13": [],
-          "sourceCount": 1,
+          "publicationYear": 2015,
+          "isbn13": [
+            "9781101873830"
+          ],
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-vintage-books",
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
-              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
-              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
-              "year": 2007,
-              "status": "finalist"
+              "awardId": "award-elizabeth-longford-prize-for-historical-biography",
+              "awardName": "Elizabeth Longford Prize for Historical Biography",
+              "year": 2014,
+              "status": "winner"
             }
           ],
-          "completenessScore": 0
-        },
-        {
-          "id": "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
-          "title": "Citizen of the World: The Life of Pierre Elliott Trudeau, Volume 1: 1919-1968",
-          "authors": [
-            "John English"
-          ],
-          "isbn13": [],
-          "sourceCount": 1,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-shaughnessy-cohen-prize-for-political-writing",
-              "awardName": "Shaughnessy Cohen Prize for Political Writing",
-              "year": 2007,
-              "status": "shortlist"
-            }
-          ],
-          "completenessScore": 0
+          "completenessScore": 7
         }
       ],
       "pairSignals": [
         {
           "bookIds": [
-            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
-            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english"
+            "book-margaret-thatcher-the-authorised-biography-charles-moore",
+            "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore"
           ],
-          "titleSimilarity": 1,
+          "titleSimilarity": 0.667,
           "authorSimilarity": 1,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 1
         },
         {
           "bookIds": [
-            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-vol-one-1919-1968-john-english",
-            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english"
+            "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
+            "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore"
           ],
-          "titleSimilarity": 0.875,
+          "titleSimilarity": 0.5,
           "authorSimilarity": 1,
-          "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedIsbn": true,
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
         },
         {
           "bookIds": [
-            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-1-1919-1968-john-english",
-            "book-citizen-of-the-world-the-life-of-pierre-elliott-trudeau-volume-one-1919-1968-john-english"
+            "book-margaret-thatcher-the-authorised-biography-charles-moore",
+            "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore"
           ],
-          "titleSimilarity": 0.875,
+          "titleSimilarity": 0.333,
           "authorSimilarity": 1,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 1
         }
       ]
     },
@@ -697,8 +1091,11 @@
           "authors": [
             "Robert Skidelsky"
           ],
-          "isbn13": [],
-          "sourceCount": 1,
+          "publicationYear": 2003,
+          "isbn13": [
+            "9780143036159"
+          ],
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -708,7 +1105,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 5
         }
       ],
       "pairSignals": [
@@ -720,7 +1117,8 @@
           "titleSimilarity": 0.857,
           "authorSimilarity": 1,
           "sharedIsbn": false,
-          "sharedTitlePrefix": false
+          "sharedTitlePrefix": false,
+          "yearDelta": 2
         },
         {
           "bookIds": [
@@ -742,6 +1140,26 @@
       "score": 0.864,
       "books": [
         {
+          "id": "book-dispatches-from-the-front-the-life-of-matthew-halton-canada-s-voice-at-war-david-halton",
+          "title": "Dispatches from the Front: The Life of Matthew Halton, Canada’s Voice at War",
+          "authors": [
+            "David Halton"
+          ],
+          "publicationYear": 2015,
+          "isbn13": [],
+          "sourceCount": 2,
+          "appearanceCount": 1,
+          "awards": [
+            {
+              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
+              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
+              "year": 2016,
+              "status": "finalist"
+            }
+          ],
+          "completenessScore": 3
+        },
+        {
           "id": "book-dispatches-from-the-front-matthew-halton-canada-s-voice-at-war-david-halton",
           "title": "Dispatches from the Front: Matthew Halton, Canada's Voice at War",
           "authors": [
@@ -759,25 +1177,6 @@
             }
           ],
           "completenessScore": 1
-        },
-        {
-          "id": "book-dispatches-from-the-front-the-life-of-matthew-halton-canada-s-voice-at-war-david-halton",
-          "title": "Dispatches from the Front: The Life of Matthew Halton, Canada’s Voice at War",
-          "authors": [
-            "David Halton"
-          ],
-          "isbn13": [],
-          "sourceCount": 1,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-rbc-taylor-prize-literary-non-fiction",
-              "awardName": "RBC Taylor Prize: Literary Non-Fiction",
-              "year": 2016,
-              "status": "finalist"
-            }
-          ],
-          "completenessScore": 0
         }
       ],
       "pairSignals": [
@@ -830,9 +1229,10 @@
           "authors": [
             "Edmund S. Morgan"
           ],
+          "publicationYear": 1988,
           "isbn13": [],
           "publisherId": "publisher-w-w-norton-and-company",
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -842,7 +1242,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 1
+          "completenessScore": 4
         }
       ],
       "pairSignals": [
@@ -854,7 +1254,8 @@
           "titleSimilarity": 0.857,
           "authorSimilarity": 1,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
         }
       ]
     },
@@ -875,7 +1276,7 @@
           "isbn13": [],
           "publisherId": "publisher-university-of-north-carolina-press",
           "imprintId": "imprint-university-of-north-carolina-press",
-          "sourceCount": 4,
+          "sourceCount": 6,
           "appearanceCount": 3,
           "awards": [
             {
@@ -897,7 +1298,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 3
+          "completenessScore": 5
         },
         {
           "id": "book-race-for-profit-how-banks-and-the-real-estate-industry-undermined-black-homeownership-keeanga-ya",
@@ -973,9 +1374,10 @@
           "authors": [
             "Daniel T. Rodgers"
           ],
+          "publicationYear": 1998,
           "isbn13": [],
           "publisherId": "publisher-harvard-university-press",
-          "sourceCount": 1,
+          "sourceCount": 3,
           "appearanceCount": 1,
           "awards": [
             {
@@ -985,7 +1387,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 1
+          "completenessScore": 4
         }
       ],
       "pairSignals": [
@@ -997,7 +1399,8 @@
           "titleSimilarity": 1,
           "authorSimilarity": 0.667,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
         }
       ]
     },
@@ -1050,9 +1453,10 @@
           "authors": [
             "Dylan Penningroth"
           ],
+          "publicationYear": 2023,
           "isbn13": [],
           "publisherId": "publisher-liveright",
-          "sourceCount": 2,
+          "sourceCount": 4,
           "appearanceCount": 2,
           "awards": [
             {
@@ -1068,7 +1472,7 @@
               "status": "co_winner"
             }
           ],
-          "completenessScore": 1
+          "completenessScore": 4
         }
       ],
       "pairSignals": [
@@ -1080,7 +1484,8 @@
           "titleSimilarity": 1,
           "authorSimilarity": 0.667,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 1
         }
       ]
     },
@@ -1127,8 +1532,9 @@
           "authors": [
             "David L. Preston"
           ],
+          "publicationYear": 2015,
           "isbn13": [],
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -1138,7 +1544,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 2
         }
       ],
       "pairSignals": [
@@ -1150,7 +1556,8 @@
           "titleSimilarity": 1,
           "authorSimilarity": 0.667,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
         }
       ]
     },
@@ -1191,8 +1598,9 @@
           "authors": [
             "Robert L. Beisner"
           ],
+          "publicationYear": 2006,
           "isbn13": [],
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -1202,7 +1610,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 3
         }
       ],
       "pairSignals": [
@@ -1214,177 +1622,8 @@
           "titleSimilarity": 1,
           "authorSimilarity": 0.667,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
-        }
-      ]
-    },
-    {
-      "action": "manual_review",
-      "confidence": "medium",
-      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
-      "recommendedCanonicalBookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
-      "score": 0.833,
-      "books": [
-        {
-          "id": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
-          "title": "Frederick Douglass: Prophet of Freedom",
-          "authors": [
-            "David W. Blight"
-          ],
-          "publicationYear": 2018,
-          "isbn13": [
-            "9781416593881"
-          ],
-          "publisherId": "publisher-simon-and-schuster",
-          "imprintId": "imprint-simon-and-schuster",
-          "sourceCount": 14,
-          "appearanceCount": 8,
-          "awards": [
-            {
-              "awardId": "award-bancroft-prize",
-              "awardName": "Bancroft Prize",
-              "year": 2019,
-              "status": "winner"
-            },
-            {
-              "awardId": "award-cundill-history-prize",
-              "awardName": "Cundill History Prize",
-              "year": 2019,
-              "status": "finalist"
-            },
-            {
-              "awardId": "award-dayton-literary-peace-prize-nonfiction",
-              "awardName": "Dayton Literary Peace Prize: Nonfiction",
-              "year": 2019,
-              "status": "finalist"
-            },
-            {
-              "awardId": "award-francis-parkman-prize",
-              "awardName": "Francis Parkman Prize",
-              "year": 2019,
-              "status": "winner"
-            },
-            {
-              "awardId": "award-mark-lynton-history-prize",
-              "awardName": "Mark Lynton History Prize",
-              "year": 2019,
-              "status": "finalist"
-            },
-            {
-              "awardId": "award-plutarch-award-biography",
-              "awardName": "Plutarch Award: Biography",
-              "year": 2019,
-              "status": "winner"
-            },
-            {
-              "awardId": "award-pulitzer-prize-in-history",
-              "awardName": "Pulitzer Prize in History",
-              "year": 2019,
-              "status": "winner"
-            },
-            {
-              "awardId": "award-los-angeles-times-book-prize-for-biography",
-              "awardName": "Los Angeles Times Book Prize for Biography",
-              "year": 2018,
-              "status": "winner"
-            }
-          ],
-          "completenessScore": 8
-        },
-        {
-          "id": "book-frederick-douglass-prophet-of-freedom-david-blight",
-          "title": "Frederick Douglass: Prophet of Freedom",
-          "authors": [
-            "David Blight"
-          ],
-          "isbn13": [],
-          "sourceCount": 1,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
-              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
-              "year": 2019,
-              "status": "winner"
-            }
-          ],
-          "completenessScore": 0
-        }
-      ],
-      "pairSignals": [
-        {
-          "bookIds": [
-            "book-frederick-douglass-prophet-of-freedom-david-w-blight",
-            "book-frederick-douglass-prophet-of-freedom-david-blight"
-          ],
-          "titleSimilarity": 1,
-          "authorSimilarity": 0.667,
-          "sharedIsbn": false,
-          "sharedTitlePrefix": true
-        }
-      ]
-    },
-    {
-      "action": "manual_review",
-      "confidence": "low",
-      "reason": "Loose similarity candidate; inspect before merging.",
-      "recommendedCanonicalBookId": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
-      "score": 0.833,
-      "books": [
-        {
-          "id": "book-john-brown-s-war-against-slavery-robert-e-mcglone",
-          "title": "John Brown’s War Against Slavery",
-          "authors": [
-            "Robert E. McGlone"
-          ],
-          "publicationYear": 2013,
-          "isbn13": [
-            "9781107617964"
-          ],
-          "publisherId": "publisher-cambridge-university-press",
-          "imprintId": "imprint-cambridge-university-press",
-          "sourceCount": 5,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-frederick-douglass-book-prize-slavery-resistance-and-abolition",
-              "awardName": "Frederick Douglass Book Prize: Slavery, Resistance, and Abolition",
-              "year": 2010,
-              "status": "finalist"
-            }
-          ],
-          "completenessScore": 7
-        },
-        {
-          "id": "book-john-brown-s-war-against-slavery-robert-mcglone",
-          "title": "John Brown’s War Against Slavery",
-          "authors": [
-            "Robert McGlone"
-          ],
-          "isbn13": [],
-          "sourceCount": 1,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-gilder-lehrman-lincoln-prize-civil-war-era",
-              "awardName": "Gilder Lehrman Lincoln Prize: Civil War Era",
-              "year": 2010,
-              "status": "finalist"
-            }
-          ],
-          "completenessScore": 0
-        }
-      ],
-      "pairSignals": [
-        {
-          "bookIds": [
-            "book-john-brown-s-war-against-slavery-robert-e-mcglone",
-            "book-john-brown-s-war-against-slavery-robert-mcglone"
-          ],
-          "titleSimilarity": 1,
-          "authorSimilarity": 0.667,
-          "sharedIsbn": false,
-          "sharedTitlePrefix": false
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
         }
       ]
     },
@@ -1423,8 +1662,11 @@
           "authors": [
             "Melvin Urofsky"
           ],
+          "publicationYear": 2009,
           "isbn13": [],
-          "sourceCount": 1,
+          "publisherId": "publisher-penguin-random-house",
+          "imprintId": "imprint-pantheon",
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -1434,7 +1676,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 5
         }
       ],
       "pairSignals": [
@@ -1446,7 +1688,8 @@
           "titleSimilarity": 1,
           "authorSimilarity": 0.667,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
         }
       ]
     },
@@ -1487,9 +1730,10 @@
           "authors": [
             "Barbara Savage"
           ],
+          "publicationYear": 2023,
           "isbn13": [],
           "publisherId": "publisher-yale-university-press",
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -1499,7 +1743,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 1
+          "completenessScore": 4
         }
       ],
       "pairSignals": [
@@ -1511,7 +1755,8 @@
           "titleSimilarity": 1,
           "authorSimilarity": 0.667,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
         }
       ]
     },
@@ -1552,8 +1797,9 @@
           "authors": [
             "Susan Shirk"
           ],
+          "publicationYear": 2022,
           "isbn13": [],
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -1563,7 +1809,7 @@
               "status": "finalist"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 2
         }
       ],
       "pairSignals": [
@@ -1575,77 +1821,8 @@
           "titleSimilarity": 1,
           "authorSimilarity": 0.667,
           "sharedIsbn": false,
-          "sharedTitlePrefix": false
-        }
-      ]
-    },
-    {
-      "action": "manual_review",
-      "confidence": "medium",
-      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
-      "recommendedCanonicalBookId": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
-      "score": 0.833,
-      "books": [
-        {
-          "id": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
-          "title": "The Abandonment of the Jews: America and the Holocaust 1941-1945",
-          "authors": [
-            "David S. Wyman"
-          ],
-          "isbn13": [],
-          "sourceCount": 2,
-          "appearanceCount": 2,
-          "awards": [
-            {
-              "awardId": "award-anisfield-wolf-book-awards-nonfiction",
-              "awardName": "Anisfield-Wolf Book Awards: Nonfiction",
-              "year": 1985,
-              "status": "winner"
-            },
-            {
-              "awardId": "award-national-jewish-book-awards-holocaust",
-              "awardName": "National Jewish Book Awards: Holocaust",
-              "year": 1985,
-              "status": "winner"
-            }
-          ],
-          "completenessScore": 0
-        },
-        {
-          "id": "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman",
-          "title": "The Abandonment of the Jews: America and the Holocaust 1941–1945",
-          "authors": [
-            "David Wyman"
-          ],
-          "publicationYear": 1984,
-          "isbn13": [
-            "9781595581747"
-          ],
-          "publisherId": "publisher-the-new-press",
-          "imprintId": "imprint-the-new-press",
-          "sourceCount": 4,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-national-book-critics-circle-award-for-nonfiction",
-              "awardName": "National Book Critics Circle Award for Nonfiction",
-              "year": 1984,
-              "status": "finalist"
-            }
-          ],
-          "completenessScore": 8
-        }
-      ],
-      "pairSignals": [
-        {
-          "bookIds": [
-            "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-s-wyman",
-            "book-the-abandonment-of-the-jews-america-and-the-holocaust-1941-1945-david-wyman"
-          ],
-          "titleSimilarity": 1,
-          "authorSimilarity": 0.667,
-          "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": false,
+          "yearDelta": 1
         }
       ]
     },
@@ -1743,9 +1920,10 @@
           "authors": [
             "Henry F. May"
           ],
+          "publicationYear": 1976,
           "isbn13": [],
           "publisherId": "publisher-oxford-university-press",
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -1755,7 +1933,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 1
+          "completenessScore": 5
         }
       ],
       "pairSignals": [
@@ -1767,7 +1945,8 @@
           "titleSimilarity": 1,
           "authorSimilarity": 0.667,
           "sharedIsbn": false,
-          "sharedTitlePrefix": false
+          "sharedTitlePrefix": false,
+          "yearDelta": 2
         }
       ]
     },
@@ -1845,109 +2024,6 @@
       "action": "manual_review",
       "confidence": "medium",
       "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
-      "recommendedCanonicalBookId": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
-      "score": 0.75,
-      "books": [
-        {
-          "id": "book-margaret-thatcher-the-authorised-biography-charles-moore",
-          "title": "Margaret Thatcher: The Authorised Biography",
-          "authors": [
-            "Charles Moore"
-          ],
-          "publicationYear": 2014,
-          "isbn13": [
-            "9780713992823"
-          ],
-          "publisherId": "publisher-penguin-random-house",
-          "imprintId": "imprint-allen-lane",
-          "sourceCount": 5,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-baillie-gifford-prize-for-non-fiction",
-              "awardName": "Baillie Gifford Prize for Non-Fiction",
-              "year": 2013,
-              "status": "finalist"
-            }
-          ],
-          "completenessScore": 7
-        },
-        {
-          "id": "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
-          "title": "Margaret Thatcher: The Authorized Biography—Volume II: Everything She Wants",
-          "authors": [
-            "Charles Moore"
-          ],
-          "isbn13": [],
-          "sourceCount": 1,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-arthur-ross-book-award-international-affairs",
-              "awardName": "Arthur Ross Book Award: International Affairs",
-              "year": 2016,
-              "status": "finalist"
-            }
-          ],
-          "completenessScore": 0
-        },
-        {
-          "id": "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore",
-          "title": "Margaret Thatcher: The Authorized Biography. Volume 1",
-          "authors": [
-            "Charles Moore"
-          ],
-          "isbn13": [],
-          "sourceCount": 1,
-          "appearanceCount": 1,
-          "awards": [
-            {
-              "awardId": "award-elizabeth-longford-prize-for-historical-biography",
-              "awardName": "Elizabeth Longford Prize for Historical Biography",
-              "year": 2014,
-              "status": "winner"
-            }
-          ],
-          "completenessScore": 0
-        }
-      ],
-      "pairSignals": [
-        {
-          "bookIds": [
-            "book-margaret-thatcher-the-authorised-biography-charles-moore",
-            "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore"
-          ],
-          "titleSimilarity": 0.667,
-          "authorSimilarity": 1,
-          "sharedIsbn": false,
-          "sharedTitlePrefix": true
-        },
-        {
-          "bookIds": [
-            "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore",
-            "book-margaret-thatcher-the-authorized-biography-volume-1-charles-moore"
-          ],
-          "titleSimilarity": 0.5,
-          "authorSimilarity": 1,
-          "sharedIsbn": false,
-          "sharedTitlePrefix": true
-        },
-        {
-          "bookIds": [
-            "book-margaret-thatcher-the-authorised-biography-charles-moore",
-            "book-margaret-thatcher-the-authorized-biography-volume-ii-everything-she-wants-charles-moore"
-          ],
-          "titleSimilarity": 0.333,
-          "authorSimilarity": 1,
-          "sharedIsbn": false,
-          "sharedTitlePrefix": true
-        }
-      ]
-    },
-    {
-      "action": "manual_review",
-      "confidence": "medium",
-      "reason": "Same title prefix (before colon) and author — likely different-edition subtitle variants.",
       "recommendedCanonicalBookId": "book-daughters-of-the-bamboo-grove-from-china-to-america-a-true-story-of-abduction-adoption-and-separ",
       "score": 0.732,
       "books": [
@@ -1987,8 +2063,13 @@
           "authors": [
             "Barbara Demick"
           ],
-          "isbn13": [],
-          "sourceCount": 1,
+          "publicationYear": 2025,
+          "isbn13": [
+            "9781783787227"
+          ],
+          "publisherId": "publisher-granta-books",
+          "imprintId": "imprint-granta-books",
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -1998,7 +2079,7 @@
               "status": "longlist"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 6
         }
       ],
       "pairSignals": [
@@ -2010,7 +2091,8 @@
           "titleSimilarity": 0.636,
           "authorSimilarity": 1,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 0
         }
       ]
     },
@@ -2081,8 +2163,9 @@
           "authors": [
             "John Vaillant"
           ],
+          "publicationYear": 2023,
           "isbn13": [],
-          "sourceCount": 1,
+          "sourceCount": 2,
           "appearanceCount": 1,
           "awards": [
             {
@@ -2092,7 +2175,7 @@
               "status": "winner"
             }
           ],
-          "completenessScore": 0
+          "completenessScore": 3
         }
       ],
       "pairSignals": [
@@ -2104,7 +2187,8 @@
           "titleSimilarity": 0.333,
           "authorSimilarity": 1,
           "sharedIsbn": false,
-          "sharedTitlePrefix": true
+          "sharedTitlePrefix": true,
+          "yearDelta": 1
         }
       ]
     },

@@ -129,6 +129,7 @@
     "data:import:shaughnessy-cohen-prize": "tsx scripts/import-award-records/shaughnessy-cohen-prize.ts",
     "data:import:rbc-taylor-prize": "tsx scripts/import-award-records/rbc-taylor-prize.ts",
     "data:import:rossiter-prize": "tsx scripts/import-award-records/rossiter-prize.ts",
+    "data:import:american-library-in-paris": "tsx scripts/import-award-records/american-library-in-paris.ts",
     "data:audit:raw-refresh": "tsx scripts/reconcile-award-record-refresh.ts",
     "data:repair:raw-refresh": "tsx scripts/reconcile-award-record-refresh.ts --write",
     "data:test:raw": "tsx --test \"scripts/import-award-records/*.test.ts\"",

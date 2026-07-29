@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-07-15T17:39:30.537Z",
+  "generatedAt": "2026-07-29T18:10:04.566Z",
   "dryRun": false,
   "summary": {
-    "catalogBooks": 5512,
-    "booksMissingCovers": 534,
-    "candidates": 68,
+    "catalogBooks": 8394,
+    "booksMissingCovers": 2234,
+    "candidates": 103,
     "byMethod": {
-      "google_volume_id": 26,
-      "google_cache_match": 37,
+      "google_volume_id": 36,
+      "google_cache_match": 53,
       "google_isbn": 0,
       "google_title_search": 0,
-      "openlibrary_cache_match": 3,
+      "openlibrary_cache_match": 11,
       "openlibrary_isbn_search": 0,
       "openlibrary_title_search": 0,
-      "openlibrary_link_cache": 1,
+      "openlibrary_link_cache": 2,
       "openlibrary_isbn_cache": 1
     },
     "onlineSummary": {
@@ -62,10 +62,26 @@
         "id": "source-cover-google-books-1599-a-year-in-the-life-of-william-shakespeare-james-s-shapiro",
         "label": "Google Books cover for 1599: A Year in the Life of William Shakespeare",
         "url": "https://books.google.com/books/about/A_Year_in_the_Life_of_William_Shakespear.html?hl=&id=LyA2vQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-a-clearing-in-the-distance-frederick-law-olmsted-and-north-america-in-the-nineteenth-century-wit",
+      "title": "A Clearing in the Distance: Frederick Law Olmsted and North America in the Nineteenth Century",
+      "provider": "openlibrary",
+      "method": "openlibrary_cache_match",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/428503-M.jpg?default=false",
+      "source": {
+        "id": "source-cover-open-library-a-clearing-in-the-distance-frederick-law-olmsted-and-north-america-in-the-nineteenth-century-wit",
+        "label": "Open Library cover for A Clearing in the Distance: Frederick Law Olmsted and North America in the Nineteenth Century",
+        "url": "https://openlibrary.org/works/OL74221W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 428503 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
       }
     },
     {
@@ -78,10 +94,26 @@
         "id": "source-cover-google-books-a-hidden-childhood-a-jewish-girl-s-sanctuary-in-a-french-convent-1942-1945-frida-scheps-weinstei",
         "label": "Google Books cover for A Hidden Childhood: A Jewish Girl's Sanctuary in a French Convent, 1942–1945",
         "url": "https://books.google.com/books/about/Hidden_Childhood.html?hl=&id=oEvYsgEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID oEvYsgEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-a-history-of-ancient-mathematical-astronomy-otto-e-neugebauer",
+      "title": "A History of Ancient Mathematical Astronomy",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=dwyPnQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-a-history-of-ancient-mathematical-astronomy-otto-e-neugebauer",
+        "label": "Google Books cover for A History of Ancient Mathematical Astronomy",
+        "url": "https://books.google.com/books/about/History_of_Ancient_Mathematical_Astronom.html?hl=&id=dwyPnQEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID dwyPnQEACAAJ."
       }
     },
     {
@@ -94,7 +126,23 @@
         "id": "source-cover-google-books-against-the-evidence-the-becker-rosenthal-affair-andy-logan",
         "label": "Google Books cover for Against the Evidence: The Becker-Rosenthal Affair",
         "url": "https://books.google.com/books/about/Against_the_Evidence.html?hl=&id=RwFXPQAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-american-fire-love-arson-and-life-in-a-vanishing-land-monica-hesse",
+      "title": "American Fire: Love, Arson, and Life in a Vanishing Land",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=04eQEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-american-fire-love-arson-and-life-in-a-vanishing-land-monica-hesse",
+        "label": "Google Books cover for American Fire: Love, Arson, and Life in a Vanishing Land",
+        "url": "https://books.google.com/books/about/American_Fire.html?hl=&id=04eQEAAAQBAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -102,15 +150,15 @@
     },
     {
       "bookId": "book-arc-of-justice-a-saga-of-race-civil-rights-and-murder-in-the-jazz-age-kevin-boyle",
-      "title": "Arc of Justice: A Saga of Race, Civil Rights and Murder in the Jazz Age",
+      "title": "Arc of Justice: A Saga of Race Civil Rights and Murder in the Jazz Age",
       "provider": "google",
       "method": "google_cache_match",
       "sourceUrl": "https://books.google.com/books/content?id=j62fzQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "source": {
         "id": "source-cover-google-books-arc-of-justice-a-saga-of-race-civil-rights-and-murder-in-the-jazz-age-kevin-boyle",
-        "label": "Google Books cover for Arc of Justice: A Saga of Race, Civil Rights and Murder in the Jazz Age",
+        "label": "Google Books cover for Arc of Justice: A Saga of Race Civil Rights and Murder in the Jazz Age",
         "url": "https://books.google.com/books/about/Arc_of_Justice.html?hl=&id=j62fzQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -126,10 +174,26 @@
         "id": "source-cover-google-books-atlantic-cataclysm-rethinking-the-atlantic-slave-trades-david-eltis",
         "label": "Google Books cover for Atlantic Cataclysm: Rethinking the Atlantic Slave Trades",
         "url": "https://books.google.com/books/about/Atlantic_Cataclysm.html?hl=&id=9S220AEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID 9S220AEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-before-the-movement-the-hidden-history-of-black-civil-rights-dylan-penningroth",
+      "title": "Before the Movement: The Hidden History of Black Civil Rights",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=HDRx0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-before-the-movement-the-hidden-history-of-black-civil-rights-dylan-penningroth",
+        "label": "Google Books cover for Before the Movement: The Hidden History of Black Civil Rights",
+        "url": "https://books.google.com/books/about/Before_the_Movement.html?hl=&id=HDRx0AEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
       }
     },
     {
@@ -142,7 +206,7 @@
         "id": "source-cover-google-books-benjamin-henry-latrobe-talbot-faulkner-hamlin",
         "label": "Google Books cover for Benjamin Henry Latrobe",
         "url": "https://books.google.com/books/about/Benjamin_Henry_Latrobe.html?hl=&id=Sx72ngEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -158,10 +222,42 @@
         "id": "source-cover-google-books-between-war-and-peace-the-potsdam-conference-herbert-feis",
         "label": "Google Books cover for Between War and Peace: The Potsdam Conference",
         "url": "https://books.google.com/books/about/Between_War_and_Peace.html?hl=&id=XRm1ngEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-beyond-the-melting-pot-nathan-glazer",
+      "title": "Beyond the Melting Pot",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=pkJL-rWXUP8C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-beyond-the-melting-pot-nathan-glazer",
+        "label": "Google Books cover for Beyond the Melting Pot",
+        "url": "https://books.google.com/books/about/BEYOND_THE_MELTING_POT_THE_NEGROES_PUERT.html?hl=&id=pkJL-rWXUP8C",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-blood-of-others-stalin-s-crimean-atrocity-and-the-poetics-of-solidarity-rory-finnin",
+      "title": "Blood of Others: Stalin's Crimean Atrocity and the Poetics of Solidarity",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=RR4SzwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-blood-of-others-stalin-s-crimean-atrocity-and-the-poetics-of-solidarity-rory-finnin",
+        "label": "Google Books cover for Blood of Others: Stalin's Crimean Atrocity and the Poetics of Solidarity",
+        "url": "https://books.google.com/books/about/Blood_of_Others.html?hl=&id=RR4SzwEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID RR4SzwEACAAJ."
       }
     },
     {
@@ -174,10 +270,26 @@
         "id": "source-cover-google-books-bloomsbury-a-house-of-lions-leon-edel",
         "label": "Google Books cover for Bloomsbury: A House of Lions",
         "url": "https://books.google.com/books/about/Bloomsbury.html?hl=&id=hEN9QgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID hEN9QgAACAAJ."
+      }
+    },
+    {
+      "bookId": "book-braddock-s-defeat-the-battle-of-the-monongahela-and-the-road-to-revolution-david-l-preston",
+      "title": "Braddock's Defeat: The Battle of the Monongahela and the Road to Revolution",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=sdEkCQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-braddock-s-defeat-the-battle-of-the-monongahela-and-the-road-to-revolution-david-l-preston",
+        "label": "Google Books cover for Braddock's Defeat: The Battle of the Monongahela and the Road to Revolution",
+        "url": "https://books.google.com/books/about/Braddock_s_Defeat.html?hl=&id=sdEkCQAAQBAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
       }
     },
     {
@@ -190,7 +302,7 @@
         "id": "source-cover-google-books-c-because-cowards-get-cancer-too-john-diamond",
         "label": "Google Books cover for C: Because Cowards Get Cancer Too",
         "url": "https://books.google.com/books/about/C_Because_Cowards_Get_Can_Kindle.html?hl=&id=VF39vQAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -206,7 +318,7 @@
         "id": "source-cover-google-books-capital-in-the-twenty-first-century-thomas-piketty-with-arthur-goldhammer",
         "label": "Google Books cover for Capital in the Twenty-First Century",
         "url": "https://books.google.com/books/about/Capital_in_the_Twenty_First_Century.html?hl=&id=tHBzzgEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -222,10 +334,58 @@
         "id": "source-cover-google-books-charles-wilson-peale-charles-coleman-sellers",
         "label": "Google Books cover for Charles Wilson Peale",
         "url": "https://books.google.com/books/about/Charles_Wilson_Peale.html?hl=&id=dMF6OgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID dMF6OgAACAAJ."
+      }
+    },
+    {
+      "bookId": "book-chip-war-the-fight-for-the-world-s-most-critical-technology-christopher-r-miller",
+      "title": "Chip War: The Fight for the World’s Most Critical Technology",
+      "provider": "openlibrary",
+      "method": "openlibrary_cache_match",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/12968901-M.jpg?default=false",
+      "source": {
+        "id": "source-cover-open-library-chip-war-the-fight-for-the-world-s-most-critical-technology-christopher-r-miller",
+        "label": "Open Library cover for Chip War: The Fight for the World’s Most Critical Technology",
+        "url": "https://openlibrary.org/works/OL27846746W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 12968901 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
+      }
+    },
+    {
+      "bookId": "book-civic-ideals-rogers-m-smith",
+      "title": "Civic Ideals: Conflicting Visions of Citizenship in U.S. History",
+      "provider": "openlibrary",
+      "method": "openlibrary_link_cache",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/160426-M.jpg",
+      "source": {
+        "id": "source-cover-open-library-civic-ideals-rogers-m-smith",
+        "label": "Open Library cover for Civic Ideals: Conflicting Visions of Citizenship in U.S. History",
+        "url": "https://openlibrary.org/works/OL3360484W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 160426 recovered from cached Open Library catalog metadata."
+      }
+    },
+    {
+      "bookId": "book-claude-bernard-and-animal-chemistry-the-emergence-of-a-scientist-frederic-l-holmes",
+      "title": "Claude Bernard and Animal Chemistry: The Emergence of a Scientist",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=EsrnvgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-claude-bernard-and-animal-chemistry-the-emergence-of-a-scientist-frederic-l-holmes",
+        "label": "Google Books cover for Claude Bernard and Animal Chemistry: The Emergence of a Scientist",
+        "url": "https://books.google.com/books/about/Claude_Bernard_and_Animal_Chemistry.html?hl=&id=EsrnvgEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID EsrnvgEACAAJ."
       }
     },
     {
@@ -238,7 +398,7 @@
         "id": "source-cover-google-books-cocteau-a-biography-francis-steegmuller",
         "label": "Google Books cover for Cocteau: A Biography",
         "url": "https://books.google.com/books/about/Cocteau_a_Biography.html?hl=&id=v5H0vgEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -254,7 +414,23 @@
         "id": "source-cover-google-books-conquest-coexistence-and-change-wales-1063-1415-rees-davies",
         "label": "Google Books cover for Conquest, Coexistence, and Change: Wales 1063-1415",
         "url": "https://books.google.com/books/about/Conquest_Coexistence_and_Change.html?hl=&id=Up57zgEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-daughters-of-the-bamboo-grove-china-s-stolen-children-and-a-story-of-separated-twins-barbara-dem",
+      "title": "Daughters of the Bamboo Grove: China’s Stolen Children and a Story of Separated Twins",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=EcUyEQAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-daughters-of-the-bamboo-grove-china-s-stolen-children-and-a-story-of-separated-twins-barbara-dem",
+        "label": "Google Books cover for Daughters of the Bamboo Grove: China’s Stolen Children and a Story of Separated Twins",
+        "url": "https://books.google.com/books/about/Daughters_of_the_Bamboo_Grove.html?hl=&id=EcUyEQAAQBAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -270,7 +446,7 @@
         "id": "source-cover-google-books-decomposed-the-political-ecology-of-music-kyle-devine",
         "label": "Google Books cover for Decomposed: The Political Ecology of Music",
         "url": "https://books.google.com/books/about/Decomposed.html?hl=&id=zNb3xQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -286,7 +462,7 @@
         "id": "source-cover-google-books-diderot-arthur-m-wilson",
         "label": "Google Books cover for Diderot",
         "url": "https://books.google.com/books/about/Diderot_gli_anni_decisivi.html?hl=&id=uzYOPQAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -302,7 +478,7 @@
         "id": "source-cover-google-books-don-t-tread-on-me-the-selected-letters-of-s-j-perelman-prudence-crowther",
         "label": "Google Books cover for Don’t Tread on Me: The Selected Letters of S.J. Perelman",
         "url": "https://books.google.com/books/about/Don_t_Tread_on_Me.html?hl=&id=hqZaPgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -318,7 +494,7 @@
         "id": "source-cover-google-books-edmund-pendleton-1721-1803-david-j-mays",
         "label": "Google Books cover for Edmund Pendleton 1721–1803",
         "url": "https://books.google.com/books/about/Edmund_Pendleton_1721_1803.html?hl=&id=DmkXzQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -334,23 +510,23 @@
         "id": "source-cover-google-books-eleanor-roosevelt-volume-one-1884-1933-blanche-wiesen-cook",
         "label": "Google Books cover for Eleanor Roosevelt: Volume One, 1884–1933",
         "url": "https://books.google.com/books/about/Eleanor_Roosevelt.html?hl=&id=xBM90AEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
       }
     },
     {
-      "bookId": "book-federico-garcia-lorca-ian-gibson",
-      "title": "Federico Garcia Lorca",
+      "bookId": "book-federico-garcia-lorca-a-life-ian-gibson",
+      "title": "Federico Garcia Lorca: A Life",
       "provider": "google",
       "method": "google_volume_id",
       "sourceUrl": "https://books.google.com/books/content?id=KnwJwAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "source": {
-        "id": "source-cover-google-books-federico-garcia-lorca-ian-gibson",
-        "label": "Google Books cover for Federico Garcia Lorca",
+        "id": "source-cover-google-books-federico-garcia-lorca-a-life-ian-gibson",
+        "label": "Google Books cover for Federico Garcia Lorca: A Life",
         "url": "https://books.google.com/books/about/Federico_Garcia_Lorca.html?hl=&id=KnwJwAEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID KnwJwAEACAAJ."
@@ -366,7 +542,7 @@
         "id": "source-cover-google-books-forgotten-first-citizen-john-bigelow-margaret-clapp",
         "label": "Google Books cover for Forgotten First Citizen: John Bigelow",
         "url": "https://books.google.com/books/about/Forgotten_First_Citizen.html?hl=&id=gH35zAEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -382,7 +558,23 @@
         "id": "source-cover-google-books-france-1848-1945-ambition-love-and-politics-theodore-zeldin",
         "label": "Google Books cover for France, 1848-1945: Ambition, Love & Politics",
         "url": "https://books.google.com/books/about/France_1848_1945.html?hl=&id=3m9XnQAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-franklin-d-roosevelt-and-the-new-deal-william-leuchtenburg",
+      "title": "Franklin D. Roosevelt and the New Deal",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=KynJwAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-franklin-d-roosevelt-and-the-new-deal-william-leuchtenburg",
+        "label": "Google Books cover for Franklin D. Roosevelt and the New Deal",
+        "url": "https://books.google.com/books/about/Franklin_D_Roosevelt_and_the_New_Deal.html?hl=&id=KynJwAEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -398,7 +590,7 @@
         "id": "source-cover-open-library-freedom-riders-1961-and-the-struggle-for-racial-justice-raymond-arsenault",
         "label": "Open Library cover for Freedom Riders: 1961- and the Struggle for Racial Justice",
         "url": "https://openlibrary.org/works/OL15414493W",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover ID 6859879 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
@@ -414,7 +606,7 @@
         "id": "source-cover-open-library-gay-bar-why-we-went-out-jeremy-atherton-lin",
         "label": "Open Library cover for Gay Bar: Why We Went Out",
         "url": "https://openlibrary.org/works/OL21975693W",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover ID 11966547 recovered from cached Open Library catalog metadata."
@@ -430,7 +622,7 @@
         "id": "source-cover-google-books-german-rule-in-russia-1941-45-alexander-dallin",
         "label": "Google Books cover for German Rule in Russia, 1941-45",
         "url": "https://books.google.com/books/about/German_Rule_in_Russia_1941_45.html?hl=&id=xERLOAAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID xERLOAAACAAJ."
@@ -446,7 +638,7 @@
         "id": "source-cover-google-books-gertrude-stein-an-afterlife-francesca-wade",
         "label": "Google Books cover for Gertrude Stein: An Afterlife",
         "url": "https://books.google.com/books/about/Gertrude_Stein.html?hl=&id=sfvf0QEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -462,7 +654,7 @@
         "id": "source-cover-google-books-grand-strategy-vol-iv-august-1942-september-1943-michael-howard",
         "label": "Google Books cover for Grand Strategy, vol. IV: August 1942 - September 1943",
         "url": "https://books.google.com/books/about/Grand_Strategy_Vol_IV_August_1942_Septem.html?hl=&id=A8RjewAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -478,7 +670,7 @@
         "id": "source-cover-google-books-great-river-the-rio-grande-in-north-american-history-paul-horgan",
         "label": "Google Books cover for Great River: The Rio Grande in North American History",
         "url": "https://books.google.com/books/about/Great_River_the_Rio_Grande_in_North_Amer.html?hl=&id=qT2oPAAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID qT2oPAAACAAJ."
@@ -494,7 +686,7 @@
         "id": "source-cover-google-books-habits-of-the-heart-individualism-and-commitment-in-american-life-robert-n-bellah-richard-madsen",
         "label": "Google Books cover for Habits of the Heart: Individualism and Commitment in American Life",
         "url": "https://books.google.com/books/about/Study_Guide_to_Individualism_and_Commitm.html?hl=&id=Pp7bswEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -510,7 +702,7 @@
         "id": "source-cover-google-books-hemingway-kenneth-s-lynn",
         "label": "Google Books cover for Hemingway",
         "url": "https://books.google.com/books/about/Hemingway.html?hl=&id=xn50PwAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -526,7 +718,7 @@
         "id": "source-cover-open-library-herman-melville-a-biography-volume-i-1819-1851-hershel-parker",
         "label": "Open Library cover for Herman Melville: A Biography, Volume 1, 1819–1851",
         "url": "https://openlibrary.org/works/OL3269259W",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover ID 567442 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
@@ -542,7 +734,7 @@
         "id": "source-cover-google-books-how-sexual-desire-works-the-enigmatic-urge-frederick-toates",
         "label": "Google Books cover for How Sexual Desire Works: The Enigmatic Urge",
         "url": "https://books.google.com/books/about/How_Sexual_Desire_Works.html?hl=&id=AKq_rQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID AKq_rQEACAAJ."
@@ -558,10 +750,42 @@
         "id": "source-cover-google-books-illusions-of-emancipation-the-pursuit-of-freedom-and-equality-in-the-twilight-of-slavery-joseph-",
         "label": "Google Books cover for Illusions of Emancipation: The Pursuit of Freedom and Equality in the Twilight of Slavery",
         "url": "https://books.google.com/books/about/Illusions_of_Emancipation.html?hl=&id=Zz3v0QEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID Zz3v0QEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-inventing-america-jefferson-s-declaration-of-independence-gary-wills",
+      "title": "Inventing America: Jefferson’s Declaration of Independence",
+      "provider": "openlibrary",
+      "method": "openlibrary_cache_match",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/393979-M.jpg?default=false",
+      "source": {
+        "id": "source-cover-open-library-inventing-america-jefferson-s-declaration-of-independence-gary-wills",
+        "label": "Open Library cover for Inventing America: Jefferson’s Declaration of Independence",
+        "url": "https://openlibrary.org/works/OL15162075W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 393979 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
+      }
+    },
+    {
+      "bookId": "book-inventing-the-people-the-rise-of-popular-soverignty-in-england-and-america-edmund-s-morgan",
+      "title": "Inventing the People: The Rise of Popular Soverignty in England and America",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=VY8cAAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-inventing-the-people-the-rise-of-popular-soverignty-in-england-and-america-edmund-s-morgan",
+        "label": "Google Books cover for Inventing the People: The Rise of Popular Soverignty in England and America",
+        "url": "https://play.google.com/store/books/details?id=VY8cAAAAQBAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
       }
     },
     {
@@ -574,7 +798,23 @@
         "id": "source-cover-google-books-life-the-unfinished-experiment-s-e-luria",
         "label": "Google Books cover for Life: The Unfinished Experiment",
         "url": "https://books.google.com/books/about/Life.html?hl=&id=Us_vQAAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-london-s-triumph-merchant-adventurers-and-the-tudor-city-stephen-alford",
+      "title": "London's Triumph: Merchant Adventurers and the Tudor City",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=5-h6vgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-london-s-triumph-merchant-adventurers-and-the-tudor-city-stephen-alford",
+        "label": "Google Books cover for London's Triumph: Merchant Adventurers and the Tudor City",
+        "url": "https://books.google.com/books/about/London_s_Triumph.html?hl=&id=5-h6vgAACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -590,10 +830,42 @@
         "id": "source-cover-google-books-master-of-the-senate-the-years-of-lyndon-johnson-vol-3-robert-a-caro",
         "label": "Google Books cover for Master of the Senate: The Years of Lyndon Johnson, Vol. 3",
         "url": "https://books.google.com/books/about/The_Years_of_Lyndon_Johnson_The_path_to.html?hl=&id=yYOBQgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-mathematical-astronomy-in-copernicus-s-de-revolutionibus-noel-swerdlow-and-otto-neugebauer",
+      "title": "Mathematical Astronomy in Copernicus's De Revolutionibus",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=QuQByAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-mathematical-astronomy-in-copernicus-s-de-revolutionibus-noel-swerdlow-and-otto-neugebauer",
+        "label": "Google Books cover for Mathematical Astronomy in Copernicus's De Revolutionibus",
+        "url": "https://books.google.com/books/about/Mathematical_Astronomy_in_Copernicus_s_D.html?hl=&id=QuQByAEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID QuQByAEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-move-like-water-a-story-of-the-sea-and-its-creatures-hannah-stowe",
+      "title": "Move Like Water: A Story of the Sea and its Creatures",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=R7NQ0AEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-move-like-water-a-story-of-the-sea-and-its-creatures-hannah-stowe",
+        "label": "Google Books cover for Move Like Water: A Story of the Sea and its Creatures",
+        "url": "https://books.google.com/books/about/Move_Like_Water.html?hl=&id=R7NQ0AEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID R7NQ0AEACAAJ."
       }
     },
     {
@@ -606,7 +878,7 @@
         "id": "source-cover-google-books-mussolini-unleashed-1939-41-politics-and-strategy-in-fascist-italy-s-last-war-macgregor-knox",
         "label": "Google Books cover for Mussolini Unleashed, 1939-41: Politics and Strategy in Fascist Italy’s Last War",
         "url": "https://books.google.com/books/about/Mussolini_Unleashed_1939_41.html?hl=&id=U4HvnQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID U4HvnQEACAAJ."
@@ -622,10 +894,26 @@
         "id": "source-cover-google-books-mussolini-s-enemies-the-italian-anti-fascist-resistance-charles-delzell",
         "label": "Google Books cover for Mussolini’s Enemies: The Italian Anti-Fascist Resistance",
         "url": "https://books.google.com/books/about/Mussolini_s_Enemies.html?hl=&id=YQBvngEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-neurotribes-the-legacy-of-autism-and-the-future-of-neurodiversity-steve-silberman",
+      "title": "NeuroTribes: The Legacy of Autism and the Future of Neurodiversity",
+      "provider": "openlibrary",
+      "method": "openlibrary_cache_match",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/8907329-M.jpg?default=false",
+      "source": {
+        "id": "source-cover-open-library-neurotribes-the-legacy-of-autism-and-the-future-of-neurodiversity-steve-silberman",
+        "label": "Open Library cover for NeuroTribes: The Legacy of Autism and the Future of Neurodiversity",
+        "url": "https://openlibrary.org/works/OL17203015W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 8907329 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
       }
     },
     {
@@ -638,10 +926,106 @@
         "id": "source-cover-google-books-new-poems-roy-fuller",
         "label": "Google Books cover for New Poems",
         "url": "https://books.google.com/books/about/New_Poems.html?hl=&id=07KUpwAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID 07KUpwAACAAJ."
+      }
+    },
+    {
+      "bookId": "book-no-shame-in-my-game-katherine-newman",
+      "title": "No Shame in My Game",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=3_VvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-no-shame-in-my-game-katherine-newman",
+        "label": "Google Books cover for No Shame in My Game",
+        "url": "https://books.google.com/books/about/No_Shame_in_My_Game.html?hl=&id=3_VvDwAAQBAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-overreach-how-china-derailed-its-peaceful-rise-susan-shirk",
+      "title": "Overreach: How China Derailed Its Peaceful Rise",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=tp6FEAAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-overreach-how-china-derailed-its-peaceful-rise-susan-shirk",
+        "label": "Google Books cover for Overreach: How China Derailed Its Peaceful Rise",
+        "url": "https://books.google.com/books/about/Overreach.html?hl=&id=tp6FEAAAQBAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-perjury-alan-weinstein",
+      "title": "Perjury",
+      "provider": "openlibrary",
+      "method": "openlibrary_cache_match",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/4615773-M.jpg?default=false",
+      "source": {
+        "id": "source-cover-open-library-perjury-alan-weinstein",
+        "label": "Open Library cover for Perjury",
+        "url": "https://openlibrary.org/works/OL1848352W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 4615773 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
+      }
+    },
+    {
+      "bookId": "book-quagmire-nation-building-and-nature-in-the-mekong-delta-david-biggs",
+      "title": "Quagmire: Nation-Building and Nature in the Mekong Delta",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=WV1JMwEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-quagmire-nation-building-and-nature-in-the-mekong-delta-david-biggs",
+        "label": "Google Books cover for Quagmire: Nation-Building and Nature in the Mekong Delta",
+        "url": "https://books.google.com/books/about/Quagmire.html?hl=&id=WV1JMwEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID WV1JMwEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-rachel-and-her-children-jonathan-kozol",
+      "title": "Rachel and Her Children",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=hfRvDwAAQBAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-rachel-and-her-children-jonathan-kozol",
+        "label": "Google Books cover for Rachel and Her Children",
+        "url": "https://books.google.com/books/about/Rachel_and_Her_Children.html?hl=&id=hfRvDwAAQBAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-rebirding-restoring-britain-s-wildlife-benedict-macdonald",
+      "title": "Rebirding: Restoring Britain's Wildlife",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=J9fa0QEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-rebirding-restoring-britain-s-wildlife-benedict-macdonald",
+        "label": "Google Books cover for Rebirding: Restoring Britain's Wildlife",
+        "url": "https://books.google.com/books/about/Rebirding.html?hl=&id=J9fa0QEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID J9fa0QEACAAJ."
       }
     },
     {
@@ -654,10 +1038,26 @@
         "id": "source-cover-google-books-residual-governance-how-south-africa-foretells-planetary-futures-gabrielle-hecht",
         "label": "Google Books cover for Residual Governance: How South Africa Foretells Planetary Futures",
         "url": "https://books.google.com/books/about/Residual_Governance.html?hl=&id=RyL0zwEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID RyL0zwEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-rethinking-slave-rebellion-in-cuba-la-escalera-and-the-insurgencies-of-1841-1844-aisha-k-finch",
+      "title": "Rethinking Slave Rebellion in Cuba: La Escalera and the Insurgencies of 1841-1844",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=Crv2jgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-rethinking-slave-rebellion-in-cuba-la-escalera-and-the-insurgencies-of-1841-1844-aisha-k-finch",
+        "label": "Google Books cover for Rethinking Slave Rebellion in Cuba: La Escalera and the Insurgencies of 1841-1844",
+        "url": "https://books.google.com/books/about/Rethinking_Slave_Rebellion_in_Cuba.html?hl=&id=Crv2jgEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID Crv2jgEACAAJ."
       }
     },
     {
@@ -670,10 +1070,42 @@
         "id": "source-cover-open-library-revolution-and-dictatorship-the-violent-origins-of-durable-authoritarianism-steven-levitsky-and-",
         "label": "Open Library cover for Revolution and Dictatorship: The Violent Origins of Durable Authoritarianism",
         "url": "https://openlibrary.org/isbn/9780691169521",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover ID 12563344 recovered from cached Open Library catalog metadata."
+      }
+    },
+    {
+      "bookId": "book-ritual-geology-gold-and-subterranean-knowledge-in-savanna-west-africa-robyn-d-avignon",
+      "title": "Ritual Geology: Gold and Subterranean Knowledge in Savanna West Africa",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=MobgzgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-ritual-geology-gold-and-subterranean-knowledge-in-savanna-west-africa-robyn-d-avignon",
+        "label": "Google Books cover for Ritual Geology: Gold and Subterranean Knowledge in Savanna West Africa",
+        "url": "https://books.google.com/books/about/A_Ritual_Geology.html?hl=&id=MobgzgEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID MobgzgEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-scottsboro-don-t-carter",
+      "title": "Scottsboro",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=icf7wAEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-scottsboro-don-t-carter",
+        "label": "Google Books cover for Scottsboro",
+        "url": "https://books.google.com/books/about/Scottsboro.html?hl=&id=icf7wAEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
       }
     },
     {
@@ -686,10 +1118,26 @@
         "id": "source-cover-google-books-serbia-between-east-and-west-the-events-of-1903-08-wayne-vucinich",
         "label": "Google Books cover for Serbia Between East and West: The Events of 1903-08",
         "url": "https://books.google.com/books/about/Serbia_Between_East_and_West_the_Events.html?hl=&id=yW60swEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID yW60swEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-special-providence-american-foreign-policy-and-how-it-changed-the-world-walter-russell-mead-and-",
+      "title": "Special Providence: American Foreign Policy and How It Changed the World",
+      "provider": "openlibrary",
+      "method": "openlibrary_cache_match",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/226324-M.jpg?default=false",
+      "source": {
+        "id": "source-cover-open-library-special-providence-american-foreign-policy-and-how-it-changed-the-world-walter-russell-mead-and-",
+        "label": "Open Library cover for Special Providence: American Foreign Policy and How It Changed the World",
+        "url": "https://openlibrary.org/works/OL5274473W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 226324 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
       }
     },
     {
@@ -702,7 +1150,7 @@
         "id": "source-cover-google-books-the-age-of-reform-1250-1550-an-intellectual-and-religious-history-of-late-medieval-and-reformati",
         "label": "Google Books cover for The Age of Reform, 1250–1550: An Intellectual and Religious History of Late Medieval and Reformation Europe",
         "url": "https://books.google.com/books/about/The_Age_of_Reform_1250_1550.html?hl=&id=0-64QgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -718,7 +1166,7 @@
         "id": "source-cover-google-books-the-american-frontier-in-hawaii-the-pioneers-1789-1843-harold-bradley",
         "label": "Google Books cover for The American Frontier in Hawaii: The Pioneers, 1789-1843",
         "url": "https://books.google.com/books/about/The_American_Frontier_in_Hawaii.html?hl=&id=iQZIAQAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID iQZIAQAACAAJ."
@@ -734,7 +1182,7 @@
         "id": "source-cover-google-books-the-architecture-of-the-christian-holy-land-reception-from-late-antiquity-through-the-renaissanc",
         "label": "Google Books cover for The Architecture of the Christian Holy Land: Reception from Late Antiquity through the Renaissance",
         "url": "https://books.google.com/books/about/The_Architecture_of_the_Christian_Holy_L.html?hl=&id=fOHPzQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID fOHPzQEACAAJ."
@@ -750,7 +1198,7 @@
         "id": "source-cover-google-books-the-art-of-the-public-grovel-sexual-sin-and-public-confession-in-america-susan-wise-bauer",
         "label": "Google Books cover for The Art of the Public Grovel: Sexual Sin & Public Confession in America",
         "url": "https://books.google.com/books/about/The_Art_of_the_Public_Grovel_Sexual_Scan.html?hl=&id=ZorgNwAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID ZorgNwAACAAJ."
@@ -766,7 +1214,7 @@
         "id": "source-cover-open-library-the-broken-constitution-lincoln-slavery-and-the-refounding-of-america-noah-feldman",
         "label": "Open Library cover for The Broken Constitution: Lincoln, Slavery, and the Refounding of America",
         "url": "https://openlibrary.org/works/OL24415909W",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover ID 10961395 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
@@ -782,7 +1230,7 @@
         "id": "source-cover-google-books-the-case-of-the-murderous-dr-cream-the-hunt-for-a-victorian-era-serial-killer-dean-jobb",
         "label": "Google Books cover for The Case of the Murderous Dr. Cream: The Hunt for a Victorian Era Serial Killer",
         "url": "https://books.google.com/books/about/Case_of_the_Murderous_Dr_Cream_The_Hunt.html?hl=&id=4CnszgEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID 4CnszgEACAAJ."
@@ -798,7 +1246,7 @@
         "id": "source-cover-google-books-the-creation-of-nikolai-gogol-donald-l-fanger",
         "label": "Google Books cover for The Creation of Nikolai Gogol",
         "url": "https://books.google.com/books/about/The_Creation_of_Nikolai_Gogol.html?hl=&id=kLaRzgEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID kLaRzgEACAAJ."
@@ -814,7 +1262,7 @@
         "id": "source-cover-google-books-the-damnable-question-a-study-in-anglo-irish-relations-george-dangerfield",
         "label": "Google Books cover for The Damnable Question: A Study in Anglo-Irish Relations",
         "url": "https://books.google.com/books/about/The_Damnable_Question.html?hl=&id=ujKzzgEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -830,7 +1278,7 @@
         "id": "source-cover-google-books-the-discovery-of-abundance-daniel-fox",
         "label": "Google Books cover for The Discovery of Abundance",
         "url": "https://books.google.com/books/about/The_Discovery_of_Abundance.html?hl=&id=54K-ngEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -846,7 +1294,7 @@
         "id": "source-cover-google-books-the-discovery-of-the-asylum-social-order-and-disorder-in-the-new-republic-david-rothman",
         "label": "Google Books cover for The Discovery of the Asylum: Social Order and Disorder in the New Republic",
         "url": "https://books.google.com/books/about/The_Discovery_of_the_Asylum_Social_Order.html?hl=&id=SW9ccgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID SW9ccgAACAAJ."
@@ -862,7 +1310,7 @@
         "id": "source-cover-google-books-the-eleventh-pillar-new-york-state-and-the-federal-constitution-linda-depauw",
         "label": "Google Books cover for The Eleventh Pillar: New York State and the Federal Constitution",
         "url": "https://books.google.com/books/about/The_Eleventh_Pillar.html?hl=&id=oqL5GgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -878,7 +1326,7 @@
         "id": "source-cover-google-books-the-free-market-family-how-the-market-crushed-the-american-dream-and-how-it-can-be-restored-maxi",
         "label": "Google Books cover for The Free-Market Family: How the Market Crushed the American Dream (and How It Can Be Restored)",
         "url": "https://books.google.com/books/about/The_Free_market_Family.html?hl=&id=Ax9QzQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID Ax9QzQEACAAJ."
@@ -894,7 +1342,7 @@
         "id": "source-cover-google-books-the-horde-how-the-mongols-changed-the-world-marie-favereau",
         "label": "Google Books cover for The Horde: How the Mongols Changed the World",
         "url": "https://books.google.com/books/about/HORDE.html?hl=&id=D39-0QEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -910,7 +1358,7 @@
         "id": "source-cover-google-books-the-legal-singularity-how-artificial-intelligence-can-make-law-radically-better-abdi-aidid-and-b",
         "label": "Google Books cover for The Legal Singularity: How Artificial Intelligence Can Make Law Radically Better",
         "url": "https://books.google.com/books/about/The_Legal_Singularity.html?hl=&id=Ij4T0AEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID Ij4T0AEACAAJ."
@@ -926,7 +1374,23 @@
         "id": "source-cover-google-books-the-loss-of-hindustan-the-invention-of-india-manan-ahmed-asif",
         "label": "Google Books cover for The Loss of Hindustan: The Invention of India",
         "url": "https://books.google.com/books/about/The_Loss_of_Hindustan_the_Invention_of_I.html?hl=&id=bO3zzQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-the-paper-the-life-and-death-of-the-new-york-herald-tribune-richard-kluger",
+      "title": "The Paper: The Life and Death of the New York Herald Tribune",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=Aw_UDBX_3esC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-the-paper-the-life-and-death-of-the-new-york-herald-tribune-richard-kluger",
+        "label": "Google Books cover for The Paper: The Life and Death of the New York Herald Tribune",
+        "url": "https://books.google.com/books/about/The_Paper.html?hl=&id=Aw_UDBX_3esC",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -942,7 +1406,7 @@
         "id": "source-cover-google-books-the-poetry-of-meditation-louis-l-martz",
         "label": "Google Books cover for The Poetry of Meditation",
         "url": "https://books.google.com/books/about/The_Poetry_of_Meditation.html?hl=&id=NzOAAQAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID NzOAAQAACAAJ."
@@ -958,10 +1422,58 @@
         "id": "source-cover-google-books-the-rise-of-a-prairie-statesman-the-life-and-times-of-george-mcgovern-thomas-j-knock",
         "label": "Google Books cover for The Rise of a Prairie Statesman: The Life and Times of George McGovern",
         "url": "https://books.google.com/books/about/The_Rise_of_a_Prairie_Statesman.html?hl=&id=cP1FzwEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID cP1FzwEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-the-river-the-plain-and-the-state-an-environmental-drama-in-northern-song-china-1048-1128-ling-z",
+      "title": "The River, the Plain, and the State: An Environmental Drama in Northern Song China, 1048–1128",
+      "provider": "google",
+      "method": "google_volume_id",
+      "sourceUrl": "https://books.google.com/books/content?id=m9BczgEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-the-river-the-plain-and-the-state-an-environmental-drama-in-northern-song-china-1048-1128-ling-z",
+        "label": "Google Books cover for The River, the Plain, and the State: An Environmental Drama in Northern Song China, 1048–1128",
+        "url": "https://books.google.com/books/about/The_River_the_Plain_and_the_State.html?hl=&id=m9BczgEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate derived from the existing Google Books volume ID m9BczgEACAAJ."
+      }
+    },
+    {
+      "bookId": "book-the-savage-city-race-murder-and-a-generation-on-the-edge-t-j-english",
+      "title": "The Savage City: Race, Murder and a Generation on the Edge",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=rCIVurUlSlEC&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-the-savage-city-race-murder-and-a-generation-on-the-edge-t-j-english",
+        "label": "Google Books cover for The Savage City: Race, Murder and a Generation on the Edge",
+        "url": "https://play.google.com/store/books/details?id=rCIVurUlSlEC",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-the-sleepwalkers-how-europe-went-to-war-in-1914-chris-clark",
+      "title": "The Sleepwalkers: How Europe Went to War in 1914",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=SKRhngEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-the-sleepwalkers-how-europe-went-to-war-in-1914-chris-clark",
+        "label": "Google Books cover for The Sleepwalkers: How Europe Went to War in 1914",
+        "url": "https://books.google.com/books/about/The_Sleepwalkers.html?hl=&id=SKRhngEACAAJ",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
       }
     },
     {
@@ -974,7 +1486,39 @@
         "id": "source-cover-google-books-the-south-and-the-sectional-conflict-david-m-potter",
         "label": "Google Books cover for The South and the Sectional Conflict",
         "url": "https://books.google.com/books/about/The_South_and_the_Sectional_Conflict.html?hl=&id=0pDkPQAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-the-thin-light-of-freedom-the-civil-war-and-emancipation-in-the-heart-of-america-edward-ayers",
+      "title": "The Thin Light of Freedom: The Civil War and Emancipation in the Heart of America",
+      "provider": "openlibrary",
+      "method": "openlibrary_cache_match",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/8425640-M.jpg?default=false",
+      "source": {
+        "id": "source-cover-open-library-the-thin-light-of-freedom-the-civil-war-and-emancipation-in-the-heart-of-america-edward-ayers",
+        "label": "Open Library cover for The Thin Light of Freedom: The Civil War and Emancipation in the Heart of America",
+        "url": "https://openlibrary.org/works/OL19169137W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 8425640 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
+      }
+    },
+    {
+      "bookId": "book-the-war-that-ended-peace-the-road-to-1914-margaret-macmillan",
+      "title": "The War That Ended Peace: The Road to 1914",
+      "provider": "google",
+      "method": "google_cache_match",
+      "sourceUrl": "https://books.google.com/books/content?id=xjLz2685I74C&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+      "source": {
+        "id": "source-cover-google-books-the-war-that-ended-peace-the-road-to-1914-margaret-macmillan",
+        "label": "Google Books cover for The War That Ended Peace: The Road to 1914",
+        "url": "https://play.google.com/store/books/details?id=xjLz2685I74C",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -990,7 +1534,7 @@
         "id": "source-cover-google-books-this-boy-s-life-a-memoir-tobias-wolff",
         "label": "Google Books cover for This Boy’s Life: A Memoir",
         "url": "https://books.google.com/books/about/This_boy_s_life.html?hl=&id=8MxGPgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -1006,7 +1550,7 @@
         "id": "source-cover-google-books-this-divided-island-stories-from-the-sri-lankan-civil-war-samanth-subramanian",
         "label": "Google Books cover for This Divided Island: Stories from the Sri Lankan Civil War",
         "url": "https://books.google.com/books/about/This_Divided_Island.html?hl=&id=UwnZAQAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -1022,7 +1566,7 @@
         "id": "source-cover-google-books-this-part-is-silent-a-life-between-cultures-sj-kim",
         "label": "Google Books cover for This Part Is Silent: A Life between Cultures",
         "url": "https://books.google.com/books/about/This_Part_Is_Silent.html?hl=&id=LFXx0AEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -1038,7 +1582,7 @@
         "id": "source-cover-google-books-thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive",
         "label": "Google Books cover for Thomas Babington Macaulay: The Shaping of the Historian",
         "url": "https://books.google.com/books/about/Thomas_Babington_Macaulay_The_Shaping_of.html?hl=&id=piKNoAEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID piKNoAEACAAJ."
@@ -1054,7 +1598,7 @@
         "id": "source-cover-google-books-thomas-carlyle-a-biography-fred-kaplan",
         "label": "Google Books cover for Thomas Carlyle: A Biography",
         "url": "https://books.google.com/books/about/Thomas_Carlyle.html?hl=&id=lU1MjgEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -1070,7 +1614,7 @@
         "id": "source-cover-google-books-undoing-aloneness-and-the-transformation-of-suffering-into-flourishing-aedp-2-0-diana-fosha",
         "label": "Google Books cover for Undoing Aloneness and the Transformation of Suffering into Flourishing: AEDP 2.0",
         "url": "https://books.google.com/books/about/Undoing_Aloneness_and_the_Transformation.html?hl=&id=ThqczQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID ThqczQEACAAJ."
@@ -1086,7 +1630,7 @@
         "id": "source-cover-google-books-virgin-land-henry-n-smith",
         "label": "Google Books cover for Virgin Land",
         "url": "https://books.google.com/books/about/Virgin_land.html?hl=&id=C4rCwwEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate derived from the existing Google Books volume ID C4rCwwEACAAJ."
@@ -1102,7 +1646,7 @@
         "id": "source-cover-google-books-walt-whitman-the-making-of-a-poet-paul-zweig",
         "label": "Google Books cover for Walt Whitman: The Making of a Poet",
         "url": "https://books.google.com/books/about/Walt_Whitman.html?hl=&id=xB-7QgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -1118,7 +1662,7 @@
         "id": "source-cover-google-books-wilson-the-struggle-for-neutrality-1914-1915-arthur-s-link",
         "label": "Google Books cover for Wilson: The Struggle for Neutrality, 1914-1915",
         "url": "https://books.google.com/books/about/Wilson.html?hl=&id=RrzbRgAACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
@@ -1126,18 +1670,34 @@
     },
     {
       "bookId": "book-women-at-work-the-transformation-of-work-and-community-in-lowell-massachusetts-1826-1860-thomas-",
-      "title": "Women at Work: The Transformation of Work and Community in Lowell, Massachusetts, 1826-1860",
+      "title": "Women at Work: The Transformation of Work and Community in Lowell, Massachusetts, 1826–1860",
       "provider": "google",
       "method": "google_cache_match",
       "sourceUrl": "https://books.google.com/books/content?id=D43ExQEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
       "source": {
         "id": "source-cover-google-books-women-at-work-the-transformation-of-work-and-community-in-lowell-massachusetts-1826-1860-thomas-",
-        "label": "Google Books cover for Women at Work: The Transformation of Work and Community in Lowell, Massachusetts, 1826-1860",
+        "label": "Google Books cover for Women at Work: The Transformation of Work and Community in Lowell, Massachusetts, 1826–1860",
         "url": "https://books.google.com/books/about/Women_at_Work_the_Transformation_of_Work.html?hl=&id=D43ExQEACAAJ",
-        "accessedAt": "2026-07-15T17:39:30.537Z",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
         "confidence": "catalog",
         "field": "book",
         "note": "Cover candidate recovered from a previously cached Google Books title/author or ISBN result; the image is placeholder-checked before use."
+      }
+    },
+    {
+      "bookId": "book-world-of-our-fathers-irving-howe",
+      "title": "World of Our Fathers",
+      "provider": "openlibrary",
+      "method": "openlibrary_cache_match",
+      "sourceUrl": "https://covers.openlibrary.org/b/id/4456641-M.jpg?default=false",
+      "source": {
+        "id": "source-cover-open-library-world-of-our-fathers-irving-howe",
+        "label": "Open Library cover for World of Our Fathers",
+        "url": "https://openlibrary.org/works/OL2920090W",
+        "accessedAt": "2026-07-29T18:10:04.566Z",
+        "confidence": "catalog",
+        "field": "book",
+        "note": "Cover ID 4456641 recovered from a uniquely matched cached Open Library title/author or ISBN result and cached work metadata; the image is validated before use."
       }
     }
   ]

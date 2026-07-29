@@ -2264,5 +2264,29 @@
         "coverageNotes": "Winner-only coverage of the odd-year book awards from 1987 onward; the even-year article awards are excluded because they do not honour books. Book rows are identified by an italic marker anchored at the start of the Work cell, which must agree with the odd-year rule; article rows contain italicised container-volume titles that a non-anchored match would wrongly accept. No shared or joint book years to date."
       }
     ]
+  },
+  {
+    "id": "american-library-in-paris-book-award",
+    "name": "American Library in Paris Book Award",
+    "awardType": "award",
+    "scope": "subject",
+    "organization": "The American Library in Paris",
+    "geography": "France / United States",
+    "foundedYear": 2013,
+    "officialUrl": "https://americanlibraryinparis.org/bookaward/",
+    "notes": "Annual $5,000 award for a book in English that draws on France as a source of inspiration. The prize is open to all genres and its shortlists mix fiction and nonfiction, so this importer keeps only the reviewed nonfiction titles.",
+    "categories": [
+      {
+        "id": "american-library-in-paris-nonfiction",
+        "name": "Nonfiction",
+        "officialUrl": "https://americanlibraryinparis.org/bookaward/",
+        "sourceUrl": "https://americanlibraryinparis.org/bookaward/",
+        "sourceLabel": "American Library in Paris official Book Award page",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-year-sections-with-reviewed-nonfiction-filter",
+        "activeYears": "2013-present",
+        "coverageNotes": "The official page carries the winner and full shortlist for every year from 2013 onward, plus the current-year longlist before the shortlist is announced. Fiction shortlistees are excluded, so 2023 and 2014 contribute no winner (both went to novels)."
+      }
+    ]
   }
 ]
