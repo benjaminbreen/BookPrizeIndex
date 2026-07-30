@@ -975,6 +975,60 @@ input {
   transform: translateY(-1px);
 }
 
+.semantic-help-button {
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--line) 90%, transparent);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.semantic-help-button:hover,
+.semantic-help-button:focus-visible {
+  border-color: color-mix(in srgb, var(--ink) 30%, var(--line));
+  background: var(--panel);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+.semantic-method-line {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.7rem;
+}
+
+.semantic-method-toggle {
+  border-bottom: 1px solid color-mix(in srgb, var(--muted) 48%, transparent);
+  color: var(--muted);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  transition:
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.semantic-method-toggle:hover,
+.semantic-method-toggle:focus-visible {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
 .semantic-details-overlay {
   position: fixed;
   inset: 0;

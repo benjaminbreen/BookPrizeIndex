@@ -5,7 +5,9 @@ import {
   createSemanticQueryContext,
   inferBookLengthIntent,
   inferPublicationPreference,
+  semanticDirectScore,
   semanticQueryText,
+  semanticRetrievalModeForQuery,
   semanticRankingTerms,
   semanticHybridScore,
   semanticRankFusion,
@@ -375,6 +377,29 @@ test("experience vectors influence reader-experience queries without replacing c
   assert.equal(result.experienceSimilarity, 0.65);
   assert.ok(result.similarity > 0.5);
   assert.ok(result.similarity < 0.65);
+});
+
+test("direct retrieval ranks only by the exact query embedding similarity", () => {
+  const aligned = semanticDirectScore(
+    [1, 0],
+    semanticTestRow("aligned", "unrelated lexical text", { embedding: [1, 0], norm: 1, recognitionScore: 32 }),
+  );
+  const orthogonal = semanticDirectScore(
+    [1, 0],
+    semanticTestRow("orthogonal", "exact query words", { embedding: [0, 1], norm: 1, recognitionScore: 0 }),
+  );
+  assert.equal(aligned.score, 1);
+  assert.equal(orthogonal.score, 0);
+  assert.equal(aligned.keywordBoost, 0);
+  assert.equal(aligned.recognitionBoost, 0);
+  assert.deepEqual(aligned.reasons, ["Direct embedding similarity"]);
+});
+
+test("automatic retrieval uses direct embeddings for up to three words", () => {
+  assert.equal(semanticRetrievalModeForQuery("Roman history"), "direct");
+  assert.equal(semanticRetrievalModeForQuery("Cold War spies"), "direct");
+  assert.equal(semanticRetrievalModeForQuery("Great Depression era politics"), "expanded");
+  assert.equal(semanticRetrievalModeForQuery(""), "expanded");
 });
 
 function semanticTestRow(

@@ -17,7 +17,14 @@ import { bookRecognition, compareBrowseBookRecognition } from "@/lib/browse-rank
 import type { BrowseBookRow } from "@/lib/browse-types";
 import type { LibraryShelfNeighborhood } from "@/lib/library-shelf-types";
 import type { SemanticListDraft } from "@/lib/semantic-list";
-import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryExpansionModel, type SemanticQueryInterpretation } from "@/lib/semantic-search";
+import {
+  semanticAdventurousConcepts,
+  semanticCoreConcepts,
+  semanticRetrievalModeForQuery,
+  type SemanticQueryExpansionModel,
+  type SemanticQueryInterpretation,
+  type SemanticRetrievalMode,
+} from "@/lib/semantic-search";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 
 type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
@@ -80,10 +87,12 @@ export function BookCatalog({
   const searchParams = useSearchParams();
   const routeMode = searchParamsMode(searchParams.get("mode"));
   const routeQueryExpansionModel = searchParamsQueryExpansionModel(searchParams.get("queryModel"));
+  const routeRetrievalOverride = searchParamsRetrievalMode(searchParams.get("semanticMode"));
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
   const [region, setStoredRegion] = useAwardRegion(defaultRegion);
   const [mode, setModeState] = useState<"keyword" | "semantic">(() => routeMode);
   const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>(() => routeQueryExpansionModel);
+  const [retrievalOverride, setRetrievalOverride] = useState<SemanticRetrievalMode | null>(() => routeRetrievalOverride);
   const [subjectFilter, setSubjectFilter] = useState("");
   const [awardFilter, setAwardFilter] = useState("");
   const [publisherFilter, setPublisherFilter] = useState("");
@@ -106,6 +115,7 @@ export function BookCatalog({
   const urlQuery = searchParams.get("q") ?? "";
   const [query, setQuery] = useState(urlQuery);
   const [semanticQuery, setSemanticQuery] = useState(urlQuery);
+  const retrievalMode = retrievalOverride ?? semanticRetrievalModeForQuery(semanticQuery);
   const activeQuery = mode === "semantic" ? semanticQuery : query;
   const pageSize = 100;
   const selectedAwardIds = useMemo(
@@ -155,13 +165,14 @@ export function BookCatalog({
     limit: 500,
     query: semanticQuery,
     queryExpansionModel,
+    retrievalMode,
   });
   const semanticResultByBookId = useMemo(() => new Map(semanticSearch.results.map((result, index) => [result.bookId, { ...result, index }])), [semanticSearch.results]);
   const remoteSemanticReady = mode === "semantic"
     && semanticQuery.trim().length >= 3
     && semanticSearch.query === semanticQuery.trim()
     && !semanticSearch.loading
-    && Boolean(semanticSearch.diagnostics);
+    && semanticSearch.diagnostics?.retrievalMode === retrievalMode;
   const remoteSemanticBookIds = useMemo(
     () => remoteSemanticReady ? semanticSearch.results.map((result) => result.bookId) : [],
     [remoteSemanticReady, semanticSearch.results],
@@ -169,7 +180,11 @@ export function BookCatalog({
   const remoteSemanticKey = remoteSemanticBookIds.join("|");
   const filteredRows = useMemo(() => {
     const trimmedQuery = activeQuery.trim();
-    const hasCurrentSemanticResponse = mode === "semantic" && trimmedQuery.length >= 3 && semanticSearch.query === trimmedQuery && !semanticSearch.loading && Boolean(semanticSearch.diagnostics);
+    const hasCurrentSemanticResponse = mode === "semantic"
+      && trimmedQuery.length >= 3
+      && semanticSearch.query === trimmedQuery
+      && !semanticSearch.loading
+      && semanticSearch.diagnostics?.retrievalMode === retrievalMode;
     if (hasCurrentSemanticResponse && semanticSearch.results.length) {
       return structuredRows
         .filter((book) => semanticResultByBookId.has(book.id))
@@ -180,7 +195,7 @@ export function BookCatalog({
     }
     const filtered = filterBookRowsByQuery(structuredRows, activeQuery);
     return sortBookRows(filtered, sortKey, region);
-  }, [activeQuery, mode, region, semanticResultByBookId, semanticSearch.diagnostics, semanticSearch.error, semanticSearch.loading, semanticSearch.query, semanticSearch.results.length, sortKey, structuredRows]);
+  }, [activeQuery, mode, region, retrievalMode, semanticResultByBookId, semanticSearch.diagnostics, semanticSearch.error, semanticSearch.loading, semanticSearch.query, semanticSearch.results.length, sortKey, structuredRows]);
 
   const totalRows = remote ? remoteTotal : limit ? Math.min(filteredRows.length, limit) : filteredRows.length;
   const totalPages = Math.max(1, Math.ceil(totalRows / pageSize));
@@ -209,6 +224,10 @@ export function BookCatalog({
   useEffect(() => {
     setQueryExpansionModel(routeQueryExpansionModel);
   }, [routeQueryExpansionModel]);
+
+  useEffect(() => {
+    if (routeMode === "semantic") setRetrievalOverride(routeRetrievalOverride);
+  }, [routeMode, routeRetrievalOverride]);
 
   useEffect(() => {
     setActiveBookId(null);
@@ -326,12 +345,25 @@ export function BookCatalog({
     setPage(1);
     const nextParams = new URLSearchParams(searchParams.toString());
     if (nextMode === "semantic") {
+      setRetrievalOverride(null);
       nextParams.delete("mode");
       nextParams.set("queryModel", queryExpansionModel);
+      nextParams.delete("semanticMode");
     } else {
       nextParams.set("mode", "keyword");
       nextParams.delete("queryModel");
+      nextParams.delete("semanticMode");
     }
+    const queryString = nextParams.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
+  }
+
+  function setSemanticRetrievalMode(nextMode: SemanticRetrievalMode | null) {
+    setRetrievalOverride(nextMode);
+    setPage(1);
+    const nextParams = new URLSearchParams(searchParams.toString());
+    if (nextMode) nextParams.set("semanticMode", nextMode);
+    else nextParams.delete("semanticMode");
     const queryString = nextParams.toString();
     router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
   }
@@ -355,8 +387,16 @@ export function BookCatalog({
 
   function submitSemanticQuery() {
     if (mode !== "semantic") return;
-    setSemanticQuery(query.trim());
+    const nextQuery = query.trim();
+    setRetrievalOverride(null);
+    setSemanticQuery(nextQuery);
     setPage(1);
+    const nextParams = new URLSearchParams(searchParams.toString());
+    nextParams.set("q", nextQuery);
+    nextParams.delete("semanticMode");
+    nextParams.delete("book");
+    const queryString = nextParams.toString();
+    router.replace(queryString ? `${pathname}?${queryString}` : pathname, { scroll: false });
   }
 
   function clearTopicFilter() {
@@ -426,13 +466,17 @@ export function BookCatalog({
   ].filter(Boolean) as Array<{ id: string; label: string; onRemove: () => void }>;
   const semanticActive = mode === "semantic" && semanticQuery.trim().length >= 3;
   const hasPendingSemanticQuery = mode === "semantic" && query.trim() !== semanticQuery.trim();
-  const semanticSearchPending = semanticActive && (semanticSearch.loading || semanticSearch.query !== semanticQuery.trim());
+  const semanticSearchPending = semanticActive && (
+    semanticSearch.loading
+    || semanticSearch.query !== semanticQuery.trim()
+    || semanticSearch.diagnostics?.retrievalMode !== retrievalMode
+  );
   const semanticCandidateCount = semanticSearch.diagnostics?.candidateBookCount;
   const semanticResultCount = semanticSearch.diagnostics?.resultCount;
   const resultContext = semanticSearchPending
     ? `${regionLabel(region)} awards · Searching the semantic index by meaning`
     : semanticActive && semanticCandidateCount !== undefined && semanticResultCount !== undefined
-      ? `${regionLabel(region)} awards · Sorted by meaning match · Top ${semanticResultCount.toLocaleString()} of ${semanticCandidateCount.toLocaleString()} candidate books`
+      ? `${regionLabel(region)} awards · Sorted by ${retrievalMode === "direct" ? "direct embedding similarity" : "meaning match"} · Top ${semanticResultCount.toLocaleString()} of ${semanticCandidateCount.toLocaleString()} candidate books`
       : `${regionLabel(region)} awards · ${topicFilter ? `Topic: ${titleCaseLabel(topicFilter)} · ` : ""}Sorted by ${bookSortLabels[sortKey].toLowerCase()} · ${totalRows.toLocaleString()} books${hasActiveFilters ? " · filtered" : ""}`;
   const semanticConceptLine = semanticActive && semanticSearch.interpretation
     ? [
@@ -454,6 +498,7 @@ export function BookCatalog({
           indexGeneratedAt: semanticSearch.diagnostics?.indexGeneratedAt,
           interpretationModel: semanticSearch.diagnostics?.interpretationModel,
           queryExpansionModel: semanticSearch.diagnostics?.queryExpansionModel,
+          retrievalMode: semanticSearch.diagnostics?.retrievalMode,
           resultCount: semanticSearch.diagnostics?.resultCount,
           usedModelInterpretation: semanticSearch.diagnostics?.usedModelInterpretation,
         },
@@ -536,7 +581,33 @@ export function BookCatalog({
             <span className="grid gap-1 muted">
               <span>{resultContext}</span>
               {hasPendingSemanticQuery && query.trim() ? <span>Press Enter to search this phrase.</span> : null}
-              {semanticConceptLine ? <span className="text-[var(--ink)]">Interpreted as {semanticConceptLine}</span> : null}
+              {semanticActive && !semanticSearchPending ? (
+                <span className="semantic-method-line">
+                  <span className="text-[var(--ink)]">
+                    {retrievalMode === "direct"
+                      ? `${retrievalOverride ? "" : "Auto · "}Direct embedding · exact query, no interpretation`
+                      : semanticConceptLine
+                        ? `${retrievalOverride ? "" : "Auto · "}Interpreted as ${semanticConceptLine}`
+                        : `${retrievalOverride ? "" : "Auto · "}Expanded semantic retrieval`}
+                  </span>
+                  <button
+                    className="semantic-method-toggle focus-ring"
+                    onClick={() => setSemanticRetrievalMode(retrievalMode === "direct" ? "expanded" : "direct")}
+                    type="button"
+                  >
+                    {retrievalMode === "direct" ? "Use expanded" : "Try direct"}
+                  </button>
+                  {retrievalOverride ? (
+                    <button
+                      className="semantic-method-toggle focus-ring"
+                      onClick={() => setSemanticRetrievalMode(null)}
+                      type="button"
+                    >
+                      Auto
+                    </button>
+                  ) : null}
+                </span>
+              ) : null}
               {semanticActive && semanticSearch.error ? <span className="text-[var(--accent)]">{semanticSearch.error} Showing keyword fallback.</span> : null}
               {semanticActive && semanticSearch.warning ? <span>{semanticSearch.warning}</span> : null}
             </span>
@@ -649,13 +720,13 @@ export function BookCatalog({
       </div>
 
       {showDenseCatalogControls ? (
-        <div className="filter-toolbar mx-auto mb-3 grid max-w-7xl gap-2 border-y hairline px-1 py-2 font-[var(--font-mono)] text-xs min-[1345px]:px-2 lg:grid-cols-[auto_minmax(13rem,1fr)_minmax(12rem,0.7fr)_auto] lg:items-center">
+        <div className="filter-toolbar mx-auto mb-3 grid max-w-7xl gap-2 border-y hairline px-1 py-2 font-[var(--font-mono)] text-xs min-[1345px]:px-2 lg:grid-cols-[auto_minmax(13rem,1fr)_auto] lg:items-center">
           <div className="filter-group">
             <span className="filter-label">Award geography</span>
             <div className="segmented-control">
               {(["us", "international", "all"] as const).map((item) => (
                 <button
-                  className={`segment-button focus-ring min-w-20 ${region === item ? "segment-button-active" : ""}`}
+                  className={`segment-button focus-ring min-w-20 shrink-0 whitespace-nowrap ${region === item ? "segment-button-active" : ""}`}
                   key={item}
                   onClick={() => setRegion(item)}
                   type="button"
@@ -674,28 +745,16 @@ export function BookCatalog({
             }}
             options={catalogSubjectOptions}
           />
-          <label className="filter-group flex-nowrap">
-            <span className="filter-label">Sort</span>
-            <select
-              className="filter-select focus-ring font-sans normal-case tracking-normal"
-              disabled={semanticActive}
-              onChange={(event) => {
-                setSortKey(event.target.value as BookSortKey);
-                setPage(1);
-              }}
-              value={semanticActive ? "semantic" : sortKey}
-            >
-              {semanticActive ? <option value="semantic">Meaning match</option> : null}
-              {Object.entries(bookSortLabels).map(([value, label]) => (
-                <option key={value} value={value}>{label}</option>
-              ))}
-            </select>
-          </label>
-          <div className="flex items-center justify-between gap-2 lg:justify-end">
+          <div className="flex flex-wrap items-center justify-start gap-2 lg:justify-end">
             {semanticActive && !semanticSearchPending && semanticSearch.diagnostics ? (
-              <button className="semantic-detail-button focus-ring inline-flex items-center gap-2" onClick={() => setShowSemanticDetails(true)} type="button">
-                <Info size={13} />
-                Details
+              <button
+                aria-label="How this meaning search worked"
+                className="semantic-help-button focus-ring"
+                onClick={() => setShowSemanticDetails(true)}
+                title="How this meaning search worked"
+                type="button"
+              >
+                <span aria-hidden="true">?</span>
               </button>
             ) : null}
             {semanticListDraft ? <SemanticListActions draft={semanticListDraft} /> : null}
@@ -1137,6 +1196,10 @@ function searchParamsQueryExpansionModel(value: string | null): SemanticQueryExp
     : "gpt-5.4-nano";
 }
 
+function searchParamsRetrievalMode(value: string | null): SemanticRetrievalMode | null {
+  return value === "direct" || value === "expanded" ? value : null;
+}
+
 function CatalogSubjectPill({
   subject,
   onClick,
@@ -1498,6 +1561,7 @@ function SemanticDetailsModal({
 }) {
   const rankingTerms = diagnostics.rankingTerms?.slice(0, 18) ?? [];
   const indexDate = diagnostics.indexGeneratedAt ? new Date(diagnostics.indexGeneratedAt).toLocaleDateString() : "unknown";
+  const directRetrieval = diagnostics.retrievalMode === "direct";
   return (
     <div className="semantic-details-overlay" role="presentation">
       <button aria-label="Close semantic search details" className="semantic-details-backdrop" onClick={onClose} type="button" />
@@ -1513,13 +1577,27 @@ function SemanticDetailsModal({
         </div>
         <div className="mt-4 grid gap-4 text-sm leading-6">
           <p className="muted">
-            The query <span className="text-[var(--ink)]">"{query.trim()}"</span> was converted into an embedding query, compared against
-            {` ${diagnostics.candidateBookCount?.toLocaleString() ?? "the filtered set of"} candidate books`} from a
-            {` ${diagnostics.indexBookCount?.toLocaleString() ?? "local"}-book semantic index`}, then reranked with text, entities, topics, publication preferences, reading experience, and recognition signals.
+            {directRetrieval ? (
+              <>
+                The exact query <span className="text-[var(--ink)]">"{query.trim()}"</span> was embedded without interpretation and compared by
+                cosine similarity against {` ${diagnostics.candidateBookCount?.toLocaleString() ?? "the filtered set of"} candidate books`} from a
+                {` ${diagnostics.indexBookCount?.toLocaleString() ?? "local"}-book semantic index`}. No LLM expansion or hybrid reranking was applied.
+              </>
+            ) : (
+              <>
+                The query <span className="text-[var(--ink)]">"{query.trim()}"</span> was converted into an embedding query, compared against
+                {` ${diagnostics.candidateBookCount?.toLocaleString() ?? "the filtered set of"} candidate books`} from a
+                {` ${diagnostics.indexBookCount?.toLocaleString() ?? "local"}-book semantic index`}, then reranked with text, entities, topics,
+                publication preferences, reading experience, and recognition signals.
+              </>
+            )}
           </p>
           <div className="semantic-details-grid">
             <DetailItem label="Embedding model" value={diagnostics.embeddingModel ?? "unknown"} />
-            <DetailItem label="Query expansion" value={diagnostics.usedModelInterpretation ? diagnostics.interpretationModel ?? "model assisted" : "local terms"} />
+            <DetailItem
+              label="Query expansion"
+              value={directRetrieval ? "Off — exact query" : diagnostics.usedModelInterpretation ? diagnostics.interpretationModel ?? "model assisted" : "local terms"}
+            />
             <DetailItem label="Index date" value={indexDate} />
             <DetailItem label="Returned" value={`${diagnostics.resultCount?.toLocaleString() ?? 0} matches`} />
           </div>

@@ -15,11 +15,13 @@ import {
   inferPublicationPreference,
   semanticAdventurousConcepts,
   semanticCoreConcepts,
+  semanticDirectScore,
   semanticExpandedQueryText,
   semanticHybridScore,
   semanticQueryText,
   semanticRawQueryText,
   semanticRankFusion,
+  semanticRetrievalModeForQuery,
   semanticRowMatchesPublicationPreference,
   semanticRowMatchesFilters,
   semanticTermWeights,
@@ -27,6 +29,7 @@ import {
   type SemanticBookIndex,
   type SemanticQueryExpansionModel,
   type SemanticQueryInterpretation,
+  type SemanticRetrievalMode,
   type SemanticSearchResult,
 } from "@/lib/semantic-search";
 
@@ -39,6 +42,7 @@ type SemanticSearchRequest = {
   limit?: number;
   query?: string;
   queryExpansionModel?: SemanticQueryExpansionModel;
+  retrievalMode?: SemanticRetrievalMode;
 };
 
 type EmbeddingResponse = {
@@ -172,6 +176,8 @@ export async function POST(request: Request) {
   }
 
   const limit = Math.min(Math.max(body?.limit ?? 120, 1), 500);
+  const queryExpansionModel = parseQueryExpansionModel(body?.queryExpansionModel);
+  const retrievalMode = parseRetrievalMode(body?.retrievalMode, query);
   const candidateIds = new Set((body?.candidateBookIds ?? []).filter(Boolean));
   const candidates = index.books.filter((row) =>
     (!candidateIds.size || candidateIds.has(row.bookId)) && (!body?.filters || semanticRowMatchesFilters(row, body.filters)),
@@ -182,7 +188,8 @@ export async function POST(request: Request) {
         candidateBookCount: 0,
         indexBookCount: index.books.length,
         indexGeneratedAt: index.generatedAt,
-        queryExpansionModel: parseQueryExpansionModel(body?.queryExpansionModel),
+        queryExpansionModel,
+        retrievalMode,
         resultCount: 0,
         usedModelInterpretation: false,
       },
@@ -193,8 +200,7 @@ export async function POST(request: Request) {
     });
   }
 
-  const queryExpansionModel = parseQueryExpansionModel(body?.queryExpansionModel);
-  const resultCacheKey = semanticResultCacheKey({ body, index, limit, query, queryExpansionModel });
+  const resultCacheKey = semanticResultCacheKey({ body, index, limit, query, queryExpansionModel, retrievalMode });
   const cachedResult = readValueCache(semanticResultCache, resultCacheKey);
   if (cachedResult) {
     const totalMs = elapsedMs(requestStartedAt);
@@ -209,7 +215,14 @@ export async function POST(request: Request) {
 
   try {
     const interpretationStartedAt = performance.now();
-    const { interpretation, model: interpretationModel, usedModelInterpretation, warning } = await interpretSemanticQuery(query, queryExpansionModel);
+    const {
+      interpretation,
+      model: interpretationModel,
+      usedModelInterpretation,
+      warning,
+    } = retrievalMode === "direct"
+      ? { interpretation: null, model: undefined, usedModelInterpretation: false, warning: undefined }
+      : await interpretSemanticQuery(query, queryExpansionModel);
     const interpretationMs = elapsedMs(interpretationStartedAt);
     const publicationCandidates = candidates.filter((row) => semanticRowMatchesPublicationPreference(row, interpretation));
     const requestedAuthorIntent = interpretation?.authorIntent;
@@ -230,9 +243,9 @@ export async function POST(request: Request) {
         ? "No books with a known publication year met the requested publication-date requirement."
         : "",
     ].filter(Boolean);
-    const rawEmbeddingInput = semanticRawQueryText(query, interpretation);
-    const expandedEmbeddingInput = semanticExpandedQueryText(query, interpretation);
-    const embeddingInput = semanticQueryText(query, interpretation);
+    const rawEmbeddingInput = retrievalMode === "direct" ? query : semanticRawQueryText(query, interpretation);
+    const expandedEmbeddingInput = retrievalMode === "direct" ? query : semanticExpandedQueryText(query, interpretation);
+    const embeddingInput = retrievalMode === "direct" ? query : semanticQueryText(query, interpretation);
     const embeddingStartedAt = performance.now();
     const [rawQueryEmbedding, expandedQueryEmbedding] = await Promise.all([
       embedSemanticQuery(rawEmbeddingInput, index),
@@ -243,34 +256,35 @@ export async function POST(request: Request) {
     const embeddingMs = elapsedMs(embeddingStartedAt);
     const rankingStartedAt = performance.now();
     const queryContext = createSemanticQueryContext(query, interpretation);
-    const rankingTerms = queryContext.terms;
+    const rankingTerms = retrievalMode === "direct" ? [] : queryContext.terms;
     const termWeights = semanticTermWeights(query, interpretation, rankedCandidates);
-    const scored = rankedCandidates
-      .map((row): SemanticSearchResult => {
-        const base = semanticHybridScore({
-          context: queryContext,
-          expandedQueryEmbedding,
-          interpretation,
-          query,
-          rawQueryEmbedding,
-          row,
-          termWeights,
-          useExperienceVector: index.vectorProfile === "content-experience",
-        });
-        const authorMatch = bookAuthorsMatchIntent(row.authors, authorIntent);
-        const authorFacetBoost = authorIntent?.mode === "boost" && authorMatch ? 0.55 : 0;
-        return {
-          bookId: row.bookId,
-          ...base,
-          score: base.score + authorFacetBoost,
-          authorFacetBoost,
-          reasons: authorFacetBoost ? [...base.reasons, "public author profile matches the requested preference"] : base.reasons,
-        };
+    const scored = rankedCandidates.map((row): SemanticSearchResult => {
+      if (retrievalMode === "direct") return semanticDirectScore(rawQueryEmbedding, row);
+      const base = semanticHybridScore({
+        context: queryContext,
+        expandedQueryEmbedding,
+        interpretation,
+        query,
+        rawQueryEmbedding,
+        row,
+        termWeights,
+        useExperienceVector: index.vectorProfile === "content-experience",
       });
-    const results = semanticRankFusion(scored)
+      const authorMatch = bookAuthorsMatchIntent(row.authors, authorIntent);
+      const authorFacetBoost = authorIntent?.mode === "boost" && authorMatch ? 0.55 : 0;
+      return {
+        bookId: row.bookId,
+        ...base,
+        score: base.score + authorFacetBoost,
+        authorFacetBoost,
+        reasons: authorFacetBoost ? [...base.reasons, "public author profile matches the requested preference"] : base.reasons,
+      };
+    });
+    const results = (retrievalMode === "direct" ? scored : semanticRankFusion(scored))
       .sort((a, b) => b.score - a.score || b.similarity - a.similarity)
       .slice(0, limit);
     if (
+      retrievalMode !== "direct" &&
       queryContext.requiredConcepts.length &&
       !results.slice(0, Math.min(10, results.length)).some((result) => !(result.missingConstraints?.length))
     ) {
@@ -294,6 +308,7 @@ export async function POST(request: Request) {
         indexGeneratedAt: index.generatedAt,
         interpretationModel,
         queryExpansionModel,
+        retrievalMode,
         rankingTerms,
         rawEmbeddingInput,
         resultCount: results.length,
@@ -555,6 +570,11 @@ const QUERY_INTERPRETATION_TRIGGER =
 
 function parseQueryExpansionModel(value: unknown): SemanticQueryExpansionModel {
   return value === "gemini-3.5-flash" ? value : DEFAULT_QUERY_EXPANSION_MODEL;
+}
+
+function parseRetrievalMode(value: unknown, query: string): SemanticRetrievalMode {
+  if (value === "direct" || value === "expanded") return value;
+  return semanticRetrievalModeForQuery(query);
 }
 
 function fallbackInterpretation(query: string): SemanticQueryInterpretation {
@@ -839,12 +859,14 @@ function semanticResultCacheKey({
   limit,
   query,
   queryExpansionModel,
+  retrievalMode,
 }: {
   body: SemanticSearchRequest | null;
   index: SemanticBookIndex;
   limit: number;
   query: string;
   queryExpansionModel: SemanticQueryExpansionModel;
+  retrievalMode: SemanticRetrievalMode;
 }) {
   return createHash("sha256").update(JSON.stringify({
     candidateBookIds: body?.candidateBookIds ?? [],
@@ -854,6 +876,7 @@ function semanticResultCacheKey({
     limit,
     query: query.toLowerCase().replace(/\s+/g, " "),
     queryExpansionModel,
+    retrievalMode,
   })).digest("hex");
 }
 

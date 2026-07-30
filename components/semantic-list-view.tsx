@@ -28,7 +28,7 @@ export function SemanticListView({
   const visible = snapshot.results.slice(0, visibleCount);
   const remaining = snapshot.results.length - visible.length;
   const personaSearch = /\b(?:would|might)\s+(?:like|enjoy)\b|\bfor fans? of\b|\bbooks?\s+for\b/i.test(snapshot.query);
-  const rerun = `/books?q=${encodeURIComponent(snapshot.query)}${snapshot.diagnostics?.queryExpansionModel ? `&queryModel=${encodeURIComponent(snapshot.diagnostics.queryExpansionModel)}` : ""}`;
+  const rerun = `/books?q=${encodeURIComponent(snapshot.query)}${snapshot.diagnostics?.queryExpansionModel ? `&queryModel=${encodeURIComponent(snapshot.diagnostics.queryExpansionModel)}` : ""}${snapshot.diagnostics?.retrievalMode ? `&semanticMode=${snapshot.diagnostics.retrievalMode}` : ""}`;
   const filterLabels = [
     snapshot.filters.region === "us" ? "U.S. awards" : snapshot.filters.region === "international" ? "International awards" : "All award regions",
     snapshot.filters.subject,

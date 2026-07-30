@@ -13,6 +13,7 @@ export type SemanticListDiagnostics = {
   indexGeneratedAt?: string;
   interpretationModel?: string;
   queryExpansionModel?: string;
+  retrievalMode?: "expanded" | "direct";
   resultCount?: number;
   usedModelInterpretation?: boolean;
 };
@@ -197,6 +198,7 @@ function sanitizeDiagnostics(input: unknown): SemanticListDiagnostics | undefine
     indexGeneratedAt: optionalDate(input.indexGeneratedAt),
     interpretationModel: optionalString(input.interpretationModel, 120),
     queryExpansionModel: optionalString(input.queryExpansionModel, 120),
+    retrievalMode: input.retrievalMode === "direct" ? "direct" : input.retrievalMode === "expanded" ? "expanded" : undefined,
     resultCount: optionalPositiveInteger(input.resultCount),
     usedModelInterpretation: typeof input.usedModelInterpretation === "boolean" ? input.usedModelInterpretation : undefined,
   };

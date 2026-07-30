@@ -94,6 +94,12 @@ export type SemanticPublicationPreference = {
 };
 
 export type SemanticQueryExpansionModel = "gpt-5.4-nano" | "gpt-5.4-mini" | "gemini-3.5-flash";
+export type SemanticRetrievalMode = "expanded" | "direct";
+
+export function semanticRetrievalModeForQuery(query: string): SemanticRetrievalMode {
+  const wordCount = query.trim().split(/\s+/).filter(Boolean).length;
+  return wordCount > 0 && wordCount <= 3 ? "direct" : "expanded";
+}
 
 export type SemanticQueryContext = {
   adventurousConceptNeedles: string[];
@@ -420,6 +426,23 @@ export function cosineSimilarity(a: SemanticVector, b: SemanticVector, bNorm = v
     dot += a[index] * b[index];
   }
   return dot / (aNorm * bNorm);
+}
+
+export function semanticDirectScore(queryEmbedding: SemanticVector, row: SemanticBookIndexRow): SemanticSearchResult {
+  const similarity = Number(cosineSimilarity(queryEmbedding, row.embedding, row.norm).toFixed(6));
+  return {
+    bookId: row.bookId,
+    conceptBoost: 0,
+    keywordBoost: 0,
+    periodBoost: 0,
+    reasons: ["Direct embedding similarity"],
+    recognitionBoost: 0,
+    score: similarity,
+    scopeBoost: 0,
+    similarity,
+    rawSimilarity: similarity,
+    topicBoost: 0,
+  };
 }
 
 function dualCosineSimilarity(

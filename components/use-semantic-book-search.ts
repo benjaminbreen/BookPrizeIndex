@@ -2,7 +2,13 @@
 
 import { useEffect, useMemo, useState } from "react";
 import type { BookCatalogQuery } from "@/lib/book-catalog-query";
-import type { SemanticQueryExpansionModel, SemanticQueryInterpretation, SemanticSearchResult } from "@/lib/semantic-search";
+import type {
+  SemanticQueryExpansionModel,
+  SemanticQueryInterpretation,
+  SemanticRetrievalMode,
+  SemanticSearchResult,
+} from "@/lib/semantic-search";
+import { semanticRetrievalModeForQuery } from "@/lib/semantic-search";
 
 type SemanticCandidateFilters = Pick<BookCatalogQuery, "awardIds" | "metadata" | "publisherId" | "region" | "subject" | "topic">;
 
@@ -29,6 +35,7 @@ export type SemanticSearchDiagnostics = {
   publicationDateMode?: "none" | "soft" | "filter";
   rankingTerms?: string[];
   queryExpansionModel?: SemanticQueryExpansionModel;
+  retrievalMode?: SemanticRetrievalMode;
   resultCount?: number;
   timing?: {
     embeddingMs: number;
@@ -47,6 +54,7 @@ export function useSemanticBookSearch({
   limit = 250,
   query,
   queryExpansionModel = "gpt-5.4-nano",
+  retrievalMode,
 }: {
   candidateBookIds: string[];
   enabled: boolean;
@@ -54,6 +62,7 @@ export function useSemanticBookSearch({
   limit?: number;
   query: string;
   queryExpansionModel?: SemanticQueryExpansionModel;
+  retrievalMode?: SemanticRetrievalMode;
 }) {
   const [state, setState] = useState<SemanticBookSearchState>({
     diagnostics: null,
@@ -65,6 +74,7 @@ export function useSemanticBookSearch({
   });
   const candidateKey = useMemo(() => candidateBookIds.join("|"), [candidateBookIds]);
   const filtersKey = JSON.stringify(filters ?? {});
+  const resolvedRetrievalMode = retrievalMode ?? semanticRetrievalModeForQuery(query);
 
   useEffect(() => {
     const trimmed = query.trim();
@@ -80,7 +90,14 @@ export function useSemanticBookSearch({
         const response = await fetch("/api/search/semantic", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ candidateBookIds, filters: JSON.parse(filtersKey), limit, query: trimmed, queryExpansionModel }),
+          body: JSON.stringify({
+            candidateBookIds,
+            filters: JSON.parse(filtersKey),
+            limit,
+            query: trimmed,
+            queryExpansionModel,
+            retrievalMode: resolvedRetrievalMode,
+          }),
           signal: controller.signal,
         });
         const json = await response.json().catch(() => ({}));
@@ -112,7 +129,7 @@ export function useSemanticBookSearch({
     return () => {
       controller.abort();
     };
-  }, [candidateKey, enabled, filtersKey, limit, query, queryExpansionModel]);
+  }, [candidateKey, enabled, filtersKey, limit, query, queryExpansionModel, resolvedRetrievalMode]);
 
   return state;
 }
