@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-15T21:14:51.056Z",
+  "generatedAt": "2026-07-30T19:21:40.642Z",
   "instructions": "These rows were flagged by mechanical source-support, confidence, duplication, author-inclusion, or schema-cap checks. Flags are review prompts, not automatic rejections.",
   "model": "gpt-5.4-nano-2026-03-17",
-  "flaggedCount": 262,
-  "rowCount": 262,
+  "flaggedCount": 333,
+  "rowCount": 333,
   "sample": [
     {
       "bookId": "book-between-the-world-and-me-ta-nehisi-coates",
@@ -45,11 +45,11 @@
       }
     },
     {
-      "bookId": "book-lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed",
-      "slug": "lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed",
+      "bookId": "book-can-t-we-talk-about-something-more-pleasant-roz-chast",
+      "slug": "can-t-we-talk-about-something-more-pleasant-roz-chast",
       "status": "completed",
       "validationWarnings": [
-        "central_figures_hit_schema_cap"
+        "author_included_for_review: Roz Chast"
       ],
       "review": {
         "disposition": null,
@@ -58,11 +58,11 @@
       }
     },
     {
-      "bookId": "book-can-t-we-talk-about-something-more-pleasant-roz-chast",
-      "slug": "can-t-we-talk-about-something-more-pleasant-roz-chast",
+      "bookId": "book-liberty-s-exiles-american-loyalists-in-the-revolutionary-world-maya-jasanoff",
+      "slug": "liberty-s-exiles-american-loyalists-in-the-revolutionary-world-maya-jasanoff",
       "status": "completed",
       "validationWarnings": [
-        "author_included_for_review: Roz Chast"
+        "central_figures_hit_schema_cap"
       ],
       "review": {
         "disposition": null,
@@ -123,11 +123,37 @@
       }
     },
     {
-      "bookId": "book-liberty-s-exiles-american-loyalists-in-the-revolutionary-world-maya-jasanoff",
-      "slug": "liberty-s-exiles-american-loyalists-in-the-revolutionary-world-maya-jasanoff",
+      "bookId": "book-brother-i-m-dying-edwidge-danticat",
+      "slug": "brother-i-m-dying-edwidge-danticat",
       "status": "completed",
       "validationWarnings": [
-        "central_figures_hit_schema_cap"
+        "author_included_for_review: Edwidge Danticat"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-lost-a-search-for-six-of-six-million-daniel-mendelsohn",
+      "slug": "the-lost-a-search-for-six-of-six-million-daniel-mendelsohn",
+      "status": "completed",
+      "validationWarnings": [
+        "author_included_for_review: Daniel Mendelsohn"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-negroland-a-memoir-margo-jefferson",
+      "slug": "negroland-a-memoir-margo-jefferson",
+      "status": "completed",
+      "validationWarnings": [
+        "author_included_for_review: Margo Jefferson"
       ],
       "review": {
         "disposition": null,
@@ -154,6 +180,45 @@
       "status": "completed",
       "validationWarnings": [
         "author_included_for_review: Cathy Park Hong"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-mother-mary-comes-to-me-arundhati-roy",
+      "slug": "mother-mary-comes-to-me-arundhati-roy",
+      "status": "completed",
+      "validationWarnings": [
+        "author_included_for_review: Arundhati Roy"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-heartland-a-memoir-of-working-hard-and-being-broke-in-the-richest-country-on-earth-sarah-smarsh",
+      "slug": "heartland-a-memoir-of-working-hard-and-being-broke-in-the-richest-country-on-earth-sarah-smarsh",
+      "status": "completed",
+      "validationWarnings": [
+        "author_included_for_review: Sarah Smarsh"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-iceberg-a-memoir-marion-coutts",
+      "slug": "the-iceberg-a-memoir-marion-coutts",
+      "status": "completed",
+      "validationWarnings": [
+        "author_included_for_review: Marion Coutts"
       ],
       "review": {
         "disposition": null,
@@ -201,19 +266,6 @@
       }
     },
     {
-      "bookId": "book-brother-i-m-dying-edwidge-danticat",
-      "slug": "brother-i-m-dying-edwidge-danticat",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Edwidge Danticat"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
       "bookId": "book-prisoner-without-a-name-cell-without-a-number-jacobo-timerman",
       "slug": "prisoner-without-a-name-cell-without-a-number-jacobo-timerman",
       "status": "completed",
@@ -227,11 +279,11 @@
       }
     },
     {
-      "bookId": "book-mother-mary-comes-to-me-arundhati-roy",
-      "slug": "mother-mary-comes-to-me-arundhati-roy",
+      "bookId": "book-in-the-darkroom-susan-faludi",
+      "slug": "in-the-darkroom-susan-faludi",
       "status": "completed",
       "validationWarnings": [
-        "author_included_for_review: Arundhati Roy"
+        "author_included_for_review: Susan Faludi"
       ],
       "review": {
         "disposition": null,
@@ -240,11 +292,11 @@
       }
     },
     {
-      "bookId": "book-in-the-darkroom-susan-faludi",
-      "slug": "in-the-darkroom-susan-faludi",
+      "bookId": "book-under-my-skin-volume-one-of-my-autobiography-to-1949-doris-lessing",
+      "slug": "under-my-skin-volume-one-of-my-autobiography-to-1949-doris-lessing",
       "status": "completed",
       "validationWarnings": [
-        "author_included_for_review: Susan Faludi"
+        "author_included_for_review: Doris Lessing"
       ],
       "review": {
         "disposition": null,
@@ -271,58 +323,6 @@
       "status": "completed",
       "validationWarnings": [
         "author_included_for_review: Joan Didion"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-naturalist-edward-o-wilson",
-      "slug": "naturalist-edward-o-wilson",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Edward O. Wilson"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-the-lost-a-search-for-six-of-six-million-daniel-mendelsohn",
-      "slug": "the-lost-a-search-for-six-of-six-million-daniel-mendelsohn",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Daniel Mendelsohn"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-negroland-a-memoir-margo-jefferson",
-      "slug": "negroland-a-memoir-margo-jefferson",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Margo Jefferson"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-into-thin-air-a-personal-account-of-the-mount-everest-disaster-jon-krakauer",
-      "slug": "into-thin-air-a-personal-account-of-the-mount-everest-disaster-jon-krakauer",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Jon Krakauer"
       ],
       "review": {
         "disposition": null,

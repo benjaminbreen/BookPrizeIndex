@@ -199,11 +199,14 @@ export default function MethodologyPage() {
           </p>
           <p>
             Meaning search is separate. The semantic index is generated from catalog-derived book text with OpenAI
-            embeddings stored as Float32 vectors alongside <Code>data/public/book-semantic-index.json</Code>. At query time, the server embeds
-            the submitted query, optionally interprets longer natural-language prompts, and ranks candidates with a
-            generic hybrid score: embedding similarity plus corpus-aware exact terms, subject/topic signals, period
-            hints, and a small recognition boost. Ranking should remain generic and should not hard-code demo queries or
-            favored phrases.
+            embeddings stored as Float32 vectors alongside <Code>data/public/book-semantic-index.json</Code>. Each book
+            has a content vector for subject matter and a separate reading-experience vector for signals such as
+            narrative structure, accessibility, reporting, and scholarly orientation. At query time, the server embeds
+            both the reader&apos;s original words and a compact interpreted intent, then combines those independent
+            rankings with corpus-aware exact terms, subject/topic signals, reader-experience evidence, period hints, and
+            a small recognition boost. Keeping the original and interpreted query separate reduces the risk that query
+            expansion drifts away from what the reader actually asked. Ranking remains generic and does not hard-code
+            demo queries or favored titles.
           </p>
           <p>
             Meaning search may also use a deliberately small public-author facet index. For a limited set of

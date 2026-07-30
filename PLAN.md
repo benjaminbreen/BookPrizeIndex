@@ -240,9 +240,11 @@ Keyword search:
 Semantic search:
 
 - Use OpenAI `text-embedding-3-small` unless requirements change.
-- Precompute one embedding document per book and possibly one per award record cluster.
+- Precompute separate content and reading-experience embeddings per book. Keep award recognition as structured ranking
+  metadata rather than mixing long award-name lists into the primary semantic representation.
 - Store the static vector index as a build artifact.
-- Query embedding should be generated server-side through an API route using `OPENAI_API_KEY`, not in client code.
+- Raw and compactly interpreted query embeddings should be generated separately through a server-side API route using
+  `OPENAI_API_KEY`, then fused so interpretation can add recall without replacing the reader's original intent.
 - Rank by cosine similarity and blend with keyword results where useful.
 
 Filters:

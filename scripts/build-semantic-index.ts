@@ -6,7 +6,8 @@ import {
   DEFAULT_SEMANTIC_DIMENSIONS,
   DEFAULT_SEMANTIC_EMBEDDING_MODEL,
   normalizeForSearch,
-  semanticTextForBook,
+  semanticContentTextForBook,
+  semanticExperienceTextForBook,
   vectorNorm,
   type SemanticBookIndex,
   type SemanticBookIndexRow,
@@ -25,8 +26,14 @@ type Args = {
   force: boolean;
   outputPath: string;
   reportPath: string;
+  vectorProfile: "content-experience";
   limit?: number;
 };
+
+type PreparedSemanticRow = Omit<
+  SemanticBookIndexRow,
+  "embedding" | "norm" | "experienceEmbedding" | "experienceNorm"
+>;
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -35,7 +42,7 @@ const authorDiscoveryPath = path.join(root, "sources", "enrichment", "people.gen
 const authorPlatformsPath = path.join(root, "sources", "author-platforms.json");
 const defaultOutputPath = path.join(root, "data", "public", "book-semantic-index.json");
 const defaultReportPath = path.join(root, "data", "reports", "book-semantic-index-report.json");
-const INPUT_VERSION = 1;
+const INPUT_VERSION = 2;
 
 function parseArgs(): Args {
   const args = process.argv.slice(2);
@@ -51,6 +58,7 @@ function parseArgs(): Args {
     force: args.includes("--force"),
     outputPath: resolveRootPath(value("output") ?? path.relative(root, defaultOutputPath)),
     reportPath: resolveRootPath(value("report") ?? path.relative(root, defaultReportPath)),
+    vectorProfile: "content-experience",
     limit: value("limit") ? Number(value("limit")) : undefined,
   };
 }
@@ -64,7 +72,10 @@ async function main() {
   const curatedAuthorPlatforms = await readCuratedAuthorPlatforms();
   const existing = await readExistingIndex(args.outputPath);
   const existingByBook = new Map(
-    existing?.embeddingModel === args.embeddingModel && existing.dimensions === args.dimensions && existing.inputVersion === INPUT_VERSION
+    existing?.embeddingModel === args.embeddingModel &&
+      existing.dimensions === args.dimensions &&
+      existing.inputVersion === INPUT_VERSION &&
+      existing.vectorProfile === args.vectorProfile
       ? existing.books.map((row) => [row.bookId, row])
       : [],
   );
@@ -78,32 +89,72 @@ async function main() {
     if (!browseRow) throw new Error(`Missing browse row for semantic book ${book.id}.`);
     return prepareBookRow(book, publishers, imprints, awardRows.get(book.id) ?? [], browseRow, authorProfiles, curatedAuthorPlatforms);
   });
-  const missing = prepared.filter((row) => {
+  const missingContent = prepared.filter((row) => {
     if (args.force) return true;
     const cached = existingByBook.get(row.bookId);
-    return !cached || cached.inputHash !== row.inputHash || cached.embedding.length !== args.dimensions;
+    return !cached ||
+      cached.contentInputHash !== row.contentInputHash ||
+      cached.embedding.length !== args.dimensions;
   });
-  const estimatedInputTokens = missing.reduce((sum, row) => sum + estimateTokens(row.text), 0);
+  const missingExperience = prepared.filter((row) => {
+    if (args.force) return true;
+    const cached = existingByBook.get(row.bookId);
+    return !cached ||
+      cached.experienceInputHash !== row.experienceInputHash ||
+      cached.experienceEmbedding?.length !== args.dimensions;
+  });
+  const estimatedInputTokens =
+    missingContent.reduce((sum, row) => sum + estimateTokens(row.contentText ?? row.text), 0) +
+    missingExperience.reduce((sum, row) => sum + estimateTokens(row.experienceText ?? row.text), 0);
   const estimatedCost = costEmbedding(estimatedInputTokens, args.embeddingModel);
   if (estimatedCost > args.budgetUsd) {
     throw new Error(`Semantic index embeddings would exceed budget: $${estimatedCost.toFixed(4)} > $${args.budgetUsd}.`);
   }
 
-  const embeddedRows = new Map<string, SemanticBookIndexRow>();
+  const contentVectors = new Map<string, { embedding: SemanticBookIndexRow["embedding"]; norm: number }>();
+  const experienceVectors = new Map<string, { embedding: SemanticBookIndexRow["embedding"]; norm: number }>();
   for (const row of prepared) {
     const cached = existingByBook.get(row.bookId);
-    if (!args.force && cached?.inputHash === row.inputHash && cached.embedding.length === args.dimensions) {
-      embeddedRows.set(row.bookId, { ...row, embedding: cached.embedding, norm: cached.norm || vectorNorm(cached.embedding) });
+    if (
+      !args.force &&
+      cached &&
+      cached.contentInputHash === row.contentInputHash &&
+      cached.embedding.length === args.dimensions
+    ) {
+      contentVectors.set(row.bookId, {
+        embedding: cached.embedding,
+        norm: cached.norm || vectorNorm(cached.embedding),
+      });
+    }
+    if (
+      !args.force &&
+      cached &&
+      cached.experienceInputHash === row.experienceInputHash &&
+      cached.experienceEmbedding?.length === args.dimensions
+    ) {
+      experienceVectors.set(row.bookId, {
+        embedding: cached.experienceEmbedding,
+        norm: cached.experienceNorm || vectorNorm(cached.experienceEmbedding),
+      });
     }
   }
 
-  for (const chunk of chunks(missing, 96)) {
-    const embeddings = await embedBatch(chunk.map((row) => row.text), args);
+  for (const chunk of chunks(missingContent, 96)) {
+    const embeddings = await embedBatch(chunk.map((row) => row.contentText ?? row.text), args);
     for (const [index, row] of chunk.entries()) {
       const embedding = embeddings[index];
-      embeddedRows.set(row.bookId, { ...row, embedding, norm: vectorNorm(embedding) });
+      contentVectors.set(row.bookId, { embedding, norm: vectorNorm(embedding) });
     }
-    console.log(`Embedded ${embeddedRows.size}/${prepared.length} semantic rows.`);
+    console.log(`Embedded ${contentVectors.size}/${prepared.length} content vectors.`);
+  }
+
+  for (const chunk of chunks(missingExperience, 96)) {
+    const embeddings = await embedBatch(chunk.map((row) => row.experienceText ?? row.text), args);
+    for (const [index, row] of chunk.entries()) {
+      const embedding = embeddings[index];
+      experienceVectors.set(row.bookId, { embedding, norm: vectorNorm(embedding) });
+    }
+    console.log(`Embedded ${experienceVectors.size}/${prepared.length} experience vectors.`);
   }
 
   const index: SemanticBookIndex = {
@@ -111,10 +162,19 @@ async function main() {
     embeddingModel: args.embeddingModel,
     dimensions: args.dimensions,
     inputVersion: INPUT_VERSION,
+    vectorProfile: args.vectorProfile,
     books: prepared.map((row) => {
-      const embedded = embeddedRows.get(row.bookId);
-      if (!embedded) throw new Error(`Missing embedding for ${row.bookId}`);
-      return embedded;
+      const content = contentVectors.get(row.bookId);
+      const experience = experienceVectors.get(row.bookId);
+      if (!content) throw new Error(`Missing content embedding for ${row.bookId}`);
+      if (!experience) throw new Error(`Missing experience embedding for ${row.bookId}`);
+      return {
+        ...row,
+        embedding: content.embedding,
+        norm: content.norm,
+        experienceEmbedding: experience.embedding,
+        experienceNorm: experience.norm,
+      };
     }),
   };
   const report = {
@@ -123,21 +183,28 @@ async function main() {
     embeddingModel: args.embeddingModel,
     dimensions: args.dimensions,
     inputVersion: INPUT_VERSION,
+    vectorProfile: args.vectorProfile,
     books: prepared.length,
-    embedded: missing.length,
-    reused: prepared.length - missing.length,
+    embeddedContent: missingContent.length,
+    embeddedExperience: missingExperience.length,
+    reusedContent: prepared.length - missingContent.length,
+    reusedExperience: prepared.length - missingExperience.length,
     estimatedInputTokens,
     estimatedSpendUsd: Number(estimatedCost.toFixed(4)),
     outputPath: path.relative(root, args.outputPath),
     vectorPath: path.relative(root, semanticEmbeddingPath(args.outputPath)),
-    vectorBytes: prepared.length * args.dimensions * Float32Array.BYTES_PER_ELEMENT,
+    experienceVectorPath: path.relative(root, semanticEmbeddingPath(args.outputPath, "experience")),
+    vectorBytes: prepared.length * args.dimensions * Float32Array.BYTES_PER_ELEMENT * 2,
   };
 
   await fs.mkdir(path.dirname(args.reportPath), { recursive: true });
   await fs.mkdir(path.dirname(args.outputPath), { recursive: true });
   await fs.writeFile(args.reportPath, `${JSON.stringify(report, null, 2)}\n`);
   if (!args.dryRun) await writeSemanticBookIndex(index, args.outputPath);
-  console.log(`Semantic index ready: ${report.books} books, embedded ${report.embedded}, reused ${report.reused}, estimated spend $${report.estimatedSpendUsd}.`);
+  console.log(
+    `Semantic index ready: ${report.books} books, embedded ${report.embeddedContent} content + ${report.embeddedExperience} experience vectors, ` +
+    `reused ${report.reusedContent} content + ${report.reusedExperience} experience vectors, estimated spend $${report.estimatedSpendUsd}.`,
+  );
 }
 
 function prepareBookRow(
@@ -148,7 +215,7 @@ function prepareBookRow(
   browseRow: BrowseBookRow,
   authorProfiles: Map<string, AuthorDiscoveryProfile>,
   curatedAuthorPlatforms: Map<string, string[]>,
-): Omit<SemanticBookIndexRow, "embedding" | "norm"> {
+): PreparedSemanticRow {
   const publisher = book.publisherId ? publishers.get(book.publisherId)?.name : undefined;
   const imprint = book.imprintId ? imprints.get(book.imprintId)?.name : undefined;
   const authorFacets = book.authors.flatMap((author): SemanticAuthorFacet[] => {
@@ -166,7 +233,9 @@ function prepareBookRow(
       ])],
     }];
   });
-  const text = semanticTextForBook({ awards, authorFacets, book, imprint, publisher });
+  const contentText = semanticContentTextForBook({ authorFacets, book, imprint, publisher });
+  const experienceText = semanticExperienceTextForBook({ authorFacets, book, imprint, publisher });
+  const text = contentText;
   const recognitionScore = recognitionScoreForAwards(awards);
   return {
     bookId: book.id,
@@ -175,6 +244,8 @@ function prepareBookRow(
     author: book.authors.map((author) => author.name).join(", "),
     authors: authorFacets,
     publicationYear: book.publicationYear,
+    firstRecognitionYear: browseRow.firstRecognitionYear,
+    pageCount: book.pageCount,
     primarySubject: book.primarySubject,
     subjects: book.subjects,
     primaryTopic: book.primaryTopic,
@@ -193,8 +264,12 @@ function prepareBookRow(
     academicOrientationConfidence: book.experimentalSemanticProfile?.academicOrientation.confidence,
     recognitionScore,
     text,
+    contentText,
+    experienceText,
     searchText: normalizeForSearch(text),
-    inputHash: hash(text),
+    inputHash: hash(contentText),
+    contentInputHash: hash(contentText),
+    experienceInputHash: hash(experienceText),
     filter: {
       awardIds: browseRow.awardIds,
       publisherId: browseRow.publisherId,

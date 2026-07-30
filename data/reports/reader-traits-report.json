@@ -1,814 +1,838 @@
 {
-  "generatedAt": "2026-05-19T00:24:14.939Z",
-  "totalBooks": 5216,
-  "classifiedBooks": 5216,
-  "traitCounts": {
-    "academic": 1034,
-    "accessible": 595,
-    "argument_driven": 501,
-    "biographical": 1818,
-    "character_driven": 1018,
-    "dense": 30,
-    "essayistic": 1099,
-    "experimental": 57,
-    "memoiristic": 586,
-    "narrative": 795,
-    "popular": 1181,
-    "reference": 73,
-    "reported": 332,
-    "scholarly": 1110,
-    "synthesis": 489
-  },
-  "readerLevelCounts": {
-    "popular": 202,
-    "crossover": 4556,
-    "academic": 413,
-    "reference": 45
-  },
+  "generatedAt": "2026-07-30T19:43:17.219Z",
   "rowCounts": {
-    "classified": 5216,
+    "classified": 8426,
     "review": 500
   },
-  "reviewSample": [
-    {
-      "bookId": "book-academic-freedom-from-professional-norm-to-first-amendment-right-david-m-rabban",
-      "title": "Academic Freedom: From Professional Norm to First Amendment Right",
-      "author": "David M. Rabban",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.875,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.76,
-          "confidence": "high",
-          "evidence": [
-            "catalog text contains \"academic\"",
-            "meta-scholarly history-writing context",
-            "academic press signal: Harvard University Press / Harvard University Press"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.74,
-          "confidence": "high",
-          "evidence": [
-            "catalog text contains \"academic\"",
-            "meta-scholarly history-writing context",
-            "academic press signal: Harvard University Press / Harvard University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
+  "summary": {
+    "totalBooks": 8426,
+    "classifiedBooks": 8426,
+    "traitCounts": {
+      "academic": 1712,
+      "accessible": 1029,
+      "argument_driven": 888,
+      "biographical": 2574,
+      "character_driven": 1714,
+      "dense": 58,
+      "essayistic": 2018,
+      "experimental": 115,
+      "literary": 75,
+      "memoiristic": 1081,
+      "narrative": 1699,
+      "popular": 2512,
+      "reference": 120,
+      "reported": 681,
+      "scholarly": 1974,
+      "synthesis": 873
     },
-    {
-      "bookId": "book-the-proterozoic-biosphere-a-multidisciplinary-study-j-william-schopf-and-cornelius-klein",
-      "title": "The Proterozoic Biosphere: A Multidisciplinary Study",
-      "author": "J. William Schopf, Cornelius Klein",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.552,
-      "traits": [
-        {
-          "id": "academic",
-          "score": 0.53,
-          "confidence": "medium",
-          "evidence": [
-            "catalog text contains \"disciplinary\"",
-            "academic press signal: Cambridge University Press / Cambridge University Press"
-          ]
-        },
-        {
-          "id": "scholarly",
-          "score": 0.48,
-          "confidence": "medium",
-          "evidence": [
-            "catalog text contains \"disciplinary\"",
-            "academic press signal: Cambridge University Press / Cambridge University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
+    "readerLevelCounts": {
+      "popular": 370,
+      "crossover": 7191,
+      "academic": 788,
+      "reference": 77
     },
-    {
-      "bookId": "book-scenarios-of-power-myth-and-ceremony-in-russian-monarchy-from-alexander-ii-to-the-abdication-of-",
-      "title": "Scenarios of Power: Myth and Ceremony in Russian Monarchy: From Alexander II to the Abdication of Nicholas II, vol. 2",
-      "author": "Richard Wortman",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.54,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.498,
-          "confidence": "medium",
-          "evidence": [
-            "catalog text contains \"vol.\"",
-            "academic press signal: Princeton University Press / Princeton University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Princeton University Press / Princeton University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-a-cold-welcome-the-little-ice-age-and-europe-s-encounter-with-north-america-sam-white",
-      "title": "A Cold Welcome: The Little Ice Age and Europe's Encounter with North America",
-      "author": "Sam White",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Harvard University Press / Harvard University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Harvard University Press / Harvard University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-a-people-in-revolution-the-american-revolution-and-political-society-in-new-york-1760-1790-edwar",
-      "title": "A People in Revolution: The American Revolution and Political Society in New York, 1760-1790",
-      "author": "Edward Countryman",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Johns Hopkins University Press / Johns Hopkins University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Johns Hopkins University Press / Johns Hopkins University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-a-thirst-for-empire-how-tea-shaped-the-modern-world-erika-rappaport",
-      "title": "A Thirst for Empire: How Tea Shaped the Modern World",
-      "author": "Erika Rappaport",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Princeton University Press / Princeton University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Princeton University Press / Princeton University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-against-the-liberal-order-the-soviet-union-turkey-and-statist-internationalism-1919-1939-samuel-",
-      "title": "Against the Liberal Order: The Soviet Union, Turkey, and Statist Internationalism, 1919–1939",
-      "author": "Samuel J. Hirst",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-all-can-be-saved-religious-tolerance-and-salvation-in-the-iberian-atlantic-world-stuart-schwartz",
-      "title": "All Can Be Saved: Religious Tolerance and Salvation in the Iberian Atlantic World",
-      "author": "Stuart Schwartz",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Yale University Press / Yale University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Yale University Press / Yale University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-an-empire-divided-religion-republicanism-and-the-making-of-french-colonialism-1880-1914-j-p-daug",
-      "title": "An Empire Divided: Religion, Republicanism, and the Making of French Colonialism, 1880-1914",
-      "author": "J. P. Daughton",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-andrew-carnegie-joseph-frazier-wall",
-      "title": "Andrew Carnegie",
-      "author": "Joseph Frazier Wall",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-anne-othwood-s-bastard-sex-and-law-in-early-virginia-john-pagan",
-      "title": "Anne Othwood’s Bastard: Sex and Law in Early Virginia",
-      "author": "John Pagan",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-anti-imperial-metropolis-interwar-paris-and-the-seeds-of-third-world-nationalism-michael-goebel",
-      "title": "Anti-Imperial Metropolis: Interwar Paris and the Seeds of Third World Nationalism",
-      "author": "Michael Goebel",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cambridge University Press / Cambridge University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cambridge University Press / Cambridge University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-atlantic-crossings-social-politics-in-a-progressive-age-daniel-rodgers",
-      "title": "Atlantic Crossings: Social Politics in a Progressive Age",
-      "author": "Daniel Rodgers",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Belknap Press / Harvard University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Belknap Press / Harvard University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-austro-german-diplomatic-relations-1908-14-oswald-wedel",
-      "title": "Austro-German Diplomatic Relations, 1908-14",
-      "author": "Oswald Wedel",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Stanford University Press / Stanford University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Stanford University Press / Stanford University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-background-of-anti-english-feeling-in-germany-1890-1902-pauline-anderson",
-      "title": "Background of Anti-English Feeling in Germany, 1890-1902",
-      "author": "Pauline Anderson",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: American University Press / American University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: American University Press / American University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-black-france-white-europe-youth-race-and-belonging-in-the-postwar-era-emily-marker",
-      "title": "Black France, White Europe: Youth, Race, and Belonging in the Postwar Era",
-      "author": "Emily Marker",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cornell University Press / Cornell University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cornell University Press / Cornell University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-britain-and-the-russian-civil-war-november-1918-february-1920-richard-ullman",
-      "title": "Britain and the Russian Civil War, November 1918-February 1920",
-      "author": "Richard Ullman",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Princeton University Press / Princeton University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Princeton University Press / Princeton University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-british-strategy-and-politics-1914-18-paul-guinn-jr",
-      "title": "British Strategy and Politics, 1914-18",
-      "author": "Paul Guinn, Jr.",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Clarendon Press / Oxford University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Clarendon Press / Oxford University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-charles-darwin-geologist-sandra-herbert",
-      "title": "Charles Darwin, Geologist",
-      "author": "Sandra Herbert",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cornell University Press / Cornell University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cornell University Press / Cornell University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-citizenship-between-empire-and-nation-remaking-france-and-french-africa-1945-60-frederick-cooper",
-      "title": "Citizenship between Empire and Nation: Remaking France and French Africa, 1945-60",
-      "author": "Frederick Cooper",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Princeton University Press / Princeton University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Princeton University Press / Princeton University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-coal-steel-and-the-rebirth-of-europe-1945-55-john-gillingham",
-      "title": "Coal, Steel, and the Rebirth of Europe, 1945-55",
-      "author": "John Gillingham",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cambridge University Press / Cambridge University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cambridge University Press / Cambridge University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-courage-to-dissent-atlanta-and-the-long-history-of-the-civil-rights-movement-tomiko-brown-nagin",
-      "title": "Courage to Dissent: Atlanta and the Long History of the Civil Rights Movement",
-      "author": "Tomiko Brown-Nagin",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Oxford University Press / Oxford University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-defeated-leaders-the-political-fate-of-cailleux-jouvenel-and-tardieu-rudolph-binion",
-      "title": "Defeated Leaders: The Political Fate of Cailleux, Jouvenel, and Tardieu",
-      "author": "Rudolph Binion",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Columbia University Press / Columbia University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Columbia University Press / Columbia University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-defending-the-rights-of-others-the-great-powers-the-jews-and-international-minority-protection-1",
-      "title": "Defending the Rights of Others: The Great Powers, the Jews, and International Minority Protection, 1878-1938",
-      "author": "Carole Fink",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cambridge University Press / Cambridge University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Cambridge University Press / Cambridge University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    },
-    {
-      "bookId": "book-divided-memory-the-nazi-past-in-the-two-germanys-jeffrey-herf",
-      "title": "Divided Memory: The Nazi Past in the Two Germanys",
-      "author": "Jeffrey Herf",
-      "readerLevel": "academic",
-      "narrativeScore": 0,
-      "accessibilityScore": 0,
-      "scholarlyScore": 0.43,
-      "traits": [
-        {
-          "id": "scholarly",
-          "score": 0.4,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Harvard University Press / Harvard University Press",
-            "history award recognition"
-          ]
-        },
-        {
-          "id": "academic",
-          "score": 0.38,
-          "confidence": "low",
-          "evidence": [
-            "academic press signal: Harvard University Press / Harvard University Press"
-          ]
-        }
-      ],
-      "warnings": [
-        "low text coverage"
-      ]
-    }
-  ]
+    "reviewSample": [
+      {
+        "bookId": "book-the-populist-vision-charles-postel",
+        "title": "The Populist Vision",
+        "author": "Charles Postel",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.626,
+        "traits": [
+          {
+            "id": "scholarly",
+            "score": 0.6,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Oxford University Press / Oxford University Press",
+              "history award recognition"
+            ]
+          },
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Oxford University Press / Oxford University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-we-return-fighting-the-civil-rights-movement-in-the-jazz-age-mark-robert-schneider",
+        "title": "“We Return Fighting”: The Civil Rights Movement in the Jazz Age",
+        "author": "Mark Robert Schneider",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Northeastern University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Northeastern University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-advocacy-and-objectivity-a-crisis-in-the-professionalization-of-american-social-science-1865-190",
+        "title": "Advocacy and Objectivity: A Crisis in the Professionalization of American Social Science, 1865–1905",
+        "author": "Mary O. Furner",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: University Press of Kentucky"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: University Press of Kentucky"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-after-appomattox-military-occupation-and-the-ends-of-war-gregory-p-downs",
+        "title": "After Appomattox: Military Occupation and the Ends of War",
+        "author": "Gregory P. Downs",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Harvard University Press / Harvard University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Harvard University Press / Harvard University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-aloha-america-hula-circuits-through-the-u-s-empire-adria-l-imada",
+        "title": "Aloha America: Hula Circuits through the U.S. Empire",
+        "author": "Adria L. Imada",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Duke University Press / Duke University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Duke University Press / Duke University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-an-affair-of-honor-woodrow-wilson-and-the-occupation-of-vera-cruz-robert-e-quirk",
+        "title": "An Affair of Honor: Woodrow Wilson and the Occupation of Vera Cruz",
+        "author": "Robert E. Quirk",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: University Press of Kentucky"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: University Press of Kentucky"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-banking-on-freedom-black-women-in-u-s-finance-before-the-new-deal-shennette-garrett-scott",
+        "title": "Banking on Freedom: Black Women in U.S. Finance Before the New Deal",
+        "author": "Shennette Garrett-Scott",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Columbia University Press / Columbia University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Columbia University Press / Columbia University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-between-the-devil-and-the-deep-blue-sea-merchant-seamen-pirates-and-the-anglo-american-maritime-",
+        "title": "Between the Devil and the Deep Blue Sea: Merchant Seamen, Pirates, and the Anglo-American Maritime World, 1700–1750",
+        "author": "Marcus Rediker",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Cambridge University Press / Cambridge University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Cambridge University Press / Cambridge University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-between-two-empires-race-history-and-transnationalism-in-japanese-america-eiichiro-azuma",
+        "title": "Between Two Empires: Race, History, and Transnationalism in Japanese America",
+        "author": "Eiichiro Azuma",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Oxford University Press / Oxford University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Oxford University Press / Oxford University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-beyond-separate-spheres-rosalind-rosenberg",
+        "title": "Beyond Separate Spheres",
+        "author": "Rosalind Rosenberg",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Yale University Press / Yale University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Yale University Press / Yale University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-common-labour-workers-and-the-digging-of-north-american-canals-1780-1860-peter-way",
+        "title": "Common Labour: Workers & the Digging of North American Canals 1780–1860",
+        "author": "Peter Way",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Cambridge University Press / Cambridge University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Cambridge University Press / Cambridge University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-coolies-and-cane-race-labor-and-sugar-in-the-age-of-emancipation-moon-ho-jung",
+        "title": "Coolies and Cane: Race, Labor, and Sugar in the Age of Emancipation",
+        "author": "Moon-Ho Jung",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Johns Hopkins University Press / Johns Hopkins University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Johns Hopkins University Press / Johns Hopkins University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-emancipation-the-abolition-and-aftermath-of-american-slavery-and-russian-serfdom-peter-kolchin",
+        "title": "Emancipation: The Abolition and Aftermath of American Slavery and Russian Serfdom",
+        "author": "Peter Kolchin",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Yale University Press / Yale University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Yale University Press / Yale University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-energy-citizenship-coal-and-democracy-in-the-american-century-trish-kahle",
+        "title": "Energy Citizenship: Coal and Democracy in the American Century",
+        "author": "Trish Kahle",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Columbia University Press / Columbia University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Columbia University Press / Columbia University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-erie-water-west-a-history-of-the-erie-canal-1792-1854-ronald-e-shaw",
+        "title": "Erie Water West: A History of the Erie Canal, 1792–1854",
+        "author": "Ronald E. Shaw",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: University Press of Kentucky"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: University Press of Kentucky"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-f-ck-the-army-how-soldiers-and-civilians-staged-the-gi-movement-to-end-the-vietnam-war-lindsay-g",
+        "title": "F*ck the Army! How Soldiers and Civilians Staged the GI Movement to End the Vietnam War",
+        "author": "Lindsay Goss",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: New York University Press / New York University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: New York University Press / New York University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-foul-bodies-cleanliness-in-early-america-kathleen-m-brown",
+        "title": "Foul Bodies: Cleanliness in Early America",
+        "author": "Kathleen M. Brown",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Yale University Press / Yale University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Yale University Press / Yale University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-from-italy-to-san-francisco-the-immigrant-experience-dino-cinel",
+        "title": "From Italy to San Francisco: The Immigrant Experience",
+        "author": "Dino Cinel",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Stanford University Press / Stanford University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Stanford University Press / Stanford University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-getting-tough-welfare-and-imprisonment-in-1970s-america-julilly-kohler-hausmann",
+        "title": "Getting Tough: Welfare and Imprisonment in 1970s America",
+        "author": "Julilly Kohler-Hausmann",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Princeton University Press / Princeton University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Princeton University Press / Princeton University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-harpers-ferry-amory-and-the-new-technology-merritt-roe-smith",
+        "title": "Harpers Ferry Amory and the New Technology",
+        "author": "Merritt Roe Smith",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Cornell University Press / Cornell University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Cornell University Press / Cornell University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-heathen-religion-and-race-in-american-history-kathryn-gin-lum",
+        "title": "Heathen: Religion and Race in American History",
+        "author": "Kathryn Gin Lum",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Harvard University Press / Harvard University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Harvard University Press / Harvard University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-henry-cabot-lodge-and-the-search-for-an-american-foreign-policy-william-c-widenor",
+        "title": "Henry Cabot Lodge and the Search for an American Foreign Policy",
+        "author": "William C. Widenor",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: University of California Press / University of California Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: University of California Press / University of California Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-hillbilly-highway-the-transappalachian-migration-and-the-making-of-a-white-working-class-max-fra",
+        "title": "Hillbilly Highway: The Transappalachian Migration and the Making of a White Working Class",
+        "author": "Max Fraser",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Princeton University Press / Princeton University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Princeton University Press / Princeton University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-impossible-subjects-illegal-aliens-and-the-making-of-modern-america-mae-m-ngai",
+        "title": "Impossible Subjects: Illegal Aliens and the Making of Modern America",
+        "author": "Mae M. Ngai",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Princeton University Press / Princeton University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Princeton University Press / Princeton University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      },
+      {
+        "bookId": "book-in-the-shadows-of-justice-postwar-liberalism-and-the-remaking-of-political-philosophy-katrina-fo",
+        "title": "In the Shadows of Justice: Postwar Liberalism and the Remaking of Political Philosophy",
+        "author": "Katrina Forrester",
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.552,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.53,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Princeton University Press / Princeton University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "academic press signal: Princeton University Press / Princeton University Press"
+            ]
+          }
+        ],
+        "warnings": [
+          "low text coverage"
+        ]
+      }
+    ]
+  }
 }

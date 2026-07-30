@@ -439,7 +439,7 @@ export function BookCatalog({
         semanticSearch.interpretation.namedFigures?.slice(0, 2).join(", "),
         semanticSearch.interpretation.namedPlaces?.slice(0, 2).join(", "),
         semanticSearch.interpretation.publicationDateIntent && semanticSearch.interpretation.publicationDateIntent !== "none"
-          ? `${semanticSearch.interpretation.publicationDateIntent} publications${semanticSearch.interpretation.publicationYearCutoff ? ` (${semanticSearch.interpretation.publicationDateIntent === "older" ? "before" : "after"} ${semanticSearch.interpretation.publicationYearCutoff})` : ""}`
+          ? `${semanticSearch.interpretation.publicationDateMode === "filter" ? "required" : "favored"} ${semanticSearch.interpretation.publicationDateIntent} publications${semanticSearch.interpretation.publicationYearCutoff ? ` (${semanticSearch.interpretation.publicationDateIntent === "older" ? "before" : "after"} ${semanticSearch.interpretation.publicationYearCutoff})` : ""}`
           : "",
         semanticSearch.interpretation.subjects.slice(0, 2).join(", "),
       ].filter(Boolean).join(" · ")
@@ -1503,6 +1503,12 @@ function SemanticDetailsModal({
               <p className="semantic-details-box">{semanticCoreConcepts(interpretation).join(", ")}</p>
             </div>
           ) : null}
+          {interpretation?.requiredConcepts?.length ? (
+            <div className="grid gap-2">
+              <p className="filter-label">Required Content</p>
+              <p className="semantic-details-box">{interpretation.requiredConcepts.join(" · ")}</p>
+            </div>
+          ) : null}
           {interpretation && semanticAdventurousConcepts(interpretation).length ? (
             <div className="grid gap-2">
               <p className="filter-label">Adventurous Adjacent Concepts</p>
@@ -1524,8 +1530,8 @@ function SemanticDetailsModal({
             <div className="grid gap-2">
               <p className="filter-label">Publication Preference</p>
               <p className="semantic-details-box">
-                Favor {interpretation.publicationDateIntent} publications
-                {interpretation.publicationYearCutoff ? ` ${interpretation.publicationDateIntent === "older" ? "from or before" : "from or after"} ${interpretation.publicationYearCutoff}` : ""}.
+                {interpretation.publicationDateMode === "filter" ? "Require" : "Favor"} {interpretation.publicationDateIntent} publications
+                {interpretation.publicationYearCutoff ? ` ${interpretation.publicationDateIntent === "older" ? "before" : "after"} ${interpretation.publicationYearCutoff}` : ""}.
               </p>
             </div>
           ) : null}

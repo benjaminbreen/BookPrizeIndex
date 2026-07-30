@@ -12,11 +12,15 @@ import {
   DEFAULT_SEMANTIC_EMBEDDING_MODEL,
   createSemanticQueryContext,
   inferPeriodRanges,
+  inferPublicationPreference,
   semanticAdventurousConcepts,
   semanticCoreConcepts,
+  semanticExpandedQueryText,
   semanticHybridScore,
   semanticQueryText,
+  semanticRawQueryText,
   semanticRankFusion,
+  semanticRowMatchesPublicationPreference,
   semanticRowMatchesFilters,
   semanticTermWeights,
   searchTerms,
@@ -74,6 +78,7 @@ type PromiseCacheEntry<T> = { expiresAt: number; promise: Promise<T> };
 type ValueCacheEntry<T> = { expiresAt: number; value: T };
 
 const DEFAULT_QUERY_EXPANSION_MODEL: SemanticQueryExpansionModel = "gpt-5.4-nano";
+export const SEMANTIC_QUERY_INTERPRETATION_VERSION = 10;
 const QUERY_INTERPRETATION_PROMPT =
   [
     "Rewrite a reader's natural-language book discovery query into compact nonfiction search intent.",
@@ -81,7 +86,10 @@ const QUERY_INTERPRETATION_PROMPT =
     "Do not enumerate every possible subtopic, system, example, failure mode, or synonym. The expansion must stay narrower than a research outline.",
     "Preserve important dates, periods, themes, disciplines, people, and places. Put people in namedFigures and geographic entities in namedPlaces so exact entity matches can be ranked separately.",
     "For a place-centered topic with one broadly recognized, genuinely central individual, include at most that one person in namedFigures; otherwise leave namedFigures empty.",
+    "Put independently necessary content constraints explicitly stated by the reader in requiredConcepts. Use one to four compact clauses. A result missing any one should be considered incomplete.",
+    "Do not put inferred examples, taste references, prose style, accessibility, length, or optional adjacent ideas in requiredConcepts. Keep those in their existing fields.",
     "Set publicationDateIntent to older or newer only when the reader asks for classic/old/older/recent/newer books as publications. A historical period discussed inside a book belongs in eras instead. Set publicationYearCutoff to 0 unless the reader supplies or clearly implies a useful cutoff.",
+    "Set publicationDateMode to filter only for an explicit publication requirement such as 'published before 1970' or 'released after 2015'. Use soft for classic, old, recent, or qualified language such as preferably. Otherwise use none.",
     "This is semantic query expansion, not keyword extraction. Add only adjacent domains that materially improve retrieval.",
     "Core concepts are central meanings. Adventurous concepts are optional, surprising adjacent taste signals; omit them for straightforward topical queries.",
     "Distinguish a requested writing method or reading experience from subject matter. For a query asking for reported, narrative, lyrical, accessible, or scholarly writing without naming a topic, keep subjects empty and express the method or style in coreConcepts.",
@@ -97,9 +105,9 @@ const QUERY_INTERPRETATION_PROMPT =
     "If a named reference is ambiguous, keep the name and add cautious adjacent concepts from the surrounding query rather than overcommitting to one same-name product or organization.",
     "Avoid generic filler such as books, stuff, things, someone, something, would like, recommendations, why, still, and matter.",
     "Examples:",
-    "Query: books about the remaking of modern Paris -> expandedQuery: nonfiction about the planning, public works, political authority, and social consequences that reshaped modern Paris; coreConcepts: urban transformation, public works, planning power; adventurousConcepts: infrastructure politics; namedFigures: Georges-Eugène Haussmann; namedPlaces: Paris; eras: 19th century; subjects: urban history, architecture; publicationDateIntent: none; publicationYearCutoff: 0.",
-    "Query: older works worth rediscovering -> expandedQuery: earlier nonfiction works whose arguments or influence merit renewed attention; coreConcepts: neglected works, intellectual rediscovery, changing reception; adventurousConcepts: empty; namedFigures: empty; namedPlaces: empty; eras: empty; subjects: criticism, intellectual history; publicationDateIntent: older; publicationYearCutoff: 1990.",
-    "Query: books Obama would like but weirder -> expandedQuery: politically serious, literary nonfiction with unconventional or idea-driven choices; audienceTerms: empty; culturalReferences: Barack Obama; coreConcepts: democracy, race, power, global politics; adventurousConcepts: unusual natural history, experimental memoir; namedFigures: empty; namedPlaces: empty; subjects: politics, culture; publicationDateIntent: none; publicationYearCutoff: 0.",
+    "Query: books about the remaking of modern Paris -> expandedQuery: nonfiction about the planning, public works, political authority, and social consequences that reshaped modern Paris; requiredConcepts: urban transformation, Paris; coreConcepts: urban transformation, public works, planning power; adventurousConcepts: infrastructure politics; namedFigures: Georges-Eugène Haussmann; namedPlaces: Paris; eras: 19th century; subjects: urban history, architecture; publicationDateIntent: none; publicationDateMode: none; publicationYearCutoff: 0.",
+    "Query: older works worth rediscovering -> expandedQuery: earlier nonfiction works whose arguments or influence merit renewed attention; requiredConcepts: empty; coreConcepts: neglected works, intellectual rediscovery, changing reception; adventurousConcepts: empty; namedFigures: empty; namedPlaces: empty; eras: empty; subjects: criticism, intellectual history; publicationDateIntent: older; publicationDateMode: soft; publicationYearCutoff: 1990.",
+    "Query: books Obama would like but weirder -> expandedQuery: politically serious, literary nonfiction with unconventional or idea-driven choices; requiredConcepts: empty; audienceTerms: empty; culturalReferences: Barack Obama; coreConcepts: democracy, race, power, global politics; adventurousConcepts: unusual natural history, experimental memoir; namedFigures: empty; namedPlaces: empty; eras: empty; subjects: politics, culture; publicationDateIntent: none; publicationDateMode: none; publicationYearCutoff: 0.",
     "Return JSON only.",
   ].join("\n");
 const GEMINI_STRICT_QUERY_INTERPRETATION_PROMPT =
@@ -118,9 +126,11 @@ const QUERY_INTERPRETATION_JSON_SCHEMA = {
     concepts: { type: "array", items: { type: "string", maxLength: 72 }, maxItems: 8 },
     adventurousConcepts: { type: "array", items: { type: "string", maxLength: 72 }, maxItems: 3 },
     coreConcepts: { type: "array", items: { type: "string", maxLength: 72 }, maxItems: 6 },
+    requiredConcepts: { type: "array", items: { type: "string", maxLength: 72 }, maxItems: 4 },
     namedFigures: { type: "array", items: { type: "string", maxLength: 80 }, maxItems: 4 },
     namedPlaces: { type: "array", items: { type: "string", maxLength: 80 }, maxItems: 4 },
     publicationDateIntent: { type: "string", enum: ["older", "newer", "none"] },
+    publicationDateMode: { type: "string", enum: ["soft", "filter", "none"] },
     publicationYearCutoff: { type: "integer", minimum: 0, maximum: 2100 },
     eras: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 3 },
     subjects: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 4 },
@@ -136,7 +146,7 @@ const QUERY_INTERPRETATION_JSON_SCHEMA = {
       required: ["countries", "lifeStatus", "platforms", "mode"],
     },
   },
-  required: ["expandedQuery", "audienceTerms", "culturalReferences", "concepts", "coreConcepts", "adventurousConcepts", "namedFigures", "namedPlaces", "publicationDateIntent", "publicationYearCutoff", "eras", "subjects", "authorIntent"],
+  required: ["expandedQuery", "audienceTerms", "culturalReferences", "concepts", "coreConcepts", "adventurousConcepts", "requiredConcepts", "namedFigures", "namedPlaces", "publicationDateIntent", "publicationDateMode", "publicationYearCutoff", "eras", "subjects", "authorIntent"],
 };
 
 export async function POST(request: Request) {
@@ -201,21 +211,52 @@ export async function POST(request: Request) {
     const interpretationStartedAt = performance.now();
     const { interpretation, model: interpretationModel, usedModelInterpretation, warning } = await interpretSemanticQuery(query, queryExpansionModel);
     const interpretationMs = elapsedMs(interpretationStartedAt);
+    const publicationCandidates = candidates.filter((row) => semanticRowMatchesPublicationPreference(row, interpretation));
+    const requestedAuthorIntent = interpretation?.authorIntent;
+    const authorFilteredCandidates = requestedAuthorIntent?.mode === "filter"
+      ? publicationCandidates.filter((row) => bookAuthorsMatchIntent(row.authors, requestedAuthorIntent))
+      : publicationCandidates;
+    const authorFilterFallback = requestedAuthorIntent?.mode === "filter" && authorFilteredCandidates.length < 5;
+    const authorIntent = authorFilterFallback && requestedAuthorIntent
+      ? { ...requestedAuthorIntent, mode: "boost" as const }
+      : requestedAuthorIntent;
+    const rankedCandidates = authorFilterFallback ? publicationCandidates : authorFilteredCandidates;
+    const warnings = [
+      warning,
+      authorFilterFallback
+        ? `Only ${authorFilteredCandidates.length} ${authorFilteredCandidates.length === 1 ? "book has" : "books have"} complete matching author metadata, so author attributes were treated as preferences instead of excluding the rest of the catalog.`
+        : "",
+      interpretation?.publicationDateMode === "filter" && !publicationCandidates.length
+        ? "No books with a known publication year met the requested publication-date requirement."
+        : "",
+    ].filter(Boolean);
+    const rawEmbeddingInput = semanticRawQueryText(query, interpretation);
+    const expandedEmbeddingInput = semanticExpandedQueryText(query, interpretation);
     const embeddingInput = semanticQueryText(query, interpretation);
     const embeddingStartedAt = performance.now();
-    const queryEmbedding = await embedSemanticQuery(embeddingInput, index);
+    const [rawQueryEmbedding, expandedQueryEmbedding] = await Promise.all([
+      embedSemanticQuery(rawEmbeddingInput, index),
+      expandedEmbeddingInput === rawEmbeddingInput
+        ? embedSemanticQuery(rawEmbeddingInput, index)
+        : embedSemanticQuery(expandedEmbeddingInput, index),
+    ]);
     const embeddingMs = elapsedMs(embeddingStartedAt);
     const rankingStartedAt = performance.now();
     const queryContext = createSemanticQueryContext(query, interpretation);
     const rankingTerms = queryContext.terms;
-    const authorIntent = interpretation?.authorIntent;
-    const rankedCandidates = authorIntent?.mode === "filter"
-      ? candidates.filter((row) => bookAuthorsMatchIntent(row.authors, authorIntent))
-      : candidates;
     const termWeights = semanticTermWeights(query, interpretation, rankedCandidates);
     const scored = rankedCandidates
       .map((row): SemanticSearchResult => {
-        const base = semanticHybridScore({ context: queryContext, interpretation, query, queryEmbedding, row, termWeights });
+        const base = semanticHybridScore({
+          context: queryContext,
+          expandedQueryEmbedding,
+          interpretation,
+          query,
+          rawQueryEmbedding,
+          row,
+          termWeights,
+          useExperienceVector: index.vectorProfile === "content-experience",
+        });
         const authorMatch = bookAuthorsMatchIntent(row.authors, authorIntent);
         const authorFacetBoost = authorIntent?.mode === "boost" && authorMatch ? 0.55 : 0;
         return {
@@ -229,6 +270,13 @@ export async function POST(request: Request) {
     const results = semanticRankFusion(scored)
       .sort((a, b) => b.score - a.score || b.similarity - a.similarity)
       .slice(0, limit);
+    if (
+      queryContext.requiredConcepts.length &&
+      !results.slice(0, Math.min(10, results.length)).some((result) => !(result.missingConstraints?.length))
+    ) {
+      const missing = unique(results.slice(0, 10).flatMap((result) => result.missingConstraints ?? []));
+      warnings.push(`No top result has catalog evidence for every required concept${missing.length ? `; missing evidence includes ${missing.slice(0, 3).join(", ")}` : ""}.`);
+    }
     const rankingMs = elapsedMs(rankingStartedAt);
     const totalMs = elapsedMs(requestStartedAt);
 
@@ -236,14 +284,18 @@ export async function POST(request: Request) {
       diagnostics: {
         cacheHit: false,
         candidateBookCount: rankedCandidates.length,
-        authorFacetMode: authorIntent?.mode ?? "none",
+        authorFacetMode: authorFilterFallback ? "boost_fallback" : authorIntent?.mode ?? "none",
+        authorFacetMatchCount: authorFilteredCandidates.length,
+        publicationDateMode: interpretation?.publicationDateMode ?? "none",
         embeddingInput,
+        expandedEmbeddingInput,
         embeddingModel: index.embeddingModel || DEFAULT_SEMANTIC_EMBEDDING_MODEL,
         indexBookCount: index.books.length,
         indexGeneratedAt: index.generatedAt,
         interpretationModel,
         queryExpansionModel,
         rankingTerms,
+        rawEmbeddingInput,
         resultCount: results.length,
         timing: { embeddingMs, interpretationMs, rankingMs, totalMs },
         totalMs,
@@ -252,7 +304,7 @@ export async function POST(request: Request) {
       query,
       interpretation,
       results,
-      warning,
+      warning: warnings.join(" "),
     };
     writeValueCache(semanticResultCache, resultCacheKey, responseBody, 10 * 60_000, 100);
     return privateJson(responseBody, {
@@ -332,7 +384,7 @@ export async function interpretSemanticQuery(
   query: string,
   queryExpansionModel: SemanticQueryExpansionModel,
 ): Promise<SemanticInterpretationResult> {
-  const cacheKey = `${queryExpansionModel}:${query.trim().toLowerCase().replace(/\s+/g, " ")}`;
+  const cacheKey = `${SEMANTIC_QUERY_INTERPRETATION_VERSION}:${queryExpansionModel}:${query.trim().toLowerCase().replace(/\s+/g, " ")}`;
   return cachedPromise(interpretationCache, cacheKey, 30 * 60_000, 200, () => interpretSemanticQueryUncached(query, queryExpansionModel));
 }
 
@@ -340,8 +392,12 @@ async function interpretSemanticQueryUncached(
   query: string,
   queryExpansionModel: SemanticQueryExpansionModel,
 ): Promise<SemanticInterpretationResult> {
-  if (!shouldInterpretQuery(query)) return { interpretation: null, usedModelInterpretation: false };
   const fallback = fallbackInterpretation(query);
+  if (!shouldInterpretQuery(query)) {
+    return fallback.publicationDateIntent && fallback.publicationDateIntent !== "none"
+      ? { interpretation: fallback, usedModelInterpretation: false }
+      : { interpretation: null, usedModelInterpretation: false };
+  }
   if (queryExpansionModel === "gemini-3.5-flash") return interpretQueryWithGemini(query, fallback);
   return interpretQueryWithOpenAI(query, fallback, queryExpansionModel);
 }
@@ -503,9 +559,11 @@ function parseQueryExpansionModel(value: unknown): SemanticQueryExpansionModel {
 
 function fallbackInterpretation(query: string): SemanticQueryInterpretation {
   const quotedPhrases = Array.from(query.matchAll(/["'“”]([^"'“”]{3,80})["'“”]/g)).map((match) => match[1]);
-  const eras = inferPeriodRanges(query).map((period) => period.label);
   const concepts = unique([...quotedPhrases, ...searchTerms(query)]).slice(0, 10);
   const publicationPreference = inferPublicationPreference(query);
+  const eras = inferPeriodRanges(query)
+    .map((period) => period.label)
+    .filter((era) => !publicationPreference.cutoff || normalizeComparable(era) !== String(publicationPreference.cutoff));
   return {
     expandedQuery: [query, concepts.length ? `Key terms: ${concepts.slice(0, 6).join(", ")}` : "", eras.length ? `Periods: ${eras.join(", ")}` : ""].filter(Boolean).join(" / ").slice(0, 320),
     audienceTerms: [],
@@ -513,9 +571,11 @@ function fallbackInterpretation(query: string): SemanticQueryInterpretation {
     concepts,
     adventurousConcepts: [],
     coreConcepts: concepts.slice(0, 6),
+    requiredConcepts: [],
     namedFigures: [],
     namedPlaces: [],
     publicationDateIntent: publicationPreference.intent,
+    publicationDateMode: publicationPreference.mode,
     publicationYearCutoff: publicationPreference.cutoff,
     eras: unique(eras),
     subjects: [],
@@ -540,9 +600,26 @@ function sanitizeInterpretation(parsed: SemanticQueryInterpretation, fallback: S
   const publicationDateIntent = explicitPublicationPreference.intent !== "none"
     ? explicitPublicationPreference.intent
     : parsed.publicationDateIntent ?? fallback.publicationDateIntent ?? "none";
+  const publicationDateMode = explicitPublicationPreference.intent !== "none"
+    ? explicitPublicationPreference.mode
+    : ["soft", "filter", "none"].includes(parsed.publicationDateMode ?? "")
+      ? parsed.publicationDateMode
+      : fallback.publicationDateMode ?? "none";
   const parsedCutoff = Number(parsed.publicationYearCutoff);
   const publicationYearCutoff = explicitPublicationPreference.cutoff ??
     (Number.isInteger(parsedCutoff) && parsedCutoff >= 1400 && parsedCutoff <= 2100 ? parsedCutoff : null);
+  const originalQuery = fallback.expandedQuery.split(" / ")[0] ?? "";
+  const requiredConcepts = sanitizeRequiredConcepts(
+    originalQuery,
+    [
+      ...inferTopicalTailRequiredConcepts(originalQuery),
+      ...inferCoordinatedRequiredConcepts(originalQuery),
+      ...(parsed.requiredConcepts ?? []),
+    ],
+    publicationDateIntent,
+  );
+  const eras = cleanPhrases(unique([...(parsedEras.length ? parsedEras : []), ...fallback.eras]), 3, 60)
+    .filter((era) => !publicationYearCutoff || normalizeComparable(era) !== String(publicationYearCutoff));
   const fallbackIntent = fallback.authorIntent;
   const parsedIntent = parsed.authorIntent;
   const parsedLifeStatus = parsedIntent?.lifeStatus;
@@ -560,14 +637,156 @@ function sanitizeInterpretation(parsed: SemanticQueryInterpretation, fallback: S
     concepts: unique([...coreConcepts, ...adventurousConcepts]).slice(0, 8),
     adventurousConcepts,
     coreConcepts,
+    requiredConcepts,
     namedFigures: cleanPhrases(parsed.namedFigures ?? [], 4, 80),
     namedPlaces: cleanPhrases(parsed.namedPlaces ?? [], 4, 80),
     publicationDateIntent,
+    publicationDateMode,
     publicationYearCutoff,
-    eras: cleanPhrases(unique([...(parsedEras.length ? parsedEras : []), ...fallback.eras]), 3, 60),
+    eras,
     subjects: cleanPhrases(parsedSubjects.length ? parsedSubjects : fallback.subjects, 4, 60),
     authorIntent,
   };
+}
+
+function sanitizeRequiredConcepts(
+  query: string,
+  values: string[],
+  publicationDateIntent: SemanticQueryInterpretation["publicationDateIntent"],
+) {
+  const queryTerms = requiredGroundingTerms(query);
+  const authorDescriptorTerms = requiredGroundingTerms(
+    query.match(/\bby\s+(.+?)\s+(?:authors?|writers?)\b/i)?.[1] ?? "",
+  );
+  const grounded: string[] = [];
+  for (const rawValue of cleanPhrases(values, 4, 72)) {
+    const value = rawValue
+      .replace(/^(?:focus(?:es|ed)? on|set(?: in)?|covers?|covering|must include|should include)\s+/i, "")
+      .replace(/^(?:nonfiction\s+)?(?:books?\s+)?about\s+/i, "")
+      .trim();
+    if (!value) continue;
+    if (/\b(?:book length|nonfiction length|published|publication|released)\b/i.test(value)) continue;
+    if (publicationDateIntent !== "none" && /\b(?:recent|recently|newer|older|classic|vintage)\b/i.test(value)) continue;
+    const terms = requiredGroundingTerms(value);
+    if (
+      authorDescriptorTerms.length &&
+      terms.length &&
+      terms.every((term) =>
+        authorDescriptorTerms.some((candidate) => comparableQueryTerm(term) === comparableQueryTerm(candidate))
+      )
+    ) continue;
+    const groundedTerms = terms.flatMap((term) => {
+      if (isStructuredPreferenceTerm(term, query)) return [];
+      if (
+        authorDescriptorTerms.some((candidate) =>
+          comparableQueryTerm(term) === comparableQueryTerm(candidate)
+        )
+      ) return [];
+      const queryTerm = queryTerms.find((candidate) => comparableQueryTerm(term) === comparableQueryTerm(candidate));
+      return queryTerm ? [queryTerm] : [];
+    });
+    if (groundedTerms.length) grounded.push(unique(groundedTerms).join(" "));
+  }
+  const uniqueGrounded = unique(grounded);
+  const withoutRedundantComposites = uniqueGrounded.filter((concept) => {
+      const terms = requiredGroundingTerms(concept);
+      if (terms.length < 2) return true;
+      const otherTerms = new Set(
+        uniqueGrounded
+          .filter((candidate) => candidate !== concept)
+          .flatMap(requiredGroundingTerms),
+      );
+      return !terms.every((term) => otherTerms.has(term));
+    });
+  return withoutRedundantComposites
+    .filter((concept) => {
+      const terms = requiredGroundingTerms(concept);
+      if (terms.length !== 1) return true;
+      return !withoutRedundantComposites.some((candidate) =>
+        candidate !== concept && requiredGroundingTerms(candidate).includes(terms[0])
+      );
+    })
+    .slice(0, 4);
+}
+
+function inferCoordinatedRequiredConcepts(query: string) {
+  const topicalTail = query.match(/\b(?:about|on)\s+(.+)$/i)?.[1]
+    ?.replace(/\b(?:published|released)\s+(?:before|after|since)\s+\d{4}\b.*$/i, "")
+    .replace(/\bpreferably\b.*$/i, "")
+    .trim();
+  if (!topicalTail) return [];
+  if (!/(?:,|\band\b)/i.test(topicalTail)) {
+    return requiredGroundingTerms(topicalTail).length <= 5 ? [topicalTail] : [];
+  }
+  const parts = topicalTail
+    .split(/\s*(?:,|\band\b)\s*/i)
+    .map((part) => part.replace(/^(?:and|the)\s+/i, "").trim())
+    .filter((part) => part && requiredGroundingTerms(part).length <= 5);
+  return parts.length >= 2 ? parts.slice(0, 4) : [];
+}
+
+function inferTopicalTailRequiredConcepts(query: string) {
+  const tail = query.match(/\b(?:guide|introduction|intro|overview)\s+to\s+(.+)$/i)?.[1]
+    ?.replace(/\b(?:published|released)\s+(?:before|after|since)\s+\d{4}\b.*$/i, "")
+    .trim();
+  if (!tail) return [];
+  const terms = requiredGroundingTerms(tail);
+  return terms.length > 0 && terms.length <= 6 ? [tail] : [];
+}
+
+function isStructuredPreferenceTerm(term: string, query = "") {
+  if ([
+    "short",
+    "brief",
+    "concise",
+    "long",
+    "lengthy",
+    "comprehensive",
+    "definitive",
+    "exhaustive",
+    "thorough",
+    "magisterial",
+    "monumental",
+    "in-depth",
+    "depth",
+    "authoritative",
+    "accessible",
+    "readable",
+    "scholarly",
+    "academic",
+    "lyrical",
+    "narrative",
+    "introduction",
+    "introductory",
+    "guide",
+    "overview",
+  ].includes(term)) return true;
+  const normalizedQuery = normalizeComparable(query);
+  if (
+    ["beach", "vacation", "holiday"].includes(term) &&
+    (
+      /\b(?:beach|vacation|holiday) (?:read|reads|reading)\b/.test(normalizedQuery) ||
+      /\b(?:book|books|reading) for (?:a |my |your )?(?:vacation|holiday)\b/.test(normalizedQuery)
+    )
+  ) return true;
+  return term === "light" &&
+    /\blight(?:\s+(?:accessible|easy|fun|entertaining|engaging)){0,2}\s+(?:book|books|read|reads|reading)\b/.test(normalizedQuery);
+}
+
+function requiredGroundingTerms(value: string) {
+  return unique([
+    ...searchTerms(value),
+    ...Array.from(value.matchAll(/\b[A-Z]{2,5}\b/g), (match) => match[0].toLowerCase()),
+    ...normalizeComparable(value).split(" ").filter((term) => ["ai", "uk", "us", "eu"].includes(term)),
+  ]);
+}
+
+function comparableQueryTerm(term: string) {
+  if (term === "democratic") return "democracy";
+  if (term.endsWith("ies") && term.length > 4) return `${term.slice(0, -3)}y`;
+  if (term.endsWith("es") && term.length > 4) return term.slice(0, -2);
+  if (term.endsWith("s") && term.length > 3) return term.slice(0, -1);
+  return term;
 }
 
 function isShallowInterpretation(query: string, interpretation: SemanticQueryInterpretation) {
@@ -588,21 +807,6 @@ function isShallowInterpretation(query: string, interpretation: SemanticQueryInt
   if (concepts.length < 2 && !interpretation.subjects.length && !interpretation.eras.length) return true;
   if (novelConceptTerms.length < 2 && novelConceptPhrases.length < 1 && interpretation.subjects.length < 1) return true;
   return false;
-}
-
-function inferPublicationPreference(query: string): { intent: "older" | "newer" | "none"; cutoff: number | null } {
-  const normalized = normalizeComparable(query);
-  const before = normalized.match(/\b(?:published |released )?before (1[5-9]\d{2}|20\d{2})\b/);
-  if (before) return { intent: "older", cutoff: Number(before[1]) };
-  const after = normalized.match(/\b(?:published |released )?after (1[5-9]\d{2}|20\d{2})\b/);
-  if (after) return { intent: "newer", cutoff: Number(after[1]) };
-  if (/\b(classic|older|old|vintage|forgotten|neglected) (?:nonfiction )?(?:book|books|work|works)\b/.test(normalized) || /\b(?:book|books|works) from earlier decades\b/.test(normalized)) {
-    return { intent: "older", cutoff: /\bclassic\b/.test(normalized) ? 1990 : null };
-  }
-  if (/\b(recent|newer|new|latest|newly published|recently published) (?:nonfiction )?(?:book|books|work|works)\b/.test(normalized)) {
-    return { intent: "newer", cutoff: null };
-  }
-  return { intent: "none", cutoff: null };
 }
 
 function cleanPhrases(values: string[], maxItems: number, maxLength: number) {
@@ -646,6 +850,7 @@ function semanticResultCacheKey({
     candidateBookIds: body?.candidateBookIds ?? [],
     filters: body?.filters ?? {},
     indexGeneratedAt: index.generatedAt,
+    interpretationVersion: SEMANTIC_QUERY_INTERPRETATION_VERSION,
     limit,
     query: query.toLowerCase().replace(/\s+/g, " "),
     queryExpansionModel,

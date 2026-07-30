@@ -5,12 +5,16 @@ import type { SemanticBookIndex, SemanticBookIndexRow } from "@/lib/semantic-sea
 type SemanticBookIndexManifest = Omit<SemanticBookIndex, "books"> & {
   embeddingFile?: string;
   embeddingFormat?: "float32-le";
-  books: Array<Omit<SemanticBookIndexRow, "embedding"> & { embedding?: number[] }>;
+  experienceEmbeddingFile?: string;
+  books: Array<Omit<SemanticBookIndexRow, "embedding" | "experienceEmbedding"> & {
+    embedding?: number[];
+    experienceEmbedding?: number[];
+  }>;
 };
 
-export function semanticEmbeddingPath(manifestPath: string) {
+export function semanticEmbeddingPath(manifestPath: string, kind: "content" | "experience" = "content") {
   const parsed = path.parse(manifestPath);
-  return path.join(parsed.dir, `${parsed.name}.f32`);
+  return path.join(parsed.dir, `${parsed.name}${kind === "experience" ? ".experience" : ""}.f32`);
 }
 
 export async function readSemanticBookIndex(manifestPath: string): Promise<SemanticBookIndex> {
@@ -30,9 +34,26 @@ export async function readSemanticBookIndex(manifestPath: string): Promise<Seman
   }
   const buffer = bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength);
   const vectors = new Float32Array(buffer);
+  let experienceVectors: Float32Array | undefined;
+  if (manifest.experienceEmbeddingFile) {
+    const experiencePath = path.resolve(path.dirname(manifestPath), manifest.experienceEmbeddingFile);
+    const experienceBytes = await fs.readFile(experiencePath);
+    if (experienceBytes.byteLength !== expectedBytes) {
+      throw new Error(`Semantic experience vector size mismatch: expected ${expectedBytes} bytes, found ${experienceBytes.byteLength}.`);
+    }
+    const experienceBuffer = experienceBytes.buffer.slice(
+      experienceBytes.byteOffset,
+      experienceBytes.byteOffset + experienceBytes.byteLength,
+    );
+    experienceVectors = new Float32Array(experienceBuffer);
+  }
   const books = manifest.books.map((row, index) => ({
     ...row,
     embedding: vectors.subarray(index * manifest.dimensions, (index + 1) * manifest.dimensions),
+    experienceEmbedding: experienceVectors?.subarray(
+      index * manifest.dimensions,
+      (index + 1) * manifest.dimensions,
+    ),
   }));
   return { ...manifest, books } as SemanticBookIndex;
 }
@@ -40,7 +61,13 @@ export async function readSemanticBookIndex(manifestPath: string): Promise<Seman
 export async function writeSemanticBookIndex(index: SemanticBookIndex, manifestPath: string) {
   const vectorPath = semanticEmbeddingPath(manifestPath);
   const bytes = Buffer.allocUnsafe(index.books.length * index.dimensions * Float32Array.BYTES_PER_ELEMENT);
+  const hasExperienceVectors = index.books.every((row) => row.experienceEmbedding?.length === index.dimensions);
+  const experienceVectorPath = hasExperienceVectors ? semanticEmbeddingPath(manifestPath, "experience") : undefined;
+  const experienceBytes = hasExperienceVectors
+    ? Buffer.allocUnsafe(index.books.length * index.dimensions * Float32Array.BYTES_PER_ELEMENT)
+    : undefined;
   let offset = 0;
+  let experienceOffset = 0;
   for (const row of index.books) {
     if (row.embedding.length !== index.dimensions) {
       throw new Error(`Embedding dimensions for ${row.bookId}: expected ${index.dimensions}, found ${row.embedding.length}.`);
@@ -49,6 +76,12 @@ export async function writeSemanticBookIndex(index: SemanticBookIndex, manifestP
       bytes.writeFloatLE(value, offset);
       offset += Float32Array.BYTES_PER_ELEMENT;
     }
+    if (experienceBytes && row.experienceEmbedding) {
+      for (const value of row.experienceEmbedding) {
+        experienceBytes.writeFloatLE(value, experienceOffset);
+        experienceOffset += Float32Array.BYTES_PER_ELEMENT;
+      }
+    }
   }
 
   const manifest: SemanticBookIndexManifest = {
@@ -56,14 +89,23 @@ export async function writeSemanticBookIndex(index: SemanticBookIndex, manifestP
     embeddingModel: index.embeddingModel,
     dimensions: index.dimensions,
     inputVersion: index.inputVersion,
+    vectorProfile: index.vectorProfile,
     embeddingFile: path.basename(vectorPath),
     embeddingFormat: "float32-le",
-    books: index.books.map(({ embedding: _embedding, ...row }) => row),
+    experienceEmbeddingFile: experienceVectorPath ? path.basename(experienceVectorPath) : undefined,
+    books: index.books.map(({
+      contentText: _contentText,
+      embedding: _embedding,
+      experienceEmbedding: _experienceEmbedding,
+      experienceText: _experienceText,
+      ...row
+    }) => row),
   };
   await fs.mkdir(path.dirname(manifestPath), { recursive: true });
   await Promise.all([
     fs.writeFile(vectorPath, bytes),
     fs.writeFile(manifestPath, `${JSON.stringify(manifest)}\n`),
+    ...(experienceBytes && experienceVectorPath ? [fs.writeFile(experienceVectorPath, experienceBytes)] : []),
   ]);
   return vectorPath;
 }

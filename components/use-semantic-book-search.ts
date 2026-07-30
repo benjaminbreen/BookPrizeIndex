@@ -17,6 +17,8 @@ export type SemanticBookSearchState = {
 };
 
 export type SemanticSearchDiagnostics = {
+  authorFacetMatchCount?: number;
+  authorFacetMode?: "none" | "filter" | "boost" | "boost_fallback";
   cacheHit?: boolean;
   candidateBookCount?: number;
   embeddingInput?: string;
@@ -24,6 +26,7 @@ export type SemanticSearchDiagnostics = {
   indexBookCount?: number;
   indexGeneratedAt?: string;
   interpretationModel?: string;
+  publicationDateMode?: "none" | "soft" | "filter";
   rankingTerms?: string[];
   queryExpansionModel?: SemanticQueryExpansionModel;
   resultCount?: number;

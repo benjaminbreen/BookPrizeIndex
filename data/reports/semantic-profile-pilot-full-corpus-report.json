@@ -1,62 +1,69 @@
 {
-  "generatedAt": "2026-07-15T21:14:51.056Z",
-  "notes": "Experimental gpt-5.4-nano metadata bounded to supplied catalog metadata and summaries. A complete run is also written to generated enrichment for clearly labeled public experiments and discovery.",
-  "configuration": {
-    "model": "gpt-5.4-nano-2026-03-17",
-    "runLabel": "full-corpus",
-    "selectedBooks": 3976,
-    "reviewBooks": 100,
-    "concurrency": 20,
-    "checkpointEvery": 250,
-    "maxSummaryChars": 4200,
-    "maxOutputTokens": 400,
-    "maxSpendUsd": 2.6,
-    "structuredOutput": true,
-    "promptVersion": 8,
-    "confidenceThresholds": {
-      "centralFigures": 0.7,
-      "centralPlaces": 0.75,
-      "argument": 0.6,
-      "lowerConfidenceCandidates": 0.35
-    }
+  "generatedAt": "2026-07-30T19:21:40.642Z",
+  "rowCounts": {
+    "rows": 5243,
+    "completed": 5243,
+    "flagged": 333,
+    "review": 100
   },
   "summary": {
-    "selected": 3976,
-    "completed": 3976,
-    "errors": 0,
-    "laneCounts": {
-      "central_figures": 1723,
-      "central_places": 1184,
-      "argument": 335,
-      "null_control": 734
+    "notes": "Experimental gpt-5.4-nano metadata bounded to supplied catalog metadata and summaries. A complete run is also written to generated enrichment for clearly labeled public experiments and discovery.",
+    "configuration": {
+      "model": "gpt-5.4-nano-2026-03-17",
+      "runLabel": "full-corpus",
+      "selectedBooks": 5243,
+      "reviewBooks": 100,
+      "concurrency": 10,
+      "checkpointEvery": 25,
+      "maxSummaryChars": 4200,
+      "maxOutputTokens": 400,
+      "maxSpendUsd": 0.5,
+      "structuredOutput": true,
+      "promptVersion": 8,
+      "confidenceThresholds": {
+        "centralFigures": 0.7,
+        "centralPlaces": 0.75,
+        "argument": 0.6,
+        "lowerConfidenceCandidates": 0.35
+      }
     },
-    "booksWithCentralFigures": 1370,
-    "totalCentralFigures": 1595,
-    "booksWithCentralPlaces": 639,
-    "totalCentralPlaces": 687,
-    "booksWithArgument": 1501,
-    "averageAcademicOrientation": 44.84,
-    "averageProfileConfidence": 0.64,
-    "rowsWithValidationWarnings": 262,
-    "validationWarningCounts": {
-      "author_included_for_review": 230,
-      "central_figures_hit_schema_cap": 28,
-      "possible_duplicate_figure": 2,
-      "central_places_hit_schema_cap": 4
-    }
-  },
-  "tokenUsage": {
-    "inputTokens": 3494470,
-    "cachedInputTokens": 0,
-    "outputTokens": 388070,
-    "reasoningTokens": 0,
-    "totalTokens": 3882540
-  },
-  "pricingBasisUsdPerMillionTokens": {
-    "input": 0.2,
-    "cachedInput": 0.02,
-    "output": 1.25
-  },
-  "estimatedApiCostUsd": 1.183982,
-  "rowCount": 3976
+    "summary": {
+      "selected": 5243,
+      "completed": 5243,
+      "errors": 0,
+      "laneCounts": {
+        "central_figures": 2138,
+        "central_places": 1628,
+        "argument": 443,
+        "null_control": 1034
+      },
+      "booksWithCentralFigures": 1725,
+      "totalCentralFigures": 2005,
+      "booksWithCentralPlaces": 878,
+      "totalCentralPlaces": 937,
+      "booksWithArgument": 1904,
+      "averageAcademicOrientation": 44.87,
+      "averageProfileConfidence": 0.64,
+      "rowsWithValidationWarnings": 333,
+      "validationWarningCounts": {
+        "author_included_for_review": 293,
+        "central_figures_hit_schema_cap": 35,
+        "possible_duplicate_figure": 2,
+        "central_places_hit_schema_cap": 6
+      }
+    },
+    "tokenUsage": {
+      "inputTokens": 4609062,
+      "cachedInputTokens": 0,
+      "outputTokens": 508937,
+      "reasoningTokens": 0,
+      "totalTokens": 5117999
+    },
+    "pricingBasisUsdPerMillionTokens": {
+      "input": 0.2,
+      "cachedInput": 0.02,
+      "output": 1.25
+    },
+    "estimatedApiCostUsd": 1.557984
+  }
 }

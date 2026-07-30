@@ -17,6 +17,9 @@ test("binary semantic vectors load and embedded filter metadata matches browse f
   assert.equal(index.books.length, browse.books.length);
   assert.equal(index.books[0]?.embedding.length, index.dimensions);
   assert.ok(index.books[0]?.embedding instanceof Float32Array);
+  assert.equal(index.vectorProfile, "content-experience");
+  assert.equal(index.books[0]?.experienceEmbedding?.length, index.dimensions);
+  assert.ok(index.books[0]?.experienceEmbedding instanceof Float32Array);
 
   const queries: Array<Pick<BookCatalogQuery, "awardIds" | "metadata" | "publisherId" | "region" | "subject" | "topic">> = [
     ...(["us", "international", "all"] as const).flatMap((region) =>

@@ -27,6 +27,8 @@ export type SemanticBookIndexRow = {
   author: string;
   authors?: SemanticAuthorFacet[];
   publicationYear?: number;
+  firstRecognitionYear?: number;
+  pageCount?: number;
   primarySubject?: string;
   subjects: string[];
   primaryTopic?: string;
@@ -45,11 +47,17 @@ export type SemanticBookIndexRow = {
   academicOrientationScore?: number;
   academicOrientationConfidence?: number;
   text: string;
+  contentText?: string;
+  experienceText?: string;
   searchText: string;
   inputHash: string;
+  contentInputHash?: string;
+  experienceInputHash?: string;
   filter: SemanticBookFilterMetadata;
   embedding: SemanticVector;
   norm: number;
+  experienceEmbedding?: SemanticVector;
+  experienceNorm?: number;
 };
 
 export type SemanticBookIndex = {
@@ -57,6 +65,7 @@ export type SemanticBookIndex = {
   embeddingModel: string;
   dimensions: number;
   inputVersion: number;
+  vectorProfile?: "legacy" | "content-experience";
   books: SemanticBookIndexRow[];
 };
 
@@ -67,13 +76,21 @@ export type SemanticQueryInterpretation = {
   concepts: string[];
   adventurousConcepts?: string[];
   coreConcepts?: string[];
+  requiredConcepts?: string[];
   namedFigures?: string[];
   namedPlaces?: string[];
   publicationDateIntent?: "older" | "newer" | "none";
+  publicationDateMode?: "soft" | "filter" | "none";
   publicationYearCutoff?: number | null;
   eras: string[];
   subjects: string[];
   authorIntent?: SemanticAuthorIntent;
+};
+
+export type SemanticPublicationPreference = {
+  intent: "older" | "newer" | "none";
+  cutoff: number | null;
+  mode: "soft" | "filter" | "none";
 };
 
 export type SemanticQueryExpansionModel = "gpt-5.4-nano" | "gpt-5.4-mini" | "gemini-3.5-flash";
@@ -83,10 +100,12 @@ export type SemanticQueryContext = {
   adventurousConcepts: string[];
   coreConceptNeedles: string[];
   coreConcepts: string[];
+  lengthIntent: "short" | "long" | "none";
   periods: Array<{ label: string; start: number; end: number }>;
   personaTasteQuery: boolean;
   publicationDateQuery: boolean;
   readerExperienceQuery: boolean;
+  requiredConcepts: string[];
   terms: string[];
   topicNeedles: string[];
 };
@@ -95,6 +114,9 @@ export type SemanticSearchResult = {
   bookId: string;
   score: number;
   similarity: number;
+  rawSimilarity?: number;
+  expandedSimilarity?: number;
+  experienceSimilarity?: number;
   lexicalScore?: number;
   keywordBoost: number;
   fieldBoost?: number;
@@ -104,6 +126,12 @@ export type SemanticSearchResult = {
   scopeBoost: number;
   periodBoost: number;
   publicationBoost?: number;
+  publicationYearKnown?: boolean;
+  lengthBoost?: number;
+  pageCountKnown?: boolean;
+  constraintCount?: number;
+  constraintCoverage?: number;
+  missingConstraints?: string[];
   recognitionBoost: number;
   readerIntentBoost?: number;
   authorFacetBoost?: number;
@@ -111,48 +139,59 @@ export type SemanticSearchResult = {
   reasons: string[];
 };
 
-export function semanticTextForBook({
-  awards,
-  authorFacets,
-  book,
-  imprint,
-  publisher,
-}: {
-  awards: string[];
+type SemanticBookTextInput = {
   authorFacets?: SemanticAuthorFacet[];
   book: Book;
   imprint?: string;
   publisher?: string;
-}) {
-  const summary = clippedText(book.displaySummary || book.summary, 1800);
+};
+
+export function semanticContentTextForBook({
+  book,
+}: SemanticBookTextInput) {
+  const summary = clippedText(book.displaySummary || book.summary, 2200);
   const experimentalProfile = book.experimentalSemanticProfile;
   const centralFigures = experimentalProfile?.centralFigures.map((figure) => figure.name) ?? book.centralFigures;
   const centralPlaces = experimentalProfile?.centralPlaces.map((place) => place.name) ?? [];
+  const parts = [
+    `Title: ${[book.title, book.subtitle].filter(Boolean).join(": ")}`,
+    `Author: ${book.authors.map((author) => author.name).join(", ")}`,
+    summary ? `Description: ${summary}` : "",
+    experimentalProfile?.argument.present ? `Interpretive claim: ${experimentalProfile.argument.statement}` : "",
+    centralFigures.length ? `Central figures: ${centralFigures.join(", ")}` : "",
+    centralPlaces.length ? `Central places: ${centralPlaces.join(", ")}` : "",
+    book.primarySubject ? `Primary subject: ${book.primarySubject}` : "",
+    book.subjects.length ? `Subjects: ${book.subjects.join(", ")}` : "",
+    book.primaryTopic ? `Primary topic: ${book.primaryTopic}` : "",
+    book.topics.length ? `Topics: ${book.topics.join(", ")}` : "",
+    book.subjectCategories?.length
+      ? `Catalog subject evidence: ${subjectEvidenceLabels(book.subjectCategories.map((category) => category.label)).join(", ")}`
+      : "",
+  ];
+  return parts.filter(Boolean).join("\n").slice(0, 6800);
+}
+
+export function semanticExperienceTextForBook({
+  book,
+}: SemanticBookTextInput) {
+  const summary = clippedText(book.displaySummary || book.summary, 1400);
+  const experimentalProfile = book.experimentalSemanticProfile;
   const academicOrientation = experimentalProfile
     ? academicOrientationText(experimentalProfile.academicOrientation.score)
     : "";
   const parts = [
     `Title: ${[book.title, book.subtitle].filter(Boolean).join(": ")}`,
-    `Author: ${book.authors.map((author) => author.name).join(", ")}`,
-    authorFacets?.length ? `Author public discovery: ${authorFacets.map(authorFacetText).filter(Boolean).join("; ")}` : "",
-    summary ? `Description: ${summary}` : "",
-    experimentalProfile?.argument.present ? `Interpretive claim: ${experimentalProfile.argument.statement}` : "",
-    centralFigures.length ? `Central figures: ${centralFigures.join(", ")}` : "",
-    centralPlaces.length ? `Central places: ${centralPlaces.join(", ")}` : "",
+    book.readerProfile ? `Reading experience: ${readerProfileText(book.readerProfile)}` : "",
     academicOrientation ? `Reading orientation: ${academicOrientation}` : "",
-    book.primarySubject ? `Primary subject: ${book.primarySubject}` : "",
-    book.subjects.length ? `Subjects: ${book.subjects.join(", ")}` : "",
-    book.primaryTopic ? `Primary topic: ${book.primaryTopic}` : "",
-    book.topics.length ? `Topics: ${book.topics.join(", ")}` : "",
-    book.readerProfile ? `Reader profile: ${readerProfileText(book.readerProfile)}` : "",
-    book.subjectCategories?.length
-      ? `Catalog subject evidence: ${subjectEvidenceLabels(book.subjectCategories.map((category) => category.label)).join(", ")}`
-      : "",
-    imprint ? `Imprint: ${imprint}` : "",
-    publisher ? `Publisher: ${publisher}` : "",
-    awards.length ? `Award recognition: ${awards.slice(0, 14).join("; ")}` : "",
+    summary ? `Description evidence: ${summary}` : "",
   ];
-  return parts.filter(Boolean).join("\n").slice(0, 7200);
+  return parts.filter(Boolean).join("\n").slice(0, 4200);
+}
+
+export function semanticTextForBook(input: SemanticBookTextInput & { awards?: string[] }) {
+  const content = semanticContentTextForBook(input);
+  const experience = semanticExperienceTextForBook(input);
+  return [content, experience].filter(Boolean).join("\n");
 }
 
 function academicOrientationText(score: number) {
@@ -165,25 +204,37 @@ function academicOrientationText(score: number) {
 }
 
 export function semanticQueryText(query: string, interpretation?: SemanticQueryInterpretation | null) {
+  return [semanticRawQueryText(query, interpretation), semanticExpandedQueryText(query, interpretation)]
+    .filter(Boolean)
+    .join("\n");
+}
+
+export function semanticRawQueryText(query: string, interpretation?: SemanticQueryInterpretation | null) {
+  const rawQuery = isPersonaTasteQuery(query) && interpretation
+    ? tasteIntentText(query, interpretation)
+    : query;
+  return `Reader query: ${rawQuery}`;
+}
+
+export function semanticExpandedQueryText(query: string, interpretation?: SemanticQueryInterpretation | null) {
+  if (!interpretation) return semanticRawQueryText(query, interpretation);
   const coreConcepts = semanticCoreConcepts(interpretation);
-  const adventurousConcepts = semanticAdventurousConcepts(interpretation);
   const tasteQuery = isPersonaTasteQuery(query);
   const parts = [
-    !tasteQuery || !interpretation ? `Reader query: ${query}` : "",
-    interpretation?.expandedQuery ? `Expanded search intent: ${tasteQuery ? tasteIntentText(interpretation.expandedQuery, interpretation) : interpretation.expandedQuery}` : "",
-    interpretation?.culturalReferences?.length ? `Taste references: ${interpretation.culturalReferences.join(", ")}` : "",
+    interpretation.expandedQuery ? `Expanded search intent: ${tasteQuery ? tasteIntentText(interpretation.expandedQuery, interpretation) : interpretation.expandedQuery}` : "",
+    interpretation.culturalReferences?.length ? `Taste references: ${interpretation.culturalReferences.join(", ")}` : "",
     coreConcepts.length ? `Core concepts: ${coreConcepts.join(", ")}` : "",
-    adventurousConcepts.length ? `Adventurous adjacent concepts: ${adventurousConcepts.join(", ")}` : "",
-    interpretation?.namedFigures?.length ? `Named figures: ${interpretation.namedFigures.join(", ")}` : "",
-    interpretation?.namedPlaces?.length ? `Named places: ${interpretation.namedPlaces.join(", ")}` : "",
-    interpretation?.publicationDateIntent && interpretation.publicationDateIntent !== "none"
+    interpretation.requiredConcepts?.length ? `Required content: ${interpretation.requiredConcepts.join(", ")}` : "",
+    interpretation.namedFigures?.length ? `Named figures: ${interpretation.namedFigures.join(", ")}` : "",
+    interpretation.namedPlaces?.length ? `Named places: ${interpretation.namedPlaces.join(", ")}` : "",
+    interpretation.publicationDateIntent && interpretation.publicationDateIntent !== "none"
       ? `Publication preference: ${interpretation.publicationDateIntent}${interpretation.publicationYearCutoff ? ` than ${interpretation.publicationYearCutoff}` : ""}`
       : "",
-    interpretation?.eras.length ? `Eras and periods: ${interpretation.eras.join(", ")}` : "",
-    interpretation?.subjects.length ? `Likely subjects: ${interpretation.subjects.join(", ")}` : "",
-    interpretation?.authorIntent?.countries?.length ? `Author country connections: ${interpretation.authorIntent.countries.join(", ")}` : "",
-    interpretation?.authorIntent?.lifeStatus && interpretation.authorIntent.lifeStatus !== "any" ? `Author life status: ${interpretation.authorIntent.lifeStatus}` : "",
-    interpretation?.authorIntent?.platforms?.length ? `Author public platforms: ${interpretation.authorIntent.platforms.join(", ")}` : "",
+    interpretation.eras.length ? `Eras and periods: ${interpretation.eras.join(", ")}` : "",
+    interpretation.subjects.length ? `Likely subjects: ${interpretation.subjects.join(", ")}` : "",
+    interpretation.authorIntent?.countries?.length ? `Author country connections: ${interpretation.authorIntent.countries.join(", ")}` : "",
+    interpretation.authorIntent?.lifeStatus && interpretation.authorIntent.lifeStatus !== "any" ? `Author life status: ${interpretation.authorIntent.lifeStatus}` : "",
+    interpretation.authorIntent?.platforms?.length ? `Author public platforms: ${interpretation.authorIntent.platforms.join(", ")}` : "",
   ];
   return parts.filter(Boolean).join("\n");
 }
@@ -203,16 +254,38 @@ export function semanticRankingTerms(query: string, interpretation?: SemanticQue
     ...searchTerms((interpretation?.audienceTerms ?? []).join(" ")),
     ...(isPersonaTasteQuery(query) ? personaAudienceTerms : []),
   ].filter((term) => !culturalReferenceTerms.has(term)));
+  const publicationIntentTerms = interpretation?.publicationDateIntent &&
+    interpretation.publicationDateIntent !== "none"
+    ? new Set([
+        "classic",
+        "earlier",
+        "latest",
+        "new",
+        "newer",
+        "newest",
+        "old",
+        "older",
+        "publication",
+        "publications",
+        "published",
+        "recent",
+        "released",
+        "vintage",
+      ])
+    : new Set<string>();
   return uniqueValues([
     ...(!isPersonaTasteQuery(query) || !interpretation ? searchTerms(query) : []),
     ...searchTerms((interpretation?.culturalReferences ?? []).join(" ")),
     ...searchTerms([...(interpretation?.namedFigures ?? []), ...(interpretation?.namedPlaces ?? [])].join(" ")),
+    ...searchTerms((interpretation?.requiredConcepts ?? []).join(" ")),
     ...searchTerms(semanticCoreConcepts(interpretation).join(" ")),
     ...searchTerms((interpretation?.subjects ?? []).join(" ")),
     ...searchTerms(positiveLexicalText(interpretation?.expandedQuery ?? "")),
     ...searchTerms((interpretation?.eras ?? []).join(" ")),
     ...searchTerms(semanticAdventurousConcepts(interpretation).join(" ")),
-  ]).filter((term) => !audienceTerms.has(term)).slice(0, 36);
+  ])
+    .filter((term) => !audienceTerms.has(term) && !publicationIntentTerms.has(term))
+    .slice(0, 36);
 }
 
 export function isPersonaTasteQuery(query: string) {
@@ -250,12 +323,14 @@ export function createSemanticQueryContext(query: string, interpretation?: Seman
   const adventurousConcepts = semanticAdventurousConcepts(interpretation);
   const personaTasteQuery = isPersonaTasteQuery(query);
   const readerExperienceQuery = isReaderExperienceQuery(query, interpretation);
+  const publicationDateQuery = isPublicationDateQuery(query, interpretation);
+  const requiredConcepts = uniqueValues(interpretation?.requiredConcepts ?? []);
   const coreConceptNeedles = uniqueNormalized([...coreConcepts, ...(interpretation?.subjects ?? [])])
     .filter((needle) => needle.length >= 4)
-    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+    .filter((needle) => !readerExperienceQuery || !isReaderIntentLexicalTerm(needle, query));
   const adventurousConceptNeedles = uniqueNormalized(adventurousConcepts)
     .filter((needle) => needle.length >= 4)
-    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+    .filter((needle) => !readerExperienceQuery || !isReaderIntentLexicalTerm(needle, query));
   const topicNeedles = uniqueNormalized(readerExperienceQuery
     ? [
         ...(interpretation?.subjects ?? []),
@@ -266,20 +341,26 @@ export function createSemanticQueryContext(query: string, interpretation?: Seman
         ...coreConcepts,
         ...adventurousConcepts,
         ...(personaTasteQuery ? [] : inferredSubjectNeedles(query, interpretation)),
-      ])
+    ])
     .filter(Boolean)
-    .filter((needle) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(needle));
+    .filter((needle) => !readerExperienceQuery || !isReaderIntentLexicalTerm(needle, query));
   return {
     adventurousConceptNeedles,
     adventurousConcepts,
     coreConceptNeedles,
     coreConcepts,
-    periods: inferPeriodRanges([query, interpretation?.expandedQuery, ...(interpretation?.eras ?? [])].filter(Boolean).join(" ")),
+    lengthIntent: inferBookLengthIntent(query),
+    periods: inferPeriodRanges(
+      publicationDateQuery
+        ? (interpretation?.eras ?? []).join(" ")
+        : [query, interpretation?.expandedQuery, ...(interpretation?.eras ?? [])].filter(Boolean).join(" "),
+    ),
     personaTasteQuery,
-    publicationDateQuery: isPublicationDateQuery(query, interpretation),
+    publicationDateQuery,
     readerExperienceQuery,
+    requiredConcepts,
     terms: semanticRankingTerms(query, interpretation)
-      .filter((term) => !readerExperienceQuery || !readerIntentLexicalStopwords.has(term)),
+      .filter((term) => !readerExperienceQuery || !isReaderIntentLexicalTerm(term, query)),
     topicNeedles,
   };
 }
@@ -320,10 +401,16 @@ function positiveLexicalText(input: string) {
 }
 
 export function vectorNorm(vector: SemanticVector) {
+  const cached = vectorNormCache.get(vector);
+  if (cached !== undefined) return cached;
   let squared = 0;
   for (const value of vector) squared += value * value;
-  return Math.sqrt(squared);
+  const norm = Math.sqrt(squared);
+  vectorNormCache.set(vector, norm);
+  return norm;
 }
+
+const vectorNormCache = new WeakMap<SemanticVector, number>();
 
 export function cosineSimilarity(a: SemanticVector, b: SemanticVector, bNorm = vectorNorm(b)) {
   const aNorm = vectorNorm(a);
@@ -333,6 +420,29 @@ export function cosineSimilarity(a: SemanticVector, b: SemanticVector, bNorm = v
     dot += a[index] * b[index];
   }
   return dot / (aNorm * bNorm);
+}
+
+function dualCosineSimilarity(
+  first: SemanticVector,
+  second: SemanticVector,
+  document: SemanticVector,
+  documentNorm = vectorNorm(document),
+) {
+  const firstNorm = vectorNorm(first);
+  const secondNorm = vectorNorm(second);
+  if (!firstNorm || !secondNorm || !documentNorm) return [0, 0] as const;
+  let firstDot = 0;
+  let secondDot = 0;
+  const length = Math.min(first.length, second.length, document.length);
+  for (let index = 0; index < length; index += 1) {
+    const value = document[index];
+    firstDot += first[index] * value;
+    secondDot += second[index] * value;
+  }
+  return [
+    firstDot / (firstNorm * documentNorm),
+    secondDot / (secondNorm * documentNorm),
+  ] as const;
 }
 
 export function semanticRowMatchesFilters(
@@ -481,6 +591,7 @@ export function semanticTermWeights(
   if (!isPersonaTasteQuery(query) || !interpretation) applyPriority(query, 2.4);
   applyPriority((interpretation?.culturalReferences ?? []).join(" "), 2.5);
   applyPriority([...(interpretation?.namedFigures ?? []), ...(interpretation?.namedPlaces ?? [])].join(" "), 3);
+  applyPriority((interpretation?.requiredConcepts ?? []).join(" "), 2.3);
   applyPriority(semanticCoreConcepts(interpretation).join(" "), 1.7);
   applyPriority((interpretation?.subjects ?? []).join(" "), 1.15);
   applyPriority(positiveLexicalText(interpretation?.expandedQuery ?? ""), 0.8);
@@ -507,20 +618,94 @@ export function inferPeriodRanges(input: string): Array<{ label: string; start: 
   return ranges;
 }
 
+export function inferPublicationPreference(query: string): SemanticPublicationPreference {
+  const normalized = normalizeForSearch(query);
+  const softLanguage = /\b(prefer|prefers|preferred|preferably|ideally|favor|favour|lean toward|lean towards)\b/.test(normalized);
+  const before = normalized.match(/\b(?:published |released )?before (1[5-9]\d{2}|20\d{2})\b/);
+  if (before) return { intent: "older", cutoff: Number(before[1]), mode: softLanguage ? "soft" : "filter" };
+  const after = normalized.match(/\b(?:published |released )?after (1[5-9]\d{2}|20\d{2})\b/);
+  if (after) return { intent: "newer", cutoff: Number(after[1]), mode: softLanguage ? "soft" : "filter" };
+
+  // Only treat an age adjective as publication intent when it modifies a
+  // book/work/genre noun. This avoids reading "biographies of old painters"
+  // as a request for old publications.
+  const publicationNoun =
+    "(?:book|books|work|works|title|titles|writing|writings|nonfiction|biography|biographies|memoir|memoirs|history|histories|essay|essays|narrative|narratives)";
+  const olderPattern = new RegExp(
+    `\\b(classic|older|old|vintage|forgotten|neglected)(?:\\s+[a-z-]+){0,2}\\s+${publicationNoun}\\b`,
+  );
+  const newerPattern = new RegExp(
+    `\\b(recent|newer|new|latest|newly published|recently published)(?:\\s+[a-z-]+){0,2}\\s+${publicationNoun}\\b`,
+  );
+  const olderMatch = normalized.match(olderPattern);
+  if (olderMatch || /\b(?:book|books|works) from earlier decades\b/.test(normalized)) {
+    const ageWord = olderMatch?.[1];
+    const cutoff = ageWord === "vintage"
+      ? new Date().getFullYear() - 60
+      : ageWord === "classic"
+        ? new Date().getFullYear() - 50
+        : ageWord === "old"
+          ? new Date().getFullYear() - 40
+          : null;
+    return { intent: "older", cutoff, mode: "soft" };
+  }
+  if (newerPattern.test(normalized)) return { intent: "newer", cutoff: null, mode: "soft" };
+  return { intent: "none", cutoff: null, mode: "none" };
+}
+
+export function inferBookLengthIntent(query: string): "short" | "long" | "none" {
+  const normalized = normalizeForSearch(query);
+  if (
+    /\b(short|brief|concise|compact|quick|quickly|under \d{2,4} pages?|fewer than \d{2,4} pages?)\b/.test(normalized) ||
+    /\b(?:beach|vacation|holiday) (?:read|reads|reading)\b/.test(normalized) ||
+    /\blight(?:\s+(?:accessible|easy|fun|entertaining|engaging)){0,2}\s+(?:book|books|read|reads|reading)\b/.test(normalized) ||
+    /\b(?:book|books|reading) for (?:a |my |your )?(?:vacation|holiday)\b/.test(normalized)
+  ) {
+    return "short";
+  }
+  if (
+    /\b(long|lengthy|comprehensive|definitive|exhaustive|thorough|magisterial|monumental|doorstop|over \d{2,4} pages?|more than \d{2,4} pages?)\b/.test(normalized) ||
+    /\b(?:in[- ]depth|deep dive)\b/.test(normalized) ||
+    /\bepic (?:book|books|biography|biographies|history|histories|memoir|memoirs)\b/.test(normalized)
+  ) {
+    return "long";
+  }
+  return "none";
+}
+
+export function semanticRowMatchesPublicationPreference(
+  row: SemanticBookIndexRow,
+  interpretation: SemanticQueryInterpretation | null | undefined,
+) {
+  if (interpretation?.publicationDateMode !== "filter") return true;
+  const cutoff = interpretation.publicationYearCutoff;
+  const year = semanticPublicationYear(row);
+  if (!cutoff || !year) return false;
+  if (interpretation.publicationDateIntent === "older") return year < cutoff;
+  if (interpretation.publicationDateIntent === "newer") return year > cutoff;
+  return true;
+}
+
 export function semanticHybridScore({
   context,
+  expandedQueryEmbedding,
   interpretation,
   query,
   queryEmbedding,
+  rawQueryEmbedding,
   row,
   termWeights,
+  useExperienceVector = true,
 }: {
   context?: SemanticQueryContext;
+  expandedQueryEmbedding?: SemanticVector;
   interpretation?: SemanticQueryInterpretation | null;
   query: string;
-  queryEmbedding: number[];
+  queryEmbedding?: SemanticVector;
+  rawQueryEmbedding?: SemanticVector;
   row: SemanticBookIndexRow;
   termWeights?: Map<string, number>;
+  useExperienceVector?: boolean;
 }) {
   const queryContext = context ?? createSemanticQueryContext(query, interpretation);
   const { adventurousConcepts, coreConcepts, readerExperienceQuery, terms } = queryContext;
@@ -547,10 +732,49 @@ export function semanticHybridScore({
   const topicBoost = topicNeedles.length ? Math.min(1, topicHits.length / Math.min(topicNeedles.length, 6)) : 0;
   const scopeBoost = queryContext.personaTasteQuery ? 0 : subjectScopeScore(query, interpretation, row);
   const periodBoost = rowMentionsPeriod(row, queryContext.periods, queryContext.publicationDateQuery) ? 1 : 0;
-  const publicationBoost = publicationPreferenceScore(interpretation, row.publicationYear);
+  const publicationYear = semanticPublicationYear(row);
+  const publicationBoost = publicationPreferenceScore(interpretation, publicationYear);
+  const lengthBoost = bookLengthPreferenceScore(queryContext.lengthIntent, row.pageCount);
+  const { coverage: constraintCoverage, missing: missingConstraints } = requiredConstraintCoverage(queryContext, row);
   const readerIntentBoost = readerIntentScore(query, interpretation, row);
   const recognitionBoost = Math.min(1, Math.log1p(Math.max(0, row.recognitionScore)) / Math.log1p(32));
-  const similarity = cosineSimilarity(queryEmbedding, row.embedding, row.norm);
+  const legacySimilarity = queryEmbedding ? cosineSimilarity(queryEmbedding, row.embedding, row.norm) : undefined;
+  const pairedContentSimilarity = rawQueryEmbedding && expandedQueryEmbedding
+    ? dualCosineSimilarity(rawQueryEmbedding, expandedQueryEmbedding, row.embedding, row.norm)
+    : undefined;
+  const rawSimilarity = pairedContentSimilarity?.[0] ??
+    (rawQueryEmbedding ? cosineSimilarity(rawQueryEmbedding, row.embedding, row.norm) : undefined);
+  const expandedSimilarity = pairedContentSimilarity?.[1] ??
+    (expandedQueryEmbedding ? cosineSimilarity(expandedQueryEmbedding, row.embedding, row.norm) : undefined);
+  const contentSimilarity = rawSimilarity !== undefined && expandedSimilarity !== undefined
+    ? rawSimilarity * 0.58 + expandedSimilarity * 0.42
+    : rawSimilarity ?? expandedSimilarity ?? legacySimilarity ?? 0;
+  const pairedExperienceSimilarity =
+    useExperienceVector && row.experienceEmbedding && rawQueryEmbedding && expandedQueryEmbedding
+      ? dualCosineSimilarity(
+          rawQueryEmbedding,
+          expandedQueryEmbedding,
+          row.experienceEmbedding,
+          row.experienceNorm,
+        )
+      : undefined;
+  const experienceSimilarity = useExperienceVector && row.experienceEmbedding
+    ? (
+        (pairedExperienceSimilarity?.[0] ??
+          (rawQueryEmbedding ? cosineSimilarity(rawQueryEmbedding, row.experienceEmbedding, row.experienceNorm) : 0)) * 0.35 +
+        (pairedExperienceSimilarity?.[1] ??
+          (expandedQueryEmbedding
+            ? cosineSimilarity(expandedQueryEmbedding, row.experienceEmbedding, row.experienceNorm)
+            : queryEmbedding
+              ? cosineSimilarity(queryEmbedding, row.experienceEmbedding, row.experienceNorm)
+              : 0)) * 0.65
+      )
+    : undefined;
+  const similarity = experienceSimilarity === undefined
+    ? contentSimilarity
+    : readerExperienceQuery
+      ? contentSimilarity * 0.5 + experienceSimilarity * 0.5
+      : contentSimilarity * 0.88 + experienceSimilarity * 0.12;
   const evidenceConfidence = semanticEvidenceConfidence(row);
   const phraseBoost = phraseMatchBoost(query, interpretation, row);
   const positiveReaderIntentBoost = Math.max(0, readerIntentBoost);
@@ -563,6 +787,8 @@ export function semanticHybridScore({
     scopeBoost * 0.1 +
     periodBoost * 0.06 +
     publicationBoost * 0.08 +
+    lengthBoost * 0.04 +
+    constraintCoverage * (queryContext.requiredConcepts.length ? 0.08 : 0) +
     phraseBoost * 0.04 +
     positiveReaderIntentBoost * 0.04,
   );
@@ -576,6 +802,9 @@ export function semanticHybridScore({
     scopeBoost ? "Matched subject scope" : "",
     periodBoost ? "Matched period signal" : "",
     publicationBoost ? "Matched publication-date preference" : "",
+    lengthBoost ? "Matched book-length preference" : "",
+    queryContext.requiredConcepts.length && constraintCoverage >= 0.72 ? "Matched required content" : "",
+    missingConstraints.length ? `Missing required evidence: ${missingConstraints.slice(0, 3).join(", ")}` : "",
     readerIntentBoost ? "Matched reader-experience signal" : "",
   ].filter(Boolean);
   return {
@@ -587,11 +816,20 @@ export function semanticHybridScore({
     lexicalScore: Number(lexicalScore.toFixed(6)),
     periodBoost,
     publicationBoost,
+    publicationYearKnown: Boolean(publicationYear),
+    lengthBoost,
+    pageCountKnown: Boolean(row.pageCount),
+    constraintCount: queryContext.requiredConcepts.length,
+    constraintCoverage,
+    missingConstraints,
     recognitionBoost,
     readerIntentBoost: Number(readerIntentBoost.toFixed(6)),
     reasons,
     score: Number(score.toFixed(6)),
     similarity: Number(similarity.toFixed(6)),
+    rawSimilarity: rawSimilarity === undefined ? undefined : Number(rawSimilarity.toFixed(6)),
+    expandedSimilarity: expandedSimilarity === undefined ? undefined : Number(expandedSimilarity.toFixed(6)),
+    experienceSimilarity: experienceSimilarity === undefined ? undefined : Number(experienceSimilarity.toFixed(6)),
     scopeBoost,
     topicBoost,
   };
@@ -599,23 +837,38 @@ export function semanticHybridScore({
 
 export function semanticRankFusion(results: SemanticSearchResult[]) {
   const vectorRanks = ranksBy(results, (row) => row.similarity);
+  const rawVectorRanks = positiveRanksBy(results, (row) => row.rawSimilarity ?? 0);
+  const expandedVectorRanks = positiveRanksBy(results, (row) => row.expandedSimilarity ?? 0);
+  const experienceVectorRanks = positiveRanksBy(results, (row) => row.experienceSimilarity ?? 0);
   const lexicalRanks = ranksBy(results, (row) => row.lexicalScore ?? lexicalScore(row));
   const topicRanks = ranksBy(results, (row) => row.scopeBoost + row.topicBoost * 0.8 + row.conceptBoost * 0.5 + row.periodBoost * 0.35);
   const readerRanks = positiveRanksBy(results, (row) => Math.max(0, row.readerIntentBoost ?? 0));
   const entityRanks = positiveRanksBy(results, (row) => row.entityBoost ?? 0);
   const publicationRanks = positiveRanksBy(results, (row) => row.publicationBoost ?? 0);
+  const lengthRanks = positiveRanksBy(results, (row) => row.lengthBoost ?? 0);
+  const constraintRanks = positiveRanksBy(results, (row) => row.constraintCoverage ?? 0);
   const recognitionRanks = ranksBy(results, (row) => row.recognitionBoost);
   const hasReaderSignal = results.some((row) => Math.abs(row.readerIntentBoost ?? 0) > 0.001);
+  const hasRawVector = results.some((row) => row.rawSimilarity !== undefined);
+  const hasExpandedVector = results.some((row) => row.expandedSimilarity !== undefined);
+  const hasExperienceVector = results.some((row) => row.experienceSimilarity !== undefined);
   const hasEntitySignal = results.some((row) => (row.entityBoost ?? 0) > 0.001);
   const hasPublicationSignal = results.some((row) => (row.publicationBoost ?? 0) > 0.001);
+  const hasLengthSignal = results.some((row) => (row.lengthBoost ?? 0) > 0.001);
+  const hasConstraintSignal = results.some((row) => (row.constraintCount ?? 0) > 0);
   const k = 60;
   return results.map((row) => {
     const rankSignals = [
-      { active: true, rank: vectorRanks.get(row.bookId), weight: 0.52 },
+      { active: !hasRawVector && !hasExpandedVector, rank: vectorRanks.get(row.bookId), weight: 0.52 },
+      { active: hasRawVector, rank: rawVectorRanks.get(row.bookId), weight: 0.28 },
+      { active: hasExpandedVector, rank: expandedVectorRanks.get(row.bookId), weight: 0.24 },
+      { active: hasExperienceVector, rank: experienceVectorRanks.get(row.bookId), weight: hasReaderSignal ? 0.18 : 0.08 },
       { active: true, rank: lexicalRanks.get(row.bookId), weight: 0.24 },
       { active: true, rank: topicRanks.get(row.bookId), weight: 0.14 },
       { active: hasEntitySignal, rank: entityRanks.get(row.bookId), weight: 0.16 },
-      { active: hasPublicationSignal, rank: publicationRanks.get(row.bookId), weight: 0.11 },
+      { active: hasPublicationSignal, rank: publicationRanks.get(row.bookId), weight: 0.28 },
+      { active: hasLengthSignal, rank: lengthRanks.get(row.bookId), weight: 0.12 },
+      { active: hasConstraintSignal, rank: constraintRanks.get(row.bookId), weight: 0.22 },
       { active: hasReaderSignal, rank: readerRanks.get(row.bookId), weight: 0.08 },
       { active: true, rank: recognitionRanks.get(row.bookId), weight: 0.02 },
     ].filter((signal) => signal.active);
@@ -625,20 +878,43 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
       0,
     );
     const readerPenalty = Math.min(0, row.readerIntentBoost ?? 0) * 1.15;
+    const publicationMismatchPenalty = hasPublicationSignal && row.publicationYearKnown
+      ? (1 - (row.publicationBoost ?? 0)) * 0.16
+      : 0;
+    const lengthMismatchPenalty = hasLengthSignal && row.pageCountKnown
+      ? (1 - (row.lengthBoost ?? 0)) * 0.1
+      : 0;
+    const constraintMismatchPenalty = hasConstraintSignal
+      ? (1 - (row.constraintCoverage ?? 0)) * 0.32
+      : 0;
     const vectorRank = vectorRanks.get(row.bookId) ?? results.length;
     const semanticSupport = clamp01(1 - (vectorRank - 1) / Math.min(250, Math.max(50, results.length * 0.04)));
+    const constraintCompletionBonus = hasConstraintSignal && (row.constraintCoverage ?? 0) >= 0.999
+      ? 0.36 * semanticSupport
+      : 0;
     const evidenceConfidence = row.evidenceConfidence ?? 0.5;
     const fitBonus = semanticSupport * (
       Math.max(0, row.readerIntentBoost ?? 0) * 0.12 +
       (row.entityBoost ?? 0) * 0.22 +
-      (row.publicationBoost ?? 0) * 0.12 +
+      (row.publicationBoost ?? 0) * 0.24 +
+      (row.lengthBoost ?? 0) * 0.12 +
+      (row.constraintCoverage ?? 0) * (hasConstraintSignal ? 0.14 : 0) +
       row.scopeBoost * 0.08 +
       row.recognitionBoost * 0.025
     );
     const evidencePenalty = (1 - evidenceConfidence) * 0.035;
     return {
       ...row,
-      score: Number((fused * 100 + fitBonus + readerPenalty - evidencePenalty).toFixed(6)),
+      score: Number((
+        fused * 100 +
+        fitBonus +
+        constraintCompletionBonus +
+        readerPenalty -
+        publicationMismatchPenalty -
+        lengthMismatchPenalty -
+        constraintMismatchPenalty -
+        evidencePenalty
+      ).toFixed(6)),
     };
   });
 }
@@ -724,11 +1000,83 @@ function publicationPreferenceScore(
   const intent = interpretation?.publicationDateIntent ?? "none";
   if (intent === "none" || !publicationYear) return 0;
   const cutoff = interpretation?.publicationYearCutoff;
-  if (cutoff && intent === "older") return clamp01(1 - Math.max(0, publicationYear - cutoff) / 25);
+  if (cutoff && intent === "older") {
+    if (publicationYear <= cutoff) return clamp01(0.72 + ((cutoff - publicationYear) / 100) * 0.28);
+    return clamp01(0.72 - ((publicationYear - cutoff) / 30) * 0.72);
+  }
   if (cutoff && intent === "newer") return clamp01(1 - Math.max(0, cutoff - publicationYear) / 15);
   const age = new Date().getFullYear() - publicationYear;
   if (intent === "older") return clamp01((age - 10) / 60);
   return clamp01((25 - age) / 25);
+}
+
+function bookLengthPreferenceScore(
+  intent: SemanticQueryContext["lengthIntent"],
+  pageCount: number | undefined,
+) {
+  if (intent === "none" || !pageCount) return 0;
+  if (intent === "short") {
+    if (pageCount <= 250) return 1;
+    if (pageCount <= 350) return 0.65;
+    if (pageCount <= 450) return 0.25;
+    return 0;
+  }
+  if (pageCount >= 600) return 1;
+  if (pageCount >= 450) return 0.7;
+  if (pageCount >= 350) return 0.3;
+  return 0;
+}
+
+function requiredConstraintCoverage(
+  context: SemanticQueryContext,
+  row: SemanticBookIndexRow,
+) {
+  if (!context.requiredConcepts.length) return { coverage: 0, missing: [] as string[] };
+  const prepared = semanticRowSearchText(row);
+  const haystack = [
+    prepared.title,
+    prepared.body,
+    prepared.topics,
+  ].join(" ");
+  const scores = context.requiredConcepts.map((constraint) => {
+    const normalized = normalizeForSearch(constraint);
+    const periods = inferPeriodRanges(normalized);
+    if (periods.length) return rowMentionsPeriod(row, periods, false) ? 1 : 0;
+    if (containsSearchPhrase(haystack, normalized)) return 1;
+    const terms = requiredConstraintTerms(normalized);
+    if (!terms.length) return 0;
+    const matched = terms.filter((term) => containsFlexibleConceptTerm(haystack, term)).length;
+    return matched / terms.length;
+  });
+  const missing = context.requiredConcepts.filter((_, index) => scores[index] < 0.72);
+  return {
+    coverage: scores.reduce((sum, score) => sum + score, 0) / scores.length,
+    missing,
+  };
+}
+
+function requiredConstraintTerms(input: string) {
+  const normalized = normalizeForSearch(input);
+  const shortConceptTokens = normalized
+    .split(" ")
+    .filter((term) => ["ai", "uk", "us", "eu"].includes(term));
+  return uniqueValues([...searchTerms(normalized), ...shortConceptTokens]);
+}
+
+function containsFlexibleConceptTerm(haystack: string, term: string) {
+  if (containsSearchPhrase(haystack, term)) return true;
+  const variants = new Set<string>();
+  if (term.endsWith("ies") && term.length > 4) variants.add(`${term.slice(0, -3)}y`);
+  if (term.endsWith("es") && term.length > 4) variants.add(term.slice(0, -2));
+  if (term.endsWith("s") && term.length > 3) variants.add(term.slice(0, -1));
+  if (term === "women") ["woman", "female", "gender", "feminism"].forEach((variant) => variants.add(variant));
+  if (term === "men") ["man", "male", "masculinity"].forEach((variant) => variants.add(variant));
+  if (term === "environmental") variants.add("environment");
+  if (term === "environment") variants.add("environmental");
+  if (term === "democracy") variants.add("democratic");
+  if (term === "democratic") variants.add("democracy");
+  if (term === "countries") ["country", "nation", "nationhood"].forEach((variant) => variants.add(variant));
+  return [...variants].some((variant) => containsSearchPhrase(haystack, variant));
 }
 
 function clamp01(value: number) {
@@ -737,7 +1085,8 @@ function clamp01(value: number) {
 
 function rowMentionsPeriod(row: SemanticBookIndexRow, periods: Array<{ label: string; start: number; end: number }>, allowPublicationYear: boolean) {
   if (!periods.length) return false;
-  if (allowPublicationYear && row.publicationYear && periods.some((period) => row.publicationYear! >= period.start && row.publicationYear! <= period.end)) return true;
+  const publicationYear = semanticPublicationYear(row);
+  if (allowPublicationYear && publicationYear && periods.some((period) => publicationYear >= period.start && publicationYear <= period.end)) return true;
   const rowSearch = semanticContentSearchText(row);
   return periods.some((period) => {
     const label = normalizeForSearch(period.label);
@@ -751,9 +1100,19 @@ function rowMentionsPeriod(row: SemanticBookIndexRow, periods: Array<{ label: st
   });
 }
 
+function semanticPublicationYear(row: SemanticBookIndexRow) {
+  if (row.publicationYear) return row.publicationYear;
+  if (row.firstRecognitionYear) return row.firstRecognitionYear;
+  const recognitionYears = row.awards
+    .flatMap((award) => Array.from(award.matchAll(/\b(1[5-9]\d{2}|20\d{2})\b/g), (match) => Number(match[1])))
+    .filter(Number.isFinite);
+  return recognitionYears.length ? Math.min(...recognitionYears) : undefined;
+}
+
 function isPublicationDateQuery(query: string, interpretation?: SemanticQueryInterpretation | null) {
+  if (interpretation?.publicationDateIntent && interpretation.publicationDateIntent !== "none") return true;
   const normalized = normalizeForSearch([query, interpretation?.expandedQuery ?? ""].join(" "));
-  return /\b(published|publication|released|came out|from the|books from|written in|recent|new|contemporary)\b/.test(normalized);
+  return /\b(published|publication|released|came out|from the|books from|written in|classic|older|old|vintage|recent|new|contemporary)\b/.test(normalized);
 }
 
 function subjectScopeScore(query: string, interpretation: SemanticQueryInterpretation | null | undefined, row: SemanticBookIndexRow) {
@@ -774,7 +1133,7 @@ function subjectScopeScore(query: string, interpretation: SemanticQueryInterpret
   if (/\b(science|scientific|nature|discovery)\b/.test(normalized)) {
     if (/\b(science|nature|discovery|environment|medicine|public health)\b/.test(rowScope)) score = Math.max(score, 1);
   }
-  if (/\b(memoir|grief|family|illness)\b/.test(normalized)) {
+  if (/\b(memoir|memoirs|biography|biographies|biographical|grief|family|illness)\b/.test(normalized)) {
     if (/\b(memoir|biography|family|medicine|public health)\b/.test(rowScope)) score = Math.max(score, 0.85);
   }
   if (/\b(poverty|housing|inequality)\b/.test(normalized)) {
@@ -923,6 +1282,7 @@ function readerIntentScore(query: string, interpretation: SemanticQueryInterpret
   const wantsReadable = /\b(fun|readable|engaging|accessible|popular|page turner|page-turner|good read|general reader|not academic|beach read)\b/.test(normalized);
   const wantsNarrative = /\b(narrative|story|stories|character|character driven|people|lives|biographical|reported|journalistic|immersive)\b/.test(normalized);
   const wantsReported = /\b(reporting|reported|journalistic|journalism|investigative|investigation|fieldwork|interviews?)\b/.test(normalizeForSearch(query));
+  const wantsLiterary = /\b(beautiful|beautifully written|literary|lyrical|elegant prose|prose|stylish|poetic)\b/.test(normalized);
   const wantsScholarly = !/\bnot academic\b/.test(normalized) && /\b(academic|scholarly|dense|historiography|historiographical|theory|monograph|specialist)\b/.test(normalized);
   const academicOrientation = confidenceAdjustedAcademicOrientation(row);
   let score = 0;
@@ -949,13 +1309,18 @@ function readerIntentScore(query: string, interpretation: SemanticQueryInterpret
     const reportingEvidence = reportingMethodEvidence(row);
     score += reportingEvidence >= 0.65 ? 0.34 : reportingEvidence >= 0.3 ? 0.12 : -0.42;
   }
+  if (wantsLiterary) {
+    if (row.readerTraits?.includes("literary")) score += 0.36;
+    if (row.readerTraits?.includes("essayistic")) score += 0.08;
+    if (row.readerTraits?.includes("experimental")) score += 0.06;
+  }
   if (wantsReadable && wantsNarrative && (row.accessibilityScore ?? 0) < 0.12 && (row.narrativeScore ?? 0) < 0.12) score -= 0.18;
   if (wantsScholarly) {
     score += (row.scholarlyScore ?? 0) * 0.5;
     if (row.readerLevel === "academic") score += 0.18;
     score += academicOrientation * 0.24;
   }
-  if (!wantsReadable && !wantsNarrative && !wantsReported && !wantsScholarly) return 0;
+  if (!wantsReadable && !wantsNarrative && !wantsReported && !wantsLiterary && !wantsScholarly) return 0;
   return Math.max(-1, Math.min(1, score));
 }
 
@@ -965,7 +1330,7 @@ function reportingMethodEvidence(row: SemanticBookIndexRow) {
   if (strongSignals.some((signal) => containsSearchPhrase(content, signal))) return 1;
   const signals = ["reporting", "reported", "reporter", "journalist", "interview", "interviews", "investigative", "investigation", "dispatches"];
   if (signals.some((signal) => containsSearchPhrase(content, signal))) return 0.72;
-  if (row.readerTraits?.includes("reported")) return 0.2;
+  if (row.readerTraits?.includes("reported")) return 0.55;
   return 0;
 }
 
@@ -992,6 +1357,9 @@ function inferredSubjectNeedles(query: string, interpretation?: SemanticQueryInt
   if (/\b(memoir|grief|family|illness|death|bereavement)\b/.test(normalized)) {
     needles.push("memoir", "family", "grief", "illness", "biography");
   }
+  if (/\b(biography|biographies|biographical)\b/.test(normalized)) {
+    needles.push("biography", "public lives", "literary biography", "scientific biography");
+  }
   return needles;
 }
 
@@ -1005,11 +1373,30 @@ const readerIntentLexicalStopwords = new Set([
   "history",
   "narrative",
   "narratives",
+  "journalistic",
+  "literary",
   "popular",
+  "prose",
   "readable",
+  "reported",
+  "reporting",
   "stories",
   "story",
 ]);
+
+function isReaderIntentLexicalTerm(term: string, query: string) {
+  if (readerIntentLexicalStopwords.has(term)) return true;
+  const normalizedQuery = normalizeForSearch(query);
+  if (
+    ["beach", "vacation", "holiday"].includes(term) &&
+    (
+      /\b(?:beach|vacation|holiday) (?:read|reads|reading)\b/.test(normalizedQuery) ||
+      /\b(?:book|books|reading) for (?:a |my |your )?(?:vacation|holiday)\b/.test(normalizedQuery)
+    )
+  ) return true;
+  return term === "light" &&
+    /\blight(?:\s+(?:accessible|easy|fun|entertaining|engaging)){0,2}\s+(?:book|books|read|reads|reading)\b/.test(normalizedQuery);
+}
 
 function isReaderExperienceQuery(query: string, interpretation?: SemanticQueryInterpretation | null) {
   const normalized = normalizeForSearch([
@@ -1018,7 +1405,7 @@ function isReaderExperienceQuery(query: string, interpretation?: SemanticQueryIn
     ...semanticCoreConcepts(interpretation),
     ...semanticAdventurousConcepts(interpretation),
   ].join(" "));
-  return /\b(fun|readable|engaging|accessible|popular|page turner|page-turner|good read|general reader|beach read|narrative|story|stories|character driven|immersive)\b/.test(normalized);
+  return /\b(fun|readable|engaging|accessible|popular|page turner|page-turner|good read|general reader|beach read|narrative|story|stories|character driven|immersive|reported|reporting|journalistic|journalism|literary|lyrical|prose|essayistic)\b/.test(normalized);
 }
 
 function uniqueNormalized(values: string[]) {

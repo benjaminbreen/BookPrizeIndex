@@ -101,7 +101,7 @@ async function main() {
   console.log(`Reader traits classified for ${books.length} books.`);
 }
 
-function classifyBook(book: Book, allowed: Set<string>): BookReaderProfile {
+export function classifyBook(book: Book, allowed: Set<string>): BookReaderProfile {
   const context = bookContext(book);
   const scores = new Map<string, { score: number; evidence: string[] }>();
   const add = (id: string, score: number, evidence: string) => {
@@ -165,6 +165,12 @@ function addPatternScores(context: ReturnType<typeof bookContext>, add: (id: str
     ["resistance", 0.12],
     ["narrative history", 0.32],
     ["vividly told", 0.3],
+    ["dramatic account", 0.28],
+    ["vivid account", 0.26],
+    ["interweaves", 0.24],
+    ["reconstructs", 0.2],
+    ["through the lives", 0.28],
+    ["cast of characters", 0.3],
     ["illuminates", 0.14],
     ["reads like", 0.24],
     ["unfolds", 0.14],
@@ -179,6 +185,10 @@ function addPatternScores(context: ReturnType<typeof bookContext>, add: (id: str
     ["lives of", 0.22],
     ["members included", 0.18],
     ["people who", 0.14],
+    ["through the lives", 0.3],
+    ["cast of characters", 0.34],
+    ["families", 0.16],
+    ["individuals", 0.12],
     ["father", 0.12],
     ["mother", 0.12],
     ["woman at the heart", 0.28],
@@ -198,8 +208,18 @@ function addPatternScores(context: ReturnType<typeof bookContext>, add: (id: str
   matchAny(text, [
     ["reporter", 0.24],
     ["reported", 0.22],
+    ["reporting", 0.24],
     ["investigation", 0.2],
     ["interviews", 0.18],
+    ["interviewed", 0.24],
+    ["oral histories", 0.28],
+    ["official records", 0.18],
+    ["archival records", 0.16],
+    ["firsthand", 0.22],
+    ["on the ground", 0.24],
+    ["years of reporting", 0.38],
+    ["based on reporting", 0.38],
+    ["embedded", 0.2],
     ["fieldwork", 0.2],
     ["eyewitness", 0.18],
     ["dispatches", 0.2],
@@ -211,6 +231,16 @@ function addPatternScores(context: ReturnType<typeof bookContext>, add: (id: str
     ["reflections", 0.2],
     ["meditations", 0.2],
   ], (score, term) => add("essayistic", score, `catalog text contains "${term}"`));
+  matchAny(text, [
+    ["beautifully written", 0.46],
+    ["lyrical", 0.38],
+    ["elegant prose", 0.38],
+    ["literary prose", 0.38],
+    ["stylish", 0.22],
+    ["poetic prose", 0.34],
+    ["prose style", 0.24],
+    ["prose craft", 0.28],
+  ], (score, term) => add("literary", score, `catalog text contains "${term}"`));
   matchAny(text, [
     ["argues", 0.2],
     ["argument", 0.18],
@@ -300,6 +330,14 @@ function addPatternScores(context: ReturnType<typeof bookContext>, add: (id: str
     add("scholarly", 0.24, "meta-scholarly history-writing context");
     add("academic", 0.18, "meta-scholarly history-writing context");
     add("dense", 0.14, "meta-scholarly history-writing context");
+  }
+  if (
+    /\b(?:sociologist|anthropologist|journalist|reporter)\b.{0,100}\bfollows\b/.test(text) ||
+    /\bfollows\b.{0,100}\b(?:families|people|individuals|workers|residents|patients|children)\b/.test(text)
+  ) {
+    add("reported", 0.3, "catalog text describes a reporter or researcher following people");
+    add("character_driven", 0.28, "catalog text describes following a defined group of people");
+    add("narrative", 0.2, "catalog text describes an unfolding account centered on people");
   }
 }
 
@@ -484,7 +522,9 @@ function positiveNumber(value: string | undefined, fallback: number) {
   return Number.isFinite(parsed) && parsed > 0 ? Math.floor(parsed) : fallback;
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exit(1);
-});
+if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+  main().catch((error) => {
+    console.error(error);
+    process.exit(1);
+  });
+}
