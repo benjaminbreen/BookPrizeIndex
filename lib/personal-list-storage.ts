@@ -1,0 +1,78 @@
+import "server-only";
+
+import { get, put } from "@vercel/blob";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import {
+  isPersonalListSnapshot,
+  type PersonalListSnapshot,
+} from "@/lib/personal-list";
+
+const BLOB_PREFIX = "personal-lists/v1";
+const IMMUTABLE_CACHE_SECONDS = 31_536_000;
+
+export async function readSharedPersonalList(id: string): Promise<PersonalListSnapshot | null> {
+  if (!validId(id)) return null;
+  if (usesBlobStorage()) {
+    const result = await get(blobPath(id), { access: "public" });
+    if (!result || result.statusCode !== 200) return null;
+    const parsed = await new Response(result.stream).json().catch(() => null);
+    return isPersonalListSnapshot(parsed) ? parsed : null;
+  }
+  if (isVercelRuntime()) return null;
+  const parsed = await readFile(localPath(id), "utf8").then(JSON.parse).catch(() => null);
+  return isPersonalListSnapshot(parsed) ? parsed : null;
+}
+
+export async function writeSharedPersonalList(snapshot: PersonalListSnapshot) {
+  const existing = await readSharedPersonalList(snapshot.id);
+  if (existing) return { snapshot: existing, created: false };
+
+  if (usesBlobStorage()) {
+    await put(blobPath(snapshot.id), JSON.stringify(snapshot), {
+      access: "public",
+      addRandomSuffix: false,
+      allowOverwrite: false,
+      cacheControlMaxAge: IMMUTABLE_CACHE_SECONDS,
+      contentType: "application/json; charset=utf-8",
+    });
+    return { snapshot, created: true };
+  }
+  if (isVercelRuntime()) {
+    throw new Error("Shared-list storage is not configured. Connect a Vercel Blob store to this project.");
+  }
+  await mkdir(localDirectory(), { recursive: true });
+  await writeFile(localPath(snapshot.id), JSON.stringify(snapshot, null, 2), { encoding: "utf8", flag: "wx" })
+    .catch(async (error: NodeJS.ErrnoException) => {
+      if (error.code !== "EEXIST") throw error;
+    });
+  return { snapshot: await readSharedPersonalList(snapshot.id) ?? snapshot, created: true };
+}
+
+export function personalListStorageConfigured() {
+  return usesBlobStorage() || !isVercelRuntime();
+}
+
+function usesBlobStorage() {
+  return Boolean(process.env.BLOB_READ_WRITE_TOKEN || (process.env.BLOB_STORE_ID && process.env.VERCEL_OIDC_TOKEN));
+}
+
+function isVercelRuntime() {
+  return Boolean(process.env.VERCEL || process.env.VERCEL_ENV);
+}
+
+function blobPath(id: string) {
+  return `${BLOB_PREFIX}/${id}.json`;
+}
+
+function localDirectory() {
+  return path.join(process.cwd(), ".personal-lists");
+}
+
+function localPath(id: string) {
+  return path.join(localDirectory(), `${id}.json`);
+}
+
+function validId(id: string) {
+  return /^[A-Za-z0-9_-]{22}$/.test(id);
+}

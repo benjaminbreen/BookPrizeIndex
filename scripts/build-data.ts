@@ -10,6 +10,7 @@ import {
   mergeDuplicateAwardCategories,
   type PrizeRegistryFileEntry,
 } from "./build/award-programs";
+import { applyAwardSubmissions, readAwardSubmissions } from "./build/award-submissions";
 import { buildBrowseData } from "./build/browse-data";
 import { buildLibraryShelf, type LibraryClassDefinition } from "./build/library-shelf";
 import { writePublicCatalogArtifacts } from "./build/public-catalog-artifacts";
@@ -993,10 +994,13 @@ async function main() {
   applyTrustedWikipediaPageCounts(books, wikipediaEvidence);
   dropImplausiblePublicationYears(books, appearances, curatedBookPublicationYearIds);
 
+  const awardPrograms = buildAwardPrograms(prizeRegistry, awards, appearances);
+  applyAwardSubmissions(await readAwardSubmissions(), awards, awardPrograms);
+
   const publicData: PublicData = {
     generatedAt,
     books: [...books.values()].sort((a, b) => a.title.localeCompare(b.title)),
-    awardPrograms: buildAwardPrograms(prizeRegistry, awards, appearances),
+    awardPrograms,
     awards: [...awards.values()].sort((a, b) => a.name.localeCompare(b.name)),
     editions: [...editions.values()].sort((a, b) => b.year - a.year),
     appearances: [...appearances.values()].sort((a, b) => b.year - a.year || a.statusRank - b.statusRank),

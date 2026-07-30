@@ -6,10 +6,12 @@ import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { BookRetailerLinks } from "@/components/book-retailer-links";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
+import { SaveBookControl } from "@/components/save-book-control";
 import { useSupportPrompt } from "@/components/support-prompt";
 import type { BookDrawerAppearance, BookDrawerPayload } from "@/lib/book-drawer-types";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
+import { savedBookInputFromBook } from "@/lib/saved-library-types";
 import type { Book, WikipediaBookEvidence } from "@/lib/types";
 
 const DRAWER_EXIT_MS = 360;
@@ -105,6 +107,7 @@ export function BookDrawer({
     if (!snapshot || isClosing) return;
 
     function onKeyDown(event: KeyboardEvent) {
+      if (document.querySelector('[role="dialog"][aria-modal="true"]')) return;
       if (event.key === "Escape") {
         event.preventDefault();
         onClose();
@@ -224,6 +227,7 @@ export function BookDrawer({
               <FileText size={15} />
               Full record
             </Link>
+            <SaveBookControl book={savedBookInputFromBook(renderedBook)} variant="drawer" />
             {wikipediaUrl ? (
               <a
                 className="focus-ring inline-flex w-32 items-center justify-center gap-2 border hairline px-3 py-2 text-sm transition hover:bg-[var(--panel)]"

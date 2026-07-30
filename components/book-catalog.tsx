@@ -7,6 +7,7 @@ import { BookOpen, CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, Chevr
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { AuthorLinks } from "@/components/author-links";
 import { BookDrawer } from "@/components/book-drawer";
+import { SemanticListActions } from "@/components/semantic-list-actions";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
@@ -15,6 +16,7 @@ import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import { bookRecognition, compareBrowseBookRecognition } from "@/lib/browse-ranking";
 import type { BrowseBookRow } from "@/lib/browse-types";
 import type { LibraryShelfNeighborhood } from "@/lib/library-shelf-types";
+import type { SemanticListDraft } from "@/lib/semantic-list";
 import { semanticAdventurousConcepts, semanticCoreConcepts, type SemanticQueryExpansionModel, type SemanticQueryInterpretation } from "@/lib/semantic-search";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 
@@ -444,6 +446,34 @@ export function BookCatalog({
         semanticSearch.interpretation.subjects.slice(0, 2).join(", "),
       ].filter(Boolean).join(" · ")
     : "";
+  const semanticListDraft: SemanticListDraft | null = remoteSemanticReady && semanticSearch.results.length
+    ? {
+        diagnostics: {
+          candidateBookCount: semanticSearch.diagnostics?.candidateBookCount,
+          embeddingModel: semanticSearch.diagnostics?.embeddingModel,
+          indexGeneratedAt: semanticSearch.diagnostics?.indexGeneratedAt,
+          interpretationModel: semanticSearch.diagnostics?.interpretationModel,
+          queryExpansionModel: semanticSearch.diagnostics?.queryExpansionModel,
+          resultCount: semanticSearch.diagnostics?.resultCount,
+          usedModelInterpretation: semanticSearch.diagnostics?.usedModelInterpretation,
+        },
+        filters: {
+          awardIds: selectedAwardIds.length ? selectedAwardIds : undefined,
+          awardLabel: awardFilter
+            ? awardOptions.find((award) => award.id === awardFilter)?.shortName ?? awardOptions.find((award) => award.id === awardFilter)?.name
+            : undefined,
+          metadata: metadataFilter,
+          publisherId: publisherFilter || undefined,
+          publisherLabel: publisherFilter ? publisherOptions.find((publisher) => publisher.id === publisherFilter)?.name : undefined,
+          region,
+          subject: subjectFilter || undefined,
+          topic: topicFilter || undefined,
+        },
+        interpretation: semanticSearch.interpretation,
+        query: semanticQuery,
+        results: semanticSearch.results.map((result) => ({ bookId: result.bookId, score: result.score })),
+      }
+    : null;
 
   return (
     <>
@@ -517,6 +547,7 @@ export function BookCatalog({
                   How this worked
                 </button>
               ) : null}
+              {!showDenseCatalogControls && semanticListDraft ? <SemanticListActions draft={semanticListDraft} /> : null}
               <SearchModeSelect className="semantic-mode-select" onChange={setMode} value={mode} />
               {hasActiveFilters ? (
                 <button className="filter-chip focus-ring inline-flex items-center gap-2 px-3 py-1.5 text-[var(--ink)]" onClick={resetFilters} type="button">
@@ -667,6 +698,7 @@ export function BookCatalog({
                 Details
               </button>
             ) : null}
+            {semanticListDraft ? <SemanticListActions draft={semanticListDraft} /> : null}
             <SearchModeSelect className="semantic-mode-select" onChange={setMode} value={mode} />
             {hasActiveFilters ? (
               <button className="filter-chip focus-ring inline-flex items-center gap-2 px-3 py-1.5 text-[var(--ink)]" onClick={resetFilters} type="button">

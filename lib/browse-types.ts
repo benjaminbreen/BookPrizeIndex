@@ -1,4 +1,5 @@
 import type { AwardRegionFilter } from "@/lib/award-region";
+import type { AwardSubmission } from "@/lib/award-submission";
 
 export type BrowseBookRow = {
   id: string;
@@ -69,7 +70,7 @@ export type BrowseAwardRow = {
   description: string;
   geography?: string;
   subjects: string[];
-  deadline?: string;
+  submission?: AwardSubmission;
   typeLabel: string;
   yearRange: string;
   records: number;

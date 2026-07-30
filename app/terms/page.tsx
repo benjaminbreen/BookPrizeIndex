@@ -19,7 +19,7 @@ export default function TermsPage() {
     <TextPageShell label="Terms" navItems={navItems}>
       <TextPageTitle>Terms</TextPageTitle>
       <p className="mt-5 font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.16em] muted">
-        Last updated July 21, 2026
+        Last updated July 30, 2026
       </p>
 
       <TextPageSection id="use" title="Use">
@@ -27,6 +27,13 @@ export default function TermsPage() {
           The Book Prize Index is provided as a free public reference. You may use it for reading, research, discovery,
           citation checking, and analysis, provided you do not interfere with the service or misuse the site. Reuse of
           the downloadable dataset is governed by the license stated on the Data &amp; API page.
+        </p>
+        <p>
+          Stable shared-list links publish their submitted contents to anyone with the link. For Meaning searches this
+          includes the search phrase and generated interpretation; for personal reading lists it includes the submitted
+          creator display name, edited title, optional introduction, selected books, and order. Do not use shared lists
+          to publish unlawful, abusive, invasive, or misleading material, impersonate another person, or imply that a
+          named person participated in or endorsed an AI-assisted list.
         </p>
       </TextPageSection>
 

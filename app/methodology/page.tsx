@@ -221,6 +221,21 @@ export default function MethodologyPage() {
             budget and concurrency cap are applied before provider calls, and operators can disable meaning search with
             a server-side kill switch if traffic or cost becomes abnormal.
           </p>
+          <p>
+            Completed results can be frozen without running the model again. Saving a list writes the query,
+            interpreted intent, filter context, ordered result set, and compact book display fields only to the current
+            browser. Creating a stable link writes that same immutable, content-addressed snapshot to Vercel Blob.
+            Opening either form uses the captured order rather than the current semantic index. Shared pages are
+            unlisted and explicitly distinguish persona-style query interpretation from evidence of a named
+            person&apos;s real preferences or endorsement.
+          </p>
+          <p>
+            Personal reading lists use the same immutable sharing principle without invoking a model. Before sharing,
+            the creator adds the display name that will identify the list, may edit the public title and optional
+            introduction, selects books, and chooses their order. The resulting content-addressed edition is stored
+            separately from the private browser list, receives a generated social-preview image, and can be exported
+            as Markdown. Later edits create a new stable URL.
+          </p>
         </MethodSection>
 
         <MethodSection id="limits" title="Limitations">

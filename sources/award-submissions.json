@@ -1,0 +1,677 @@
+{
+  "notes": "Curated submission windows for prize entrants. Every entry must carry `verifiedOn` and `sourceUrl` pointing at the page it was read from. Dates are cyclical: `nextCloseDate` is the concrete close of the cycle we verified, and `closesOn`/`opensOn` (MM-DD) are the recurring rule used once that date passes, so a stale entry degrades to an approximate annual date instead of a wrong one. Leave an award out entirely rather than guessing; the UI shows 'Not yet sourced'. Keys are award ids for standalone prizes and prize-registry ids under `programs` for multi-category programs.",
+  "awards": {
+    "award-ackerley-prize-autobiography-and-memoir": {
+      "route": "committee",
+      "note": "The judges do not accept submissions from publishers or authors; they call in books themselves.",
+      "url": "https://www.jrackerley.com/the-ackerley-prize",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.jrackerley.com/the-ackerley-prize"
+    },
+    "award-american-library-in-paris-book-award-nonfiction": {
+      "route": "publisher_or_author",
+      "opensOn": "11-01",
+      "closesOn": "05-01",
+      "nextCloseDate": "2027-05-01",
+      "eligibility": "English-language publication between 1 July 2026 and 30 June 2027",
+      "fee": "€50 per title",
+      "note": "Anyone — author, publisher, agent, or reader — may submit. The 2027 window opens 1 November 2026.",
+      "url": "https://americanlibraryinparis.org/bookaward/guidelines/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://americanlibraryinparis.org/bookaward/guidelines/"
+    },
+    "award-andrew-carnegie-medal-for-excellence-in-nonfiction": {
+      "route": "committee",
+      "note": "Selected by a committee of library professionals; there is no public call for entries.",
+      "url": "https://www.ala.org/carnegie-medals",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.ala.org/carnegie-medals/about"
+    },
+    "award-arthur-ross-book-award-international-affairs": {
+      "route": "nomination",
+      "window": "Annual nomination cycle; no published deadline",
+      "note": "Nominations are emailed to CFR with the title, author, publication date, and publisher.",
+      "url": "https://www.cfr.org/arthur-ross-book-award",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.cfr.org/arthur-ross-book-award"
+    },
+    "award-baillie-gifford-prize-for-non-fiction": {
+      "route": "publisher",
+      "closesOn": "06-05",
+      "nextCloseDate": "2026-06-05",
+      "eligibility": "Published in English in the UK between 1 November 2025 and 31 October 2026",
+      "note": "Publishers may submit up to three titles per imprint, plus up to three call-in suggestions.",
+      "url": "https://www.thebailliegiffordprize.co.uk/enter-the-prize",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.thebailliegiffordprize.co.uk/enter-the-prize/rules-condition-of-entry"
+    },
+    "award-bancroft-prize": {
+      "route": "publisher",
+      "window": "Annual cycle; the close date is announced each year",
+      "note": "Publishers submit; Columbia announces the entry deadline for each cycle on the prize page.",
+      "url": "https://library.columbia.edu/about/awards/bancroft.html",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://library.columbia.edu/about/awards/bancroft.html"
+    },
+    "award-barbara-and-david-zalaznick-book-prize-in-american-history": {
+      "route": "publisher_or_author",
+      "closesOn": "12-19",
+      "nextCloseDate": "2025-12-19",
+      "eligibility": "Nonfiction on American history or biography copyrighted in the previous year",
+      "fee": "No fee; five copies of each book are required",
+      "url": "https://www.nyhistory.org/about/barbara-and-david-zalaznick-book-prize",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.nyhistory.org/about/barbara-and-david-zalaznick-book-prize"
+    },
+    "award-british-academy-book-prize": {
+      "route": "publisher",
+      "closesOn": "04-30",
+      "nextCloseDate": "2026-04-30",
+      "eligibility": "First published in English in the UK between 1 April 2025 and 30 April 2026",
+      "note": "Hard copies must arrive within a week of the closing date.",
+      "url": "https://www.thebritishacademy.ac.uk/british-academy-book-prize/submissions/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.thebritishacademy.ac.uk/british-academy-book-prize/submissions/"
+    },
+    "award-chicago-tribune-heartland-prize-nonfiction": {
+      "route": "committee",
+      "note": "Chicago Tribune literary staff select from recently published titles; there is no open call for entries.",
+      "url": "https://www.chicagotribune.com/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://en.wikipedia.org/wiki/Chicago_Tribune_Heartland_Prize"
+    },
+    "award-costa-book-awards-biography": {
+      "route": "committee",
+      "discontinued": true,
+      "window": "Discontinued in 2022; the 2021 awards were the last",
+      "note": "Costa ended the awards after 50 years, so there is no current entry route.",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.publishersweekly.com/pw/by-topic/industry-news/awards-and-prizes/article/89592-abrupt-end-to-u-k-s-costa-awards.html"
+    },
+    "award-cundill-history-prize": {
+      "route": "publisher",
+      "nextCloseDate": "2026-02-27",
+      "closesOn": "02-27",
+      "note": "2026 submissions closed 27 February 2026; the next round opens in early 2027.",
+      "url": "https://www.cundillprize.com/submit",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.cundillprize.com/submit"
+    },
+    "award-dayton-literary-peace-prize-nonfiction": {
+      "route": "nomination",
+      "opensOn": "01-06",
+      "closesOn": "03-03",
+      "nextCloseDate": "2026-03-03",
+      "eligibility": "First US copyright date in the previous calendar year",
+      "fee": "$125 nomination fee",
+      "note": "Any person may nominate; entries are filed through the online form.",
+      "url": "https://www.daytonliterarypeaceprize.org/nomination-judging/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.daytonliterarypeaceprize.org/nomination-judging/"
+    },
+    "award-duff-cooper-prize-history-biography-and-political-science": {
+      "route": "publisher",
+      "closesOn": "06-01",
+      "nextCloseDate": "2026-06-01",
+      "eligibility": "Published by an imprint with a formal UK presence between 1 January and 31 December 2026",
+      "fee": "No entry charge, but shortlisted titles incur a £1,000 publisher contribution",
+      "note": "A title may be submitted only by its UK publisher; direct author submissions are not accepted.",
+      "url": "https://duffcooperprize.org/about/how-to-enter/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://duffcooperprize.org/about/how-to-enter/"
+    },
+    "award-edgar-awards-best-fact-crime": {
+      "route": "publisher_or_author",
+      "closesOn": "12-07",
+      "nextCloseDate": "2026-12-07",
+      "eligibility": "Published during the 2026 calendar year for the 2027 Edgars",
+      "fee": "No entry fee, and no limit on entries",
+      "note": "MWA prefers publisher submissions, but authors may submit. Works must reach the judges by the cutoff.",
+      "url": "https://mysterywriters.org/edgars/edgar-submission-information/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://mysterywriters.org/edgars/edgar-submission-information/"
+    },
+    "award-elizabeth-longford-prize-for-historical-biography": {
+      "route": "committee",
+      "note": "There are no submissions; the prize calls in books from publishers each January at the judges' request.",
+      "url": "https://elhb.uk/the-prize/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://elhb.uk/the-prize/"
+    },
+    "award-francis-parkman-prize": {
+      "route": "publisher_or_author",
+      "closesOn": "12-01",
+      "eligibility": "Nonfiction history on an American theme published the previous year; textbooks and edited collections are ineligible",
+      "url": "https://sah.columbia.edu/content/prizes/francis-parkman-prize",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://sah.columbia.edu/content/prizes/francis-parkman-prize"
+    },
+    "award-frederick-douglass-book-prize-slavery-resistance-and-abolition": {
+      "route": "publisher_or_author",
+      "window": "Guidelines announced in January or early February, with a late-April or early-May deadline",
+      "eligibility": "Books copyrighted in the previous calendar year",
+      "note": "Publishers and authors are both invited to submit; inquiries go to the Gilder Lehrman Center at Yale.",
+      "url": "https://www.gilderlehrman.org/book-prizes/douglass",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://macmillan.yale.edu/glc/frederick-douglass-book-prize"
+    },
+    "award-ft-business-book-of-the-year": {
+      "route": "publisher",
+      "opensOn": "04-27",
+      "closesOn": "06-30",
+      "nextCloseDate": "2026-06-30",
+      "note": "The 2026 award opened for entries on 27 April and closed 30 June.",
+      "url": "https://www.ft.com/business-book-of-the-year",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.ft.com/business-book-of-the-year"
+    },
+    "award-george-perkins-marsh-prize-environmental-history": {
+      "route": "publisher_or_author",
+      "closesOn": "11-20",
+      "nextCloseDate": "2025-11-20",
+      "eligibility": "Books appearing between 1 November and 31 October of the following year",
+      "note": "Anyone may submit. One hard copy must go to each committee member; electronic submissions are not accepted.",
+      "url": "https://aseh.org/Research-Prizes",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://aseh.org/Research-Prizes"
+    },
+    "award-george-polk-awards-book-award": {
+      "route": "publisher_or_author",
+      "closesOn": "01-08",
+      "nextCloseDate": "2026-01-08",
+      "fee": "$75 per entry",
+      "note": "Books based on investigative reporting or about journalism may be entered; all submissions are electronic.",
+      "url": "https://liu.edu/polk",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://liu.edu/polk"
+    },
+    "award-george-rosen-prize-public-health-and-social-medicine-books": {
+      "route": "nomination",
+      "window": "AAHM nomination cycle; awarded in odd-numbered years",
+      "note": "Publishers nominating a monograph must send a copy to each committee member. The 2025–26 cycle closed 3 December 2025.",
+      "url": "https://histmed.org/george-rosen-prize/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://histmed.org/george-rosen-prize/"
+    },
+    "award-george-washington-prize-founding-era": {
+      "route": "publisher_or_author",
+      "closesOn": "12-31",
+      "nextCloseDate": "2025-12-31",
+      "eligibility": "First published between 1 January and 31 December of the previous year",
+      "note": "Five copies go to the Fred W. Smith National Library at Mount Vernon.",
+      "url": "https://www.mountvernon.org/library/george-washington-prize/submission-and-selection",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.mountvernon.org/library/george-washington-prize/submission-and-selection"
+    },
+    "award-gilder-lehrman-lincoln-prize-civil-war-era": {
+      "route": "publisher",
+      "opensOn": "01-01",
+      "closesOn": "11-02",
+      "nextCloseDate": "2026-11-02",
+      "note": "Rolling submissions from 1 January; books should be submitted in the month they are published.",
+      "url": "https://www.gilderlehrman.org/book-prizes/lincoln",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.gilderlehrman.org/book-prizes/lincoln"
+    },
+    "award-gilder-lehrman-military-history-prize": {
+      "route": "publisher",
+      "closesOn": "12-31",
+      "nextCloseDate": "2026-12-31",
+      "eligibility": "Books copyrighted in 2026, with a primary focus on American military history",
+      "note": "Send three copies and a cover note; entries go to bookprizes@gilderlehrman.org.",
+      "url": "https://www.gilderlehrman.org/book-prizes/military-history",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.gilderlehrman.org/book-prizes/military-history"
+    },
+    "award-governor-general-s-literary-awards-english-language-non-fiction": {
+      "route": "publisher",
+      "closesOn": "05-01",
+      "nextCloseDate": "2026-05-01",
+      "eligibility": "Titles published between 1 July 2025 and 30 April 2026",
+      "note": "Only eligible Canadian publishing houses may submit; four paper copies plus a PDF are required.",
+      "url": "https://ggbooks.ca/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://canadacouncil.ca/funding/prizes/governor-generals-literary-awards"
+    },
+    "award-helen-bernstein-book-award-for-excellence-in-journalism": {
+      "route": "nomination",
+      "closesOn": "09-03",
+      "nextCloseDate": "2025-09-03",
+      "eligibility": "Full-length books by authors whose primary profession is journalism; fiction, biography, memoir, and history are ineligible",
+      "note": "Publishers, agents, or journalists may nominate; authors may not nominate their own books.",
+      "url": "https://www.nypl.org/about/awards/helen-bernstein-award-excellence-journalism/guidelines-selection-committee",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.nypl.org/about/awards/helen-bernstein-award-excellence-journalism/guidelines-selection-committee"
+    },
+    "award-hilary-weston-writers-trust-prize-for-nonfiction": {
+      "route": "publisher",
+      "closesOn": "06-24",
+      "nextCloseDate": "2026-06-24",
+      "note": "Deadlines are staggered by publication date — 11 February, 15 April, and 24 June in the 2026 cycle.",
+      "url": "https://www.writerstrust.com/awards/hilary-weston-writers-trust-prize-for-nonfiction/guidelines",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.writerstrust.com/awards/hilary-weston-writers-trust-prize-for-nonfiction/guidelines"
+    },
+    "award-hillman-prize-for-book-journalism": {
+      "route": "publisher_or_author",
+      "closesOn": "01-30",
+      "nextCloseDate": "2026-01-30",
+      "fee": "Free; no limit on entries",
+      "note": "The book category covers long-form nonfiction; two copies and a 1–2 page cover letter are required.",
+      "url": "https://www.hillmanfoundation.org/hillman-prizes/nominations",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.hillmanfoundation.org/hillman-prizes/nominations"
+    },
+    "award-ire-awards-books": {
+      "route": "publisher_or_author",
+      "closesOn": "01-21",
+      "nextCloseDate": "2026-01-21",
+      "eligibility": "Published between 1 January and 31 December of the award year",
+      "fee": "$75",
+      "note": "Only ebooks are accepted for the book category.",
+      "url": "https://www.ire.org/awards/ire-awards/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.ire.org/awards/ire-awards/"
+    },
+    "award-j-anthony-lukas-book-prize": {
+      "route": "publisher",
+      "nextCloseDate": "2026-01-31",
+      "closesOn": "01-31",
+      "note": "Shares the Lukas Prize Project cycle with the Mark Lynton History Prize.",
+      "url": "https://journalism.columbia.edu/lukas",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://journalism.columbia.edu/lukas"
+    },
+    "award-james-tait-black-prizes-biography": {
+      "route": "publisher",
+      "closesOn": "12-15",
+      "nextCloseDate": "2026-12-15",
+      "eligibility": "Written in or translated into English and published in the calendar year of the award; must be purchasable in the UK",
+      "fee": "No entry fee",
+      "note": "Submissions go direct to the judges, two copies preferred; there is no limit on titles per publisher.",
+      "url": "https://james-tait-black.ed.ac.uk/submit/fiction-biography",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://james-tait-black.ed.ac.uk/submit/fiction-biography"
+    },
+    "award-john-burroughs-medal": {
+      "route": "publisher",
+      "closesOn": "09-08",
+      "nextCloseDate": "2025-09-08",
+      "eligibility": "Narrative natural history published within the prior three calendar years",
+      "fee": "$50 reading fee per title",
+      "note": "Publishers email the association to nominate, then send seven copies. Deadlines shift slightly each summer.",
+      "url": "https://www.johnburroughsassociation.org/literary-awards/about-the-awards",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.johnburroughsassociation.org/literary-awards/about-the-awards"
+    },
+    "award-kirkus-prize-for-nonfiction": {
+      "route": "automatic",
+      "note": "Every book that earns a starred Kirkus review in the eligibility window is automatically considered; there is no separate entry.",
+      "url": "https://www.kirkusreviews.com/prize/",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.kirkusreviews.com/prize/"
+    },
+    "award-laura-shannon-prize-european-studies": {
+      "route": "nomination",
+      "closesOn": "03-31",
+      "nextCloseDate": "2026-03-31",
+      "note": "Nominations run through the Nanovic Institute form; the prize alternates between History & Social Sciences and Humanities cycles.",
+      "url": "https://nanovic.nd.edu/about/laura-shannon-prize/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://nanovic.nd.edu/about/laura-shannon-prize/"
+    },
+    "award-lionel-gelber-prize-international-affairs": {
+      "route": "publisher",
+      "closesOn": "10-31",
+      "nextCloseDate": "2025-10-31",
+      "fee": "$100 USD handling fee per entry",
+      "note": "All titles must be submitted by the publisher: seven copies plus an electronic copy and a submission form.",
+      "url": "https://gelber.munkschool.utoronto.ca/about-the-prize/submission-process/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://gelber.munkschool.utoronto.ca/about-the-prize/submission-process/"
+    },
+    "award-margaret-w-rossiter-history-of-women-in-science-prize": {
+      "route": "nomination",
+      "window": "HSS nomination cycle; the book prize is awarded in odd-numbered years",
+      "note": "Covers books published at most four years before the award year. Recent HSS cycles have closed in mid-December.",
+      "url": "https://hssonline.org/page/rossiter",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://hssonline.org/page/rossiter"
+    },
+    "award-mark-lynton-history-prize": {
+      "route": "publisher",
+      "nextCloseDate": "2026-01-31",
+      "closesOn": "01-31",
+      "note": "Entry materials and fees for the 2026 cycle were due 31 January 2026.",
+      "url": "https://journalism.columbia.edu/lukas",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://journalism.columbia.edu/lukas"
+    },
+    "award-national-book-critics-circle-award-for-nonfiction": {
+      "route": "committee",
+      "note": "No formal entry deadline. Publishers may bring books to the board's attention, and early submission is encouraged.",
+      "url": "https://www.bookcritics.org/awards/process/",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.bookcritics.org/awards/process/"
+    },
+    "award-ncr-book-award-nonfiction": {
+      "route": "committee",
+      "discontinued": true,
+      "window": "Closed in 1997",
+      "note": "The NCR Book Award ended in 1997 and was a forerunner of the Baillie Gifford Prize.",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://en.wikipedia.org/wiki/NCR_Book_Award"
+    },
+    "award-nero-book-awards-non-fiction": {
+      "route": "publisher",
+      "window": "Publishers enter in June and July",
+      "eligibility": "Published in the UK and Ireland; the author must have lived in the UK or Ireland for three years",
+      "note": "2026 entries are closed. The shortlist is announced in December and category winners in January.",
+      "url": "https://nerobookawards.com/enter-the-awards/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://nerobookawards.com/enter-the-awards/"
+    },
+    "award-overseas-press-club-awards-cornelius-ryan-award": {
+      "route": "publisher_or_author",
+      "closesOn": "01-09",
+      "nextCloseDate": "2026-01-09",
+      "eligibility": "Published in the US, or by a US-based company, for the first time during the previous calendar year",
+      "fee": "$200 per entry",
+      "note": "Books may be entered only for the Cornelius Ryan and Olivier Rebbot awards.",
+      "url": "https://overseaspressclubofamerica.submittable.com/submit",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://overseaspressclubofamerica.submittable.com/submit"
+    },
+    "award-pen-diamonstein-spielvogel-award-for-the-art-of-the-essay": {
+      "route": "publisher",
+      "closesOn": "08-01",
+      "nextCloseDate": "2026-08-01",
+      "fee": "$85 per submission; waived for publishers with annual net sales under $2 million",
+      "note": "Submissions for the 2027 PEN America Literary Awards close 1 August 2026.",
+      "url": "https://pen.org/literary-awards/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://pen.org/literary-awards/"
+    },
+    "award-pen-e-o-wilson-literary-science-writing-award": {
+      "route": "publisher",
+      "closesOn": "08-01",
+      "nextCloseDate": "2026-08-01",
+      "fee": "$85 per submission; waived for publishers with annual net sales under $2 million",
+      "note": "Submissions for the 2027 PEN America Literary Awards close 1 August 2026.",
+      "url": "https://pen.org/literary-awards/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://pen.org/literary-awards/"
+    },
+    "award-pen-hessell-tiltman-prize-historical-nonfiction": {
+      "route": "publisher",
+      "window": "Annual cycle; submissions were closed when last checked",
+      "eligibility": "First British publication in English, published 1 January–31 December of the previous year; history only, not historical biography, and no translations",
+      "note": "Publishers may draw attention to no more than two books on their lists or imprints.",
+      "url": "https://www.englishpen.org/prizes/pen-hessell-tiltman-prize/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.englishpen.org/prizes/pen-hessell-tiltman-prize/"
+    },
+    "award-pen-jacqueline-bograd-weld-award-for-biography": {
+      "route": "publisher",
+      "closesOn": "08-01",
+      "nextCloseDate": "2026-08-01",
+      "fee": "$85 per submission; waived for publishers with annual net sales under $2 million",
+      "note": "Submissions for the 2027 PEN America Literary Awards close 1 August 2026.",
+      "url": "https://pen.org/literary-awards/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://pen.org/literary-awards/"
+    },
+    "award-pen-john-kenneth-galbraith-award-for-nonfiction": {
+      "route": "publisher",
+      "closesOn": "08-01",
+      "nextCloseDate": "2026-08-01",
+      "fee": "$85 per submission; waived for publishers with annual net sales under $2 million",
+      "note": "Submissions for the 2027 PEN America Literary Awards close 1 August 2026.",
+      "url": "https://pen.org/literary-awards/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://pen.org/literary-awards/"
+    },
+    "award-pfizer-award-history-of-science": {
+      "route": "nomination",
+      "window": "HSS nomination cycle; recent cycles have closed in mid-December",
+      "eligibility": "Books published in English during the three calendar years preceding the competition",
+      "url": "https://hssonline.org/page/pfizeraward",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://hssonline.org/page/pfizeraward"
+    },
+    "award-plutarch-award-biography": {
+      "route": "nomination",
+      "window": "Nominations close in the winter, ahead of the March longlist",
+      "note": "BIO members nominate biographies, including their own; a committee of five biographers selects the winner.",
+      "url": "https://biographersinternational.org/award/the-plutarch/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://biographersinternational.org/award/the-plutarch/"
+    },
+    "award-rachel-carson-environment-book-award": {
+      "route": "publisher_or_author",
+      "closesOn": "09-02",
+      "nextCloseDate": "2025-09-02",
+      "eligibility": "Original copyright in the previous calendar year and publicly available",
+      "fee": "$110 general / $45 SEJ member; late entries accepted for two weeks at double the fee",
+      "url": "https://www.sej.org/initiatives/how-enter-sejs-rachel-carson-environment-book-contest",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.sej.org/initiatives/how-enter-sejs-rachel-carson-environment-book-contest"
+    },
+    "award-rbc-taylor-prize-literary-non-fiction": {
+      "route": "publisher",
+      "discontinued": true,
+      "window": "Concluded after the 2020 prize",
+      "note": "The trustees ended the prize after 20 years; 2020 was the final award.",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://quillandquire.com/omni/rbc-taylor-prize-to-be-awarded-for-the-last-time-in-2020/"
+    },
+    "award-ridenhour-book-prize": {
+      "route": "nomination",
+      "window": "Nominations open ahead of the spring prize ceremony",
+      "note": "No published deadline; contact the Ridenhour Prizes for the current nomination window.",
+      "url": "https://www.ridenhour.org/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.ridenhour.org/"
+    },
+    "award-robert-f-kennedy-book-award": {
+      "route": "publisher_or_author",
+      "closesOn": "01-30",
+      "nextCloseDate": "2026-01-30",
+      "eligibility": "Published between 1 January and 31 December of the previous year",
+      "fee": "$75 per professional entry",
+      "url": "https://kennedyhumanrights.org/awards/book-and-journalism-awards/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://kennedyhumanrights.org/press/2026-rfk-book-and-journalism-awards-now-open-for-submissions/"
+    },
+    "award-royal-society-science-book-prize": {
+      "route": "publisher",
+      "opensOn": "01-05",
+      "closesOn": "03-02",
+      "nextCloseDate": "2026-03-02",
+      "eligibility": "First English publication between 1 October 2025 and 30 September 2026",
+      "fee": "No charge to enter",
+      "note": "Books must be submitted by the publisher. Now the Royal Society Trivedi Science Book Prize.",
+      "url": "https://royalsociety.org/medals-and-prizes/science-book-prize/publishers/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://royalsociety.org/medals-and-prizes/science-book-prize/publishers/"
+    },
+    "award-shaughnessy-cohen-prize-for-political-writing": {
+      "route": "publisher",
+      "window": "Writers' Trust annual cycle; see the prize guidelines for current dates",
+      "note": "Canadian publishers may enter two books, plus one more for every ten additional eligible nonfiction titles, to a maximum of five.",
+      "url": "https://www.writerstrust.com/awards/shaughnessy-cohen-prize-for-political-writing",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.writerstrust.com/awards/shaughnessy-cohen-prize-for-political-writing"
+    },
+    "award-suzanne-j-levinson-prize-history-of-life-sciences-and-natural-history": {
+      "route": "nomination",
+      "closesOn": "12-15",
+      "nextCloseDate": "2025-12-15",
+      "eligibility": "Books in the history of the life sciences and natural history published in the previous four years",
+      "url": "https://hssonline.org/page/levinson",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://hssonline.org/page/levinson"
+    },
+    "award-truman-capote-award-for-literary-criticism": {
+      "route": "committee",
+      "note": "Winners are nominated and selected each year by a panel of judges; there is no open submission process.",
+      "url": "https://writersworkshop.uiowa.edu/about/annual-prizes/truman-capote-award",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://writersworkshop.uiowa.edu/about/annual-prizes/truman-capote-award"
+    },
+    "award-wellcome-book-prize-nonfiction": {
+      "route": "publisher",
+      "discontinued": true,
+      "window": "Paused since 2019",
+      "note": "Wellcome suspended the prize after its tenth anniversary and has not restarted it.",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.thebookseller.com/news/wellcome-book-prize-suspended-1009276"
+    },
+    "award-william-h-welch-medal-medical-history": {
+      "route": "nomination",
+      "window": "AAHM nomination cycle; the committee welcomes suggestions",
+      "eligibility": "Books (not edited volumes) published during the five calendar years preceding the award",
+      "note": "Publishers nominating a book send a copy to each committee member.",
+      "url": "https://histmed.org/william-h-welch-medal/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://histmed.org/william-h-welch-medal/"
+    },
+    "award-wolfson-history-prize": {
+      "route": "publisher",
+      "window": "Annual submission cycle; dates published on the prize site",
+      "url": "https://www.wolfsonhistoryprize.org.uk/",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.wolfsonhistoryprize.org.uk/"
+    },
+    "award-women-s-prize-for-non-fiction": {
+      "route": "publisher",
+      "opensOn": "07-07",
+      "closesOn": "08-29",
+      "eligibility": "UK publishers submit; see the terms of entry for the publication window",
+      "note": "For the 2026 prize, submissions opened 7 July 2025 and online entry forms were due 29 August 2025.",
+      "url": "https://womensprize.com/prizes/womens-prize-for-non-fiction/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://womensprize.com/app/uploads/2025/07/TC_WP_NonFiction_2026.pdf"
+    }
+  },
+  "programs": {
+    "aha-book-prizes": {
+      "route": "publisher_or_author",
+      "window": "Annual cycle; each AHA prize publishes its own call",
+      "note": "Deadlines differ by prize; check the individual AHA prize pages.",
+      "url": "https://www.historians.org/awards-and-grants/awards-and-prizes",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.historians.org/awards-and-grants/awards-and-prizes"
+    },
+    "anisfield-wolf-book-awards": {
+      "route": "publisher",
+      "opensOn": "04-15",
+      "closesOn": "10-16",
+      "nextCloseDate": "2026-10-16",
+      "eligibility": "Written in English and published and copyrighted in 2026 for the 2027 prize",
+      "note": "Authors may submit their own work, but publisher submissions are strongly advised.",
+      "url": "https://www.anisfield-wolf.org/submissions/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.anisfield-wolf.org/submissions/"
+    },
+    "james-beard-book-awards": {
+      "route": "publisher_or_author",
+      "window": "Open call runs in the autumn",
+      "fee": "$85 per entry (waivers provided on request)",
+      "note": "The 2026 Media Awards open call has closed; entries run through the James Beard awards platform.",
+      "url": "https://www.jamesbeard.org/awards/how-to-enter",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.jamesbeard.org/awards/media-awards/book-awards"
+    },
+    "los-angeles-times-book-prize": {
+      "route": "committee",
+      "note": "Judges select from books published during the eligibility year; there is no external nominating process.",
+      "url": "https://www.latimes.com/events/festival-of-books/book-prizes",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.latimes.com/events/festival-of-books/book-prizes"
+    },
+    "national-book-awards": {
+      "route": "publisher",
+      "nextCloseDate": "2026-05-13",
+      "closesOn": "05-13",
+      "note": "The 2026 entry form closed 13 May 2026 at 5:00 p.m. PDT; publishers submit on behalf of authors.",
+      "url": "https://www.nationalbook.org/national-book-awards/submissions/",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.nationalbook.org/national-book-awards/submissions/"
+    },
+    "national-jewish-book-awards": {
+      "route": "publisher_or_author",
+      "opensOn": "06-15",
+      "closesOn": "09-18",
+      "nextCloseDate": "2026-09-18",
+      "eligibility": "2026 copyright; the author must be living on 1 January 2026",
+      "fee": "$175 handling fee per title",
+      "note": "Entry forms and digital copies go through the Jewish Book Council portal, plus seven or twelve print copies by category.",
+      "url": "https://www.jewishbookcouncil.org/NJBA",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.jewishbookcouncil.org/NJBA"
+    },
+    "oah-book-prizes": {
+      "route": "publisher",
+      "closesOn": "10-01",
+      "nextCloseDate": "2025-10-01",
+      "note": "Publishers submit; most OAH book awards close 1 October, though individual prizes list their own terms.",
+      "url": "https://www.oah.org/awards/book-awards-and-prizes/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.oah.org/awards/book-awards-and-prizes/frederick-jackson-turner-award/"
+    },
+    "orwell-prize": {
+      "route": "publisher",
+      "closesOn": "01-26",
+      "nextCloseDate": "2026-01-26",
+      "eligibility": "Published in the UK or Ireland between 1 June and 31 May by a recognised UK or Irish publisher",
+      "fee": "No charge for entry",
+      "note": "The call for entries goes out to publishers in November; hard copies follow a few days after the form deadline.",
+      "url": "https://www.orwellfoundation.com/the-orwell-prizes/how-to-enter/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://www.orwellfoundation.com/the-orwell-prizes/rules/"
+    },
+    "phi-beta-kappa-book-awards": {
+      "route": "publisher",
+      "nextCloseDate": "2025-11-15",
+      "closesOn": "11-15",
+      "note": "Nominations for the 2026 awards closed 15 November 2025.",
+      "url": "https://www.pbk.org/awards/bookawards",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.pbk.org/awards/bookawards"
+    },
+    "prose-awards": {
+      "route": "publisher",
+      "opensOn": "09-22",
+      "closesOn": "11-10",
+      "nextCloseDate": "2025-11-10",
+      "eligibility": "Works carrying the prior year's copyright",
+      "note": "The 2026 awards accepted entries from 22 September to 10 November 2025.",
+      "url": "https://proseawards.com/how-to-enter/",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://proseawards.com/how-to-enter/"
+    },
+    "pulitzer-prize": {
+      "route": "publisher_or_author",
+      "nextCloseDate": "2026-10-15",
+      "closesOn": "10-15",
+      "eligibility": "Books published in the United States during the calendar year",
+      "note": "Entries for 2026-published books close 15 October 2026 at 5:30 p.m. Eastern.",
+      "url": "https://www.pulitzer.org/node/how-enter",
+      "verifiedOn": "2026-05-08",
+      "sourceUrl": "https://www.pulitzer.org/node/how-enter"
+    },
+    "wainwright-prize": {
+      "route": "publisher",
+      "opensOn": "01-29",
+      "closesOn": "02-27",
+      "nextCloseDate": "2026-02-27",
+      "eligibility": "First published between 1 June 2025 and 31 May 2026; proofs accepted for titles due before that date",
+      "fee": "No entry fee; longlisted titles pay a shortlist levy toward promotion",
+      "note": "Publishers submit with author and illustrator consent.",
+      "url": "https://wainwrightprize.com/submissions-2/",
+      "verifiedOn": "2026-07-30",
+      "sourceUrl": "https://wainwrightprize.com/submissions-2/"
+    }
+  }
+}

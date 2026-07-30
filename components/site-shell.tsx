@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { Bookmark, ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import {
+  getSavedLibraryCounts,
+  SAVED_LIBRARY_CHANGED_EVENT,
+} from "@/lib/saved-semantic-lists";
 import { DONATE_URL, NEWSLETTER_URL } from "@/lib/support-links";
 
 const navItems = [
@@ -24,6 +28,9 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const [savedCount, setSavedCount] = useState(0);
+  const [savedPulse, setSavedPulse] = useState(false);
+  const savedPulseTimeout = useRef<number | null>(null);
   const breadcrumbs = useMemo(() => getBreadcrumbs(pathname), [pathname]);
   const immersive = pathname === "/fun/chromatic-index";
 
@@ -32,6 +39,27 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     const shouldDark = stored === "dark" || (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
     document.documentElement.classList.toggle("dark", shouldDark);
     setDark(shouldDark);
+  }, []);
+
+  useEffect(() => {
+    const load = (event?: Event) => {
+      const action = event instanceof CustomEvent ? event.detail?.action : undefined;
+      if (action === "add") {
+        setSavedPulse(false);
+        window.requestAnimationFrame(() => setSavedPulse(true));
+        if (savedPulseTimeout.current) window.clearTimeout(savedPulseTimeout.current);
+        savedPulseTimeout.current = window.setTimeout(() => setSavedPulse(false), 1_050);
+      }
+      void getSavedLibraryCounts()
+        .then((counts) => setSavedCount(counts.total))
+        .catch(() => setSavedCount(0));
+    };
+    load();
+    window.addEventListener(SAVED_LIBRARY_CHANGED_EVENT, load);
+    return () => {
+      window.removeEventListener(SAVED_LIBRARY_CHANGED_EVENT, load);
+      if (savedPulseTimeout.current) window.clearTimeout(savedPulseTimeout.current);
+    };
   }, []);
 
   useEffect(() => {
@@ -115,25 +143,36 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
               );
             })}
           </nav>
-          <button
-            className="site-header-action focus-ring ml-auto grid h-10 w-10 place-items-center border hairline transition hover:bg-[var(--panel)]"
-            onClick={toggleTheme}
-            aria-label="Toggle dark mode"
-            type="button"
-          >
-            {dark ? <Sun size={17} /> : <Moon size={17} />}
-          </button>
-          <button
-            aria-controls="mobile-site-menu"
-            aria-expanded={menuOpen}
-            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            className={`site-header-action mobile-menu-button focus-ring grid h-10 w-10 place-items-center border hairline lg:hidden ${menuOpen ? "mobile-menu-button-open" : ""}`}
-            onClick={() => setMenuOpen((open) => !open)}
-            type="button"
-          >
-            <Menu className="mobile-menu-icon mobile-menu-icon-menu" size={18} />
-            <X className="mobile-menu-icon mobile-menu-icon-close" size={18} />
-          </button>
+          <div className="site-header-utilities ml-auto flex items-center gap-2">
+            <Link
+              aria-current={pathname.startsWith("/saved") ? "page" : undefined}
+              aria-label={savedCount ? `Open saved library, ${savedCount} saved items` : "Open saved library"}
+              className={`site-header-action site-header-saved focus-ring grid h-10 w-10 place-items-center border hairline transition ${savedCount ? "site-header-saved-has-items" : ""} ${savedPulse ? "site-header-saved-pulse" : ""}`}
+              href="/saved"
+              title={savedCount ? `${savedCount} saved items` : "Saved books and lists"}
+            >
+              <Bookmark aria-hidden="true" fill="none" size={17} />
+            </Link>
+            <button
+              className="site-header-action focus-ring grid h-10 w-10 place-items-center border hairline transition hover:bg-[var(--panel)]"
+              onClick={toggleTheme}
+              aria-label="Toggle dark mode"
+              type="button"
+            >
+              {dark ? <Sun size={17} /> : <Moon size={17} />}
+            </button>
+            <button
+              aria-controls="mobile-site-menu"
+              aria-expanded={menuOpen}
+              aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+              className={`site-header-action mobile-menu-button focus-ring grid h-10 w-10 place-items-center border hairline lg:hidden ${menuOpen ? "mobile-menu-button-open" : ""}`}
+              onClick={() => setMenuOpen((open) => !open)}
+              type="button"
+            >
+              <Menu className="mobile-menu-icon mobile-menu-icon-menu" size={18} />
+              <X className="mobile-menu-icon mobile-menu-icon-close" size={18} />
+            </button>
+          </div>
         </div>
         {!immersive && breadcrumbs.length > 1 ? (
           <div className="breadcrumb-bar border-t hairline">
@@ -200,9 +239,18 @@ function getBreadcrumbs(pathname: string) {
 }
 
 function labelForPart(part: string, href: string) {
+  if (href === "/saved/collections") return "Lists";
+  if (href.startsWith("/saved/collections/")) return "Personal List";
+  if (href.startsWith("/saved/")) return "Saved Search";
+  if (href.startsWith("/lists/")) return "Shared List";
+  if (href.startsWith("/reading-lists/")) return "Shared Reading List";
   if (part === "books") return "Books";
   if (part === "awards") return "Awards";
   if (part === "subjects") return "Subjects";
+  if (part === "saved") return "Saved";
+  if (part === "collections") return "Lists";
+  if (part === "lists") return "Shared Lists";
+  if (part === "reading-lists") return "Reading Lists";
   if (part === "topics") return "Topics";
   if (part === "publishers") return "Publishers";
   if (part === "imprints") return "Imprints";
@@ -247,6 +295,7 @@ function SiteFooter() {
             { href: "/awards", label: "Awards" },
             { href: "/subjects", label: "Subjects" },
             { href: "/topics", label: "Topics" },
+            { href: "/saved", label: "Saved" },
             { href: "/publishers", label: "Publishers" },
           ]}
         />

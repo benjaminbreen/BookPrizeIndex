@@ -7,6 +7,7 @@ import { BookRetailerLinks } from "@/components/book-retailer-links";
 import { ExpandableBookDescription } from "@/components/expandable-book-description";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
 import { ReportCorrectionLink } from "@/components/report-correction-link";
+import { SaveBookControl } from "@/components/save-book-control";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { authorPlatformLinksFor } from "@/lib/author-platform-links";
 import { readBookDetailArtifact } from "@/lib/book-detail-artifacts";
@@ -25,6 +26,7 @@ import {
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 import { compactDescription } from "@/lib/site";
 import { libraryShelfNeighborhoodFor } from "@/lib/library-shelf-data";
+import { savedBookInputFromBook } from "@/lib/saved-library-types";
 import type { AwardAppearance, Book, ExperimentalSemanticEntity, ExperimentalSemanticProfile, WikipediaBookEvidence } from "@/lib/types";
 import type { BookAuthorPlatformLink } from "@/lib/book-drawer-types";
 
@@ -114,6 +116,9 @@ export default async function BookPage({ params }: PageProps) {
       <section className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[16rem_minmax(0,1fr)_20rem] lg:items-start lg:px-8">
         <aside className="border-r-0 hairline lg:border-r lg:pr-6">
           <BookCover title={book.title} author={book.authors.map((author) => author.name).join(", ")} thumbnailUrl={book.thumbnailUrl} />
+          <div className="mt-3 max-w-[14.5rem]">
+            <SaveBookControl book={savedBookInputFromBook(book)} />
+          </div>
           <dl className="mt-3 grid text-[0.72rem]">
             <RailMeta label="Author" value={<AuthorRailValue authors={book.authors} platforms={authorPlatforms} />} />
             <RailMeta label="Publisher" value={metadataValue(publisher?.name, wikipediaInfobox?.publisher, "Not yet sourced")} />

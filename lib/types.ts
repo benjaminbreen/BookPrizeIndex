@@ -1,3 +1,7 @@
+import type { AwardSubmission } from "./award-submission";
+
+export type { AwardSubmission } from "./award-submission";
+
 export type AwardStatus =
   | "winner"
   | "co_winner"
@@ -242,7 +246,9 @@ export type Award = {
   description?: string;
   geography?: string;
   subjectAreas: string[];
+  /** Legacy free-text deadline. Prefer `submission`. */
   deadline?: string;
+  submission?: AwardSubmission;
   criteria?: string;
   prizeAmount?: string;
   logoUrl?: string;
@@ -266,6 +272,7 @@ export type AwardProgram = {
   geography?: string;
   notes?: string;
   officialUrl?: string;
+  submission?: AwardSubmission;
   sourceIds: string[];
 };
 

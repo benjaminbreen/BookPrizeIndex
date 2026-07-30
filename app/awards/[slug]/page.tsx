@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { AwardBookList } from "@/components/award-book-list";
 import { ReportCorrectionLink } from "@/components/report-correction-link";
 import { appearancesByAwardId, awardProgramsBySlug, awardsBySlug, booksById, data, getBookStats, imprintsById, publishersById } from "@/lib/data";
+import { type AwardSubmission, formatDay, submissionRouteLabel } from "@/lib/award-submission";
 import { pageMetadata } from "@/lib/site-metadata";
 
 export function generateStaticParams() {
@@ -111,8 +112,9 @@ export default async function AwardPage({ params }: PageProps) {
             </div>
           </section>
 
-          <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 lg:grid-cols-[1fr_1fr_2fr]">
-            <AdminMeta label="Deadline" numberValue value={award.deadline ?? "Not yet sourced"} />
+          <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 lg:grid-cols-[1fr_1.4fr_1fr_2fr]">
+            <AdminMeta label="How to enter" numberValue value={submissionHeadline(award.submission, award.deadline)} />
+            <AdminMeta label="Entry details" value={submissionDetail(award.submission)} />
             <AdminMeta label="Prize amount" numberValue value={award.prizeAmount ?? "Not yet sourced"} />
             <AdminMeta label="Criteria / coverage" value={award.criteria ?? "Not yet sourced"} />
           </div>
@@ -120,7 +122,7 @@ export default async function AwardPage({ params }: PageProps) {
             <AdminMeta label="Source coverage" numberValue value={sourceCoverage} />
             <AdminMeta label="Sourced records" numberValue value={`${sourcedRecords} of ${appearances.length}`} />
             <AdminMeta label="Official site" value={award.links.official ?? "Not yet sourced"} />
-            <AdminMeta label="Submission info" value={award.links.submission ?? award.links.criteria ?? "Not yet sourced"} />
+            <AdminMeta label="Submission info" value={award.submission?.url ?? award.links.submission ?? award.links.criteria ?? "Not yet sourced"} />
           </div>
           <div className="flex justify-end lg:col-span-2">
             <ReportCorrectionLink
@@ -241,9 +243,10 @@ function AwardProgramPage({ program }: { program: NonNullable<typeof data.awardP
             </div>
           </section>
 
-          <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 lg:grid-cols-[1fr_1fr_2fr]">
+          <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 lg:grid-cols-[1fr_1fr_1fr_2fr]">
+            <AdminMeta label="How to enter" numberValue value={submissionHeadline(program.submission)} />
+            <AdminMeta label="Entry details" value={submissionDetail(program.submission)} />
             <AdminMeta label="Official site" value={program.officialUrl ?? "Not yet sourced"} />
-            <AdminMeta label="Coverage" numberValue value={`${categoryRows.length} categories represented`} />
             <AdminMeta label="Notes" value={program.notes ?? "Category coverage is based on imported source-backed award records."} />
           </div>
           <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] lg:col-span-2 md:grid-cols-3">
@@ -369,6 +372,32 @@ function StatLine({ label, value }: { label: string; value: string }) {
       <dd className="plain-number text-right">{value}</dd>
     </div>
   );
+}
+
+/** Headline entry status: who submits, and the close date we last verified. */
+function submissionHeadline(submission?: AwardSubmission, legacyDeadline?: string) {
+  if (!submission) return legacyDeadline ?? "Not yet sourced";
+  if (submission.discontinued) return "No longer awarded";
+  const route = submissionRouteLabel(submission.route);
+  if (submission.nextCloseDate) return `${route} · closed ${formatDay(submission.nextCloseDate)} for the last verified cycle`;
+  if (submission.closesOn) return `${route} · closes annually around ${formatMonthDay(submission.closesOn)}`;
+  return route;
+}
+
+function submissionDetail(submission?: AwardSubmission) {
+  if (!submission) return "No sourced entry window yet. Check the official site for the current call for entries.";
+  const parts = [
+    submission.note,
+    submission.window ? `Window: ${submission.window}` : undefined,
+    submission.eligibility ? `Eligible: ${submission.eligibility}` : undefined,
+    submission.fee ? `Fee: ${submission.fee}` : undefined,
+    `Verified ${formatDay(submission.verifiedOn)}; confirm dates on the official page before entering.`,
+  ].filter(Boolean);
+  return parts.join(" ");
+}
+
+function formatMonthDay(monthDay: string) {
+  return formatDay(`2000-${monthDay}`).replace(" 2000", "");
 }
 
 function formatAwardGeography(geography?: string) {

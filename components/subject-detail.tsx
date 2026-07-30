@@ -6,9 +6,11 @@ import { useMemo, useState } from "react";
 import type React from "react";
 import { AuthorLinks } from "@/components/author-links";
 import { BookDrawer } from "@/components/book-drawer";
+import { SemanticListActions } from "@/components/semantic-list-actions";
 import { EntityMetricGrid, SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch } from "@/components/use-semantic-book-search";
 import type { BrowseBookRow } from "@/lib/browse-types";
+import type { SemanticListDraft } from "@/lib/semantic-list";
 import type { SubjectSummary } from "@/lib/types";
 
 type BookSortKey = "score" | "year" | "title" | "author" | "wins" | "lists" | "imprint" | "publisher" | "subject";
@@ -88,6 +90,31 @@ export function SubjectDetail({
         semanticSearch.interpretation.subjects.slice(0, 3).join(", "),
       ].filter(Boolean).join(" · ")
     : "";
+  const semanticReady = semanticActive
+    && !semanticSearchPending
+    && semanticSearch.query === semanticQuery.trim()
+    && Boolean(semanticSearch.diagnostics)
+    && semanticSearch.results.length > 0;
+  const semanticListDraft: SemanticListDraft | null = semanticReady
+    ? {
+        diagnostics: {
+          candidateBookCount: semanticSearch.diagnostics?.candidateBookCount,
+          embeddingModel: semanticSearch.diagnostics?.embeddingModel,
+          indexGeneratedAt: semanticSearch.diagnostics?.indexGeneratedAt,
+          interpretationModel: semanticSearch.diagnostics?.interpretationModel,
+          queryExpansionModel: semanticSearch.diagnostics?.queryExpansionModel,
+          resultCount: semanticSearch.diagnostics?.resultCount,
+          usedModelInterpretation: semanticSearch.diagnostics?.usedModelInterpretation,
+        },
+        filters: {
+          region: "all",
+          subject: activeSubdivision || subject.name,
+        },
+        interpretation: semanticSearch.interpretation,
+        query: semanticQuery,
+        results: semanticSearch.results.map((result) => ({ bookId: result.bookId, score: result.score })),
+      }
+    : null;
 
   return (
     <>
@@ -202,12 +229,15 @@ export function SubjectDetail({
           />
         </div>
         {semanticActive || (hasPendingSemanticQuery && query.trim()) ? (
-          <p className="mt-2 grid gap-1 px-1 font-[var(--font-mono)] text-xs muted">
-            {hasPendingSemanticQuery && query.trim() ? <span>Press Enter to search this phrase.</span> : null}
-            {semanticConceptLine ? <span className="text-[var(--ink)]">Interpreted as {semanticConceptLine}</span> : null}
-            {semanticSearch.error ? <span className="text-[var(--accent)]">{semanticSearch.error} Showing keyword fallback.</span> : null}
-            {semanticSearch.warning ? <span>{semanticSearch.warning}</span> : null}
-          </p>
+          <div className="mt-2 flex flex-wrap items-end justify-between gap-2 px-1">
+            <p className="grid gap-1 font-[var(--font-mono)] text-xs muted">
+              {hasPendingSemanticQuery && query.trim() ? <span>Press Enter to search this phrase.</span> : null}
+              {semanticConceptLine ? <span className="text-[var(--ink)]">Interpreted as {semanticConceptLine}</span> : null}
+              {semanticSearch.error ? <span className="text-[var(--accent)]">{semanticSearch.error} Showing keyword fallback.</span> : null}
+              {semanticSearch.warning ? <span>{semanticSearch.warning}</span> : null}
+            </p>
+            {semanticListDraft ? <div className="flex gap-2"><SemanticListActions draft={semanticListDraft} /></div> : null}
+          </div>
         ) : null}
       </section>
 

@@ -36,6 +36,21 @@ by default. Operators can tune `SEMANTIC_SEARCH_REQUESTS_PER_MINUTE` and `SEMANT
 `SEMANTIC_SEARCH_ENABLED=false` as an immediate kill switch. Provider-level project budgets remain the final backstop
 when a serverless host runs more than one process.
 
+### Saved books and lists
+
+Individual books and user-created reading lists are kept locally in the browser's IndexedDB storage, alongside
+completed Meaning searches that users choose to freeze. The header bookmark links to this local library, briefly
+pulses when an item is added, and offers an accent hover state when the library is non-empty. Personal lists can be
+prepared for sharing with a creator display name, edited title, optional introduction, selected books, and a chosen
+order. Sharing writes an immutable, content-addressed JSON snapshot to Vercel Blob and returns
+`/reading-lists/<id>`; semantic-list sharing uses `/lists/<id>`. Shared personal lists include generated
+social-preview images and Markdown export.
+
+Connect a Vercel Blob store to production so `BLOB_READ_WRITE_TOKEN` is available. When the app is not running on
+Vercel and no Blob token is configured, shared snapshots use the gitignored `.semantic-lists/` and `.personal-lists/`
+directories for local development. Shared pages are unlisted and excluded from search-engine indexing. Opening a
+saved or shared list never invokes the semantic-search provider; rerunning is a separate, explicit action.
+
 ## Status
 
 This is an early version of the project. The current focus is building a reliable, source-backed corpus of book award data and improving metadata for individual books.

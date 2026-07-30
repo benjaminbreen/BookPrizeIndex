@@ -19,14 +19,15 @@ export default function PrivacyPage() {
     <TextPageShell label="Privacy" navItems={navItems}>
       <TextPageTitle>Privacy</TextPageTitle>
       <p className="mt-5 font-[var(--font-mono)] text-[0.68rem] uppercase tracking-[0.16em] muted">
-        Last updated July 29, 2026
+        Last updated July 30, 2026
       </p>
 
       <TextPageSection id="collection" title="Collection">
         <p>
           The Book Prize Index has no user accounts, on-site email signup, mailing list, advertising, tracking pixels,
-          tracking cookies, or stored search history. Theme and award-region preferences are saved only in your
-          browser&apos;s local storage and are never added to a visitor profile or database.
+          tracking cookies, or personal search-history profile. Theme and award-region preferences are saved only in
+          your browser&apos;s local storage. Books, personal reading lists, and Meaning-search lists you choose to save
+          are kept in that browser&apos;s IndexedDB storage and are not uploaded merely because you saved them.
         </p>
         <p>
           To decide when to show its one-time support message, the site keeps a temporary set of book records opened
@@ -60,7 +61,13 @@ export default function PrivacyPage() {
       <TextPageSection id="use" title="Use">
         <p>
           The project does not sell, rent, share, or use visitor data for profiling, advertising, or marketing. Search
-          queries are not retained by The Book Prize Index or included in its analytics.
+          queries are not retained by default or included in analytics. If you explicitly choose Create stable link,
+          the submitted list contents are stored as an unlisted snapshot. A Meaning-search snapshot contains its query,
+          interpreted concepts, filter context, creation time, and frozen book results. A personal reading-list snapshot
+          contains the creator display name entered at share time, its edited title, optional introduction, selected
+          books, order, and creation time. The display name is remembered in that browser for later shares. Anyone who
+          receives the link can read those contents. Shared lists are excluded from the sitemap and ask search engines
+          not to index them, but an unlisted link should not be treated as secret.
         </p>
       </TextPageSection>
 
@@ -71,9 +78,11 @@ export default function PrivacyPage() {
         </p>
         <p>
           If you actively submit a Meaning search, the text of that query is sent to OpenAI solely to generate search
-          results. The Book Prize Index does not store the query or associate it with an identifier. OpenAI necessarily
-          processes the request under its own privacy practices, but this project does not use that service to build
-          visitor profiles.
+          results. The Book Prize Index does not retain it unless you explicitly create a stable shared link, and does
+          not associate searches or shared lists with a visitor profile. Sharing a personal reading list does not send
+          it to OpenAI. OpenAI necessarily processes Meaning-search requests under its own privacy practices, but this
+          project does not use that service to build visitor profiles. Vercel Blob stores shared-list snapshots and
+          serves them when their stable links are opened.
         </p>
         <p>
           Donations are optional and take place on a Stripe-hosted checkout page. Newsletter subscriptions are optional
