@@ -37,11 +37,11 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
 
   return (
     <main className="subjects-page py-4">
-      <section className="subjects-hero mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.86fr_1fr] lg:items-center lg:px-8">
+      <section className="subjects-hero mx-auto grid max-w-7xl gap-5 px-4 sm:gap-8 sm:px-6 lg:grid-cols-[0.86fr_1fr] lg:items-center lg:px-8">
         <div>
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Awards</p>
-          <h1 className="mt-3 font-[var(--font-serif)] text-4xl font-light leading-tight sm:text-5xl">Browse awards.</h1>
-          <p className="mt-4 max-w-2xl font-[var(--font-serif)] text-lg font-light leading-7 muted sm:mt-5 sm:text-xl sm:leading-8">
+          <h1 className="mt-3 font-[var(--font-serif)] text-[2.25rem] font-light leading-tight sm:text-5xl">Browse awards.</h1>
+          <p className="mt-3 max-w-2xl font-[var(--font-serif)] text-[1.05rem] font-light leading-7 muted sm:mt-5 sm:text-xl sm:leading-8">
             Explore nonfiction prizes by subject, eligibility, deadline, and source.
             <br />
             Click an award to view related books and records.
@@ -52,7 +52,7 @@ export function AwardsBrowser({ data, defaultRegion }: { data: BrowseData; defau
           <Search className="shrink-0 text-[var(--ink)]" size={24} strokeWidth={1.8} />
           <input
             className="min-w-0 flex-1 bg-transparent px-2 text-base outline-none placeholder:text-[var(--muted)]"
-            placeholder="Search awards, subjects, criteria..."
+            placeholder="Search awards…"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
           />

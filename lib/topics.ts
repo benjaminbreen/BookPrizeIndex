@@ -1,15 +1,20 @@
 import { booksByTopic, data, statsByBookId } from "@/lib/data";
-import type { Book } from "@/lib/types";
+import topicDefinitionsJson from "@/sources/topics.json";
+import type { Book, TopicDefinition } from "@/lib/types";
+
+const topicDefinitions = topicDefinitionsJson as TopicDefinition[];
+const topicDefinitionsByName = new Map(topicDefinitions.map((topic) => [topic.name, topic]));
 
 export type TopicSummary = {
   name: string;
   slug: string;
+  description: string;
   bookCount: number;
   topBookId?: string;
+  sortOrder: number;
 };
 
 let defaultTopicSummaries: TopicSummary[] | undefined;
-let defaultTopicNamesBySlug: Map<string, string> | undefined;
 
 export function topicSlug(topic: string) {
   return topic
@@ -42,21 +47,24 @@ export function topicSummaries(books: Book[] = data.books): TopicSummary[] {
     }
   }
   const summaries = [...counts.entries()]
-    .map(([name, value]) => ({
-      name,
-      slug: topicSlug(name),
-      bookCount: value.bookIds.size,
-      topBookId: value.topBookId,
-    }))
+    .map(([name, value]) => {
+      const definition = topicDefinitionsByName.get(name);
+      return {
+        name,
+        slug: topicSlug(name),
+        description: definition?.description ?? `Books connected by the theme of ${name.toLowerCase()}.`,
+        bookCount: value.bookIds.size,
+        topBookId: value.topBookId,
+        sortOrder: definition?.sortOrder ?? Number.MAX_SAFE_INTEGER,
+      };
+    })
     .sort((a, b) => b.bookCount - a.bookCount || a.name.localeCompare(b.name));
   if (books === data.books) {
     defaultTopicSummaries = summaries;
-    defaultTopicNamesBySlug = new Map(summaries.map((topic) => [topic.slug, topic.name]));
   }
   return summaries;
 }
 
-export function topicNameForSlug(slug: string) {
-  if (!defaultTopicNamesBySlug) topicSummaries();
-  return defaultTopicNamesBySlug?.get(slug);
+export function topicSummaryForSlug(slug: string) {
+  return topicSummaries().find((topic) => topic.slug === slug);
 }

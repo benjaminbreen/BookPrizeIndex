@@ -133,24 +133,27 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
               className="subjects-search home-search-capsule"
               onSubmit={submitSearch}
             >
-              <Search size={20} className="muted transition group-focus-within:text-[var(--ink)]" />
-              <input
-                aria-label="Search the book catalog"
-                className="min-w-0 flex-1 bg-transparent text-lg outline-none placeholder:text-[color-mix(in_srgb,var(--muted)_78%,transparent)]"
-                maxLength={600}
-                placeholder={searchMode === "semantic" ? "Describe a theme, project, era, or mood..." : "Search books, authors, subjects..."}
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-              />
-              {query.trim() ? (
-                <button
-                  className="semantic-submit semantic-submit-ready focus-ring inline-flex h-9 shrink-0 items-center gap-2 rounded-full px-3 text-xs"
-                  type="submit"
-                >
-                  Enter
-                  <CornerDownLeft size={13} />
-                </button>
-              ) : null}
+              <div className="home-search-query-row">
+                <Search size={20} className="shrink-0 muted transition group-focus-within:text-[var(--ink)]" />
+                <input
+                  aria-label="Search the book catalog"
+                  className="min-w-0 flex-1 bg-transparent text-base outline-none placeholder:text-[color-mix(in_srgb,var(--muted)_78%,transparent)] sm:text-lg"
+                  maxLength={600}
+                  placeholder={searchMode === "semantic" ? "Describe a topic, era, or idea…" : "Search books or authors…"}
+                  value={query}
+                  onChange={(event) => setQuery(event.target.value)}
+                />
+                {query.trim() ? (
+                  <button
+                    aria-label="Submit search"
+                    className="semantic-submit semantic-submit-ready focus-ring inline-flex h-9 shrink-0 items-center gap-2 rounded-full px-3 text-xs"
+                    type="submit"
+                  >
+                    <span className="hidden sm:inline">Enter</span>
+                    <CornerDownLeft size={13} />
+                  </button>
+                ) : null}
+              </div>
               <div className="home-search-mode-toggle" aria-label="Search mode" onMouseLeave={() => setTooltipMode(null)}>
                 <button
                   aria-describedby="home-search-mode-help"
@@ -199,7 +202,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
             <div className="home-search-controls">
               <div className="grid gap-4 lg:items-end">
                 <FilterGroup label="Region">
-                  {(["us", "international", "all"] as const).map((item) => (
+                  {(["all", "us", "international"] as const).map((item) => (
                     <FilterButton key={item} active={region === item} onClick={() => setRegion(item)}>
                       {regionLabel(item)}
                     </FilterButton>
@@ -245,11 +248,11 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
         </div>
       </section>
 
-      <section className="home-ranked-section mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8" id="books">
+      <section className="home-ranked-section mx-auto max-w-7xl px-4 py-7 sm:px-6 sm:py-9 lg:px-8 lg:py-10" id="books">
         <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Ranked catalog</p>
-            <h2 className="mt-2 font-[var(--font-serif)] text-3xl font-light">Highest recognition scores</h2>
+            <h2 className="mt-2 font-[var(--font-serif)] text-2xl font-light sm:text-3xl">Highest recognition scores</h2>
             <p className="mt-2 max-w-2xl text-sm leading-6 muted">
               Weighted by wins and list placements, with established major prizes carrying more weight. Read the{" "}
               <Link className="underline decoration-[var(--line)] underline-offset-4 hover:text-[var(--ink)]" href="/methodology#ranking">
@@ -258,7 +261,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
             </p>
           </div>
           <div className="grid justify-items-start gap-2 font-[var(--font-mono)] text-xs sm:justify-items-end">
-            <div className="flex flex-wrap gap-2">
+            <div className="home-ranked-subjects flex max-w-full gap-2">
               {rankedSubjectFilters.map((filter) => (
                 <button
                   key={filter.key}
@@ -273,7 +276,34 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
           </div>
         </div>
 
-        <div className="overflow-x-auto border hairline panel">
+        <label className="home-ranked-mobile-sort mb-3 flex items-center justify-between gap-3 border-y hairline py-2.5 text-sm lg:hidden">
+          <span className="filter-label">Sort books</span>
+          <select
+            aria-label="Sort ranked books"
+            className="filter-select"
+            onChange={(event) => {
+              const nextSortKey = event.target.value as SortKey;
+              setSortKey(nextSortKey);
+              setSortDirection(defaultSortDirection(nextSortKey));
+            }}
+            value={sortKey}
+          >
+            <option value="score">Recognition score</option>
+            <option value="year">First listed</option>
+            <option value="title">Title A–Z</option>
+            <option value="author">Author A–Z</option>
+            <option value="wins">Most wins</option>
+            <option value="lists">Most lists</option>
+          </select>
+        </label>
+
+        <div className="grid gap-px overflow-hidden border hairline bg-[var(--line)] sm:grid-cols-2 lg:hidden">
+          {topBooks.map((book, index) => (
+            <HomeRankedCard book={book} index={index} key={book.id} region={region} />
+          ))}
+        </div>
+
+        <div className="hidden overflow-x-auto border hairline panel lg:block">
           <table className="w-full min-w-[860px] border-collapse text-left">
             <thead className="font-[var(--font-mono)] text-xs uppercase tracking-[0.08em] muted">
               <tr className="border-b hairline">
@@ -444,6 +474,49 @@ function HomeBookCover({ book }: { book: HomeBookRow }) {
   return (
     <span className="home-book-cover home-book-cover-placeholder" aria-hidden="true">
       {book.title.charAt(0)}
+    </span>
+  );
+}
+
+function HomeRankedCard({
+  book,
+  index,
+  region,
+}: {
+  book: HomeBookRow;
+  index: number;
+  region: AwardRegionFilter;
+}) {
+  const stats = bookRecognition(book, region);
+  return (
+    <Link
+      className="home-ranked-card focus-ring fade-up bg-[var(--paper)]"
+      href={`/books/${book.slug}`}
+      style={{ animationDelay: `${Math.min(index * 18, 140)}ms` }}
+    >
+      <span className="grid min-w-0 grid-cols-[2.8rem_minmax(0,1fr)_auto] items-start gap-3">
+        <HomeBookCover book={book} />
+        <span className="min-w-0">
+          <span className="line-clamp-2 font-[var(--font-serif)] text-lg font-light leading-6">{book.title}</span>
+          <span className="mt-1 block truncate text-sm muted">{book.author}</span>
+        </span>
+        <ArrowRight className="home-ranked-card-arrow muted" size={15} />
+      </span>
+      <span className="mt-3 grid grid-cols-4 gap-2 border-t hairline pt-2.5">
+        <HomeRankedMetric label="Score" value={stats.score} />
+        <HomeRankedMetric label="First" value={stats.firstRecognitionYear ?? "—"} />
+        <HomeRankedMetric label="Wins" value={stats.wins} />
+        <HomeRankedMetric label="Lists" value={stats.lists} />
+      </span>
+    </Link>
+  );
+}
+
+function HomeRankedMetric({ label, value }: { label: string; value: number | string }) {
+  return (
+    <span className="min-w-0">
+      <span className="block font-[var(--font-mono)] text-[0.58rem] uppercase tracking-[0.1em] muted">{label}</span>
+      <span className="plain-number mt-0.5 block text-sm">{value}</span>
     </span>
   );
 }

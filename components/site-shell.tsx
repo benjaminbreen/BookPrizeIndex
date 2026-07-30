@@ -67,7 +67,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen">
       <header className="site-header sticky top-0 z-20 border-b hairline backdrop-blur">
-        <div className="mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_auto] items-center gap-8 px-4 sm:px-6 lg:px-8">
+        <div className="site-header-inner mx-auto grid h-16 max-w-7xl grid-cols-[1fr_auto_auto] items-center gap-8 px-4 sm:px-6 lg:px-8">
           <Link className="nav-mark font-[var(--font-mono)] text-md font-medium uppercase tracking-[0.2em]" href="/">
             The Book Prize Index
           </Link>
@@ -116,7 +116,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             })}
           </nav>
           <button
-            className="focus-ring ml-auto grid h-10 w-10 place-items-center border hairline transition hover:bg-[var(--panel)]"
+            className="site-header-action focus-ring ml-auto grid h-10 w-10 place-items-center border hairline transition hover:bg-[var(--panel)]"
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
             type="button"
@@ -127,7 +127,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
             aria-controls="mobile-site-menu"
             aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-            className={`mobile-menu-button focus-ring grid h-10 w-10 place-items-center border hairline lg:hidden ${menuOpen ? "mobile-menu-button-open" : ""}`}
+            className={`site-header-action mobile-menu-button focus-ring grid h-10 w-10 place-items-center border hairline lg:hidden ${menuOpen ? "mobile-menu-button-open" : ""}`}
             onClick={() => setMenuOpen((open) => !open)}
             type="button"
           >
@@ -246,6 +246,7 @@ function SiteFooter() {
             { href: "/books", label: "Books" },
             { href: "/awards", label: "Awards" },
             { href: "/subjects", label: "Subjects" },
+            { href: "/topics", label: "Topics" },
             { href: "/publishers", label: "Publishers" },
           ]}
         />
@@ -286,7 +287,7 @@ function SiteFooter() {
           <p className="mt-4 text-xs leading-5 muted">Payments and subscriptions are handled on Stripe and Substack.</p>
         </div>
       </div>
-      <div className="bg-[#181713] text-[#f4f1ea]">
+      <div className="footer-bottom bg-[#181713] text-[#f4f1ea]">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 font-[var(--font-mono)] text-xs sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
           <p>© 2026 The Book Prize Index</p>
           <nav className="flex flex-wrap items-center gap-4 text-[#c9c1b3]">
