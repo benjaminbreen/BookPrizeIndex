@@ -3,6 +3,7 @@ import "server-only";
 import { get, put } from "@vercel/blob";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { hasBlobStorageCredentials } from "@/lib/blob-storage-config";
 import {
   isPersonalListSnapshot,
   type PersonalListSnapshot,
@@ -14,7 +15,7 @@ const IMMUTABLE_CACHE_SECONDS = 31_536_000;
 export async function readSharedPersonalList(id: string): Promise<PersonalListSnapshot | null> {
   if (!validId(id)) return null;
   if (usesBlobStorage()) {
-    const result = await get(blobPath(id), { access: "public" });
+    const result = await get(blobPath(id), { access: "private" });
     if (!result || result.statusCode !== 200) return null;
     const parsed = await new Response(result.stream).json().catch(() => null);
     return isPersonalListSnapshot(parsed) ? parsed : null;
@@ -30,7 +31,7 @@ export async function writeSharedPersonalList(snapshot: PersonalListSnapshot) {
 
   if (usesBlobStorage()) {
     await put(blobPath(snapshot.id), JSON.stringify(snapshot), {
-      access: "public",
+      access: "private",
       addRandomSuffix: false,
       allowOverwrite: false,
       cacheControlMaxAge: IMMUTABLE_CACHE_SECONDS,
@@ -54,7 +55,7 @@ export function personalListStorageConfigured() {
 }
 
 function usesBlobStorage() {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN || (process.env.BLOB_STORE_ID && process.env.VERCEL_OIDC_TOKEN));
+  return hasBlobStorageCredentials();
 }
 
 function isVercelRuntime() {

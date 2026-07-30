@@ -46,10 +46,12 @@ order. Sharing writes an immutable, content-addressed JSON snapshot to Vercel Bl
 `/reading-lists/<id>`; semantic-list sharing uses `/lists/<id>`. Shared personal lists include generated
 social-preview images and Markdown export.
 
-Connect a Vercel Blob store to production so `BLOB_READ_WRITE_TOKEN` is available. When the app is not running on
-Vercel and no Blob token is configured, shared snapshots use the gitignored `.semantic-lists/` and `.personal-lists/`
-directories for local development. Shared pages are unlisted and excluded from search-engine indexing. Opening a
-saved or shared list never invokes the semantic-search provider; rerunning is a separate, explicit action.
+Connect a private Vercel Blob store to production so `BLOB_STORE_ID` is available for the current OIDC connection
+(or `BLOB_READ_WRITE_TOKEN` for a legacy connection). The public reading-list URL is served by the app; its JSON
+snapshot remains in private storage. When the app is not running on Vercel and neither Blob credential is configured,
+shared snapshots use the gitignored `.semantic-lists/` and `.personal-lists/` directories for local development.
+Shared pages are unlisted and excluded from search-engine indexing. Opening a saved or shared list never invokes the
+semantic-search provider; rerunning is a separate, explicit action.
 
 ## Status
 
