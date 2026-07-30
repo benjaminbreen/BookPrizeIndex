@@ -3,7 +3,10 @@ import "server-only";
 import { get, put } from "@vercel/blob";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { hasBlobStorageCredentials } from "@/lib/blob-storage-config";
+import {
+  getBlobStorageAccess,
+  hasBlobStorageCredentials,
+} from "@/lib/blob-storage-config";
 import {
   isSemanticListSnapshot,
   type SemanticListSnapshot,
@@ -15,7 +18,7 @@ const IMMUTABLE_CACHE_SECONDS = 31_536_000;
 export async function readSharedSemanticList(id: string): Promise<SemanticListSnapshot | null> {
   if (!validId(id)) return null;
   if (usesBlobStorage()) {
-    const result = await get(blobPath(id), { access: "private" });
+    const result = await get(blobPath(id), { access: getBlobStorageAccess() });
     if (!result || result.statusCode !== 200) return null;
     const parsed = await new Response(result.stream).json().catch(() => null);
     return isSemanticListSnapshot(parsed) ? parsed : null;
@@ -31,7 +34,7 @@ export async function writeSharedSemanticList(snapshot: SemanticListSnapshot) {
 
   if (usesBlobStorage()) {
     await put(blobPath(snapshot.id), JSON.stringify(snapshot), {
-      access: "private",
+      access: getBlobStorageAccess(),
       addRandomSuffix: false,
       allowOverwrite: false,
       cacheControlMaxAge: IMMUTABLE_CACHE_SECONDS,
