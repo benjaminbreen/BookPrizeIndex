@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { BookCatalog } from "@/components/book-catalog";
 import { browseBooksByTopic, browseData } from "@/lib/browse-data";
+import { pageMetadata } from "@/lib/site-metadata";
 import { topicSummaries, topicSummaryForSlug } from "@/lib/topics";
 
 type PageProps = {
@@ -16,11 +17,11 @@ export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const topic = topicSummaryForSlug(slug);
   if (!topic) return { title: "Topic / The Book Prize Index", robots: { index: false, follow: false } };
-  return {
+  return pageMetadata({
     title: `${topic.name} / The Book Prize Index`,
     description: topic.description,
-    alternates: { canonical: `/topics/${slug}` },
-  };
+    canonical: `/topics/${slug}`,
+  });
 }
 
 export default async function TopicPage({ params }: PageProps) {

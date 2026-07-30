@@ -16,12 +16,27 @@ export default async function Home() {
   );
 }
 
+const homeCandidateRegions = ["all", "us", "international"] as const;
+const homeCandidateSubjects: string[][] = [
+  ["Biography"],
+  ["History", "American History", "World History"],
+  ["Science"],
+  ["Politics & Government"],
+];
+
 const homeBookCandidates = [...new Map(
-  (["all", "us", "international"] as const)
-    .flatMap((region) => browseData.books
-      .slice()
-      .sort((a, b) => compareBrowseBookRecognition(a, b, region))
-      .slice(0, 500))
+  homeCandidateRegions
+    .flatMap((region) => {
+      const ranked = browseData.books
+        .slice()
+        .sort((a, b) => compareBrowseBookRecognition(a, b, region));
+      return [
+        ...ranked.slice(0, 60),
+        ...homeCandidateSubjects.flatMap((subjects) => ranked
+          .filter((book) => book.subjects.some((subject) => subjects.includes(subject)))
+          .slice(0, 18)),
+      ];
+    })
     .map((book) => [book.id, book]),
 ).values()];
 

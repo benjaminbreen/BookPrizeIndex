@@ -10,6 +10,7 @@ import type { BrowseBookRow } from "@/lib/browse-types";
 import { sortBrowseBooksByRecognition } from "@/lib/browse-ranking";
 import { data, imprintsBySlug, publishersById } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
+import { pageMetadata } from "@/lib/site-metadata";
 import { rollupSubjectName } from "@/lib/subject-rollup";
 
 const STATIC_IMPRINT_PAGE_LIMIT = 80;
@@ -32,11 +33,11 @@ export async function generateMetadata({ params }: PageProps) {
   const imprint = imprintsBySlug.get(slug);
   if (!imprint) return { title: "Imprint / The Book Prize Index", robots: { index: false, follow: false } };
   const stats = imprintStats(imprint.id);
-  return {
+  return pageMetadata({
     title: `${imprint.name} / The Book Prize Index`,
     description: `Explore ${stats.books} prize-recognized nonfiction books and ${stats.appearances} award appearances associated with ${imprint.name}.`,
-    alternates: { canonical: `/imprints/${slug}` },
-  };
+    canonical: `/imprints/${slug}`,
+  });
 }
 
 export default async function ImprintPage({ params }: PageProps) {

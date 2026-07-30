@@ -1,214 +1,3050 @@
 {
-  "generatedAt": "2026-07-14T18:31:10.205Z",
+  "generatedAt": "2026-07-30T05:35:26.026Z",
   "policy": "Select the earliest plausible English trade edition ISBN13 after filtering obvious ebooks, audiobooks, large-print editions, translations, excerpts, and school/library bindings. Award year is not used as the primary selector.",
-  "limit": 15,
+  "limit": 80,
   "minScore": 0.72,
   "concurrency": 3,
   "requestDelayMs": 250,
-  "checkpointEvery": 5,
-  "minimumLists": 2,
+  "checkpointEvery": 10,
+  "requestedBookCount": 80,
+  "minimumLists": 0,
   "retryFailures": true,
   "allowEquivalentEditionTies": false,
   "skippedPreviousReviewCount": 0,
   "skippedPreviousAttemptCount": 0,
-  "selectedCount": 15,
-  "completedCount": 15,
+  "selectedCount": 71,
+  "completedCount": 71,
   "summary": {
-    "not_found": 15
+    "not_found": 31,
+    "selected": 24,
+    "ambiguous": 16
   },
   "report": [
     {
-      "bookId": "book-the-armies-of-the-night-history-as-a-novel-the-novel-as-history-norman-mailer",
-      "slug": "the-armies-of-the-night-history-as-a-novel-the-novel-as-history-norman-mailer",
-      "title": "The Armies of the Night: History as a Novel, The Novel as History",
-      "author": "Norman Mailer",
-      "publicationYear": 1968,
-      "firstRecognitionYear": 1969,
-      "inputSignature": "the armies of the night history as a novel the novel as history|norman mailer|1968|1969",
-      "recognitionScore": 20,
+      "bookId": "book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann",
+      "slug": "marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann",
+      "title": "Marcello Malpighi and the Evolution of Embryology",
+      "author": "Howard B. Adelmann",
+      "publicationYear": 1966,
+      "firstRecognitionYear": 1967,
+      "inputSignature": "marcello malpighi and the evolution of embryology|howard b adelmann|1966|1967",
+      "recognitionScore": 12,
       "status": "not_found",
       "candidates": [],
       "notes": "No plausible ISBN13 editions after filtering."
     },
     {
-      "bookId": "book-thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive",
-      "slug": "thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive",
-      "title": "Thomas Babington Macaulay: The Shaping of the Historian",
-      "author": "John Leonard Clive",
-      "publicationYear": 1973,
-      "firstRecognitionYear": 1974,
-      "inputSignature": "thomas babington macaulay the shaping of the historian|john leonard clive|1973|1974",
-      "recognitionScore": 20,
-      "status": "not_found",
-      "candidates": [],
-      "notes": "No plausible ISBN13 editions after filtering."
+      "bookId": "book-knowing-manchuria-environments-the-senses-and-natural-knowledge-on-an-asian-borderland-ruth-roga",
+      "slug": "knowing-manchuria-environments-the-senses-and-natural-knowledge-on-an-asian-borderland-ruth-roga",
+      "title": "Knowing Manchuria: Environments, the Senses, and Natural Knowledge on an Asian Borderland",
+      "author": "Ruth Rogaski",
+      "publicationYear": 2022,
+      "firstRecognitionYear": 2023,
+      "inputSignature": "knowing manchuria environments the senses and natural knowledge on an asian borderland|ruth rogaski|2022|2023",
+      "recognitionScore": 8,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780226809656",
+        "editionKey": "/books/OL35578933M",
+        "title": "Knowing Manchuria: Environments, the Senses, and Natural Knowledge on an Asian Borderland",
+        "publisher": "University of Chicago Press",
+        "publishDate": "2022",
+        "publishYear": 2022,
+        "score": 0.7847,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2022",
+          "english",
+          "publisher:University of Chicago Press"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780226809656",
+          "editionKey": "/books/OL35578933M",
+          "title": "Knowing Manchuria: Environments, the Senses, and Natural Knowledge on an Asian Borderland",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "score": 0.7847,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2022",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        }
+      ]
     },
     {
-      "bookId": "book-move-your-shadow-south-africa-black-and-white-joseph-lelyveld",
-      "slug": "move-your-shadow-south-africa-black-and-white-joseph-lelyveld",
-      "title": "Move Your Shadow: South Africa, Black and White",
-      "author": "Joseph Lelyveld",
-      "publicationYear": 1985,
-      "firstRecognitionYear": 1986,
-      "inputSignature": "move your shadow south africa black and white|joseph lelyveld|1985|1986",
-      "recognitionScore": 24,
-      "status": "not_found",
-      "candidates": [],
-      "notes": "No plausible ISBN13 editions after filtering."
+      "bookId": "book-secrets-of-women-gender-generation-and-the-origins-of-human-dissection-katharine-park",
+      "slug": "secrets-of-women-gender-generation-and-the-origins-of-human-dissection-katharine-park",
+      "title": "Secrets of Women: Gender, Generation, and the Origins of Human Dissection",
+      "author": "Katharine Park",
+      "publicationYear": 2006,
+      "firstRecognitionYear": 2007,
+      "inputSignature": "secrets of women gender generation and the origins of human dissection|katharine park|2006|2007",
+      "recognitionScore": 8,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9781890951672",
+        "editionKey": "/books/OL8715730M",
+        "title": "Secrets Of Women: Gender, Generation, and the Origins of Human Dissection",
+        "publisher": "Zone Books",
+        "publishDate": "December 1, 2006",
+        "publishYear": 2006,
+        "physicalFormat": "Hardcover",
+        "pages": 304,
+        "coverId": 939373,
+        "score": 0.9973,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2006",
+          "english",
+          "hardcover_like",
+          "publisher:Zone Books",
+          "pages:304",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9781890951672",
+          "editionKey": "/books/OL8715730M",
+          "title": "Secrets Of Women: Gender, Generation, and the Origins of Human Dissection",
+          "publisher": "Zone Books",
+          "publishDate": "December 1, 2006",
+          "publishYear": 2006,
+          "physicalFormat": "Hardcover",
+          "pages": 304,
+          "coverId": 939373,
+          "score": 0.9973,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2006",
+            "english",
+            "hardcover_like",
+            "publisher:Zone Books",
+            "pages:304",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781890951689",
+          "editionKey": "/books/OL9716982M",
+          "title": "Secrets of Women: Gender, Generation, and the Origins of Human Dissection",
+          "publisher": "Zone Books",
+          "publishDate": "January 2006",
+          "publishYear": 2006,
+          "physicalFormat": "Paperback",
+          "pages": 419,
+          "coverId": 5005762,
+          "score": 0.8573,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2006",
+            "english",
+            "publisher:Zone Books",
+            "pages:419",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ]
     },
     {
-      "bookId": "book-arc-of-justice-a-saga-of-race-civil-rights-and-murder-in-the-jazz-age-kevin-boyle",
-      "slug": "arc-of-justice-a-saga-of-race-civil-rights-and-murder-in-the-jazz-age-kevin-boyle",
-      "title": "Arc of Justice: A Saga of Race, Civil Rights and Murder in the Jazz Age",
-      "author": "Kevin Boyle",
-      "publicationYear": 2004,
-      "firstRecognitionYear": 2004,
-      "inputSignature": "arc of justice a saga of race civil rights and murder in the jazz age|kevin boyle|2004|2004",
-      "recognitionScore": 18,
-      "status": "not_found",
-      "candidates": [],
-      "notes": "No plausible ISBN13 editions after filtering."
+      "bookId": "book-marrow-of-tragedy-the-health-crisis-of-the-american-civil-war-margaret-humphreys",
+      "slug": "marrow-of-tragedy-the-health-crisis-of-the-american-civil-war-margaret-humphreys",
+      "title": "Marrow of Tragedy: The Health Crisis of the American Civil War",
+      "author": "Margaret Humphreys",
+      "publicationYear": 2013,
+      "firstRecognitionYear": 2014,
+      "inputSignature": "marrow of tragedy the health crisis of the american civil war|margaret humphreys|2013|2014",
+      "recognitionScore": 6,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781421409993",
+          "editionKey": "/books/OL28511628M",
+          "title": "Marrow of Tragedy: The Health Crisis of the American Civil War",
+          "publisher": "Johns Hopkins University Press",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "pages": 400,
+          "coverId": 14394416,
+          "score": 0.8562,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Johns Hopkins University Press",
+            "pages:400",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781421410005",
+          "editionKey": "/books/OL34602959M",
+          "title": "Marrow of Tragedy: The Health Crisis of the American Civil War",
+          "publisher": "Johns Hopkins University Press",
+          "publishDate": "2013",
+          "publishYear": 2013,
+          "score": 0.7862,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2013",
+            "english",
+            "publisher:Johns Hopkins University Press"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
     },
     {
-      "bookId": "book-righteous-pilgrim-the-life-and-times-of-harold-l-ickes-1847-1952-t-h-watkins",
-      "slug": "righteous-pilgrim-the-life-and-times-of-harold-l-ickes-1847-1952-t-h-watkins",
-      "title": "Righteous Pilgrim: The Life and Times of Harold L. Ickes, 1847–1952",
-      "author": "T.H. Watkins",
-      "publicationYear": 1990,
-      "firstRecognitionYear": 1990,
-      "inputSignature": "righteous pilgrim the life and times of harold l ickes 1847 1952|t h watkins|1990|1990",
-      "recognitionScore": 18,
+      "bookId": "book-abortion-after-roe-abortion-after-legalization-johanna-schoen",
+      "slug": "abortion-after-roe-abortion-after-legalization-johanna-schoen",
+      "title": "Abortion After Roe: Abortion After Legalization",
+      "author": "Johanna Schoen",
+      "firstRecognitionYear": 2017,
+      "inputSignature": "abortion after roe abortion after legalization|johanna schoen||2017",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781469621180",
+          "editionKey": "/books/OL27195770M",
+          "title": "Abortion after Roe",
+          "publisher": "The University of North Carolina Press",
+          "publishDate": "2015",
+          "publishYear": 2015,
+          "pages": 334,
+          "coverId": 14629229,
+          "score": 0.8558,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2015",
+            "english",
+            "publisher:The University of North Carolina Press",
+            "pages:334",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781469621197",
+          "editionKey": "/books/OL29721278M",
+          "title": "Abortion after Roe",
+          "publisher": "University of North Carolina Press",
+          "publishDate": "2015",
+          "publishYear": 2015,
+          "pages": 352,
+          "score": 0.8258,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2015",
+            "english",
+            "publisher:University of North Carolina Press",
+            "pages:352"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781469636016",
+          "editionKey": "/books/OL28635730M",
+          "title": "Abortion after Roe: Abortion after Legalization",
+          "publisher": "University of North Carolina Press",
+          "publishDate": "2017",
+          "publishYear": 2017,
+          "pages": 352,
+          "score": 0.8255,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2017",
+            "english",
+            "publisher:University of North Carolina Press",
+            "pages:352"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-addison-and-the-white-corpuscles-lelland-j-rather",
+      "slug": "addison-and-the-white-corpuscles-lelland-j-rather",
+      "title": "Addison and the White Corpuscles",
+      "author": "Lelland J. Rather",
+      "firstRecognitionYear": 1976,
+      "inputSignature": "addison and the white corpuscles|lelland j rather||1976",
+      "recognitionScore": 4,
       "status": "not_found",
       "candidates": [],
       "notes": "No strong Open Library work match."
     },
     {
-      "bookId": "book-waldo-emerson-a-biography-gay-wilson-allen",
-      "slug": "waldo-emerson-a-biography-gay-wilson-allen",
-      "title": "Waldo Emerson: A Biography",
-      "author": "Gay Wilson Allen",
-      "publicationYear": 1981,
-      "firstRecognitionYear": 1982,
-      "inputSignature": "waldo emerson a biography|gay wilson allen|1981|1982",
-      "recognitionScore": 18,
-      "status": "not_found",
-      "candidates": [],
-      "notes": "No plausible ISBN13 editions after filtering."
+      "bookId": "book-american-medicine-and-statistical-thinking-1800-1860-james-h-cassedy",
+      "slug": "american-medicine-and-statistical-thinking-1800-1860-james-h-cassedy",
+      "title": "American Medicine and Statistical Thinking, 1800-1860",
+      "author": "James H. Cassedy",
+      "firstRecognitionYear": 1987,
+      "inputSignature": "american medicine and statistical thinking 1800 1860|james h cassedy||1987",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780674732216",
+        "editionKey": "/books/OL29183332M",
+        "title": "American Medicine and Statistical Thinking, 1800-1860",
+        "publisher": "Harvard University Press",
+        "publishDate": "1984",
+        "publishYear": 1984,
+        "pages": 316,
+        "score": 0.831,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:1984",
+          "english",
+          "publisher:Harvard University Press",
+          "pages:316"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780674732216",
+          "editionKey": "/books/OL29183332M",
+          "title": "American Medicine and Statistical Thinking, 1800-1860",
+          "publisher": "Harvard University Press",
+          "publishDate": "1984",
+          "publishYear": 1984,
+          "pages": 316,
+          "score": 0.831,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1984",
+            "english",
+            "publisher:Harvard University Press",
+            "pages:316"
+          ],
+          "warnings": []
+        }
+      ]
     },
     {
-      "bookId": "book-walt-whitman-a-life-justin-kaplan",
-      "slug": "walt-whitman-a-life-justin-kaplan",
-      "title": "Walt Whitman: A Life",
-      "author": "Justin Kaplan",
-      "publicationYear": 1980,
-      "firstRecognitionYear": 1980,
-      "inputSignature": "walt whitman a life|justin kaplan|1980|1980",
-      "recognitionScore": 18,
+      "bookId": "book-american-cardiology-the-history-of-a-specialty-and-its-college-w-bruce-fye",
+      "slug": "american-cardiology-the-history-of-a-specialty-and-its-college-w-bruce-fye",
+      "title": "American Cardiology: The History of a Specialty and its College",
+      "author": "W. Bruce Fye",
+      "firstRecognitionYear": 2000,
+      "inputSignature": "american cardiology the history of a specialty and its college|w bruce fye||2000",
+      "recognitionScore": 4,
       "status": "not_found",
       "candidates": [],
-      "notes": "No plausible ISBN13 editions after filtering."
+      "notes": "No strong Open Library work match."
     },
     {
-      "bookId": "book-and-i-worked-at-the-writer-s-trade-chapters-of-literary-history-1918-1978-malcolm-cowley",
-      "slug": "and-i-worked-at-the-writer-s-trade-chapters-of-literary-history-1918-1978-malcolm-cowley",
-      "title": "And I Worked at the Writer's Trade: Chapters of Literary History 1918–1978",
-      "author": "Malcolm Cowley",
-      "publicationYear": 1978,
+      "bookId": "book-blood-relations-transfusion-and-the-making-of-human-genetics-jenny-bangham",
+      "slug": "blood-relations-transfusion-and-the-making-of-human-genetics-jenny-bangham",
+      "title": "Blood Relations: Transfusion and the Making of Human Genetics",
+      "author": "Jenny Bangham",
+      "firstRecognitionYear": 2022,
+      "inputSignature": "blood relations transfusion and the making of human genetics|jenny bangham||2022",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780226739977",
+          "editionKey": "/books/OL29501997M",
+          "title": "Blood Relations: Transfusion and the Making of Human Genetics",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2020",
+          "publishYear": 2020,
+          "pages": 328,
+          "score": 0.825,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2020",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:328"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226740034",
+          "editionKey": "/books/OL34722409M",
+          "title": "Blood Relations: Transfusion and the Making of Human Genetics",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2020",
+          "publishYear": 2020,
+          "score": 0.785,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2020",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226740171",
+          "editionKey": "/books/OL46056641M",
+          "title": "Blood Relations: Transfusion and the Making of Human Genetics",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2020",
+          "publishYear": 2020,
+          "score": 0.785,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2020",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-claude-bernard-and-animal-chemistry-the-emergence-of-a-scientist-frederick-l-holmes",
+      "slug": "claude-bernard-and-animal-chemistry-the-emergence-of-a-scientist-frederick-l-holmes",
+      "title": "Claude Bernard and Animal Chemistry: The Emergence of a Scientist",
+      "author": "Frederick L. Holmes",
       "firstRecognitionYear": 1978,
-      "inputSignature": "and i worked at the writer s trade chapters of literary history 1918 1978|malcolm cowley|1978|1978",
-      "recognitionScore": 14,
+      "inputSignature": "claude bernard and animal chemistry the emergence of a scientist|frederick l holmes||1978",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-creatures-of-cain-the-hunt-for-human-nature-in-cold-war-america-erika-lorraine-milam",
+      "slug": "creatures-of-cain-the-hunt-for-human-nature-in-cold-war-america-erika-lorraine-milam",
+      "title": "Creatures of Cain: The Hunt for Human Nature in Cold War America",
+      "author": "Erika Lorraine Milam",
+      "firstRecognitionYear": 2020,
+      "inputSignature": "creatures of cain the hunt for human nature in cold war america|erika lorraine milam||2020",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780691185095",
+        "editionKey": "/books/OL29394620M",
+        "title": "Creatures of Cain: The Hunt for Human Nature in Cold War America",
+        "publisher": "Princeton University Press",
+        "publishDate": "2018",
+        "publishYear": 2018,
+        "pages": 408,
+        "score": 0.8253,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2018",
+          "english",
+          "publisher:Princeton University Press",
+          "pages:408"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780691185095",
+          "editionKey": "/books/OL29394620M",
+          "title": "Creatures of Cain: The Hunt for Human Nature in Cold War America",
+          "publisher": "Princeton University Press",
+          "publishDate": "2018",
+          "publishYear": 2018,
+          "pages": 408,
+          "score": 0.8253,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:Princeton University Press",
+            "pages:408"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780691181882",
+          "editionKey": "/books/OL27337066M",
+          "title": "Creatures of Cain: The Hunt for Human Nature in Cold War America",
+          "publisher": "Princeton University Press",
+          "publishDate": "Jan 08, 2019",
+          "publishYear": 2019,
+          "physicalFormat": "hardcover",
+          "pages": 408,
+          "coverId": 8801466,
+          "score": 0.9952,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2019",
+            "english",
+            "hardcover_like",
+            "publisher:Princeton University Press",
+            "pages:408",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780691210438",
+          "editionKey": "/books/OL29501825M",
+          "title": "Creatures of Cain: The Hunt for Human Nature in Cold War America",
+          "publisher": "Princeton University Press",
+          "publishDate": "2020",
+          "publishYear": 2020,
+          "pages": 408,
+          "coverId": 14153392,
+          "score": 0.855,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2020",
+            "english",
+            "publisher:Princeton University Press",
+            "pages:408",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-breast-cancer-wars-hope-fear-and-the-pursuit-of-a-cure-in-twentieth-century-america-barron-h-ler",
+      "slug": "breast-cancer-wars-hope-fear-and-the-pursuit-of-a-cure-in-twentieth-century-america-barron-h-ler",
+      "title": "Breast Cancer Wars: Hope, Fear, and the Pursuit of a Cure in Twentieth Century America",
+      "author": "Barron H. Lerner",
+      "firstRecognitionYear": 2006,
+      "inputSignature": "breast cancer wars hope fear and the pursuit of a cure in twentieth century america|barron h lerner||2006",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780195142617",
+        "editionKey": "/books/OL7389545M",
+        "title": "Breast Cancer Wars : Hope, Fear, and the Pursuit of a Cure in Twentieth-Century America",
+        "publisher": "Oxford University Press, USA",
+        "publishDate": "May 31, 2001",
+        "publishYear": 2001,
+        "pages": 415,
+        "coverId": 125331,
+        "score": 0.8582,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2001",
+          "english",
+          "publisher:Oxford University Press, USA",
+          "pages:415",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780195142617",
+          "editionKey": "/books/OL7389545M",
+          "title": "Breast Cancer Wars : Hope, Fear, and the Pursuit of a Cure in Twentieth-Century America",
+          "publisher": "Oxford University Press, USA",
+          "publishDate": "May 31, 2001",
+          "publishYear": 2001,
+          "pages": 415,
+          "coverId": 125331,
+          "score": 0.8582,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2001",
+            "english",
+            "publisher:Oxford University Press, USA",
+            "pages:415",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780195142617",
+          "editionKey": "/books/OL24745243M",
+          "title": "The breast cancer wars: hope, fear, and the pursuit of a cure in twentieth-century America",
+          "publisher": "Oxford University Press",
+          "publishDate": "2001",
+          "publishYear": 2001,
+          "pages": 383,
+          "coverId": 6798916,
+          "score": 0.8582,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2001",
+            "english",
+            "publisher:Oxford University Press",
+            "pages:383",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780195349566",
+          "editionKey": "/books/OL46088224M",
+          "title": "Breast Cancer Wars: Hope, Fear, and the Pursuit of a Cure in Twentieth-Century America",
+          "publisher": "Oxford University Press, Incorporated",
+          "publishDate": "2001",
+          "publishYear": 2001,
+          "score": 0.7882,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2001",
+            "english",
+            "publisher:Oxford University Press, Incorporated"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780195161069",
+          "editionKey": "/books/OL7390555M",
+          "title": "The Breast Cancer Wars: Hope, Fear, and the Pursuit of a Cure in Twentieth-Century America",
+          "publisher": "Oxford University Press, USA",
+          "publishDate": "March 6, 2003",
+          "publishYear": 2003,
+          "pages": 408,
+          "coverId": 126234,
+          "score": 0.8578,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2003",
+            "english",
+            "publisher:Oxford University Press, USA",
+            "pages:408",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-culturing-life-how-cells-became-technologies-hannah-landecker",
+      "slug": "culturing-life-how-cells-became-technologies-hannah-landecker",
+      "title": "Culturing Life: How Cells Became Technologies",
+      "author": "Hannah Landecker",
+      "firstRecognitionYear": 2008,
+      "inputSignature": "culturing life how cells became technologies|hannah landecker||2008",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780674023284",
+        "editionKey": "/books/OL7691818M",
+        "title": "Culturing Life: How Cells Became Technologies",
+        "publisher": "Harvard University Press",
+        "publishDate": "February 28, 2007",
+        "publishYear": 2007,
+        "physicalFormat": "Hardcover",
+        "pages": 288,
+        "coverId": 412692,
+        "score": 0.9972,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2007",
+          "english",
+          "hardcover_like",
+          "publisher:Harvard University Press",
+          "pages:288",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780674023284",
+          "editionKey": "/books/OL7691818M",
+          "title": "Culturing Life: How Cells Became Technologies",
+          "publisher": "Harvard University Press",
+          "publishDate": "February 28, 2007",
+          "publishYear": 2007,
+          "physicalFormat": "Hardcover",
+          "pages": 288,
+          "coverId": 412692,
+          "score": 0.9972,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2007",
+            "english",
+            "hardcover_like",
+            "publisher:Harvard University Press",
+            "pages:288",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780674034761",
+          "editionKey": "/books/OL28448691M",
+          "title": "Culturing Life: How Cells Became Technologies",
+          "publisher": "Harvard University Press",
+          "publishDate": "2009",
+          "publishYear": 2009,
+          "pages": 288,
+          "score": 0.8268,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2009",
+            "english",
+            "publisher:Harvard University Press",
+            "pages:288"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780674039902",
+          "editionKey": "/books/OL29583764M",
+          "title": "Culturing Life",
+          "publisher": "Harvard University Press",
+          "publishDate": "2009",
+          "publishYear": 2009,
+          "pages": 288,
+          "score": 0.8268,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2009",
+            "english",
+            "publisher:Harvard University Press",
+            "pages:288"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-dangerous-pregnancies-mothers-disabilities-and-abortion-in-modern-america-leslie-j-reagan",
+      "slug": "dangerous-pregnancies-mothers-disabilities-and-abortion-in-modern-america-leslie-j-reagan",
+      "title": "Dangerous Pregnancies: Mothers, Disabilities, and Abortion in Modern America",
+      "author": "Leslie J. Reagan",
+      "firstRecognitionYear": 2015,
+      "inputSignature": "dangerous pregnancies mothers disabilities and abortion in modern america|leslie j reagan||2015",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780520259034",
+        "editionKey": "/books/OL24487624M",
+        "title": "Dangerous pregnancies: mothers, disabilities, and abortion in America",
+        "publisher": "University of California Press",
+        "publishDate": "2009",
+        "publishYear": 2009,
+        "pages": 372,
+        "coverId": 13001302,
+        "score": 0.8068,
+        "reasons": [
+          "title_match:0.89",
+          "publish_year:2009",
+          "english",
+          "publisher:University of California Press",
+          "pages:372",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780520259034",
+          "editionKey": "/books/OL24487624M",
+          "title": "Dangerous pregnancies: mothers, disabilities, and abortion in America",
+          "publisher": "University of California Press",
+          "publishDate": "2009",
+          "publishYear": 2009,
+          "pages": 372,
+          "coverId": 13001302,
+          "score": 0.8068,
+          "reasons": [
+            "title_match:0.89",
+            "publish_year:2009",
+            "english",
+            "publisher:University of California Press",
+            "pages:372",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780520945005",
+          "editionKey": "/books/OL29657434M",
+          "title": "Dangerous Pregnancies: Mothers, Disabilities, and Abortion in Modern America",
+          "publisher": "University of California Press",
+          "publishDate": "2010",
+          "publishYear": 2010,
+          "pages": 392,
+          "score": 0.8267,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2010",
+            "english",
+            "publisher:University of California Press",
+            "pages:392"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781280678301",
+          "editionKey": "/books/OL29199357M",
+          "title": "Dangerous Pregnancies: Mothers, Disabilities, and Abortion in Modern America",
+          "publisher": "University of California Press",
+          "publishDate": "2010",
+          "publishYear": 2010,
+          "pages": 390,
+          "score": 0.8267,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2010",
+            "english",
+            "publisher:University of California Press",
+            "pages:390"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780520274570",
+          "editionKey": "/books/OL29124262M",
+          "title": "Dangerous Pregnancies: Mothers, Disabilities, and Abortion in Modern America",
+          "publisher": "University of California Press",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "pages": 392,
+          "score": 0.8263,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:University of California Press",
+            "pages:392"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-darwin-and-the-making-of-sexual-selection-evelleen-richards",
+      "slug": "darwin-and-the-making-of-sexual-selection-evelleen-richards",
+      "title": "Darwin and the Making of Sexual Selection",
+      "author": "Evelleen Richards",
+      "firstRecognitionYear": 2018,
+      "inputSignature": "darwin and the making of sexual selection|evelleen richards||2018",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780226436906",
+        "editionKey": "/books/OL27418729M",
+        "title": "Darwin and the Making of Sexual Selection",
+        "publisher": "University of Chicago Press",
+        "publishDate": "Apr 27, 2017",
+        "publishYear": 2017,
+        "physicalFormat": "hardcover",
+        "pages": 672,
+        "coverId": 8880257,
+        "score": 0.9955,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2017",
+          "english",
+          "hardcover_like",
+          "publisher:University of Chicago Press",
+          "pages:672",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780226436906",
+          "editionKey": "/books/OL27418729M",
+          "title": "Darwin and the Making of Sexual Selection",
+          "publisher": "University of Chicago Press",
+          "publishDate": "Apr 27, 2017",
+          "publishYear": 2017,
+          "physicalFormat": "hardcover",
+          "pages": 672,
+          "coverId": 8880257,
+          "score": 0.9955,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2017",
+            "english",
+            "hardcover_like",
+            "publisher:University of Chicago Press",
+            "pages:672",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226437064",
+          "editionKey": "/books/OL51668008M",
+          "title": "Darwin and the Making of Sexual Selection",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2017",
+          "publishYear": 2017,
+          "pages": 672,
+          "score": 0.8255,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2017",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:672"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-dangerous-medicines-the-story-behind-human-experiments-with-hepatitis-sydney-halpern",
+      "slug": "dangerous-medicines-the-story-behind-human-experiments-with-hepatitis-sydney-halpern",
+      "title": "Dangerous Medicines: The Story Behind Human Experiments with Hepatitis",
+      "author": "Sydney Halpern",
+      "firstRecognitionYear": 2024,
+      "inputSignature": "dangerous medicines the story behind human experiments with hepatitis|sydney halpern||2024",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780300259629",
+        "editionKey": "/books/OL34778059M",
+        "title": "Dangerous Medicine: The Story Behind Human Experiments with Hepatitis",
+        "publisher": "Yale University Press",
+        "publishDate": "2022",
+        "publishYear": 2022,
+        "pages": 304,
+        "coverId": 13713770,
+        "score": 0.8047,
+        "reasons": [
+          "title_match:0.89",
+          "publish_year:2022",
+          "english",
+          "publisher:Yale University Press",
+          "pages:304",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780300259629",
+          "editionKey": "/books/OL34778059M",
+          "title": "Dangerous Medicine: The Story Behind Human Experiments with Hepatitis",
+          "publisher": "Yale University Press",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "pages": 304,
+          "coverId": 13713770,
+          "score": 0.8047,
+          "reasons": [
+            "title_match:0.89",
+            "publish_year:2022",
+            "english",
+            "publisher:Yale University Press",
+            "pages:304",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-death-by-migration-philip-curtin",
+      "slug": "death-by-migration-philip-curtin",
+      "title": "Death by Migration",
+      "author": "Philip Curtin",
+      "firstRecognitionYear": 1992,
+      "inputSignature": "death by migration|philip curtin||1992",
+      "recognitionScore": 4,
       "status": "not_found",
       "candidates": [],
       "notes": "No plausible ISBN13 editions after filtering."
     },
     {
-      "bookId": "book-beautiful-swimmers-watermen-crabs-and-the-chesapeake-bay-william-w-warner",
-      "slug": "beautiful-swimmers-watermen-crabs-and-the-chesapeake-bay-william-w-warner",
-      "title": "Beautiful Swimmers: Watermen, Crabs and the Chesapeake Bay",
-      "author": "William W. Warner",
-      "publicationYear": 1976,
-      "firstRecognitionYear": 1976,
-      "inputSignature": "beautiful swimmers watermen crabs and the chesapeake bay|william w warner|1976|1976",
-      "recognitionScore": 14,
+      "bookId": "book-diabetes-a-history-of-race-and-disease-arleen-m-tuchman",
+      "slug": "diabetes-a-history-of-race-and-disease-arleen-m-tuchman",
+      "title": "Diabetes: A History of Race and Disease",
+      "author": "Arleen M. Tuchman",
+      "firstRecognitionYear": 2022,
+      "inputSignature": "diabetes a history of race and disease|arleen m tuchman||2022",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-death-in-hamburg-society-and-politics-in-the-cholera-years-1830-1910-richard-j-evans",
+      "slug": "death-in-hamburg-society-and-politics-in-the-cholera-years-1830-1910-richard-j-evans",
+      "title": "Death in Hamburg: Society and Politics in the Cholera Years, 1830-1910",
+      "author": "Richard J. Evans",
+      "firstRecognitionYear": 1989,
+      "inputSignature": "death in hamburg society and politics in the cholera years 1830 1910|richard j evans||1989",
+      "recognitionScore": 4,
       "status": "not_found",
       "candidates": [],
       "notes": "No plausible ISBN13 editions after filtering."
     },
     {
-      "bookId": "book-bolivar-american-liberator-marie-arana",
-      "slug": "bolivar-american-liberator-marie-arana",
-      "title": "Bolivar: American Liberator",
-      "author": "Marie Arana",
-      "publicationYear": 2013,
-      "firstRecognitionYear": 2013,
-      "inputSignature": "bolivar american liberator|marie arana|2013|2013",
-      "recognitionScore": 14,
-      "status": "not_found",
-      "candidates": [],
-      "notes": "No plausible ISBN13 editions after filtering."
+      "bookId": "book-disease-war-and-the-imperial-state-the-welfare-of-the-british-armed-forces-during-the-seven-year",
+      "slug": "disease-war-and-the-imperial-state-the-welfare-of-the-british-armed-forces-during-the-seven-year",
+      "title": "Disease, War, and the Imperial State: The Welfare of the British Armed Forces during the Seven Years’ War",
+      "author": "Erica Charters",
+      "firstRecognitionYear": 2016,
+      "inputSignature": "disease war and the imperial state the welfare of the british armed forces during the seven years war|erica charters||2016",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780226180007",
+          "editionKey": "/books/OL29550367M",
+          "title": "Disease, War, and the Imperial State: The Welfare of the British Armed Forces During the Seven Years' War",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "pages": 296,
+          "score": 0.826,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:296"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226180144",
+          "editionKey": "/books/OL34022335M",
+          "title": "Disease, War, and the Imperial State: The Welfare of the British Armed Forces During the Seven Years' War",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "pages": 296,
+          "score": 0.826,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:296"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781322096988",
+          "editionKey": "/books/OL38289849M",
+          "title": "Disease, War, and the Imperial State: The Welfare of the British Armed Forces During the Seven Years' War",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "score": 0.786,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
     },
     {
-      "bookId": "book-conjectures-of-order-intellectual-life-and-the-american-south-1810-1860-michael-o-brien",
-      "slug": "conjectures-of-order-intellectual-life-and-the-american-south-1810-1860-michael-o-brien",
-      "title": "Conjectures of Order: Intellectual Life and the American South, 1810-1860",
-      "author": "Michael O’Brien",
-      "publicationYear": 2004,
+      "bookId": "book-dying-in-the-city-of-the-blues-sickle-cell-anemia-and-the-politics-of-race-and-health-keith-wail",
+      "slug": "dying-in-the-city-of-the-blues-sickle-cell-anemia-and-the-politics-of-race-and-health-keith-wail",
+      "title": "Dying in the City of the Blues: Sickle Cell Anemia and the Politics of Race and Health",
+      "author": "Keith Wailoo",
       "firstRecognitionYear": 2005,
-      "inputSignature": "conjectures of order intellectual life and the american south 1810 1860|michael o brien|2004|2005",
-      "recognitionScore": 14,
+      "inputSignature": "dying in the city of the blues sickle cell anemia and the politics of race and health|keith wailoo||2005",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780807825846",
+        "editionKey": "/books/OL9371508M",
+        "title": "Dying in the City of the Blues: Sickle Cell Anemia and the Politics of Race and Health",
+        "publisher": "The University of North Carolina Press",
+        "publishDate": "December 2, 2000",
+        "publishYear": 2000,
+        "physicalFormat": "Hardcover",
+        "pages": 352,
+        "coverId": 1528469,
+        "score": 0.9983,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2000",
+          "english",
+          "hardcover_like",
+          "publisher:The University of North Carolina Press",
+          "pages:352",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780807825846",
+          "editionKey": "/books/OL9371508M",
+          "title": "Dying in the City of the Blues: Sickle Cell Anemia and the Politics of Race and Health",
+          "publisher": "The University of North Carolina Press",
+          "publishDate": "December 2, 2000",
+          "publishYear": 2000,
+          "physicalFormat": "Hardcover",
+          "pages": 352,
+          "coverId": 1528469,
+          "score": 0.9983,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2000",
+            "english",
+            "hardcover_like",
+            "publisher:The University of North Carolina Press",
+            "pages:352",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780807848968",
+          "editionKey": "/books/OL7972694M",
+          "title": "Dying in the City of the Blues: Sickle Cell Anemia and the Politics of Race and Health",
+          "publisher": "The University of North Carolina Press",
+          "publishDate": "December 2, 2000",
+          "publishYear": 2000,
+          "physicalFormat": "Paperback",
+          "pages": 352,
+          "coverId": 591741,
+          "score": 0.8583,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2000",
+            "english",
+            "publisher:The University of North Carolina Press",
+            "pages:352",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ]
+    },
+    {
+      "bookId": "book-galen-on-the-usefulness-of-the-parts-of-the-body-margaret-tallmadge-may",
+      "slug": "galen-on-the-usefulness-of-the-parts-of-the-body-margaret-tallmadge-may",
+      "title": "Galen on the Usefulness of the Parts of the Body",
+      "author": "Margaret Tallmadge May",
+      "firstRecognitionYear": 1973,
+      "inputSignature": "galen on the usefulness of the parts of the body|margaret tallmadge may||1973",
+      "recognitionScore": 4,
       "status": "not_found",
       "candidates": [],
       "notes": "No plausible ISBN13 editions after filtering."
     },
     {
-      "bookId": "book-disappearing-through-the-skylight-culture-and-technology-in-the-twentieth-century-o-b-hardison-j",
-      "slug": "disappearing-through-the-skylight-culture-and-technology-in-the-twentieth-century-o-b-hardison-j",
-      "title": "Disappearing through the Skylight: Culture and Technology in the Twentieth Century",
-      "author": "O. B. Hardison, Jr.",
-      "firstRecognitionYear": 1990,
-      "inputSignature": "disappearing through the skylight culture and technology in the twentieth century|o b hardison jr||1990",
-      "recognitionScore": 14,
+      "bookId": "book-from-body-to-community-venereal-disease-and-society-in-baroque-spain-cristian-berco",
+      "slug": "from-body-to-community-venereal-disease-and-society-in-baroque-spain-cristian-berco",
+      "title": "From Body to Community: Venereal Disease and Society in Baroque Spain",
+      "author": "Cristian Berco",
+      "firstRecognitionYear": 2018,
+      "inputSignature": "from body to community venereal disease and society in baroque spain|cristian berco||2018",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9781442649620",
+        "editionKey": "/books/OL28802588M",
+        "title": "From Body to Community: Venereal Disease and Society in Baroque Spain",
+        "publisher": "University of Toronto Press",
+        "publishDate": "2016",
+        "publishYear": 2016,
+        "pages": 288,
+        "score": 0.8257,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2016",
+          "english",
+          "publisher:University of Toronto Press",
+          "pages:288"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9781442649620",
+          "editionKey": "/books/OL28802588M",
+          "title": "From Body to Community: Venereal Disease and Society in Baroque Spain",
+          "publisher": "University of Toronto Press",
+          "publishDate": "2016",
+          "publishYear": 2016,
+          "pages": 288,
+          "score": 0.8257,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2016",
+            "english",
+            "publisher:University of Toronto Press",
+            "pages:288"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781442620681",
+          "editionKey": "/books/OL35826593M",
+          "title": "From Body to Community: Venereal Disease and Society in Baroque Spain",
+          "publisher": "University of Toronto Press",
+          "publishDate": "2018",
+          "publishYear": 2018,
+          "score": 0.7853,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:University of Toronto Press"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-haeckel-s-embryos-images-evolution-and-fraud-nick-hopwood",
+      "slug": "haeckel-s-embryos-images-evolution-and-fraud-nick-hopwood",
+      "title": "Haeckel’s Embryos: Images, Evolution, and Fraud",
+      "author": "Nick Hopwood",
+      "firstRecognitionYear": 2016,
+      "inputSignature": "haeckel s embryos images evolution and fraud|nick hopwood||2016",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780226046945",
+          "editionKey": "/books/OL29551150M",
+          "title": "Haeckel's Embryos: Images, Evolution, and Fraud",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2015",
+          "publishYear": 2015,
+          "pages": 392,
+          "coverId": 12432284,
+          "score": 0.8558,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2015",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:392",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226047133",
+          "editionKey": "/books/OL38289552M",
+          "title": "Haeckel's Embryos: Images, Evolution, and Fraud",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2015",
+          "publishYear": 2015,
+          "score": 0.7858,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2015",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-healing-with-poisons-potent-medicines-in-medieval-china-yan-liu",
+      "slug": "healing-with-poisons-potent-medicines-in-medieval-china-yan-liu",
+      "title": "Healing with Poisons: Potent Medicines in Medieval China",
+      "author": "Yan Liu",
+      "firstRecognitionYear": 2023,
+      "inputSignature": "healing with poisons potent medicines in medieval china|yan liu||2023",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780295748993",
+          "editionKey": "/books/OL32065511M",
+          "title": "Healing with Poisons: Potent Medicines in Medieval China",
+          "publisher": "University of Washington Press",
+          "publishDate": "Jun 27, 2021",
+          "publishYear": 2021,
+          "physicalFormat": "paperback",
+          "pages": 280,
+          "coverId": 10721680,
+          "score": 0.8548,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:University of Washington Press",
+            "pages:280",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9780295749006",
+          "editionKey": "/books/OL34698160M",
+          "title": "Healing with Poisons: Potent Medicines in Medieval China",
+          "publisher": "University of Washington Press",
+          "publishDate": "2021",
+          "publishYear": 2021,
+          "score": 0.7848,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:University of Washington Press"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-harvey-and-the-oxford-physiologists-scientific-ideas-and-social-interaction-robert-frank",
+      "slug": "harvey-and-the-oxford-physiologists-scientific-ideas-and-social-interaction-robert-frank",
+      "title": "Harvey and the Oxford Physiologists: Scientific Ideas and Social Interaction",
+      "author": "Robert Frank",
+      "firstRecognitionYear": 1983,
+      "inputSignature": "harvey and the oxford physiologists scientific ideas and social interaction|robert frank||1983",
+      "recognitionScore": 4,
       "status": "not_found",
       "candidates": [],
       "notes": "No plausible ISBN13 editions after filtering."
     },
     {
-      "bookId": "book-frederick-jackson-turner-historian-scholar-teacher-ray-allen-billington",
-      "slug": "frederick-jackson-turner-historian-scholar-teacher-ray-allen-billington",
-      "title": "Frederick Jackson Turner: Historian, Scholar, Teacher",
-      "author": "Ray Allen Billington",
-      "publicationYear": 1973,
-      "firstRecognitionYear": 1974,
-      "inputSignature": "frederick jackson turner historian scholar teacher|ray allen billington|1973|1974",
-      "recognitionScore": 14,
+      "bookId": "book-health-and-healing-in-eighteenth-century-germany-mary-lindemann",
+      "slug": "health-and-healing-in-eighteenth-century-germany-mary-lindemann",
+      "title": "Health and Healing in Eighteenth-Century Germany",
+      "author": "Mary Lindemann",
+      "firstRecognitionYear": 1998,
+      "inputSignature": "health and healing in eighteenth century germany|mary lindemann||1998",
+      "recognitionScore": 4,
       "status": "not_found",
       "candidates": [],
       "notes": "No plausible ISBN13 editions after filtering."
     },
     {
-      "bookId": "book-john-keats-the-making-of-a-poet-aileen-ward",
-      "slug": "john-keats-the-making-of-a-poet-aileen-ward",
-      "title": "John Keats: The Making of a Poet",
-      "author": "Aileen Ward",
-      "publicationYear": 1963,
-      "firstRecognitionYear": 1963,
-      "inputSignature": "john keats the making of a poet|aileen ward|1963|1963",
-      "recognitionScore": 14,
-      "status": "not_found",
-      "candidates": [],
-      "notes": "No plausible ISBN13 editions after filtering."
+      "bookId": "book-hearing-happiness-deafness-cures-in-history-jaipreet-virdi",
+      "slug": "hearing-happiness-deafness-cures-in-history-jaipreet-virdi",
+      "title": "Hearing Happiness: Deafness Cures in History",
+      "author": "Jaipreet Virdi",
+      "firstRecognitionYear": 2022,
+      "inputSignature": "hearing happiness deafness cures in history|jaipreet virdi||2022",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780226690612",
+        "editionKey": "/books/OL29455662M",
+        "title": "Hearing Happiness: Deafness Cures in History",
+        "publisher": "University of Chicago Press",
+        "publishDate": "2020",
+        "publishYear": 2020,
+        "pages": 328,
+        "score": 0.825,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2020",
+          "english",
+          "publisher:University of Chicago Press",
+          "pages:328"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780226690612",
+          "editionKey": "/books/OL29455662M",
+          "title": "Hearing Happiness: Deafness Cures in History",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2020",
+          "publishYear": 2020,
+          "pages": 328,
+          "score": 0.825,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2020",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:328"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226824062",
+          "editionKey": "/books/OL38002674M",
+          "title": "Hearing Happiness: Deafness Cures in History",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "coverId": 15114378,
+          "score": 0.8147,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2022",
+            "english",
+            "publisher:University of Chicago Press",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226831442",
+          "editionKey": "/books/OL51107241M",
+          "title": "Hearing Happiness: Deafness Cures in History",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2023",
+          "publishYear": 2023,
+          "score": 0.7845,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2023",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        }
+      ]
     },
     {
-      "bookId": "book-john-maynard-keynes-vol-2-the-economist-as-saviour-1920-1937-robert-skidelsky",
-      "slug": "john-maynard-keynes-vol-2-the-economist-as-saviour-1920-1937-robert-skidelsky",
-      "title": "John Maynard Keynes, vol. 2: the Economist as Saviour 1920-1937",
-      "author": "Robert Skidelsky",
+      "bookId": "book-herophilus-the-art-of-medicine-in-ancient-alexandria-heinrich-von-staden",
+      "slug": "herophilus-the-art-of-medicine-in-ancient-alexandria-heinrich-von-staden",
+      "title": "Herophilus: The Art of Medicine in Ancient Alexandria",
+      "author": "Heinrich von Staden",
       "firstRecognitionYear": 1993,
-      "inputSignature": "john maynard keynes vol 2 the economist as saviour 1920 1937|robert skidelsky||1993",
-      "recognitionScore": 14,
+      "inputSignature": "herophilus the art of medicine in ancient alexandria|heinrich von staden||1993",
+      "recognitionScore": 4,
       "status": "not_found",
       "candidates": [],
       "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-hospital-life-in-enlightenment-scotland-care-and-teaching-at-the-royal-infirmary-of-edinburgh-gu",
+      "slug": "hospital-life-in-enlightenment-scotland-care-and-teaching-at-the-royal-infirmary-of-edinburgh-gu",
+      "title": "Hospital Life in Enlightenment Scotland: Care and Teaching at the Royal Infirmary of Edinburgh",
+      "author": "Guenter B. Risse",
+      "firstRecognitionYear": 1988,
+      "inputSignature": "hospital life in enlightenment scotland care and teaching at the royal infirmary of edinburgh|guenter b risse||1988",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-how-to-sell-a-poison-the-rise-fall-and-toxic-return-of-ddt-elena-conis",
+      "slug": "how-to-sell-a-poison-the-rise-fall-and-toxic-return-of-ddt-elena-conis",
+      "title": "How to Sell a Poison: The Rise, Fall, and Toxic Return of DDT",
+      "author": "Elena Conis",
+      "firstRecognitionYear": 2024,
+      "inputSignature": "how to sell a poison the rise fall and toxic return of ddt|elena conis||2024",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781645036746",
+          "editionKey": "/books/OL34173172M",
+          "title": "How to Sell a Poison: The Rise, Fall, and Toxic Return of DDT",
+          "publisher": "PublicAffairs",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "pages": 368,
+          "score": 0.8247,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2022",
+            "english",
+            "publisher:PublicAffairs",
+            "pages:368"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781645036753",
+          "editionKey": "/books/OL34143520M",
+          "title": "How to Sell a Poison: The Rise, Fall, and Toxic Return of DDT",
+          "publisher": "PublicAffairs",
+          "publishDate": "2022",
+          "publishYear": 2022,
+          "score": 0.7847,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2022",
+            "english",
+            "publisher:PublicAffairs"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781645036739",
+          "editionKey": "/books/OL57571522M",
+          "title": "How to Sell a Poison: The Rise, Fall, and Toxic Return of DDT",
+          "publisher": "PublicAffairs",
+          "publishDate": "2024",
+          "publishYear": 2024,
+          "pages": 400,
+          "score": 0.8243,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2024",
+            "english",
+            "publisher:PublicAffairs",
+            "pages:400"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-hygienic-modernity-meaning-of-health-and-disease-in-treaty-port-china-ruth-rogaski",
+      "slug": "hygienic-modernity-meaning-of-health-and-disease-in-treaty-port-china-ruth-rogaski",
+      "title": "Hygienic Modernity: Meaning of Health and Disease in Treaty-Port China",
+      "author": "Ruth Rogaski",
+      "firstRecognitionYear": 2007,
+      "inputSignature": "hygienic modernity meaning of health and disease in treaty port china|ruth rogaski||2007",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780520930605",
+          "editionKey": "/books/OL29605944M",
+          "title": "Hygienic Modernity: Meanings of Health and Disease in Treaty-Port China",
+          "publisher": "University of California Press",
+          "publishDate": "2004",
+          "publishYear": 2004,
+          "pages": 415,
+          "score": 0.7868,
+          "reasons": [
+            "title_match:0.91",
+            "publish_year:2004",
+            "english",
+            "publisher:University of California Press",
+            "pages:415"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781282357297",
+          "editionKey": "/books/OL29203853M",
+          "title": "Hygienic Modernity: Meanings of Health and Disease in Treaty-Port China",
+          "publisher": "University of California Press",
+          "publishDate": "2004",
+          "publishYear": 2004,
+          "pages": 401,
+          "score": 0.7868,
+          "reasons": [
+            "title_match:0.91",
+            "publish_year:2004",
+            "english",
+            "publisher:University of California Press",
+            "pages:401"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-in-sickness-and-in-wealth-american-hospitals-in-the-twentieth-century-rosemary-stevens",
+      "slug": "in-sickness-and-in-wealth-american-hospitals-in-the-twentieth-century-rosemary-stevens",
+      "title": "In Sickness and in Wealth: American Hospitals in the Twentieth Century",
+      "author": "Rosemary Stevens",
+      "firstRecognitionYear": 1990,
+      "inputSignature": "in sickness and in wealth american hospitals in the twentieth century|rosemary stevens||1990",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780465032242",
+        "editionKey": "/books/OL9347194M",
+        "title": "In Sickness and in Wealth: American Hospitals in the Twentieth Century",
+        "publisher": "Basic Books",
+        "publishDate": "October 1990",
+        "publishYear": 1990,
+        "physicalFormat": "Paperback",
+        "pages": 448,
+        "coverId": 8015784,
+        "score": 0.86,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:1990",
+          "english",
+          "publisher:Basic Books",
+          "pages:448",
+          "cover"
+        ],
+        "warnings": [
+          "paperback_like"
+        ]
+      },
+      "candidates": [
+        {
+          "isbn13": "9780465032242",
+          "editionKey": "/books/OL9347194M",
+          "title": "In Sickness and in Wealth: American Hospitals in the Twentieth Century",
+          "publisher": "Basic Books",
+          "publishDate": "October 1990",
+          "publishYear": 1990,
+          "physicalFormat": "Paperback",
+          "pages": 448,
+          "coverId": 8015784,
+          "score": 0.86,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1990",
+            "english",
+            "publisher:Basic Books",
+            "pages:448",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ]
+    },
+    {
+      "bookId": "book-john-morgan-continental-doctor-whitfield-j-bell-jr",
+      "slug": "john-morgan-continental-doctor-whitfield-j-bell-jr",
+      "title": "John Morgan: Continental Doctor",
+      "author": "Whitfield J. Bell, Jr.",
+      "firstRecognitionYear": 1966,
+      "inputSignature": "john morgan continental doctor|whitfield j bell jr||1966",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-intimate-communities-wartime-healthcare-and-the-birth-of-modern-china-1937-1945-nicole-barnes",
+      "slug": "intimate-communities-wartime-healthcare-and-the-birth-of-modern-china-1937-1945-nicole-barnes",
+      "title": "Intimate Communities: Wartime Healthcare and the Birth of Modern China, 1937-1945",
+      "author": "Nicole Barnes",
+      "firstRecognitionYear": 2020,
+      "inputSignature": "intimate communities wartime healthcare and the birth of modern china 1937 1945|nicole barnes||2020",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780520300460",
+          "editionKey": "/books/OL27848170M",
+          "title": "Intimate Communities: Wartime Healthcare and the Birth of Modern China, 1937-1945",
+          "publisher": "University of California Press",
+          "publishDate": "Oct 23, 2018",
+          "publishYear": 2018,
+          "physicalFormat": "paperback",
+          "pages": 324,
+          "coverId": 9239059,
+          "score": 0.8553,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:University of California Press",
+            "pages:324",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9780520971868",
+          "editionKey": "/books/OL29802416M",
+          "title": "Intimate Communities: Wartime Healthcare and the Birth of Modern China, 1937-1945",
+          "publisher": "University of California Press",
+          "publishDate": "2018",
+          "publishYear": 2018,
+          "pages": 324,
+          "score": 0.8253,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2018",
+            "english",
+            "publisher:University of California Press",
+            "pages:324"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-letters-of-benjamin-rush-lyman-henry-butterfield",
+      "slug": "letters-of-benjamin-rush-lyman-henry-butterfield",
+      "title": "Letters of Benjamin Rush",
+      "author": "Lyman Henry Butterfield",
+      "firstRecognitionYear": 1956,
+      "inputSignature": "letters of benjamin rush|lyman henry butterfield||1956",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-last-resort-psychosurgery-and-the-limits-of-medicine-jack-d-pressman",
+      "slug": "last-resort-psychosurgery-and-the-limits-of-medicine-jack-d-pressman",
+      "title": "Last Resort: Psychosurgery and the Limits of Medicine",
+      "author": "Jack D. Pressman",
+      "firstRecognitionYear": 1999,
+      "inputSignature": "last resort psychosurgery and the limits of medicine|jack d pressman||1999",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-medicine-and-american-growth-1800-1860-james-h-cassedy",
+      "slug": "medicine-and-american-growth-1800-1860-james-h-cassedy",
+      "title": "Medicine and American Growth, 1800-1860",
+      "author": "James H. Cassedy",
+      "firstRecognitionYear": 1987,
+      "inputSignature": "medicine and american growth 1800 1860|james h cassedy||1987",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-medicine-at-the-paris-hospital-1794-1848-erwin-h-ackerknecht",
+      "slug": "medicine-at-the-paris-hospital-1794-1848-erwin-h-ackerknecht",
+      "title": "Medicine at the Paris Hospital, 1794-1848",
+      "author": "Erwin H. Ackerknecht",
+      "firstRecognitionYear": 1972,
+      "inputSignature": "medicine at the paris hospital 1794 1848|erwin h ackerknecht||1972",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-medicine-and-public-health-in-latin-america-a-history-marcos-cueto-and-steven-palmer",
+      "slug": "medicine-and-public-health-in-latin-america-a-history-marcos-cueto-and-steven-palmer",
+      "title": "Medicine and Public Health in Latin America: A History",
+      "author": "Marcos Cueto, Steven Palmer",
+      "firstRecognitionYear": 2017,
+      "inputSignature": "medicine and public health in latin america a history|marcos cueto steven palmer||2017",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781107023673",
+          "editionKey": "/books/OL28540037M",
+          "title": "Medicine and Public Health in Latin America: A History",
+          "publisher": "Cambridge University Press",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "pages": 318,
+          "coverId": 13255208,
+          "score": 0.856,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:Cambridge University Press",
+            "pages:318",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781107633018",
+          "editionKey": "/books/OL29223430M",
+          "title": "Medicine and Public Health in Latin America: A History",
+          "publisher": "University of Cambridge ESOL Examinations",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "pages": 318,
+          "score": 0.826,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:University of Cambridge ESOL Examinations",
+            "pages:318"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781139152174",
+          "editionKey": "/books/OL34559681M",
+          "title": "Medicine and Public Health in Latin America: A History",
+          "publisher": "Cambridge University Press",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "score": 0.786,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:Cambridge University Press"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781316121184",
+          "editionKey": "/books/OL40412687M",
+          "title": "Medicine and Public Health in Latin America: A History",
+          "publisher": "Cambridge University Press",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "score": 0.786,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:Cambridge University Press"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-mental-illness-and-american-society-1897-1940-gerald-n-grob",
+      "slug": "mental-illness-and-american-society-1897-1940-gerald-n-grob",
+      "title": "Mental Illness and American Society, 1897-1940",
+      "author": "Gerald N. Grob",
+      "firstRecognitionYear": 1986,
+      "inputSignature": "mental illness and american society 1897 1940|gerald n grob||1986",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-improvising-medicine-an-african-oncology-ward-in-an-emerging-cancer-epidemic-julie-livingston",
+      "slug": "improvising-medicine-an-african-oncology-ward-in-an-emerging-cancer-epidemic-julie-livingston",
+      "title": "Improvising Medicine: An African Oncology Ward in an Emerging Cancer Epidemic",
+      "author": "Julie Livingston",
+      "firstRecognitionYear": 2014,
+      "inputSignature": "improvising medicine an african oncology ward in an emerging cancer epidemic|julie livingston||2014",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780822395768",
+          "editionKey": "/books/OL29661879M",
+          "title": "Improvising Medicine: An African Oncology Ward in an Emerging Cancer Epidemic",
+          "publisher": "Duke University Press",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "pages": 246,
+          "score": 0.8263,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:Duke University Press",
+            "pages:246"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781283583800",
+          "editionKey": "/books/OL38679988M",
+          "title": "Improvising Medicine: An African Oncology Ward in an Emerging Cancer Epidemic",
+          "publisher": "Duke University Press",
+          "publishDate": "2012",
+          "publishYear": 2012,
+          "score": 0.7863,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2012",
+            "english",
+            "publisher:Duke University Press"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-medicine-before-the-plague-practitioners-and-their-patients-in-the-crown-of-aragon-1285-1345-mic",
+      "slug": "medicine-before-the-plague-practitioners-and-their-patients-in-the-crown-of-aragon-1285-1345-mic",
+      "title": "Medicine Before the Plague: Practitioners and Their Patients in the Crown of Aragon, 1285-1345",
+      "author": "Michael R. McVaugh",
+      "firstRecognitionYear": 1994,
+      "inputSignature": "medicine before the plague practitioners and their patients in the crown of aragon 1285 1345|michael r mcvaugh||1994",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-mental-institutions-in-america-gerald-n-grob",
+      "slug": "mental-institutions-in-america-gerald-n-grob",
+      "title": "Mental Institutions in America",
+      "author": "Gerald N. Grob",
+      "firstRecognitionYear": 1986,
+      "inputSignature": "mental institutions in america|gerald n grob||1986",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-mind-and-body-in-eighteenth-century-medicine-lelland-j-rather",
+      "slug": "mind-and-body-in-eighteenth-century-medicine-lelland-j-rather",
+      "title": "Mind and Body in Eighteenth-Century Medicine",
+      "author": "Lelland J. Rather",
+      "firstRecognitionYear": 1976,
+      "inputSignature": "mind and body in eighteenth century medicine|lelland j rather||1976",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-neither-donkey-nor-horse-medicine-in-the-struggle-over-china-s-modernity-sean-hsiang-lin-lei",
+      "slug": "neither-donkey-nor-horse-medicine-in-the-struggle-over-china-s-modernity-sean-hsiang-lin-lei",
+      "title": "Neither Donkey Nor Horse: Medicine in the Struggle Over China’s Modernity",
+      "author": "Sean Hsiang-Lin Lei",
+      "firstRecognitionYear": 2016,
+      "inputSignature": "neither donkey nor horse medicine in the struggle over china s modernity|sean hsiang lin lei||2016",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780226169880",
+        "editionKey": "/books/OL27558929M",
+        "title": "Neither Donkey nor Horse: Medicine in the Struggle over China's Modernity",
+        "publisher": "University of Chicago Press",
+        "publishDate": "Sep 09, 2014",
+        "publishYear": 2014,
+        "physicalFormat": "hardcover",
+        "pages": 376,
+        "coverId": 9014316,
+        "score": 0.996,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2014",
+          "english",
+          "hardcover_like",
+          "publisher:University of Chicago Press",
+          "pages:376",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780226169880",
+          "editionKey": "/books/OL27558929M",
+          "title": "Neither Donkey nor Horse: Medicine in the Struggle over China's Modernity",
+          "publisher": "University of Chicago Press",
+          "publishDate": "Sep 09, 2014",
+          "publishYear": 2014,
+          "physicalFormat": "hardcover",
+          "pages": 376,
+          "coverId": 9014316,
+          "score": 0.996,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "hardcover_like",
+            "publisher:University of Chicago Press",
+            "pages:376",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226169910",
+          "editionKey": "/books/OL34019522M",
+          "title": "Neither Donkey nor Horse: Medicine in the Struggle over China's Modernity",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "pages": 376,
+          "score": 0.826,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:376"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781322047133",
+          "editionKey": "/books/OL38290290M",
+          "title": "Neither Donkey nor Horse: Medicine in the Struggle over China's Modernity",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2014",
+          "publishYear": 2014,
+          "score": 0.786,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2014",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-reading-practice-the-pursuit-of-natural-knowledge-from-manuscript-to-print-melissa-reynolds",
+      "slug": "reading-practice-the-pursuit-of-natural-knowledge-from-manuscript-to-print-melissa-reynolds",
+      "title": "Reading Practice: The Pursuit of Natural Knowledge from Manuscript to Print",
+      "author": "Melissa Reynolds",
+      "firstRecognitionYear": 2026,
+      "inputSignature": "reading practice the pursuit of natural knowledge from manuscript to print|melissa reynolds||2026",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780226834894",
+        "editionKey": "/books/OL50816209M",
+        "title": "Reading Practice: The Pursuit of Natural Knowledge from Manuscript to Print",
+        "publisher": "University of Chicago Press",
+        "publishDate": "2024",
+        "publishYear": 2024,
+        "score": 0.7843,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2024",
+          "english",
+          "publisher:University of Chicago Press"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780226834894",
+          "editionKey": "/books/OL50816209M",
+          "title": "Reading Practice: The Pursuit of Natural Knowledge from Manuscript to Print",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2024",
+          "publishYear": 2024,
+          "score": 0.7843,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2024",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-plague-and-empire-in-the-early-modern-mediterranean-world-the-ottoman-experience-1347-1600-nukhe",
+      "slug": "plague-and-empire-in-the-early-modern-mediterranean-world-the-ottoman-experience-1347-1600-nukhe",
+      "title": "Plague and Empire in the Early Modern Mediterranean World: The Ottoman Experience, 1347-1600",
+      "author": "Nükhet Varlik",
+      "firstRecognitionYear": 2018,
+      "inputSignature": "plague and empire in the early modern mediterranean world the ottoman experience 1347 1600|nukhet varlik||2018",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781107013384",
+          "editionKey": "/books/OL26888726M",
+          "title": "Plague and empire in the early modern Mediterranean world: the Ottoman experience, 1347-1600",
+          "publisher": "Cambridge University Press",
+          "publishDate": "2015",
+          "publishYear": 2015,
+          "pages": 336,
+          "coverId": 9567113,
+          "score": 0.8558,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2015",
+            "english",
+            "publisher:Cambridge University Press",
+            "pages:336",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781139004046",
+          "editionKey": "/books/OL34524969M",
+          "title": "Plague and Empire in the Early Modern Mediterranean World: The Ottoman Experience, 1347–1600",
+          "publisher": "Cambridge University Press",
+          "publishDate": "2015",
+          "publishYear": 2015,
+          "score": 0.7858,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2015",
+            "english",
+            "publisher:Cambridge University Press"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781316354827",
+          "editionKey": "/books/OL40424783M",
+          "title": "Plague and Empire in the Early Modern Mediterranean World: The Ottoman Experience, 1347 1600",
+          "publisher": "Cambridge University Press",
+          "publishDate": "2015",
+          "publishYear": 2015,
+          "score": 0.7858,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2015",
+            "english",
+            "publisher:Cambridge University Press"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781108412773",
+          "editionKey": "/books/OL34548075M",
+          "title": "Plague and Empire in the Early Modern Mediterranean World: The Ottoman Experience, 1347-1600",
+          "publisher": "Cambridge University Press",
+          "publishDate": "2017",
+          "publishYear": 2017,
+          "pages": 354,
+          "coverId": 14751432,
+          "score": 0.8555,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2017",
+            "english",
+            "publisher:Cambridge University Press",
+            "pages:354",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-starved-for-light-the-long-shadow-of-rickets-and-vitamin-d-deficiency-christian-warren",
+      "slug": "starved-for-light-the-long-shadow-of-rickets-and-vitamin-d-deficiency-christian-warren",
+      "title": "Starved for Light: The Long Shadow of Rickets and Vitamin D Deficiency",
+      "author": "Christian Warren",
+      "firstRecognitionYear": 2026,
+      "inputSignature": "starved for light the long shadow of rickets and vitamin d deficiency|christian warren||2026",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780226151939",
+        "editionKey": "/books/OL51366916M",
+        "title": "Starved for Light: The Long Shadow of Rickets and Vitamin d Deficiency",
+        "publisher": "University of Chicago Press",
+        "publishDate": "2024",
+        "publishYear": 2024,
+        "coverId": 14803191,
+        "score": 0.8143,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2024",
+          "english",
+          "publisher:University of Chicago Press",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780226151939",
+          "editionKey": "/books/OL51366916M",
+          "title": "Starved for Light: The Long Shadow of Rickets and Vitamin d Deficiency",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2024",
+          "publishYear": 2024,
+          "coverId": 14803191,
+          "score": 0.8143,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2024",
+            "english",
+            "publisher:University of Chicago Press",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226844855",
+          "editionKey": "/books/OL61571919M",
+          "title": "Starved for Light: The Long Shadow of Rickets and Vitamin d Deficiency",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2025",
+          "publishYear": 2025,
+          "score": 0.7842,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2025",
+            "english",
+            "publisher:University of Chicago Press"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-taddeo-alderotti-and-his-pupils-two-generations-of-italian-medical-learning-nancy-g-siraisi",
+      "slug": "taddeo-alderotti-and-his-pupils-two-generations-of-italian-medical-learning-nancy-g-siraisi",
+      "title": "Taddeo Alderotti and His Pupils: Two Generations of Italian Medical Learning",
+      "author": "Nancy G. Siraisi",
+      "firstRecognitionYear": 1985,
+      "inputSignature": "taddeo alderotti and his pupils two generations of italian medical learning|nancy g siraisi||1985",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-surgery-and-salvation-the-roots-of-reproductive-injustice-in-mexico-1770-1940-elizabeth-o-brien",
+      "slug": "surgery-and-salvation-the-roots-of-reproductive-injustice-in-mexico-1770-1940-elizabeth-o-brien",
+      "title": "Surgery & Salvation: The Roots of Reproductive Injustice in Mexico, 1770-1940",
+      "author": "Elizabeth O’Brien",
+      "firstRecognitionYear": 2025,
+      "inputSignature": "surgery salvation the roots of reproductive injustice in mexico 1770 1940|elizabeth o brien||2025",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781469675886",
+          "editionKey": "/books/OL49783803M",
+          "title": "Surgery and Salvation: The Roots of Reproductive Injustice in Mexico, 1770-1940",
+          "publisher": "University of North Carolina Press",
+          "publishDate": "2023",
+          "publishYear": 2023,
+          "score": 0.747,
+          "reasons": [
+            "title_match:0.92",
+            "publish_year:2023",
+            "english",
+            "publisher:University of North Carolina Press"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9798890863805",
+          "editionKey": "/books/OL50711390M",
+          "title": "Surgery and Salvation: The Roots of Reproductive Injustice in Mexico, 1770-1940",
+          "publisher": "University of North Carolina Press",
+          "publishDate": "2023",
+          "publishYear": 2023,
+          "score": 0.747,
+          "reasons": [
+            "title_match:0.92",
+            "publish_year:2023",
+            "english",
+            "publisher:University of North Carolina Press"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-the-adoption-of-inoculation-for-smallpox-in-england-and-france-genevieve-miller",
+      "slug": "the-adoption-of-inoculation-for-smallpox-in-england-and-france-genevieve-miller",
+      "title": "The Adoption of Inoculation for Smallpox in England and France",
+      "author": "Genevieve Miller",
+      "firstRecognitionYear": 1962,
+      "inputSignature": "the adoption of inoculation for smallpox in england and france|genevieve miller||1962",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9781512813258",
+        "editionKey": "/books/OL33645296M",
+        "title": "Adoption of Inoculation for Smallpox in England and France",
+        "publisher": "University of Pennsylvania Press",
+        "publishDate": "1957",
+        "publishYear": 1957,
+        "pages": 360,
+        "coverId": 13884568,
+        "score": 0.8205,
+        "reasons": [
+          "title_match:0.90",
+          "publish_year:1957",
+          "english",
+          "publisher:University of Pennsylvania Press",
+          "pages:360",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9781512813258",
+          "editionKey": "/books/OL33645296M",
+          "title": "Adoption of Inoculation for Smallpox in England and France",
+          "publisher": "University of Pennsylvania Press",
+          "publishDate": "1957",
+          "publishYear": 1957,
+          "pages": 360,
+          "coverId": 13884568,
+          "score": 0.8205,
+          "reasons": [
+            "title_match:0.90",
+            "publish_year:1957",
+            "english",
+            "publisher:University of Pennsylvania Press",
+            "pages:360",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-cholera-years-charles-rosenberg",
+      "slug": "the-cholera-years-charles-rosenberg",
+      "title": "The Cholera Years",
+      "author": "Charles Rosenberg",
+      "firstRecognitionYear": 1969,
+      "inputSignature": "the cholera years|charles rosenberg||1969",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-the-bubonic-plague-and-england-an-essay-in-the-history-of-preventive-medicine-charles-f-mullett",
+      "slug": "the-bubonic-plague-and-england-an-essay-in-the-history-of-preventive-medicine-charles-f-mullett",
+      "title": "The Bubonic Plague and England: An Essay in the History of Preventive Medicine",
+      "author": "Charles F. Mullett",
+      "firstRecognitionYear": 1958,
+      "inputSignature": "the bubonic plague and england an essay in the history of preventive medicine|charles f mullett||1958",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-the-age-of-intoxication-origins-of-the-global-drug-trade-benjamin-breen",
+      "slug": "the-age-of-intoxication-origins-of-the-global-drug-trade-benjamin-breen",
+      "title": "The Age of Intoxication: Origins of the Global Drug Trade",
+      "author": "Benjamin Breen",
+      "firstRecognitionYear": 2021,
+      "inputSignature": "the age of intoxication origins of the global drug trade|benjamin breen||2021",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780812251784",
+          "editionKey": "/books/OL28902257M",
+          "title": "Age of Intoxication: Origins of the Global Drug Trade",
+          "publisher": "University of Pennsylvania Press",
+          "publishDate": "2019",
+          "publishYear": 2019,
+          "pages": 304,
+          "coverId": 12399648,
+          "score": 0.8552,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2019",
+            "english",
+            "publisher:University of Pennsylvania Press",
+            "pages:304",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780812296624",
+          "editionKey": "/books/OL34107830M",
+          "title": "Age of Intoxication: Origins of the Global Drug Trade",
+          "publisher": "University of Pennsylvania Press",
+          "publishDate": "2019",
+          "publishYear": 2019,
+          "pages": 288,
+          "score": 0.8252,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2019",
+            "english",
+            "publisher:University of Pennsylvania Press",
+            "pages:288"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780812224986",
+          "editionKey": "/books/OL32316539M",
+          "title": "The Age of Intoxication: Origins of the Global Drug Trade",
+          "publisher": "University of Pennsylvania Press",
+          "publishDate": "Jul 16, 2021",
+          "publishYear": 2021,
+          "physicalFormat": "paperback",
+          "pages": 288,
+          "coverId": 10940307,
+          "score": 0.8548,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2021",
+            "english",
+            "publisher:University of Pennsylvania Press",
+            "pages:288",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-the-collectors-of-lost-souls-turning-kuru-scientists-into-whitemen-warwick-anderson",
+      "slug": "the-collectors-of-lost-souls-turning-kuru-scientists-into-whitemen-warwick-anderson",
+      "title": "The Collectors of Lost Souls: Turning Kuru Scientists into Whitemen",
+      "author": "Warwick Anderson",
+      "firstRecognitionYear": 2010,
+      "inputSignature": "the collectors of lost souls turning kuru scientists into whitemen|warwick anderson||2010",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780801890406",
+        "editionKey": "/books/OL16637082M",
+        "title": "The collectors of lost souls: turning whitemen into kuru scientists",
+        "publisher": "Johns Hopkins University Press",
+        "publishDate": "2008",
+        "publishYear": 2008,
+        "pages": 318,
+        "coverId": 13434345,
+        "score": 0.857,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2008",
+          "english",
+          "publisher:Johns Hopkins University Press",
+          "pages:318",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780801890406",
+          "editionKey": "/books/OL16637082M",
+          "title": "The collectors of lost souls: turning whitemen into kuru scientists",
+          "publisher": "Johns Hopkins University Press",
+          "publishDate": "2008",
+          "publishYear": 2008,
+          "pages": 318,
+          "coverId": 13434345,
+          "score": 0.857,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2008",
+            "english",
+            "publisher:Johns Hopkins University Press",
+            "pages:318",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-discovery-of-insulin-michael-bliss",
+      "slug": "the-discovery-of-insulin-michael-bliss",
+      "title": "The Discovery of Insulin",
+      "author": "Michael Bliss",
+      "firstRecognitionYear": 1984,
+      "inputSignature": "the discovery of insulin|michael bliss||1984",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780771015755",
+        "editionKey": "/books/OL8075414M",
+        "title": "The Discovery of Insulin",
+        "publisher": "McClelland & Stewart, Canada",
+        "publishDate": "1984",
+        "publishYear": 1984,
+        "physicalFormat": "Paperback",
+        "pages": 320,
+        "score": 0.831,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:1984",
+          "english",
+          "publisher:McClelland & Stewart, Canada",
+          "pages:320"
+        ],
+        "warnings": [
+          "paperback_like"
+        ]
+      },
+      "candidates": [
+        {
+          "isbn13": "9780771015755",
+          "editionKey": "/books/OL8075414M",
+          "title": "The Discovery of Insulin",
+          "publisher": "McClelland & Stewart, Canada",
+          "publishDate": "1984",
+          "publishYear": 1984,
+          "physicalFormat": "Paperback",
+          "pages": 320,
+          "score": 0.831,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1984",
+            "english",
+            "publisher:McClelland & Stewart, Canada",
+            "pages:320"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9780226058986",
+          "editionKey": "/books/OL28423688M",
+          "title": "Discovery of Insulin",
+          "publisher": "University of Chicago Press",
+          "publishDate": "1982",
+          "publishYear": 1982,
+          "pages": 304,
+          "score": 0.7188,
+          "reasons": [
+            "title_match:0.75",
+            "publish_year:1982",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:304"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-conquest-of-malaria-italy-1900-1962-frank-m-snowden",
+      "slug": "the-conquest-of-malaria-italy-1900-1962-frank-m-snowden",
+      "title": "The Conquest of Malaria: Italy, 1900-1962",
+      "author": "Frank M. Snowden",
+      "firstRecognitionYear": 2008,
+      "inputSignature": "the conquest of malaria italy 1900 1962|frank m snowden||2008",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-the-expressiveness-of-the-body-and-the-divergence-of-greek-and-chinese-medicine-shigehisa-kuriya",
+      "slug": "the-expressiveness-of-the-body-and-the-divergence-of-greek-and-chinese-medicine-shigehisa-kuriya",
+      "title": "The Expressiveness of the Body and the Divergence of Greek and Chinese Medicine",
+      "author": "Shigehisa Kuriyama",
+      "firstRecognitionYear": 2001,
+      "inputSignature": "the expressiveness of the body and the divergence of greek and chinese medicine|shigehisa kuriyama||2001",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780942299892",
+        "editionKey": "/books/OL8443427M",
+        "title": "The Expressiveness of the Body and the Divergence of Greek and Chinese Medicine",
+        "publisher": "Zone Books",
+        "publishDate": "March 15, 2002",
+        "publishYear": 2002,
+        "physicalFormat": "Paperback",
+        "pages": 340,
+        "coverId": 719391,
+        "score": 0.858,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2002",
+          "english",
+          "publisher:Zone Books",
+          "pages:340",
+          "cover"
+        ],
+        "warnings": [
+          "paperback_like"
+        ]
+      },
+      "candidates": [
+        {
+          "isbn13": "9780942299892",
+          "editionKey": "/books/OL8443427M",
+          "title": "The Expressiveness of the Body and the Divergence of Greek and Chinese Medicine",
+          "publisher": "Zone Books",
+          "publishDate": "March 15, 2002",
+          "publishYear": 2002,
+          "physicalFormat": "Paperback",
+          "pages": 340,
+          "coverId": 719391,
+          "score": 0.858,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2002",
+            "english",
+            "publisher:Zone Books",
+            "pages:340",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-experiential-caribbean-creating-knowledge-and-healing-in-the-early-modern-atlantic-pablo-gom",
+      "slug": "the-experiential-caribbean-creating-knowledge-and-healing-in-the-early-modern-atlantic-pablo-gom",
+      "title": "The Experiential Caribbean: Creating Knowledge and Healing in the Early Modern Atlantic",
+      "author": "Pablo Gómez",
+      "firstRecognitionYear": 2019,
+      "inputSignature": "the experiential caribbean creating knowledge and healing in the early modern atlantic|pablo gomez||2019",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9781469630878",
+          "editionKey": "/books/OL32019246M",
+          "title": "The Experiential Caribbean: Creating Knowledge and Healing in the Early Modern Atlantic",
+          "publisher": "University of North Carolina Press",
+          "publishDate": "Apr 17, 2017",
+          "publishYear": 2017,
+          "physicalFormat": "paperback",
+          "pages": 314,
+          "coverId": 10685557,
+          "score": 0.8555,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2017",
+            "english",
+            "publisher:University of North Carolina Press",
+            "pages:314",
+            "cover"
+          ],
+          "warnings": [
+            "paperback_like"
+          ]
+        },
+        {
+          "isbn13": "9781469630861",
+          "editionKey": "/books/OL33310500M",
+          "title": "Experiential Caribbean: Creating Knowledge and Healing in the Early Modern Atlantic",
+          "publisher": "University of North Carolina Press",
+          "publishDate": "2017",
+          "publishYear": 2017,
+          "pages": 314,
+          "score": 0.8255,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2017",
+            "english",
+            "publisher:University of North Carolina Press",
+            "pages:314"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781469630885",
+          "editionKey": "/books/OL34065401M",
+          "title": "Experiential Caribbean: Creating Knowledge and Healing in the Early Modern Atlantic",
+          "publisher": "University of North Carolina Press",
+          "publishDate": "2017",
+          "publishYear": 2017,
+          "pages": 314,
+          "score": 0.8255,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2017",
+            "english",
+            "publisher:University of North Carolina Press",
+            "pages:314"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-the-life-and-times-of-gaspare-tagliacozzi-jerome-pierce-webster-and-martha-teach-gnudi",
+      "slug": "the-life-and-times-of-gaspare-tagliacozzi-jerome-pierce-webster-and-martha-teach-gnudi",
+      "title": "The Life and Times of Gaspare Tagliacozzi",
+      "author": "Jerome Pierce Webster, Martha Teach Gnudi",
+      "firstRecognitionYear": 1954,
+      "inputSignature": "the life and times of gaspare tagliacozzi|jerome pierce webster martha teach gnudi||1954",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-the-great-instauration-medicine-and-reform-1626-1660-charles-webster",
+      "slug": "the-great-instauration-medicine-and-reform-1626-1660-charles-webster",
+      "title": "The Great Instauration: Medicine and Reform, 1626-1660",
+      "author": "Charles Webster",
+      "firstRecognitionYear": 1979,
+      "inputSignature": "the great instauration medicine and reform 1626 1660|charles webster||1979",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-the-oxford-handbook-of-disability-history-michael-rembis-and-catherine-kudlick-and-kim-e-nielsen",
+      "slug": "the-oxford-handbook-of-disability-history-michael-rembis-and-catherine-kudlick-and-kim-e-nielsen",
+      "title": "The Oxford Handbook of Disability History",
+      "author": "Michael Rembis, Catherine Kudlick, Kim E. Nielsen",
+      "firstRecognitionYear": 2021,
+      "inputSignature": "the oxford handbook of disability history|michael rembis catherine kudlick kim e nielsen||2021",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
+    },
+    {
+      "bookId": "book-the-lomidine-files-the-untold-story-of-a-medical-disaster-guillaume-lachenal",
+      "slug": "the-lomidine-files-the-untold-story-of-a-medical-disaster-guillaume-lachenal",
+      "title": "The Lomidine Files: The Untold Story of a Medical Disaster",
+      "author": "Guillaume Lachenal",
+      "firstRecognitionYear": 2020,
+      "inputSignature": "the lomidine files the untold story of a medical disaster|guillaume lachenal||2020",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9781421423234",
+        "editionKey": "/books/OL27404204M",
+        "title": "The Lomidine Files: The Untold Story of a Medical Disaster in Colonial Africa",
+        "publisher": "Johns Hopkins University Press",
+        "publishDate": "Oct 02, 2017",
+        "publishYear": 2017,
+        "physicalFormat": "hardcover",
+        "pages": 240,
+        "coverId": 8866373,
+        "score": 0.8728,
+        "reasons": [
+          "title_match:0.73",
+          "publish_year:2017",
+          "english",
+          "hardcover_like",
+          "publisher:Johns Hopkins University Press",
+          "pages:240",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9781421423234",
+          "editionKey": "/books/OL27404204M",
+          "title": "The Lomidine Files: The Untold Story of a Medical Disaster in Colonial Africa",
+          "publisher": "Johns Hopkins University Press",
+          "publishDate": "Oct 02, 2017",
+          "publishYear": 2017,
+          "physicalFormat": "hardcover",
+          "pages": 240,
+          "coverId": 8866373,
+          "score": 0.8728,
+          "reasons": [
+            "title_match:0.73",
+            "publish_year:2017",
+            "english",
+            "hardcover_like",
+            "publisher:Johns Hopkins University Press",
+            "pages:240",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781421423241",
+          "editionKey": "/books/OL33630252M",
+          "title": "Lomidine Files: The Untold Story of a Medical Disaster in Colonial Africa",
+          "publisher": "Johns Hopkins University Press",
+          "publishDate": "2017",
+          "publishYear": 2017,
+          "pages": 240,
+          "score": 0.7028,
+          "reasons": [
+            "title_match:0.73",
+            "publish_year:2017",
+            "english",
+            "publisher:Johns Hopkins University Press",
+            "pages:240"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-private-science-of-louis-pasteur-gerald-l-geison",
+      "slug": "the-private-science-of-louis-pasteur-gerald-l-geison",
+      "title": "The Private Science of Louis Pasteur",
+      "author": "Gerald L. Geison",
+      "firstRecognitionYear": 1996,
+      "inputSignature": "the private science of louis pasteur|gerald l geison||1996",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-the-simian-tongue-the-long-debate-about-animal-language-gregory-radick",
+      "slug": "the-simian-tongue-the-long-debate-about-animal-language-gregory-radick",
+      "title": "The Simian Tongue: The Long Debate about Animal Language",
+      "author": "Gregory Radick",
+      "firstRecognitionYear": 2010,
+      "inputSignature": "the simian tongue the long debate about animal language|gregory radick||2010",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780226702247",
+        "editionKey": "/books/OL18291724M",
+        "title": "The simian tongue: the long debate about animal language",
+        "publisher": "University of Chicago Press",
+        "publishDate": "2007",
+        "publishYear": 2007,
+        "pages": 577,
+        "coverId": 8127307,
+        "score": 0.8572,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:2007",
+          "english",
+          "publisher:University of Chicago Press",
+          "pages:577",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780226702247",
+          "editionKey": "/books/OL18291724M",
+          "title": "The simian tongue: the long debate about animal language",
+          "publisher": "University of Chicago Press",
+          "publishDate": "2007",
+          "publishYear": 2007,
+          "pages": 577,
+          "coverId": 8127307,
+          "score": 0.8572,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2007",
+            "english",
+            "publisher:University of Chicago Press",
+            "pages:577",
+            "cover"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780226702247",
+          "editionKey": "/books/OL10192832M",
+          "title": "The Simian Tongue: The Long Debate about Animal Language",
+          "publisher": "University Of Chicago Press",
+          "publishDate": "January 1, 2008",
+          "publishYear": 2008,
+          "physicalFormat": "Hardcover",
+          "pages": 544,
+          "coverId": 2335967,
+          "score": 0.997,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2008",
+            "english",
+            "hardcover_like",
+            "publisher:University Of Chicago Press",
+            "pages:544",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-state-and-the-mentally-ill-a-history-of-the-worcester-state-hospital-gerald-n-grob",
+      "slug": "the-state-and-the-mentally-ill-a-history-of-the-worcester-state-hospital-gerald-n-grob",
+      "title": "The State and the Mentally Ill: A History of the Worcester State Hospital",
+      "author": "Gerald N. Grob",
+      "firstRecognitionYear": 1986,
+      "inputSignature": "the state and the mentally ill a history of the worcester state hospital|gerald n grob||1986",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No plausible ISBN13 editions after filtering."
+    },
+    {
+      "bookId": "book-the-therapeutic-perspective-medical-knowledge-and-identity-in-america-1820-1855-john-harley-warn",
+      "slug": "the-therapeutic-perspective-medical-knowledge-and-identity-in-america-1820-1855-john-harley-warn",
+      "title": "The Therapeutic Perspective: Medical Knowledge and Identity in America, 1820-1855",
+      "author": "John Harley Warner",
+      "firstRecognitionYear": 1991,
+      "inputSignature": "the therapeutic perspective medical knowledge and identity in america 1820 1855|john harley warner||1991",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780674883307",
+        "editionKey": "/books/OL7693635M",
+        "title": "The Therapeutic Perspective: Medical Practice, Knowledge, and Identity in America, 1820-1885",
+        "publisher": "Harvard Univ Pr",
+        "publishDate": "March 1987",
+        "publishYear": 1987,
+        "physicalFormat": "Hardcover",
+        "pages": 376,
+        "coverId": 4653213,
+        "score": 0.9255,
+        "reasons": [
+          "title_match:0.83",
+          "publish_year:1987",
+          "english",
+          "hardcover_like",
+          "publisher:Harvard Univ Pr",
+          "pages:376",
+          "cover"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780674883307",
+          "editionKey": "/books/OL7693635M",
+          "title": "The Therapeutic Perspective: Medical Practice, Knowledge, and Identity in America, 1820-1885",
+          "publisher": "Harvard Univ Pr",
+          "publishDate": "March 1987",
+          "publishYear": 1987,
+          "physicalFormat": "Hardcover",
+          "pages": 376,
+          "coverId": 4653213,
+          "score": 0.9255,
+          "reasons": [
+            "title_match:0.83",
+            "publish_year:1987",
+            "english",
+            "hardcover_like",
+            "publisher:Harvard Univ Pr",
+            "pages:376",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-time-to-heal-american-medical-education-from-the-turn-of-the-century-to-the-era-of-managed-care-",
+      "slug": "time-to-heal-american-medical-education-from-the-turn-of-the-century-to-the-era-of-managed-care-",
+      "title": "Time to Heal: American Medical Education from the Turn of the Century to the Era of Managed Care",
+      "author": "Kenneth Ludmerer",
+      "firstRecognitionYear": 2004,
+      "inputSignature": "time to heal american medical education from the turn of the century to the era of managed care|kenneth ludmerer||2004",
+      "recognitionScore": 4,
+      "status": "ambiguous",
+      "candidates": [
+        {
+          "isbn13": "9780195353419",
+          "editionKey": "/books/OL53280660M",
+          "title": "Time to Heal: American Medical Education from the Turn of the Century to the Era of Managed Care",
+          "publisher": "Ebsco Publishing",
+          "publishDate": "1999",
+          "publishYear": 1999,
+          "score": 0.7885,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1999",
+            "english",
+            "publisher:Ebsco Publishing"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9781280529719",
+          "editionKey": "/books/OL40394107M",
+          "title": "Time to Heal: American Medical Education from the Turn of the Century to the Era of Managed Care",
+          "publisher": "Oxford University Press",
+          "publishDate": "1999",
+          "publishYear": 1999,
+          "score": 0.7885,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1999",
+            "english",
+            "publisher:Oxford University Press"
+          ],
+          "warnings": []
+        },
+        {
+          "isbn13": "9780195181364",
+          "editionKey": "/books/OL7391490M",
+          "title": "Time to Heal: American Medical Education from the Turn of the Century to the Era of Managed Care",
+          "publisher": "Oxford University Press, USA",
+          "publishDate": "December 17, 2004",
+          "publishYear": 2004,
+          "pages": 544,
+          "coverId": 126941,
+          "score": 0.8577,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:2004",
+            "english",
+            "publisher:Oxford University Press, USA",
+            "pages:544",
+            "cover"
+          ],
+          "warnings": []
+        }
+      ],
+      "notes": "Multiple earliest plausible ISBN candidates are too close to choose safely."
+    },
+    {
+      "bookId": "book-tom-rivers-reflections-on-a-life-in-medicine-and-science-saul-benison",
+      "slug": "tom-rivers-reflections-on-a-life-in-medicine-and-science-saul-benison",
+      "title": "Tom Rivers: Reflections on a Life in Medicine and Science",
+      "author": "Saul Benison",
+      "firstRecognitionYear": 1968,
+      "inputSignature": "tom rivers reflections on a life in medicine and science|saul benison||1968",
+      "recognitionScore": 4,
+      "status": "selected",
+      "selected": {
+        "isbn13": "9780262020268",
+        "editionKey": "/books/OL9705483M",
+        "title": "Tom Rivers: Reflections on a Life in Medicine and Science",
+        "publisher": "The MIT Press",
+        "publishDate": "July 15, 1967",
+        "publishYear": 1967,
+        "physicalFormat": "Hardcover",
+        "pages": 736,
+        "score": 0.9738,
+        "reasons": [
+          "title_match:1.00",
+          "publish_year:1967",
+          "english",
+          "hardcover_like",
+          "publisher:The MIT Press",
+          "pages:736"
+        ],
+        "warnings": []
+      },
+      "candidates": [
+        {
+          "isbn13": "9780262020268",
+          "editionKey": "/books/OL9705483M",
+          "title": "Tom Rivers: Reflections on a Life in Medicine and Science",
+          "publisher": "The MIT Press",
+          "publishDate": "July 15, 1967",
+          "publishYear": 1967,
+          "physicalFormat": "Hardcover",
+          "pages": 736,
+          "score": 0.9738,
+          "reasons": [
+            "title_match:1.00",
+            "publish_year:1967",
+            "english",
+            "hardcover_like",
+            "publisher:The MIT Press",
+            "pages:736"
+          ],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "bookId": "book-trials-of-an-ordinary-doctor-joannes-groenevelt-in-seventeenth-century-london-harold-j-cook",
+      "slug": "trials-of-an-ordinary-doctor-joannes-groenevelt-in-seventeenth-century-london-harold-j-cook",
+      "title": "Trials of an Ordinary Doctor: Joannes Groenevelt in Seventeenth-Century London",
+      "author": "Harold J. Cook",
+      "firstRecognitionYear": 1997,
+      "inputSignature": "trials of an ordinary doctor joannes groenevelt in seventeenth century london|harold j cook||1997",
+      "recognitionScore": 4,
+      "status": "not_found",
+      "candidates": [],
+      "notes": "No strong Open Library work match."
     }
   ]
 }

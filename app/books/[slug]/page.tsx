@@ -6,6 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import { BookRetailerLinks } from "@/components/book-retailer-links";
 import { ExpandableBookDescription } from "@/components/expandable-book-description";
 import { LibraryLookupLink } from "@/components/library-lookup-link";
+import { ReportCorrectionLink } from "@/components/report-correction-link";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { authorPlatformLinksFor } from "@/lib/author-platform-links";
 import { readBookDetailArtifact } from "@/lib/book-detail-artifacts";
@@ -178,6 +179,14 @@ export default async function BookPage({ params }: PageProps) {
           {book.nytBestseller ? <NytBestsellerPanel stats={book.nytBestseller} /> : null}
           <LibraryLookupLink book={book} />
           <BookRetailerLinks book={book} />
+          <div className="mt-5 border-t hairline pt-4">
+            <ReportCorrectionLink
+              path={`/books/${book.slug}`}
+              recordId={book.id}
+              recordTitle={book.title}
+              recordType="book"
+            />
+          </div>
         </aside>
       </section>
 

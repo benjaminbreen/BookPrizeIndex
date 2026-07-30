@@ -3,12 +3,13 @@ import { ImprintLogoMark } from "@/components/imprint-logo-mark";
 import { imprintSlug, imprintStats } from "@/lib/catalog";
 import { data, publishersById } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
+import { pageMetadata } from "@/lib/site-metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Imprints / The Book Prize Index",
   description: "Browse publishing imprints and their prize-recognized nonfiction books.",
-  alternates: { canonical: "/imprints" },
-};
+  canonical: "/imprints",
+});
 
 export default function ImprintsPage() {
   const imprints = [...data.imprints].sort((a, b) => imprintStats(b.id).score - imprintStats(a.id).score || a.name.localeCompare(b.name));

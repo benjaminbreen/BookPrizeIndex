@@ -1,11 +1,12 @@
 import { PublisherBrowser } from "@/components/publisher-browser";
 import { normalizeAwardRegion } from "@/lib/award-region";
+import { pageMetadata } from "@/lib/site-metadata";
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Publishers / The Book Prize Index",
   description: "Browse publishers and imprints represented across major nonfiction book prizes.",
-  alternates: { canonical: "/publishers" },
-};
+  canonical: "/publishers",
+});
 
 type PageProps = {
   searchParams?: Promise<Record<string, string | string[] | undefined>>;

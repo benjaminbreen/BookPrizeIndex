@@ -116,6 +116,12 @@ const concurrency = positiveNumber(readArg("--concurrency") ?? process.env.ISBN_
 const requestDelayMs = positiveNumber(readArg("--request-delay-ms") ?? process.env.ISBN_DISCOVERY_REQUEST_DELAY_MS, 350);
 const checkpointEvery = positiveNumber(readArg("--checkpoint-every") ?? process.env.ISBN_DISCOVERY_CHECKPOINT_EVERY, 0);
 const requestedLane = parseLane(readArg("--lane") ?? process.env.ISBN_DISCOVERY_LANE);
+const requestedBookIds = new Set(
+  (readArg("--book-ids") ?? process.env.ISBN_DISCOVERY_BOOK_IDS ?? "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean),
+);
 const minimumLists = positiveNumber(readArg("--min-lists") ?? process.env.ISBN_DISCOVERY_MIN_LISTS, 0);
 const retryFailures = process.argv.includes("--retry-failures") || process.env.ISBN_DISCOVERY_RETRY_FAILURES === "1";
 const allowEquivalentEditionTies =
@@ -132,6 +138,7 @@ async function main() {
   const previousReviewBookIds = retryFailures ? new Set<string>() : await readPreviousReviewBookIds();
   const statsByBook = new Map(catalog.stats.map((stat) => [stat.bookId, stat]));
   const laneCandidates = catalog.books
+    .filter((book) => !requestedBookIds.size || requestedBookIds.has(book.id) || requestedBookIds.has(book.slug))
     .filter((book) => !book.isbn13.length)
     .filter((book) => !previousReviewBookIds.has(book.id))
     .map((book) => {
@@ -172,6 +179,7 @@ async function main() {
         requestDelayMs,
         checkpointEvery,
         lane: requestedLane,
+        requestedBookCount: requestedBookIds.size || undefined,
         minimumLists,
         retryFailures,
         allowEquivalentEditionTies,
@@ -218,6 +226,7 @@ async function main() {
       requestDelayMs,
       checkpointEvery,
       lane: requestedLane,
+      requestedBookCount: requestedBookIds.size || undefined,
       minimumLists,
       retryFailures,
       allowEquivalentEditionTies,

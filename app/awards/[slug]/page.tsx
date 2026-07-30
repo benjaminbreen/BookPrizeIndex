@@ -2,7 +2,9 @@ import { Suspense } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AwardBookList } from "@/components/award-book-list";
+import { ReportCorrectionLink } from "@/components/report-correction-link";
 import { appearancesByAwardId, awardProgramsBySlug, awardsBySlug, booksById, data, getBookStats, imprintsById, publishersById } from "@/lib/data";
+import { pageMetadata } from "@/lib/site-metadata";
 
 export function generateStaticParams() {
   return [...data.awards.map((award) => ({ slug: award.slug })), ...(data.awardPrograms ?? []).map((program) => ({ slug: program.slug }))];
@@ -16,16 +18,16 @@ export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const award = awardsBySlug.get(slug);
   const program = awardProgramsBySlug.get(slug);
-  if (program && shouldRenderProgram(program)) return {
+  if (program && shouldRenderProgram(program)) return pageMetadata({
     title: `${program.name} / The Book Prize Index`,
     description: program.description ?? `Explore sourced ${program.name} winners, finalists, shortlists, longlists, and award categories.`,
-    alternates: { canonical: `/awards/${program.slug}` },
-  };
-  if (award) return {
+    canonical: `/awards/${program.slug}`,
+  });
+  if (award) return pageMetadata({
     title: `${award.name} / The Book Prize Index`,
     description: award.description ?? `Explore sourced ${award.name} winners, finalists, shortlists, longlists, and related nonfiction books.`,
-    alternates: { canonical: `/awards/${award.slug}` },
-  };
+    canonical: `/awards/${award.slug}`,
+  });
   return { title: "Award / The Book Prize Index", robots: { index: false, follow: false } };
 }
 
@@ -119,6 +121,14 @@ export default async function AwardPage({ params }: PageProps) {
             <AdminMeta label="Sourced records" numberValue value={`${sourcedRecords} of ${appearances.length}`} />
             <AdminMeta label="Official site" value={award.links.official ?? "Not yet sourced"} />
             <AdminMeta label="Submission info" value={award.links.submission ?? award.links.criteria ?? "Not yet sourced"} />
+          </div>
+          <div className="flex justify-end lg:col-span-2">
+            <ReportCorrectionLink
+              path={`/awards/${award.slug}`}
+              recordId={award.id}
+              recordTitle={award.name}
+              recordType="award"
+            />
           </div>
         </div>
       </section>
@@ -240,6 +250,14 @@ function AwardProgramPage({ program }: { program: NonNullable<typeof data.awardP
             <AdminMeta label="Source coverage" numberValue value={sourceCoverage} />
             <AdminMeta label="Sourced records" numberValue value={`${sourcedRecords} of ${appearances.length}`} />
             <AdminMeta label="Active categories" numberValue value={`${activeCategories} active / ${historicalCategories} historical`} />
+          </div>
+          <div className="flex justify-end lg:col-span-2">
+            <ReportCorrectionLink
+              path={`/awards/${program.slug}`}
+              recordId={program.id}
+              recordTitle={program.name}
+              recordType="award program"
+            />
           </div>
         </div>
       </section>

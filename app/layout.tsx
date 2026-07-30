@@ -4,6 +4,7 @@ import { PrivacyFriendlyAnalytics } from "@/components/privacy-friendly-analytic
 import { SiteShell } from "@/components/site-shell";
 import { SupportPromptProvider } from "@/components/support-prompt";
 import { getSiteUrl, SITE_DESCRIPTION, SITE_NAME } from "@/lib/site";
+import { DEFAULT_SOCIAL_IMAGE } from "@/lib/site-metadata";
 import "./globals.css";
 
 const sans = Atkinson_Hyperlegible_Next({
@@ -57,11 +58,13 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
+    images: [DEFAULT_SOCIAL_IMAGE],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: SITE_NAME,
     description: SITE_DESCRIPTION,
+    images: [DEFAULT_SOCIAL_IMAGE.url],
   },
 };
 

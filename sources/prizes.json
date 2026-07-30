@@ -2288,5 +2288,77 @@
         "coverageNotes": "The official page carries the winner and full shortlist for every year from 2013 onward, plus the current-year longlist before the shortlist is announced. Fiction shortlistees are excluded, so 2023 and 2014 contribute no winner (both went to novels)."
       }
     ]
+  },
+  {
+    "id": "william-h-welch-medal",
+    "name": "William H. Welch Medal",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "American Association for the History of Medicine",
+    "geography": "United States / International",
+    "foundedYear": 1950,
+    "officialUrl": "https://histmed.org/william-h-welch-medal/",
+    "notes": "Annual American Association for the History of Medicine medal for a book of outstanding scholarly merit in medical history. The medal initially recognized broader scholarly contributions in some years; this corpus keeps only years and works that the official archive identifies as books.",
+    "categories": [
+      {
+        "id": "welch-medical-history",
+        "name": "Medical History",
+        "officialUrl": "https://histmed.org/william-h-welch-medal/",
+        "sourceUrl": "https://histmed.org/past-welch-winners/",
+        "sourceLabel": "American Association for the History of Medicine official Past Welch Winners archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-reviewed-book-records",
+        "activeYears": "1950-present",
+        "coverageNotes": "Winner-only book coverage. Years described only as recognition for general scholarly contributions and explicit no-award years are excluded. When the archive names multiple books in one year, each explicitly recognized book is retained."
+      }
+    ]
+  },
+  {
+    "id": "george-rosen-prize",
+    "name": "George Rosen Prize",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "American Association for the History of Medicine",
+    "geography": "United States / International",
+    "foundedYear": 2015,
+    "officialUrl": "https://histmed.org/george-rosen-prize/",
+    "notes": "American Association for the History of Medicine prize for significant contributions to the history of public health or social medicine. Eligible formats vary by year, so this corpus is deliberately restricted to verified nonfiction books.",
+    "categories": [
+      {
+        "id": "rosen-public-health-social-medicine-book",
+        "name": "Public Health and Social Medicine Books",
+        "officialUrl": "https://histmed.org/george-rosen-prize/",
+        "sourceUrl": "https://histmed.org/george-rosen-prize/",
+        "sourceLabel": "American Association for the History of Medicine official George Rosen Prize recipients archive",
+        "sourceConfidence": "official",
+        "importStrategy": "official-html-explicit-reviewed-nonfiction-book-allowlist",
+        "activeYears": "2015-present",
+        "coverageNotes": "Winner-only nonfiction book coverage. The 2019 exhibition, 2023 public-history project, and 2025 Nursing Clio website are excluded. The 2021 Oxford Handbook is retained as an edited nonfiction book."
+      }
+    ]
+  },
+  {
+    "id": "suzanne-j-levinson-prize",
+    "name": "Suzanne J. Levinson Prize",
+    "awardType": "award",
+    "scope": "discipline",
+    "organization": "History of Science Society",
+    "geography": "United States / International",
+    "foundedYear": 2006,
+    "officialUrl": "https://hssonline.org/page/levinson",
+    "notes": "Biennial History of Science Society prize for a book in the history of the life sciences and natural history. The official archive is canonical but blocks automated command-line retrieval, so its compact winner list is encoded as reviewed official rows.",
+    "categories": [
+      {
+        "id": "levinson-life-sciences-natural-history",
+        "name": "History of Life Sciences and Natural History",
+        "officialUrl": "https://hssonline.org/page/levinson",
+        "sourceUrl": "https://hssonline.org/page/levinson",
+        "sourceLabel": "History of Science Society official Suzanne J. Levinson Prize archive",
+        "sourceConfidence": "official",
+        "importStrategy": "reviewed-official-winner-rows",
+        "activeYears": "2006-present (even years)",
+        "coverageNotes": "Winner-only coverage of all ten biennial awards from 2006 through 2024."
+      }
+    ]
   }
 ]

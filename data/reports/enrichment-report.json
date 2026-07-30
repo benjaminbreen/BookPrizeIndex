@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-29T18:08:10.652Z",
-  "updatedAt": "2026-07-29T18:09:03.103Z",
-  "limit": 60,
+  "generatedAt": "2026-07-30T05:39:49.145Z",
+  "updatedAt": "2026-07-30T05:41:15.086Z",
+  "limit": 80,
   "minimumScore": 0.58,
   "provider": "all",
   "providerPlan": {
@@ -11,58 +11,261 @@
   "concurrency": 3,
   "fastMode": false,
   "quietMode": false,
-  "checkpointEvery": 0,
+  "checkpointEvery": 10,
   "minimumLists": 0,
-  "selectedCount": 41,
-  "completedCount": 41,
+  "fields": [
+    "isbn13",
+    "publicationYear",
+    "pageCount",
+    "thumbnailUrl",
+    "publisherLink"
+  ],
+  "selectedCount": 71,
+  "completedCount": 71,
   "remainingCount": 0,
   "selectedLanes": {
-    "identity_needed": 15,
-    "catalog_completion": 3,
-    "imprint_only": 20,
-    "low_confidence_review": 3
+    "high_value": 71
   },
   "summary": {
-    "totalBooks": 8394,
-    "completeCoreBooks": 3099,
+    "totalBooks": 8430,
+    "completeCoreBooks": 3109,
     "missingByField": {
-      "isbn13": 3263,
-      "publicationYear": 2616,
-      "publisherId": 2639,
-      "imprintId": 3245,
-      "pageCount": 4098,
-      "summary": 3691,
-      "thumbnailUrl": 2249,
-      "publisherLink": 2286
+      "isbn13": 3270,
+      "publicationYear": 2656,
+      "publisherId": 2620,
+      "imprintId": 3290,
+      "pageCount": 4131,
+      "summary": 3718,
+      "thumbnailUrl": 2284,
+      "publisherLink": 2327
     },
     "note": "imprintId remains a manual or normalization task unless source data clearly distinguishes imprint from parent publisher."
   },
   "report": [
     {
-      "bookId": "book-the-embrace-of-unreason-france-1914-1940-frederick-brown",
-      "slug": "the-embrace-of-unreason-france-1914-1940-frederick-brown",
-      "title": "The Embrace of Unreason: France 1914-1940",
-      "author": "Frederick Brown",
+      "bookId": "book-secrets-of-women-gender-generation-and-the-origins-of-human-dissection-katharine-park",
+      "slug": "secrets-of-women-gender-generation-and-the-origins-of-human-dissection-katharine-park",
+      "title": "Secrets of Women: Gender, Generation, and the Origins of Human Dissection",
+      "author": "Katharine Park",
       "status": "enriched",
       "fields": [
-        "subjectCategories",
+        "pageCount",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "pageCount"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Secrets of Women",
+          "author": "Katharine Park",
+          "url": "https://books.google.com/books/about/Secrets_of_Women.html?hl=&id=bJvuAAAAMAAJ",
+          "score": 0.51,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "Secrets Of Women: Gender, Generation, and the Origins of Human Dissection",
+          "author": "Katharine Park",
+          "url": "https://openlibrary.org/books/OL8715730M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann",
+      "slug": "marcello-malpighi-and-the-evolution-of-embryology-howard-b-adelmann",
+      "title": "Marcello Malpighi and the Evolution of Embryology",
+      "author": "Howard B. Adelmann",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Marcello Malpighi and the evolution of embryology",
+          "author": "Howard B. Adelmann",
+          "url": "https://openlibrary.org/books/OL5882516M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Marcello+Malpighi+and+the+Evolution+of+Embryology%22+inauthor%3A%22Howard+B.+Adelmann%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-addison-and-the-white-corpuscles-lelland-j-rather",
+      "slug": "addison-and-the-white-corpuscles-lelland-j-rather",
+      "title": "Addison and the White Corpuscles",
+      "author": "Lelland J. Rather",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
         "isbn13",
         "publicationYear",
         "pageCount",
-        "summary",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Addison+and+the+White+Corpuscles%22+inauthor%3A%22Lelland+J.+Rather%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-knowing-manchuria-environments-the-senses-and-natural-knowledge-on-an-asian-borderland-ruth-roga",
+      "slug": "knowing-manchuria-environments-the-senses-and-natural-knowledge-on-an-asian-borderland-ruth-roga",
+      "title": "Knowing Manchuria: Environments, the Senses, and Natural Knowledge on an Asian Borderland",
+      "author": "Ruth Rogaski",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "pageCount",
+        "thumbnailUrl"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Knowing Manchuria: Environments, the Senses, and Natural Knowledge on an Asian Borderland",
+          "author": "Ruth Rogaski",
+          "url": "https://openlibrary.org/books/OL35578933M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=%22Knowing+Manchuria%22+%22Ruth+Rogaski%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-abortion-after-roe-abortion-after-legalization-johanna-schoen",
+      "slug": "abortion-after-roe-abortion-after-legalization-johanna-schoen",
+      "title": "Abortion After Roe: Abortion After Legalization",
+      "author": "Johanna Schoen",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
         "thumbnailUrl",
         "links",
         "sourceIds"
       ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Abortion after Roe",
+          "author": "Johanna Schoen",
+          "url": "https://openlibrary.org/books/OL29721278M",
+          "score": 0.825,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-american-cardiology-the-history-of-a-specialty-and-its-college-w-bruce-fye",
+      "slug": "american-cardiology-the-history-of-a-specialty-and-its-college-w-bruce-fye",
+      "title": "American Cardiology: The History of a Specialty and its College",
+      "author": "W. Bruce Fye",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=%22American+Cardiology%3A+The+History+of+a+Specialty+and+its+College%22+%22W.+Bruce+Fye%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-blood-relations-transfusion-and-the-making-of-human-genetics-jenny-bangham",
+      "slug": "blood-relations-transfusion-and-the-making-of-human-genetics-jenny-bangham",
+      "title": "Blood Relations: Transfusion and the Making of Human Genetics",
+      "author": "Jenny Bangham",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "links",
+        "sourceIds"
+      ],
       "skippedFields": [
-        "imprintId"
+        "isbn13",
+        "pageCount",
+        "thumbnailUrl"
       ],
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "imprintId",
         "pageCount",
-        "summary",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Blood Relations",
+          "author": "Jenny Bangham",
+          "url": "https://openlibrary.org/works/OL21686697W",
+          "score": 0.456,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-death-by-migration-philip-curtin",
+      "slug": "death-by-migration-philip-curtin",
+      "title": "Death by Migration",
+      "author": "Philip Curtin",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
         "thumbnailUrl",
         "publisherLink"
       ],
@@ -72,100 +275,467 @@
       "matches": [
         {
           "provider": "google_books",
-          "title": "The Embrace of Unreason",
-          "author": "Frederick Brown",
-          "url": "https://books.google.com/books/about/The_Embrace_of_Unreason.html?hl=&id=aCOODQAAQBAJ",
+          "title": "Death by Migration",
+          "author": "Philip D. Curtin",
+          "url": "https://books.google.com/books/about/Death_by_Migration.html?hl=&id=bTrn0gioRYMC",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "Death by migration",
+          "author": "Philip D. Curtin",
+          "url": "https://openlibrary.org/books/OL2209049M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-claude-bernard-and-animal-chemistry-the-emergence-of-a-scientist-frederick-l-holmes",
+      "slug": "claude-bernard-and-animal-chemistry-the-emergence-of-a-scientist-frederick-l-holmes",
+      "title": "Claude Bernard and Animal Chemistry: The Emergence of a Scientist",
+      "author": "Frederick L. Holmes",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Claude+Bernard+and+Animal+Chemistry%3A+The+Emergence+of+a+Scientist%22+inauthor%3A%22Frederick+L.+Holmes%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-death-in-hamburg-society-and-politics-in-the-cholera-years-1830-1910-richard-j-evans",
+      "slug": "death-in-hamburg-society-and-politics-in-the-cholera-years-1830-1910-richard-j-evans",
+      "title": "Death in Hamburg: Society and Politics in the Cholera Years, 1830-1910",
+      "author": "Richard J. Evans",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Death in Hamburg",
+          "author": "Sir Richard J. Evans FBA FRSL FRHistS Richard Evans",
+          "url": "https://openlibrary.org/works/OL1745832W",
+          "score": 0.291,
+          "accepted": false
+        }
+      ],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22Death+in+Hamburg%22+inauthor%3A%22Richard+J.+Evans%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-diabetes-a-history-of-race-and-disease-arleen-m-tuchman",
+      "slug": "diabetes-a-history-of-race-and-disease-arleen-m-tuchman",
+      "title": "Diabetes: A History of Race and Disease",
+      "author": "Arleen M. Tuchman",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=%22Diabetes%3A+A+History+of+Race+and+Disease%22+%22Arleen+M.+Tuchman%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-galen-on-the-usefulness-of-the-parts-of-the-body-margaret-tallmadge-may",
+      "slug": "galen-on-the-usefulness-of-the-parts-of-the-body-margaret-tallmadge-may",
+      "title": "Galen on the Usefulness of the Parts of the Body",
+      "author": "Margaret Tallmadge May",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "galen on the usefulness of the parts of the body",
+          "author": "margaret tallmadge may",
+          "url": "https://openlibrary.org/books/OL58843424M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-disease-war-and-the-imperial-state-the-welfare-of-the-british-armed-forces-during-the-seven-year",
+      "slug": "disease-war-and-the-imperial-state-the-welfare-of-the-british-armed-forces-during-the-seven-year",
+      "title": "Disease, War, and the Imperial State: The Welfare of the British Armed Forces during the Seven Years’ War",
+      "author": "Erica Charters",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Disease, War, and the Imperial State",
+          "author": "Erica Charters",
+          "url": "https://openlibrary.org/books/OL34022335M",
+          "score": 0.6,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-haeckel-s-embryos-images-evolution-and-fraud-nick-hopwood",
+      "slug": "haeckel-s-embryos-images-evolution-and-fraud-nick-hopwood",
+      "title": "Haeckel’s Embryos: Images, Evolution, and Fraud",
+      "author": "Nick Hopwood",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "pageCount"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Haeckel's Embryos",
+          "author": "Nick Hopwood",
+          "url": "https://openlibrary.org/works/OL21715872W",
+          "score": 0.533,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-health-and-healing-in-eighteenth-century-germany-mary-lindemann",
+      "slug": "health-and-healing-in-eighteenth-century-germany-mary-lindemann",
+      "title": "Health and Healing in Eighteenth-Century Germany",
+      "author": "Mary Lindemann",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Health and healing in eighteenth-century Germany",
+          "author": "Mary Lindemann",
+          "url": "https://openlibrary.org/books/OL22176825M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-harvey-and-the-oxford-physiologists-scientific-ideas-and-social-interaction-robert-frank",
+      "slug": "harvey-and-the-oxford-physiologists-scientific-ideas-and-social-interaction-robert-frank",
+      "title": "Harvey and the Oxford Physiologists: Scientific Ideas and Social Interaction",
+      "author": "Robert Frank",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Harvey and the Oxford physiologists",
+          "author": "Robert Gregg Frank",
+          "url": "https://openlibrary.org/books/OL4430591M",
+          "score": 0.589,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-healing-with-poisons-potent-medicines-in-medieval-china-yan-liu",
+      "slug": "healing-with-poisons-potent-medicines-in-medieval-china-yan-liu",
+      "title": "Healing with Poisons: Potent Medicines in Medieval China",
+      "author": "Yan Liu",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "pageCount"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Healing with Poisons",
+          "author": "Yan Liu",
+          "url": "https://openlibrary.org/works/OL24242470W",
+          "score": 0.563,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-herophilus-the-art-of-medicine-in-ancient-alexandria-heinrich-von-staden",
+      "slug": "herophilus-the-art-of-medicine-in-ancient-alexandria-heinrich-von-staden",
+      "title": "Herophilus: The Art of Medicine in Ancient Alexandria",
+      "author": "Heinrich von Staden",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Herophilus The art of medicine in early Alexandria",
+          "author": "Heinrich Von Staden",
+          "url": "https://openlibrary.org/books/OL58631523M",
+          "score": 0.912,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-how-to-sell-a-poison-the-rise-fall-and-toxic-return-of-ddt-elena-conis",
+      "slug": "how-to-sell-a-poison-the-rise-fall-and-toxic-return-of-ddt-elena-conis",
+      "title": "How to Sell a Poison: The Rise, Fall, and Toxic Return of DDT",
+      "author": "Elena Conis",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "How to Sell a Poison",
+          "author": "Elena Conis",
+          "url": "https://play.google.com/store/books/details?id=xBUyEAAAQBAJ",
+          "score": 0.533,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "How to Sell a Poison",
+          "author": "Elena Conis",
+          "url": "https://openlibrary.org/works/OL25461397W",
+          "score": 0.533,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-hospital-life-in-enlightenment-scotland-care-and-teaching-at-the-royal-infirmary-of-edinburgh-gu",
+      "slug": "hospital-life-in-enlightenment-scotland-care-and-teaching-at-the-royal-infirmary-of-edinburgh-gu",
+      "title": "Hospital Life in Enlightenment Scotland: Care and Teaching at the Royal Infirmary of Edinburgh",
+      "author": "Guenter B. Risse",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "pageCount"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "HOSPITAL LIFE IN ENLIGHTENMENT SCOTLAND:CARE AND TEACHING.",
+          "author": "GUENTER RISSE (B.)",
+          "url": "https://books.google.com/books/about/HOSPITAL_LIFE_IN_ENLIGHTENMENT_SCOTLAND.html?hl=&id=uubQzQEACAAJ",
           "score": 0.7,
           "accepted": true,
           "via": "search"
         },
         {
           "provider": "open_library",
-          "title": "The Embrace Of Unreason France 19141940",
-          "author": "Frederick Brown",
-          "url": "https://openlibrary.org/books/OL26178493M",
-          "score": 0.8,
-          "accepted": true,
-          "via": "search"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-bonjour-effect-the-secret-codes-of-french-conversation-revealed-julie-barlow-and-jean-benoit",
-      "slug": "the-bonjour-effect-the-secret-codes-of-french-conversation-revealed-julie-barlow-and-jean-benoit",
-      "title": "The Bonjour Effect: The Secret Codes of French Conversation Revealed",
-      "author": "Julie Barlow Jean-Benoît Nadeau",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "isbn13",
-        "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "links",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Bonjour Effect",
-          "author": "Julie Barlow Jean-Benoit Nadeau",
-          "url": "https://books.google.com/books/about/The_Bonjour_Effect.html?hl=&id=AS3ECwAAQBAJ",
-          "score": 0.473,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "The Bonjour effect",
-          "author": "Julie Barlow Jean-Benoît Nadeau",
-          "url": "https://openlibrary.org/works/OL20033238W",
-          "score": 0.473,
+          "title": "Hospital life in enlightenment Scotland",
+          "author": "Guenter B. Risse",
+          "url": "https://openlibrary.org/works/OL1967031W",
+          "score": 0.55,
           "accepted": true
         }
       ]
     },
     {
-      "bookId": "book-the-curse-of-the-marquis-de-sade-a-notorious-scoundrel-a-mythical-manuscript-and-the-biggest-sca",
-      "slug": "the-curse-of-the-marquis-de-sade-a-notorious-scoundrel-a-mythical-manuscript-and-the-biggest-sca",
-      "title": "The Curse of the Marquis de Sade: A Notorious Scoundrel, a Mythical Manuscript, and the Biggest Scandal in Literary History",
-      "author": "Joel Warner",
+      "bookId": "book-hygienic-modernity-meaning-of-health-and-disease-in-treaty-port-china-ruth-rogaski",
+      "slug": "hygienic-modernity-meaning-of-health-and-disease-in-treaty-port-china-ruth-rogaski",
+      "title": "Hygienic Modernity: Meaning of Health and Disease in Treaty-Port China",
+      "author": "Ruth Rogaski",
       "status": "enriched",
       "fields": [
-        "subjectCategories",
         "isbn13",
         "publicationYear",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "links",
         "sourceIds"
       ],
-      "skippedFields": [
-        "imprintId"
-      ],
+      "skippedFields": [],
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "imprintId",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
@@ -174,49 +744,36 @@
       ],
       "matches": [
         {
-          "provider": "google_books",
-          "title": "The Curse of the Marquis de Sade",
-          "author": "Joel Warner",
-          "url": "https://play.google.com/store/books/details?id=dt1wEAAAQBAJ",
-          "score": 0.563,
+          "provider": "open_library",
+          "title": "Hygienic Modernity: Meanings of Health and Disease in Treaty-Port China (Asia: Local Studies/Global Themes)",
+          "author": "Ruth Rogaski",
+          "url": "https://openlibrary.org/books/OL7711787M",
+          "score": 0.738,
           "accepted": true,
           "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Curse of the Marquis de Sade",
-          "author": "Joel Warner",
-          "url": "https://openlibrary.org/works/OL28116463W",
-          "score": 0.563,
-          "accepted": false
         }
       ]
     },
     {
-      "bookId": "book-the-french-mind-400-years-of-romance-revolution-and-renewal-peter-watson",
-      "slug": "the-french-mind-400-years-of-romance-revolution-and-renewal-peter-watson",
-      "title": "The French Mind: 400 Years of Romance, Revolution and Renewal",
-      "author": "Peter Watson",
+      "bookId": "book-improvising-medicine-an-african-oncology-ward-in-an-emerging-cancer-epidemic-julie-livingston",
+      "slug": "improvising-medicine-an-african-oncology-ward-in-an-emerging-cancer-epidemic-julie-livingston",
+      "title": "Improvising Medicine: An African Oncology Ward in an Emerging Cancer Epidemic",
+      "author": "Julie Livingston",
       "status": "enriched",
       "fields": [
-        "subjectCategories",
-        "isbn13",
         "publicationYear",
-        "summary",
-        "thumbnailUrl",
         "links",
         "sourceIds"
       ],
       "skippedFields": [
-        "imprintId",
-        "pageCount"
+        "isbn13",
+        "pageCount",
+        "thumbnailUrl"
       ],
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "imprintId",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
@@ -225,184 +782,20 @@
       ],
       "matches": [
         {
-          "provider": "google_books",
-          "title": "The French Mind",
-          "author": "Peter Watson",
-          "url": "https://books.google.com/books/about/The_French_Mind.html?hl=&id=Os0AswEACAAJ",
-          "score": 0.51,
-          "accepted": true,
-          "via": "search"
-        },
-        {
           "provider": "open_library",
-          "title": "Study Guide -- The Other Wes Moore by Wes Moore",
-          "author": "SuperSummary",
-          "url": "https://openlibrary.org/works/OL21868175W",
-          "score": 0.07,
-          "accepted": false
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-louvre-the-many-lives-of-the-world-s-most-famous-museum-james-gardner",
-      "slug": "the-louvre-the-many-lives-of-the-world-s-most-famous-museum-james-gardner",
-      "title": "The Louvre: The Many Lives of the World’s Most Famous Museum",
-      "author": "James Gardner",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "isbn13",
-        "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "links",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Louvre",
-          "author": "James Gardner",
-          "url": "https://play.google.com/store/books/details?id=tke2DwAAQBAJ",
-          "score": 0.456,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "The Louvre",
-          "author": "James Gardner",
-          "url": "https://openlibrary.org/works/OL20734503W",
-          "score": 0.456,
+          "title": "Improvising Medicine",
+          "author": "Julie Livingston",
+          "url": "https://openlibrary.org/works/OL21781742W",
+          "score": 0.44,
           "accepted": true
         }
       ]
     },
     {
-      "bookId": "book-the-great-nadar-the-man-behind-the-camera-adam-begley",
-      "slug": "the-great-nadar-the-man-behind-the-camera-adam-begley",
-      "title": "The Great Nadar: The Man Behind the Camera",
-      "author": "Adam Begley",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "isbn13",
-        "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "links",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Great Nadar",
-          "author": "Adam Begley",
-          "url": "https://books.google.com/books/about/The_Great_Nadar.html?hl=&id=xMdfDwAAQBAJ",
-          "score": 0.65,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "The great Nadar",
-          "author": "Adam Begley",
-          "url": "https://openlibrary.org/books/OL26928389M",
-          "score": 0.65,
-          "accepted": true,
-          "via": "search"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-other-paris-luc-sante",
-      "slug": "the-other-paris-luc-sante",
-      "title": "The Other Paris",
-      "author": "Luc Sante",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "isbn13",
-        "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "links",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Other Paris",
-          "author": "Luc Sante",
-          "url": "https://books.google.com/books/about/The_Other_Paris.html?hl=&id=VgSJCgAAQBAJ",
-          "score": 1,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "The other Paris",
-          "author": "Lucy Sante Pablo Uroz Velasco",
-          "url": "https://openlibrary.org/books/OL27437323M",
-          "score": 0.76,
-          "accepted": false,
-          "via": "search"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-nemirovsky-question-the-life-death-and-legacy-of-a-jewish-writer-in-twentieth-century-france",
-      "slug": "the-nemirovsky-question-the-life-death-and-legacy-of-a-jewish-writer-in-twentieth-century-france",
-      "title": "The Némirovsky Question: The Life, Death, and Legacy of a Jewish Writer in Twentieth-Century France",
-      "author": "Susan Suleiman",
+      "bookId": "book-intimate-communities-wartime-healthcare-and-the-birth-of-modern-china-1937-1945-nicole-barnes",
+      "slug": "intimate-communities-wartime-healthcare-and-the-birth-of-modern-china-1937-1945-nicole-barnes",
+      "title": "Intimate Communities: Wartime Healthcare and the Birth of Modern China, 1937-1945",
+      "author": "Nicole Barnes",
       "status": "enriched",
       "fields": [
         "publicationYear",
@@ -412,16 +805,12 @@
       ],
       "skippedFields": [
         "isbn13",
-        "imprintId",
-        "pageCount",
-        "summary"
+        "pageCount"
       ],
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "imprintId",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
@@ -430,49 +819,35 @@
       ],
       "matches": [
         {
-          "provider": "google_books",
-          "title": "The Life of Irene Nemirovsky",
-          "author": "Olivier Philipponnat Patrick Lienhardt",
-          "url": "https://books.google.com/books/about/The_Life_of_Irene_Nemirovsky.html?hl=&id=-JzcF2jXs3QC",
-          "score": 0.15,
-          "accepted": false,
-          "via": "search"
-        },
-        {
           "provider": "open_library",
-          "title": "The Némirovsky question",
-          "author": "Susan Rubin Suleiman",
-          "url": "https://openlibrary.org/works/OL20042974W",
-          "score": 0.35,
+          "title": "Intimate Communities",
+          "author": "Nicole Elizabeth Barnes",
+          "url": "https://openlibrary.org/works/OL20598408W",
+          "score": 0.317,
           "accepted": true
         }
       ]
     },
     {
-      "bookId": "book-the-other-americans-in-paris-businessmen-countesses-wayward-youth-1880-1941-nancy-l-green",
-      "slug": "the-other-americans-in-paris-businessmen-countesses-wayward-youth-1880-1941-nancy-l-green",
-      "title": "The Other Americans in Paris: Businessmen, Countesses, Wayward Youth 1880-1941",
-      "author": "Nancy L. Green",
+      "bookId": "book-john-morgan-continental-doctor-whitfield-j-bell-jr",
+      "slug": "john-morgan-continental-doctor-whitfield-j-bell-jr",
+      "title": "John Morgan: Continental Doctor",
+      "author": "Whitfield J. Bell, Jr.",
       "status": "enriched",
       "fields": [
-        "subjectCategories",
-        "isbn13",
         "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
         "links",
         "sourceIds"
       ],
       "skippedFields": [
-        "imprintId"
+        "isbn13",
+        "pageCount",
+        "thumbnailUrl"
       ],
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "imprintId",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
@@ -481,19 +856,10 @@
       ],
       "matches": [
         {
-          "provider": "google_books",
-          "title": "The Other Americans in Paris",
-          "author": "Nancy L. Green",
-          "url": "https://play.google.com/store/books/details?id=DgTrAwAAQBAJ",
-          "score": 0.618,
-          "accepted": true,
-          "via": "search"
-        },
-        {
           "provider": "open_library",
-          "title": "The Other Americans In Paris Businessmen Countesses Wayward Youth 1880 1941",
-          "author": "Nancy L. Green",
-          "url": "https://openlibrary.org/books/OL25964486M",
+          "title": "John Morgan Continental Doctor",
+          "author": "Jr Whitfield J. Bell",
+          "url": "https://openlibrary.org/books/OL42953770M",
           "score": 1,
           "accepted": true,
           "via": "search"
@@ -501,14 +867,12 @@
       ]
     },
     {
-      "bookId": "book-when-paris-went-dark-the-city-of-light-under-german-occupation-1940-1944-ronald-rosbottom",
-      "slug": "when-paris-went-dark-the-city-of-light-under-german-occupation-1940-1944-ronald-rosbottom",
-      "title": "When Paris Went Dark: The City of Light Under German Occupation 1940-1944",
-      "author": "Ronald Rosbottom",
+      "bookId": "book-medicine-and-american-growth-1800-1860-james-h-cassedy",
+      "slug": "medicine-and-american-growth-1800-1860-james-h-cassedy",
+      "title": "Medicine and American Growth, 1800-1860",
+      "author": "James H. Cassedy",
       "status": "enriched",
       "fields": [
-        "subjectCategories",
-        "isbn13",
         "publicationYear",
         "pageCount",
         "thumbnailUrl",
@@ -516,15 +880,12 @@
         "sourceIds"
       ],
       "skippedFields": [
-        "imprintId",
-        "summary"
+        "isbn13"
       ],
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "imprintId",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
@@ -534,18 +895,18 @@
       "matches": [
         {
           "provider": "google_books",
-          "title": "When Paris Went Dark Special Sales the City of Light Under German Occupation 1940-44",
-          "author": "Ronald Rosbottom",
-          "url": "https://books.google.com/books/about/When_Paris_Went_Dark_Special_Sales_the_C.html?hl=&id=YWFBrgEACAAJ",
-          "score": 0.86,
+          "title": "Medicine and American Growth, 1800-1860",
+          "author": "James H. Cassedy",
+          "url": "https://books.google.com/books/about/Medicine_and_American_Growth_1800_1860.html?hl=&id=cw5rAAAAMAAJ",
+          "score": 1,
           "accepted": true,
           "via": "search"
         },
         {
           "provider": "open_library",
-          "title": "When Paris Went Dark: The City of Light Under German Occupation, 1940-1944",
-          "author": "Ronald C. Rosbottom",
-          "url": "https://openlibrary.org/books/OL26808877M",
+          "title": "Medicine and American growth, 1800-1860",
+          "author": "James H. Cassedy",
+          "url": "https://openlibrary.org/books/OL2739338M",
           "score": 1,
           "accepted": true,
           "via": "search"
@@ -553,30 +914,24 @@
       ]
     },
     {
-      "bookId": "book-becoming-george-the-invention-of-george-sand-fiona-sampson",
-      "slug": "becoming-george-the-invention-of-george-sand-fiona-sampson",
-      "title": "Becoming George: The Invention of George Sand",
-      "author": "Fiona Sampson",
+      "bookId": "book-last-resort-psychosurgery-and-the-limits-of-medicine-jack-d-pressman",
+      "slug": "last-resort-psychosurgery-and-the-limits-of-medicine-jack-d-pressman",
+      "title": "Last Resort: Psychosurgery and the Limits of Medicine",
+      "author": "Jack D. Pressman",
       "status": "enriched",
       "fields": [
-        "subjectCategories",
         "isbn13",
         "publicationYear",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "links",
         "sourceIds"
       ],
-      "skippedFields": [
-        "imprintId"
-      ],
+      "skippedFields": [],
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "imprintId",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
@@ -586,1101 +941,43 @@
       "matches": [
         {
           "provider": "google_books",
-          "title": "Becoming George",
-          "author": "Fiona Sampson",
-          "url": "https://books.google.com/books/about/Becoming_George.html?hl=&id=FtheEQAAQBAJ",
-          "score": 0.533,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Becoming George",
-          "author": "Fiona Sampson",
-          "url": "https://openlibrary.org/works/OL45360763W",
-          "score": 0.533,
-          "accepted": true
-        }
-      ]
-    },
-    {
-      "bookId": "book-a-vast-horizon-artists-and-lovers-freedom-and-war-anna-thomasson",
-      "slug": "a-vast-horizon-artists-and-lovers-freedom-and-war-anna-thomasson",
-      "title": "A Vast Horizon: Artists and Lovers, Freedom and War",
-      "author": "Anna Thomasson",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "isbn13",
-        "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "links",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "A Vast Horizon",
-          "author": "Anna Thomasson",
-          "url": "https://books.google.com/books/about/A_Vast_Horizon.html?hl=&id=6dqgEQAAQBAJ",
-          "score": 0.5,
-          "accepted": true,
-          "via": "search"
-        }
-      ]
-    },
-    {
-      "bookId": "book-fractured-france-a-journey-through-a-divided-nation-andrew-hussey",
-      "slug": "fractured-france-a-journey-through-a-divided-nation-andrew-hussey",
-      "title": "Fractured France: A Journey through a Divided Nation",
-      "author": "Andrew Hussey",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "isbn13",
-        "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "links",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Fractured France",
-          "author": "Andrew Hussey",
-          "url": "https://play.google.com/store/books/details?id=JLJ5EQAAQBAJ",
-          "score": 0.533,
-          "accepted": true,
-          "via": "search"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-typewriter-and-the-guillotine-an-american-journalist-a-german-serial-killer-and-paris-on-the",
-      "slug": "the-typewriter-and-the-guillotine-an-american-journalist-a-german-serial-killer-and-paris-on-the",
-      "title": "The Typewriter and the Guillotine: An American Journalist, a German Serial Killer, and Paris on the Eve of WWII",
-      "author": "Mark Braude",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "isbn13",
-        "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "links",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Typewriter and the Guillotine",
-          "author": "Mark Braude",
-          "url": "https://play.google.com/store/books/details?id=FVxbEQAAQBAJ",
-          "score": 0.487,
-          "accepted": true,
-          "via": "search"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-revolutionary-temper-paris-1748-1789-robert-darnton",
-      "slug": "the-revolutionary-temper-paris-1748-1789-robert-darnton",
-      "title": "The Revolutionary Temper: Paris, 1748–1789",
-      "author": "Robert Darnton",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "isbn13",
-        "publicationYear",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "links",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "isbn13",
-        "publicationYear",
-        "imprintId",
-        "pageCount",
-        "summary",
-        "thumbnailUrl",
-        "publisherLink"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Revolutionary Temper",
-          "author": "Robert Darnton",
-          "url": "https://play.google.com/store/books/details?id=OIGpEAAAQBAJ",
-          "score": 0.65,
-          "accepted": true,
-          "via": "search"
-        }
-      ]
-    },
-    {
-      "bookId": "book-how-to-ruin-a-queen-marie-antoinette-the-stolen-diamonds-and-the-scandal-that-shook-the-french-t",
-      "slug": "how-to-ruin-a-queen-marie-antoinette-the-stolen-diamonds-and-the-scandal-that-shook-the-french-t",
-      "title": "How to Ruin a Queen: Marie Antoinette, the Stolen Diamonds and the Scandal that Shook the French Throne",
-      "author": "Jonathan Beckman",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId",
-        "pageCount"
-      ],
-      "missingFields": [
-        "imprintId",
-        "pageCount"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "How to Ruin a Queen: Marie Antoinette, the Stolen Diamonds and the Scandal that Shook the French Throne",
-          "author": "Jonathan Beckman",
-          "url": "https://books.google.com/books/about/How_to_Ruin_a_Queen_Marie_Antoinette_the.html?hl=&id=FlmEAgAAQBAJ",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "How to Ruin a Queen: Marie Antoinette, the Stolen Diamonds and the Scandal That Shook the French Throne",
-          "author": "Jonathan Beckman",
-          "url": "https://openlibrary.org/books/OL44123661M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-caesar-s-footprints-a-cultural-excursion-to-ancient-france-journeys-through-roman-gaul-bijan-omr",
-      "slug": "caesar-s-footprints-a-cultural-excursion-to-ancient-france-journeys-through-roman-gaul-bijan-omr",
-      "title": "Caesar’s Footprints: A Cultural Excursion to Ancient France: Journeys Through Roman Gaul",
-      "author": "Bijan Omrani",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "pageCount"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId",
-        "pageCount"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Caesar's Footprints",
-          "author": "Bijan Omrani",
-          "url": "https://books.google.com/books/about/Caesar_s_Footprints.html?hl=&id=jWC7uAEACAAJ",
-          "score": 0.427,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Caesar's Footprints : A Cultural Excursion to Ancient France: Journeys Through Roman Gaul",
-          "author": "Bijan Omrani",
-          "url": "https://openlibrary.org/books/OL29796284M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-france-an-adventure-history-graham-robb",
-      "slug": "france-an-adventure-history-graham-robb",
-      "title": "France: An Adventure History",
-      "author": "Graham Robb",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "France",
-          "author": "Graham Robb",
-          "url": "https://play.google.com/store/books/details?id=DgBLEAAAQBAJ",
+          "title": "Last Resort",
+          "author": "Jack D. Pressman",
+          "url": "https://books.google.com/books/about/Last_Resort.html?hl=&id=_7PEgVCPDh8C",
           "score": 0.475,
           "accepted": true,
           "via": "search"
         },
         {
           "provider": "open_library",
-          "title": "France: An Adventure History",
-          "author": "Graham Robb",
-          "url": "https://openlibrary.org/books/OL46124844M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-duck-season-eating-drinking-and-other-misadventures-in-gascony-france-s-last-best-place-david-mc",
-      "slug": "duck-season-eating-drinking-and-other-misadventures-in-gascony-france-s-last-best-place-david-mc",
-      "title": "Duck Season: Eating, Drinking, and Other Misadventures in Gascony—France’s Last Best Place",
-      "author": "David McAninch",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId",
-        "pageCount"
-      ],
-      "missingFields": [
-        "imprintId",
-        "pageCount"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Duck Season",
-          "author": "David McAninch",
-          "url": "https://books.google.com/books/about/Duck_Season.html?hl=&id=NMNdEQAAQBAJ",
-          "score": 0.408,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Duck Season: Eating, Drinking, and Other Misadventures in Gascony, France's Last Best Place",
-          "author": "David McAninch",
-          "url": "https://openlibrary.org/books/OL35956409M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-hate-the-rising-tide-of-anti-semitism-in-france-and-what-it-means-for-us-marc-weitzmann",
-      "slug": "hate-the-rising-tide-of-anti-semitism-in-france-and-what-it-means-for-us-marc-weitzmann",
-      "title": "Hate: The Rising Tide of Anti-Semitism in France (and What it Means for Us)",
-      "author": "Marc Weitzmann",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Hate",
-          "author": "Marc Weitzmann",
-          "url": "https://books.google.com/books/about/Hate.html?hl=&id=XKeNDwAAQBAJ",
-          "score": 0.347,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Hate: The Rising Tide of Anti-Semitism in France",
-          "author": "Marc Weitzmann",
-          "url": "https://openlibrary.org/books/OL29771089M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-novel-of-the-century-the-extraordinary-adventure-of-les-miserables-david-bellos",
-      "slug": "the-novel-of-the-century-the-extraordinary-adventure-of-les-miserables-david-bellos",
-      "title": "The Novel of the Century: The Extraordinary Adventure of Les Misérables",
-      "author": "David Bellos",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Novel of the Century",
-          "author": "David Bellos",
-          "url": "https://books.google.com/books/about/The_Novel_of_the_Century.html?hl=&id=ItolDgAAQBAJ",
-          "score": 0.611,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "The novel of the century: the extraordinary adventure of Les Misérables",
-          "author": "David Bellos",
-          "url": "https://openlibrary.org/books/OL27230392M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-marquis-lafayette-reconsidered-laura-auricchio",
-      "slug": "the-marquis-lafayette-reconsidered-laura-auricchio",
-      "title": "The Marquis: Lafayette Reconsidered",
-      "author": "Laura Auricchio",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Marquis",
-          "author": "Laura Auricchio",
-          "url": "https://books.google.com/books/about/The_Marquis.html?hl=&id=sM-ODQAAQBAJ",
-          "score": 0.65,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "The Marquis: Lafayette Reconsidered",
-          "author": "Laura Auricchio",
-          "url": "https://openlibrary.org/books/OL45798177M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-a-complicated-passion-the-life-and-work-of-agnes-varda-carrie-rickey",
-      "slug": "a-complicated-passion-the-life-and-work-of-agnes-varda-carrie-rickey",
-      "title": "A Complicated Passion: The Life and Work of Agnès Varda",
-      "author": "Carrie Rickey",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
-        "sourceIds"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "A Complicated Passion",
-          "author": "Carrie Rickey",
-          "url": "https://play.google.com/store/books/details?id=HSjXEAAAQBAJ",
-          "score": 0.456,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Complicated Passion: the Life and Work of Agnès Varda",
-          "author": "Carrie Rickey",
-          "url": "https://openlibrary.org/books/OL52614866M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-plateau-maggie-paxson",
-      "slug": "the-plateau-maggie-paxson",
-      "title": "The Plateau",
-      "author": "Maggie Paxson",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Plateau",
-          "author": "Maggie Paxson",
-          "url": "https://books.google.com/books/about/The_Plateau.html?hl=&id=Y8R6DwAAQBAJ",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "The Plateau",
-          "author": "Maggie Paxson",
-          "url": "https://openlibrary.org/books/OL27737393M",
-          "score": 1,
-          "accepted": true,
-          "via": "search"
-        }
-      ]
-    },
-    {
-      "bookId": "book-letters-to-camondo-edmund-de-waal",
-      "slug": "letters-to-camondo-edmund-de-waal",
-      "title": "Letters to Camondo",
-      "author": "Edmund de Waal",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Letters to Camondo",
-          "author": "Edmund de Waal",
-          "url": "https://play.google.com/store/books/details?id=2t8AEAAAQBAJ",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "Letters to Camondo",
-          "author": "Edmund de Waal",
-          "url": "https://openlibrary.org/books/OL34127669M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-house-of-lilies-the-dynasty-that-made-medieval-france-justine-firnhaber-baker",
-      "slug": "house-of-lilies-the-dynasty-that-made-medieval-france-justine-firnhaber-baker",
-      "title": "House of Lilies: The Dynasty That Made Medieval France",
-      "author": "Justine Firnhaber-Baker",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "House of Lilies",
-          "author": "Justine Firnhaber-Baker",
-          "url": "https://play.google.com/store/books/details?id=MebUEAAAQBAJ",
-          "score": 0.533,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "House of Lilies",
-          "author": "Justine Firnhaber-Baker",
-          "url": "https://openlibrary.org/works/OL37615669W",
-          "score": 0.533,
+          "title": "Last Resort",
+          "author": "Jack D. Pressman",
+          "url": "https://openlibrary.org/works/OL8323602W",
+          "score": 0.475,
           "accepted": true
         }
       ]
     },
     {
-      "bookId": "book-you-know-you-re-black-in-france-when-the-fact-of-everyday-antiblackness-trica-keaton",
-      "slug": "you-know-you-re-black-in-france-when-the-fact-of-everyday-antiblackness-trica-keaton",
-      "title": "#You Know You’re Black in France When…: The Fact of Everyday Antiblackness",
-      "author": "Trica Keaton",
+      "bookId": "book-letters-of-benjamin-rush-lyman-henry-butterfield",
+      "slug": "letters-of-benjamin-rush-lyman-henry-butterfield",
+      "title": "Letters of Benjamin Rush",
+      "author": "Lyman Henry Butterfield",
       "status": "enriched",
       "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "#You Know You're Black in France When",
-          "author": "Trica Keaton",
-          "url": "https://play.google.com/store/books/details?id=4cFvEAAAQBAJ",
-          "score": 0.708,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-the-betrayal-of-the-duchess-the-scandal-that-unmade-the-bourbon-monarchy-and-made-france-modern-",
-      "slug": "the-betrayal-of-the-duchess-the-scandal-that-unmade-the-bourbon-monarchy-and-made-france-modern-",
-      "title": "The Betrayal of the Duchess: The Scandal That Unmade the Bourbon Monarchy and Made France Modern",
-      "author": "Maurice Samuels",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories",
+        "isbn13",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
         "sourceIds"
       ],
       "skippedFields": [
-        "imprintId"
+        "publicationYear"
       ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "The Betrayal of the Duchess",
-          "author": "Maurice Samuels",
-          "url": "https://play.google.com/store/books/details?id=sXanDwAAQBAJ",
-          "score": 0.515,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "Betrayal of the Duchess: The Scandal That Unmade the Bourbon Monarchy and Made France Modern",
-          "author": "Maurice Samuels",
-          "url": "https://openlibrary.org/books/OL35977462M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-a-bite-sized-history-of-france-gastronomic-tales-of-revolution-war-and-enlightenment-stephane-he",
-      "slug": "a-bite-sized-history-of-france-gastronomic-tales-of-revolution-war-and-enlightenment-stephane-he",
-      "title": "A Bite-Sized History of France: Gastronomic Tales of Revolution, War, and Enlightenment",
-      "author": "Stéphane Hénaut Jeni Mitchell",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "A Bite-Sized History of France",
-          "author": "Stéphane Henaut Jeni Mitchell",
-          "url": "https://play.google.com/store/books/details?id=uXo7DwAAQBAJ",
-          "score": 0.558,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "Bite-Sized History of France: Gastronomic Tales of Revolution, War, and Enlightenment",
-          "author": "Stéphane Hénaut Jeni Mitchell",
-          "url": "https://openlibrary.org/books/OL60888001M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-before-trans-three-gender-stories-from-nineteenth-century-france-rachel-mesch",
-      "slug": "before-trans-three-gender-stories-from-nineteenth-century-france-rachel-mesch",
-      "title": "Before Trans: Three Gender Stories from Nineteenth-Century France",
-      "author": "Rachel Mesch",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Before Trans",
-          "author": "Rachel Mesch",
-          "url": "https://play.google.com/store/books/details?id=3oDZDwAAQBAJ",
-          "score": 0.456,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Before Trans: Three Gender Stories from Nineteenth-Century France",
-          "author": "Rachel Mesch",
-          "url": "https://openlibrary.org/books/OL60874265M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-i-m-supposed-to-protect-you-from-all-this-a-memoir-nadja-spiegelman",
-      "slug": "i-m-supposed-to-protect-you-from-all-this-a-memoir-nadja-spiegelman",
-      "title": "I’m Supposed to Protect You from All This: A memoir",
-      "author": "Nadja Spiegelman",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "I'm Supposed to Protect You from All this",
-          "author": "Nadja Spiegelman",
-          "url": "https://books.google.com/books/about/I_m_Supposed_to_Protect_You_from_All_thi.html?hl=&id=8UBTDQAAQBAJ",
-          "score": 0.912,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "I'm supposed to protect you from all this: a memoir",
-          "author": "Nadja Spiegelman",
-          "url": "https://openlibrary.org/books/OL27212921M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-fatal-isolation-the-devastating-paris-heat-wave-of-2003-richard-c-keller",
-      "slug": "fatal-isolation-the-devastating-paris-heat-wave-of-2003-richard-c-keller",
-      "title": "Fatal Isolation: The Devastating Paris Heat Wave of 2003",
-      "author": "Richard C. Keller",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Fatal Isolation",
-          "author": "Richard C. Keller",
-          "url": "https://books.google.com/books/about/Fatal_Isolation.html?hl=&id=RN0tCAAAQBAJ",
-          "score": 0.456,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Fatal Isolation: The Devastating Paris Heat Wave of 2003",
-          "author": "Richard C. Keller",
-          "url": "https://openlibrary.org/books/OL27519964M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-in-montmartre-picasso-matisse-and-modernism-in-paris-1900-1910-sue-roe",
-      "slug": "in-montmartre-picasso-matisse-and-modernism-in-paris-1900-1910-sue-roe",
-      "title": "In Montmartre: Picasso, Matisse, and Modernism in Paris, 1900-1910",
-      "author": "Sue Roe",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "In Montmartre",
-          "author": "Sue Roe",
-          "url": "https://books.google.com/books/about/In_Montmartre.html?hl=&id=EXECDAAAQBAJ",
-          "score": 0.456,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "In Montmartre: Picasso, Matisse and the birth of Modernist Art",
-          "author": "Sue Roe",
-          "url": "https://openlibrary.org/books/OL25677159M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-paris-at-war-1939-1944-david-drake",
-      "slug": "paris-at-war-1939-1944-david-drake",
-      "title": "Paris at War: 1939-1944",
-      "author": "David Drake",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Paris at War",
-          "author": "David Drake",
-          "url": "https://play.google.com/store/books/details?id=f8bWEQAAQBAJ",
-          "score": 0.72,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "Paris at War: 1939-1944",
-          "author": "David Drake",
-          "url": "https://openlibrary.org/books/OL29734338M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-citizen-emperor-napoleon-in-power-1799-1815-philip-dwyer",
-      "slug": "citizen-emperor-napoleon-in-power-1799-1815-philip-dwyer",
-      "title": "Citizen Emperor: Napoleon in Power 1799-1815",
-      "author": "Philip Dwyer",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Citizen Emperor",
-          "author": "Philip Dwyer",
-          "url": "https://books.google.com/books/about/Citizen_Emperor.html?hl=&id=jX9XAQAAQBAJ",
-          "score": 0.5,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "Citizen Emperor: Napoleon in Power 1799-1815",
-          "author": "Philip Dwyer",
-          "url": "https://openlibrary.org/books/OL48634659M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-how-the-french-invented-love-nine-hundred-years-of-passion-and-romance-marilyn-yalom",
-      "slug": "how-the-french-invented-love-nine-hundred-years-of-passion-and-romance-marilyn-yalom",
-      "title": "How the French Invented Love: Nine Hundred Years of Passion and Romance",
-      "author": "Marilyn Yalom",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "How the French Invented Love",
-          "author": "Marilyn Yalom",
-          "url": "https://play.google.com/store/books/details?id=vWVyN4xphc4C",
-          "score": 0.592,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "How the French Invented Love: Nine Hundred Years of Passion and Romance",
-          "author": "Marilyn Yalom",
-          "url": "https://openlibrary.org/books/OL35899459M",
-          "score": 1,
-          "accepted": true,
-          "via": "isbn"
-        }
-      ]
-    },
-    {
-      "bookId": "book-cezanne-a-life-alex-danchev",
-      "slug": "cezanne-a-life-alex-danchev",
-      "title": "Cezanne: A Life",
-      "author": "Alex Danchev",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Cezanne",
-          "author": "Alex Danchev",
-          "url": "https://play.google.com/store/books/details?id=_T-ALpIDd4cC",
-          "score": 0.65,
-          "accepted": true,
-          "via": "isbn"
-        },
-        {
-          "provider": "open_library",
-          "title": "Cézanne",
-          "author": "Alex Danchev",
-          "url": "https://openlibrary.org/works/OL16557925W",
-          "score": 0.3,
-          "accepted": false
-        }
-      ]
-    },
-    {
-      "bookId": "book-brave-genius-a-scientist-a-philosopher-and-their-daring-adventures-from-the-french-resistance-to",
-      "slug": "brave-genius-a-scientist-a-philosopher-and-their-daring-adventures-from-the-french-resistance-to",
-      "title": "Brave Genius: A Scientist, a Philosopher, and their Daring Adventures from the French Resistance to the Nobel Prize",
-      "author": "Sean B. Carroll",
-      "status": "enriched",
-      "fields": [
-        "subjectCategories"
-      ],
-      "skippedFields": [
-        "imprintId"
-      ],
-      "missingFields": [
-        "imprintId"
-      ],
-      "deferredFields": [
-        "wikipedia"
-      ],
-      "matches": [
-        {
-          "provider": "google_books",
-          "title": "Brave Genius",
-          "author": "Sean B. Carroll",
-          "url": "https://play.google.com/store/books/details?id=0SPMSFVPnVoC",
-          "score": 0.393,
-          "accepted": true,
-          "via": "search"
-        },
-        {
-          "provider": "open_library",
-          "title": "Brave Genius",
-          "author": "Sean B. Carroll",
-          "url": "https://openlibrary.org/works/OL16812226W",
-          "score": 0.393,
-          "accepted": true
-        }
-      ]
-    },
-    {
-      "bookId": "book-first-emancipation-the-forgotten-history-of-abolition-in-revolutionary-france-jeremy-d-popkin",
-      "slug": "first-emancipation-the-forgotten-history-of-abolition-in-revolutionary-france-jeremy-d-popkin",
-      "title": "First Emancipation: The Forgotten History of Abolition in Revolutionary France",
-      "author": "Jeremy D. Popkin",
-      "status": "low_confidence",
-      "fields": [],
       "missingFields": [
         "isbn13",
         "publicationYear",
-        "imprintId",
         "pageCount",
-        "summary",
         "thumbnailUrl",
         "publisherLink"
       ],
@@ -1690,28 +987,46 @@
       "matches": [
         {
           "provider": "google_books",
-          "title": "The First Emancipation",
-          "author": "Jeremy D. Popkin",
-          "url": "https://play.google.com/store/books/details?id=wLN0EQAAQBAJ",
-          "score": 0.51,
-          "accepted": false,
+          "title": "Letters of Benjamin Rush",
+          "author": "Lyman Henry Butterfield",
+          "url": "https://books.google.com/books/about/Letters_of_Benjamin_Rush.html?hl=&id=mJaaDwAAQBAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "Letters of Benjamin Rush",
+          "author": "Lyman Henry Butterfield",
+          "url": "https://openlibrary.org/books/OL38831467M",
+          "score": 1,
+          "accepted": true,
           "via": "search"
         }
-      ],
-      "notes": ""
+      ]
     },
     {
-      "bookId": "book-americans-in-paris-artists-working-in-postwar-france-1946-1962-lynn-gumpert-and-debra-bricker-ba",
-      "slug": "americans-in-paris-artists-working-in-postwar-france-1946-1962-lynn-gumpert-and-debra-bricker-ba",
-      "title": "Americans in Paris: Artists Working in Postwar France, 1946–1962",
-      "author": "Lynn Gumpert Debra Bricker Balken",
-      "status": "no_new_fields",
-      "fields": [],
+      "bookId": "book-medicine-at-the-paris-hospital-1794-1848-erwin-h-ackerknecht",
+      "slug": "medicine-at-the-paris-hospital-1794-1848-erwin-h-ackerknecht",
+      "title": "Medicine at the Paris Hospital, 1794-1848",
+      "author": "Erwin H. Ackerknecht",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13"
+      ],
       "missingFields": [
         "isbn13",
-        "imprintId",
+        "publicationYear",
         "pageCount",
-        "summary"
+        "thumbnailUrl",
+        "publisherLink"
       ],
       "deferredFields": [
         "wikipedia"
@@ -1719,36 +1034,45 @@
       "matches": [
         {
           "provider": "google_books",
-          "title": "Four Americans in Paris",
-          "author": "Museum of Modern Art (New York, N.Y.)",
-          "url": "https://books.google.com/books/about/Four_Americans_in_Paris.html?hl=&id=235H0QEACAAJ",
-          "score": 0.233,
-          "accepted": false,
+          "title": "Medicine at the Paris hospital, 1794-1848",
+          "author": "Erwin Heinz Ackerknecht",
+          "url": "https://books.google.com/books/about/Medicine_at_the_Paris_hospital_1794_1848.html?hl=&id=C27RzQEACAAJ",
+          "score": 0.9,
+          "accepted": true,
           "via": "search"
         },
         {
           "provider": "open_library",
-          "title": "Americans in Paris",
-          "author": "Lynn Gumpert Debra Bricker Balken Rashida Braggs",
-          "url": "https://openlibrary.org/works/OL28626175W",
-          "score": 0.448,
-          "accepted": true
+          "title": "Medicine at the Paris Hospital, 1794-1848",
+          "author": "Erwin H. Ackerknecht",
+          "url": "https://openlibrary.org/books/OL18281942M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
         }
-      ],
-      "notes": ""
+      ]
     },
     {
-      "bookId": "book-dirt-adventures-in-lyon-as-a-chef-in-training-father-and-sleuth-looking-for-the-secret-of-french",
-      "slug": "dirt-adventures-in-lyon-as-a-chef-in-training-father-and-sleuth-looking-for-the-secret-of-french",
-      "title": "Dirt: Adventures in Lyon as a Chef in Training, Father, and Sleuth Looking for the Secret of French Cooking",
-      "author": "Bill Buford",
-      "status": "no_new_fields",
-      "fields": [],
+      "bookId": "book-medicine-and-public-health-in-latin-america-a-history-marcos-cueto-and-steven-palmer",
+      "slug": "medicine-and-public-health-in-latin-america-a-history-marcos-cueto-and-steven-palmer",
+      "title": "Medicine and Public Health in Latin America: A History",
+      "author": "Marcos Cueto Steven Palmer",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
       "missingFields": [
         "isbn13",
-        "imprintId",
+        "publicationYear",
         "pageCount",
-        "summary"
+        "thumbnailUrl",
+        "publisherLink"
       ],
       "deferredFields": [
         "wikipedia"
@@ -1756,23 +1080,1637 @@
       "matches": [
         {
           "provider": "google_books",
-          "title": "The True Adventures of the Rolling Stones",
-          "author": "Bill Buford",
-          "url": "https://books.google.com/books/about/The_True_Adventures_of_the_Rolling_Stone.html?hl=&id=RtZNAQAAIAAJ",
-          "score": 0.424,
-          "accepted": false,
+          "title": "Medicine and Public Health in Latin America",
+          "author": "Marcos Cueto Steven Palmer",
+          "url": "https://books.google.com/books/about/Medicine_and_Public_Health_in_Latin_Amer.html?hl=&id=jky00AEACAAJ",
+          "score": 0.912,
+          "accepted": true,
           "via": "search"
         },
         {
           "provider": "open_library",
-          "title": "Dirt",
-          "author": "Bill Buford",
-          "url": "https://openlibrary.org/works/OL20760292W",
-          "score": 0.341,
+          "title": "Medicine and Public Health in Latin America",
+          "author": "Marcos Cueto Steven Paul Palmer",
+          "url": "https://openlibrary.org/books/OL29223430M",
+          "score": 0.852,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-medicine-before-the-plague-practitioners-and-their-patients-in-the-crown-of-aragon-1285-1345-mic",
+      "slug": "medicine-before-the-plague-practitioners-and-their-patients-in-the-crown-of-aragon-1285-1345-mic",
+      "title": "Medicine Before the Plague: Practitioners and Their Patients in the Crown of Aragon, 1285-1345",
+      "author": "Michael R. McVaugh",
+      "status": "enriched",
+      "fields": [
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Medicine before the Plague",
+          "author": "Michael R. McVaugh",
+          "url": "https://openlibrary.org/works/OL8323600W",
+          "score": 0.5,
           "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-mental-illness-and-american-society-1897-1940-gerald-n-grob",
+      "slug": "mental-illness-and-american-society-1897-1940-gerald-n-grob",
+      "title": "Mental Illness and American Society, 1897-1940",
+      "author": "Gerald N. Grob",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "American Association for the History of Medicine Membership Directory",
+          "author": "American Association for the History of Medicine",
+          "url": "https://books.google.com/books/about/American_Association_for_the_History_of.html?hl=&id=B4ZRAQAAIAAJ",
+          "score": 0.078,
+          "accepted": false,
+          "via": "search"
         }
       ],
       "notes": ""
+    },
+    {
+      "bookId": "book-mental-institutions-in-america-gerald-n-grob",
+      "slug": "mental-institutions-in-america-gerald-n-grob",
+      "title": "Mental Institutions in America",
+      "author": "Gerald N. Grob",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Mental Institutions in America",
+          "author": "Gerald N. Grob",
+          "url": "https://books.google.com/books/about/Mental_Institutions_in_America.html?hl=&id=pc1rAAAAMAAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "Mental institutions in America",
+          "author": "Gerald N. Grob",
+          "url": "https://openlibrary.org/books/OL16945102M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-mind-and-body-in-eighteenth-century-medicine-lelland-j-rather",
+      "slug": "mind-and-body-in-eighteenth-century-medicine-lelland-j-rather",
+      "title": "Mind and Body in Eighteenth-Century Medicine",
+      "author": "Lelland J. Rather",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "pageCount",
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Mind and body in eighteenth century medicine",
+          "author": "Lelland Joseph Rather",
+          "url": "https://books.google.com/books/about/Mind_and_body_in_eighteenth_century_medi.html?hl=&id=eEbXzwEACAAJ",
+          "score": 0.9,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-surgery-and-salvation-the-roots-of-reproductive-injustice-in-mexico-1770-1940-elizabeth-o-brien",
+      "slug": "surgery-and-salvation-the-roots-of-reproductive-injustice-in-mexico-1770-1940-elizabeth-o-brien",
+      "title": "Surgery & Salvation: The Roots of Reproductive Injustice in Mexico, 1770-1940",
+      "author": "Elizabeth O’Brien",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Surgery and Salvation",
+          "author": "Elizabeth O'Brien",
+          "url": "https://openlibrary.org/works/OL36856582W",
+          "score": 0.427,
+          "accepted": false
+        }
+      ],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=%22Surgery+%26+Salvation%22+%22Elizabeth+O%E2%80%99Brien%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-plague-and-empire-in-the-early-modern-mediterranean-world-the-ottoman-experience-1347-1600-nukhe",
+      "slug": "plague-and-empire-in-the-early-modern-mediterranean-world-the-ottoman-experience-1347-1600-nukhe",
+      "title": "Plague and Empire in the Early Modern Mediterranean World: The Ottoman Experience, 1347-1600",
+      "author": "Nükhet Varlik",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Plague and empire in the early modern Mediterranean world",
+          "author": "Nükhet Varlik",
+          "url": "https://openlibrary.org/books/OL34548075M",
+          "score": 0.785,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-taddeo-alderotti-and-his-pupils-two-generations-of-italian-medical-learning-nancy-g-siraisi",
+      "slug": "taddeo-alderotti-and-his-pupils-two-generations-of-italian-medical-learning-nancy-g-siraisi",
+      "title": "Taddeo Alderotti and His Pupils: Two Generations of Italian Medical Learning",
+      "author": "Nancy G. Siraisi",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Taddeo Alderotti and his pupils",
+          "author": "Nancy G. Siraisi",
+          "url": "https://openlibrary.org/books/OL29426932M",
+          "score": 0.618,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-age-of-intoxication-origins-of-the-global-drug-trade-benjamin-breen",
+      "slug": "the-age-of-intoxication-origins-of-the-global-drug-trade-benjamin-breen",
+      "title": "The Age of Intoxication: Origins of the Global Drug Trade",
+      "author": "Benjamin Breen",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Age of Intoxication",
+          "author": "Benjamin Breen",
+          "url": "https://openlibrary.org/works/OL21339082W",
+          "score": 0.563,
+          "accepted": false
+        }
+      ],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=%22The+Age+of+Intoxication%3A+Origins+of+the+Global+Drug+Trade%22+%22Benjamin+Breen%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-the-cholera-years-charles-rosenberg",
+      "slug": "the-cholera-years-charles-rosenberg",
+      "title": "The Cholera Years",
+      "author": "Charles Rosenberg",
+      "status": "enriched",
+      "fields": [
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "publicationYear"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Cholera Years",
+          "author": "Charles E. Rosenberg",
+          "url": "https://books.google.com/books/about/The_Cholera_Years.html?hl=&id=J4VrAAAAMAAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "The cholera years",
+          "author": "Charles E. Rosenberg",
+          "url": "https://openlibrary.org/books/OL22161297M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-bubonic-plague-and-england-an-essay-in-the-history-of-preventive-medicine-charles-f-mullett",
+      "slug": "the-bubonic-plague-and-england-an-essay-in-the-history-of-preventive-medicine-charles-f-mullett",
+      "title": "The Bubonic Plague and England: An Essay in the History of Preventive Medicine",
+      "author": "Charles F. Mullett",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The bubonic plague and England",
+          "author": "Charles F. Mullett",
+          "url": "https://openlibrary.org/books/OL6198487M",
+          "score": 0.592,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-experiential-caribbean-creating-knowledge-and-healing-in-the-early-modern-atlantic-pablo-gom",
+      "slug": "the-experiential-caribbean-creating-knowledge-and-healing-in-the-early-modern-atlantic-pablo-gom",
+      "title": "The Experiential Caribbean: Creating Knowledge and Healing in the Early Modern Atlantic",
+      "author": "Pablo Gómez",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "pageCount"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Experiential Caribbean",
+          "author": "Pablo F. Gómez",
+          "url": "https://openlibrary.org/works/OL24223076W",
+          "score": 0.491,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-conquest-of-malaria-italy-1900-1962-frank-m-snowden",
+      "slug": "the-conquest-of-malaria-italy-1900-1962-frank-m-snowden",
+      "title": "The Conquest of Malaria: Italy, 1900-1962",
+      "author": "Frank M. Snowden",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Conquest of Malaria",
+          "author": "Frank M. Snowden",
+          "url": "https://play.google.com/store/books/details?id=2RuIs6dIQb8C",
+          "score": 0.7,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "The conquest of malaria",
+          "author": "Frank M. Snowden",
+          "url": "https://openlibrary.org/books/OL3399567M",
+          "score": 0.7,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-great-instauration-medicine-and-reform-1626-1660-charles-webster",
+      "slug": "the-great-instauration-medicine-and-reform-1626-1660-charles-webster",
+      "title": "The Great Instauration: Medicine and Reform, 1626-1660",
+      "author": "Charles Webster",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Great Instauration",
+          "author": "Charles Webster",
+          "url": "https://books.google.com/books/about/The_Great_Instauration.html?hl=&id=KVELAQAAIAAJ",
+          "score": 0.563,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "The great instauration",
+          "author": "Charles Webster",
+          "url": "https://openlibrary.org/works/OL4823079W",
+          "score": 0.563,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-oxford-handbook-of-disability-history-michael-rembis-and-catherine-kudlick-and-kim-e-nielsen",
+      "slug": "the-oxford-handbook-of-disability-history-michael-rembis-and-catherine-kudlick-and-kim-e-nielsen",
+      "title": "The Oxford Handbook of Disability History",
+      "author": "Michael Rembis Catherine Kudlick Kim E. Nielsen",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Oxford Handbook of Disability History",
+          "author": "Michael A. Rembis Catherine Jean Kudlick Kim E. Nielsen",
+          "url": "https://books.google.com/books/about/The_Oxford_Handbook_of_Disability_Histor.html?hl=&id=Sv5cDwAAQBAJ",
+          "score": 0.957,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-life-and-times-of-gaspare-tagliacozzi-jerome-pierce-webster-and-martha-teach-gnudi",
+      "slug": "the-life-and-times-of-gaspare-tagliacozzi-jerome-pierce-webster-and-martha-teach-gnudi",
+      "title": "The Life and Times of Gaspare Tagliacozzi",
+      "author": "Jerome Pierce Webster Martha Teach Gnudi",
+      "status": "low_confidence",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The life and times of Gaspare Tagliacozzi",
+          "author": "Martha Teach Gnudi",
+          "url": "https://openlibrary.org/books/OL6087450M",
+          "score": 0.85,
+          "accepted": false,
+          "via": "search"
+        }
+      ],
+      "notes": "429 Too Many Requests for https://www.googleapis.com/books/v1/volumes?q=intitle%3A%22The+Life+and+Times+of+Gaspare+Tagliacozzi%22+inauthor%3A%22Jerome+Pierce+Webster+Martha+Teach+Gnudi%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-the-private-science-of-louis-pasteur-gerald-l-geison",
+      "slug": "the-private-science-of-louis-pasteur-gerald-l-geison",
+      "title": "The Private Science of Louis Pasteur",
+      "author": "Gerald L. Geison",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The private science of Louis Pasteur",
+          "author": "Gerald L. Geison",
+          "url": "https://openlibrary.org/books/OL1109930M",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-state-and-the-mentally-ill-a-history-of-the-worcester-state-hospital-gerald-n-grob",
+      "slug": "the-state-and-the-mentally-ill-a-history-of-the-worcester-state-hospital-gerald-n-grob",
+      "title": "The State and the Mentally Ill: A History of the Worcester State Hospital",
+      "author": "Gerald N. Grob",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "isbn13",
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The state and the mentally ill",
+          "author": "Gerald N. Grob",
+          "url": "https://openlibrary.org/books/OL5988864M",
+          "score": 0.689,
+          "accepted": true,
+          "via": "search"
+        }
+      ]
+    },
+    {
+      "bookId": "book-time-to-heal-american-medical-education-from-the-turn-of-the-century-to-the-era-of-managed-care-",
+      "slug": "time-to-heal-american-medical-education-from-the-turn-of-the-century-to-the-era-of-managed-care-",
+      "title": "Time to Heal: American Medical Education from the Turn of the Century to the Era of Managed Care",
+      "author": "Kenneth Ludmerer",
+      "status": "enriched",
+      "fields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Time to Heal:American Medical Education from the Turn of the Century to the Era of Managed Care",
+          "author": "Kenneth M. Ludmerer",
+          "url": "https://books.google.com/books/about/Time_to_Heal_American_Medical_Education.html?hl=&id=Pov1wAEACAAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "Time to heal",
+          "author": "Kenneth M. Ludmerer",
+          "url": "https://openlibrary.org/works/OL2010372W",
+          "score": 0.45,
+          "accepted": true
+        }
+      ]
+    },
+    {
+      "bookId": "book-trials-of-an-ordinary-doctor-joannes-groenevelt-in-seventeenth-century-london-harold-j-cook",
+      "slug": "trials-of-an-ordinary-doctor-joannes-groenevelt-in-seventeenth-century-london-harold-j-cook",
+      "title": "Trials of an Ordinary Doctor: Joannes Groenevelt in Seventeenth-Century London",
+      "author": "Harold J. Cook",
+      "status": "not_found",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=%22Trials+of+an+Ordinary+Doctor%3A+Joannes+Groenevelt+in+Seventeenth-Century+London%22+%22Harold+J.+Cook%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-american-medicine-and-statistical-thinking-1800-1860-james-h-cassedy",
+      "slug": "american-medicine-and-statistical-thinking-1800-1860-james-h-cassedy",
+      "title": "American Medicine and Statistical Thinking, 1800-1860",
+      "author": "James H. Cassedy",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "American Medicine and Statistical Thinking, 1800-1860",
+          "author": "James H. Cassedy",
+          "url": "https://books.google.com/books/about/American_Medicine_and_Statistical_Thinki.html?hl=&id=HAC4AAAAIAAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "American Medicine and Statistical Thinking, 1800-1860",
+          "author": "James H. Cassedy",
+          "url": "https://openlibrary.org/books/OL29183332M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-breast-cancer-wars-hope-fear-and-the-pursuit-of-a-cure-in-twentieth-century-america-barron-h-ler",
+      "slug": "breast-cancer-wars-hope-fear-and-the-pursuit-of-a-cure-in-twentieth-century-america-barron-h-ler",
+      "title": "Breast Cancer Wars: Hope, Fear, and the Pursuit of a Cure in Twentieth Century America",
+      "author": "Barron H. Lerner",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The breast cancer wars: hope, fear, and the pursuit of a cure in 20th century America",
+          "author": "Barron H. Lerner",
+          "url": "https://openlibrary.org/books/OL20942506M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-marrow-of-tragedy-the-health-crisis-of-the-american-civil-war-margaret-humphreys",
+      "slug": "marrow-of-tragedy-the-health-crisis-of-the-american-civil-war-margaret-humphreys",
+      "title": "Marrow of Tragedy: The Health Crisis of the American Civil War",
+      "author": "Margaret Humphreys",
+      "status": "no_new_fields",
+      "fields": [],
+      "missingFields": [
+        "isbn13",
+        "pageCount"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Marrow of Tragedy",
+          "author": "Margaret Humphreys",
+          "url": "https://openlibrary.org/works/OL20214690W",
+          "score": 0.533,
+          "accepted": true
+        }
+      ],
+      "notes": "503 Service Unavailable for https://www.googleapis.com/books/v1/volumes?q=%22Marrow+of+Tragedy%3A+The+Health+Crisis+of+the+American+Civil+War%22+%22Margaret+Humphreys%22&maxResults=5&printType=books&key=[REDACTED]"
+    },
+    {
+      "bookId": "book-creatures-of-cain-the-hunt-for-human-nature-in-cold-war-america-erika-lorraine-milam",
+      "slug": "creatures-of-cain-the-hunt-for-human-nature-in-cold-war-america-erika-lorraine-milam",
+      "title": "Creatures of Cain: The Hunt for Human Nature in Cold War America",
+      "author": "Erika Lorraine Milam",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Creatures of Cain: The Hunt for Human Nature in Cold War America",
+          "author": "Erika Lorraine Milam",
+          "url": "https://openlibrary.org/books/OL29394620M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-culturing-life-how-cells-became-technologies-hannah-landecker",
+      "slug": "culturing-life-how-cells-became-technologies-hannah-landecker",
+      "title": "Culturing Life: How Cells Became Technologies",
+      "author": "Hannah Landecker",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Culturing Life: How Cells Became Technologies",
+          "author": "Hannah Landecker",
+          "url": "https://openlibrary.org/books/OL7691818M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-dangerous-medicines-the-story-behind-human-experiments-with-hepatitis-sydney-halpern",
+      "slug": "dangerous-medicines-the-story-behind-human-experiments-with-hepatitis-sydney-halpern",
+      "title": "Dangerous Medicines: The Story Behind Human Experiments with Hepatitis",
+      "author": "Sydney Halpern",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Dangerous Medicine: The Story Behind Human Experiments with Hepatitis",
+          "author": "Sydney Halpern",
+          "url": "https://openlibrary.org/books/OL34778059M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-dangerous-pregnancies-mothers-disabilities-and-abortion-in-modern-america-leslie-j-reagan",
+      "slug": "dangerous-pregnancies-mothers-disabilities-and-abortion-in-modern-america-leslie-j-reagan",
+      "title": "Dangerous Pregnancies: Mothers, Disabilities, and Abortion in Modern America",
+      "author": "Leslie J. Reagan",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Dangerous Pregnancies",
+          "author": "Leslie J. Reagan",
+          "url": "https://books.google.com/books/about/Dangerous_Pregnancies.html?hl=&id=r7MwDwAAQBAJ",
+          "score": 0.456,
+          "accepted": true,
+          "via": "search"
+        },
+        {
+          "provider": "open_library",
+          "title": "Dangerous pregnancies: mothers, disabilities, and abortion in America",
+          "author": "Leslie J. Reagan",
+          "url": "https://openlibrary.org/books/OL24487624M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-darwin-and-the-making-of-sexual-selection-evelleen-richards",
+      "slug": "darwin-and-the-making-of-sexual-selection-evelleen-richards",
+      "title": "Darwin and the Making of Sexual Selection",
+      "author": "Evelleen Richards",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Darwin and the Making of Sexual Selection",
+          "author": "Evelleen Richards",
+          "url": "https://books.google.com/books/about/Darwin_and_the_Making_of_Sexual_Selectio.html?hl=&id=55UtDwAAQBAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "Darwin and the Making of Sexual Selection",
+          "author": "Evelleen Richards",
+          "url": "https://openlibrary.org/books/OL27418729M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-dying-in-the-city-of-the-blues-sickle-cell-anemia-and-the-politics-of-race-and-health-keith-wail",
+      "slug": "dying-in-the-city-of-the-blues-sickle-cell-anemia-and-the-politics-of-race-and-health-keith-wail",
+      "title": "Dying in the City of the Blues: Sickle Cell Anemia and the Politics of Race and Health",
+      "author": "Keith Wailoo",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Dying in the City of the Blues",
+          "author": "Keith Wailoo",
+          "url": "https://books.google.com/books/about/Dying_in_the_City_of_the_Blues.html?hl=&id=Nsp60QEACAAJ",
+          "score": 0.623,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "Dying in the City of the Blues: Sickle Cell Anemia and the Politics of Race and Health",
+          "author": "Keith Wailoo",
+          "url": "https://openlibrary.org/books/OL9371508M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-from-body-to-community-venereal-disease-and-society-in-baroque-spain-cristian-berco",
+      "slug": "from-body-to-community-venereal-disease-and-society-in-baroque-spain-cristian-berco",
+      "title": "From Body to Community: Venereal Disease and Society in Baroque Spain",
+      "author": "Cristian Berco",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "From Body to Community",
+          "author": "Cristian Berco",
+          "url": "https://books.google.com/books/about/From_Body_to_Community.html?hl=&id=Ab2qCwAAQBAJ",
+          "score": 0.555,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "From Body to Community: Venereal Disease and Society in Baroque Spain",
+          "author": "Cristian Berco",
+          "url": "https://openlibrary.org/books/OL28802588M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-hearing-happiness-deafness-cures-in-history-jaipreet-virdi",
+      "slug": "hearing-happiness-deafness-cures-in-history-jaipreet-virdi",
+      "title": "Hearing Happiness: Deafness Cures in History",
+      "author": "Jaipreet Virdi",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Hearing Happiness: Deafness Cures in History",
+          "author": "Jaipreet Virdi",
+          "url": "https://openlibrary.org/books/OL29455662M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-in-sickness-and-in-wealth-american-hospitals-in-the-twentieth-century-rosemary-stevens",
+      "slug": "in-sickness-and-in-wealth-american-hospitals-in-the-twentieth-century-rosemary-stevens",
+      "title": "In Sickness and in Wealth: American Hospitals in the Twentieth Century",
+      "author": "Rosemary Stevens",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "In Sickness And In W",
+          "author": "Rosemary Stevens",
+          "url": "https://books.google.com/books/about/In_Sickness_And_In_W.html?hl=&id=IL0X5HsUSsIC",
+          "score": 0.533,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "In Sickness and in Wealth: American Hospitals in the Twentieth Century",
+          "author": "Rosemary Stevens",
+          "url": "https://openlibrary.org/books/OL9347194M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-neither-donkey-nor-horse-medicine-in-the-struggle-over-china-s-modernity-sean-hsiang-lin-lei",
+      "slug": "neither-donkey-nor-horse-medicine-in-the-struggle-over-china-s-modernity-sean-hsiang-lin-lei",
+      "title": "Neither Donkey Nor Horse: Medicine in the Struggle Over China’s Modernity",
+      "author": "Sean Hsiang-Lin Lei",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Neither Donkey nor Horse: Medicine in the Struggle over China's Modernity",
+          "author": "Sean Hsiang-Lin Lei",
+          "url": "https://openlibrary.org/books/OL27558929M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-reading-practice-the-pursuit-of-natural-knowledge-from-manuscript-to-print-melissa-reynolds",
+      "slug": "reading-practice-the-pursuit-of-natural-knowledge-from-manuscript-to-print-melissa-reynolds",
+      "title": "Reading Practice: The Pursuit of Natural Knowledge from Manuscript to Print",
+      "author": "Melissa Reynolds",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "pageCount",
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Reading Practice: The Pursuit of Natural Knowledge from Manuscript to Print",
+          "author": "Melissa Reynolds",
+          "url": "https://openlibrary.org/books/OL50816209M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-starved-for-light-the-long-shadow-of-rickets-and-vitamin-d-deficiency-christian-warren",
+      "slug": "starved-for-light-the-long-shadow-of-rickets-and-vitamin-d-deficiency-christian-warren",
+      "title": "Starved for Light: The Long Shadow of Rickets and Vitamin D Deficiency",
+      "author": "Christian Warren",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "pageCount"
+      ],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "Starved for Light: The Long Shadow of Rickets and Vitamin d Deficiency",
+          "author": "Christian Warren",
+          "url": "https://openlibrary.org/books/OL51366916M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-adoption-of-inoculation-for-smallpox-in-england-and-france-genevieve-miller",
+      "slug": "the-adoption-of-inoculation-for-smallpox-in-england-and-france-genevieve-miller",
+      "title": "The Adoption of Inoculation for Smallpox in England and France",
+      "author": "Genevieve Miller",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Adoption of Inoculation for Smallpox in England and France",
+          "author": "Genevieve Miller",
+          "url": "https://books.google.com/books/about/The_Adoption_of_Inoculation_for_Smallpox.html?hl=&id=_sd8AAAAIAAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "Adoption of Inoculation for Smallpox in England and France",
+          "author": "Genevieve Miller",
+          "url": "https://openlibrary.org/books/OL33645296M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-collectors-of-lost-souls-turning-kuru-scientists-into-whitemen-warwick-anderson",
+      "slug": "the-collectors-of-lost-souls-turning-kuru-scientists-into-whitemen-warwick-anderson",
+      "title": "The Collectors of Lost Souls: Turning Kuru Scientists into Whitemen",
+      "author": "Warwick Anderson",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Collectors of Lost Souls",
+          "author": "Warwick Anderson",
+          "url": "https://books.google.com/books/about/The_Collectors_of_Lost_Souls.html?hl=&id=-OraAAAAMAAJ",
+          "score": 0.65,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "The collectors of lost souls: turning whitemen into kuru scientists",
+          "author": "Warwick Anderson",
+          "url": "https://openlibrary.org/books/OL16637082M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-discovery-of-insulin-michael-bliss",
+      "slug": "the-discovery-of-insulin-michael-bliss",
+      "title": "The Discovery of Insulin",
+      "author": "Michael Bliss",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [
+        "thumbnailUrl"
+      ],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Discovery of Insulin",
+          "author": "Michael Bliss",
+          "url": "https://books.google.com/books/about/The_Discovery_of_Insulin.html?hl=&id=UaXWAAAACAAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "The Discovery of Insulin",
+          "author": "Michael Bliss",
+          "url": "https://openlibrary.org/books/OL8075414M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-expressiveness-of-the-body-and-the-divergence-of-greek-and-chinese-medicine-shigehisa-kuriya",
+      "slug": "the-expressiveness-of-the-body-and-the-divergence-of-greek-and-chinese-medicine-shigehisa-kuriya",
+      "title": "The Expressiveness of the Body and the Divergence of Greek and Chinese Medicine",
+      "author": "Shigehisa Kuriyama",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Expressiveness of the Body and the Divergence of Greek and Chinese Medicine",
+          "author": "Shigehisa Kuriyama",
+          "url": "https://books.google.com/books/about/The_Expressiveness_of_the_Body_and_the_D.html?hl=&id=kGi6QAAACAAJ",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "The Expressiveness of the Body and the Divergence of Greek and Chinese Medicine",
+          "author": "Shigehisa Kuriyama",
+          "url": "https://openlibrary.org/books/OL8443427M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-lomidine-files-the-untold-story-of-a-medical-disaster-guillaume-lachenal",
+      "slug": "the-lomidine-files-the-untold-story-of-a-medical-disaster-guillaume-lachenal",
+      "title": "The Lomidine Files: The Untold Story of a Medical Disaster",
+      "author": "Guillaume Lachenal",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Lomidine Files: The Untold Story of a Medical Disaster in Colonial Africa",
+          "author": "Guillaume Lachenal",
+          "url": "https://openlibrary.org/books/OL27404204M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-simian-tongue-the-long-debate-about-animal-language-gregory-radick",
+      "slug": "the-simian-tongue-the-long-debate-about-animal-language-gregory-radick",
+      "title": "The Simian Tongue: The Long Debate about Animal Language",
+      "author": "Gregory Radick",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "The Simian Tongue",
+          "author": "Gregory Radick",
+          "url": "https://books.google.com/books/about/The_Simian_Tongue.html?hl=&id=wEOdU21EQu0C",
+          "score": 0.563,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "The Simian Tongue: The Long Debate about Animal Language",
+          "author": "Gregory Radick",
+          "url": "https://openlibrary.org/books/OL10192832M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-the-therapeutic-perspective-medical-knowledge-and-identity-in-america-1820-1855-john-harley-warn",
+      "slug": "the-therapeutic-perspective-medical-knowledge-and-identity-in-america-1820-1855-john-harley-warn",
+      "title": "The Therapeutic Perspective: Medical Knowledge and Identity in America, 1820-1855",
+      "author": "John Harley Warner",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "open_library",
+          "title": "The Therapeutic Perspective: Medical Practice, Knowledge, and Identity in America, 1820-1885",
+          "author": "John Harley Warner",
+          "url": "https://openlibrary.org/books/OL7693635M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
+    },
+    {
+      "bookId": "book-tom-rivers-reflections-on-a-life-in-medicine-and-science-saul-benison",
+      "slug": "tom-rivers-reflections-on-a-life-in-medicine-and-science-saul-benison",
+      "title": "Tom Rivers: Reflections on a Life in Medicine and Science",
+      "author": "Saul Benison",
+      "status": "enriched",
+      "fields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "links",
+        "sourceIds"
+      ],
+      "skippedFields": [],
+      "missingFields": [
+        "publicationYear",
+        "pageCount",
+        "thumbnailUrl",
+        "publisherLink"
+      ],
+      "deferredFields": [
+        "wikipedia"
+      ],
+      "matches": [
+        {
+          "provider": "google_books",
+          "title": "Tom Rivers: Reflections on a Life in Medicine and Science",
+          "author": "Thomas Milton Rivers Saul Benison",
+          "url": "https://books.google.com/books/about/Tom_Rivers_Reflections_on_a_Life_in_Medi.html?hl=&id=QNyEAAAAIAAJ",
+          "score": 0.82,
+          "accepted": true,
+          "via": "isbn"
+        },
+        {
+          "provider": "open_library",
+          "title": "Tom Rivers: Reflections on a Life in Medicine and Science",
+          "author": "Saul Benison",
+          "url": "https://openlibrary.org/books/OL9705483M",
+          "score": 1,
+          "accepted": true,
+          "via": "isbn"
+        }
+      ]
     }
   ]
 }

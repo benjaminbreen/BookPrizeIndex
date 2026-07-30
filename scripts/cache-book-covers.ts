@@ -58,6 +58,7 @@ type CliOptions = {
   provider?: "openlibrary" | "google" | "all";
   minLists: number;
   requestDelayMs: number;
+  bookIds: Set<string>;
 };
 
 const outputDir = path.join(root, "public", "book-covers");
@@ -82,6 +83,7 @@ async function main() {
   const existingPatch = await readPatch();
   const discovery = await readDiscoveryCandidates();
   const selected = data.books
+    .filter((book) => !options.bookIds.size || options.bookIds.has(book.id) || options.bookIds.has(book.slug))
     .map((book) => coverJobForBook(book, discovery.candidates?.[book.id]))
     .filter((job): job is CoverJob => job ? shouldSelectBook(job, existingPatch, options) : false)
     .sort(compareBooksForCoverCaching)
@@ -121,6 +123,7 @@ function parseArgs(args: string[]): CliOptions {
     provider: "all",
     minLists: 0,
     requestDelayMs: 0,
+    bookIds: new Set<string>(),
   };
 
   for (let index = 0; index < args.length; index += 1) {
@@ -145,6 +148,9 @@ function parseArgs(args: string[]): CliOptions {
       index += 1;
     } else if (arg === "--request-delay-ms" && next) {
       options.requestDelayMs = parseNonNegativeInteger(next, "request-delay-ms");
+      index += 1;
+    } else if (arg === "--book-ids" && next) {
+      options.bookIds = new Set(next.split(",").map((item) => item.trim()).filter(Boolean));
       index += 1;
     }
   }

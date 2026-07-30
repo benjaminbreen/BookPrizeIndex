@@ -1,781 +1,882 @@
 {
-  "generatedAt": "2026-07-15T19:30:18.635Z",
+  "generatedAt": "2026-07-30T05:55:52.885Z",
   "dryRun": false,
-  "limit": 100,
-  "selectedCount": 100,
-  "provider": "apple_books",
-  "concurrency": 1,
+  "limit": 80,
+  "selectedCount": 70,
+  "provider": "all",
+  "concurrency": 2,
   "localDump": {
     "matches": 0
   },
   "summary": {
-    "low_confidence": 40,
-    "enriched": 6,
-    "not_found": 34
+    "enriched": 50,
+    "not_found": 3,
+    "low_confidence": 5,
+    "no_new_fields": 12
   },
   "report": [
     {
-      "bookId": "book-thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive",
-      "slug": "thomas-babington-macaulay-the-shaping-of-the-historian-john-leonard-clive",
-      "title": "Thomas Babington Macaulay: The Shaping of the Historian",
-      "author": "John Leonard Clive",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "Critical and Historical Essays - Volume I"
-    },
-    {
-      "bookId": "book-and-i-worked-at-the-writer-s-trade-chapters-of-literary-history-1918-1978-malcolm-cowley",
-      "slug": "and-i-worked-at-the-writer-s-trade-chapters-of-literary-history-1918-1978-malcolm-cowley",
-      "title": "And I Worked at the Writer's Trade: Chapters of Literary History 1918–1978",
-      "author": "Malcolm Cowley",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.187,
-      "matchTitle": "The Long Voyage"
-    },
-    {
-      "bookId": "book-an-american-requiem-god-my-father-and-the-war-that-came-between-us-james-p-carroll",
-      "slug": "an-american-requiem-god-my-father-and-the-war-that-came-between-us-james-p-carroll",
-      "title": "An American Requiem: God, My Father, and the War that Came Between Us",
-      "author": "James P. Carroll",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "Easy Songs for the Beginning Tenor (Songbook)"
-    },
-    {
-      "bookId": "book-david-mccullough-history",
-      "slug": "david-mccullough-history",
-      "title": "David McCullough",
-      "author": "History",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.36,
-      "matchTitle": "David McCullough Library eBook Box Set"
-    },
-    {
-      "bookId": "book-essays-on-the-constitution-frank-scott",
-      "slug": "essays-on-the-constitution-frank-scott",
-      "title": "Essays on the Constitution",
-      "author": "Frank Scott",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.288,
-      "matchTitle": "Seven Essays on Populism"
-    },
-    {
-      "bookId": "book-go-boy-memories-of-a-life-behind-bars-roger-caron",
-      "slug": "go-boy-memories-of-a-life-behind-bars-roger-caron",
-      "title": "Go-Boy! Memories of a Life Behind Bars",
-      "author": "Roger Caron",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.243,
-      "matchTitle": "First 100 Big Board: Trucks and Things That Go"
-    },
-    {
-      "bookId": "book-how-to-live-or-a-life-of-montaigne-sarah-bakewell",
-      "slug": "how-to-live-or-a-life-of-montaigne-sarah-bakewell",
-      "title": "How To Live, Or A Life Of Montaigne",
-      "author": "Sarah Bakewell",
+      "bookId": "book-secrets-of-women-gender-generation-and-the-origins-of-human-dissection-katharine-park",
+      "slug": "secrets-of-women-gender-generation-and-the-origins-of-human-dissection-katharine-park",
+      "title": "Secrets of Women: Gender, Generation, and the Origins of Human Dissection",
+      "author": "Katharine Park",
       "status": "enriched",
       "fields": [
-        "summary"
+        "summary",
+        "subjectCategories"
       ],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.691,
-      "matchTitle": "How to Live"
-    },
-    {
-      "bookId": "book-huey-long-t-harry-william",
-      "slug": "huey-long-t-harry-william",
-      "title": "Huey Long",
-      "author": "T. Harry William",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.48,
-      "matchTitle": "Huey Long Study Guide"
-    },
-    {
-      "bookId": "book-in-search-of-myself-frederick-philip-grove",
-      "slug": "in-search-of-myself-frederick-philip-grove",
-      "title": "In Search of Myself",
-      "author": "Frederick Philip Grove",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.28,
-      "matchTitle": "Over Prairie Trails"
-    },
-    {
-      "bookId": "book-irving-howe-history",
-      "slug": "irving-howe-history",
-      "title": "Irving Howe",
-      "author": "History",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.72,
-      "matchTitle": "Irving Howe"
-    },
-    {
-      "bookId": "book-living-with-risk-british-medical-association-board-of-science",
-      "slug": "living-with-risk-british-medical-association-board-of-science",
-      "title": "Living with Risk",
-      "author": "British Medical Association Board of Science",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.24,
-      "matchTitle": "Longevity Risk and Capital Markets."
-    },
-    {
-      "bookId": "book-richard-beale-davis-history",
-      "slug": "richard-beale-davis-history",
-      "title": "Richard Beale Davis",
-      "author": "History",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "God's Stories as told by God's Children"
-    },
-    {
-      "bookId": "book-the-enlightenment-vol-i-the-rise-of-modern-paganism-peter-gay",
-      "slug": "the-enlightenment-vol-i-the-rise-of-modern-paganism-peter-gay",
-      "title": "The Enlightenment, Vol. I: The Rise of Modern Paganism",
-      "author": "Peter Gay",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.144,
-      "matchTitle": "The Oriental Religions in Roman Paganism"
-    },
-    {
-      "bookId": "book-the-essential-ellen-willis-ellen-willis-edited-by-nona-willis-aronowitz",
-      "slug": "the-essential-ellen-willis-ellen-willis-edited-by-nona-willis-aronowitz",
-      "title": "The Essential Ellen Willis",
-      "author": "Ellen Willis, edited by Nona Willis Aronowitz",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.103,
-      "matchTitle": "BREAKING THE CHAINS – The Essential & Powerful Narratives that Shook the Roots of Slavery (17 Books in One Volume)"
-    },
-    {
-      "bookId": "book-the-last-whole-earth-catalogue-stewart-brand",
-      "slug": "the-last-whole-earth-catalogue-stewart-brand",
-      "title": "The Last Whole Earth Catalogue",
-      "author": "Stewart Brand",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.48,
-      "matchTitle": "Whole Earth"
-    },
-    {
-      "bookId": "book-the-organized-war-1863-1864-and-the-organized-war-to-victory-1864-1865-allan-nevins",
-      "slug": "the-organized-war-1863-1864-and-the-organized-war-to-victory-1864-1865-allan-nevins",
-      "title": "The Organized War, 1863–1864 and The Organized War to Victory, 1864–1865",
-      "author": "Allan Nevins",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.16,
-      "matchTitle": "Henry Ford's Peace Ship"
-    },
-    {
-      "bookId": "book-thirty-and-three-hugh-maclennan",
-      "slug": "thirty-and-three-hugh-maclennan",
-      "title": "Thirty and Three",
-      "author": "Hugh MacLennan",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "Inland Navigation by the Stars"
-    },
-    {
-      "bookId": "book-canada-tomorrow-s-giant-bruce-hutchison",
-      "slug": "canada-tomorrow-s-giant-bruce-hutchison",
-      "title": "Canada: Tomorrow's Giant",
-      "author": "Bruce Hutchison",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.28,
-      "matchTitle": "The Shakespeare Conspriacy - Clayton Lovell Stone Adventure"
-    },
-    {
-      "bookId": "book-colony-to-nation-arthur-r-m-lower",
-      "slug": "colony-to-nation-arthur-r-m-lower",
-      "title": "Colony to Nation",
-      "author": "Arthur R. M. Lower",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.034,
-      "matchTitle": "50+ Masterpieces of Occult & Supernatural Fiction"
-    },
-    {
-      "bookId": "book-cross-country-hugh-maclennan",
-      "slug": "cross-country-hugh-maclennan",
-      "title": "Cross-country",
-      "author": "Hugh MacLennan",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "Little Crosses"
-    },
-    {
-      "bookId": "book-in-defence-of-canada-james-eayrs",
-      "slug": "in-defence-of-canada-james-eayrs",
-      "title": "In Defence of Canada",
-      "author": "James Eayrs",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.76,
-      "matchTitle": "In Defence of Canada Volume II"
-    },
-    {
-      "bookId": "book-john-a-macdonald-the-young-politician-donald-g-creighton",
-      "slug": "john-a-macdonald-the-young-politician-donald-g-creighton",
-      "title": "John A. Macdonald, The Young Politician",
-      "author": "Donald G. Creighton",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "Our Living Tradition"
-    },
-    {
-      "bookId": "book-louisbourg-portraits-life-in-an-eighteenth-century-garrison-town-christopher-moore",
-      "slug": "louisbourg-portraits-life-in-an-eighteenth-century-garrison-town-christopher-moore",
-      "title": "Louisbourg Portraits: Life in an Eighteenth- Century Garrison Town",
-      "author": "Christopher Moore",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "The Nineteenth and Their Times: Being an Account of the Four Cavalry Regiments in the British Army That Have Borne the Number Nineteen and of the Campaigns in Which They Served"
-    },
-    {
-      "bookId": "book-slava-bohu-j-f-c-wright",
-      "slug": "slava-bohu-j-f-c-wright",
-      "title": "Slava Bohu",
-      "author": "J. F. C. Wright",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-the-ascent-of-life-t-a-goudge",
-      "slug": "the-ascent-of-life-t-a-goudge",
-      "title": "The Ascent of Life",
-      "author": "T. A. Goudge",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-this-most-famous-stream-arthur-r-m-lower",
-      "slug": "this-most-famous-stream-arthur-r-m-lower",
-      "title": "This Most Famous Stream",
-      "author": "Arthur R. M. Lower",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.245,
-      "matchTitle": "The Pirate Bay Collection: History, Trues Stories & Most Famous Pirate Novels"
-    },
-    {
-      "bookId": "book-to-the-river-losing-my-brother-don-gillmor",
-      "slug": "to-the-river-losing-my-brother-don-gillmor",
-      "title": "To the River: Losing My Brother",
-      "author": "Don Gillmor",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-charles-francis-adams-1807-1866-martin-b-duberman",
-      "slug": "charles-francis-adams-1807-1866-martin-b-duberman",
-      "title": "Charles Francis Adams, 1807-1866",
-      "author": "Martin B. Duberman",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-children-of-crisis-volumes-ii-and-iii-robert-coles",
-      "slug": "children-of-crisis-volumes-ii-and-iii-robert-coles",
-      "title": "Children of Crisis, Volumes II and III",
-      "author": "Robert Coles",
-      "status": "enriched",
-      "fields": [
-        "summary"
-      ],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.691,
-      "matchTitle": "Children of Crisis"
-    },
-    {
-      "bookId": "book-the-eastern-front-1914-17-norman-stone",
-      "slug": "the-eastern-front-1914-17-norman-stone",
-      "title": "The Eastern Front 1914-17",
-      "author": "Norman Stone",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-the-great-war-for-the-empire-lawrence-h-gipson",
-      "slug": "the-great-war-for-the-empire-lawrence-h-gipson",
-      "title": "The Great War for the Empire",
-      "author": "Lawrence H. Gipson",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-bolivar-american-liberator-marie-arana",
-      "slug": "bolivar-american-liberator-marie-arana",
-      "title": "Bolivar: American Liberator",
-      "author": "Marie Arana",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
+      "provider": "google_books",
+      "via": "isbn",
       "matchScore": 1,
-      "matchTitle": "Bolivar"
+      "matchTitle": "Secrets of Women"
     },
     {
-      "bookId": "book-culture-and-anarchy-in-ireland-1890-1939-fsl-lyons",
-      "slug": "culture-and-anarchy-in-ireland-1890-1939-fsl-lyons",
-      "title": "Culture and Anarchy in Ireland, 1890-1939",
-      "author": "FSL Lyons",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-gladstone-1875-1898-hcg-matthew",
-      "slug": "gladstone-1875-1898-hcg-matthew",
-      "title": "Gladstone, 1875-1898",
-      "author": "HCG Matthew",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-diderot-arthur-m-wilson",
-      "slug": "diderot-arthur-m-wilson",
-      "title": "Diderot",
-      "author": "Arthur M. Wilson",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.72,
-      "matchTitle": "Diderot"
-    },
-    {
-      "bookId": "book-dudley-docker-the-life-and-times-of-a-trade-warrior-richard-davenport-hines",
-      "slug": "dudley-docker-the-life-and-times-of-a-trade-warrior-richard-davenport-hines",
-      "title": "Dudley Docker: The Life and Times of a Trade Warrior",
-      "author": "Richard Davenport-Hines",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.28,
-      "matchTitle": "History in the House"
-    },
-    {
-      "bookId": "book-habits-of-the-heart-individualism-and-commitment-in-american-life-robert-n-bellah-richard-madsen",
-      "slug": "habits-of-the-heart-individualism-and-commitment-in-american-life-robert-n-bellah-richard-madsen",
-      "title": "Habits of the Heart: Individualism and Commitment in American Life",
-      "author": "Robert N. Bellah, Richard Madsen, William M. Sullivan, Ann Swidler,, Steven M. Tipton",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.206,
-      "matchTitle": "Study Guide: Habits of the Heart by Robert N. Bellah (SuperSummary)"
-    },
-    {
-      "bookId": "book-death-in-paris-1795-1801-richard-cobb",
-      "slug": "death-in-paris-1795-1801-richard-cobb",
-      "title": "Death in Paris, 1795-1801",
-      "author": "Richard Cobb",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-norman-thomas-the-last-idealist-w-a-swanberg",
-      "slug": "norman-thomas-the-last-idealist-w-a-swanberg",
-      "title": "Norman Thomas: The Last Idealist",
-      "author": "W. A. Swanberg",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.28,
-      "matchTitle": "Pulitzer"
-    },
-    {
-      "bookId": "book-the-rising-sun-in-the-pacific-samuel-e-morison",
-      "slug": "the-rising-sun-in-the-pacific-samuel-e-morison",
-      "title": "The Rising Sun in the Pacific",
-      "author": "Samuel E. Morison",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.187,
-      "matchTitle": "The Maritime History of Massachusetts, 1783-1860"
-    },
-    {
-      "bookId": "book-new-worlds-ancient-texts-the-power-of-tradition-and-the-shock-of-discovery-anthony-grafton",
-      "slug": "new-worlds-ancient-texts-the-power-of-tradition-and-the-shock-of-discovery-anthony-grafton",
-      "title": "New Worlds, Ancient Texts: The Power of Tradition and the Shock of Discovery",
-      "author": "Anthony Grafton",
+      "bookId": "book-knowing-manchuria-environments-the-senses-and-natural-knowledge-on-an-asian-borderland-ruth-roga",
+      "slug": "knowing-manchuria-environments-the-senses-and-natural-knowledge-on-an-asian-borderland-ruth-roga",
+      "title": "Knowing Manchuria: Environments, the Senses, and Natural Knowledge on an Asian Borderland",
+      "author": "Ruth Rogaski",
       "status": "enriched",
       "fields": [
-        "summary"
+        "summary",
+        "pageCount",
+        "subjectCategories"
       ],
-      "provider": "apple_books",
-      "via": "search",
+      "provider": "google_books",
+      "via": "isbn",
       "matchScore": 1,
-      "matchTitle": "New Worlds, Ancient Texts"
+      "matchTitle": "Knowing Manchuria"
     },
     {
-      "bookId": "book-mind-an-essay-on-human-feeling-vol-ii-suzanne-k-langer",
-      "slug": "mind-an-essay-on-human-feeling-vol-ii-suzanne-k-langer",
-      "title": "Mind: An Essay on Human Feeling, Vol. II",
-      "author": "Suzanne K. Langer",
+      "bookId": "book-addison-and-the-white-corpuscles-lelland-j-rather",
+      "slug": "addison-and-the-white-corpuscles-lelland-j-rather",
+      "title": "Addison and the White Corpuscles",
+      "author": "Lelland J. Rather",
+      "status": "not_found",
+      "fields": [],
+      "notes": "No provider candidate found."
+    },
+    {
+      "bookId": "book-american-cardiology-the-history-of-a-specialty-and-its-college-w-bruce-fye",
+      "slug": "american-cardiology-the-history-of-a-specialty-and-its-college-w-bruce-fye",
+      "title": "American Cardiology: The History of a Specialty and its College",
+      "author": "W. Bruce Fye",
+      "status": "not_found",
+      "fields": [],
+      "notes": "No provider candidate found."
+    },
+    {
+      "bookId": "book-claude-bernard-and-animal-chemistry-the-emergence-of-a-scientist-frederick-l-holmes",
+      "slug": "claude-bernard-and-animal-chemistry-the-emergence-of-a-scientist-frederick-l-holmes",
+      "title": "Claude Bernard and Animal Chemistry: The Emergence of a Scientist",
+      "author": "Frederick L. Holmes",
       "status": "low_confidence",
       "fields": [],
       "provider": "apple_books",
       "via": "search",
-      "matchScore": 0.093,
-      "matchTitle": "The Conversation on Water"
+      "matchScore": 0.14,
+      "matchTitle": "An Introduction to Evolutionary Cognitive Archaeology"
     },
     {
-      "bookId": "book-the-great-cat-massacre-and-other-episodes-in-french-cultural-history-robert-darnton",
-      "slug": "the-great-cat-massacre-and-other-episodes-in-french-cultural-history-robert-darnton",
-      "title": "The Great Cat Massacre and Other Episodes in French Cultural History",
-      "author": "Robert Darnton",
-      "status": "enriched",
-      "fields": [
-        "summary"
-      ],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.673,
-      "matchTitle": "The Great Cat Massacre"
-    },
-    {
-      "bookId": "book-aa-milne-his-life-ann-thwaite",
-      "slug": "aa-milne-his-life-ann-thwaite",
-      "title": "AA Milne–His Life",
-      "author": "Ann Thwaite",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.28,
-      "matchTitle": "Goodbye Christopher Robin"
-    },
-    {
-      "bookId": "book-mississippi-the-closed-society-d-r-james-w-silver",
-      "slug": "mississippi-the-closed-society-d-r-james-w-silver",
-      "title": "Mississippi: The Closed Society",
-      "author": "D r. James W. Silver",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-residence-and-race-david-mcentire",
-      "slug": "residence-and-race-david-mcentire",
-      "title": "Residence and Race",
-      "author": "David McEntire",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.86,
-      "matchTitle": "Residence and Race"
-    },
-    {
-      "bookId": "book-the-ultimate-folly-congressman-richard-mccarthy",
-      "slug": "the-ultimate-folly-congressman-richard-mccarthy",
-      "title": "The Ultimate Folly",
-      "author": "Congressman Richard McCarthy",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-a-history-of-the-freedman-s-bureau-george-bentley",
-      "slug": "a-history-of-the-freedman-s-bureau-george-bentley",
-      "title": "A History of the Freedman’s Bureau",
-      "author": "George Bentley",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-america-s-rome-volumes-i-and-ii-william-l-vance",
-      "slug": "america-s-rome-volumes-i-and-ii-william-l-vance",
-      "title": "America's Rome, Volumes I and II",
-      "author": "William L. Vance",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.16,
-      "matchTitle": "A History of the Book in America"
-    },
-    {
-      "bookId": "book-austro-german-diplomatic-relations-1908-14-oswald-wedel",
-      "slug": "austro-german-diplomatic-relations-1908-14-oswald-wedel",
-      "title": "Austro-German Diplomatic Relations, 1908-14",
-      "author": "Oswald Wedel",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-beyond-smoke-and-mirrors-climate-change-and-energy-in-the-21st-burton-ritcher",
-      "slug": "beyond-smoke-and-mirrors-climate-change-and-energy-in-the-21st-burton-ritcher",
-      "title": "Beyond Smoke and Mirrors: Climate Change and Energy in the 21st",
-      "author": "Burton Ritcher",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.86,
-      "matchTitle": "Beyond Smoke and Mirrors"
-    },
-    {
-      "bookId": "book-british-and-american-commercial-relations-with-soviet-russia-1918-24-christine-white",
-      "slug": "british-and-american-commercial-relations-with-soviet-russia-1918-24-christine-white",
-      "title": "British and American Commercial Relations with Soviet Russia, 1918-24",
-      "author": "Christine White",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-brownfields-law-and-practice-the-cleanup-and-redevelopment-of-contaminated-land-michael-b-gerrar",
-      "slug": "brownfields-law-and-practice-the-cleanup-and-redevelopment-of-contaminated-land-michael-b-gerrar",
-      "title": "Brownfields Law & Practice: The Cleanup and Redevelopment of Contaminated Land",
-      "author": "Michael B. Gerrard",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-cezanne-drawing-jodi-hauptman-and-samantha-friedman",
-      "slug": "cezanne-drawing-jodi-hauptman-and-samantha-friedman",
-      "title": "Cézanne Drawing",
-      "author": "Jodi Hauptman, Samantha Friedman",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-coal-steel-and-the-rebirth-of-europe-1945-55-john-gillingham",
-      "slug": "coal-steel-and-the-rebirth-of-europe-1945-55-john-gillingham",
-      "title": "Coal, Steel, and the Rebirth of Europe, 1945-55",
-      "author": "John Gillingham",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.16,
-      "matchTitle": "A Profile of the Steel Industry"
-    },
-    {
-      "bookId": "book-computer-applications-in-engineering-education-magdy-f-iskander",
-      "slug": "computer-applications-in-engineering-education-magdy-f-iskander",
-      "title": "Computer Applications in Engineering Education",
-      "author": "Magdy F. Iskander",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "The Advancing World of Applied Electromagnetics"
-    },
-    {
-      "bookId": "book-dostoevsky-emerson-the-roots-of-prophecy-evelyn-barish",
-      "slug": "dostoevsky-emerson-the-roots-of-prophecy-evelyn-barish",
-      "title": "Dostoevsky: Emerson: The Roots of Prophecy",
-      "author": "Evelyn Barish",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-dr-dolittle-s-delusion-animals-and-the-uniqueness-of-human-language-stephen-r-anderson",
-      "slug": "dr-dolittle-s-delusion-animals-and-the-uniqueness-of-human-language-stephen-r-anderson",
-      "title": "Dr. Dolittle’s Delusion: Animals and the Uniqueness of Human Language",
-      "author": "Stephen R. Anderson",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-excavating-occaneechi-town-archaeology-of-an-eighteenth-century-indian-village-in-north-america-",
-      "slug": "excavating-occaneechi-town-archaeology-of-an-eighteenth-century-indian-village-in-north-america-",
-      "title": "Excavating Occaneechi Town: Archaeology of an Eighteenth-Century Indian Village in North America",
-      "author": "R.P. Stephen Davis, Jr., Patrick Livingood, Trawick Ward, Vincas P. Steponaitis",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-federal-arbitration-law-agreements-awards-and-remedies-under-the-federal-arbitration-act-ian-r-m",
-      "slug": "federal-arbitration-law-agreements-awards-and-remedies-under-the-federal-arbitration-act-ian-r-m",
-      "title": "FEDERAL ARBITRATION LAW: Agreements, Awards, and Remedies under the Federal Arbitration Act",
-      "author": "Ian R. Macneil, Richard E. Speidel, Thomas J. Stipanowich",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-fichte-the-self-and-the-calling-of-philosophy-1762-99-anthony-lavopa",
-      "slug": "fichte-the-self-and-the-calling-of-philosophy-1762-99-anthony-lavopa",
-      "title": "Fichte: The Self and the Calling of Philosophy, 1762-99",
-      "author": "Anthony LaVopa",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-france-and-her-eastern-allies-1919-25-piotr-wandycz",
-      "slug": "france-and-her-eastern-allies-1919-25-piotr-wandycz",
-      "title": "France and Her Eastern Allies, 1919-25",
-      "author": "Piotr Wandycz",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-freedom-loyalty-and-dissent-henry-steele-commager",
-      "slug": "freedom-loyalty-and-dissent-henry-steele-commager",
-      "title": "Freedom, Loyalty and Dissent",
-      "author": "Henry Steele Commager",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-from-cap-cod-to-the-bay-of-fundy-an-environmental-atlas-of-the-gulf-of-maine-philip-w-conkling",
-      "slug": "from-cap-cod-to-the-bay-of-fundy-an-environmental-atlas-of-the-gulf-of-maine-philip-w-conkling",
-      "title": "From Cap Cod to the Bay of Fundy: An Environmental Atlas of the Gulf of Maine",
-      "author": "Philip W. Conkling",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-german-rearmament-and-the-west-1932-33-edward-bennett",
-      "slug": "german-rearmament-and-the-west-1932-33-edward-bennett",
-      "title": "German Rearmament and the West, 1932-33",
-      "author": "Edward Bennett",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
-    },
-    {
-      "bookId": "book-globalists-the-end-of-empire-and-the-birth-of-neoliberalism-quinn-e-slobodian",
-      "slug": "globalists-the-end-of-empire-and-the-birth-of-neoliberalism-quinn-e-slobodian",
-      "title": "Globalists: The End of Empire and the Birth of Neoliberalism",
-      "author": "Quinn E. Slobodian",
-      "status": "enriched",
-      "fields": [
-        "summary"
-      ],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.944,
-      "matchTitle": "Globalists"
-    },
-    {
-      "bookId": "book-issac-newton-james-gleick",
-      "slug": "issac-newton-james-gleick",
-      "title": "Issac Newton",
-      "author": "James Gleick",
+      "bookId": "book-death-in-hamburg-society-and-politics-in-the-cholera-years-1830-1910-richard-j-evans",
+      "slug": "death-in-hamburg-society-and-politics-in-the-cholera-years-1830-1910-richard-j-evans",
+      "title": "Death in Hamburg: Society and Politics in the Cholera Years, 1830-1910",
+      "author": "Richard J. Evans",
       "status": "low_confidence",
       "fields": [],
       "provider": "apple_books",
       "via": "search",
       "matchScore": 0.64,
-      "matchTitle": "Isaac Newton"
+      "matchTitle": "Tod in Hamburg"
     },
     {
-      "bookId": "book-mandelstam-robert-gittings",
-      "slug": "mandelstam-robert-gittings",
-      "title": "Mandelstam",
-      "author": "Robert Gittings",
+      "bookId": "book-diabetes-a-history-of-race-and-disease-arleen-m-tuchman",
+      "slug": "diabetes-a-history-of-race-and-disease-arleen-m-tuchman",
+      "title": "Diabetes: A History of Race and Disease",
+      "author": "Arleen M. Tuchman",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "pageCount",
+        "publicationYear",
+        "isbn13",
+        "links",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 0.907,
+      "matchTitle": "Diabetes"
+    },
+    {
+      "bookId": "book-mental-illness-and-american-society-1897-1940-gerald-n-grob",
+      "slug": "mental-illness-and-american-society-1897-1940-gerald-n-grob",
+      "title": "Mental Illness and American Society, 1897-1940",
+      "author": "Gerald N. Grob",
       "status": "not_found",
       "fields": [],
       "notes": "No provider candidate found."
     },
     {
-      "bookId": "book-providence-island-1630-41-the-other-purian-colony-karen-kupperman",
-      "slug": "providence-island-1630-41-the-other-purian-colony-karen-kupperman",
-      "title": "Providence Island, 1630-41: The Other Purian Colony",
-      "author": "Karen Kupperman",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
+      "bookId": "book-the-age-of-intoxication-origins-of-the-global-drug-trade-benjamin-breen",
+      "slug": "the-age-of-intoxication-origins-of-the-global-drug-trade-benjamin-breen",
+      "title": "The Age of Intoxication: Origins of the Global Drug Trade",
+      "author": "Benjamin Breen",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "publicationYear",
+        "isbn13",
+        "links",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Age of Intoxication"
     },
     {
-      "bookId": "book-putting-myself-together-writing-1974-jamaica-kincaid",
-      "slug": "putting-myself-together-writing-1974-jamaica-kincaid",
-      "title": "Putting Myself Together: Writing 1974–",
-      "author": "Jamaica Kincaid",
+      "bookId": "book-surgery-and-salvation-the-roots-of-reproductive-injustice-in-mexico-1770-1940-elizabeth-o-brien",
+      "slug": "surgery-and-salvation-the-roots-of-reproductive-injustice-in-mexico-1770-1940-elizabeth-o-brien",
+      "title": "Surgery & Salvation: The Roots of Reproductive Injustice in Mexico, 1770-1940",
+      "author": "Elizabeth O’Brien",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Surgery and Salvation",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-the-life-and-times-of-gaspare-tagliacozzi-jerome-pierce-webster-and-martha-teach-gnudi",
+      "slug": "the-life-and-times-of-gaspare-tagliacozzi-jerome-pierce-webster-and-martha-teach-gnudi",
+      "title": "The Life and Times of Gaspare Tagliacozzi",
+      "author": "Jerome Pierce Webster, Martha Teach Gnudi",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 0.907,
+      "matchTitle": "The life and times of Gaspare Tagliacozzi",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-blood-relations-transfusion-and-the-making-of-human-genetics-jenny-bangham",
+      "slug": "blood-relations-transfusion-and-the-making-of-human-genetics-jenny-bangham",
+      "title": "Blood Relations: Transfusion and the Making of Human Genetics",
+      "author": "Jenny Bangham",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Blood Relations"
+    },
+    {
+      "bookId": "book-trials-of-an-ordinary-doctor-joannes-groenevelt-in-seventeenth-century-london-harold-j-cook",
+      "slug": "trials-of-an-ordinary-doctor-joannes-groenevelt-in-seventeenth-century-london-harold-j-cook",
+      "title": "Trials of an Ordinary Doctor: Joannes Groenevelt in Seventeenth-Century London",
+      "author": "Harold J. Cook",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "The Trials of an Ordinary Doctor",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-marrow-of-tragedy-the-health-crisis-of-the-american-civil-war-margaret-humphreys",
+      "slug": "marrow-of-tragedy-the-health-crisis-of-the-american-civil-war-margaret-humphreys",
+      "title": "Marrow of Tragedy: The Health Crisis of the American Civil War",
+      "author": "Margaret Humphreys",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Marrow of Tragedy"
+    },
+    {
+      "bookId": "book-reading-practice-the-pursuit-of-natural-knowledge-from-manuscript-to-print-melissa-reynolds",
+      "slug": "reading-practice-the-pursuit-of-natural-knowledge-from-manuscript-to-print-melissa-reynolds",
+      "title": "Reading Practice: The Pursuit of Natural Knowledge from Manuscript to Print",
+      "author": "Melissa Reynolds",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 0.944,
+      "matchTitle": "Reading Practice"
+    },
+    {
+      "bookId": "book-improvising-medicine-an-african-oncology-ward-in-an-emerging-cancer-epidemic-julie-livingston",
+      "slug": "improvising-medicine-an-african-oncology-ward-in-an-emerging-cancer-epidemic-julie-livingston",
+      "title": "Improvising Medicine: An African Oncology Ward in an Emerging Cancer Epidemic",
+      "author": "Julie Livingston",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "pageCount",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Improvising Medicine"
+    },
+    {
+      "bookId": "book-healing-with-poisons-potent-medicines-in-medieval-china-yan-liu",
+      "slug": "healing-with-poisons-potent-medicines-in-medieval-china-yan-liu",
+      "title": "Healing with Poisons: Potent Medicines in Medieval China",
+      "author": "Yan Liu",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Healing with Poisons"
+    },
+    {
+      "bookId": "book-the-experiential-caribbean-creating-knowledge-and-healing-in-the-early-modern-atlantic-pablo-gom",
+      "slug": "the-experiential-caribbean-creating-knowledge-and-healing-in-the-early-modern-atlantic-pablo-gom",
+      "title": "The Experiential Caribbean: Creating Knowledge and Healing in the Early Modern Atlantic",
+      "author": "Pablo Gómez",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 0.944,
+      "matchTitle": "The Experiential Caribbean"
+    },
+    {
+      "bookId": "book-intimate-communities-wartime-healthcare-and-the-birth-of-modern-china-1937-1945-nicole-barnes",
+      "slug": "intimate-communities-wartime-healthcare-and-the-birth-of-modern-china-1937-1945-nicole-barnes",
+      "title": "Intimate Communities: Wartime Healthcare and the Birth of Modern China, 1937-1945",
+      "author": "Nicole Barnes",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "pageCount",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 0.944,
+      "matchTitle": "Intimate Communities"
+    },
+    {
+      "bookId": "book-haeckel-s-embryos-images-evolution-and-fraud-nick-hopwood",
+      "slug": "haeckel-s-embryos-images-evolution-and-fraud-nick-hopwood",
+      "title": "Haeckel’s Embryos: Images, Evolution, and Fraud",
+      "author": "Nick Hopwood",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "pageCount",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Haeckel's Embryos"
+    },
+    {
+      "bookId": "book-john-morgan-continental-doctor-whitfield-j-bell-jr",
+      "slug": "john-morgan-continental-doctor-whitfield-j-bell-jr",
+      "title": "John Morgan: Continental Doctor",
+      "author": "Whitfield J. Bell, Jr.",
+      "status": "low_confidence",
+      "fields": [],
+      "provider": "apple_books",
+      "via": "search",
+      "matchScore": 0.131,
+      "matchTitle": "Thomas B. Glass v. Continental Guaranty Corporation"
+    },
+    {
+      "bookId": "book-medicine-before-the-plague-practitioners-and-their-patients-in-the-crown-of-aragon-1285-1345-mic",
+      "slug": "medicine-before-the-plague-practitioners-and-their-patients-in-the-crown-of-aragon-1285-1345-mic",
+      "title": "Medicine Before the Plague: Practitioners and Their Patients in the Crown of Aragon, 1285-1345",
+      "author": "Michael R. McVaugh",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Medicine before the Plague",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-starved-for-light-the-long-shadow-of-rickets-and-vitamin-d-deficiency-christian-warren",
+      "slug": "starved-for-light-the-long-shadow-of-rickets-and-vitamin-d-deficiency-christian-warren",
+      "title": "Starved for Light: The Long Shadow of Rickets and Vitamin D Deficiency",
+      "author": "Christian Warren",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Starved for Light"
+    },
+    {
+      "bookId": "book-hearing-happiness-deafness-cures-in-history-jaipreet-virdi",
+      "slug": "hearing-happiness-deafness-cures-in-history-jaipreet-virdi",
+      "title": "Hearing Happiness: Deafness Cures in History",
+      "author": "Jaipreet Virdi",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Hearing Happiness"
+    },
+    {
+      "bookId": "book-creatures-of-cain-the-hunt-for-human-nature-in-cold-war-america-erika-lorraine-milam",
+      "slug": "creatures-of-cain-the-hunt-for-human-nature-in-cold-war-america-erika-lorraine-milam",
+      "title": "Creatures of Cain: The Hunt for Human Nature in Cold War America",
+      "author": "Erika Lorraine Milam",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Creatures of Cain"
+    },
+    {
+      "bookId": "book-disease-war-and-the-imperial-state-the-welfare-of-the-british-armed-forces-during-the-seven-year",
+      "slug": "disease-war-and-the-imperial-state-the-welfare-of-the-british-armed-forces-during-the-seven-year",
+      "title": "Disease, War, and the Imperial State: The Welfare of the British Armed Forces during the Seven Years’ War",
+      "author": "Erica Charters",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Disease, War, and the Imperial State: The Welfare of the British Armed Forces During the Seven Years' War"
+    },
+    {
+      "bookId": "book-mind-and-body-in-eighteenth-century-medicine-lelland-j-rather",
+      "slug": "mind-and-body-in-eighteenth-century-medicine-lelland-j-rather",
+      "title": "Mind and Body in Eighteenth-Century Medicine",
+      "author": "Lelland J. Rather",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 0.907,
+      "matchTitle": "Mind and body in eighteenth century medicine",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-medicine-and-public-health-in-latin-america-a-history-marcos-cueto-and-steven-palmer",
+      "slug": "medicine-and-public-health-in-latin-america-a-history-marcos-cueto-and-steven-palmer",
+      "title": "Medicine and Public Health in Latin America: A History",
+      "author": "Marcos Cueto, Steven Palmer",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "pageCount",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Medicine and Public Health in Latin America: A History"
+    },
+    {
+      "bookId": "book-galen-on-the-usefulness-of-the-parts-of-the-body-margaret-tallmadge-may",
+      "slug": "galen-on-the-usefulness-of-the-parts-of-the-body-margaret-tallmadge-may",
+      "title": "Galen on the Usefulness of the Parts of the Body",
+      "author": "Margaret Tallmadge May",
+      "status": "low_confidence",
+      "fields": [],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 0.18,
+      "matchTitle": "The One-Sex Body on Trial: The Classical and Early Modern Evidence"
+    },
+    {
+      "bookId": "book-herophilus-the-art-of-medicine-in-ancient-alexandria-heinrich-von-staden",
+      "slug": "herophilus-the-art-of-medicine-in-ancient-alexandria-heinrich-von-staden",
+      "title": "Herophilus: The Art of Medicine in Ancient Alexandria",
+      "author": "Heinrich von Staden",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Herophilus: The Art of Medicine in Early Alexandria"
+    },
+    {
+      "bookId": "book-hospital-life-in-enlightenment-scotland-care-and-teaching-at-the-royal-infirmary-of-edinburgh-gu",
+      "slug": "hospital-life-in-enlightenment-scotland-care-and-teaching-at-the-royal-infirmary-of-edinburgh-gu",
+      "title": "Hospital Life in Enlightenment Scotland: Care and Teaching at the Royal Infirmary of Edinburgh",
+      "author": "Guenter B. Risse",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "pageCount",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Hospital Life in Enlightenment Scotland"
+    },
+    {
+      "bookId": "book-the-cholera-years-charles-rosenberg",
+      "slug": "the-cholera-years-charles-rosenberg",
+      "title": "The Cholera Years",
+      "author": "Charles Rosenberg",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 0.944,
+      "matchTitle": "The Cholera Years"
+    },
+    {
+      "bookId": "book-the-bubonic-plague-and-england-an-essay-in-the-history-of-preventive-medicine-charles-f-mullett",
+      "slug": "the-bubonic-plague-and-england-an-essay-in-the-history-of-preventive-medicine-charles-f-mullett",
+      "title": "The Bubonic Plague and England: An Essay in the History of Preventive Medicine",
+      "author": "Charles F. Mullett",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "The bubonic plague and England",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-the-expressiveness-of-the-body-and-the-divergence-of-greek-and-chinese-medicine-shigehisa-kuriya",
+      "slug": "the-expressiveness-of-the-body-and-the-divergence-of-greek-and-chinese-medicine-shigehisa-kuriya",
+      "title": "The Expressiveness of the Body and the Divergence of Greek and Chinese Medicine",
+      "author": "Shigehisa Kuriyama",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "The Expressiveness of the Body and the Divergence of Greek and Chinese Medicine"
+    },
+    {
+      "bookId": "book-the-state-and-the-mentally-ill-a-history-of-the-worcester-state-hospital-gerald-n-grob",
+      "slug": "the-state-and-the-mentally-ill-a-history-of-the-worcester-state-hospital-gerald-n-grob",
+      "title": "The State and the Mentally Ill: A History of the Worcester State Hospital",
+      "author": "Gerald N. Grob",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "The state and the mentally ill",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-dangerous-medicines-the-story-behind-human-experiments-with-hepatitis-sydney-halpern",
+      "slug": "dangerous-medicines-the-story-behind-human-experiments-with-hepatitis-sydney-halpern",
+      "title": "Dangerous Medicines: The Story Behind Human Experiments with Hepatitis",
+      "author": "Sydney Halpern",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 0.64,
+      "matchTitle": "Dangerous Medicine"
+    },
+    {
+      "bookId": "book-how-to-sell-a-poison-the-rise-fall-and-toxic-return-of-ddt-elena-conis",
+      "slug": "how-to-sell-a-poison-the-rise-fall-and-toxic-return-of-ddt-elena-conis",
+      "title": "How to Sell a Poison: The Rise, Fall, and Toxic Return of DDT",
+      "author": "Elena Conis",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "How to Sell a Poison"
+    },
+    {
+      "bookId": "book-dying-in-the-city-of-the-blues-sickle-cell-anemia-and-the-politics-of-race-and-health-keith-wail",
+      "slug": "dying-in-the-city-of-the-blues-sickle-cell-anemia-and-the-politics-of-race-and-health-keith-wail",
+      "title": "Dying in the City of the Blues: Sickle Cell Anemia and the Politics of Race and Health",
+      "author": "Keith Wailoo",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "pageCount",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Dying in the City of the Blues: Sickle Cell Anemia and the Politics of Race and Health"
+    },
+    {
+      "bookId": "book-darwin-and-the-making-of-sexual-selection-evelleen-richards",
+      "slug": "darwin-and-the-making-of-sexual-selection-evelleen-richards",
+      "title": "Darwin and the Making of Sexual Selection",
+      "author": "Evelleen Richards",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Darwin and the Making of Sexual Selection"
+    },
+    {
+      "bookId": "book-the-oxford-handbook-of-disability-history-michael-rembis-and-catherine-kudlick-and-kim-e-nielsen",
+      "slug": "the-oxford-handbook-of-disability-history-michael-rembis-and-catherine-kudlick-and-kim-e-nielsen",
+      "title": "The Oxford Handbook of Disability History",
+      "author": "Michael Rembis, Catherine Kudlick, Kim E. Nielsen",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Oxford Handbook of Disability History"
+    },
+    {
+      "bookId": "book-the-lomidine-files-the-untold-story-of-a-medical-disaster-guillaume-lachenal",
+      "slug": "the-lomidine-files-the-untold-story-of-a-medical-disaster-guillaume-lachenal",
+      "title": "The Lomidine Files: The Untold Story of a Medical Disaster",
+      "author": "Guillaume Lachenal",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "The Lomidine Files"
+    },
+    {
+      "bookId": "book-health-and-healing-in-eighteenth-century-germany-mary-lindemann",
+      "slug": "health-and-healing-in-eighteenth-century-germany-mary-lindemann",
+      "title": "Health and Healing in Eighteenth-Century Germany",
+      "author": "Mary Lindemann",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Health and healing in eighteenth-century Germany"
+    },
+    {
+      "bookId": "book-the-private-science-of-louis-pasteur-gerald-l-geison",
+      "slug": "the-private-science-of-louis-pasteur-gerald-l-geison",
+      "title": "The Private Science of Louis Pasteur",
+      "author": "Gerald L. Geison",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "isbn13",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "The private science of Louis Pasteur"
+    },
+    {
+      "bookId": "book-from-body-to-community-venereal-disease-and-society-in-baroque-spain-cristian-berco",
+      "slug": "from-body-to-community-venereal-disease-and-society-in-baroque-spain-cristian-berco",
+      "title": "From Body to Community: Venereal Disease and Society in Baroque Spain",
+      "author": "Cristian Berco",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "From Body to Community: Venereal Disease and Society in Baroque Spain"
+    },
+    {
+      "bookId": "book-abortion-after-roe-abortion-after-legalization-johanna-schoen",
+      "slug": "abortion-after-roe-abortion-after-legalization-johanna-schoen",
+      "title": "Abortion After Roe: Abortion After Legalization",
+      "author": "Johanna Schoen",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Abortion after Roe"
+    },
+    {
+      "bookId": "book-plague-and-empire-in-the-early-modern-mediterranean-world-the-ottoman-experience-1347-1600-nukhe",
+      "slug": "plague-and-empire-in-the-early-modern-mediterranean-world-the-ottoman-experience-1347-1600-nukhe",
+      "title": "Plague and Empire in the Early Modern Mediterranean World: The Ottoman Experience, 1347-1600",
+      "author": "Nükhet Varlik",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Plague and Empire in the Early Modern Mediterranean World: The Ottoman Experience, 1347-1600"
+    },
+    {
+      "bookId": "book-neither-donkey-nor-horse-medicine-in-the-struggle-over-china-s-modernity-sean-hsiang-lin-lei",
+      "slug": "neither-donkey-nor-horse-medicine-in-the-struggle-over-china-s-modernity-sean-hsiang-lin-lei",
+      "title": "Neither Donkey Nor Horse: Medicine in the Struggle Over China’s Modernity",
+      "author": "Sean Hsiang-Lin Lei",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Neither Donkey nor Horse: Medicine in the Struggle over China's Modernity"
+    },
+    {
+      "bookId": "book-dangerous-pregnancies-mothers-disabilities-and-abortion-in-modern-america-leslie-j-reagan",
+      "slug": "dangerous-pregnancies-mothers-disabilities-and-abortion-in-modern-america-leslie-j-reagan",
+      "title": "Dangerous Pregnancies: Mothers, Disabilities, and Abortion in Modern America",
+      "author": "Leslie J. Reagan",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Dangerous pregnancies: mothers, disabilities, and abortion in America"
+    },
+    {
+      "bookId": "book-letters-of-benjamin-rush-lyman-henry-butterfield",
+      "slug": "letters-of-benjamin-rush-lyman-henry-butterfield",
+      "title": "Letters of Benjamin Rush",
+      "author": "Lyman Henry Butterfield",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Letters of Benjamin Rush"
+    },
+    {
+      "bookId": "book-harvey-and-the-oxford-physiologists-scientific-ideas-and-social-interaction-robert-frank",
+      "slug": "harvey-and-the-oxford-physiologists-scientific-ideas-and-social-interaction-robert-frank",
+      "title": "Harvey and the Oxford Physiologists: Scientific Ideas and Social Interaction",
+      "author": "Robert Frank",
+      "status": "low_confidence",
+      "fields": [],
+      "provider": "google_books",
+      "via": "search",
+      "matchScore": 0.288,
+      "matchTitle": "The University of Oxford"
+    },
+    {
+      "bookId": "book-medicine-and-american-growth-1800-1860-james-h-cassedy",
+      "slug": "medicine-and-american-growth-1800-1860-james-h-cassedy",
+      "title": "Medicine and American Growth, 1800-1860",
+      "author": "James H. Cassedy",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Medicine and American growth, 1800-1860",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-the-discovery-of-insulin-michael-bliss",
+      "slug": "the-discovery-of-insulin-michael-bliss",
+      "title": "The Discovery of Insulin",
+      "author": "Michael Bliss",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "The Discovery of Insulin"
+    },
+    {
+      "bookId": "book-medicine-at-the-paris-hospital-1794-1848-erwin-h-ackerknecht",
+      "slug": "medicine-at-the-paris-hospital-1794-1848-erwin-h-ackerknecht",
+      "title": "Medicine at the Paris Hospital, 1794-1848",
+      "author": "Erwin H. Ackerknecht",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "Medicine at the Paris Hospital, 1794-1848",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-the-collectors-of-lost-souls-turning-kuru-scientists-into-whitemen-warwick-anderson",
+      "slug": "the-collectors-of-lost-souls-turning-kuru-scientists-into-whitemen-warwick-anderson",
+      "title": "The Collectors of Lost Souls: Turning Kuru Scientists into Whitemen",
+      "author": "Warwick Anderson",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "The collectors of lost souls: turning whitemen into kuru scientists"
+    },
+    {
+      "bookId": "book-the-conquest-of-malaria-italy-1900-1962-frank-m-snowden",
+      "slug": "the-conquest-of-malaria-italy-1900-1962-frank-m-snowden",
+      "title": "The Conquest of Malaria: Italy, 1900-1962",
+      "author": "Frank M. Snowden",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "The Conquest of Malaria"
+    },
+    {
+      "bookId": "book-culturing-life-how-cells-became-technologies-hannah-landecker",
+      "slug": "culturing-life-how-cells-became-technologies-hannah-landecker",
+      "title": "Culturing Life: How Cells Became Technologies",
+      "author": "Hannah Landecker",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Culturing Life: How Cells Became Technologies"
+    },
+    {
+      "bookId": "book-the-great-instauration-medicine-and-reform-1626-1660-charles-webster",
+      "slug": "the-great-instauration-medicine-and-reform-1626-1660-charles-webster",
+      "title": "The Great Instauration: Medicine and Reform, 1626-1660",
+      "author": "Charles Webster",
+      "status": "no_new_fields",
+      "fields": [],
+      "provider": "open_library",
+      "via": "search",
+      "matchScore": 1,
+      "matchTitle": "The great instauration",
+      "notes": "Candidate matched but did not provide usable new catalog text."
+    },
+    {
+      "bookId": "book-hygienic-modernity-meaning-of-health-and-disease-in-treaty-port-china-ruth-rogaski",
+      "slug": "hygienic-modernity-meaning-of-health-and-disease-in-treaty-port-china-ruth-rogaski",
+      "title": "Hygienic Modernity: Meaning of Health and Disease in Treaty-Port China",
+      "author": "Ruth Rogaski",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Hygienic Modernity: Meanings of Health and Disease in Treaty-Port China (Asia: Local Studies/Global Themes)"
+    },
+    {
+      "bookId": "book-last-resort-psychosurgery-and-the-limits-of-medicine-jack-d-pressman",
+      "slug": "last-resort-psychosurgery-and-the-limits-of-medicine-jack-d-pressman",
+      "title": "Last Resort: Psychosurgery and the Limits of Medicine",
+      "author": "Jack D. Pressman",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Last Resort"
+    },
+    {
+      "bookId": "book-the-simian-tongue-the-long-debate-about-animal-language-gregory-radick",
+      "slug": "the-simian-tongue-the-long-debate-about-animal-language-gregory-radick",
+      "title": "The Simian Tongue: The Long Debate about Animal Language",
+      "author": "Gregory Radick",
       "status": "enriched",
       "fields": [
         "summary"
@@ -783,106 +884,153 @@
       "provider": "apple_books",
       "via": "search",
       "matchScore": 1,
-      "matchTitle": "Putting Myself Together"
+      "matchTitle": "The Simian Tongue"
     },
     {
-      "bookId": "book-slave-life-in-rio-de-janeiro-1808-50-mary-karasch",
-      "slug": "slave-life-in-rio-de-janeiro-1808-50-mary-karasch",
-      "title": "Slave Life in Rio de Janeiro, 1808-50",
-      "author": "Mary Karasch",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
+      "bookId": "book-breast-cancer-wars-hope-fear-and-the-pursuit-of-a-cure-in-twentieth-century-america-barron-h-ler",
+      "slug": "breast-cancer-wars-hope-fear-and-the-pursuit-of-a-cure-in-twentieth-century-america-barron-h-ler",
+      "title": "Breast Cancer Wars: Hope, Fear, and the Pursuit of a Cure in Twentieth Century America",
+      "author": "Barron H. Lerner",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "The breast cancer wars: hope, fear, and the pursuit of a cure in 20th century America"
     },
     {
-      "bookId": "book-t-he-healing-hand-man-and-wound-in-the-ancient-world-guido-majno",
-      "slug": "t-he-healing-hand-man-and-wound-in-the-ancient-world-guido-majno",
-      "title": "T he Healing Hand: Man and Wound in the Ancient World",
-      "author": "Guido Majno",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
+      "bookId": "book-time-to-heal-american-medical-education-from-the-turn-of-the-century-to-the-era-of-managed-care-",
+      "slug": "time-to-heal-american-medical-education-from-the-turn-of-the-century-to-the-era-of-managed-care-",
+      "title": "Time to Heal: American Medical Education from the Turn of the Century to the Era of Managed Care",
+      "author": "Kenneth Ludmerer",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Time to heal: American medical education from the turn of the century to the era of managed care"
     },
     {
-      "bookId": "book-the-british-empire-in-the-middle-east-1945-51-arab-nationalism-the-united-states-and-postwar-imp",
-      "slug": "the-british-empire-in-the-middle-east-1945-51-arab-nationalism-the-united-states-and-postwar-imp",
-      "title": "The British Empire in the Middle East, 1945-51: Arab Nationalism, the United States, and Postwar Imperialism",
-      "author": "Wm. Roger Louis",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.16,
-      "matchTitle": "Modern East Asia: An Introductory History"
+      "bookId": "book-death-by-migration-philip-curtin",
+      "slug": "death-by-migration-philip-curtin",
+      "title": "Death by Migration",
+      "author": "Philip Curtin",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Death by migration: Europe's encounter with the tropical world in the nineteenth century"
     },
     {
-      "bookId": "book-the-coming-of-the-war-2-vols-bernadotte-schmitt",
-      "slug": "the-coming-of-the-war-2-vols-bernadotte-schmitt",
-      "title": "The Coming of the War, 2 vols.",
-      "author": "Bernadotte Schmitt",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
+      "bookId": "book-in-sickness-and-in-wealth-american-hospitals-in-the-twentieth-century-rosemary-stevens",
+      "slug": "in-sickness-and-in-wealth-american-hospitals-in-the-twentieth-century-rosemary-stevens",
+      "title": "In Sickness and in Wealth: American Hospitals in the Twentieth Century",
+      "author": "Rosemary Stevens",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 0.64,
+      "matchTitle": "In Sickness And In W"
     },
     {
-      "bookId": "book-the-eleventh-pillar-new-york-state-and-the-federal-constitution-linda-depauw",
-      "slug": "the-eleventh-pillar-new-york-state-and-the-federal-constitution-linda-depauw",
-      "title": "The Eleventh Pillar: New York State and the Federal Constitution",
-      "author": "Linda DePauw",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
+      "bookId": "book-mental-institutions-in-america-gerald-n-grob",
+      "slug": "mental-institutions-in-america-gerald-n-grob",
+      "title": "Mental Institutions in America",
+      "author": "Gerald N. Grob",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Mental institutions in America: social policy to 1875"
     },
     {
-      "bookId": "book-the-history-of-japanese-photography-anne-wilkes-tucker-dana-friis-hansen-kaneko-ryuichi-and-take",
-      "slug": "the-history-of-japanese-photography-anne-wilkes-tucker-dana-friis-hansen-kaneko-ryuichi-and-take",
-      "title": "The History of Japanese Photography",
-      "author": "Anne Wilkes Tucker, Dana Friis-Hansen, Kaneko Ryuichi,, Takeba Joe",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0,
-      "matchTitle": "Proof"
+      "bookId": "book-taddeo-alderotti-and-his-pupils-two-generations-of-italian-medical-learning-nancy-g-siraisi",
+      "slug": "taddeo-alderotti-and-his-pupils-two-generations-of-italian-medical-learning-nancy-g-siraisi",
+      "title": "Taddeo Alderotti and His Pupils: Two Generations of Italian Medical Learning",
+      "author": "Nancy G. Siraisi",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "Taddeo Alderotti and His Pupils"
     },
     {
-      "bookId": "book-the-image-of-eternity-roots-of-time-in-the-physical-world-david-a-park",
-      "slug": "the-image-of-eternity-roots-of-time-in-the-physical-world-david-a-park",
-      "title": "The Image of Eternity: Roots of Time in the Physical World",
-      "author": "David A. Park",
-      "status": "low_confidence",
-      "fields": [],
-      "provider": "apple_books",
-      "via": "search",
-      "matchScore": 0.576,
-      "matchTitle": "A Moving Image of Eternity"
+      "bookId": "book-the-adoption-of-inoculation-for-smallpox-in-england-and-france-genevieve-miller",
+      "slug": "the-adoption-of-inoculation-for-smallpox-in-england-and-france-genevieve-miller",
+      "title": "The Adoption of Inoculation for Smallpox in England and France",
+      "author": "Genevieve Miller",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "The Adoption of Inoculation for Smallpox in England and France"
     },
     {
-      "bookId": "book-the-life-of-the-poet-beginning-and-ending-poetic-careers-maynard-mack",
-      "slug": "the-life-of-the-poet-beginning-and-ending-poetic-careers-maynard-mack",
-      "title": "The Life of the Poet: Beginning and Ending Poetic Careers",
-      "author": "Maynard Mack",
-      "status": "not_found",
+      "bookId": "book-american-medicine-and-statistical-thinking-1800-1860-james-h-cassedy",
+      "slug": "american-medicine-and-statistical-thinking-1800-1860-james-h-cassedy",
+      "title": "American Medicine and Statistical Thinking, 1800-1860",
+      "author": "James H. Cassedy",
+      "status": "no_new_fields",
       "fields": [],
-      "notes": "No provider candidate found."
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "American Medicine and Statistical Thinking, 1800-1860",
+      "notes": "Candidate matched but did not provide usable new catalog text."
     },
     {
-      "bookId": "book-the-origins-of-the-world-war-2-vols-sidney-fay",
-      "slug": "the-origins-of-the-world-war-2-vols-sidney-fay",
-      "title": "The Origins of the World War, 2 vols.",
-      "author": "Sidney Fay",
-      "status": "not_found",
-      "fields": [],
-      "notes": "No provider candidate found."
+      "bookId": "book-tom-rivers-reflections-on-a-life-in-medicine-and-science-saul-benison",
+      "slug": "tom-rivers-reflections-on-a-life-in-medicine-and-science-saul-benison",
+      "title": "Tom Rivers: Reflections on a Life in Medicine and Science",
+      "author": "Saul Benison",
+      "status": "enriched",
+      "fields": [
+        "summary",
+        "subjectCategories"
+      ],
+      "provider": "google_books",
+      "via": "isbn",
+      "matchScore": 0.88,
+      "matchTitle": "Tom Rivers: Reflections on a Life in Medicine and Science"
     },
     {
-      "bookId": "book-the-politics-of-grand-strategy-britain-and-france-prepare-for-war-1904-14-samuel-williamson-jr",
-      "slug": "the-politics-of-grand-strategy-britain-and-france-prepare-for-war-1904-14-samuel-williamson-jr",
-      "title": "The Politics of Grand Strategy: Britain and France Prepare for War, 1904-14",
-      "author": "Samuel Williamson, Jr.",
-      "status": "not_found",
+      "bookId": "book-the-therapeutic-perspective-medical-knowledge-and-identity-in-america-1820-1855-john-harley-warn",
+      "slug": "the-therapeutic-perspective-medical-knowledge-and-identity-in-america-1820-1855-john-harley-warn",
+      "title": "The Therapeutic Perspective: Medical Knowledge and Identity in America, 1820-1855",
+      "author": "John Harley Warner",
+      "status": "no_new_fields",
       "fields": [],
-      "notes": "No provider candidate found."
+      "provider": "open_library",
+      "via": "isbn",
+      "matchScore": 1,
+      "matchTitle": "The Therapeutic Perspective: Medical Practice, Knowledge, and Identity in America, 1820-1885",
+      "notes": "Candidate matched but did not provide usable new catalog text."
     }
   ],
   "outputPath": "sources/enrichment/summaries.generated.json"

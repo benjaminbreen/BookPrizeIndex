@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T20:49:02.154Z",
+  "generatedAt": "2026-07-30T06:54:14.457Z",
   "files": [
     {
       "file": "ackerley.json",
@@ -10,6 +10,11 @@
       "file": "aha-book-prizes.json",
       "generatedAt": "2026-05-12T22:46:12.867Z",
       "records": 239
+    },
+    {
+      "file": "american-library-in-paris.json",
+      "generatedAt": "2026-07-29T17:54:15.262Z",
+      "records": 59
     },
     {
       "file": "anisfield-wolf.json",
@@ -100,6 +105,11 @@
       "file": "george-polk-book.json",
       "generatedAt": "2026-07-22T04:52:14.530Z",
       "records": 24
+    },
+    {
+      "file": "george-rosen-prize.json",
+      "generatedAt": "2026-07-30T05:02:27.482Z",
+      "records": 9
     },
     {
       "file": "george-washington-book-prize.json",
@@ -317,6 +327,11 @@
       "records": 128
     },
     {
+      "file": "suzanne-j-levinson-prize.json",
+      "generatedAt": "2026-07-30T05:01:07.399Z",
+      "records": 10
+    },
+    {
       "file": "truman-capote-criticism.json",
       "generatedAt": "2026-07-22T04:52:14.190Z",
       "records": 32
@@ -332,6 +347,11 @@
       "records": 39
     },
     {
+      "file": "william-h-welch-medal.json",
+      "generatedAt": "2026-07-30T05:02:27.475Z",
+      "records": 61
+    },
+    {
       "file": "wolfson.json",
       "generatedAt": "2026-05-10T21:32:49.688Z",
       "records": 140
@@ -343,9 +363,9 @@
     }
   ],
   "totals": {
-    "records": 10383,
-    "awards": 68,
-    "categories": 166,
+    "records": 10522,
+    "awards": 72,
+    "categories": 170,
     "recordsMissingSourceUrl": 0,
     "recordsMissingTitle": 0,
     "recordsMissingAuthors": 0,
@@ -1204,6 +1224,16 @@
       "latestYear": 1983
     },
     {
+      "awardId": "suzanne-j-levinson-prize",
+      "categoryId": "levinson-life-sciences-natural-history",
+      "categoryName": "History of Life Sciences and Natural History",
+      "records": 10,
+      "winners": 10,
+      "finalists": 0,
+      "earliestYear": 2006,
+      "latestYear": 2024
+    },
+    {
       "awardId": "pfizer-award",
       "categoryId": "pfizer-history-of-science",
       "categoryName": "History of Science",
@@ -1494,6 +1524,16 @@
       "latestYear": 2026
     },
     {
+      "awardId": "william-h-welch-medal",
+      "categoryId": "welch-medical-history",
+      "categoryName": "Medical History",
+      "records": 61,
+      "winners": 61,
+      "finalists": 0,
+      "earliestYear": 1954,
+      "latestYear": 2026
+    },
+    {
       "awardId": "anisfield-wolf-book-awards",
       "categoryId": "anisfield-wolf-memoir",
       "categoryName": "Memoir",
@@ -1621,6 +1661,16 @@
       "winners": 3,
       "finalists": 0,
       "earliestYear": 2024,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "american-library-in-paris-book-award",
+      "categoryId": "american-library-in-paris-nonfiction",
+      "categoryName": "Nonfiction",
+      "records": 59,
+      "winners": 11,
+      "finalists": 0,
+      "earliestYear": 2013,
       "latestYear": 2026
     },
     {
@@ -1791,6 +1841,16 @@
       "winners": 34,
       "finalists": 0,
       "earliestYear": 1992,
+      "latestYear": 2026
+    },
+    {
+      "awardId": "george-rosen-prize",
+      "categoryId": "rosen-public-health-social-medicine-book",
+      "categoryName": "Public Health and Social Medicine Books",
+      "records": 9,
+      "winners": 9,
+      "finalists": 0,
+      "earliestYear": 2015,
       "latestYear": 2026
     },
     {

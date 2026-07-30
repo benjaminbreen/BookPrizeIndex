@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { SubjectDetail } from "@/components/subject-detail";
 import { browseBooksBySubject, browseData } from "@/lib/browse-data";
 import { data, subjectsBySlug } from "@/lib/data";
+import { pageMetadata } from "@/lib/site-metadata";
 import { HISTORY_SUBJECT, HISTORY_SUBJECTS, rollupSubjectName } from "@/lib/subject-rollup";
 
 export function generateStaticParams() {
@@ -16,11 +17,11 @@ export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
   const subject = subjectsBySlug.get(slug);
   if (!subject) return { title: "Subject / The Book Prize Index", robots: { index: false, follow: false } };
-  return {
+  return pageMetadata({
     title: `${subject.name} / The Book Prize Index`,
     description: subject.description ?? `Browse prize-recognized nonfiction books about ${subject.name.toLowerCase()}.`,
-    alternates: { canonical: `/subjects/${subject.slug}` },
-  };
+    canonical: `/subjects/${subject.slug}`,
+  });
 }
 
 export default async function SubjectPage({ params }: PageProps) {

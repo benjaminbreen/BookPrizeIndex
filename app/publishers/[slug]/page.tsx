@@ -9,6 +9,7 @@ import { browseBooksByPublisherId, browseData } from "@/lib/browse-data";
 import { sortBrowseBooksByRecognition } from "@/lib/browse-ranking";
 import { booksByPublisherId, data, publishersBySlug } from "@/lib/data";
 import { getImprintLogo } from "@/lib/imprint-logos";
+import { pageMetadata } from "@/lib/site-metadata";
 
 const STATIC_PUBLISHER_PAGE_LIMIT = 80;
 const INITIAL_PUBLISHER_BOOK_LIMIT = 100;
@@ -30,11 +31,11 @@ export async function generateMetadata({ params }: PageProps) {
   const publisher = publishersBySlug.get(slug);
   if (!publisher) return { title: "Publisher / The Book Prize Index", robots: { index: false, follow: false } };
   const stats = publisherStats(publisher.id);
-  return {
+  return pageMetadata({
     title: `${publisher.name} / The Book Prize Index`,
     description: `Explore ${stats.books} prize-recognized nonfiction books and ${stats.imprints} imprints associated with ${publisher.name}.`,
-    alternates: { canonical: `/publishers/${slug}` },
-  };
+    canonical: `/publishers/${slug}`,
+  });
 }
 
 export default async function PublisherPage({ params }: PageProps) {

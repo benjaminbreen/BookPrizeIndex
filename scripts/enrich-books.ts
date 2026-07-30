@@ -168,7 +168,12 @@ let imprintMappingsByRawName = new Map<string, ImprintMapping>();
 async function main() {
   const generatedAt = new Date().toISOString();
   imprintMappingsByRawName = await readImprintMappings();
-  const requestedBookIds = new Set((process.env.BOOK_COMPLETION_BOOK_IDS ?? process.env.ENRICH_BOOK_IDS ?? "").split(",").map((item) => item.trim()).filter(Boolean));
+  const requestedBookIds = new Set(
+    (readArg("--book-ids") ?? process.env.BOOK_COMPLETION_BOOK_IDS ?? process.env.ENRICH_BOOK_IDS ?? "")
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean),
+  );
   const retryFailures = hasArg("--retry-failures") || process.env.BOOK_COMPLETION_RETRY_FAILURES === "1" || process.env.ENRICH_RETRY_FAILURES === "1";
   const attempts = await readAttempts();
   const patch = await readExistingPatch(generatedAt);

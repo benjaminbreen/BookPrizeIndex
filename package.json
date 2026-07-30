@@ -130,6 +130,8 @@
     "data:import:rbc-taylor-prize": "tsx scripts/import-award-records/rbc-taylor-prize.ts",
     "data:import:rossiter-prize": "tsx scripts/import-award-records/rossiter-prize.ts",
     "data:import:american-library-in-paris": "tsx scripts/import-award-records/american-library-in-paris.ts",
+    "data:import:aahm-book-prizes": "tsx scripts/import-award-records/aahm-book-prizes.ts",
+    "data:import:levinson": "tsx scripts/import-award-records/levinson.ts",
     "data:audit:raw-refresh": "tsx scripts/reconcile-award-record-refresh.ts",
     "data:repair:raw-refresh": "tsx scripts/reconcile-award-record-refresh.ts --write",
     "data:test:raw": "tsx --test \"scripts/import-award-records/*.test.ts\"",

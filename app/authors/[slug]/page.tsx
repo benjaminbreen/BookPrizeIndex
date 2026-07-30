@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { authorProfileFor, authors, authorsBySlug, booksByAuthorId } from "@/lib/authors";
 import { authorPlatformLinksFor } from "@/lib/author-platform-links";
 import { appearancesByBookId, awardProgramsById, awardsById, getBookStats, imprintsById } from "@/lib/data";
+import { pageMetadata } from "@/lib/site-metadata";
 import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 import type { Book, Person } from "@/lib/types";
 
@@ -27,11 +28,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const author = authorsBySlug.get(slug);
   if (!author) return { title: "Author not found / The Book Prize Index" };
   const books = booksByAuthorId.get(author.id) ?? [];
-  return {
+  return pageMetadata({
     title: `${author.name} / The Book Prize Index`,
     description: `Explore ${books.length} prize-recognized ${books.length === 1 ? "book" : "books"} by ${author.name}, with award results, subjects, and recognition history.`,
-    alternates: { canonical: `/authors/${slug}` },
-  };
+    canonical: `/authors/${slug}`,
+  });
 }
 
 export default async function AuthorPage({ params }: PageProps) {
