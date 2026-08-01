@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "stage": "phase-2-hand-verified-sample",
+  "verifiedOn": "2026-07-31",
+  "description": "Hand-verified English-edition status for a stratified random sample drawn from international-awards.staging.json (seed 20260731). Each verdict required evidence of an actual English publisher/ISBN, not a translated title.",
+  "methodNotes": {
+    "automationFailed": [
+      "Google Books API: HTTP 429 from this network without an API key; unusable for bulk.",
+      "OpenLibrary: only viable query is 'English works by this author in a plausible year window'. Measured precision ~20% on a 30-entry trial (1 true positive: Friedlaender). Unusable.",
+      "Wikidata: only 221 of the 711 entries exist as items at all, and exactly 1 has an English edition modelled via P629+P407. No translation coverage for this material."
+    ],
+    "falsePositiveTrap": "Rights-marketing catalogues (NORLA, Books From Poland, New Books in German, deutscher-sachbuchpreis.de/en) publish English TITLES for untranslated books. Four sampled books had an English title circulating with no English edition behind it. Any future resolver must require a publisher or ISBN.",
+    "falseNegativeRate": "Non-trivial. Hedi Fried's book was published in English by Scribe but did not surface on the first query; found only on a second, English-title-first search. Treat every rate below as a FLOOR."
+  },
+  "results": [
+    {"award": "leipzig-book-fair-prize-nonfiction", "year": 2012, "status": "winner", "author": "Jörg Baberowski", "originalTitle": "Verbrannte Erde. Stalins Herrschaft der Gewalt", "english": true, "englishTitle": "Scorched Earth: Stalin's Reign of Terror", "publisher": "Yale University Press", "englishYear": 2016},
+    {"award": "leipzig-book-fair-prize-nonfiction", "year": 2005, "status": "winner", "author": "Rüdiger Safranski", "originalTitle": "Schiller oder Die Erfindung des deutschen Idealismus", "english": true, "englishTitle": "Schiller, or, The Invention of German Idealism", "publisher": null, "englishYear": null, "confidence": "medium"},
+    {"award": "leipzig-book-fair-prize-nonfiction", "year": 2016, "status": "finalist", "author": "Ulrich Raulff", "originalTitle": "Das letzte Jahrhundert der Pferde", "english": true, "englishTitle": "Farewell to the Horse: A Cultural History", "publisher": "Allen Lane", "englishYear": 2017},
+    {"award": "leipzig-book-fair-prize-nonfiction", "year": 2020, "status": "finalist", "author": "Michael Martens", "originalTitle": "Im Brand der Welten: Ivo Andrić", "english": false},
+    {"award": "leipzig-book-fair-prize-nonfiction", "year": 2013, "status": "winner", "author": "Helmut Böttiger", "originalTitle": "Die Gruppe 47", "english": false},
+
+    {"award": "deutscher-sachbuchpreis", "year": 2022, "status": "winner", "author": "Stephan Malinowski", "originalTitle": "Die Hohenzollern und die Nazis", "english": true, "englishTitle": "The Hohenzollerns and the Nazis: A History of Collaboration", "publisher": "Penguin", "englishYear": 2023},
+    {"award": "deutscher-sachbuchpreis", "year": 2024, "status": "winner", "author": "Christina Morina", "originalTitle": "Tausend Aufbrüche", "english": true, "englishTitle": "A Thousand New Beginnings", "publisher": "Cambridge University Press", "englishYear": 2026, "note": "Announced/forthcoming, not yet shipped."},
+    {"award": "deutscher-sachbuchpreis", "year": 2021, "status": "winner", "author": "Jürgen Kaube", "originalTitle": "Hegels Welt", "english": false},
+    {"award": "deutscher-sachbuchpreis", "year": 2023, "status": "winner", "author": "Ewald Frie", "originalTitle": "Ein Hof und elf Geschwister", "english": false, "note": "'A Farm and Eleven Children' circulates as a title but is the prize's own English gloss; no edition."},
+    {"award": "deutscher-sachbuchpreis", "year": 2021, "status": "finalist", "author": "Daniel Leese", "originalTitle": "Maos langer Schatten", "english": false},
+
+    {"award": "libris-geschiedenis-prijs", "year": 2015, "status": "winner", "author": "Alexander Münninghoff", "originalTitle": "De Stamhouder", "english": true, "englishTitle": "The Son and Heir", "publisher": "Amazon Crossing", "englishYear": 2020, "translator": "Kristen Gehrman"},
+    {"award": "libris-geschiedenis-prijs", "year": 2012, "status": "winner", "author": "Bart van der Boom", "originalTitle": "Wij weten niets van hun lot", "english": false},
+    {"award": "libris-geschiedenis-prijs", "year": 2017, "status": "winner", "author": "Carolijn Visser", "originalTitle": "Selma", "english": false, "note": "Chinese translation exists; no English edition found."},
+    {"award": "libris-geschiedenis-prijs", "year": 2023, "status": "winner", "author": "Martin Bossenbroek", "originalTitle": "De Zanzibardriehoek", "english": false, "note": "Author's earlier The Boer War was translated; this title was not."},
+
+    {"award": "augustpriset-fackbok", "year": 2017, "status": "finalist", "author": "Hédi Fried", "originalTitle": "Frågor jag fått om Förintelsen", "english": true, "englishTitle": "Questions I Am Asked About the Holocaust", "publisher": "Scribe", "englishYear": 2019, "translator": "Alice E. Olsson"},
+    {"award": "augustpriset-fackbok", "year": 1993, "status": "winner", "author": "Peter Englund", "originalTitle": "Ofredsår", "english": false, "note": "Englund is widely translated but this title is not; The Battle That Shook Europe is a different book."},
+    {"award": "augustpriset-fackbok", "year": 1996, "status": "winner", "author": "Maja Hagerman", "originalTitle": "Spåren av kungens män", "english": false},
+
+    {"award": "brageprisen-sakprosa", "year": 2017, "status": "winner", "author": "Thomas Reinertsen Berg", "originalTitle": "Verdensteater. Kartenes historie", "english": true, "englishTitle": "Theater of the World: The Maps that Made History", "publisher": "Little, Brown / Hodder", "englishYear": 2018, "translator": "Alison McCullough"},
+    {"award": "brageprisen-sakprosa", "year": 2010, "status": "finalist", "author": "Morten A. Strøksnes", "originalTitle": "Et mord i Kongo", "english": false, "note": "Author's Havboka was translated as Shark Drunk; this title was not."},
+
+    {"award": "prix-goncourt-de-la-biographie", "year": 1986, "status": "winner", "author": "Jean Canavaggio", "originalTitle": "Cervantes", "english": true, "englishTitle": "Cervantes", "publisher": "W. W. Norton", "englishYear": 1991, "translator": "J. R. Jones"},
+    {"award": "prix-goncourt-de-la-biographie", "year": 2010, "status": "winner", "author": "Michel Winock", "originalTitle": "Madame de Staël", "english": false},
+
+    {"award": "ryszard-kapuscinski-award", "year": 2023, "status": "winner", "author": "Anna Goc", "originalTitle": "Głusza", "english": false, "note": "'Wilderness' / 'The Deaf Backwoods' are rights-catalogue glosses; no edition."},
+    {"award": "ryszard-kapuscinski-award", "year": 2017, "status": "longlist", "author": "Witold Szabłowski", "originalTitle": "Sprawiedliwi zdrajcy", "english": false, "note": "Author widely translated (Dancing Bears, How to Feed a Dictator); this title not."}
+  ]
+}

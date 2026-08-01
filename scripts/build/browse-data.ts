@@ -1,3 +1,4 @@
+import { isReadableInEnglish } from "@/lib/book-language";
 import type { Award, AwardAppearance, AwardProgram, Book, BookStats, PublicData, SubjectSummary } from "../../lib/types";
 import type { BrowseAwardRow, BrowseBookRecognitionStats, BrowseData, BrowseFilterKey, BrowseSubjectRow } from "../../lib/browse-types";
 import { HISTORY_SUBJECT, HISTORY_SUBJECTS, rollupSubjectName, rollupSubjectSlug } from "../../lib/subject-rollup";
@@ -79,6 +80,9 @@ export function buildBrowseData(data: PublicData): BrowseData {
         hasCover: Boolean(book.thumbnailUrl),
         hasSummary: Boolean(book.summary || book.displaySummary),
         hasPublisher: Boolean(book.publisherId),
+        ...(book.originalLanguage ? { originalLanguage: book.originalLanguage } : {}),
+        readableInEnglish: isReadableInEnglish(book),
+        ...(book.englishEdition?.title ? { englishTitle: book.englishEdition.title } : {}),
         searchText: bookSearchText(book, data, awardsById),
         recognitionByRegion,
       };

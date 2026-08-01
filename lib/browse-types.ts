@@ -37,6 +37,12 @@ export type BrowseBookRow = {
   hasCover: boolean;
   hasSummary: boolean;
   hasPublisher: boolean;
+  /** ISO 639-1 code of the language the work was written in. Absent means English. */
+  originalLanguage?: string;
+  /** English original, or a confirmed translation. See lib/book-language. */
+  readableInEnglish: boolean;
+  /** Title of the confirmed English edition, when the work is a translation. */
+  englishTitle?: string;
   searchText: string;
   recognitionByRegion?: Record<AwardRegionFilter, BrowseBookRecognitionStats>;
 };

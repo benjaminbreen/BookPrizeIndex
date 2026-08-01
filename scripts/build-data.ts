@@ -487,6 +487,7 @@ async function importRawAwardRecords({
           publisherId,
           imprintId,
           isbn13: [],
+          ...languageFieldsForRecord(record),
           subjects: inferSubjects(awardName, title),
           topics: [],
           centralFigures: [],
@@ -508,6 +509,7 @@ async function importRawAwardRecords({
         }
         if (!book.publisherId && publisherId) book.publisherId = publisherId;
         if (!book.imprintId && imprintId) book.imprintId = imprintId;
+        mergeLanguageFields(book, record);
         book.sourceIds = [...new Set([...book.sourceIds, sourceId])];
         book.subjects = [...new Set([...book.subjects, ...inferSubjects(awardName, title)])];
       }
@@ -588,6 +590,59 @@ function hasDisplayArtifact(value: string) {
     /<\/?[a-z][^>]*>/i.test(value) ||
     /&(?:#\d+|#x[\da-f]+|[a-z][a-z\d]+);/i.test(value)
   );
+}
+
+/**
+ * Language fields for a book first seen via this record. Records with no
+ * originalLanguage are anglophone-prize records, which is the whole pre-existing
+ * corpus — leave the fields unset so "absent" keeps meaning English.
+ */
+function languageFieldsForRecord(record: RawAwardRecord): Partial<Book> {
+  const language = record.originalLanguage;
+  if (!language || language === "en") return {};
+  const english = record.englishEdition;
+  const fields: Partial<Book> = {
+    originalLanguage: language,
+    hasEnglishEdition: english?.status === "confirmed",
+  };
+  if (english?.status === "confirmed" && (english.title || english.year || english.publisher)) {
+    fields.englishEdition = {
+      ...(english.title ? { title: english.title } : {}),
+      ...(english.year ? { year: english.year } : {}),
+      ...(english.publisher ? { publisher: english.publisher } : {}),
+      ...(english.isbn13 ? { isbn13: english.isbn13 } : {}),
+    };
+  }
+  return fields;
+}
+
+/**
+ * Merge language evidence from an additional record for a book we already have.
+ * Availability is a disjunction: one anglophone appearance, or one confirmed
+ * translation from any award, is enough to make the book readable in English.
+ */
+function mergeLanguageFields(book: Book, record: RawAwardRecord) {
+  const language = record.originalLanguage;
+  if (!language || language === "en") {
+    // An anglophone-prize appearance proves an English edition exists, but says
+    // nothing about what language the work was written in — a translated book can
+    // win an English-language prize, and it is still a translation.
+    book.hasEnglishEdition = true;
+    return;
+  }
+  book.originalLanguage ??= language;
+  const english = record.englishEdition;
+  if (english?.status === "confirmed") {
+    book.hasEnglishEdition = true;
+    book.englishEdition ??= {
+      ...(english.title ? { title: english.title } : {}),
+      ...(english.year ? { year: english.year } : {}),
+      ...(english.publisher ? { publisher: english.publisher } : {}),
+      ...(english.isbn13 ? { isbn13: english.isbn13 } : {}),
+    };
+  } else {
+    book.hasEnglishEdition ??= false;
+  }
 }
 
 function displayAwardName(record: RawAwardRecord) {

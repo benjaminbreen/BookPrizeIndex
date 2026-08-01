@@ -24,3 +24,7 @@ data/cache/*
 
 # Full row-level QA output is retained for CI/local inspection; compact summaries are committed.
 data/reports/ci-artifacts/
+
+# Python bytecode from staging scripts
+__pycache__/
+*.pyc

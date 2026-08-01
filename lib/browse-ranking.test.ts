@@ -47,6 +47,7 @@ function book(
     hasCover: false,
     hasSummary: false,
     hasPublisher: false,
+    readableInEnglish: true,
     searchText: id,
     recognitionByRegion: {
       all,

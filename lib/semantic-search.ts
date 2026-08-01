@@ -2,6 +2,7 @@ import type { Book } from "@/lib/types";
 import type { SemanticAuthorFacet, SemanticAuthorIntent } from "@/lib/author-discovery";
 import type { AwardRegionFilter } from "@/lib/award-region";
 import type { BookCatalogMetadataFilter } from "@/lib/book-catalog-query";
+import type { LanguageFilter } from "@/lib/book-language";
 import { rollupSubjectName } from "@/lib/subject-rollup";
 
 export const DEFAULT_SEMANTIC_EMBEDDING_MODEL = "text-embedding-3-small";
@@ -12,6 +13,10 @@ export type SemanticVector = number[] | Float32Array;
 export type SemanticBookFilterMetadata = {
   awardIds: string[];
   publisherId?: string;
+  /** ISO 639-1 code of the language the work was written in. Absent means English. */
+  originalLanguage?: string;
+  /** English original, or a confirmed translation. See lib/book-language. */
+  readableInEnglish: boolean;
   recognitionByRegion: Record<AwardRegionFilter, { awardIds: string[]; lists: number }>;
   hasIsbn: boolean;
   hasPageCount: boolean;
@@ -93,7 +98,7 @@ export type SemanticPublicationPreference = {
   mode: "soft" | "filter" | "none";
 };
 
-export type SemanticQueryExpansionModel = "gpt-5.4-nano" | "gpt-5.4-mini" | "gemini-3.5-flash";
+export type SemanticQueryExpansionModel = "gpt-5.4-nano" | "gpt-5.6-luna" | "gemini-3.5-flash";
 export type SemanticRetrievalMode = "expanded" | "direct";
 
 export function semanticRetrievalModeForQuery(query: string): SemanticRetrievalMode {
@@ -477,11 +482,23 @@ export function semanticRowMatchesFilters(
     region?: AwardRegionFilter;
     subject?: string;
     topic?: string;
+    language?: LanguageFilter;
   },
 ) {
   const region = filters.region ?? "us";
   const recognition = row.filter.recognitionByRegion[region];
   if (!recognition || recognition.lists === 0) return false;
+
+  // Defaults to English-only. Untranslated books stay in the catalog and on award
+  // pages, but withholding them here keeps a query like "histories of architecture"
+  // from surfacing a book the reader cannot read.
+  const language = filters.language ?? "english";
+  if (language === "english") {
+    if (!row.filter.readableInEnglish) return false;
+  } else if (language !== "all") {
+    if ((row.filter.originalLanguage ?? "en") !== language.originalLanguage) return false;
+  }
+
   if (filters.topic && !row.topics.includes(filters.topic)) return false;
   if (filters.subject && !row.subjects.some((subject) => rollupSubjectName(subject) === filters.subject)) return false;
   if (filters.awardIds?.length && !filters.awardIds.some((awardId) => recognition.awardIds.includes(awardId))) return false;

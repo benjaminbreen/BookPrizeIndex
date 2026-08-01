@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ALTERNATE_REASONING_MODEL } from "@/lib/llm-models";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown, ChevronUp, ChevronsUpDown, CornerDownLeft, Filter, Search } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -544,7 +545,7 @@ function getBrowseData(data: HomeBrowseData, region: AwardRegionFilter) {
 
 function queryExpansionModelLabel(model: SemanticQueryExpansionModel) {
   if (model === "gemini-3.5-flash") return "Gemini 3.5 Flash";
-  return model === "gpt-5.4-mini" ? "GPT-5.4 Mini" : "GPT-5.4 Nano";
+  return model === ALTERNATE_REASONING_MODEL ? "GPT-5.6 Luna" : "GPT-5.4 Nano";
 }
 
 function Stat({ label, value }: { label: string; value: number }) {

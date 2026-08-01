@@ -12,6 +12,9 @@ import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
 import { useSemanticBookSearch, type SemanticSearchDiagnostics } from "@/components/use-semantic-book-search";
 import { useAwardRegion } from "@/components/use-award-region";
+import { languageFilterLabel, useLanguageFilter } from "@/components/use-language-filter";
+import { bookDisplayTitle, bookOriginalTitleAside } from "@/lib/book-language";
+import { DEFAULT_REASONING_MODEL, ALTERNATE_REASONING_MODEL } from "@/lib/llm-models";
 import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
 import { bookRecognition, compareBrowseBookRecognition } from "@/lib/browse-ranking";
 import type { BrowseBookRow } from "@/lib/browse-types";
@@ -90,6 +93,7 @@ export function BookCatalog({
   const routeRetrievalOverride = searchParamsRetrievalMode(searchParams.get("semanticMode"));
   const [sortKey, setSortKey] = useState<BookSortKey>("score");
   const [region, setStoredRegion] = useAwardRegion(defaultRegion);
+  const [language, setLanguage] = useLanguageFilter();
   const [mode, setModeState] = useState<"keyword" | "semantic">(() => routeMode);
   const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>(() => routeQueryExpansionModel);
   const [retrievalOverride, setRetrievalOverride] = useState<SemanticRetrievalMode | null>(() => routeRetrievalOverride);
@@ -141,6 +145,9 @@ export function BookCatalog({
   const structuredRows = useMemo(() => {
     return books.filter((book) => {
       if (bookRecognition(book, region).lists === 0) return false;
+      // Untranslated books stay in the catalog and on award pages; this only
+      // withholds them from browse and retrieval until the reader opts in.
+      if (language === "english" && !book.readableInEnglish) return false;
       if (topicFilter && !book.topics.includes(topicFilter)) return false;
       if (subjectFilter && !book.subjects.some((subject) => rollupSubjectName(subject) === subjectFilter)) return false;
       if (awardBookIds && !awardBookIds.has(book.id)) return false;
@@ -148,7 +155,7 @@ export function BookCatalog({
       if (!matchesMetadataFilter(book, metadataFilter)) return false;
       return true;
     });
-  }, [awardBookIds, books, metadataFilter, publisherFilter, region, subjectFilter, topicFilter]);
+  }, [awardBookIds, books, language, metadataFilter, publisherFilter, region, subjectFilter, topicFilter]);
   const semanticCandidateBookIds = useMemo(() => remote ? [] : structuredRows.map((book) => book.id), [remote, structuredRows]);
   const semanticCandidateFilters = useMemo(() => remote ? ({
     awardIds: selectedAwardIds.length ? selectedAwardIds : undefined,
@@ -157,7 +164,8 @@ export function BookCatalog({
     region,
     subject: subjectFilter || undefined,
     topic: topicFilter || undefined,
-  }) : undefined, [metadataFilter, publisherFilter, region, remote, selectedAwardIds, subjectFilter, topicFilter]);
+    language: language === "all" ? ("all" as const) : ("english" as const),
+  }) : undefined, [language, metadataFilter, publisherFilter, region, remote, selectedAwardIds, subjectFilter, topicFilter]);
   const semanticSearch = useSemanticBookSearch({
     candidateBookIds: semanticCandidateBookIds,
     enabled: mode === "semantic",
@@ -654,6 +662,19 @@ export function BookCatalog({
                 ))}
               </div>
               <div className="filter-group border-b hairline py-3 font-[var(--font-mono)] text-xs">
+                <span className="filter-label mr-1">Language</span>
+                {(["english", "all"] as const).map((item) => (
+                  <button
+                    key={item}
+                    className={`filter-chip focus-ring inline-flex items-center gap-1 px-3 py-2 ${language === item ? "segment-button-active" : ""}`}
+                    onClick={() => setLanguage(item)}
+                    type="button"
+                  >
+                    {languageFilterLabel(item)}
+                  </button>
+                ))}
+              </div>
+              <div className="filter-group border-b hairline py-3 font-[var(--font-mono)] text-xs">
                 <span className="filter-label mr-1">Sort</span>
                 {(["score", "wins", "lists", "year", "title", "author", "imprint", "publisher"] as BookSortKey[]).map((key) => (
                   <button
@@ -809,6 +830,20 @@ export function BookCatalog({
               }}
               options={publisherOptions.map((publisher) => ({ value: publisher.id, label: publisher.name }))}
             />
+            <label className="grid gap-1.5">
+              <span className="uppercase tracking-[0.16em] muted">Language</span>
+              <select
+                className="filter-select focus-ring font-sans normal-case tracking-normal"
+                onChange={(event) => {
+                  setLanguage(event.target.value === "all" ? "all" : "english");
+                  setPage(1);
+                }}
+                value={language}
+              >
+                <option value="english">Available in English</option>
+                <option value="all">All languages, including untranslated</option>
+              </select>
+            </label>
             <FilterSelect
               label="Metadata"
               value={metadataFilter}
@@ -1053,7 +1088,7 @@ export function BookCatalog({
                           <td className={`px-3 ${rowPadding}`}>
                             <div className="book-title-with-shelf">
                               <Link
-                                aria-label={`Open ${book.title}`}
+                                aria-label={`Open ${bookDisplayTitle(book, language)}`}
                                 className={`focus-ring w-full items-center text-left transition hover:text-[var(--accent)] ${
                                   showRowCovers ? (density === "roomy" ? "grid grid-cols-[3rem_1fr] gap-3.5" : "grid grid-cols-[2.35rem_1fr] gap-3") : "block"
                                 }`}
@@ -1062,7 +1097,14 @@ export function BookCatalog({
                                 title={book.title}
                               >
                                 {showRowCovers ? <BookRowCover book={book} size={coverSize} /> : null}
-                                <span className="book-catalog-title text-base">{book.title}</span>
+                                <span className="book-catalog-title text-base">
+                                  {bookDisplayTitle(book, language)}
+                                  {bookOriginalTitleAside(book, language) ? (
+                                    <span className="ml-1.5 muted text-xs italic">
+                                      ({bookOriginalTitleAside(book, language)})
+                                    </span>
+                                  ) : null}
+                                </span>
                               </Link>
                               {book.hasLibraryShelfPlacement ? (
                                 <button
@@ -1191,9 +1233,9 @@ function searchParamsMode(value: string | null): "keyword" | "semantic" {
 }
 
 function searchParamsQueryExpansionModel(value: string | null): SemanticQueryExpansionModel {
-  return value === "gpt-5.4-nano" || value === "gpt-5.4-mini" || value === "gemini-3.5-flash"
+  return value === DEFAULT_REASONING_MODEL || value === ALTERNATE_REASONING_MODEL || value === "gemini-3.5-flash"
     ? value
-    : "gpt-5.4-nano";
+    : DEFAULT_REASONING_MODEL;
 }
 
 function searchParamsRetrievalMode(value: string | null): SemanticRetrievalMode | null {

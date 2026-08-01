@@ -16,6 +16,7 @@ const book: BrowseBookRow = {
   hasIsbn: true,
   hasPageCount: true,
   hasPublisher: true,
+    readableInEnglish: true,
   hasSummary: true,
   id: "book-one",
   lists: 1,

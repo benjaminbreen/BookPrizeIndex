@@ -1,4 +1,5 @@
 import type { AwardRegionFilter } from "@/lib/award-region";
+import type { LanguageFilter } from "@/lib/book-language";
 import { bookRecognition, compareBrowseBookRecognition } from "@/lib/browse-ranking";
 import type { BrowseBookRow } from "@/lib/browse-types";
 import { rollupSubjectName } from "@/lib/subject-rollup";
@@ -20,6 +21,8 @@ export type BookCatalogQuery = {
   sort?: BookCatalogSortKey;
   subject?: string;
   topic?: string;
+  /** Defaults to "english" in retrieval. See lib/book-language. */
+  language?: LanguageFilter;
 };
 
 export type BookCatalogQueryResult = {
@@ -57,9 +60,17 @@ export function queryBookCatalog(books: BrowseBookRow[], query: BookCatalogQuery
 export function filterBookCatalogRows(books: BrowseBookRow[], query: BookCatalogQuery) {
   const region = query.region ?? "us";
   const metadata = query.metadata ?? "all";
+  const language = query.language ?? "english";
   return books.filter((book) => {
     const recognition = bookRecognition(book, region);
     if (recognition.lists === 0) return false;
+    // Must mirror semanticRowMatchesFilters exactly: the two paths are asserted
+    // to agree in lib/semantic-index-storage.test.ts.
+    if (language === "english") {
+      if (!book.readableInEnglish) return false;
+    } else if (language !== "all") {
+      if ((book.originalLanguage ?? "en") !== language.originalLanguage) return false;
+    }
     if (query.topic && !book.topics.includes(query.topic)) return false;
     if (query.subject && !book.subjects.some((subject) => rollupSubjectName(subject) === query.subject)) return false;
     if (query.awardIds?.length && !query.awardIds.some((awardId) => recognition.awardIds.includes(awardId))) return false;

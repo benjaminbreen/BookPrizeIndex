@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { isReadableInEnglish } from "../lib/book-language";
 import {
   DEFAULT_SEMANTIC_DIMENSIONS,
   DEFAULT_SEMANTIC_EMBEDDING_MODEL,
@@ -284,6 +285,8 @@ function prepareBookRow(
       hasCover: browseRow.hasCover,
       hasSummary: browseRow.hasSummary,
       hasPublisher: browseRow.hasPublisher,
+      ...(book.originalLanguage ? { originalLanguage: book.originalLanguage } : {}),
+      readableInEnglish: isReadableInEnglish(book),
     },
   };
 }

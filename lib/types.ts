@@ -184,6 +184,25 @@ export type Book = {
   imprintId?: string;
   pageCount?: number;
   isbn13: string[];
+  /**
+   * ISO 639-1 code of the language the work was written in. Absent means English:
+   * the catalog was anglophone-only before international prizes were added, so
+   * absence is the safe default rather than "unknown".
+   */
+  originalLanguage?: string;
+  /**
+   * Whether an anglophone reader can actually read this book. True for English
+   * originals and for works with a confirmed translation. Drives the default
+   * semantic-search filter — untranslated books stay in the catalog and on award
+   * pages but are withheld from retrieval unless the reader opts in.
+   */
+  hasEnglishEdition?: boolean;
+  englishEdition?: {
+    title?: string;
+    year?: number;
+    publisher?: string;
+    isbn13?: string;
+  };
   libraryShelf?: LibraryShelfPlacement;
   primarySubject?: string;
   subjects: string[];

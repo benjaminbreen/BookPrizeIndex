@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { DEFAULT_REASONING_MODEL, ALTERNATE_REASONING_MODEL } from "../lib/llm-models";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
@@ -432,7 +433,7 @@ function positiveNumber(value: string | undefined, fallback = 25) {
 }
 
 function queryModelArg(value: string | undefined): SemanticQueryExpansionModel {
-  return value === "gpt-5.4-mini" || value === "gemini-3.5-flash" ? value : "gpt-5.4-nano";
+  return value === ALTERNATE_REASONING_MODEL || value === "gemini-3.5-flash" ? value : DEFAULT_REASONING_MODEL;
 }
 
 function strategyArg(value: string | undefined): EvaluationStrategy {

@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { DEFAULT_REASONING_MODEL, ALTERNATE_REASONING_MODEL } from "@/lib/llm-models";
 import path from "node:path";
 import { bookAuthorsMatchIntent, fallbackAuthorIntent } from "@/lib/author-discovery";
 import type { BookCatalogQuery } from "@/lib/book-catalog-query";
@@ -38,7 +39,7 @@ export const dynamic = "force-dynamic";
 
 type SemanticSearchRequest = {
   candidateBookIds?: string[];
-  filters?: Pick<BookCatalogQuery, "awardIds" | "metadata" | "publisherId" | "region" | "subject" | "topic">;
+  filters?: Pick<BookCatalogQuery, "awardIds" | "metadata" | "publisherId" | "region" | "subject" | "topic" | "language">;
   limit?: number;
   query?: string;
   queryExpansionModel?: SemanticQueryExpansionModel;
@@ -81,7 +82,7 @@ type SemanticSearchResponsePayload = {
 type PromiseCacheEntry<T> = { expiresAt: number; promise: Promise<T> };
 type ValueCacheEntry<T> = { expiresAt: number; value: T };
 
-const DEFAULT_QUERY_EXPANSION_MODEL: SemanticQueryExpansionModel = "gpt-5.4-nano";
+const DEFAULT_QUERY_EXPANSION_MODEL: SemanticQueryExpansionModel = DEFAULT_REASONING_MODEL;
 export const SEMANTIC_QUERY_INTERPRETATION_VERSION = 10;
 const QUERY_INTERPRETATION_PROMPT =
   [
@@ -180,7 +181,9 @@ export async function POST(request: Request) {
   const retrievalMode = parseRetrievalMode(body?.retrievalMode, query);
   const candidateIds = new Set((body?.candidateBookIds ?? []).filter(Boolean));
   const candidates = index.books.filter((row) =>
-    (!candidateIds.size || candidateIds.has(row.bookId)) && (!body?.filters || semanticRowMatchesFilters(row, body.filters)),
+    // Always run the filter check, even with no filters supplied: the language
+    // filter defaults to English-only and must not be skipped by an absent body.
+    (!candidateIds.size || candidateIds.has(row.bookId)) && semanticRowMatchesFilters(row, body?.filters ?? {}),
   );
   if (!candidates.length) {
     return privateJson({
@@ -420,7 +423,7 @@ async function interpretSemanticQueryUncached(
 async function interpretQueryWithOpenAI(
   query: string,
   fallback: SemanticQueryInterpretation,
-  requestedModel: "gpt-5.4-nano" | "gpt-5.4-mini" = "gpt-5.4-nano",
+  requestedModel: "gpt-5.4-nano" | "gpt-5.6-luna" = DEFAULT_REASONING_MODEL,
 ): Promise<{ interpretation: SemanticQueryInterpretation; model: string; usedModelInterpretation: boolean; warning?: string }> {
   const model = process.env.OPENAI_SEMANTIC_QUERY_MODEL ?? requestedModel;
   try {
@@ -509,7 +512,7 @@ async function interpretQueryWithGemini(
 }
 
 async function fallbackToOpenAIAfterGeminiFailure(query: string, fallback: SemanticQueryInterpretation, reason: string) {
-  const openAiResult = await interpretQueryWithOpenAI(query, fallback, "gpt-5.4-nano");
+  const openAiResult = await interpretQueryWithOpenAI(query, fallback, DEFAULT_REASONING_MODEL);
   return {
     ...openAiResult,
     warning: `${reason} ${openAiResult.usedModelInterpretation ? "Used OpenAI query expansion instead." : "Used local interpretation."}`,
@@ -569,7 +572,10 @@ const QUERY_INTERPRETATION_TRIGGER =
   /\b(writing|book called|recommend(?:ation|ations)?|looking for|similar to|about|would like|would enjoy|might like|for fans of|books? for|stuff for|vibe|sensibility|taste|adjacent|like this|like these|read next|what to read|interested in|into|on the subject of)\b/i;
 
 function parseQueryExpansionModel(value: unknown): SemanticQueryExpansionModel {
-  return value === "gemini-3.5-flash" ? value : DEFAULT_QUERY_EXPANSION_MODEL;
+  // The upgraded tier was previously unreachable through the API: only gemini was
+  // accepted, so any request for a better OpenAI model silently fell back.
+  if (value === "gemini-3.5-flash" || value === ALTERNATE_REASONING_MODEL) return value;
+  return DEFAULT_QUERY_EXPANSION_MODEL;
 }
 
 function parseRetrievalMode(value: unknown, query: string): SemanticRetrievalMode {

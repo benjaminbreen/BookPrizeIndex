@@ -12,6 +12,21 @@ export type RawAwardRecordSourceConfidence = "official" | "secondary" | "manual"
 export type AwardRegistryType = "major_award" | "award";
 export type PrizeScope = "general" | "subject" | "discipline";
 
+/** Status of an English-language edition for a non-anglophone award record. */
+export type RawEnglishEditionStatus =
+  | "native-english"
+  | "confirmed"
+  | "no-english-found"
+  | "unresolved";
+
+export type RawEnglishEdition = {
+  status: RawEnglishEditionStatus;
+  title?: string;
+  year?: number;
+  publisher?: string;
+  isbn13?: string;
+};
+
 export type RawAwardRecord = {
   awardId: string;
   awardName: string;
@@ -27,6 +42,10 @@ export type RawAwardRecord = {
   sourceLabel: string;
   sourceConfidence: RawAwardRecordSourceConfidence;
   notes?: string;
+  /** ISO 639-1 code of the language the work was written in. Absent means English. */
+  originalLanguage?: string;
+  /** Only meaningful when originalLanguage is set and not "en". */
+  englishEdition?: RawEnglishEdition;
 };
 
 export type PrizeCategoryRegistryEntry = {
