@@ -1,38 +1,52 @@
 {
-  "generatedAt": "2026-07-30T21:33:17.917Z",
-  "rowCount": 7219,
+  "generatedAt": "2026-08-01T20:39:08.468Z",
+  "rowCount": 8299,
   "counts": {
     "confidence": {
       "medium": 5220,
-      "low": 1989,
+      "low": 3069,
       "high": 10
     },
     "primarySubject": {
-      "Biography": 1019,
-      "American History": 794,
-      "History": 571,
-      "Arts & Criticism": 543,
-      "Memoir & Autobiography": 494,
-      "Science": 490,
-      "Politics & Government": 453,
-      "World History": 418,
-      "True Crime & Justice": 382,
-      "Society & Culture": 364,
-      "War & Military": 313,
-      "Race & Ethnicity": 285,
-      "Nature & Environment": 278,
-      "Religion": 240,
-      "Business & Economics": 151,
-      "Medicine & Public Health": 140,
-      "Gender & Sexuality": 110,
-      "Technology": 57,
-      "Journalism & Reportage": 56,
-      "Travel & Place": 51,
+      "Arts & Criticism": 1313,
+      "Biography": 1079,
+      "American History": 801,
+      "History": 675,
+      "Memoir & Autobiography": 501,
+      "Science": 494,
+      "Politics & Government": 461,
+      "World History": 442,
+      "True Crime & Justice": 391,
+      "Society & Culture": 375,
+      "War & Military": 335,
+      "Race & Ethnicity": 290,
+      "Nature & Environment": 288,
+      "Religion": 245,
+      "Business & Economics": 161,
+      "Medicine & Public Health": 142,
+      "Gender & Sexuality": 114,
+      "Journalism & Reportage": 66,
+      "Technology": 60,
+      "Travel & Place": 56,
       "Sports": 10
     }
   },
   "issueCounts": {},
   "sample": [
+    {
+      "bookId": "book-ca-1972-gewalt-umwelt-identitat-methode-tom-holert",
+      "title": "„ca. 1972“. Gewalt – Umwelt – Identität – Methode",
+      "author": "Tom Holert",
+      "primarySubject": "Arts & Criticism",
+      "confidence": "low"
+    },
+    {
+      "bookId": "book-det-star-ett-rum-har-och-vantar-pa-dig-berattelsen-om-raoul-wallenberg-ingrid-carlberg",
+      "title": "\"Det står ett rum här och väntar på dig ...\": berättelsen om Raoul Wallenberg",
+      "author": "Ingrid Carlberg",
+      "primarySubject": "Arts & Criticism",
+      "confidence": "low"
+    },
     {
       "bookId": "book-got-my-mind-set-on-freedom-maryland-s-story-of-black-and-white-activism-1663-2000-barbara-mills",
       "title": "“Got My Mind Set on Freedom” Maryland’s Story of Black and White Activism, 1663–2000",
@@ -62,6 +76,27 @@
       "confidence": "low"
     },
     {
+      "bookId": "book-100-new-zealand-craft-artists-helen-schamroth",
+      "title": "100 New Zealand Craft Artists",
+      "author": "Helen Schamroth",
+      "primarySubject": "Arts & Criticism",
+      "confidence": "low"
+    },
+    {
+      "bookId": "book-1001-vrouwen-uit-de-nederlandse-geschiedenis-els-kloek",
+      "title": "1001 vrouwen uit de Nederlandse geschiedenis",
+      "author": "Els Kloek",
+      "primarySubject": "History",
+      "confidence": "low"
+    },
+    {
+      "bookId": "book-14-57-do-czyty-reportaze-z-rosji-igor-t-miecik",
+      "title": "14:57 do Czyty. Reportaże z Rosji",
+      "author": "Igor T. Miecik",
+      "primarySubject": "Arts & Criticism",
+      "confidence": "low"
+    },
+    {
       "bookId": "book-1606-william-shakespeare-and-the-year-of-lear-james-shapiro",
       "title": "1606: William Shakespeare and the Year of Lear",
       "author": "James Shapiro",
@@ -83,10 +118,45 @@
       "confidence": "low"
     },
     {
+      "bookId": "book-1835-the-founding-of-melbourne-and-the-conquest-of-australia-james-boyce",
+      "title": "1835: The Founding of Melbourne and the Conquest of Australia",
+      "author": "James Boyce",
+      "primarySubject": "American History",
+      "confidence": "low"
+    },
+    {
+      "bookId": "book-1945-wojna-i-pokoj-magdalena-grzeba-kowska",
+      "title": "1945. Wojna i pokój",
+      "author": "Magdalena Grzebałkowska",
+      "primarySubject": "Arts & Criticism",
+      "confidence": "low"
+    },
+    {
+      "bookId": "book-1947-elisabeth-asbrink",
+      "title": "1947",
+      "author": "Elisabeth Åsbrink",
+      "primarySubject": "Arts & Criticism",
+      "confidence": "low"
+    },
+    {
       "bookId": "book-1948-a-history-of-the-first-arab-israeli-war-benny-morris",
       "title": "1948: A History of the First Arab-Israeli War",
       "author": "Benny Morris",
       "primarySubject": "Religion",
+      "confidence": "low"
+    },
+    {
+      "bookId": "book-27-smierci-toby-ego-obeda-joanna-gierak-onoszko",
+      "title": "27 śmierci Toby’ego Obeda",
+      "author": "Joanna Gierak-Onoszko",
+      "primarySubject": "Arts & Criticism",
+      "confidence": "low"
+    },
+    {
+      "bookId": "book-438-dagar-var-berattelse-om-storpolitik-vanskap-och-tiden-som-diktaturens-fangar-johan-persson-a",
+      "title": "438 dagar. Vår berättelse om storpolitik, vänskap och tiden som diktaturens fångar",
+      "author": "Johan Persson, Martin Schibbye",
+      "primarySubject": "Arts & Criticism",
       "confidence": "low"
     },
     {
@@ -118,93 +188,23 @@
       "confidence": "low"
     },
     {
-      "bookId": "book-a-code-of-jewish-ethics-volume-1-you-shall-be-holy-joseph-telushkin",
-      "title": "A Code of Jewish Ethics, Volume 1: You Shall Be Holy",
-      "author": "Joseph Telushkin",
-      "primarySubject": "Religion",
+      "bookId": "book-a-certain-light-a-memoir-of-family-loss-and-hope-cynthia-banham",
+      "title": "A Certain Light: A Memoir of Family, Loss and Hope",
+      "author": "Cynthia Banham",
+      "primarySubject": "Arts & Criticism",
       "confidence": "low"
     },
     {
-      "bookId": "book-a-cold-war-exodus-how-american-activists-mobilized-to-free-soviet-jews-shaul-kelner",
-      "title": "A Cold War Exodus: How American Activists Mobilized to Free Soviet Jews",
-      "author": "Shaul Kelner",
-      "primarySubject": "War & Military",
+      "bookId": "book-a-chequered-brilliance-the-many-lives-of-vk-krishna-menon-jairam-ramesh",
+      "title": "A Chequered Brilliance: The Many Lives of VK Krishna Menon",
+      "author": "Jairam Ramesh",
+      "primarySubject": "Arts & Criticism",
       "confidence": "low"
     },
     {
-      "bookId": "book-a-contest-of-civilizations-exposing-the-crisis-of-american-exceptionalism-in-the-civil-war-era-a",
-      "title": "A Contest of Civilizations: Exposing the Crisis of American Exceptionalism in the Civil War Era",
-      "author": "Andrew F. Lang",
-      "primarySubject": "War & Military",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-crisis-of-peace-george-washington-the-newburgh-conspiracy-and-the-fate-of-the-american-revolut",
-      "title": "A Crisis of Peace: George Washington, the Newburgh Conspiracy, and the Fate of the American Revolution",
-      "author": "David Head",
-      "primarySubject": "American History",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-cup-of-tears-a-diary-of-the-warsaw-ghetto-abraham-lewin",
-      "title": "A Cup of Tears: A Diary of the Warsaw Ghetto",
-      "author": "Abraham Lewin",
-      "primarySubject": "Religion",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-dangerous-stir-fear-paranoia-and-the-making-of-reconstruction-mark-wahlgren-summers",
-      "title": "A Dangerous Stir: Fear, Paranoia, and the Making of Reconstruction",
-      "author": "Mark Wahlgren Summers",
-      "primarySubject": "American History",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-death-in-belmont-sebastian-junger",
-      "title": "A Death in Belmont",
-      "author": "Sebastian Junger",
-      "primarySubject": "True Crime & Justice",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-death-in-malta-paul-caruana-galizia",
-      "title": "A Death in Malta",
-      "author": "Paul Caruana Galizia",
-      "primarySubject": "History",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-death-in-white-bear-lake-barry-siegel",
-      "title": "A Death in White Bear Lake",
-      "author": "Barry Siegel",
-      "primarySubject": "True Crime & Justice",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-devil-went-down-to-georgia-race-power-privilege-and-the-murder-of-lita-mcclinton-deb-miller-la",
-      "title": "A Devil Went Down to Georgia: Race, Power, Privilege, and the Murder of Lita McClinton",
-      "author": "Deb Miller Landau",
-      "primarySubject": "True Crime & Justice",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-different-day-african-american-struggles-for-justice-in-rural-louisiana-1900-1970-greta-de-jon",
-      "title": "A Different Day: African American Struggles for Justice in Rural Louisiana, 1900–1970",
-      "author": "Greta De Jong",
-      "primarySubject": "Race & Ethnicity",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-dominant-character-the-radical-science-and-restless-politics-of-j-b-s-haldane-samanth-subraman",
-      "title": "A Dominant Character: The Radical Science and Restless Politics of J.B.S Haldane",
-      "author": "Samanth Subramanian",
-      "primarySubject": "Biography",
-      "confidence": "low"
-    },
-    {
-      "bookId": "book-a-drizzle-of-honey-the-life-and-recipes-of-spain-s-secret-jews-david-m-gitlitz-and-linda-kay-dav",
-      "title": "A Drizzle of Honey: The Life and Recipes of Spain's Secret Jews",
-      "author": "David M. Gitlitz, Linda Kay Davidson",
+      "bookId": "book-a-city-possessed-the-christchurch-civic-creche-case-lynley-hood",
+      "title": "A City Possessed: The Christchurch Civic Creche Case",
+      "author": "Lynley Hood",
       "primarySubject": "Society & Culture",
       "confidence": "low"
     }

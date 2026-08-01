@@ -1,0 +1,59 @@
+{
+  "generatedAt": "2026-08-01T20:35:55.870Z",
+  "metadata": {
+    "importer": "scripts/import-award-records/international-nonfiction.ts",
+    "source": "Wikipedia: Premio Strega Saggistica",
+    "notes": "Non-anglophone nonfiction prize (it). Extracted by scripts/staging/extract-international-awards.py; English editions resolved by scripts/staging/resolve-english-editions.py.",
+    "records": 2,
+    "winners": 2,
+    "withConfirmedEnglishEdition": 1,
+    "yearRange": "2025-2025"
+  },
+  "records": [
+    {
+      "awardId": "premio-strega-saggistica",
+      "awardName": "Strega Prize for Nonfiction",
+      "categoryId": "strega-saggistica",
+      "categoryName": "Saggistica",
+      "year": 2025,
+      "status": "co_winner",
+      "title": "Autocrazie",
+      "authors": [
+        "Anne Applebaum"
+      ],
+      "publisher": "Mondadori",
+      "sourceUrl": "https://it.wikipedia.org/wiki/Premio_Strega",
+      "sourceLabel": "Wikipedia: Premio Strega Saggistica",
+      "sourceConfidence": "secondary",
+      "notes": "Original language: und. English edition: Autocracy, Inc. (Random House, 2025)",
+      "originalLanguage": "und",
+      "englishEdition": {
+        "status": "confirmed",
+        "title": "Autocracy, Inc.",
+        "year": 2025,
+        "publisher": "Random House"
+      }
+    },
+    {
+      "awardId": "premio-strega-saggistica",
+      "awardName": "Strega Prize for Nonfiction",
+      "categoryId": "strega-saggistica",
+      "categoryName": "Saggistica",
+      "year": 2025,
+      "status": "co_winner",
+      "title": "Il suicidio di Israele",
+      "authors": [
+        "Anna Foa"
+      ],
+      "publisher": "Laterza",
+      "sourceUrl": "https://it.wikipedia.org/wiki/Premio_Strega",
+      "sourceLabel": "Wikipedia: Premio Strega Saggistica",
+      "sourceConfidence": "secondary",
+      "notes": "Original language: it. No English edition found.",
+      "originalLanguage": "it",
+      "englishEdition": {
+        "status": "no-english-found"
+      }
+    }
+  ]
+}
