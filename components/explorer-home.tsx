@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown, ChevronUp, ChevronsUpDown, CornerDownLeft, Filter, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import { AuthorLinks } from "@/components/author-links";
+import { BrowseTrailWriter } from "@/components/browse-trail-writer";
 import type { SearchMode } from "@/components/ui/design-primitives";
 import { useAwardRegion } from "@/components/use-award-region";
 import { type AwardRegionFilter, regionLabel } from "@/lib/award-region";
@@ -117,6 +118,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
 
   return (
     <>
+    <BrowseTrailWriter label="the top books" slugs={topBooks.map((book) => book.slug)} />
     <main>
       <section className="home-hero-section bg-[var(--paper)]">
         <div className="home-hero-inner mx-auto grid max-w-7xl gap-10 px-4 pb-10 pt-14 sm:px-6 lg:grid-cols-[0.96fr_1.04fr] lg:px-8 lg:pb-12 lg:pt-20">

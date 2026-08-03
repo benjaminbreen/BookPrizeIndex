@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AuthorLinks } from "@/components/author-links";
+import { BrowseTrailWriter } from "@/components/browse-trail-writer";
 import { browseBooksById } from "@/lib/browse-data";
 import type { AwardAppearance } from "@/lib/types";
 
@@ -22,6 +23,7 @@ export function AwardBookList({ appearances }: { appearances: AwardAppearance[] 
 
   return (
     <>
+      <BrowseTrailWriter label="this award" slugs={[...new Set(rows.map(({ book }) => book.slug))]} />
       <div className="mt-4 grid border-y hairline md:hidden">
         {rows.map(({ appearance, book }) => {
           const isWinner = appearance.status === "winner" || appearance.status === "co_winner";

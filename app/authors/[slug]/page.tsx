@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { notFound } from "next/navigation";
+import { BrowseTrailWriter } from "@/components/browse-trail-writer";
 import { authorProfileFor, authors, authorsBySlug, booksByAuthorId } from "@/lib/authors";
 import { authorPlatformLinksFor } from "@/lib/author-platform-links";
 import { appearancesByBookId, awardProgramsById, awardsById, getBookStats, imprintsById } from "@/lib/data";
@@ -70,6 +71,7 @@ export default async function AuthorPage({ params }: PageProps) {
 
   return (
     <main className="author-page">
+      <BrowseTrailWriter label="this author" slugs={books.map((book) => book.slug)} />
       <section className="author-profile-hero mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <p className="author-profile-kicker">Authors / {author.id}</p>
         <div className="author-profile-intro mt-5">

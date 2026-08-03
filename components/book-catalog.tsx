@@ -7,6 +7,7 @@ import { BookOpen, CornerDownLeft, ChevronDown, ChevronLeft, ChevronRight, Chevr
 import { Fragment, useEffect, useMemo, useRef, useState } from "react";
 import { AuthorLinks } from "@/components/author-links";
 import { BookDrawer } from "@/components/book-drawer";
+import { BrowseTrailWriter } from "@/components/browse-trail-writer";
 import { SemanticListActions } from "@/components/semantic-list-actions";
 import { ShelfNeighborhood } from "@/components/shelf-neighborhood";
 import { SearchModeSelect } from "@/components/ui/design-primitives";
@@ -210,6 +211,9 @@ export function BookCatalog({
   const safePage = Math.min(page, totalPages);
   const rows = remote ? remoteRows : filteredRows.slice((safePage - 1) * pageSize, safePage * pageSize);
   const pageNumbers = paginationRange(safePage, totalPages);
+  // Arrow-key navigation on book pages walks the whole filtered list, not just
+  // the visible page, so it keeps going past a pagination boundary.
+  const trailSlugs = (remote ? rows : limit ? filteredRows.slice(0, limit) : filteredRows).map((book) => book.slug);
   const rowPadding = density === "compact" ? "py-1.5" : density === "roomy" ? "py-4" : "py-2.5";
   const coverSize = density === "roomy" ? "large" : "standard";
   const showRowCovers = density !== "compact";
@@ -530,6 +534,7 @@ export function BookCatalog({
 
   return (
     <>
+    <BrowseTrailWriter label="this list" slugs={trailSlugs} />
     <section className={`mx-auto ${wideLayout ? "max-w-[86rem] min-[1440px]:max-w-[96rem] min-[1800px]:max-w-[118rem]" : "max-w-7xl"} px-4 sm:px-6 lg:px-8 ${compactHeader ? "pb-10" : wideLayout ? "py-4" : "py-10"}`}>
       <div className={`mx-auto mb-6 grid max-w-7xl gap-8 lg:items-center ${wideLayout ? "min-[1345px]:px-8" : ""} ${compactHeader ? "lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.9fr)]" : "lg:grid-cols-[0.86fr_1fr]"}`}>
         <div>

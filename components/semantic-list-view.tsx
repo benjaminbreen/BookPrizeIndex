@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
 import { useState } from "react";
+import { BrowseTrailWriter } from "@/components/browse-trail-writer";
 import { SemanticListActions } from "@/components/semantic-list-actions";
 import type {
   SemanticListDraft,
@@ -42,6 +43,7 @@ export function SemanticListView({
 
   return (
     <main className="semantic-list-page mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+      <BrowseTrailWriter label="this list" slugs={snapshot.results.map((book) => book.slug)} />
       <header className="semantic-list-header border-b hairline pb-8">
         <div className="min-w-0">
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">

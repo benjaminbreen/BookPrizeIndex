@@ -5,6 +5,7 @@ import { CornerDownLeft, Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import type React from "react";
 import { AuthorLinks } from "@/components/author-links";
+import { BrowseTrailWriter } from "@/components/browse-trail-writer";
 import { BookDrawer } from "@/components/book-drawer";
 import { SemanticListActions } from "@/components/semantic-list-actions";
 import { EntityMetricGrid, SearchModeSelect } from "@/components/ui/design-primitives";
@@ -118,6 +119,7 @@ export function SubjectDetail({
 
   return (
     <>
+    <BrowseTrailWriter label="this subject" slugs={rows.map((book) => book.slug)} />
     <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <section className="grid gap-6 lg:grid-cols-[1fr_0.5fr] lg:items-center">
         <div>

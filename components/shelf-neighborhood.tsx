@@ -18,18 +18,18 @@ export function ShelfNeighborhood({
   return (
     <section className={`shelf-neighborhood shelf-neighborhood-${mode}`} aria-label={`Books near ${neighborhood.selected.title} on the Library of Congress shelf`}>
       <div className="shelf-neighborhood-heading">
-        <div>
+        <div className="shelf-neighborhood-heading-text">
           <p>On the shelf</p>
           <h2>Browse around this book</h2>
+          <p className="shelf-neighborhood-deck">
+            Prize-recognized books immediately before and after this one in Library of Congress call-number order.
+          </p>
         </div>
         <Link href={`/fun/library-of-congress-shelf?book=${neighborhood.selected.slug}`}>
           Open the full shelf
           <ArrowRight size={14} />
         </Link>
       </div>
-      <p className="shelf-neighborhood-deck">
-        Prize-recognized books immediately before and after this one in Library of Congress call-number order.
-      </p>
       <ol className="shelf-neighborhood-list">
         {rows.map(({ row, selected }) => (
           <li className={selected ? "is-selected" : ""} key={row.id}>

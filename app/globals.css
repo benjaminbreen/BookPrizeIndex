@@ -3988,6 +3988,45 @@ time,
   border-top: 1px solid var(--line);
 }
 
+.book-detail-key-hints {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.62rem;
+  gap: 0.35rem 1.4rem;
+  justify-content: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.book-detail-key-hints span {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.3rem;
+}
+
+.book-detail-key-hints kbd {
+  align-items: center;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  display: inline-flex;
+  font-family: inherit;
+  font-size: 0.7rem;
+  height: 1.25rem;
+  justify-content: center;
+  line-height: 1;
+  min-width: 1.25rem;
+}
+
+/* Arrow keys are a pointer-device affordance; hide the hint on touch. */
+@media (hover: none) {
+  .book-detail-key-hints {
+    display: none;
+  }
+}
+
 .experimental-profile-section {
   background: color-mix(in srgb, var(--panel) 30%, var(--paper));
 }
@@ -4001,13 +4040,13 @@ time,
 
 .experimental-profile-summary {
   display: flex;
-  min-height: 4.5rem;
+  min-height: 3.4rem;
   cursor: pointer;
   list-style: none;
   align-items: center;
   justify-content: space-between;
   gap: 1.5rem;
-  padding: 1rem 1.15rem;
+  padding: 0.7rem 1rem;
   transition: background-color 160ms ease;
 }
 
@@ -4028,7 +4067,7 @@ time,
 .experimental-profile-kicker {
   color: var(--ink);
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1.18rem;
+  font-size: 1.05rem;
   font-weight: 400;
 }
 
@@ -4087,30 +4126,35 @@ time,
 }
 
 .experimental-profile-body {
-  padding: 1.15rem;
+  padding: 0.9rem 1rem 1rem;
 }
 
 .experimental-profile-note {
   max-width: 58rem;
   color: var(--muted);
-  font-size: 0.78rem;
-  line-height: 1.55;
+  font-size: 0.76rem;
+  line-height: 1.5;
 }
 
 .experimental-profile-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin-top: 1.1rem;
+  margin-top: 0.85rem;
   border-top: 1px solid var(--line);
   border-left: 1px solid var(--line);
   list-style: none;
 }
 
 .experimental-profile-field {
-  min-height: 10rem;
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  padding: 1rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+}
+
+@media (min-width: 1024px) {
+  .experimental-profile-grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 0.85fr) minmax(0, 1.6fr) minmax(0, 0.9fr);
+  }
 }
 
 .experimental-profile-field-label {
@@ -4129,33 +4173,51 @@ time,
 }
 
 .experimental-profile-entity-list {
-  margin-top: 0.9rem;
+  margin-top: 0.6rem;
 }
 
 .experimental-profile-entity-list li {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.75rem;
   border-top: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
-  padding: 0.48rem 0;
-  font-size: 0.88rem;
+  padding: 0.36rem 0;
+  font-size: 0.85rem;
+  line-height: 1.35;
 }
 
 .experimental-profile-entity-list li:first-child {
   border-top: 0;
 }
 
+.experimental-profile-entity-list li.is-low > span:first-child,
+.experimental-profile-argument.is-low > p:first-child {
+  color: var(--muted);
+}
+
+.experimental-profile-chip {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+}
+
+.experimental-profile-entity-list li.is-low .experimental-profile-chip {
+  color: color-mix(in srgb, var(--muted) 78%, transparent);
+}
+
 .experimental-profile-argument,
 .experimental-profile-orientation {
-  margin-top: 0.9rem;
+  margin-top: 0.6rem;
 }
 
 .experimental-profile-argument > p:first-child {
   max-width: 43rem;
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .experimental-profile-confidence,
@@ -4169,63 +4231,30 @@ time,
 }
 
 .experimental-profile-confidence {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .experimental-profile-score {
   color: var(--ink);
   font-family: var(--font-serif), Georgia, serif;
-  font-size: 2rem;
+  font-size: 1.65rem;
   font-weight: 300;
 }
 
-.experimental-profile-orientation > p:nth-child(2) {
-  margin-top: 0.2rem;
-  font-size: 0.88rem;
+.experimental-profile-orientation-label {
+  margin-top: 0.1rem;
+  font-size: 0.85rem;
 }
 
 .experimental-profile-empty {
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
   color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.5;
-}
-
-.experimental-profile-low-confidence {
-  margin-top: 0.75rem;
-  color: var(--muted);
-  font-size: 0.76rem;
-  line-height: 1.5;
-}
-
-.experimental-profile-low-confidence > summary {
-  width: fit-content;
-  cursor: pointer;
-  list-style-position: inside;
-  text-decoration-color: color-mix(in srgb, var(--accent) 46%, transparent);
-  text-decoration-line: underline;
-  text-underline-offset: 0.2rem;
-  transition: color 150ms ease, text-decoration-color 150ms ease;
-}
-
-.experimental-profile-low-confidence > summary:hover,
-.experimental-profile-low-confidence > summary:focus-visible {
-  color: var(--accent);
-  text-decoration-color: var(--accent);
-}
-
-.experimental-profile-low-confidence > p {
-  max-width: 34rem;
-  margin-top: 0.65rem;
-  font-size: 0.7rem;
-}
-
-.experimental-profile-low-confidence .experimental-profile-entity-list {
-  margin-top: 0.45rem;
+  font-size: 0.74rem;
+  line-height: 1.45;
 }
 
 .experimental-profile-method {
-  margin-top: 0.9rem;
+  margin-top: 0.75rem;
 }
 
 @media (max-width: 639px) {
@@ -4241,10 +4270,6 @@ time,
 
   .experimental-profile-grid {
     grid-template-columns: 1fr;
-  }
-
-  .experimental-profile-field {
-    min-height: 0;
   }
 }
 
@@ -7903,10 +7928,14 @@ a.fun-idea-card:focus-visible {
   display: flex;
   gap: 1rem;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 0.75rem 0.9rem;
 }
 
-.shelf-neighborhood-heading p {
+.shelf-neighborhood-heading-text {
+  min-width: 0;
+}
+
+.shelf-neighborhood-heading-text > p:first-child {
   color: var(--muted);
   font-family: var(--font-mono);
   font-size: 0.62rem;
@@ -7916,10 +7945,10 @@ a.fun-idea-card:focus-visible {
 
 .shelf-neighborhood-heading h2 {
   font-family: var(--font-serif);
-  font-size: 1.55rem;
+  font-size: 1.2rem;
   font-weight: 400;
-  line-height: 1.1;
-  margin-top: 0.3rem;
+  line-height: 1.15;
+  margin-top: 0.2rem;
 }
 
 .shelf-neighborhood-heading > a {
@@ -7936,9 +7965,10 @@ a.fun-idea-card:focus-visible {
 
 .shelf-neighborhood-deck {
   color: var(--muted);
-  font-size: 0.75rem;
-  line-height: 1.5;
-  padding: 0.7rem 1rem;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  margin-top: 0.28rem;
+  max-width: 44rem;
 }
 
 .shelf-neighborhood-list {
@@ -7965,10 +7995,12 @@ a.fun-idea-card:focus-visible {
 }
 
 .shelf-neighborhood-list a {
+  align-content: start;
   display: grid;
-  gap: 0.4rem;
-  min-height: 8.5rem;
-  padding: 0.85rem;
+  gap: 0.32rem;
+  grid-template-rows: auto 1fr auto;
+  min-height: 6.5rem;
+  padding: 0.7rem 0.75rem;
   transition: background-color 140ms ease;
 }
 
@@ -7990,6 +8022,7 @@ a.fun-idea-card:focus-visible {
   font-size: 0.78rem;
   font-weight: 500;
   line-height: 1.3;
+  max-height: 3.9em;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
@@ -8005,7 +8038,7 @@ a.fun-idea-card:focus-visible {
 }
 
 .shelf-neighborhood-drawer .shelf-neighborhood-heading h2 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 .shelf-neighborhood-drawer .shelf-neighborhood-list {
@@ -8013,8 +8046,8 @@ a.fun-idea-card:focus-visible {
 }
 
 .shelf-neighborhood-drawer .shelf-neighborhood-list a {
-  min-height: 7.5rem;
-  padding: 0.7rem;
+  min-height: 6.5rem;
+  padding: 0.65rem;
 }
 
 .book-title-with-shelf {
@@ -8081,12 +8114,8 @@ a.fun-idea-card:focus-visible {
   font-size: 1.2rem;
 }
 
-.shelf-neighborhood-inline .shelf-neighborhood-deck {
-  padding: 0.55rem 0.85rem;
-}
-
 .shelf-neighborhood-inline .shelf-neighborhood-list a {
-  min-height: 7.25rem;
+  min-height: 6.5rem;
   padding: 0.7rem;
 }
 

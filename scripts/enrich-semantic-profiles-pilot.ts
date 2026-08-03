@@ -114,11 +114,18 @@ const DEFAULT_ESTIMATED_COST_PER_REQUEST = 0.0006;
 const MAX_RESERVED_COST_PER_REQUEST_USD = 0.0015;
 const SPEND_GUARD_BUFFER_USD = 0.01;
 
-const PRICING_USD_PER_MILLION = {
-  input: 0.2,
-  cachedInput: 0.02,
-  output: 1.25,
+// Per-model list price. Previously hardcoded to gpt-5.4-nano's rates, which
+// silently mis-reported spend (and the --max-spend-usd guard) for any other model.
+const PRICING_BY_MODEL: Record<string, { input: number; cachedInput: number; output: number }> = {
+  "gpt-5.4-nano": { input: 0.2, cachedInput: 0.02, output: 1.25 },
+  "gpt-5.6-luna": { input: 0.2, cachedInput: 0.02, output: 1.2 },
 };
+
+function pricingForModel(model: string) {
+  const key = Object.keys(PRICING_BY_MODEL).find((id) => model.startsWith(id));
+  if (!key) throw new Error(`No pricing recorded for model ${model}; add it to PRICING_BY_MODEL.`);
+  return PRICING_BY_MODEL[key];
+}
 
 const OUTPUT_SCHEMA = {
   type: "object",
@@ -301,7 +308,7 @@ async function main() {
 
 function parseArgs(): Args {
   return {
-    model: readArg("--model") ?? "gpt-5.4-nano-2026-03-17",
+    model: readArg("--model") ?? "gpt-5.6-luna",
     limit: positiveInteger(readArg("--limit"), 100),
     additional: optionalPositiveInteger(readArg("--additional")),
     runLabel: readArg("--run-label"),
@@ -480,7 +487,7 @@ async function extractProfile(
       rawProfile,
       profile,
       usage,
-      estimatedCostUsd: estimateCost(usage),
+      estimatedCostUsd: estimateCost(usage, model),
       validationWarnings: validateProfile(book, sourceSummary, profile),
     };
   } catch (error) {
@@ -552,12 +559,13 @@ function normalizeUsage(usage: ResponsePayload["usage"]): TokenUsage {
   };
 }
 
-function estimateCost(usage: TokenUsage) {
+function estimateCost(usage: TokenUsage, model: string) {
+  const pricing = pricingForModel(model);
   const uncached = Math.max(0, usage.inputTokens - usage.cachedInputTokens);
   return Number((
-    (uncached * PRICING_USD_PER_MILLION.input +
-      usage.cachedInputTokens * PRICING_USD_PER_MILLION.cachedInput +
-      usage.outputTokens * PRICING_USD_PER_MILLION.output) /
+    (uncached * pricing.input +
+      usage.cachedInputTokens * pricing.cachedInput +
+      usage.outputTokens * pricing.output) /
     1_000_000
   ).toFixed(8));
 }
@@ -730,7 +738,7 @@ async function writeOutputs(
     },
     summary: summarizeRows(rows),
     tokenUsage: usage,
-    pricingBasisUsdPerMillionTokens: PRICING_USD_PER_MILLION,
+    pricingBasisUsdPerMillionTokens: pricingForModel(args.model),
     estimatedApiCostUsd: Number(sum(completed.map((row) => row.estimatedCostUsd ?? 0)).toFixed(6)),
     rows,
   };

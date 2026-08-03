@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { BrowseTrailWriter } from "@/components/browse-trail-writer";
 import { PersonalListExportActions } from "@/components/personal-list-export-actions";
 import type { PersonalListSnapshot } from "@/lib/personal-list";
 
 export function PersonalListView({ snapshot }: { snapshot: PersonalListSnapshot }) {
   return (
     <main className="personal-reading-list-page">
+      <BrowseTrailWriter label="this reading list" slugs={snapshot.results.map((book) => book.slug)} />
       <div className="personal-reading-list mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <header className="personal-reading-list-header">
           <div className="min-w-0">
