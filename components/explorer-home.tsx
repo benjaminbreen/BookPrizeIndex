@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ALTERNATE_REASONING_MODEL } from "@/lib/llm-models";
+import { ALTERNATE_REASONING_MODEL, DEFAULT_REASONING_MODEL } from "@/lib/llm-models";
 import { useRouter } from "next/navigation";
 import { ArrowRight, ChevronDown, ChevronUp, ChevronsUpDown, CornerDownLeft, Filter, Search } from "lucide-react";
 import { useMemo, useState } from "react";
@@ -62,7 +62,7 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
   const [query, setQuery] = useState("");
   const [region, setRegion] = useAwardRegion(defaultRegion);
   const [searchMode, setSearchMode] = useState<SearchMode>("semantic");
-  const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>("gpt-5.4-nano");
+  const [queryExpansionModel, setQueryExpansionModel] = useState<SemanticQueryExpansionModel>(DEFAULT_REASONING_MODEL);
   const [tooltipMode, setTooltipMode] = useState<SearchMode | null>(null);
   const [sortKey, setSortKey] = useState<SortKey>("score");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
@@ -101,7 +101,13 @@ export function ExplorerHome({ data, defaultRegion }: { data: HomeBrowseData; de
 
   function selectSemanticMode() {
     if (searchMode === "semantic") {
-      setQueryExpansionModel((model) => (model === "gpt-5.4-nano" ? "gemini-3.5-flash" : "gpt-5.4-nano"));
+      // Clicking Semantic while already in it cycles the query expander. Kept as a
+      // quiet discoverable rather than a visible control; the tooltip names the
+      // current one.
+      setQueryExpansionModel((model) => {
+        const index = QUERY_EXPANSION_CYCLE.indexOf(model);
+        return QUERY_EXPANSION_CYCLE[(index + 1) % QUERY_EXPANSION_CYCLE.length];
+      });
       return;
     }
     setSearchMode("semantic");
@@ -544,6 +550,12 @@ function defaultSortDirection(sortKey: SortKey): SortDirection {
 function getBrowseData(data: HomeBrowseData, region: AwardRegionFilter) {
   return data.home[`${region}:all`];
 }
+
+const QUERY_EXPANSION_CYCLE: readonly SemanticQueryExpansionModel[] = [
+  DEFAULT_REASONING_MODEL,
+  ALTERNATE_REASONING_MODEL,
+  "gemini-3.5-flash",
+];
 
 function queryExpansionModelLabel(model: SemanticQueryExpansionModel) {
   if (model === "gemini-3.5-flash") return "Gemini 3.5 Flash";
