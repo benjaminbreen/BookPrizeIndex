@@ -1,10 +1,36 @@
 {
-  "generatedAt": "2026-07-30T19:21:40.642Z",
+  "generatedAt": "2026-08-03T05:24:19.501Z",
   "instructions": "These rows were flagged by mechanical source-support, confidence, duplication, author-inclusion, or schema-cap checks. Flags are review prompts, not automatic rejections.",
-  "model": "gpt-5.4-nano-2026-03-17",
-  "flaggedCount": 333,
-  "rowCount": 333,
+  "model": "gpt-5.6-luna",
+  "flaggedCount": 1553,
+  "rowCount": 1553,
   "sample": [
+    {
+      "bookId": "book-a-bright-shining-lie-john-paul-vann-and-america-in-vietnam-neil-sheehan",
+      "slug": "a-bright-shining-lie-john-paul-vann-and-america-in-vietnam-neil-sheehan",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro",
+      "slug": "the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro",
+      "status": "completed",
+      "validationWarnings": [
+        "central_figures_hit_schema_cap"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
     {
       "bookId": "book-between-the-world-and-me-ta-nehisi-coates",
       "slug": "between-the-world-and-me-ta-nehisi-coates",
@@ -19,11 +45,52 @@
       }
     },
     {
+      "bookId": "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+      "slug": "w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-george-f-kennan-an-american-life-john-lewis-gaddis",
+      "slug": "george-f-kennan-an-american-life-john-lewis-gaddis",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-de-kooning-an-american-master-mark-stevens-and-annalyn-swan",
+      "slug": "de-kooning-an-american-master-mark-stevens-and-annalyn-swan",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
       "bookId": "book-angela-s-ashes-a-memoir-frank-mccourt",
       "slug": "angela-s-ashes-a-memoir-frank-mccourt",
       "status": "completed",
       "validationWarnings": [
-        "author_included_for_review: Frank McCourt"
+        "author_included_for_review: Frank McCourt",
+        "central_figures_hit_schema_cap",
+        "central_places_hit_schema_cap"
       ],
       "review": {
         "disposition": null,
@@ -45,6 +112,58 @@
       }
     },
     {
+      "bookId": "book-edith-wharton-a-biography-r-w-b-lewis",
+      "slug": "edith-wharton-a-biography-r-w-b-lewis",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-samuel-johnson-walter-jackson-bate",
+      "slug": "samuel-johnson-walter-jackson-bate",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-mornings-on-horseback-david-mccullough",
+      "slug": "mornings-on-horseback-david-mccullough",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-american-prometheus-the-triumph-and-tragedy-of-j-robert-oppenheimer-kai-bird-and-martin-j-sherwi",
+      "slug": "american-prometheus-the-triumph-and-tragedy-of-j-robert-oppenheimer-kai-bird-and-martin-j-sherwi",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
       "bookId": "book-can-t-we-talk-about-something-more-pleasant-roz-chast",
       "slug": "can-t-we-talk-about-something-more-pleasant-roz-chast",
       "status": "completed",
@@ -58,11 +177,77 @@
       }
     },
     {
+      "bookId": "book-a-midwife-s-tale-the-life-of-martha-ballard-based-on-her-diary-1785-1812-laurel-thatcher-ulrich",
+      "slug": "a-midwife-s-tale-the-life-of-martha-ballard-based-on-her-diary-1785-1812-laurel-thatcher-ulrich",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-price-of-power-kissinger-in-the-nixon-white-house-seymour-m-hersh",
+      "slug": "the-price-of-power-kissinger-in-the-nixon-white-house-seymour-m-hersh",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-stranger-in-the-shogun-s-city-a-japanese-woman-and-her-world-amy-stanley",
+      "slug": "stranger-in-the-shogun-s-city-a-japanese-woman-and-her-world-amy-stanley",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
       "bookId": "book-liberty-s-exiles-american-loyalists-in-the-revolutionary-world-maya-jasanoff",
       "slug": "liberty-s-exiles-american-loyalists-in-the-revolutionary-world-maya-jasanoff",
       "status": "completed",
       "validationWarnings": [
-        "central_figures_hit_schema_cap"
+        "central_figures_hit_schema_cap",
+        "central_places_hit_schema_cap"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-all-the-frequent-troubles-of-our-days-the-true-story-of-the-american-woman-at-the-heart-of-the-g",
+      "slug": "all-the-frequent-troubles-of-our-days-the-true-story-of-the-american-woman-at-the-heart-of-the-g",
+      "status": "completed",
+      "validationWarnings": [
+        "central_places_hit_schema_cap"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-from-beirut-to-jerusalem-thomas-l-friedman",
+      "slug": "from-beirut-to-jerusalem-thomas-l-friedman",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
       ],
       "review": {
         "disposition": null,
@@ -84,6 +269,19 @@
       }
     },
     {
+      "bookId": "book-richard-nixon-the-life-john-a-farrell",
+      "slug": "richard-nixon-the-life-john-a-farrell",
+      "status": "completed",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ],
+      "review": {
+        "disposition": null,
+        "correctedProfile": null,
+        "notes": ""
+      }
+    },
+    {
       "bookId": "book-empire-of-pain-the-secret-history-of-the-sackler-dynasty-patrick-radden-keefe",
       "slug": "empire-of-pain-the-secret-history-of-the-sackler-dynasty-patrick-radden-keefe",
       "status": "completed",
@@ -97,11 +295,11 @@
       }
     },
     {
-      "bookId": "book-the-line-becomes-a-river-dispatches-from-the-border-francisco-cantu",
-      "slug": "the-line-becomes-a-river-dispatches-from-the-border-francisco-cantu",
+      "bookId": "book-nothing-to-envy-ordinary-lives-in-north-korea-barbara-demick",
+      "slug": "nothing-to-envy-ordinary-lives-in-north-korea-barbara-demick",
       "status": "completed",
       "validationWarnings": [
-        "author_included_for_review: Francisco Cantú"
+        "high_confidence_from_short_summary"
       ],
       "review": {
         "disposition": null,
@@ -110,11 +308,11 @@
       }
     },
     {
-      "bookId": "book-shot-in-the-heart-mikal-gilmore",
-      "slug": "shot-in-the-heart-mikal-gilmore",
+      "bookId": "book-the-metaphysical-club-a-story-of-ideas-in-america-louis-menand",
+      "slug": "the-metaphysical-club-a-story-of-ideas-in-america-louis-menand",
       "status": "completed",
       "validationWarnings": [
-        "author_included_for_review: Mikal Gilmore"
+        "central_figures_hit_schema_cap"
       ],
       "review": {
         "disposition": null,
@@ -123,206 +321,11 @@
       }
     },
     {
-      "bookId": "book-brother-i-m-dying-edwidge-danticat",
-      "slug": "brother-i-m-dying-edwidge-danticat",
+      "bookId": "book-slave-counterpoint-black-culture-in-the-eighteenth-century-chesapeake-and-lowcountry-philip-d-mo",
+      "slug": "slave-counterpoint-black-culture-in-the-eighteenth-century-chesapeake-and-lowcountry-philip-d-mo",
       "status": "completed",
       "validationWarnings": [
-        "author_included_for_review: Edwidge Danticat"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-the-lost-a-search-for-six-of-six-million-daniel-mendelsohn",
-      "slug": "the-lost-a-search-for-six-of-six-million-daniel-mendelsohn",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Daniel Mendelsohn"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-negroland-a-memoir-margo-jefferson",
-      "slug": "negroland-a-memoir-margo-jefferson",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Margo Jefferson"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-just-kids-patti-smith",
-      "slug": "just-kids-patti-smith",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Patti Smith"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-minor-feelings-an-asian-american-reckoning-cathy-park-hong",
-      "slug": "minor-feelings-an-asian-american-reckoning-cathy-park-hong",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Cathy Park Hong"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-mother-mary-comes-to-me-arundhati-roy",
-      "slug": "mother-mary-comes-to-me-arundhati-roy",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Arundhati Roy"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-heartland-a-memoir-of-working-hard-and-being-broke-in-the-richest-country-on-earth-sarah-smarsh",
-      "slug": "heartland-a-memoir-of-working-hard-and-being-broke-in-the-richest-country-on-earth-sarah-smarsh",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Sarah Smarsh"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-the-iceberg-a-memoir-marion-coutts",
-      "slug": "the-iceberg-a-memoir-marion-coutts",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Marion Coutts"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-the-man-who-could-move-clouds-a-memoir-ingrid-rojas-contreras",
-      "slug": "the-man-who-could-move-clouds-a-memoir-ingrid-rojas-contreras",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Ingrid Rojas Contreras"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-the-yellow-house-sarah-m-broom",
-      "slug": "the-yellow-house-sarah-m-broom",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Sarah M. Broom"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-lab-girl-hope-jahren",
-      "slug": "lab-girl-hope-jahren",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Hope Jahren"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-prisoner-without-a-name-cell-without-a-number-jacobo-timerman",
-      "slug": "prisoner-without-a-name-cell-without-a-number-jacobo-timerman",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Jacobo Timerman"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-in-the-darkroom-susan-faludi",
-      "slug": "in-the-darkroom-susan-faludi",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Susan Faludi"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-under-my-skin-volume-one-of-my-autobiography-to-1949-doris-lessing",
-      "slug": "under-my-skin-volume-one-of-my-autobiography-to-1949-doris-lessing",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Doris Lessing"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-heavy-an-american-memoir-kiese-laymon",
-      "slug": "heavy-an-american-memoir-kiese-laymon",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Kiese Laymon"
-      ],
-      "review": {
-        "disposition": null,
-        "correctedProfile": null,
-        "notes": ""
-      }
-    },
-    {
-      "bookId": "book-the-year-of-magical-thinking-joan-didion",
-      "slug": "the-year-of-magical-thinking-joan-didion",
-      "status": "completed",
-      "validationWarnings": [
-        "author_included_for_review: Joan Didion"
+        "central_places_hit_schema_cap"
       ],
       "review": {
         "disposition": null,

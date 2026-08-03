@@ -1,6 +1,1584 @@
 {
-  "generatedAt": "2026-07-30T05:39:49.145Z",
-  "count": 0,
+  "generatedAt": "2026-08-02T23:01:18.311Z",
+  "count": 65,
   "note": "Raw catalog publisher strings found during enrichment but not promoted because they are missing from sources/imprint-normalization.json.",
-  "review": []
+  "review": [
+    {
+      "rawPublisher": "Black Inc.",
+      "bookCount": 9,
+      "sampleBooks": [
+        {
+          "bookId": "book-black-lives-white-law-locked-up-and-locked-out-in-australia-russell-marks",
+          "title": "Black Lives, White Law: Locked up and locked out in Australia",
+          "author": "Russell Marks",
+          "status": "enriched",
+          "matchTitle": "Black Lives, White Law",
+          "matchAuthor": "Russell Marks",
+          "matchScore": 0.58
+        },
+        {
+          "bookId": "book-our-man-elsewhere-in-search-of-alan-moorehead-thornton-mccamish",
+          "title": "Our Man Elsewhere: In Search of Alan Moorehead",
+          "author": "Thornton McCamish",
+          "status": "enriched",
+          "matchTitle": "Our Man Elsewhere",
+          "matchAuthor": "Thornton McCamish",
+          "matchScore": 0.563
+        },
+        {
+          "bookId": "book-see-what-you-made-me-do-jess-hill",
+          "title": "See What You Made Me Do",
+          "author": "Jess Hill",
+          "status": "enriched",
+          "matchTitle": "See What You Made Me Do",
+          "matchAuthor": "Jess Hill",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-sludge-disaster-on-victoria-s-goldfields-susan-lawrence-and-peter-davies",
+          "title": "Sludge: Disaster on Victoria's Goldfields",
+          "author": "Susan Lawrence Peter Davies",
+          "status": "enriched",
+          "matchTitle": "Sludge",
+          "matchAuthor": "Peter Davies Susan Lawrence",
+          "matchScore": 0.44
+        },
+        {
+          "bookId": "book-the-art-of-time-travel-historians-and-their-craft-tom-griffiths",
+          "title": "The Art of Time Travel: Historians and their Craft",
+          "author": "Tom Griffiths",
+          "status": "enriched",
+          "matchTitle": "The Art of Time Travel",
+          "matchAuthor": "Tom Griffiths",
+          "matchScore": 0.689
+        },
+        {
+          "bookId": "book-van-diemen-s-land-james-boyce",
+          "title": "Van Diemen's Land",
+          "author": "James Boyce",
+          "status": "enriched",
+          "matchTitle": "Van Diemen's Land",
+          "matchAuthor": "James Boyce",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-white-russians-red-peril-a-cold-war-history-of-migration-to-australia-sheila-fitzpatrick",
+          "title": "White Russians, Red Peril: A Cold War History of Migration to Australia",
+          "author": "Sheila Fitzpatrick",
+          "status": "enriched",
+          "matchTitle": "White Russians, Red Peril: a Cold War History of Migration to Australia",
+          "matchAuthor": "Sheila Fitzpatrick",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-deep-time-dreaming-uncovering-ancient-australia-billy-griffiths",
+          "title": "Deep Time Dreaming: Uncovering Ancient Australia",
+          "author": "Billy Griffiths",
+          "status": "enriched",
+          "matchTitle": "Deep Time Dreaming",
+          "matchAuthor": "Billy Griffiths",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Jonathan Ball Publishers",
+      "bookCount": 8,
+      "sampleBooks": [
+        {
+          "bookId": "book-no-longer-whispering-to-power-the-story-of-thuli-madonsela-thandeka-gqubule",
+          "title": "No Longer Whispering to Power: The Story of Thuli Madonsela",
+          "author": "Thandeka Gqubule",
+          "status": "enriched",
+          "matchTitle": "No Longer Whispering to Power",
+          "matchAuthor": "Thandeka Gqubule",
+          "matchScore": 0.65
+        },
+        {
+          "bookId": "book-showdown-at-the-red-lion-charles-van-onselen",
+          "title": "Showdown at the Red Lion",
+          "author": "Charles van Onselen",
+          "status": "enriched",
+          "matchTitle": "Showdown at the Red Lion",
+          "matchAuthor": "Charles Van Onselen",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-dirty-work-of-democracy-a-year-on-the-streets-with-the-saps-antony-altbeker",
+          "title": "The Dirty Work of Democracy: A Year on the Streets with the Saps",
+          "author": "Antony Altbeker",
+          "status": "enriched",
+          "matchTitle": "The Dirty Work of Democracy",
+          "matchAuthor": "Antony Altbeker",
+          "matchScore": 0.65
+        },
+        {
+          "bookId": "book-the-race-to-be-myself-caster-semenya",
+          "title": "The Race To Be Myself",
+          "author": "Caster Semenya",
+          "status": "enriched",
+          "matchTitle": "The Race to be Myself",
+          "matchAuthor": "Caster Semenya",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-shadow-world-inside-the-global-arms-trade-andrew-feinstein",
+          "title": "The Shadow World: Inside the Global Arms Trade",
+          "author": "Andrew Feinstein",
+          "status": "enriched",
+          "matchTitle": "The shadow world",
+          "matchAuthor": "Andrew Feinstein Andrew Feinstein",
+          "matchScore": 0.6
+        },
+        {
+          "bookId": "book-unforgiven-face-to-face-with-my-father-s-killer-liz-mcgregor",
+          "title": "Unforgiven: Face to Face with My Father’s Killer",
+          "author": "Liz McGregor",
+          "status": "enriched",
+          "matchTitle": "Unforgiven",
+          "matchAuthor": "Liz McGregor",
+          "matchScore": 0.4
+        },
+        {
+          "bookId": "book-diepsloot-anton-harber",
+          "title": "Diepsloot",
+          "author": "Anton Harber",
+          "status": "enriched",
+          "matchTitle": "Diepsloot",
+          "matchAuthor": "Anton Harber",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-little-liberia-an-african-odyssey-in-new-york-jonny-steinberg",
+          "title": "Little Liberia: An African Odyssey in New York",
+          "author": "Jonny Steinberg",
+          "status": "enriched",
+          "matchTitle": "Little Liberia: an African odyssey in New York City",
+          "matchAuthor": "Jonny Steinberg",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Allen & Unwin",
+      "bookCount": 7,
+      "sampleBooks": [
+        {
+          "bookId": "book-a-kind-of-confession-alex-miller",
+          "title": "A Kind of Confession",
+          "author": "Alex Miller",
+          "status": "enriched",
+          "matchTitle": "A Kind of Confession",
+          "matchAuthor": "Alex Miller",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-bee-miles-rose-ellis",
+          "title": "Bee Miles",
+          "author": "Rose Ellis",
+          "status": "enriched",
+          "matchTitle": "Bee Miles",
+          "matchAuthor": "Rose Ellis",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-descent-into-hell-peter-brune",
+          "title": "Descent into Hell",
+          "author": "Peter Brune",
+          "status": "enriched",
+          "matchTitle": "Descent into Hell",
+          "matchAuthor": "Peter Brune",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-convict-valley-the-bloody-struggle-on-australia-s-early-frontier-mark-dunn",
+          "title": "The Convict Valley: The Bloody Struggle on Australia's Early Frontier",
+          "author": "Mark Dunn",
+          "status": "enriched",
+          "matchTitle": "The Convict Valley",
+          "matchAuthor": "Mark Dunn",
+          "matchScore": 0.533
+        },
+        {
+          "bookId": "book-uncommon-soldier-chris-masters",
+          "title": "Uncommon Soldier",
+          "author": "Chris Masters",
+          "status": "enriched",
+          "matchTitle": "Uncommon Soldier",
+          "matchAuthor": "Chris Masters",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-truganini-journey-through-the-apocalypse-cassandra-pybus",
+          "title": "Truganini: Journey Through the Apocalypse",
+          "author": "Cassandra Pybus",
+          "status": "enriched",
+          "matchTitle": "Truganini",
+          "matchAuthor": "Cassandra Pybus",
+          "matchScore": 0.44
+        },
+        {
+          "bookId": "book-a-certain-light-a-memoir-of-family-loss-and-hope-cynthia-banham",
+          "title": "A Certain Light: A Memoir of Family, Loss and Hope",
+          "author": "Cynthia Banham",
+          "status": "enriched",
+          "matchTitle": "A Certain Light",
+          "matchAuthor": "Cynthia Banham",
+          "matchScore": 0.475
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin Group Australia",
+      "bookCount": 7,
+      "sampleBooks": [
+        {
+          "bookId": "book-puff-piece-john-safran",
+          "title": "Puff Piece",
+          "author": "John Safran",
+          "status": "enriched",
+          "matchTitle": "Puff Piece",
+          "matchAuthor": "John Safran",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-enchantment-of-the-long-haired-rat-tim-bonyhady",
+          "title": "The Enchantment of the Long-haired Rat",
+          "author": "Tim Bonyhady",
+          "status": "enriched",
+          "matchTitle": "The Enchantment of the Long-haired Rat",
+          "matchAuthor": "Tim Bonyhady",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-enigmatic-mr-deakin-judith-brett",
+          "title": "The Enigmatic Mr Deakin",
+          "author": "Judith Brett",
+          "status": "enriched",
+          "matchTitle": "The Enigmatic Mr Deakin",
+          "matchAuthor": "Judith Brett",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-forgotten-rebels-of-eureka-clare-wright",
+          "title": "The Forgotten Rebels of Eureka",
+          "author": "Clare Wright",
+          "status": "enriched",
+          "matchTitle": "The Forgotten Rebels of Eureka",
+          "matchAuthor": "Clare Wright",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-a-short-history-of-christianity-geoffrey-blainey",
+          "title": "A Short History of Christianity",
+          "author": "Geoffrey Blainey",
+          "status": "enriched",
+          "matchTitle": "A Short History of Christianity",
+          "matchAuthor": "Geoffrey Blainey",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-bradman-s-war-malcolm-knox",
+          "title": "Bradman's War",
+          "author": "Malcolm Knox",
+          "status": "enriched",
+          "matchTitle": "Bradman's War",
+          "matchAuthor": "Malcolm Knox",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-how-to-make-gravy-paul-kelly",
+          "title": "How To Make Gravy",
+          "author": "Paul Kelly",
+          "status": "enriched",
+          "matchTitle": "How to Make Gravy",
+          "matchAuthor": "Paul Kelly",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin Random House South Africa",
+      "bookCount": 7,
+      "sampleBooks": [
+        {
+          "bookId": "book-odyssey-to-freedom-george-bizos",
+          "title": "Odyssey to Freedom",
+          "author": "George Bizos",
+          "status": "enriched",
+          "matchTitle": "Odyssey to Freedom",
+          "matchAuthor": "George Bizos",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-rat-roads-one-man-s-incredible-journey-jacques-pauw",
+          "title": "Rat Roads: One Man’s Incredible Journey",
+          "author": "Jacques Pauw",
+          "status": "enriched",
+          "matchTitle": "Rat Roads",
+          "matchAuthor": "Jacques Pauw",
+          "matchScore": 0.533
+        },
+        {
+          "bookId": "book-street-blues-the-experiences-of-a-reluctant-policeman-andrew-brown",
+          "title": "Street Blues: The Experiences of a Reluctant Policeman",
+          "author": "Andrew Brown",
+          "status": "enriched",
+          "matchTitle": "Street Blues",
+          "matchAuthor": "Andrew Brown",
+          "matchScore": 0.5
+        },
+        {
+          "bookId": "book-touch-my-blood-fred-khumalo",
+          "title": "Touch My Blood",
+          "author": "Fred Khumalo",
+          "status": "enriched",
+          "matchTitle": "Touch my Blood",
+          "matchAuthor": "Fred Khumalo",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-begging-to-be-black-antjie-krog",
+          "title": "Begging to be Black",
+          "author": "Antjie Krog",
+          "status": "enriched",
+          "matchTitle": "Begging to be Black",
+          "matchAuthor": "Antjie Krog",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-land-matters-south-africa-s-failed-land-reforms-and-the-road-ahead-tembeka-ngcukaitobi",
+          "title": "Land Matters: South Africa's Failed Land Reforms and the Road Ahead",
+          "author": "Tembeka Ngcukaitobi",
+          "status": "enriched",
+          "matchTitle": "Land Matters",
+          "matchAuthor": "Tembeka Ngcukaitobi",
+          "matchScore": 0.44
+        },
+        {
+          "bookId": "book-letters-of-stone-from-nazi-germany-to-south-africa-steven-robins",
+          "title": "Letters of Stone: From Nazi Germany to South Africa",
+          "author": "Steven Robins",
+          "status": "enriched",
+          "matchTitle": "Letters of Stone",
+          "matchAuthor": "Steven L. Robins",
+          "matchScore": 0.533
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Atlas Contact",
+      "bookCount": 6,
+      "sampleBooks": [
+        {
+          "bookId": "book-de-rechtvaardigen-jan-brokken",
+          "title": "De rechtvaardigen",
+          "author": "Jan Brokken",
+          "status": "enriched",
+          "matchTitle": "De rechtvaardigen",
+          "matchAuthor": "Jan Brokken",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-de-schaduw-van-de-grote-broer-laura-starink",
+          "title": "De schaduw van de grote broer",
+          "author": "Laura Starink",
+          "status": "enriched",
+          "matchTitle": "De schaduw van de grote broer",
+          "matchAuthor": "Laura Starink",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-de-vergeten-bankencrisis-lodewijk-petram",
+          "title": "De vergeten bankencrisis",
+          "author": "Lodewijk Petram",
+          "status": "enriched",
+          "matchTitle": "De vergeten bankencrisis",
+          "matchAuthor": "Lodewijk Petram",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-het-monsterschip-luc-panhuysen",
+          "title": "Het monsterschip",
+          "author": "Luc Panhuysen",
+          "status": "enriched",
+          "matchTitle": "Het monsterschip",
+          "matchAuthor": "Luc Panhuysen",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-de-vergelding-een-dorp-in-tijden-van-oorlog-jan-brokken",
+          "title": "De vergelding. Een dorp in tijden van oorlog",
+          "author": "Jan Brokken",
+          "status": "enriched",
+          "matchTitle": "De vergelding. Een dorp in tijden van oorlog",
+          "matchAuthor": "Jan Brokken",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-eens-ging-de-zee-hier-tekeer-het-verhaal-van-de-zuiderzee-en-haar-kustbewoners-eva-vriend",
+          "title": "Eens ging de zee hier tekeer. Het verhaal van de Zuiderzee en haar kustbewoners",
+          "author": "Eva Vriend",
+          "status": "enriched",
+          "matchTitle": "Eens ging de zee hier tekeer",
+          "matchAuthor": "Eva Vriend",
+          "matchScore": 0.623
+        }
+      ]
+    },
+    {
+      "rawPublisher": "NewSouth",
+      "bookCount": 5,
+      "sampleBooks": [
+        {
+          "bookId": "book-elizabeth-and-john-the-macarthurs-of-elizabeth-farm-alan-atkinson",
+          "title": "Elizabeth and John: The Macarthurs of Elizabeth Farm",
+          "author": "Alan Atkinson",
+          "status": "enriched",
+          "matchTitle": "Elizabeth and John",
+          "matchAuthor": "Alan Atkinson",
+          "matchScore": 0.6
+        },
+        {
+          "bookId": "book-evatt-a-life-john-murphy",
+          "title": "Evatt: A Life",
+          "author": "John Murphy",
+          "status": "enriched",
+          "matchTitle": "Evatt",
+          "matchAuthor": "John Murphy",
+          "matchScore": 0.65
+        },
+        {
+          "bookId": "book-pathfinders-a-history-of-aboriginal-trackers-in-nsw-michael-bennett",
+          "title": "Pathfinders: A history of Aboriginal trackers in NSW",
+          "author": "Michael Bennett",
+          "status": "enriched",
+          "matchTitle": "Pathfinders",
+          "matchAuthor": "Michael Bennett",
+          "matchScore": 0.4
+        },
+        {
+          "bookId": "book-sydney-delia-falconer",
+          "title": "Sydney",
+          "author": "Delia Falconer",
+          "status": "enriched",
+          "matchTitle": "Sydney",
+          "matchAuthor": "American Map Corporation",
+          "matchScore": 0.7
+        },
+        {
+          "bookId": "book-menzies-at-war-anne-henderson",
+          "title": "Menzies at War",
+          "author": "Anne Henderson",
+          "status": "enriched",
+          "matchTitle": "Menzies at War",
+          "matchAuthor": "Anne Henderson",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Random House Australia",
+      "bookCount": 5,
+      "sampleBooks": [
+        {
+          "bookId": "book-cactus-pear-for-my-beloved-samah-sabawi",
+          "title": "Cactus Pear for My Beloved",
+          "author": "Samah Sabawi",
+          "status": "enriched",
+          "matchTitle": "Cactus Pear for My Beloved",
+          "matchAuthor": "Samah Sabawi",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-first-victory-1914-mike-carlton",
+          "title": "First Victory 1914",
+          "author": "Mike Carlton",
+          "status": "enriched",
+          "matchTitle": "First Victory",
+          "matchAuthor": "Mike Carlton",
+          "matchScore": 0.767
+        },
+        {
+          "bookId": "book-sandakan-paul-ham",
+          "title": "Sandakan",
+          "author": "Paul Ham",
+          "status": "enriched",
+          "matchTitle": "Sandakan",
+          "matchAuthor": "Paul Ham",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-second-half-first-drusilla-modjeska",
+          "title": "Second Half First",
+          "author": "Drusilla Modjeska",
+          "status": "enriched",
+          "matchTitle": "Second Half First",
+          "matchAuthor": "Drusilla Modjeska",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-unbreakable-jelena-dokic-and-jessica-halloran",
+          "title": "Unbreakable",
+          "author": "Jelena Dokic Jessica Halloran",
+          "status": "enriched",
+          "matchTitle": "Яблоки не падают никогда",
+          "matchAuthor": "Лиана Мориарти",
+          "matchScore": 0
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Pan Macmillan South Africa",
+      "bookCount": 4,
+      "sampleBooks": [
+        {
+          "bookId": "book-killing-kebble-mandy-wiener",
+          "title": "Killing Kebble",
+          "author": "Mandy Wiener",
+          "status": "enriched",
+          "matchTitle": "Killing Kebble",
+          "matchAuthor": "Mandy Wiener",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-my-own-liberator-a-memoir-dikgang-moseneke",
+          "title": "My Own Liberator: A Memoir",
+          "author": "Dikgang Moseneke",
+          "status": "enriched",
+          "matchTitle": "My Own Liberator",
+          "matchAuthor": "Dikgang Moseneke",
+          "matchScore": 0.825
+        },
+        {
+          "bookId": "book-the-blinded-city-ten-years-in-inner-city-johannesburg-matthew-wilhelm-solomon",
+          "title": "The Blinded City: Ten Years in Inner-City Johannesburg",
+          "author": "Matthew Wilhelm-Solomon",
+          "status": "enriched",
+          "matchTitle": "The Blinded City",
+          "matchAuthor": "Matthew Wilhelm-Solomon",
+          "matchScore": 0.563
+        },
+        {
+          "bookId": "book-to-quote-myself-a-memoir-khaya-dlanga",
+          "title": "To Quote Myself: A Memoir",
+          "author": "Khaya Dlanga",
+          "status": "enriched",
+          "matchTitle": "To Quote Myself",
+          "matchAuthor": "Khaya Dlanga",
+          "matchScore": 0.825
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Tafelberg Publishers, Limited",
+      "bookCount": 4,
+      "sampleBooks": [
+        {
+          "bookId": "book-df-malan-and-the-rise-of-afrikaner-nationalism-lindie-koorts",
+          "title": "DF Malan and the Rise of Afrikaner Nationalism",
+          "author": "Lindie Koorts",
+          "status": "enriched",
+          "matchTitle": "DF Malan and the Rise of Afrikaner Nationalism",
+          "matchAuthor": "Lindie Koorts",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-war-for-south-africa-the-anglo-boer-war-1899-1902-bill-nasson",
+          "title": "The War for South Africa: The Anglo-Boer War: 1899-1902",
+          "author": "Bill Nasson",
+          "status": "enriched",
+          "matchTitle": "South African War, 1899-1902",
+          "matchScore": 0.311
+        },
+        {
+          "bookId": "book-biko-a-biography-xolela-mangcu",
+          "title": "Biko: A Biography",
+          "author": "Xolela Mangcu",
+          "status": "enriched",
+          "matchTitle": "Biko",
+          "matchAuthor": "Xolela Mangcu",
+          "matchScore": 0.65
+        },
+        {
+          "bookId": "book-dirty-tobacco-spies-lies-and-mega-profits-telita-snyckers",
+          "title": "Dirty Tobacco: Spies, Lies and Mega-Profits",
+          "author": "Telita Snyckers",
+          "status": "enriched",
+          "matchTitle": "Dirty Tobacco: Spies, Lies and Mega-Profits",
+          "matchAuthor": "Telita Snyckers",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "HarperCollins Australia",
+      "bookCount": 3,
+      "sampleBooks": [
+        {
+          "bookId": "book-strange-places-a-memoir-of-mental-illness-will-elliott",
+          "title": "Strange Places: A Memoir of Mental Illness",
+          "author": "Will Elliott",
+          "status": "enriched",
+          "matchTitle": "Strange Places",
+          "matchAuthor": "Will Elliott",
+          "matchScore": 0.533
+        },
+        {
+          "bookId": "book-the-altar-boys-suzanne-smith",
+          "title": "The Altar Boys",
+          "author": "Suzanne Smith",
+          "status": "enriched",
+          "matchTitle": "The Altar Boys",
+          "matchAuthor": "Suzanne Smith",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-lucky-culture-nick-cater",
+          "title": "The Lucky Culture",
+          "author": "Nick Cater",
+          "status": "enriched",
+          "matchTitle": "The Lucky Culture",
+          "matchAuthor": "Nick Cater",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "ReadHowYouWant",
+      "bookCount": 3,
+      "sampleBooks": [
+        {
+          "bookId": "book-hidden-in-plain-view-the-aboriginal-people-of-coastal-sydney-paul-irish",
+          "title": "Hidden in Plain View: The Aboriginal People of Coastal Sydney",
+          "author": "Paul Irish",
+          "status": "enriched",
+          "matchTitle": "Hidden in Plain View",
+          "matchAuthor": "Paul Irish",
+          "matchScore": 0.58
+        },
+        {
+          "bookId": "book-the-sex-lives-of-australians-a-history-frank-bongiorno",
+          "title": "The Sex Lives of Australians: A History",
+          "author": "Frank Bongiorno",
+          "status": "enriched",
+          "matchTitle": "The Sex Lives of Australians",
+          "matchAuthor": "Frank Bongiorno",
+          "matchScore": 0.883
+        },
+        {
+          "bookId": "book-thea-astley-inventing-her-own-weather-karen-lamb",
+          "title": "Thea Astley: Inventing her own Weather",
+          "author": "Karen Lamb",
+          "status": "enriched",
+          "matchTitle": "Thea Astley: Inventing Her Own Weather (Large Print 16pt)",
+          "matchAuthor": "Karen Lamb",
+          "matchScore": 0.767
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Apollo Books",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-dancing-in-shadows-histories-of-nyungar-performance-anna-haebich",
+          "title": "Dancing in Shadows: Histories of Nyungar Performance",
+          "author": "Anna Haebich",
+          "status": "enriched",
+          "matchTitle": "Dancing in Shadows",
+          "matchAuthor": "Anna Haebich",
+          "matchScore": 0.6
+        },
+        {
+          "bookId": "book-mick-a-life-of-randolph-stow-suzanne-falkiner",
+          "title": "Mick: A Life of Randolph Stow",
+          "author": "Suzanne Falkiner",
+          "status": "enriched",
+          "matchTitle": "Mick",
+          "matchAuthor": "Suzanne Falkiner",
+          "matchScore": 0.44
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Ball Publishers, Jonathan",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-under-nelson-mandela-boulevard-life-among-the-stowaways-sean-christie",
+          "title": "Under Nelson Mandela Boulevard: Life Among the Stowaways",
+          "author": "Sean Christie",
+          "status": "enriched",
+          "matchTitle": "Under Nelson Mandela Boulevard: Life Among the Stowaways",
+          "matchAuthor": "Sean Christie",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-always-another-country-a-memoir-of-exile-and-home-sisonke-msimang",
+          "title": "Always Another Country: A Memoir of Exile and Home",
+          "author": "Sisonke Msimang",
+          "status": "enriched",
+          "matchTitle": "Always Another Country",
+          "matchAuthor": "Sisonke Msimang",
+          "matchScore": 0.563
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Jacana",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-j-m-coetzee-and-the-life-of-writing-david-attwell",
+          "title": "J.M. Coetzee and the Life of Writing",
+          "author": "David Attwell",
+          "status": "enriched",
+          "matchTitle": "J.M. Coetzee and the Life of Writing",
+          "matchAuthor": "David Attwell",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-white-scars-denis-hirson",
+          "title": "White Scars",
+          "author": "Denis Hirson",
+          "status": "enriched",
+          "matchTitle": "White Scars",
+          "matchAuthor": "Denis Hirson",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Jacana Media",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-my-father-my-monster-mcintosh-polela",
+          "title": "My Father, My Monster",
+          "author": "McIntosh Polela",
+          "status": "enriched",
+          "matchTitle": "My Father, My Monster",
+          "matchAuthor": "McIntosh Polela",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-imprisoned-the-experience-of-a-prisoner-under-apartheid-sylvia-neame",
+          "title": "Imprisoned: The Experience of a Prisoner Under Apartheid",
+          "author": "Sylvia Neame",
+          "status": "enriched",
+          "matchTitle": "Imprisoned: The Experience of a Prisoner under Apartheid",
+          "matchAuthor": "Sylvia Neame",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Macmillan + ORM",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-shirley-hazzard-a-writing-life-brigitta-olubas",
+          "title": "Shirley Hazzard: A writing life",
+          "author": "Brigitta Olubas",
+          "status": "enriched",
+          "matchTitle": "Shirley Hazzard: A Writing Life",
+          "matchAuthor": "Brigitta Olubas",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-the-pink-line-journeys-across-the-world-s-queer-frontiers-mark-gevisser",
+          "title": "The Pink Line: Journeys Across the World’s Queer Frontiers",
+          "author": "Mark Gevisser",
+          "status": "enriched",
+          "matchTitle": "The Pink Line",
+          "matchAuthor": "Mark Gevisser",
+          "matchScore": 0.563
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Melbourne Univ. Publishing",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-harlem-nights-the-secret-history-of-australia-s-jazz-age-deirdre-o-connell",
+          "title": "Harlem Nights: The Secret History of Australia's Jazz Age",
+          "author": "Deirdre O'Connell",
+          "status": "enriched",
+          "matchTitle": "Harlem Nights",
+          "matchAuthor": "Deirdre O'Connell",
+          "matchScore": 0.456
+        },
+        {
+          "bookId": "book-private-bill-barrie-cassidy",
+          "title": "Private Bill",
+          "author": "Barrie Cassidy",
+          "status": "enriched",
+          "matchTitle": "Private Bill",
+          "matchAuthor": "Barrie Cassidy",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Picador Africa",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-fighting-for-justice-jay-naidoo",
+          "title": "Fighting for Justice",
+          "author": "Jay Naidoo",
+          "status": "enriched",
+          "matchTitle": "Fighting for Justice",
+          "matchAuthor": "Jay Naidoo",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-manifesto-a-new-vision-for-south-africa-songezo-zibi",
+          "title": "Manifesto: A New Vision for South Africa",
+          "author": "Songezo Zibi",
+          "status": "enriched",
+          "matchTitle": "Manifesto: a new vision for South Africa",
+          "matchAuthor": "Songezo Zibi",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "ReadHowYouWant.com",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-ghost-at-the-wedding-shirley-walker",
+          "title": "The Ghost at the Wedding",
+          "author": "Shirley Walker",
+          "status": "enriched",
+          "matchTitle": "The Ghost at the Wedding",
+          "matchAuthor": "Shirley Walker",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-1835-the-founding-of-melbourne-and-the-conquest-of-australia-james-boyce",
+          "title": "1835: The Founding of Melbourne and the Conquest of Australia",
+          "author": "James Boyce",
+          "status": "enriched",
+          "matchTitle": "1835: The Founding of Melbourne and the Conquest of Australia",
+          "matchAuthor": "James Boyce",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Singel Uitgeverijen",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-de-amerikaanse-prinses-annejet-van-der-zijl",
+          "title": "De Amerikaanse prinses",
+          "author": "Annejet van der Zijl",
+          "status": "enriched",
+          "matchTitle": "De Amerikaanse prinses",
+          "matchAuthor": "Annejet van der Zijl",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-gerard-heineken-annejet-van-der-zijl",
+          "title": "Gerard Heineken",
+          "author": "Annejet van der Zijl",
+          "status": "enriched",
+          "matchTitle": "Gerard Heineken",
+          "matchAuthor": "Annejet van der Zijl",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Uitgeverij Balans",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-de-chinezenmoord-batavia-en-het-bloedbad-van-1740-leonard-blusse",
+          "title": "De Chinezenmoord: Batavia en het bloedbad van 1740",
+          "author": "Leonard Blussé",
+          "status": "enriched",
+          "matchTitle": "De Chinezenmoord",
+          "matchAuthor": "Leonard Blussé",
+          "matchScore": 0.475
+        },
+        {
+          "bookId": "book-juliana-and-bernhard-cees-fasseur",
+          "title": "Juliana & Bernhard",
+          "author": "Cees Fasseur",
+          "status": "enriched",
+          "matchTitle": "Juliana en Bernhard",
+          "matchAuthor": "Cees Fasseur",
+          "matchScore": 0.767
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Univ. of Queensland Press",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-another-day-in-the-colony-chelsea-watego",
+          "title": "Another Day in the Colony",
+          "author": "Chelsea Watego",
+          "status": "enriched",
+          "matchTitle": "Another Day in the Colony",
+          "matchAuthor": "Chelsea Watego",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-breaking-the-sheep-s-back-charles-massy",
+          "title": "Breaking the Sheep's Back",
+          "author": "Charles Massy",
+          "status": "enriched",
+          "matchTitle": "Breaking the Sheep's Back",
+          "matchAuthor": "Charles Massy",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Wakefield Press",
+      "bookCount": 2,
+      "sampleBooks": [
+        {
+          "bookId": "book-bold-palates-barbara-santich",
+          "title": "Bold Palates",
+          "author": "Barbara Santich",
+          "status": "enriched",
+          "matchTitle": "Bold Palates",
+          "matchAuthor": "Barbara Santich",
+          "matchScore": 1
+        },
+        {
+          "bookId": "book-plein-airs-and-graces-adrian-mitchell",
+          "title": "Plein Airs and Graces",
+          "author": "Adrian Mitchell",
+          "status": "enriched",
+          "matchTitle": "Plein Airs and Graces",
+          "matchAuthor": "Adrian Mitchell",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Aboriginal Studies Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-indifferent-inclusion-aboriginal-people-and-the-australian-nation-russell-mcgregor",
+          "title": "Indifferent Inclusion: Aboriginal people and the Australian Nation",
+          "author": "Russell McGregor",
+          "status": "enriched",
+          "matchTitle": "Indifferent Inclusion",
+          "matchAuthor": "Russell McGregor",
+          "matchScore": 0.475
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Affirm Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-a-clear-flowing-yarra-harry-saddler",
+          "title": "A Clear Flowing Yarra",
+          "author": "Harry Saddler",
+          "status": "enriched",
+          "matchTitle": "A Clear Flowing Yarra",
+          "matchAuthor": "Harry Saddler",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Aschehoug",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-noreg-nils-rune-langeland",
+          "title": "Noreg",
+          "author": "Nils Rune Langeland",
+          "status": "enriched",
+          "matchTitle": "Noreg",
+          "matchAuthor": "Nils Rune Langeland",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Atlas",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-joke-smit-marja-vuijsje",
+          "title": "Joke Smit",
+          "author": "Marja Vuijsje",
+          "status": "enriched",
+          "matchTitle": "Joke Smit",
+          "matchAuthor": "Marja Vuijsje",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Atlas Contact, Uitgeverij",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-gouden-jaren-annegreet-van-bergen",
+          "title": "Gouden jaren",
+          "author": "Annegreet van Bergen",
+          "status": "enriched",
+          "matchTitle": "Gouden jaren",
+          "matchAuthor": "Annegreet van Bergen",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Australian Scholarly Publishing Pty, Limited",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-a-passion-for-exploring-new-countries-matthew-flinders-and-george-bass-josephine-bastian",
+          "title": "A Passion for Exploring New Countries' Matthew Flinders and George Bass",
+          "author": "Josephine Bastian",
+          "status": "enriched",
+          "matchTitle": "\"A Passion for Exploring New Countries\"",
+          "matchAuthor": "Josephine M. Bastian",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Balans, Uitgeverij",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-het-pauperparadijs-een-familiegeschiedenis-suzanna-jansen",
+          "title": "Het pauperparadijs. Een familiegeschiedenis",
+          "author": "Suzanna Jansen",
+          "status": "enriched",
+          "matchTitle": "Het pauperparadijs",
+          "matchAuthor": "Suzanna Jansen",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Bert Bakker (imprint van Prometheus)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-de-avant-gardisten-sjeng-scheijen",
+          "title": "De avant-gardisten",
+          "author": "Sjeng Scheijen",
+          "status": "enriched",
+          "matchTitle": "De avant-gardisten",
+          "matchAuthor": "Sjeng Scheijen",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Bezige Bij b.v., Uitgeverij De",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-de-eeuw-van-gisele-annet-mooij",
+          "title": "De eeuw van Gisèle",
+          "author": "Annet Mooij",
+          "status": "enriched",
+          "matchTitle": "De eeuw van Gisèle",
+          "matchAuthor": "Annet Mooij",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Bezige Bij, De",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-de-bourgondiers-bart-van-loo",
+          "title": "De Bourgondiërs",
+          "author": "Bart Van Loo",
+          "status": "enriched",
+          "matchTitle": "De Bourgondiërs. Aartsvaders van de Lage Landen",
+          "matchAuthor": "Bart Van Loo",
+          "matchScore": 0.6
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Connor Court Publishing Pty Ltd",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-ned-kelly-a-lawless-life-doug-morrissey",
+          "title": "Ned Kelly: A Lawless Life",
+          "author": "Doug Morrissey",
+          "status": "enriched",
+          "matchTitle": "Ned Kelly",
+          "matchAuthor": "Doug Morrissey",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "David Philip",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-honour-to-serve-recollections-of-an-umkhonto-soldier-james-ngculu",
+          "title": "The Honour to Serve: Recollections of an Umkhonto Soldier",
+          "author": "James Ngculu",
+          "status": "enriched",
+          "matchTitle": "The honour to serve",
+          "matchAuthor": "James Ngculu",
+          "matchScore": 0.611
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Double Storey Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-suitcase-stories-glynis-clacherty",
+          "title": "The Suitcase Stories",
+          "author": "Glynis Clacherty",
+          "status": "enriched",
+          "matchTitle": "The Suitcase Stories",
+          "matchAuthor": "Glynis Clacherty",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Footnote Press Ltd",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-we-come-with-this-place-debra-dank",
+          "title": "We Come With This Place",
+          "author": "Debra Dank",
+          "status": "enriched",
+          "matchTitle": "We Come with This Place",
+          "matchAuthor": "Debra Dank",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Hardie Grant Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-arthur-phillip-sailor-mercenary-governor-spy-michael-pembroke",
+          "title": "Arthur Phillip: Sailor, Mercenary, Governor, Spy",
+          "author": "Michael Pembroke",
+          "status": "enriched",
+          "matchTitle": "Arthur Phillip",
+          "matchAuthor": "Michael Pembroke",
+          "matchScore": 0.533
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Hardie Grant Publishing",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-oarsmen-the-remarkable-story-of-the-men-who-rowed-from-the-great-war-to-peace-scott-patterso",
+          "title": "The Oarsmen: The Remarkable Story of the Men Who Rowed from the Great War to Peace",
+          "author": "Scott Patterson",
+          "status": "enriched",
+          "matchTitle": "The Oarsmen",
+          "matchAuthor": "Scott Patterson",
+          "matchScore": 0.408
+        }
+      ]
+    },
+    {
+      "rawPublisher": "ISBS",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-doing-life-a-biography-of-elizabeth-jolley-brian-dibble",
+          "title": "Doing Life: A Biography of Elizabeth Jolley",
+          "author": "Brian Dibble",
+          "status": "enriched",
+          "matchTitle": "Doing Life",
+          "matchAuthor": "Brian Dibble",
+          "matchScore": 0.533
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Kwela Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-colour-me-yellow-searching-for-my-family-truth-thuli-nhlapo",
+          "title": "Colour Me Yellow: Searching for My Family Truth",
+          "author": "Thuli Nhlapo",
+          "status": "enriched",
+          "matchTitle": "Colour Me Yellow",
+          "matchAuthor": "Thuli Nhlapo",
+          "matchScore": 0.563
+        }
+      ]
+    },
+    {
+      "rawPublisher": "La Trobe University Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-courting-an-intimate-history-of-love-and-the-law-alecia-simmonds",
+          "title": "Courting: An Intimate History of Love and the Law",
+          "author": "Alecia Simmonds",
+          "status": "enriched",
+          "matchTitle": "Courting",
+          "matchAuthor": "Alecia Simmonds",
+          "matchScore": 0.378
+        }
+      ]
+    },
+    {
+      "rawPublisher": "NewSouth Books",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-australia-in-100-words-amanda-laugesen",
+          "title": "Australia in 100 Words",
+          "author": "Amanda Laugesen",
+          "status": "enriched",
+          "matchTitle": "Australia in 100 Words",
+          "matchAuthor": "Amanda Laugesen",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Overamstel Uitgevers",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-bernhard-een-verborgen-geschiedenis-annejet-van-der-zijl",
+          "title": "Bernhard. Een verborgen geschiedenis",
+          "author": "Annejet van der Zijl",
+          "status": "enriched",
+          "matchTitle": "Bernhard - Een verborgen geschiedenis",
+          "matchAuthor": "Annejet Van Der Zijl",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin Global",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-choice-not-fate-the-life-and-times-of-trevor-manuel-pippa-green",
+          "title": "Choice, Not Fate: The Life and Times of Trevor Manuel",
+          "author": "Pippa Green",
+          "status": "enriched",
+          "matchTitle": "Choice, Not Fate",
+          "matchAuthor": "Pippa Green",
+          "matchScore": 0.51
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin Random House",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-when-horse-became-saw-anthony-macris",
+          "title": "When Horse Became Saw",
+          "author": "Anthony Macris",
+          "status": "enriched",
+          "matchTitle": "When Horse Became Saw",
+          "matchAuthor": "Anthony Macris",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penguin Random House NZ",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-pulling-adele-dumont",
+          "title": "The Pulling",
+          "author": "Adele Dumont",
+          "status": "enriched",
+          "matchTitle": "The Pulling",
+          "matchAuthor": "Adele Dumont",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Penn State Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-eventually-everything-connects-sarah-firth",
+          "title": "Eventually Everything Connects",
+          "author": "Sarah Firth",
+          "status": "enriched",
+          "matchTitle": "Eventually Everything Connects",
+          "matchAuthor": "Sarah Firth",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Picador USA",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-cultural-amnesia-notes-in-the-margin-of-my-time-clive-james",
+          "title": "Cultural Amnesia: Notes in the Margin of My Time",
+          "author": "Clive James",
+          "status": "enriched",
+          "matchTitle": "Cultural Amnesia",
+          "matchAuthor": "Clive James",
+          "matchScore": 0.456
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Real African Publishers",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-no-cold-kitchen-a-biography-of-nadine-gordimer-ronald-suresh-roberts",
+          "title": "No Cold Kitchen: A Biography of Nadine Gordimer",
+          "author": "Ronald Suresh Roberts",
+          "status": "enriched",
+          "matchTitle": "No Cold Kitchen",
+          "matchAuthor": "Ronald Suresh Roberts",
+          "matchScore": 0.6
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Seven Stories Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-arsonist-a-mind-on-fire-chloe-hooper",
+          "title": "The Arsonist: A Mind on Fire",
+          "author": "Chloe Hooper",
+          "status": "enriched",
+          "matchTitle": "The Arsonist",
+          "matchAuthor": "Chloe Hooper",
+          "matchScore": 0.58
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Simon & Schuster Australia",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-bennelong-and-phillip-a-history-unravelled-kate-fullagar",
+          "title": "Bennelong and Phillip: A History Unravelled",
+          "author": "Kate Fullagar",
+          "status": "enriched",
+          "matchTitle": "Bennelong and Phillip",
+          "matchAuthor": "Kate Fullagar",
+          "matchScore": 0.72
+        }
+      ]
+    },
+    {
+      "rawPublisher": "SUNY Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-ceremony-men-making-ethnography-and-the-return-of-the-strehlow-collection-jason-m-gibson",
+          "title": "Ceremony Men: Making Ethnography and the Return of the Strehlow Collection",
+          "author": "Jason M. Gibson",
+          "status": "enriched",
+          "matchTitle": "Ceremony Men: Making Ethnography and the Return of the Strehlow Collection",
+          "matchAuthor": "Jason M. Gibson",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "The Indigo Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-these-bones-will-rise-again-panashe-chigumadzi",
+          "title": "These Bones Will Rise Again",
+          "author": "Panashe Chigumadzi",
+          "status": "enriched",
+          "matchTitle": "These Bones Will Rise Again",
+          "matchAuthor": "Panashe Chigumadzi",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Umuzi",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-poisoners-on-south-africa-s-toxic-past-imraan-coovadia",
+          "title": "The Poisoners: On South Africa's Toxic Past",
+          "author": "Imraan Coovadia",
+          "status": "enriched",
+          "matchTitle": "The Poisoners on South Africa's Toxic Past 1973-2020",
+          "matchAuthor": "Imraan Coovadia",
+          "matchScore": 0.844
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Universitetsforlaget",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-en-fremmed-pa-benken-universitetsforlaget-willy-pedersen",
+          "title": "En fremmed på benken Universitetsforlaget",
+          "author": "Willy Pedersen",
+          "status": "enriched",
+          "matchTitle": "En fremmed på benken",
+          "matchAuthor": "Willy Pedersen",
+          "matchScore": 0.825
+        }
+      ]
+    },
+    {
+      "rawPublisher": "University of Kwazulu Natal Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-spring-will-come-william-n-zulu",
+          "title": "Spring Will Come",
+          "author": "William N. Zulu",
+          "status": "enriched",
+          "matchTitle": "Spring Will Come",
+          "matchAuthor": "William N. Zulu",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "University of Queensland Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-blue-plateau-a-landscape-memoir-mark-tredinnick",
+          "title": "The Blue Plateau: A Landscape Memoir",
+          "author": "Mark Tredinnick",
+          "status": "enriched",
+          "matchTitle": "The Blue Plateau",
+          "matchAuthor": "Mark Tredinnick",
+          "matchScore": 0.72
+        }
+      ]
+    },
+    {
+      "rawPublisher": "University of Queensland Press(Australia)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-the-censor-s-library-nicole-moore",
+          "title": "The Censor's Library",
+          "author": "Nicole Moore",
+          "status": "enriched",
+          "matchTitle": "The Censor's Library",
+          "matchAuthor": "Nicole Moore",
+          "matchScore": 1
+        }
+      ]
+    },
+    {
+      "rawPublisher": "UNSW Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-beautiful-balts-from-displaced-persons-to-new-australians-jayne-persian",
+          "title": "Beautiful Balts: From Displaced Persons to New Australians",
+          "author": "Jayne Persian",
+          "status": "enriched",
+          "matchTitle": "Beautiful Balts",
+          "matchAuthor": "Jayne Persian",
+          "matchScore": 0.475
+        }
+      ]
+    },
+    {
+      "rawPublisher": "UWA Publishing",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-hearing-maud-a-journey-for-a-voice-jessica-white",
+          "title": "Hearing Maud: A Journey for a Voice",
+          "author": "Jessica White",
+          "status": "enriched",
+          "matchTitle": "Hearing Maud",
+          "matchAuthor": "Jessica C. White",
+          "matchScore": 0.58
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Vantilt",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-cornelis-kraijenhoff-wilfried-uitterhoeve",
+          "title": "Cornelis Kraijenhoff",
+          "author": "Wilfried Uitterhoeve",
+          "status": "enriched",
+          "matchTitle": "Cornelis Kraijenhoff 1758-1840",
+          "matchAuthor": "Wilfried Uitterhoeve",
+          "matchScore": 0.65
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Wakefield Press Pty, Limited (AUS)",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-red-professor-the-cold-war-life-of-fred-rose-peter-monteath-and-valerie-munt",
+          "title": "Red Professor: The Cold War Life of Fred Rose",
+          "author": "Peter Monteath Valerie Munt",
+          "status": "enriched",
+          "matchTitle": "Red Professor",
+          "matchAuthor": "Peter Monteath Valerie Munt",
+          "matchScore": 0.456
+        }
+      ]
+    },
+    {
+      "rawPublisher": "Wits University Press",
+      "bookCount": 1,
+      "sampleBooks": [
+        {
+          "bookId": "book-richard-rive-a-partial-biography-shaun-viljoen",
+          "title": "Richard Rive: a Partial Biography",
+          "author": "Shaun Viljoen",
+          "status": "enriched",
+          "matchTitle": "Richard Rive",
+          "matchAuthor": "Shaun Viljoen",
+          "matchScore": 0.65
+        }
+      ]
+    }
+  ]
 }

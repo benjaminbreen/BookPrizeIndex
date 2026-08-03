@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-08-03T04:11:17.446Z",
+  "rowCounts": {
+    "rows": 1000,
+    "completed": 972,
+    "flagged": 271,
+    "review": 40
+  },
+  "summary": {
+    "notes": "Report-only gpt-5.4-nano pilot. No output is applied to catalog or curation files. Model claims are bounded to supplied catalog metadata and summaries and require review before use.",
+    "configuration": {
+      "model": "gpt-5.6-luna",
+      "runLabel": "luna-top1000",
+      "selectedBooks": 1000,
+      "reviewBooks": 40,
+      "concurrency": 6,
+      "checkpointEvery": 50,
+      "maxSummaryChars": 4200,
+      "maxOutputTokens": 900,
+      "maxSpendUsd": 5,
+      "structuredOutput": true,
+      "promptVersion": 8,
+      "confidenceThresholds": {
+        "centralFigures": 0.7,
+        "centralPlaces": 0.75,
+        "argument": 0.6,
+        "lowerConfidenceCandidates": 0.35
+      }
+    },
+    "summary": {
+      "selected": 1000,
+      "completed": 972,
+      "errors": 28,
+      "laneCounts": {
+        "central_figures": 381,
+        "mixed": 20,
+        "central_places": 185,
+        "argument": 264,
+        "null_control": 150
+      },
+      "booksWithCentralFigures": 396,
+      "totalCentralFigures": 572,
+      "booksWithCentralPlaces": 568,
+      "totalCentralPlaces": 913,
+      "booksWithArgument": 791,
+      "averageAcademicOrientation": 42.74,
+      "averageProfileConfidence": 0.92,
+      "rowsWithValidationWarnings": 271,
+      "validationWarningCounts": {
+        "high_confidence_from_short_summary": 119,
+        "central_figures_hit_schema_cap": 44,
+        "author_included_for_review": 41,
+        "central_places_hit_schema_cap": 87
+      }
+    },
+    "tokenUsage": {
+      "inputTokens": 849824,
+      "cachedInputTokens": 0,
+      "outputTokens": 249095,
+      "reasoningTokens": 152297,
+      "totalTokens": 1098919
+    },
+    "pricingBasisUsdPerMillionTokens": {
+      "input": 0.2,
+      "cachedInput": 0.02,
+      "output": 1.2
+    },
+    "estimatedApiCostUsd": 0.468879
+  }
+}

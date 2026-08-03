@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-30T19:21:40.642Z",
+  "generatedAt": "2026-08-03T05:24:19.501Z",
   "notes": "Compact generated candidates for downstream review and experimental discovery. These are model interpretations, not verified bibliographic facts.",
-  "model": "gpt-5.4-nano-2026-03-17",
+  "model": "gpt-5.6-luna",
   "promptVersion": 8,
-  "profileCount": 5243,
-  "rowCount": 5243,
+  "profileCount": 5589,
+  "rowCount": 5589,
   "sample": [
     {
       "bookId": "book-the-power-broker-robert-moses-and-the-fall-of-new-york-robert-a-caro",
@@ -22,6 +22,11 @@
       "validationWarnings": []
     },
     {
+      "bookId": "book-all-that-she-carried-the-journey-of-ashley-s-sack-a-black-family-keepsake-tiya-miles",
+      "slug": "all-that-she-carried-the-journey-of-ashley-s-sack-a-black-family-keepsake-tiya-miles",
+      "validationWarnings": []
+    },
+    {
       "bookId": "book-frederick-douglass-prophet-of-freedom-david-w-blight",
       "slug": "frederick-douglass-prophet-of-freedom-david-w-blight",
       "validationWarnings": []
@@ -32,19 +37,18 @@
       "validationWarnings": []
     },
     {
-      "bookId": "book-all-that-she-carried-the-journey-of-ashley-s-sack-a-black-family-keepsake-tiya-miles",
-      "slug": "all-that-she-carried-the-journey-of-ashley-s-sack-a-black-family-keepsake-tiya-miles",
-      "validationWarnings": []
-    },
-    {
       "bookId": "book-a-bright-shining-lie-john-paul-vann-and-america-in-vietnam-neil-sheehan",
       "slug": "a-bright-shining-lie-john-paul-vann-and-america-in-vietnam-neil-sheehan",
-      "validationWarnings": []
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ]
     },
     {
       "bookId": "book-the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro",
       "slug": "the-passage-of-power-the-years-of-lyndon-johnson-robert-a-caro",
-      "validationWarnings": []
+      "validationWarnings": [
+        "central_figures_hit_schema_cap"
+      ]
     },
     {
       "bookId": "book-between-the-world-and-me-ta-nehisi-coates",
@@ -61,7 +65,9 @@
     {
       "bookId": "book-w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
       "slug": "w-e-b-du-bois-biography-of-a-race-1868-1919-david-levering-lewis",
-      "validationWarnings": []
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ]
     },
     {
       "bookId": "book-five-days-at-memorial-life-and-death-in-a-storm-ravaged-hospital-sheri-fink",
@@ -121,18 +127,20 @@
     {
       "bookId": "book-george-f-kennan-an-american-life-john-lewis-gaddis",
       "slug": "george-f-kennan-an-american-life-john-lewis-gaddis",
+      "validationWarnings": [
+        "high_confidence_from_short_summary"
+      ]
+    },
+    {
+      "bookId": "book-winnie-and-nelson-portrait-of-a-marriage-jonny-steinberg",
+      "slug": "winnie-and-nelson-portrait-of-a-marriage-jonny-steinberg",
       "validationWarnings": []
     },
     {
       "bookId": "book-de-kooning-an-american-master-mark-stevens-and-annalyn-swan",
       "slug": "de-kooning-an-american-master-mark-stevens-and-annalyn-swan",
-      "validationWarnings": []
-    },
-    {
-      "bookId": "book-angela-s-ashes-a-memoir-frank-mccourt",
-      "slug": "angela-s-ashes-a-memoir-frank-mccourt",
       "validationWarnings": [
-        "author_included_for_review: Frank McCourt"
+        "high_confidence_from_short_summary"
       ]
     }
   ]

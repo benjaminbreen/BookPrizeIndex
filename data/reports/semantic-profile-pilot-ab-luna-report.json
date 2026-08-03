@@ -1,0 +1,70 @@
+{
+  "generatedAt": "2026-08-01T21:27:25.588Z",
+  "rowCounts": {
+    "rows": 100,
+    "completed": 93,
+    "flagged": 20,
+    "review": 20
+  },
+  "summary": {
+    "notes": "Report-only gpt-5.4-nano pilot. No output is applied to catalog or curation files. Model claims are bounded to supplied catalog metadata and summaries and require review before use.",
+    "configuration": {
+      "model": "gpt-5.6-luna",
+      "runLabel": "ab-luna",
+      "selectedBooks": 100,
+      "reviewBooks": 20,
+      "concurrency": 3,
+      "checkpointEvery": 5,
+      "maxSummaryChars": 4200,
+      "maxOutputTokens": 400,
+      "maxSpendUsd": 0.5,
+      "structuredOutput": true,
+      "promptVersion": 8,
+      "confidenceThresholds": {
+        "centralFigures": 0.7,
+        "centralPlaces": 0.75,
+        "argument": 0.6,
+        "lowerConfidenceCandidates": 0.35
+      }
+    },
+    "summary": {
+      "selected": 100,
+      "completed": 93,
+      "errors": 7,
+      "laneCounts": {
+        "central_figures": 30,
+        "central_places": 20,
+        "argument": 25,
+        "null_control": 15,
+        "mixed": 10
+      },
+      "booksWithCentralFigures": 44,
+      "totalCentralFigures": 64,
+      "booksWithCentralPlaces": 49,
+      "totalCentralPlaces": 76,
+      "booksWithArgument": 79,
+      "averageAcademicOrientation": 40.33,
+      "averageProfileConfidence": 0.93,
+      "rowsWithValidationWarnings": 20,
+      "validationWarningCounts": {
+        "high_confidence_from_short_summary": 10,
+        "central_figures_hit_schema_cap": 6,
+        "author_included_for_review": 3,
+        "central_places_hit_schema_cap": 5
+      }
+    },
+    "tokenUsage": {
+      "inputTokens": 81001,
+      "cachedInputTokens": 0,
+      "outputTokens": 23681,
+      "reasoningTokens": 14439,
+      "totalTokens": 104682
+    },
+    "pricingBasisUsdPerMillionTokens": {
+      "input": 0.2,
+      "cachedInput": 0.02,
+      "output": 1.2
+    },
+    "estimatedApiCostUsd": 0.044617
+  }
+}

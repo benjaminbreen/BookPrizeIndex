@@ -1,0 +1,4262 @@
+{
+  "generatedAt": "2026-08-01T21:25:25.583Z",
+  "instructions": "For each row, mark the four review fields true/false and add notes. Do not promote output to the catalog until reviewed.",
+  "model": "gpt-5.4-nano",
+  "reviewCount": 20,
+  "rows": [
+    {
+      "bookId": "book-lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed",
+      "slug": "lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed",
+      "title": "Lords of Finance: The Bankers Who Broke the World",
+      "author": "Liaquat Ahamed",
+      "lane": "central_places",
+      "publicationYear": 2009,
+      "primarySubject": "Business & Economics",
+      "topics": [
+        "Money, Markets & Economic Policy",
+        "Business, Capitalism & Corporations",
+        "Labor, Work & Organizing"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Penguin Press",
+      "pageCount": 584,
+      "sourceSummary": "With penetrating insights for today, this vital history of the world economic collapse of the late 1920s offers unforgettable portraits of the four men whose personal and professional actions as heads of their respective central banks changed the course of the twentieth centuryIt is commonly believed that the Great Depression that began in 1929 resulted from a confluence of events beyond any one person's or government's control. In fact, as Liaquat Ahamed reveals, it was the decisions taken by a small number of central bankers that were the primary cause of the economic meltdown, the effects of which set the stage for World War II and reverberated for decades.In Lords of Finance, we meet the neurotic and enigmatic Montagu Norman of the Bank of England, the xenophobic and suspicious Emile Moreau of the Banque de France, the arrogant yet brilliant Hjalmar Schacht of the Reichsbank, and Benjamin Strong of the Federal Reserve Bank of New York, whose facade of energy and drive masked a deeply wounded and overburdened man. After the First World War, these central bankers attempted to reconstruct the world of international finance.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-arthur-ross-international-affairs-wikipedia-arthur-ross-book-award",
+          "label": "Wikipedia: Arthur Ross Book Award",
+          "url": "https://en.wikipedia.org/wiki/Arthur_Ross_Book_Award",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Gold Medal"
+        },
+        {
+          "id": "source-award-record-baillie-gifford-nonfiction-wikipedia-baillie-gifford-prize",
+          "label": "Wikipedia: Baillie Gifford Prize",
+          "url": "https://en.wikipedia.org/wiki/Baillie_Gifford_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.thebailliegiffordprize.co.uk/"
+        },
+        {
+          "id": "source-award-record-ft-business-book-wikipedia-financial-times-business-book-of-the-year-award",
+          "label": "Wikipedia: Financial Times Business Book of the Year Award",
+          "url": "https://en.wikipedia.org/wiki/Financial_Times_Business_Book_of_the_Year_Award",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.ft.com/business-book-of-the-year"
+        },
+        {
+          "id": "source-award-record-pulitzer-history-wikipedia-pulitzer-prize-for-history",
+          "label": "Wikipedia: Pulitzer Prize for History",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_History",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/220"
+        },
+        {
+          "id": "source-open-library-lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed",
+          "label": "Open Library summary metadata for Lords of Finance: The Bankers Who Broke the World",
+          "url": "https://openlibrary.org/books/OL24247012M",
+          "accessedAt": "2026-05-15T22:08:23.081Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-google-books-lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed",
+          "label": "Google Books metadata for Lords of Finance: The Bankers Who Broke the World",
+          "url": "https://play.google.com/store/books/details?id=SCQkcj44kl4C",
+          "accessedAt": "2026-05-18T17:21:24.243Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-wikipedia-lords-of-finance-the-bankers-who-broke-the-world-liaquat-ahamed",
+          "label": "Wikipedia article for Lords of Finance: The Bankers Who Broke the World",
+          "url": "https://en.wikipedia.org/wiki/Lords_of_Finance",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1333490320."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "popular",
+        "narrativeScore": 0.074,
+        "accessibilityScore": 0.593,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.772,
+            "confidence": "high",
+            "evidence": [
+              "catalog text contains \"bestseller\"",
+              "catalog text contains \"new york times bestseller\"",
+              "trade publisher signal: Penguin Press / Penguin Random House",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "accessible",
+            "score": 0.68,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"bestseller\"",
+              "catalog text contains \"new york times bestseller\"",
+              "trade publisher signal: Penguin Press / Penguin Random House"
+            ]
+          },
+          {
+            "id": "synthesis",
+            "score": 0.2,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"from\"",
+              "catalog text contains \"history of\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "65a6ce58d39d7a0bf800e57f043f48709fa8a9044ad641598c3b130937712bbe",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [
+        "central_figures_hit_schema_cap"
+      ],
+      "responseId": "resp_0962ea16458fd615016a6e6425dee881998b8d95aed058bdeb",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Montagu Norman",
+            "confidence": 0.84
+          },
+          {
+            "name": "Emile Moreau",
+            "confidence": 0.79
+          },
+          {
+            "name": "Hjalmar Schacht",
+            "confidence": 0.77
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "Bank of England",
+            "confidence": 0.52
+          },
+          {
+            "name": "Banque de France",
+            "confidence": 0.5
+          },
+          {
+            "name": "Federal Reserve Bank of New York",
+            "confidence": 0.43
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "The late-1920s world economic collapse was primarily caused by key decisions made by a small number of central bankers, whose actions reshaped international finance and set conditions leading to World War II.",
+          "confidence": 0.78
+        },
+        "academicOrientation": {
+          "score": 44,
+          "confidence": 0.52
+        },
+        "profileConfidence": 0.73
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Montagu Norman",
+            "confidence": 0.84
+          },
+          {
+            "name": "Emile Moreau",
+            "confidence": 0.79
+          },
+          {
+            "name": "Hjalmar Schacht",
+            "confidence": 0.77
+          }
+        ],
+        "centralPlaces": [],
+        "argument": {
+          "present": true,
+          "statement": "The late-1920s world economic collapse was primarily caused by key decisions made by a small number of central bankers, whose actions reshaped international finance and set conditions leading to World War II.",
+          "confidence": 0.78
+        },
+        "academicOrientation": {
+          "score": 44,
+          "confidence": 0.52
+        },
+        "profileConfidence": 0.73
+      },
+      "usage": {
+        "inputTokens": 950,
+        "cachedInputTokens": 0,
+        "outputTokens": 174,
+        "reasoningTokens": 0,
+        "totalTokens": 1124
+      },
+      "estimatedCostUsd": 0.0004075,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-angela-s-ashes-a-memoir-frank-mccourt",
+      "slug": "angela-s-ashes-a-memoir-frank-mccourt",
+      "title": "Angela's Ashes: A Memoir",
+      "author": "Frank McCourt",
+      "lane": "central_figures",
+      "publicationYear": 1996,
+      "primarySubject": "Memoir & Autobiography",
+      "topics": [
+        "Memoir & Personal History",
+        "Family, Childhood & Adoption",
+        "Literature & Writers"
+      ],
+      "publisher": "Simon & Schuster",
+      "imprint": "Touchstone",
+      "pageCount": 363,
+      "sourceSummary": "\"When I look back on my childhood I wonder how I managed to survive at all. It was, of course, a miserable childhood: the happy childhood is hardly worth your while. Worse than the ordinary miserable childhood is the miserable Irish childhood, and worse yet is the miserable Irish Catholic childhood.\" So begins the luminous memoir of Frank McCourt, born in Depression-era Brooklyn to recent Irish immigrants and raised in the slums of Limerick, Ireland. in the 1930s and 40s. Frank's mother, Angela, has no money to feed the children since Frank's father, Malachy, rarely works, and when he does he drinks his wages. Yet Malachy -- exasperating, irresponsible and beguiling -- does nurture in Frank an appetite for the one thing he can provide: a story. Frank lives for his father's tales of Cuchulain, who saved Ireland, and of the Angel on the Seventh Step, who brings his mother babies. Perhaps it is story that accounts for Frank's survival. Wearing rags for diapers, begging a pig's head for Christmas dinner and gathering coal from the roadside to light a fire, Frank endures poverty, near-starvation and the casual cruelty of relatives and neighbors -- yet lives to tell his tale with eloquence, exuberance and remarkable forgiveness. - Jacket flap.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-latimes-biography-wikipedia-los-angeles-times-book-prize-for-biography",
+          "label": "Wikipedia: Los Angeles Times Book Prize for Biography",
+          "url": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Biography",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
+        },
+        {
+          "id": "source-award-record-nbcc-biography-wikipedia-national-book-critics-circle-award-for-biography",
+          "label": "Wikipedia: National Book Critics Circle Award for Biography",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Biography",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.bookcritics.org/awards/"
+        },
+        {
+          "id": "source-award-record-pulitzer-biography-or-autobiography-wikipedia-pulitzer-prize-for-biography",
+          "label": "Wikipedia: Pulitzer Prize for Biography",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_Biography",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/222"
+        },
+        {
+          "id": "source-open-library-angela-s-ashes-a-memoir-frank-mccourt",
+          "label": "Open Library summary metadata for Angela's Ashes: A Memoir",
+          "url": "https://openlibrary.org/books/OL968807M",
+          "accessedAt": "2026-05-15T22:08:23.081Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-publisher-cleanup-curation",
+          "label": "Manual publisher/imprint cleanup for generated catalog metadata",
+          "url": "",
+          "confidence": "manual",
+          "note": "Maps catalog-provider publisher strings that are actually imprints or aliases onto curated parent publishers and imprint records."
+        },
+        {
+          "id": "source-wikipedia-angela-s-ashes-a-memoir-frank-mccourt",
+          "label": "Wikipedia article for Angela's Ashes: A Memoir",
+          "url": "https://en.wikipedia.org/wiki/Angela's_Ashes",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1345611163."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0.052,
+        "accessibilityScore": 0.151,
+        "scholarlyScore": 0.087,
+        "traits": [
+          {
+            "id": "biographical",
+            "score": 0.408,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"family\"",
+              "catalog text contains \"families\"",
+              "catalog text contains \"father\"",
+              "catalog text contains \"mother\"",
+              "biography subject or topic",
+              "biography award category"
+            ]
+          },
+          {
+            "id": "essayistic",
+            "score": 0.4,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"criticism\"",
+              "literature/criticism subject or topic"
+            ]
+          },
+          {
+            "id": "popular",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "trade publisher signal: Touchstone / Simon & Schuster",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "memoiristic",
+            "score": 0.324,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"memoir\"",
+              "catalog text contains \"memoir of\"",
+              "catalog text contains \"my\"",
+              "catalog text contains \"personal history\"",
+              "memoir/autobiography subject or topic",
+              "reduced because text appears to study narrative/biographical genres"
+            ]
+          },
+          {
+            "id": "argument_driven",
+            "score": 0.26,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"interpretation\"",
+              "scholarly subject/topic combination"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "e4eab86778e2d62b49be513df76de8a325a5931eadd6a1db6ac75e08224eb821",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [
+        "author_included_for_review: Frank McCourt"
+      ],
+      "responseId": "resp_08e2cbabc35e7fff016a6e641e5564819ab96be62cc9361615",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Frank McCourt",
+            "confidence": 0.92
+          },
+          {
+            "name": "Angela",
+            "confidence": 0.52
+          },
+          {
+            "name": "Malachy",
+            "confidence": 0.5
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "Brooklyn",
+            "confidence": 0.7
+          },
+          {
+            "name": "Limerick, Ireland",
+            "confidence": 0.82
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "Frank McCourt suggests that story-telling accounts for his survival through a miserable Irish Catholic childhood amid poverty and cruelty.",
+          "confidence": 0.48
+        },
+        "academicOrientation": {
+          "score": 35,
+          "confidence": 0.35
+        },
+        "profileConfidence": 0.74
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Frank McCourt",
+            "confidence": 0.92
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "Limerick, Ireland",
+            "confidence": 0.82
+          }
+        ],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 35,
+          "confidence": 0.35
+        },
+        "profileConfidence": 0.74
+      },
+      "usage": {
+        "inputTokens": 991,
+        "cachedInputTokens": 0,
+        "outputTokens": 138,
+        "reasoningTokens": 0,
+        "totalTokens": 1129
+      },
+      "estimatedCostUsd": 0.0003707,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-between-the-world-and-me-ta-nehisi-coates",
+      "slug": "between-the-world-and-me-ta-nehisi-coates",
+      "title": "Between the World and Me",
+      "author": "Ta-Nehisi Coates",
+      "lane": "central_figures",
+      "publicationYear": 2015,
+      "primarySubject": "Memoir & Autobiography",
+      "topics": [
+        "Black History & Culture",
+        "Africa & the African Diaspora",
+        "Migration & Diaspora"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Spiegel & Grau",
+      "pageCount": 157,
+      "sourceSummary": "In a profound work that pivots from the biggest questions about American history and ideals to the most intimate concerns of a father for his son, Ta-Nehisi Coates offers a powerful new framework for understanding our nation’s history and current crisis. Americans have built an empire on the idea of “race,” a falsehood that damages us all but falls most heavily on the bodies of black women and men—bodies exploited through slavery and segregation, and, today, threatened, locked up, and murdered out of all proportion. What is it like to inhabit a black body and find a way to live within it? And how can we all honestly reckon with this fraught history and free ourselves from its burden? Between the World and Me is Ta-Nehisi Coates’s attempt to answer these questions in a letter to his adolescent son. Coates shares with his son—and readers—the story of his awakening to the truth about his place in the world through a series of revelatory experiences, from Howard University to Civil War battlefields, from the South Side of Chicago to Paris, from his childhood home to the living rooms of mothers whose children’s lives were taken as American plunder.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-carnegie-nonfiction-ala-carnegie-medals-2016-annual-page",
+          "label": "ALA Carnegie Medals 2016 annual page",
+          "url": "https://www.ala.org/carnegie-medals/2016-winners",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+        },
+        {
+          "id": "source-award-record-dayton-nonfiction-wikipedia-dayton-literary-peace-prize-nonfiction-table",
+          "label": "Wikipedia: Dayton Literary Peace Prize nonfiction table",
+          "url": "https://en.wikipedia.org/wiki/Dayton_Literary_Peace_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.daytonliterarypeaceprize.org/"
+        },
+        {
+          "id": "source-award-record-kirkus-nonfiction-wikipedia-kirkus-prize",
+          "label": "Wikipedia: Kirkus Prize",
+          "url": "https://en.wikipedia.org/wiki/Kirkus_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.kirkusreviews.com/prize/"
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-nbcc-criticism-wikipedia-national-book-critics-circle-award-for-criticism",
+          "label": "Wikipedia: National Book Critics Circle Award for Criticism",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Criticism",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.bookcritics.org/awards/"
+        },
+        {
+          "id": "source-award-record-pen-diamonstein-essay-wikipedia-pen-diamonstein-spielvogel-award-for-the-art-of-the-essay",
+          "label": "Wikipedia: PEN/Diamonstein-Spielvogel Award for the Art of the Essay",
+          "url": "https://en.wikipedia.org/wiki/PEN/Diamonstein-Spielvogel_Award_for_the_Art_of_the_Essay",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://pen.org/literary-awards/pen-diamonstein-spielvogel-award-for-the-art-of-the-essay/"
+        },
+        {
+          "id": "source-award-record-pulitzer-general-nonfiction-wikipedia-pulitzer-prize-for-general-nonfiction",
+          "label": "Wikipedia: Pulitzer Prize for General Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_General_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/223"
+        },
+        {
+          "id": "source-open-library-between-the-world-and-me-ta-nehisi-coates",
+          "label": "Open Library summary metadata for Between the World and Me",
+          "url": "https://openlibrary.org/books/OL32812737M",
+          "accessedAt": "2026-05-15T22:08:23.081Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-publisher-cleanup-curation",
+          "label": "Manual publisher/imprint cleanup for generated catalog metadata",
+          "url": "",
+          "confidence": "manual",
+          "note": "Maps catalog-provider publisher strings that are actually imprints or aliases onto curated parent publishers and imprint records."
+        },
+        {
+          "id": "source-google-books-between-the-world-and-me-ta-nehisi-coates",
+          "label": "Google Books metadata for Between the World and Me",
+          "url": "https://play.google.com/store/books/details?id=TV05BgAAQBAJ",
+          "accessedAt": "2026-05-11T17:03:04.599Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-wikipedia-between-the-world-and-me-ta-nehisi-coates",
+          "label": "Wikipedia article for Between the World and Me",
+          "url": "https://en.wikipedia.org/wiki/Between_the_World_and_Me",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1354226167."
+        },
+        {
+          "id": "source-barabasi-lab-nyt-bestsellers-2008-2016",
+          "label": "Barabási Lab — NYT hardcover bestseller rankings, 2008–2016",
+          "url": "https://bestsellers.barabasilab.com/nytb2008-2016.zip",
+          "accessedAt": "2026-07-15",
+          "field": "nytBestseller",
+          "confidence": "secondary",
+          "note": "Weekly rankings released with the peer-reviewed Success in Books study; used for the historical API backfill."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0.37,
+        "accessibilityScore": 0.241,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "memoiristic",
+            "score": 0.78,
+            "confidence": "high",
+            "evidence": [
+              "catalog text contains \"memoir\"",
+              "memoir/autobiography subject or topic"
+            ]
+          },
+          {
+            "id": "essayistic",
+            "score": 0.66,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"essay\"",
+              "catalog text contains \"criticism\"",
+              "criticism award category"
+            ]
+          },
+          {
+            "id": "narrative",
+            "score": 0.54,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"story of\"",
+              "catalog text contains \"quest\"",
+              "catalog text contains \"murder\""
+            ]
+          },
+          {
+            "id": "biographical",
+            "score": 0.532,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"father\"",
+              "catalog text contains \"mother\"",
+              "biography subject or topic"
+            ]
+          },
+          {
+            "id": "popular",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "trade publisher signal: Spiegel & Grau / Penguin Random House",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "character_driven",
+            "score": 0.24,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"father\"",
+              "catalog text contains \"mother\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "2d2508013739f33c4e3e45a02e5eadd88c04701e9abb06d2405b47318beeb9bc",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [
+        "author_included_for_review: Ta-Nehisi Coates"
+      ],
+      "responseId": "resp_093e9dbbfa03030f016a6e64151420819a8bc20188c80f8e75",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Ta-Nehisi Coates",
+            "confidence": 0.9
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "Howard University",
+            "confidence": 0.55
+          },
+          {
+            "name": "South Side of Chicago",
+            "confidence": 0.45
+          },
+          {
+            "name": "Paris",
+            "confidence": 0.4
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "The idea of “race” is a falsehood that harms all Americans but disproportionately burdens Black bodies, so reckoning with this history is necessary to free ourselves from its burden.",
+          "confidence": 0.6
+        },
+        "academicOrientation": {
+          "score": 35,
+          "confidence": 0.5
+        },
+        "profileConfidence": 0.78
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Ta-Nehisi Coates",
+            "confidence": 0.9
+          }
+        ],
+        "centralPlaces": [],
+        "argument": {
+          "present": true,
+          "statement": "The idea of “race” is a falsehood that harms all Americans but disproportionately burdens Black bodies, so reckoning with this history is necessary to free ourselves from its burden.",
+          "confidence": 0.6
+        },
+        "academicOrientation": {
+          "score": 35,
+          "confidence": 0.5
+        },
+        "profileConfidence": 0.78
+      },
+      "usage": {
+        "inputTokens": 955,
+        "cachedInputTokens": 0,
+        "outputTokens": 140,
+        "reasoningTokens": 0,
+        "totalTokens": 1095
+      },
+      "estimatedCostUsd": 0.000366,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-h-is-for-hawk-helen-macdonald",
+      "slug": "h-is-for-hawk-helen-macdonald",
+      "title": "H Is for Hawk",
+      "author": "Helen Macdonald",
+      "lane": "central_figures",
+      "publicationYear": 2006,
+      "primarySubject": "Memoir & Autobiography",
+      "topics": [
+        "Natural History & Animals",
+        "Memoir & Personal History",
+        "Grief, Trauma & Recovery"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Jonathan Cape",
+      "pageCount": 411,
+      "sourceSummary": "When Helen Macdonald's father died suddenly on a London street, she was devastated. An experienced falconer, Helen had never before been tempted to train one of the most vicious predators, the goshawk, but in her grief, she saw that the goshawk's fierce and feral temperament mirrored her own. Resolving to purchase and raise the deadly creature as a means to cope with her loss, she adopted Mabel, and turned to the guidance of The Once and Future King author T.H. White's chronicle The Goshawk to begin her challenging endeavor. Projecting herself \"in the hawk's wild mind to tame her\" tested the limits of Macdonald's humanity and changed her life.",
+      "sourceRefs": [
+        {
+          "id": "source-nonfiction-history-awards-by-imprint",
+          "label": "Nonfiction history awards by imprint seed workbook",
+          "url": "",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "manual",
+          "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+        },
+        {
+          "id": "source-nonfiction-history-awards-by-imprint-10",
+          "label": "ALA Andrew Carnegie Medals winner pages; identify nonfiction winners and finalists",
+          "url": "https://www.ala.org/carnegie-medals/2025-winners",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official"
+        },
+        {
+          "id": "source-award-record-baillie-gifford-nonfiction-wikipedia-baillie-gifford-prize",
+          "label": "Wikipedia: Baillie Gifford Prize",
+          "url": "https://en.wikipedia.org/wiki/Baillie_Gifford_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.thebailliegiffordprize.co.uk/"
+        },
+        {
+          "id": "source-award-record-carnegie-nonfiction-wikipedia-andrew-carnegie-medals-for-excellence-in-fiction-and-nonfiction",
+          "label": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+        },
+        {
+          "id": "source-award-record-costa-biography-wikipedia-costa-book-award-for-biography",
+          "label": "Wikipedia: Costa Book Award for Biography",
+          "url": "https://en.wikipedia.org/wiki/Costa_Book_Award_for_Biography",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.costabookawards.com/"
+        },
+        {
+          "id": "source-award-record-kirkus-nonfiction-wikipedia-kirkus-prize",
+          "label": "Wikipedia: Kirkus Prize",
+          "url": "https://en.wikipedia.org/wiki/Kirkus_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.kirkusreviews.com/prize/"
+        },
+        {
+          "id": "source-award-record-nbcc-memoir-and-autobiography-wikipedia-national-book-critics-circle-award-for-memoir-and-autobi",
+          "label": "Wikipedia: National Book Critics Circle Award for Memoir and Autobiography",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Memoir_and_Autobiography",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.bookcritics.org/awards/"
+        },
+        {
+          "id": "source-award-record-wainwright-nature-writing-wikipedia-wainwright-prize-shortlist-table-citing-annual-official-anno",
+          "label": "Wikipedia Wainwright Prize shortlist table, citing annual official announcements",
+          "url": "https://en.wikipedia.org/wiki/Wainwright_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "The table row cites the corresponding official Wainwright Prize shortlist announcement."
+        },
+        {
+          "id": "source-open-library-h-is-for-hawk-helen-macdonald",
+          "label": "Open Library metadata for H Is for Hawk",
+          "url": "https://openlibrary.org/books/OL25680448M",
+          "accessedAt": "2026-05-13T22:20:28.221Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-google-books-h-is-for-hawk-helen-macdonald",
+          "label": "Google Books metadata for H Is for Hawk",
+          "url": "https://play.google.com/store/books/details?id=RTojBQAAQBAJ",
+          "accessedAt": "2026-05-11T17:03:04.599Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-wikipedia-h-is-for-hawk-helen-macdonald",
+          "label": "Wikipedia article for H Is for Hawk",
+          "url": "https://en.wikipedia.org/wiki/H_is_for_Hawk",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1354296535."
+        },
+        {
+          "id": "source-barabasi-lab-nyt-bestsellers-2008-2016",
+          "label": "Barabási Lab — NYT hardcover bestseller rankings, 2008–2016",
+          "url": "https://bestsellers.barabasilab.com/nytb2008-2016.zip",
+          "accessedAt": "2026-07-15",
+          "field": "nytBestseller",
+          "confidence": "secondary",
+          "note": "Weekly rankings released with the peer-reviewed Success in Books study; used for the historical API backfill."
+        },
+        {
+          "id": "source-open-library-lcc-h-is-for-hawk-helen-macdonald",
+          "label": "Open Library catalog classification for H Is for Hawk",
+          "url": "https://openlibrary.org/books/OL25680448M",
+          "accessedAt": "2026-07-23T18:23:43.075Z",
+          "confidence": "catalog",
+          "field": "library_classification",
+          "note": "open_library_exact_isbn; raw call number: QL696 F32 M33 2014"
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "popular",
+        "narrativeScore": 0.048,
+        "accessibilityScore": 0.573,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.772,
+            "confidence": "high",
+            "evidence": [
+              "catalog text contains \"bestseller\"",
+              "catalog text contains \"new york times bestseller\"",
+              "trade publisher signal: Jonathan Cape / Penguin Random House",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "accessible",
+            "score": 0.68,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"bestseller\"",
+              "catalog text contains \"new york times bestseller\"",
+              "trade publisher signal: Jonathan Cape / Penguin Random House"
+            ]
+          },
+          {
+            "id": "biographical",
+            "score": 0.337,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"father\"",
+              "biography subject or topic",
+              "biography award category",
+              "reduced because text appears to study narrative/biographical genres"
+            ]
+          },
+          {
+            "id": "memoiristic",
+            "score": 0.257,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"memoir\"",
+              "catalog text contains \"personal history\"",
+              "memoir/autobiography subject or topic",
+              "reduced because text appears to study narrative/biographical genres"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "d016bda93f0f35a6a60071647fbd55329077b47f9d36cc4daa6c0edae3779f6f",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [
+        "author_included_for_review: Helen Macdonald"
+      ],
+      "responseId": "resp_07d484f6278d0c85016a6e641ff60c819bb0759993eaffcbc6",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Helen Macdonald",
+            "confidence": 0.88
+          },
+          {
+            "name": "T.H. White",
+            "confidence": 0.48
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "London",
+            "confidence": 0.6
+          }
+        ],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 38,
+          "confidence": 0.4
+        },
+        "profileConfidence": 0.78
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Helen Macdonald",
+            "confidence": 0.88
+          }
+        ],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 38,
+          "confidence": 0.4
+        },
+        "profileConfidence": 0.78
+      },
+      "usage": {
+        "inputTokens": 859,
+        "cachedInputTokens": 0,
+        "outputTokens": 89,
+        "reasoningTokens": 0,
+        "totalTokens": 948
+      },
+      "estimatedCostUsd": 0.00028305,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-caste-the-origins-of-our-discontents-isabel-wilkerson",
+      "slug": "caste-the-origins-of-our-discontents-isabel-wilkerson",
+      "title": "Caste: The Origins of Our Discontents",
+      "author": "Isabel Wilkerson",
+      "lane": "central_places",
+      "publicationYear": 2020,
+      "primarySubject": "Race & Ethnicity",
+      "topics": [
+        "Civil Rights & Racial Justice",
+        "Black History & Culture",
+        "Class, Poverty & Inequality"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Random House",
+      "pageCount": 545,
+      "sourceSummary": "#1 NEW YORK TIMES BESTSELLER • NEW YORK TIMES READERS PICK: 100 BEST BOOKS OF THE 21st CENTURY • OPRAH’S BOOK CLUB PICK • “An instant American classic and almost certainly the keynote nonfiction book of the American century thus far.”—Dwight Garner, The New York Times The Pulitzer Prize-winning author of The Warmth of Other Suns examines the unspoken caste system that has shaped America and shows how our lives today are still defined by a hierarchy of human divisions—now with a new Afterword by the author.",
+      "sourceRefs": [
+        {
+          "id": "source-nonfiction-history-awards-by-imprint",
+          "label": "Nonfiction history awards by imprint seed workbook",
+          "url": "",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "manual",
+          "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+        },
+        {
+          "id": "source-nonfiction-history-awards-by-imprint-8",
+          "label": "PEN America Galbraith Award page; identifies winners and finalists used in this list",
+          "url": "https://pen.org/literary-awards/pen-galbraith-award-for-nonfiction/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official"
+        },
+        {
+          "id": "source-award-record-carnegie-nonfiction-ala-carnegie-medals-2021-annual-page",
+          "label": "ALA Carnegie Medals 2021 annual page",
+          "url": "https://www.ala.org/carnegie-medals/2021-winners",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+        },
+        {
+          "id": "source-award-record-dayton-nonfiction-wikipedia-dayton-literary-peace-prize-nonfiction-table",
+          "label": "Wikipedia: Dayton Literary Peace Prize nonfiction table",
+          "url": "https://en.wikipedia.org/wiki/Dayton_Literary_Peace_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.daytonliterarypeaceprize.org/"
+        },
+        {
+          "id": "source-award-record-j-anthony-lukas-book-wikipedia-j-anthony-lukas-book-prize",
+          "label": "Wikipedia: J. Anthony Lukas Book Prize",
+          "url": "https://en.wikipedia.org/wiki/J._Anthony_Lukas_Book_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://journalism.columbia.edu/lukas"
+        },
+        {
+          "id": "source-award-record-kirkus-nonfiction-wikipedia-kirkus-prize",
+          "label": "Wikipedia: Kirkus Prize",
+          "url": "https://en.wikipedia.org/wiki/Kirkus_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.kirkusreviews.com/prize/"
+        },
+        {
+          "id": "source-award-record-latimes-current-interest-wikipedia-los-angeles-times-book-prize-for-current-interest",
+          "label": "Wikipedia: Los Angeles Times Book Prize for Current Interest",
+          "url": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Current_Interest",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
+        },
+        {
+          "id": "source-google-books-caste-isabel-wilkerson",
+          "label": "Google Books metadata for Caste",
+          "url": "https://play.google.com/store/books/details?id=HcLNDwAAQBAJ",
+          "accessedAt": "2026-05-09T17:03:29.833Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-caste-isabel-wilkerson",
+          "label": "Open Library metadata for Caste",
+          "url": "https://openlibrary.org/works/OL20878310W",
+          "accessedAt": "2026-05-09T17:03:29.833Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-isbn-caste-the-origins-of-our-discontent-isabel-wilkerson",
+          "label": "Open Library ISBN discovery for Caste: The Origins of Our Discontent",
+          "url": "https://openlibrary.org/books/OL52916876M",
+          "accessedAt": "2026-05-13T21:54:12.159Z",
+          "confidence": "catalog",
+          "field": "isbn13",
+          "note": "Selected ISBN 9780593230251 from the earliest plausible edition candidate. Reasons: title_match:0.83; publish_year:2020; english; hardcover_like; publisher:Random House; pages:496; cover."
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-wikipedia-caste-the-origins-of-our-discontents-isabel-wilkerson",
+          "label": "Wikipedia article for Caste: The Origins of Our Discontents",
+          "url": "https://en.wikipedia.org/wiki/Caste%3A_The_Origins_of_Our_Discontents",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1345712361."
+        },
+        {
+          "id": "source-award-record-nbcc-nonfiction-wikipedia-national-book-critics-circle-award-for-nonfiction",
+          "label": "Wikipedia: National Book Critics Circle Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.bookcritics.org/awards/"
+        },
+        {
+          "id": "source-google-books-summary-caste-the-origins-of-our-discontent-isabel-wilkerson",
+          "label": "Google Books summary metadata for Caste: The Origins of Our Discontent",
+          "url": "https://books.google.com/books/about/Caste.html?hl=&id=_er2DwAAQBAJ",
+          "accessedAt": "2026-05-18T17:21:54.436Z",
+          "confidence": "catalog",
+          "field": "summary"
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "popular",
+        "narrativeScore": 0,
+        "accessibilityScore": 0.573,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.772,
+            "confidence": "high",
+            "evidence": [
+              "catalog text contains \"bestseller\"",
+              "catalog text contains \"new york times bestseller\"",
+              "trade publisher signal: Random House / Penguin Random House",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "accessible",
+            "score": 0.68,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"bestseller\"",
+              "catalog text contains \"new york times bestseller\"",
+              "trade publisher signal: Random House / Penguin Random House"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "2b5f9fdbf838ff42c2942f38abeaf181b77f6ae8c65dd8bc8f9c7a1ded6a6a52",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0a23ab6d29623ee8016a6e6427a6048199a6a5a9881771de9b",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 33,
+          "confidence": 0.45
+        },
+        "profileConfidence": 0.15
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 33,
+          "confidence": 0.45
+        },
+        "profileConfidence": 0.15
+      },
+      "usage": {
+        "inputTokens": 832,
+        "cachedInputTokens": 0,
+        "outputTokens": 68,
+        "reasoningTokens": 0,
+        "totalTokens": 900
+      },
+      "estimatedCostUsd": 0.0002514,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-social-transformation-of-american-medicine-the-rise-of-a-sovereign-profession-and-the-making",
+      "slug": "the-social-transformation-of-american-medicine-the-rise-of-a-sovereign-profession-and-the-making",
+      "title": "The Social Transformation of American Medicine: The Rise of a Sovereign Profession and the Making of a Vast Industry",
+      "author": "Paul Starr",
+      "lane": "null_control",
+      "publicationYear": 1982,
+      "primarySubject": "Medicine & Public Health",
+      "topics": [
+        "Business, Capitalism & Corporations",
+        "Medicine, Health & the Body",
+        "Regional & Local History"
+      ],
+      "publisher": "Hachette Book Group",
+      "imprint": "Basic Books",
+      "pageCount": 592,
+      "sourceSummary": "An esoteric, intelligent, and scholarly book on how the industry of medicine in the US. If you really want to understand how medicine has become a business instead of a noble profession is understandable after this must read book. You can pretend to have an understanding or you can actually know what you are talking about. This book is well researched and referenced but does not read as an academic treatise.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-bancroft-prize-columbia-university-libraries-bancroft-prize-previous-awards-archive",
+          "label": "Columbia University Libraries Bancroft Prize previous-awards archive",
+          "url": "https://library.columbia.edu/about/awards/bancroft/previous_awards.html",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://library.columbia.edu/about/awards/bancroft.html"
+        },
+        {
+          "id": "source-award-record-pulitzer-general-nonfiction-wikipedia-pulitzer-prize-for-general-nonfiction",
+          "label": "Wikipedia: Pulitzer Prize for General Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_General_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/223"
+        },
+        {
+          "id": "source-publisher-cleanup-curation",
+          "label": "Manual publisher/imprint cleanup for generated catalog metadata",
+          "url": "",
+          "confidence": "manual",
+          "note": "Maps catalog-provider publisher strings that are actually imprints or aliases onto curated parent publishers and imprint records."
+        },
+        {
+          "id": "source-google-books-the-social-transformation-of-american-medicine-the-rise-of-a-sovereign-profession-and-the-making",
+          "label": "Google Books metadata for The Social Transformation of American Medicine: The Rise of a Sovereign Profession and the Making of a Vast Industry",
+          "url": "https://books.google.com/books/about/The_Social_Transformation_of_American_Me.html?hl=&id=FK4pBXGvQzoC",
+          "accessedAt": "2026-05-11T17:03:04.599Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-the-social-transformation-of-american-medicine-the-rise-of-a-sovereign-profession-and-the-making",
+          "label": "Open Library metadata for The Social Transformation of American Medicine: The Rise of a Sovereign Profession and the Making of a Vast Industry",
+          "url": "https://openlibrary.org/books/OL3790085M",
+          "accessedAt": "2026-05-12T22:29:10.628Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-wikipedia-the-social-transformation-of-american-medicine-the-rise-of-a-sovereign-profession-and-the-making",
+          "label": "Wikipedia article for The Social Transformation of American Medicine: The Rise of a Sovereign Profession and the Making of a Vast Industry",
+          "url": "https://en.wikipedia.org/wiki/The_Social_Transformation_of_American_Medicine",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1276098369."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "academic",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.849,
+        "traits": [
+          {
+            "id": "scholarly",
+            "score": 0.86,
+            "confidence": "high",
+            "evidence": [
+              "catalog text contains \"scholarly\"",
+              "catalog text contains \"academic\"",
+              "meta-scholarly history-writing context",
+              "history award recognition"
+            ]
+          },
+          {
+            "id": "academic",
+            "score": 0.555,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"scholarly\"",
+              "catalog text contains \"academic\"",
+              "meta-scholarly history-writing context"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "be2ea51da2ae7f0f5e58dd976521b0be9fba6d09c1e3829f33c6d967115f63a5",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_03bbe88388b90117016a6e643d22cc8198b6a5b540585c5277",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 40,
+          "confidence": 0.45
+        },
+        "profileConfidence": 0.25
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 40,
+          "confidence": 0.45
+        },
+        "profileConfidence": 0.25
+      },
+      "usage": {
+        "inputTokens": 813,
+        "cachedInputTokens": 0,
+        "outputTokens": 52,
+        "reasoningTokens": 0,
+        "totalTokens": 865
+      },
+      "estimatedCostUsd": 0.0002276,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-captives-and-cousins-slavery-kinship-and-community-in-the-southwest-borderlands-james-f-brooks",
+      "slug": "captives-and-cousins-slavery-kinship-and-community-in-the-southwest-borderlands-james-f-brooks",
+      "title": "Captives and Cousins: Slavery, Kinship, and Community in the Southwest Borderlands",
+      "author": "James F. Brooks",
+      "lane": "null_control",
+      "publicationYear": 2001,
+      "primarySubject": "American History",
+      "topics": [
+        "Indigenous History",
+        "Slavery & Emancipation",
+        "Empire & Colonialism",
+        "Money, Markets & Economic Policy"
+      ],
+      "publisher": "University of North Carolina Press",
+      "imprint": "University of North Carolina Press",
+      "pageCount": 419,
+      "sourceSummary": "This sweeping, richly evocative study examines the origins and legacies of a flourishing captive exchange economy within and among native American and Euramerican communities throughout the Southwest Borderlands from the Spanish colonial era to the end of the nineteenth century. Indigenous and colonial traditions of capture, servitude, and kinsh...",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-bancroft-prize-columbia-university-libraries-bancroft-prize-previous-awards-archive",
+          "label": "Columbia University Libraries Bancroft Prize previous-awards archive",
+          "url": "https://library.columbia.edu/about/awards/bancroft/previous_awards.html",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://library.columbia.edu/about/awards/bancroft.html"
+        },
+        {
+          "id": "source-award-record-francis-parkman-prize-wikipedia-francis-parkman-prize-winners",
+          "label": "Wikipedia: Francis Parkman Prize winners",
+          "url": "https://en.wikipedia.org/wiki/Francis_Parkman_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official prize archive: https://sah.columbia.edu/content/prizes/francis-parkman-prize"
+        },
+        {
+          "id": "source-award-record-frederick-douglass-slavery-abolition-wikipedia-frederick-douglass-book-prize-recipients",
+          "label": "Wikipedia: Frederick Douglass Book Prize recipients",
+          "url": "https://en.wikipedia.org/wiki/Frederick_Douglass_Book_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive: https://www.gilderlehrman.org/book-prizes/douglass"
+        },
+        {
+          "id": "source-award-record-oah-frederick-jackson-turner-award-oah-frederick-jackson-turner-award-official-page-internet-arc",
+          "label": "OAH Frederick Jackson Turner Award official page (Internet Archive snapshot)",
+          "url": "https://web.archive.org/web/20251220144221id_/https://www.oah.org/awards/book-awards-and-prizes/frederick-jackson-turner-award/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award"
+        },
+        {
+          "id": "source-google-books-captives-and-cousins-slavery-kinship-and-community-in-the-southwest-borderlands-james-f-brooks",
+          "label": "Google Books metadata for Captives and Cousins: Slavery, Kinship, and Community in the Southwest Borderlands",
+          "url": "https://books.google.com/books/about/Captives_and_Cousins.html?hl=&id=4X22pSWrVhsC",
+          "accessedAt": "2026-05-23T18:29:49.692Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-captives-and-cousins-slavery-kinship-and-community-in-the-southwest-borderlands-james-f-brooks",
+          "label": "Open Library metadata for Captives and Cousins: Slavery, Kinship, and Community in the Southwest Borderlands",
+          "url": "https://openlibrary.org/books/OL3956180M",
+          "accessedAt": "2026-05-23T18:29:49.692Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-open-library-isbn-captives-and-cousins-slavery-kinship-and-community-in-the-southwest-borderlands-james-f-brooks",
+          "label": "Open Library ISBN discovery for Captives and Cousins: Slavery, Kinship, and Community in the Southwest Borderlands",
+          "url": "https://openlibrary.org/books/OL9815456M",
+          "accessedAt": "2026-05-13T19:46:51.256Z",
+          "confidence": "catalog",
+          "field": "isbn13",
+          "note": "Selected ISBN 9780807827147 from the earliest plausible edition candidate. Reasons: title_match:1.00; publish_year:2001; english; hardcover_like; publisher:The University of North Carolina Press; pages:432; cover."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.27,
+        "traits": [
+          {
+            "id": "scholarly",
+            "score": 0.32,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "history award recognition"
+            ]
+          },
+          {
+            "id": "synthesis",
+            "score": 0.3,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"sweeping\"",
+              "catalog text contains \"from\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "544f2facb5eb41b175e473a36b23fdf925a800295ef42439fe8325533af69490",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0414feefca775cb7016a6e643ca9bc819998baf5d0d8c0d065",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 70,
+          "confidence": 0.45
+        },
+        "profileConfidence": 0.32
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 70,
+          "confidence": 0.45
+        },
+        "profileConfidence": 0.32
+      },
+      "usage": {
+        "inputTokens": 796,
+        "cachedInputTokens": 0,
+        "outputTokens": 52,
+        "reasoningTokens": 0,
+        "totalTokens": 848
+      },
+      "estimatedCostUsd": 0.0002242,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor",
+      "slug": "the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor",
+      "title": "The Internal Enemy: Slavery and War in Virginia, 1772–1832",
+      "author": "Alan Taylor",
+      "lane": "null_control",
+      "publicationYear": 2013,
+      "primarySubject": "American History",
+      "topics": [
+        "American Civil War",
+        "War & Military Strategy"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "imprint": "W. W. Norton",
+      "pageCount": 624,
+      "sourceSummary": "Drawn from new sources, a Pulitzer Prize-winning historian presents a gripping narrative that recreates the events that inspired hundreds of slaves to pressure British admirals into becoming liberators by using their intimate knowledge of the countryside to transform the war.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-frederick-douglass-slavery-abolition-gilder-lehrman-center-official-past-winners-and-finalists-a",
+          "label": "Gilder Lehrman Center official past winners and finalists archive",
+          "url": "https://macmillan.yale.edu/glc/past-winners",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award"
+        },
+        {
+          "id": "source-award-record-george-washington-founding-era-wikipedia-george-washington-book-prize-winners-and-finalists",
+          "label": "Wikipedia: George Washington Book Prize winners and finalists",
+          "url": "https://en.wikipedia.org/wiki/George_Washington_Book_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Winner rows are flagged with the blue ribbon marker in the source table; all other rows in the year block are finalists. Official awards URL: https://www.gilderlehrman.org/book-prizes/washington"
+        },
+        {
+          "id": "source-award-record-latimes-history-wikipedia-los-angeles-times-book-prize-for-history",
+          "label": "Wikipedia: Los Angeles Times Book Prize for History",
+          "url": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-oah-merle-curti-award-oah-merle-curti-award-official-page-internet-archive-snapshot",
+          "label": "OAH Merle Curti Award official page (Internet Archive snapshot)",
+          "url": "https://web.archive.org/web/20251119132437id_/https://www.oah.org/awards/book-awards-and-prizes/merle-curti-intellectual-history-award/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award"
+        },
+        {
+          "id": "source-award-record-pulitzer-history-wikipedia-pulitzer-prize-for-history",
+          "label": "Wikipedia: Pulitzer Prize for History",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_History",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/220"
+        },
+        {
+          "id": "source-open-library-isbn-the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor",
+          "label": "Open Library ISBN discovery for The Internal Enemy: Slavery and War in Virginia, 1772–1832",
+          "url": "https://openlibrary.org/books/OL26774322M",
+          "accessedAt": "2026-05-12T21:21:33.334Z",
+          "confidence": "catalog",
+          "field": "isbn13",
+          "note": "Selected ISBN 9780393073713 from the earliest plausible edition candidate. Reasons: title_match:1.00; publish_year:2013; english; publisher:W. W. Norton & Company; pages:624; cover."
+        },
+        {
+          "id": "source-open-library-the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor",
+          "label": "Open Library metadata for The Internal Enemy: Slavery and War in Virginia, 1772–1832",
+          "url": "https://openlibrary.org/books/OL26774322M",
+          "accessedAt": "2026-05-13T05:48:19.961Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-open-library-lcc-the-internal-enemy-slavery-and-war-in-virginia-1772-1832-alan-taylor",
+          "label": "Open Library catalog classification for The Internal Enemy: Slavery and War in Virginia, 1772–1832",
+          "url": "https://openlibrary.org/books/OL26774322M",
+          "accessedAt": "2026-07-23T18:23:43.075Z",
+          "confidence": "catalog",
+          "field": "library_classification",
+          "note": "open_library_exact_isbn; raw call number: E445.V8T38 2013"
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "popular",
+        "narrativeScore": 0.008,
+        "accessibilityScore": 0.301,
+        "scholarlyScore": 0.196,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.548,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"gripping\"",
+              "trade publisher signal: W. W. Norton / W. W. Norton & Company",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "accessible",
+            "score": 0.4,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"gripping\"",
+              "trade publisher signal: W. W. Norton / W. W. Norton & Company"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.2,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"historians\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "d1447031f4a52cc99b15127142ed1166bc5be04d507f846d566ccb1b9766678d",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0606815e86fd1ed0016a6e64386998819ab8cb04bac21a7113",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": true,
+          "statement": "Hundreds of enslaved people used their intimate knowledge of Virginia’s countryside to pressure British admirals into becoming liberators, and this shaped the war’s events.",
+          "confidence": 0.46
+        },
+        "academicOrientation": {
+          "score": 45,
+          "confidence": 0.34
+        },
+        "profileConfidence": 0.34
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 45,
+          "confidence": 0.34
+        },
+        "profileConfidence": 0.34
+      },
+      "usage": {
+        "inputTokens": 769,
+        "cachedInputTokens": 0,
+        "outputTokens": 86,
+        "reasoningTokens": 0,
+        "totalTokens": 855
+      },
+      "estimatedCostUsd": 0.0002613,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-unworthy-republic-the-dispossession-of-native-americans-and-the-road-to-indian-territory-claudio",
+      "slug": "unworthy-republic-the-dispossession-of-native-americans-and-the-road-to-indian-territory-claudio",
+      "title": "Unworthy Republic: The dispossession of Native Americans and the road to Indian Territory",
+      "author": "Claudio Saunt",
+      "lane": "central_places",
+      "publicationYear": 2021,
+      "primarySubject": "American History",
+      "topics": [
+        "Indigenous History",
+        "American Civil War",
+        "Reconstruction"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "imprint": "W. W. Norton",
+      "pageCount": 416,
+      "sourceSummary": "Unworthy Republic: The Dispossession of Native Americans and the Road to Indian Territory is a 2020 book by historian Claudio Saunt that focuses on the forced removal of Native Americans from the eastern United States during the early 19th century. It was awarded the Bancroft Prize in American history, and was a finalist for the National Book Award for Nonfiction.",
+      "sourceRefs": [
+        {
+          "id": "source-nonfiction-history-awards-by-imprint",
+          "label": "Nonfiction history awards by imprint seed workbook",
+          "url": "",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "manual",
+          "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+        },
+        {
+          "id": "source-nonfiction-history-awards-by-imprint-5",
+          "label": "Columbia University Bancroft Prize previous-awards archive; identifies Bancroft winners used in this list",
+          "url": "https://library.columbia.edu/about/awards/bancroft/previous_awards.html",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official"
+        },
+        {
+          "id": "source-award-record-bancroft-prize-columbia-university-libraries-bancroft-prize-previous-awards-archive",
+          "label": "Columbia University Libraries Bancroft Prize previous-awards archive",
+          "url": "https://library.columbia.edu/about/awards/bancroft/previous_awards.html",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://library.columbia.edu/about/awards/bancroft.html"
+        },
+        {
+          "id": "source-award-record-cundill-history-wikipedia-cundill-history-prize",
+          "label": "Wikipedia: Cundill History Prize",
+          "url": "https://en.wikipedia.org/wiki/Cundill_History_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.cundillprize.com/"
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-rfk-book-award-robert-f-kennedy-human-rights-official-laureate-page-claudio-saunt",
+          "label": "Robert F. Kennedy Human Rights official laureate page: Claudio Saunt",
+          "url": "https://kennedyhumanrights.org/person/claudio-saunt/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award"
+        },
+        {
+          "id": "source-award-record-ridenhour-book-wikipedia-the-ridenhour-prizes",
+          "label": "Wikipedia: The Ridenhour Prizes",
+          "url": "https://en.wikipedia.org/wiki/The_Ridenhour_Prizes",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.ridenhour.org/"
+        },
+        {
+          "id": "source-open-library-unworthy-republic-claudio-saunt",
+          "label": "Open Library metadata for Unworthy Republic",
+          "url": "https://openlibrary.org/works/OL20983708W",
+          "accessedAt": "2026-05-09T22:29:32.760Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-open-library-unworthy-republic-the-dispossession-of-native-americans-and-the-road-to-indian-territory-claudio",
+          "label": "Open Library metadata for Unworthy Republic: The Dispossession of Native Americans and the Road to Indian Territory",
+          "url": "https://openlibrary.org/works/OL20656911W",
+          "accessedAt": "2026-05-11T22:05:19.457Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-wikipedia-unworthy-republic-the-dispossession-of-native-americans-and-the-road-to-indian-territory-claudio",
+          "label": "Wikipedia article for Unworthy Republic: The dispossession of Native Americans and the road to Indian Territory",
+          "url": "https://en.wikipedia.org/wiki/Unworthy_Republic",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1335422682. Wikipedia extract also used as summary text."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0,
+        "accessibilityScore": 0.154,
+        "scholarlyScore": 0.074,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "trade publisher signal: W. W. Norton / W. W. Norton & Company",
+              "major-award recognition"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "93ba2a357bc5b8babbbd05f77735ff283193462d0596f6e4d713daed9421f019",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0c14c7408fcb6294016a6e64286c9081988fe171f22028c4a0",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 55,
+          "confidence": 0.45
+        },
+        "profileConfidence": 0.35
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 55,
+          "confidence": 0.45
+        },
+        "profileConfidence": 0.35
+      },
+      "usage": {
+        "inputTokens": 798,
+        "cachedInputTokens": 0,
+        "outputTokens": 52,
+        "reasoningTokens": 0,
+        "totalTokens": 850
+      },
+      "estimatedCostUsd": 0.0002246,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
+      "slug": "parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
+      "title": "Parting the Waters: America in the King Years, 1954-1963",
+      "author": "Taylor Branch",
+      "lane": "central_places",
+      "publicationYear": 1988,
+      "primarySubject": "Race & Ethnicity",
+      "topics": [
+        "Black History & Culture",
+        "American Politics",
+        "American Civil War"
+      ],
+      "publisher": "Simon & Schuster",
+      "imprint": "Simon & Schuster",
+      "pageCount": 88,
+      "sourceSummary": "Chronicles the civil rights struggle from the twilight of the Eisenhower years through the assassination of President Kennedy.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-anisfield-wolf-nonfiction-anisfield-wolf-official-winners-archive",
+          "label": "Anisfield-Wolf official winners archive",
+          "url": "https://www.anisfield-wolf.org/winners/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official award URL: https://www.anisfield-wolf.org/winners/"
+        },
+        {
+          "id": "source-award-record-latimes-current-interest-wikipedia-los-angeles-times-book-prize-for-current-interest",
+          "label": "Wikipedia: Los Angeles Times Book Prize for Current Interest",
+          "url": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Current_Interest",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
+        },
+        {
+          "id": "source-award-record-pulitzer-history-wikipedia-pulitzer-prize-for-history",
+          "label": "Wikipedia: Pulitzer Prize for History",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_History",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/220"
+        },
+        {
+          "id": "source-open-library-parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
+          "label": "Open Library metadata for Parting the Waters: America in the King Years, 1954-1963",
+          "url": "https://openlibrary.org/works/OL2741909W",
+          "accessedAt": "2026-05-10T16:34:48.198Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-nbcc-nonfiction-wikipedia-national-book-critics-circle-award-for-nonfiction",
+          "label": "Wikipedia: National Book Critics Circle Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.bookcritics.org/awards/"
+        },
+        {
+          "id": "source-open-library-parting-the-waters-america-in-the-king-years-1954-63-taylor-branch",
+          "label": "Open Library metadata for Parting the Waters: America in the King Years, 1954–63",
+          "url": "https://openlibrary.org/works/OL2741909W",
+          "accessedAt": "2026-05-10T16:34:48.198Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-wikipedia-parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
+          "label": "Wikipedia article for Parting the Waters: America in the King Years, 1954-1963",
+          "url": "https://en.wikipedia.org/wiki/America_in_the_King_Years",
+          "accessedAt": "2026-07-14T18:47:57.494Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1351447419."
+        },
+        {
+          "id": "source-open-library-summary-parting-the-waters-america-in-the-king-years-1954-1963-taylor-branch",
+          "label": "Open Library summary metadata for Parting the Waters: America in the King Years, 1954-1963",
+          "url": "https://openlibrary.org/works/OL2741909W",
+          "accessedAt": "2026-05-15T22:08:23.081Z",
+          "confidence": "catalog",
+          "field": "summary"
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0.101,
+        "accessibilityScore": 0.202,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "trade publisher signal: Simon & Schuster / Simon & Schuster",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "narrative",
+            "score": 0.22,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"chronicles the\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "19e04b9c29b2d516a25a1bc68794d488c8a8f8f7b04477d68a4988c4dcbf10fd",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0737d357df768367016a6e6421fd9c8198bcb4e28479143c08",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [
+          {
+            "name": "America",
+            "confidence": 0.45
+          }
+        ],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 35,
+          "confidence": 0.35
+        },
+        "profileConfidence": 0.4
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 35,
+          "confidence": 0.35
+        },
+        "profileConfidence": 0.4
+      },
+      "usage": {
+        "inputTokens": 744,
+        "cachedInputTokens": 0,
+        "outputTokens": 63,
+        "reasoningTokens": 0,
+        "totalTokens": 807
+      },
+      "estimatedCostUsd": 0.00022755,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+      "slug": "the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+      "title": "The Invention of Nature: The Adventures of Alexander von Humboldt, the Lost Hero of Science",
+      "author": "Andrea Wulf",
+      "lane": "central_figures",
+      "publicationYear": 2015,
+      "primarySubject": "Biography",
+      "topics": [
+        "Climate, Weather & Disaster",
+        "Natural History & Animals",
+        "Oceans, Rivers & Water",
+        "Science & Discovery"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Knopf",
+      "pageCount": 555,
+      "sourceSummary": "From the Prologue... When nature is perceived as a web, its vulnerability also becomes obvious. Everything hangs together. If one thread is pulled, the whole tapestry may unravel. After he saw the devastating environmental effects of colonial plantations at Lake Valencia in Venezuela in 1800, Humboldt became the first scientist to talk about harmful human-induced climate change. Deforestation there had made the land barren, water levels of the lake were falling and with the disappearance of brushwood torrential rains had washed away the soils on the surrounding mountain slopes. Humboldt was the first to explain the forest's ability to enrich the atmosphere with moisture and its cooling effect, as well as its importance for water retention and protection against soil erosion. He warned that humans were meddling with the climate and that this could have an unforeseeable impact on ‘future generations'. The Invention of Nature traces the invisible threads that connect us to this extraordinary man. Humboldt influenced many of the greatest thinkers, artists and scientists of his day. Thomas Jefferson called him ‘one of the greatest ornaments of the age'. Charles Darwin wrote that ‘nothing ever stimulated my zeal so much as reading Humboldt's Personal Narrative,' saying that he would not have boarded the Beagle, nor conceived of the Origin of Species, without Humboldt.",
+      "sourceRefs": [
+        {
+          "id": "source-nonfiction-history-awards-by-imprint",
+          "label": "Nonfiction history awards by imprint seed workbook",
+          "url": "",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "manual",
+          "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+        },
+        {
+          "id": "source-nonfiction-history-awards-by-imprint-10",
+          "label": "ALA Andrew Carnegie Medals winner pages; identify nonfiction winners and finalists",
+          "url": "https://www.ala.org/carnegie-medals/2025-winners",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official"
+        },
+        {
+          "id": "source-award-record-costa-biography-wikipedia-costa-book-award-for-biography",
+          "label": "Wikipedia: Costa Book Award for Biography",
+          "url": "https://en.wikipedia.org/wiki/Costa_Book_Award_for_Biography",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.costabookawards.com/"
+        },
+        {
+          "id": "source-award-record-royal-society-science-wikipedia-royal-society-science-book-prize",
+          "label": "Wikipedia: Royal Society Science Book Prize",
+          "url": "https://en.wikipedia.org/wiki/Royal_Society_Science_Book_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://royalsociety.org/medals-and-prizes/science-book-prize/"
+        },
+        {
+          "id": "source-google-books-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+          "label": "Google Books metadata for The Invention of Nature: The Adventures of Alexander von Humboldt, the Lost Hero of Science",
+          "url": "https://books.google.com/books/about/The_invention_of_nature_the_adventures_o.html?hl=&id=OAtdmgEACAAJ",
+          "accessedAt": "2026-05-11T17:03:04.599Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+          "label": "Open Library summary metadata for The Invention of Nature: The Adventures of Alexander von Humboldt, the Lost Hero of Science",
+          "url": "https://openlibrary.org/books/OL32067324M",
+          "accessedAt": "2026-05-15T22:08:23.081Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-award-record-carnegie-nonfiction-wikipedia-andrew-carnegie-medals-for-excellence-in-fiction-and-nonfiction",
+          "label": "Wikipedia: Andrew Carnegie Medals for Excellence in Fiction and Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/Andrew_Carnegie_Medals_for_Excellence_in_Fiction_and_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+        },
+        {
+          "id": "source-award-record-cundill-history-wikipedia-cundill-history-prize",
+          "label": "Wikipedia: Cundill History Prize",
+          "url": "https://en.wikipedia.org/wiki/Cundill_History_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.cundillprize.com/"
+        },
+        {
+          "id": "source-award-record-kirkus-nonfiction-wikipedia-kirkus-prize",
+          "label": "Wikipedia: Kirkus Prize",
+          "url": "https://en.wikipedia.org/wiki/Kirkus_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.kirkusreviews.com/prize/"
+        },
+        {
+          "id": "source-award-record-latimes-science-technology-wikipedia-los-angeles-times-book-prize-for-science-and-technology",
+          "label": "Wikipedia: Los Angeles Times Book Prize for Science and Technology",
+          "url": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_Science_and_Technology",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
+        },
+        {
+          "id": "source-open-library-the-invention-of-nature-alexander-von-humboldt-s-new-world-andrea-wulf",
+          "label": "Open Library metadata for The Invention of Nature: Alexander Von Humboldt's New World",
+          "url": "https://openlibrary.org/works/OL17323380W",
+          "accessedAt": "2026-05-10T22:47:26.053Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-award-record-carnegie-nonfiction-ala-carnegie-medals-2016-annual-page",
+          "label": "ALA Carnegie Medals 2016 annual page",
+          "url": "https://www.ala.org/carnegie-medals/2016-winners",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://www.ala.org/rusa/awards/carnegie-medals"
+        },
+        {
+          "id": "source-wikipedia-the-invention-of-nature-the-adventures-of-alexander-von-humboldt-the-lost-hero-of-science-andrea",
+          "label": "Wikipedia article for The Invention of Nature: The Adventures of Alexander von Humboldt, the Lost Hero of Science",
+          "url": "https://en.wikipedia.org/wiki/The_Invention_of_Nature",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1341274705."
+        },
+        {
+          "id": "source-year-repair-invention-of-nature",
+          "label": "Penguin Random House first-edition details for The Invention of Nature",
+          "url": "https://www.penguinrandomhouse.com/books/227866/the-invention-of-nature-by-andrea-wulf/",
+          "confidence": "official",
+          "field": "book"
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0.232,
+        "accessibilityScore": 0.2,
+        "scholarlyScore": 0.074,
+        "traits": [
+          {
+            "id": "biographical",
+            "score": 0.58,
+            "confidence": "medium",
+            "evidence": [
+              "biography subject or topic",
+              "biography award category"
+            ]
+          },
+          {
+            "id": "narrative",
+            "score": 0.38,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"story of\"",
+              "catalog text contains \"adventure\""
+            ]
+          },
+          {
+            "id": "popular",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "trade publisher signal: Knopf / Penguin Random House",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "synthesis",
+            "score": 0.2,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"from\"",
+              "catalog text contains \"history of\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "70debfe4a6275879156d6425df3b55a4799dc1666f5bc4f0bfe030e0ba91e6aa",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0ef1aa1e93970041016a6e64161f24819aaee83ff2c2480427",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Alexander von Humboldt",
+            "confidence": 0.9
+          },
+          {
+            "name": "Thomas Jefferson",
+            "confidence": 0.4
+          },
+          {
+            "name": "Charles Darwin",
+            "confidence": 0.4
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "Lake Valencia",
+            "confidence": 0.85
+          },
+          {
+            "name": "Venezuela",
+            "confidence": 0.5
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "After observing colonial plantations at Lake Valencia in 1800, Humboldt became the first scientist to argue that human activity could cause harmful climate change affecting future generations.",
+          "confidence": 0.72
+        },
+        "academicOrientation": {
+          "score": 30,
+          "confidence": 0.35
+        },
+        "profileConfidence": 0.82
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Alexander von Humboldt",
+            "confidence": 0.9
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "Lake Valencia",
+            "confidence": 0.85
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "After observing colonial plantations at Lake Valencia in 1800, Humboldt became the first scientist to argue that human activity could cause harmful climate change affecting future generations.",
+          "confidence": 0.72
+        },
+        "academicOrientation": {
+          "score": 30,
+          "confidence": 0.35
+        },
+        "profileConfidence": 0.82
+      },
+      "usage": {
+        "inputTokens": 984,
+        "cachedInputTokens": 0,
+        "outputTokens": 144,
+        "reasoningTokens": 0,
+        "totalTokens": 1128
+      },
+      "estimatedCostUsd": 0.0003768,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-power-broker-robert-moses-and-the-fall-of-new-york-robert-a-caro",
+      "slug": "the-power-broker-robert-moses-and-the-fall-of-new-york-robert-a-caro",
+      "title": "The Power Broker: Robert Moses and the Fall of New York",
+      "author": "Robert A. Caro",
+      "lane": "central_figures",
+      "publicationYear": 1974,
+      "primarySubject": "Memoir & Autobiography",
+      "topics": [
+        "Democracy & Elections",
+        "Housing, Cities & Urban Life",
+        "Intellectual History & Ideas",
+        "Regional & Local History"
+      ],
+      "publisher": "Penguin Random House Canada",
+      "imprint": "Random House Canada",
+      "pageCount": 1348,
+      "sourceSummary": "PULITZER PRIZE WINNER • A modern American classic, this huge and galvanizing biography of Robert Moses reveals not only the saga of one man’s incredible accumulation of power but the story of his shaping (and mis-shaping) of twentieth-century New York. One of the Modern Library’s hundred greatest books of the twentieth century, Robert Caro's monumental book makes public what few outsiders knew: that Robert Moses was the single most powerful man of his time in the City and in the State of New York. And in telling the Moses story, Caro both opens up to an unprecedented degree the way in which politics really happens—the way things really get done in America's City Halls and Statehouses—and brings to light a bonanza of vital information about such national figures as Alfred E. Smith and Franklin D. Roosevelt (and the genesis of their blood feud), about Fiorello La Guardia, John V. Lindsay and Nelson Rockefeller. But The Power Broker is first and foremost a brilliant multidimensional portrait of a man—an extraordinary man who, denied power within the normal framework of the democratic process, stepped outside that framework to grasp power sufficient to shape a great city and to hold sway over the very texture of millions of lives. We see how Moses began: the handsome, intellectual young heir to the world of Our Crowd, an idealist.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-francis-parkman-prize-wikipedia-francis-parkman-prize-winners",
+          "label": "Wikipedia: Francis Parkman Prize winners",
+          "url": "https://en.wikipedia.org/wiki/Francis_Parkman_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official prize archive: https://sah.columbia.edu/content/prizes/francis-parkman-prize"
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-pulitzer-biography-or-autobiography-wikipedia-pulitzer-prize-for-biography",
+          "label": "Wikipedia: Pulitzer Prize for Biography",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_Biography",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/222"
+        },
+        {
+          "id": "source-open-library-the-power-broker-robert-moses-and-the-fall-of-new-york-robert-caro",
+          "label": "Open Library metadata for The Power Broker: Robert Moses and the Fall of New York",
+          "url": "https://openlibrary.org/books/OL5189501M",
+          "accessedAt": "2026-07-14T18:32:05.660Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-google-books-summary-the-power-broker-robert-moses-and-the-fall-of-new-york-robert-caro",
+          "label": "Google Books summary metadata for The Power Broker: Robert Moses and the Fall of New York",
+          "url": "https://books.google.com/books/about/The_Power_Broker.html?hl=&id=0zURYumyL-UC",
+          "accessedAt": "2026-05-18T17:21:54.436Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-google-books-the-power-broker-robert-moses-and-the-fall-of-new-york-robert-caro",
+          "label": "Google Books metadata for The Power Broker: Robert Moses and the Fall of New York",
+          "url": "https://books.google.com/books/about/The_Power_Broker.html?hl=&id=gShR8MLd9kYC",
+          "accessedAt": "2026-07-14T18:32:05.660Z",
+          "confidence": "catalog",
+          "field": "book"
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0.298,
+        "accessibilityScore": 0.195,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "biographical",
+            "score": 0.948,
+            "confidence": "high",
+            "evidence": [
+              "catalog text contains \"biography of\"",
+              "catalog text contains \"portrait of\"",
+              "biography subject or topic",
+              "biography award category"
+            ]
+          },
+          {
+            "id": "memoiristic",
+            "score": 0.78,
+            "confidence": "high",
+            "evidence": [
+              "catalog text contains \"memoir\"",
+              "memoir/autobiography subject or topic"
+            ]
+          },
+          {
+            "id": "character_driven",
+            "score": 0.46,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"biography of\"",
+              "catalog text contains \"portrait of\""
+            ]
+          },
+          {
+            "id": "popular",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "trade publisher signal: Random House Canada / Penguin Random House Canada",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "argument_driven",
+            "score": 0.18,
+            "confidence": "low",
+            "evidence": [
+              "intellectual history topic"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "9a7b095c9716ec374cc819aea1b21eb8784500d3d740d0a9eefb62f7c50eecca",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0e78a11c3f51e952016a6e6411baac8198ac656fcbfc8cc0dd",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Robert Moses",
+            "confidence": 0.95
+          },
+          {
+            "name": "Alfred E. Smith",
+            "confidence": 0.4
+          },
+          {
+            "name": "Franklin D. Roosevelt",
+            "confidence": 0.4
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "New York",
+            "confidence": 0.85
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "Robert Moses accumulated extraordinary power outside normal democratic processes, using it to shape twentieth-century New York in ways that mis-shaped the city and affected millions of lives.",
+          "confidence": 0.45
+        },
+        "academicOrientation": {
+          "score": 50,
+          "confidence": 0.35
+        },
+        "profileConfidence": 0.86
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Robert Moses",
+            "confidence": 0.95
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "New York",
+            "confidence": 0.85
+          }
+        ],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 50,
+          "confidence": 0.35
+        },
+        "profileConfidence": 0.86
+      },
+      "usage": {
+        "inputTokens": 1003,
+        "cachedInputTokens": 0,
+        "outputTokens": 137,
+        "reasoningTokens": 0,
+        "totalTokens": 1140
+      },
+      "estimatedCostUsd": 0.00037185,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-new-negro-the-life-of-alain-locke-jeffrey-c-stewart",
+      "slug": "the-new-negro-the-life-of-alain-locke-jeffrey-c-stewart",
+      "title": "The New Negro: The Life of Alain Locke",
+      "author": "Jeffrey C. Stewart",
+      "lane": "central_figures",
+      "publicationYear": 2019,
+      "primarySubject": "Biography",
+      "topics": [
+        "Black History & Culture",
+        "Literary Biography"
+      ],
+      "publisher": "Oxford University Press",
+      "imprint": "Oxford University Press",
+      "pageCount": 945,
+      "sourceSummary": "The definitive biography of Alain Locke, the first African American Rhodes Scholar and Harvard PhD in philosophy, Howard University philosophy scholar, and architect of the Harlem Renaissance, who mentored a generation of artists including Langston Hughes and Zora Neale Nurston and promoted the work of African Americans as the quintessential creators of American modernism. This biography explores his professional and private life, including his relationships with white patrons and his lifelong search for love as a gay man.",
+      "sourceRefs": [
+        {
+          "id": "source-nonfiction-history-awards-by-imprint",
+          "label": "Nonfiction history awards by imprint seed workbook",
+          "url": "",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "manual",
+          "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+        },
+        {
+          "id": "source-nonfiction-history-awards-by-imprint-6",
+          "label": "Columbia Journalism School Lukas Prize Project archive; identifies Mark Lynton winners and finalists used in this list",
+          "url": "https://journalism.columbia.edu/lukas",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official"
+        },
+        {
+          "id": "source-award-record-elizabeth-longford-historical-biography-wikipedia-elizabeth-longford-prize",
+          "label": "Wikipedia: Elizabeth Longford Prize",
+          "url": "https://en.wikipedia.org/wiki/Elizabeth_Longford_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive: https://elhb.uk/winners/"
+        },
+        {
+          "id": "source-award-record-mark-lynton-history-wikipedia-mark-lynton-history-prize",
+          "label": "Wikipedia: Mark Lynton History Prize",
+          "url": "https://en.wikipedia.org/wiki/Mark_Lynton_History_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://journalism.columbia.edu/lukas"
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-plutarch-biography-wikipedia-plutarch-award",
+          "label": "Wikipedia: Plutarch Award",
+          "url": "https://en.wikipedia.org/wiki/Plutarch_Award",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://biographersinternational.org/award/plutarch/"
+        },
+        {
+          "id": "source-award-record-prose-biography-and-autobiography-prose-awards-2019-winners-archive",
+          "label": "PROSE Awards 2019 winners archive",
+          "url": "https://proseawards.com/winners/2019-award-winners/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://proseawards.com/winners/2019-award-winners/"
+        },
+        {
+          "id": "source-award-record-pulitzer-biography-or-autobiography-wikipedia-pulitzer-prize-for-biography",
+          "label": "Wikipedia: Pulitzer Prize for Biography",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_Biography",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/222"
+        },
+        {
+          "id": "source-google-books-the-new-negro-jeffrey-c-stewart",
+          "label": "Google Books metadata for The New Negro",
+          "url": "https://play.google.com/store/books/details?id=WL9EDwAAQBAJ",
+          "accessedAt": "2026-05-09T17:03:29.833Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-the-new-negro-jeffrey-c-stewart",
+          "label": "Open Library metadata for The New Negro",
+          "url": "https://openlibrary.org/works/OL19732332W",
+          "accessedAt": "2026-05-09T17:03:29.833Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-wikipedia-the-new-negro-the-life-of-alain-locke-jeffrey-c-stewart",
+          "label": "Wikipedia article for The New Negro: The Life of Alain Locke",
+          "url": "https://en.wikipedia.org/wiki/The_New_Negro%3A_The_Life_of_Alain_Locke",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1332433962."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.356,
+        "traits": [
+          {
+            "id": "biographical",
+            "score": 0.396,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"life of\"",
+              "catalog text contains \"biography of\"",
+              "biography subject or topic",
+              "biography award category",
+              "reduced because text appears to study narrative/biographical genres"
+            ]
+          },
+          {
+            "id": "academic",
+            "score": 0.38,
+            "confidence": "low",
+            "evidence": [
+              "academic press signal: Oxford University Press / Oxford University Press"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.28,
+            "confidence": "low",
+            "evidence": [
+              "academic press signal: Oxford University Press / Oxford University Press"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "c4da5d86f6ea1647305284b5fd2b3bef67ff1c214a455e3acc363f96ee33e83d",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0d2ba4930fb5daad016a6e641b823881999cecdc31ee6e57b8",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Alain Locke",
+            "confidence": 0.95
+          },
+          {
+            "name": "Langston Hughes",
+            "confidence": 0.4
+          },
+          {
+            "name": "Zora Neale Nurston",
+            "confidence": 0.4
+          }
+        ],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 75,
+          "confidence": 0.6
+        },
+        "profileConfidence": 0.78
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Alain Locke",
+            "confidence": 0.95
+          }
+        ],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 75,
+          "confidence": 0.6
+        },
+        "profileConfidence": 0.78
+      },
+      "usage": {
+        "inputTokens": 799,
+        "cachedInputTokens": 0,
+        "outputTokens": 92,
+        "reasoningTokens": 0,
+        "totalTokens": 891
+      },
+      "estimatedCostUsd": 0.0002748,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-fire-weather-a-true-story-from-a-hotter-world-john-vaillant",
+      "slug": "fire-weather-a-true-story-from-a-hotter-world-john-vaillant",
+      "title": "Fire Weather: A True Story from a Hotter World",
+      "author": "John Vaillant",
+      "lane": "central_places",
+      "publicationYear": 2024,
+      "primarySubject": "Nature & Environment",
+      "topics": [
+        "Climate, Weather & Disaster",
+        "Travel, Exploration & Place",
+        "Environment, Conservation & Pollution"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Knopf",
+      "pageCount": 441,
+      "sourceSummary": "PULITZER PRIZE FINALIST • A NEW YORK TIMES TOP TEN BOOK OF THE YEAR • FINALIST FOR THE NATIONAL BOOK AWARD IN NONFICTION • FINALIST FOR THE PEN/GALBRAITH AWARD FOR NONFICTION • A stunning account of a colossal wildfire and a panoramic exploration of the rapidly changing relationship between fire and humankind from the award-winning, best-selling author of The Tiger and The Golden Spruce • Winner of the Baillie Gifford Prize for Non-Fiction A BEST BOOK OF THE YEAR: The New York Times, The Washington Post, The New Yorker, TIME, NPR, Slate, and Smithsonian “Grips like a philosophical thriller, warns like a beacon, and shocks to the core.\" —Robert Macfarlane, bestselling author of Underland “Riveting, spellbinding, astounding on every page.” —David Wallace-Wells, #1 bestselling author of The Uninhabitable Earth In May 2016, Fort McMurray, the hub of Canada’s oil industry and America’s biggest foreign supplier, was overrun by wildfire. The multi-billion-dollar disaster melted vehicles, turned entire neighborhoods into firebombs, and drove 88,000 people from their homes in a single afternoon. Through the lens of this apocalyptic conflagration—the wildfire equivalent of Hurricane Katrina—John Vaillant warns that this was not a unique event, but a shocking preview of what we must prepare for in a hotter, more flammable world.",
+      "sourceRefs": [
+        {
+          "id": "source-nonfiction-history-awards-by-imprint",
+          "label": "Nonfiction history awards by imprint seed workbook",
+          "url": "",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "manual",
+          "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+        },
+        {
+          "id": "source-nonfiction-history-awards-by-imprint-8",
+          "label": "PEN America Galbraith Award page; identifies winners and finalists used in this list",
+          "url": "https://pen.org/literary-awards/pen-galbraith-award-for-nonfiction/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official"
+        },
+        {
+          "id": "source-award-record-baillie-gifford-nonfiction-wikipedia-baillie-gifford-prize",
+          "label": "Wikipedia: Baillie Gifford Prize",
+          "url": "https://en.wikipedia.org/wiki/Baillie_Gifford_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.thebailliegiffordprize.co.uk/"
+        },
+        {
+          "id": "source-award-record-hilary-weston-nonfiction-wikipedia-hilary-weston-writers-trust-prize-for-nonfiction",
+          "label": "Wikipedia: Hilary Weston Writers' Trust Prize for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/Hilary_Weston_Writers%27_Trust_Prize_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official award URL: https://www.writerstrust.com/writers-books/awards/hilary-weston-writers-trust-prize-for-nonfiction"
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-pen-galbraith-nonfiction-wikipedia-pen-john-kenneth-galbraith-award-for-nonfiction",
+          "label": "Wikipedia: PEN/John Kenneth Galbraith Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/PEN/John_Kenneth_Galbraith_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://pen.org/pen-john-kenneth-galbraith-award-for-nonfiction/"
+        },
+        {
+          "id": "source-award-record-pulitzer-general-nonfiction-wikipedia-pulitzer-prize-for-general-nonfiction",
+          "label": "Wikipedia: Pulitzer Prize for General Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_General_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/223"
+        },
+        {
+          "id": "source-award-record-wainwright-conservation-writing-wikipedia-wainwright-prize-shortlist-table-citing-annual-officia",
+          "label": "Wikipedia Wainwright Prize shortlist table, citing annual official announcements",
+          "url": "https://en.wikipedia.org/wiki/Wainwright_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "The table row cites the corresponding official Wainwright Prize shortlist announcement."
+        },
+        {
+          "id": "source-open-library-fire-weather-john-vaillant",
+          "label": "Open Library metadata for Fire Weather",
+          "url": "https://openlibrary.org/works/OL28867302W",
+          "accessedAt": "2026-05-09T22:31:15.324Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-publisher-cleanup-curation",
+          "label": "Manual publisher/imprint cleanup for generated catalog metadata",
+          "url": "",
+          "confidence": "manual",
+          "note": "Maps catalog-provider publisher strings that are actually imprints or aliases onto curated parent publishers and imprint records."
+        },
+        {
+          "id": "source-google-books-fire-weather-a-true-story-from-a-hotter-world-john-vaillant",
+          "label": "Google Books metadata for Fire Weather: A True Story from a Hotter World",
+          "url": "https://books.google.com/books/about/Fire_Weather.html?hl=&id=d-OXEAAAQBAJ",
+          "accessedAt": "2026-05-11T17:05:31.114Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-google-books-summary-fire-weather-a-true-story-from-a-hotter-world-john-vaillant",
+          "label": "Google Books summary metadata for Fire Weather: A True Story from a Hotter World",
+          "url": "https://play.google.com/store/books/details?id=n4GAEAAAQBAJ",
+          "accessedAt": "2026-05-16T00:09:05.528Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-wikipedia-fire-weather-a-true-story-from-a-hotter-world-john-vaillant",
+          "label": "Wikipedia article for Fire Weather: A True Story from a Hotter World",
+          "url": "https://en.wikipedia.org/wiki/Fire_Weather",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1343195504."
+        },
+        {
+          "id": "source-award-record-shaughnessy-cohen-political-writing-wikipedia-shaughnessy-cohen-prize-for-political-writing",
+          "label": "Wikipedia: Shaughnessy Cohen Prize for Political Writing",
+          "url": "https://en.wikipedia.org/wiki/Shaughnessy_Cohen_Prize_for_Political_Writing",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official award URL: https://www.writerstrust.com/awards/shaughnessy-cohen-prize-for-political-writing"
+        },
+        {
+          "id": "source-open-library-fire-weather-the-making-of-a-beast-john-vaillant",
+          "label": "Open Library metadata for Fire Weather: The Making of a Beast",
+          "url": "https://openlibrary.org/works/OL28867302W",
+          "accessedAt": "2026-07-28T19:21:55.770Z",
+          "confidence": "catalog",
+          "field": "book"
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0.156,
+        "accessibilityScore": 0.217,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "narrative",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"true story\""
+            ]
+          },
+          {
+            "id": "popular",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "trade publisher signal: Knopf / Penguin Random House",
+              "major-award recognition"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "da083c026474735bf4a725e44d21e7a6b33c3f9b9aef7f52c9ce65cde7550046",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0cc62bac41b32097016a6e642559e08199921cb9bc1adb407e",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [
+          {
+            "name": "Fort McMurray",
+            "confidence": 0.82
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "The Fort McMurray wildfire was not unique; it is a preview of what must be prepared for as a hotter, more flammable world increases fire risk.",
+          "confidence": 0.55
+        },
+        "academicOrientation": {
+          "score": 32,
+          "confidence": 0.55
+        },
+        "profileConfidence": 0.74
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [
+          {
+            "name": "Fort McMurray",
+            "confidence": 0.82
+          }
+        ],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 32,
+          "confidence": 0.55
+        },
+        "profileConfidence": 0.74
+      },
+      "usage": {
+        "inputTokens": 1020,
+        "cachedInputTokens": 0,
+        "outputTokens": 113,
+        "reasoningTokens": 0,
+        "totalTokens": 1133
+      },
+      "estimatedCostUsd": 0.00034525,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+      "slug": "the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+      "title": "The Looming Tower: Al-Qaeda and the Road to 9/11",
+      "author": "Lawrence Wright",
+      "lane": "central_places",
+      "publicationYear": 2006,
+      "primarySubject": "History",
+      "topics": [
+        "Literature & Writers"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Knopf",
+      "pageCount": 594,
+      "sourceSummary": "National Book Award FinalistA Time, Newsweek, Washington Post, Chicago Tribune, and New York Times Book Review Best Book of the YearA gripping narrative that spans five decades, The Looming Tower explains in unprecedented detail the growth of Islamic fundamentalism, the rise of al-Qaeda, and the intelligence failures that culminated in the attacks on the World Trade Center. Lawrence Wright re-creates firsthand the transformation of Osama bin Laden and Ayman al-Zawahiri from incompetent and idealistic soldiers in Afghanistan to leaders of the most successful terrorist group in history. He follows FBI counterterrorism chief John O'Neill as he uncovers the emerging danger from al-Qaeda in the 1990s and struggles to track this new threat. Packed with new information and a deep historical perspective, The Looming Tower is the definitive history of the long road to September 11.From the Trade Paperback edition.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-helen-bernstein-journalism-wikipedia-helen-bernstein-book-award-for-excellence-in-journalism",
+          "label": "Wikipedia: Helen Bernstein Book Award for Excellence in Journalism",
+          "url": "https://en.wikipedia.org/wiki/Helen_Bernstein_Book_Award_for_Excellence_in_Journalism",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.nypl.org/about/awards/helen-bernstein-award-excellence-journalism"
+        },
+        {
+          "id": "source-award-record-j-anthony-lukas-book-wikipedia-j-anthony-lukas-book-prize",
+          "label": "Wikipedia: J. Anthony Lukas Book Prize",
+          "url": "https://en.wikipedia.org/wiki/J._Anthony_Lukas_Book_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://journalism.columbia.edu/lukas"
+        },
+        {
+          "id": "source-award-record-latimes-history-wikipedia-los-angeles-times-book-prize-for-history",
+          "label": "Wikipedia: Los Angeles Times Book Prize for History",
+          "url": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
+        },
+        {
+          "id": "source-award-record-lionel-gelber-wikipedia-lionel-gelber-prize",
+          "label": "Wikipedia: Lionel Gelber Prize",
+          "url": "https://en.wikipedia.org/wiki/Lionel_Gelber_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://munkschool.utoronto.ca/lionel-gelber-prize"
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-pulitzer-general-nonfiction-wikipedia-pulitzer-prize-for-general-nonfiction",
+          "label": "Wikipedia: Pulitzer Prize for General Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_General_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/223"
+        },
+        {
+          "id": "source-publisher-cleanup-curation",
+          "label": "Manual publisher/imprint cleanup for generated catalog metadata",
+          "url": "",
+          "confidence": "manual",
+          "note": "Maps catalog-provider publisher strings that are actually imprints or aliases onto curated parent publishers and imprint records."
+        },
+        {
+          "id": "source-google-books-the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+          "label": "Google Books metadata for The Looming Tower: Al-Qaeda and the Road to 9/11",
+          "url": "https://books.google.com/books/about/The_Looming_Tower.html?hl=&id=KHMcEAAAQBAJ",
+          "accessedAt": "2026-05-18T17:21:24.243Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+          "label": "Open Library metadata for The Looming Tower: Al-Qaeda and the Road to 9/11",
+          "url": "https://openlibrary.org/books/OL8364916M",
+          "accessedAt": "2026-05-18T17:21:24.243Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-open-library-summary-the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+          "label": "Open Library summary metadata for The Looming Tower: Al-Qaeda and the Road to 9/11",
+          "url": "https://openlibrary.org/works/OL193645W",
+          "accessedAt": "2026-05-15T22:08:23.081Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-wikipedia-the-looming-tower-al-qaeda-and-the-road-to-9-11-lawrence-wright",
+          "label": "Wikipedia article for The Looming Tower: Al-Qaeda and the Road to 9/11",
+          "url": "https://en.wikipedia.org/wiki/The_Looming_Tower",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1353806747."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "popular",
+        "narrativeScore": 0.079,
+        "accessibilityScore": 0.379,
+        "scholarlyScore": 0.087,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.548,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"gripping\"",
+              "trade publisher signal: Knopf / Penguin Random House",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "accessible",
+            "score": 0.4,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"gripping\"",
+              "trade publisher signal: Knopf / Penguin Random House"
+            ]
+          },
+          {
+            "id": "reported",
+            "score": 0.22,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"firsthand\""
+            ]
+          },
+          {
+            "id": "essayistic",
+            "score": 0.2,
+            "confidence": "low",
+            "evidence": [
+              "literature/criticism subject or topic"
+            ]
+          },
+          {
+            "id": "synthesis",
+            "score": 0.2,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"from\"",
+              "catalog text contains \"history of\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "336af78ace601a95d72370e3ad7b44e4f5c99f176dc204313f9c6ea9ab14abfe",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_081e938d13e57263016a6e64226dc081999322e795aeb4b9ac",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Osama bin Laden",
+            "confidence": 0.78
+          },
+          {
+            "name": "John O'Neill",
+            "confidence": 0.72
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "World Trade Center",
+            "confidence": 0.82
+          },
+          {
+            "name": "Afghanistan",
+            "confidence": 0.6
+          },
+          {
+            "name": "September 11",
+            "confidence": 0.4
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "The growth of Islamic fundamentalism and the rise of al-Qaeda, alongside intelligence failures, culminated in the 9/11 attacks on the World Trade Center.",
+          "confidence": 0.66
+        },
+        "academicOrientation": {
+          "score": 38,
+          "confidence": 0.55
+        },
+        "profileConfidence": 0.72
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Osama bin Laden",
+            "confidence": 0.78
+          },
+          {
+            "name": "John O'Neill",
+            "confidence": 0.72
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "World Trade Center",
+            "confidence": 0.82
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "The growth of Islamic fundamentalism and the rise of al-Qaeda, alongside intelligence failures, culminated in the 9/11 attacks on the World Trade Center.",
+          "confidence": 0.66
+        },
+        "academicOrientation": {
+          "score": 38,
+          "confidence": 0.55
+        },
+        "profileConfidence": 0.72
+      },
+      "usage": {
+        "inputTokens": 888,
+        "cachedInputTokens": 0,
+        "outputTokens": 161,
+        "reasoningTokens": 0,
+        "totalTokens": 1049
+      },
+      "estimatedCostUsd": 0.00037885,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-embers-of-war-the-fall-of-an-empire-and-the-making-of-america-s-vietnam-fredrik-logevall",
+      "slug": "embers-of-war-the-fall-of-an-empire-and-the-making-of-america-s-vietnam-fredrik-logevall",
+      "title": "Embers of War: The Fall of an Empire and the Making of America’s Vietnam",
+      "author": "Fredrik Logevall",
+      "lane": "central_places",
+      "publicationYear": 2012,
+      "primarySubject": "History",
+      "topics": [
+        "Vietnam War",
+        "American Civil War",
+        "War & Military Strategy"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Random House",
+      "pageCount": 866,
+      "sourceSummary": "WINNER OF THE PULITZER PRIZE ONE OF THE MOST ACCLAIMED WORKS OF HISTORY IN RECENT YEARS Winner of the Francis Parkman Prize from the Society of American Historians • Winner of the American Library in Paris Book Award • Winner of the Council on Foreign Relations Arthur Ross Book Award • Finalist for the Cundill Prize in Historical Literature NAMED ONE OF THE BEST BOOKS OF THE YEAR BY The Washington Post • The Christian Science Monitor • The Globe and Mail Written with the style of a great novelist and the intrigue of a Cold War thriller, Embers of War is a landmark work that will forever change your understanding of how and why America went to war in Vietnam. Tapping newly accessible diplomatic archives in several nations, Fredrik Logevall traces the path that led two Western nations to tragically lose their way in the jungles of Southeast Asia. He brings to life the bloodiest battles of France’s final years in Indochina—and shows how, from an early point, a succession of American leaders made disastrous policy choices that put America on its own collision course with history. An epic story of wasted opportunities and deadly miscalculations, Embers of War delves deep into the historical record to provide hard answers to the unanswered questions surrounding the demise of one Western power in Vietnam and the arrival of another.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-american-library-in-paris-nonfiction-american-library-in-paris-official-book-award-page",
+          "label": "American Library in Paris official Book Award page",
+          "url": "https://americanlibraryinparis.org/bookaward/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official prize archive: https://americanlibraryinparis.org/bookaward/"
+        },
+        {
+          "id": "source-award-record-arthur-ross-international-affairs-wikipedia-arthur-ross-book-award",
+          "label": "Wikipedia: Arthur Ross Book Award",
+          "url": "https://en.wikipedia.org/wiki/Arthur_Ross_Book_Award",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Gold Medal"
+        },
+        {
+          "id": "source-award-record-cundill-history-wikipedia-cundill-history-prize",
+          "label": "Wikipedia: Cundill History Prize",
+          "url": "https://en.wikipedia.org/wiki/Cundill_History_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.cundillprize.com/"
+        },
+        {
+          "id": "source-award-record-francis-parkman-prize-wikipedia-francis-parkman-prize-winners",
+          "label": "Wikipedia: Francis Parkman Prize winners",
+          "url": "https://en.wikipedia.org/wiki/Francis_Parkman_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official prize archive: https://sah.columbia.edu/content/prizes/francis-parkman-prize"
+        },
+        {
+          "id": "source-award-record-pulitzer-history-wikipedia-pulitzer-prize-for-history",
+          "label": "Wikipedia: Pulitzer Prize for History",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_History",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/220"
+        },
+        {
+          "id": "source-open-library-embers-of-war-the-fall-of-an-empire-and-the-making-of-america-s-vietnam-fredrik-logevall",
+          "label": "Open Library metadata for Embers of War: The Fall of an Empire and the Making of America's Vietnam",
+          "url": "https://openlibrary.org/works/OL20798709W",
+          "accessedAt": "2026-05-10T16:34:48.198Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-isbn-embers-of-war-the-fall-of-an-empire-and-the-making-of-america-s-vietnam-fredrik-logevall",
+          "label": "Open Library ISBN discovery for Embers of War: The Fall of an Empire and the Making of America's Vietnam",
+          "url": "https://openlibrary.org/books/OL40400157M",
+          "accessedAt": "2026-05-12T21:21:33.334Z",
+          "confidence": "catalog",
+          "field": "isbn13",
+          "note": "Selected ISBN 9781299127500 from the earliest plausible edition candidate. Reasons: title_match:1.00; publish_year:2012; english; publisher:Penguin Random House."
+        },
+        {
+          "id": "source-google-books-summary-embers-of-war-the-fall-of-an-empire-and-the-making-of-america-s-vietnam-fredrik-logevall",
+          "label": "Google Books summary metadata for Embers of War: The Fall of an Empire and the Making of America's Vietnam",
+          "url": "https://play.google.com/store/books/details?id=WpIIOO65S3gC",
+          "accessedAt": "2026-05-16T00:09:05.528Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-wikipedia-embers-of-war-the-fall-of-an-empire-and-the-making-of-america-s-vietnam-fredrik-logevall",
+          "label": "Wikipedia article for Embers of War: The Fall of an Empire and the Making of America's Vietnam",
+          "url": "https://en.wikipedia.org/wiki/Embers_of_War",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1332961935."
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0.101,
+        "accessibilityScore": 0.117,
+        "scholarlyScore": 0.27,
+        "traits": [
+          {
+            "id": "narrative",
+            "score": 0.36,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"story of\"",
+              "catalog text contains \"quest\""
+            ]
+          },
+          {
+            "id": "popular",
+            "score": 0.34,
+            "confidence": "low",
+            "evidence": [
+              "trade publisher signal: Random House / Penguin Random House",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.32,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"historians\"",
+              "history award recognition"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "6b551db766ca8fd2efe9ba035eabfed95004d32f33a346b065ec4bdfc8028558",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_03e1bd69aa822ff2016a6e6428a8e4819b81affb203c5d0422",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [
+          {
+            "name": "Indochina",
+            "confidence": 0.45
+          },
+          {
+            "name": "Vietnam",
+            "confidence": 0.42
+          }
+        ],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 45,
+          "confidence": 0.38
+        },
+        "profileConfidence": 0.47
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 45,
+          "confidence": 0.38
+        },
+        "profileConfidence": 0.47
+      },
+      "usage": {
+        "inputTokens": 989,
+        "cachedInputTokens": 0,
+        "outputTokens": 90,
+        "reasoningTokens": 0,
+        "totalTokens": 1079
+      },
+      "estimatedCostUsd": 0.0003103,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-rediscovery-of-america-native-peoples-and-the-unmaking-of-u-s-history-ned-blackhawk",
+      "slug": "the-rediscovery-of-america-native-peoples-and-the-unmaking-of-u-s-history-ned-blackhawk",
+      "title": "The Rediscovery of America: Native Peoples and the Unmaking of U.S. History",
+      "author": "Ned Blackhawk",
+      "lane": "central_places",
+      "publicationYear": 2024,
+      "primarySubject": "American History",
+      "topics": [
+        "Black History & Culture",
+        "Indigenous History",
+        "Africa & the African Diaspora"
+      ],
+      "publisher": "Yale University Press",
+      "imprint": "Yale University Press",
+      "pageCount": 611,
+      "sourceSummary": "A sweeping and overdue retelling of U.S. history that recognizes that Native Americans are essential to understanding the evolution of modern America The most enduring feature of U.S. history is the presence of Native Americans, yet most histories focus on Europeans and their descendants. This long practice of ignoring Indigenous history is changing, however, with a new generation of scholars insists that any full American history address the struggle, survival, and resurgence of American Indian nations. Indigenous history is essential to understanding the evolution of modern America. Ned Blackhawk interweaves five centuries of Native and non‑Native histories, from Spanish colonial exploration to the rise of Native American self-determination in the late twentieth century.",
+      "sourceRefs": [
+        {
+          "id": "source-nonfiction-history-awards-by-imprint",
+          "label": "Nonfiction history awards by imprint seed workbook",
+          "url": "",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "manual",
+          "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+        },
+        {
+          "id": "source-nonfiction-history-awards-by-imprint-6",
+          "label": "Columbia Journalism School Lukas Prize Project archive; identifies Mark Lynton winners and finalists used in this list",
+          "url": "https://journalism.columbia.edu/lukas",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official"
+        },
+        {
+          "id": "source-award-record-anisfield-wolf-nonfiction-anisfield-wolf-official-winners-archive",
+          "label": "Anisfield-Wolf official winners archive",
+          "url": "https://www.anisfield-wolf.org/winners/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official award URL: https://www.anisfield-wolf.org/winners/"
+        },
+        {
+          "id": "source-award-record-george-washington-founding-era-wikipedia-george-washington-book-prize-winners-and-finalists",
+          "label": "Wikipedia: George Washington Book Prize winners and finalists",
+          "url": "https://en.wikipedia.org/wiki/George_Washington_Book_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Winner rows are flagged with the blue ribbon marker in the source table; all other rows in the year block are finalists. Official awards URL: https://www.gilderlehrman.org/book-prizes/washington"
+        },
+        {
+          "id": "source-award-record-latimes-history-wikipedia-los-angeles-times-book-prize-for-history",
+          "label": "Wikipedia: Los Angeles Times Book Prize for History",
+          "url": "https://en.wikipedia.org/wiki/Los_Angeles_Times_Book_Prize_for_History",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.latimes.com/entertainment-arts/books"
+        },
+        {
+          "id": "source-award-record-mark-lynton-history-wikipedia-mark-lynton-history-prize",
+          "label": "Wikipedia: Mark Lynton History Prize",
+          "url": "https://en.wikipedia.org/wiki/Mark_Lynton_History_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://journalism.columbia.edu/lukas"
+        },
+        {
+          "id": "source-award-record-prose-u-s-history-prose-awards-2024-winners-archive",
+          "label": "PROSE Awards 2024 winners archive",
+          "url": "https://proseawards.com/winners/2024-award-winners/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://proseawards.com/winners/2024-award-winners/"
+        },
+        {
+          "id": "source-google-books-the-rediscovery-of-america-ned-blackhawk",
+          "label": "Google Books metadata for The Rediscovery of America",
+          "url": "https://books.google.com/books/about/The_Rediscovery_of_America.html?hl=&id=atGwEAAAQBAJ",
+          "accessedAt": "2026-05-09T17:03:29.833Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-the-rediscovery-of-america-ned-blackhawk",
+          "label": "Open Library metadata for The Rediscovery of America",
+          "url": "https://openlibrary.org/works/OL44765493W",
+          "accessedAt": "2026-05-09T17:03:29.833Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-open-library-the-rediscovery-of-america-native-peoples-and-the-unmaking-of-us-history-ned-blackhawk",
+          "label": "Open Library metadata for The Rediscovery of America: Native Peoples and the Unmaking of US History",
+          "url": "https://openlibrary.org/works/OL44765493W",
+          "accessedAt": "2026-05-11T03:39:52.881Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-wikipedia-the-rediscovery-of-america-native-peoples-and-the-unmaking-of-u-s-history-ned-blackhawk",
+          "label": "Wikipedia article for The Rediscovery of America: Native Peoples and the Unmaking of U.S. History",
+          "url": "https://en.wikipedia.org/wiki/The_Rediscovery_of_America",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1339140692."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0.025,
+        "accessibilityScore": 0,
+        "scholarlyScore": 0.356,
+        "traits": [
+          {
+            "id": "academic",
+            "score": 0.38,
+            "confidence": "low",
+            "evidence": [
+              "academic press signal: Yale University Press / Yale University Press"
+            ]
+          },
+          {
+            "id": "synthesis",
+            "score": 0.3,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"sweeping\"",
+              "catalog text contains \"from\""
+            ]
+          },
+          {
+            "id": "scholarly",
+            "score": 0.28,
+            "confidence": "low",
+            "evidence": [
+              "academic press signal: Yale University Press / Yale University Press"
+            ]
+          },
+          {
+            "id": "narrative",
+            "score": 0.24,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"interweaves\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "848d7f4ef6fc17b07eadcbe3ad1b9de0b39f990235595f9cfeff19d6182dee36",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_04c18ec27e3c5b7b016a6e64282e28819a86930b982d4c52e5",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": true,
+          "statement": "Native Americans are essential to understanding the evolution of modern America, and U.S. history must address Native struggle, survival, and resurgence rather than focusing mainly on Europeans and their descendants.",
+          "confidence": 0.74
+        },
+        "academicOrientation": {
+          "score": 65,
+          "confidence": 0.62
+        },
+        "profileConfidence": 0.76
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": true,
+          "statement": "Native Americans are essential to understanding the evolution of modern America, and U.S. history must address Native struggle, survival, and resurgence rather than focusing mainly on Europeans and their descendants.",
+          "confidence": 0.74
+        },
+        "academicOrientation": {
+          "score": 65,
+          "confidence": 0.62
+        },
+        "profileConfidence": 0.76
+      },
+      "usage": {
+        "inputTokens": 861,
+        "cachedInputTokens": 0,
+        "outputTokens": 104,
+        "reasoningTokens": 0,
+        "totalTokens": 965
+      },
+      "estimatedCostUsd": 0.0003022,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-king-of-kings-the-iranian-revolution-a-story-of-hubris-delusion-and-catastrophic-miscalculation-",
+      "slug": "king-of-kings-the-iranian-revolution-a-story-of-hubris-delusion-and-catastrophic-miscalculation-",
+      "title": "King of Kings: The Iranian Revolution: A Story of Hubris, Delusion, and Catastrophic Miscalculation",
+      "author": "Scott Anderson",
+      "lane": "argument",
+      "publicationYear": 2025,
+      "primarySubject": "World History",
+      "topics": [
+        "Intellectual History & Ideas"
+      ],
+      "publisher": "Penguin Random House",
+      "imprint": "Doubleday",
+      "pageCount": 480,
+      "sourceSummary": "THE NEW YORK TIMES BESTSELLER NEW STATESMAN, ATLANTIC AND WALL STREET JOURNAL BOOK OF THE YEAR 'A brilliant tale of greed, paranoia and hubris... a good place to start for anyone seeking to understand the current crisis' Financial Times 'If you want to understand the turmoil in Gaza, Syria and beyond, the Iranian Revolution of 1979 is a good place to start' The Times 'Excellent' Telegraph 'Exceptional' New York Times A spellbinding narrative history of the 1979 Iranian Revolution and its devastating consequences by the Sunday Times bestselling author of Lawrence in Arabia. Before the revolution, the Shah of Iran seemed invincible. The world watched in awe as he commanded a huge army and oversaw an economy awash with billions of dollars of oil revenues. The regime's secret police had crushed communist opposition and the Shah appeared to have bought off the conservative Muslim clergy inside the country. On the international stage, Iran had become an invaluable ally to the West during the Cold War. But village streets spoke of a different country - people derided the Shah as an American lackey and blamed him for economic inequality, for spending recklessly on lavish parties and for ignoring the Muslim majority. When a volcanic religious revolution erupted, led by a fiery cleric named Ayatollah Khomeini, the Shah was forced off the throne and into exile. How did it all go so wrong?",
+      "sourceRefs": [
+        {
+          "id": "source-nonfiction-history-awards-by-imprint",
+          "label": "Nonfiction history awards by imprint seed workbook",
+          "url": "",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "manual",
+          "note": "Initial import from the seed workbook. Publisher-level data is not inferred from imprints unless explicitly curated later."
+        },
+        {
+          "id": "source-nonfiction-history-awards-by-imprint-9",
+          "label": "Kirkus Prize archive; identifies nonfiction winners and finalists used in this list",
+          "url": "https://www.kirkusreviews.com/prize/2025/",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official"
+        },
+        {
+          "id": "source-award-record-kirkus-nonfiction-wikipedia-kirkus-prize",
+          "label": "Wikipedia: Kirkus Prize",
+          "url": "https://en.wikipedia.org/wiki/Kirkus_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.kirkusreviews.com/prize/"
+        },
+        {
+          "id": "source-award-record-lionel-gelber-munk-school-2026-lionel-gelber-prize-winner-and-shortlist",
+          "label": "Munk School: 2026 Lionel Gelber Prize winner and shortlist",
+          "url": "https://munkschool.utoronto.ca/lionel-gelber-prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award"
+        },
+        {
+          "id": "source-award-record-nbcc-nonfiction-wikipedia-national-book-critics-circle-award-for-nonfiction",
+          "label": "Wikipedia: National Book Critics Circle Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.bookcritics.org/awards/"
+        },
+        {
+          "id": "source-award-record-pulitzer-history-wikipedia-pulitzer-prize-for-history",
+          "label": "Wikipedia: Pulitzer Prize for History",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_History",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/220"
+        },
+        {
+          "id": "source-open-library-king-of-kings-scott-anderson",
+          "label": "Open Library metadata for King of Kings",
+          "url": "https://openlibrary.org/works/OL42400898W",
+          "accessedAt": "2026-05-09T22:29:32.760Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-google-books-king-of-kings-the-iranian-revolution-a-story-of-hubris-delusion-and-catastrophic-miscalculation-",
+          "label": "Google Books metadata for King of Kings: The Iranian Revolution, a Story of Hubris, Delusion and Catastrophic Miscalculation",
+          "url": "https://books.google.com/books/about/King_of_Kings.html?hl=&id=f01PEQAAQBAJ",
+          "accessedAt": "2026-05-11T17:03:04.599Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-wikipedia-king-of-kings-the-iranian-revolution-a-story-of-hubris-delusion-and-catastrophic-miscalculation-",
+          "label": "Wikipedia article for King of Kings: The Iranian Revolution, a Story of Hubris, Delusion and Catastrophic Miscalculation",
+          "url": "https://en.wikipedia.org/wiki/King_of_Kings",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by page:medium; revision 1352204699. Wikipedia extract also used as summary text."
+        },
+        {
+          "id": "source-google-books-summary-king-of-kings-the-iranian-revolution-a-story-of-hubris-delusion-and-catastrophic-miscalculation-",
+          "label": "Google Books summary metadata for King of Kings: The Iranian Revolution, a Story of Hubris, Delusion and Catastrophic Miscalculation",
+          "url": "https://books.google.com/books/about/King_of_Kings.html?hl=&id=vML_0AEACAAJ",
+          "accessedAt": "2026-07-14T18:39:18.805Z",
+          "confidence": "catalog",
+          "field": "summary"
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "popular",
+        "narrativeScore": 0.221,
+        "accessibilityScore": 0.631,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.772,
+            "confidence": "high",
+            "evidence": [
+              "catalog text contains \"bestseller\"",
+              "catalog text contains \"new york times bestseller\"",
+              "trade publisher signal: Doubleday / Penguin Random House",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "accessible",
+            "score": 0.68,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"bestseller\"",
+              "catalog text contains \"new york times bestseller\"",
+              "trade publisher signal: Doubleday / Penguin Random House"
+            ]
+          },
+          {
+            "id": "narrative",
+            "score": 0.48,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"story of\"",
+              "catalog text contains \"narrative history\""
+            ]
+          },
+          {
+            "id": "argument_driven",
+            "score": 0.18,
+            "confidence": "low",
+            "evidence": [
+              "intellectual history topic"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "68d5bf4f3da76dabed1094aa13e4a6dafc9e39bb05d531547dba9e3e4c86c6d9",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_02937a8ac12059d6016a6e642ce0ec819bb88cbe273d0c006a",
+      "rawProfile": {
+        "centralFigures": [
+          {
+            "name": "Ayatollah Khomeini",
+            "confidence": 0.72
+          }
+        ],
+        "centralPlaces": [
+          {
+            "name": "Iran",
+            "confidence": 0.6
+          }
+        ],
+        "argument": {
+          "present": true,
+          "statement": "The 1979 Iranian Revolution’s catastrophic outcome is explained by the Shah’s hubris and miscalculation, as perceived elite power masked deep social and religious discontent until upheaval forced his exile.",
+          "confidence": 0.42
+        },
+        "academicOrientation": {
+          "score": 30,
+          "confidence": 0.5
+        },
+        "profileConfidence": 0.52
+      },
+      "profile": {
+        "centralFigures": [
+          {
+            "name": "Ayatollah Khomeini",
+            "confidence": 0.72
+          }
+        ],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 30,
+          "confidence": 0.5
+        },
+        "profileConfidence": 0.52
+      },
+      "usage": {
+        "inputTokens": 1003,
+        "cachedInputTokens": 0,
+        "outputTokens": 121,
+        "reasoningTokens": 0,
+        "totalTokens": 1124
+      },
+      "estimatedCostUsd": 0.00035185,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-the-uses-of-enchantment-the-meaning-and-importance-of-fairy-tales-bruno-bettelheim",
+      "slug": "the-uses-of-enchantment-the-meaning-and-importance-of-fairy-tales-bruno-bettelheim",
+      "title": "The Uses of Enchantment: The Meaning and Importance of Fairy Tales",
+      "author": "Bruno Bettelheim",
+      "lane": "argument",
+      "primarySubject": "Science",
+      "topics": [
+        "Literature & Writers",
+        "Art, Music & Performance"
+      ],
+      "publisher": "Thames & Hudson",
+      "imprint": "Thames & Hudson",
+      "pageCount": 343,
+      "sourceSummary": "Winner of the National Book Award and National Book Critics Circle Award \"A charming book about enchantment, a profound book about fairy tales.\"—John Updike, The New York Times Book Review Bruno Bettelheim was one of the great child psychologists of the twentieth century and perhaps none of his books has been more influential than this revelatory study of fairy tales and their universal importance in understanding childhood development. Analyzing a wide range of traditional stories, from the tales of Sindbad to “The Three Little Pigs,” “Hansel and Gretel,” and “The Sleeping Beauty,” Bettelheim shows how the fantastical, sometimes cruel, but always deeply significant narrative strands of the classic fairy tales can aid in our greatest human task, that of finding meaning for one’s life.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-national-book-awards-nonfiction-wikipedia-national-book-award-for-nonfiction",
+          "label": "Wikipedia: National Book Award for Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Award_for_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official archive URL: https://www.nationalbook.org/national-book-awards/search/ Imported table: National Book Award for Nonfiction winners and finalists, 2020–2029"
+        },
+        {
+          "id": "source-award-record-nbcc-criticism-wikipedia-national-book-critics-circle-award-for-criticism",
+          "label": "Wikipedia: National Book Critics Circle Award for Criticism",
+          "url": "https://en.wikipedia.org/wiki/National_Book_Critics_Circle_Award_for_Criticism",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://www.bookcritics.org/awards/"
+        },
+        {
+          "id": "source-open-library-the-uses-of-enchantment-the-meaning-and-importance-of-fairy-tales-bruno-bettelheim",
+          "label": "Open Library metadata for The Uses of Enchantment: The Meaning and Importance of Fairy Tales",
+          "url": "https://openlibrary.org/works/OL12877910W",
+          "accessedAt": "2026-05-11T17:03:04.599Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-google-books-the-uses-of-enchantment-the-meaning-and-importance-of-fairy-tales-bruno-bettelheim",
+          "label": "Google Books metadata for The Uses of Enchantment: The Meaning and Importance of Fairy Tales",
+          "url": "https://play.google.com/store/books/details?id=qTbBAYVv_KkC",
+          "accessedAt": "2026-05-11T17:03:04.599Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-google-books-summary-the-uses-of-enchantment-the-meaning-and-importance-of-fairy-tales-bruno-bettelheim",
+          "label": "Google Books summary metadata for The Uses of Enchantment: The Meaning and Importance of Fairy Tales",
+          "url": "https://play.google.com/store/books/details?id=qTbBAYVv_KkC",
+          "accessedAt": "2026-05-16T00:09:05.528Z",
+          "confidence": "catalog",
+          "field": "summary"
+        },
+        {
+          "id": "source-wikipedia-the-uses-of-enchantment-the-meaning-and-importance-of-fairy-tales-bruno-bettelheim",
+          "label": "Wikipedia article for The Uses of Enchantment: The Meaning and Importance of Fairy Tales",
+          "url": "https://en.wikipedia.org/wiki/The_Uses_of_Enchantment",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1345608725."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "crossover",
+        "narrativeScore": 0,
+        "accessibilityScore": 0.038,
+        "scholarlyScore": 0,
+        "traits": [
+          {
+            "id": "essayistic",
+            "score": 0.58,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"criticism\"",
+              "literature/criticism subject or topic",
+              "criticism award category"
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "b3fb5eb59adb7af3b0471106eeb1edc8ef7dea9708694c18b778b667d7685f93",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_09b1ef11a6bdaccc016a6e642fa640819b9476d5f910c95e21",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 45,
+          "confidence": 0.32
+        },
+        "profileConfidence": 0.62
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 45,
+          "confidence": 0.32
+        },
+        "profileConfidence": 0.62
+      },
+      "usage": {
+        "inputTokens": 872,
+        "cachedInputTokens": 0,
+        "outputTokens": 67,
+        "reasoningTokens": 0,
+        "totalTokens": 939
+      },
+      "estimatedCostUsd": 0.00025815,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    },
+    {
+      "bookId": "book-guns-germs-and-steel-the-fates-of-human-societies-jared-diamond",
+      "slug": "guns-germs-and-steel-the-fates-of-human-societies-jared-diamond",
+      "title": "Guns, Germs, and Steel: The Fates of Human Societies",
+      "author": "Jared Diamond",
+      "lane": "argument",
+      "publicationYear": 1998,
+      "primarySubject": "World History",
+      "topics": [
+        "Africa & the African Diaspora",
+        "Science & Discovery",
+        "Literature & Writers"
+      ],
+      "publisher": "W. W. Norton & Company",
+      "imprint": "W. W. Norton",
+      "pageCount": 451,
+      "sourceSummary": "An epic detective story that offers a gripping expose on why the world is so unequal. Professor Jared Diamond traveled the globe for over 30 years trying to answer this question.",
+      "sourceRefs": [
+        {
+          "id": "source-award-record-pbk-science-phi-beta-kappa-award-in-science-winners",
+          "label": "Phi Beta Kappa Award in Science winners",
+          "url": "https://www.pbk.org/awards/bookawards/science-winners",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "official",
+          "field": "award",
+          "note": "Official awards URL: https://www.pbk.org/awards/bookawards"
+        },
+        {
+          "id": "source-award-record-pulitzer-general-nonfiction-wikipedia-pulitzer-prize-for-general-nonfiction",
+          "label": "Wikipedia: Pulitzer Prize for General Nonfiction",
+          "url": "https://en.wikipedia.org/wiki/Pulitzer_Prize_for_General_Nonfiction",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official category URL: https://www.pulitzer.org/prize-winners-by-category/223"
+        },
+        {
+          "id": "source-award-record-royal-society-science-wikipedia-royal-society-science-book-prize",
+          "label": "Wikipedia: Royal Society Science Book Prize",
+          "url": "https://en.wikipedia.org/wiki/Royal_Society_Science_Book_Prize",
+          "accessedAt": "2026-08-01T20:39:08.468Z",
+          "confidence": "secondary",
+          "field": "award",
+          "note": "Official awards URL: https://royalsociety.org/medals-and-prizes/science-book-prize/"
+        },
+        {
+          "id": "source-publisher-cleanup-curation",
+          "label": "Manual publisher/imprint cleanup for generated catalog metadata",
+          "url": "",
+          "confidence": "manual",
+          "note": "Maps catalog-provider publisher strings that are actually imprints or aliases onto curated parent publishers and imprint records."
+        },
+        {
+          "id": "source-google-books-guns-germs-and-steel-the-fates-of-human-societies-jared-diamond",
+          "label": "Google Books metadata for Guns, Germs, and Steel: The Fates of Human Societies",
+          "url": "https://books.google.com/books/about/Guns_Germs_and_Steel_The_Fates_of_Human.html?hl=&id=PWnWRFEGoeUC",
+          "accessedAt": "2026-05-11T17:03:04.599Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-open-library-guns-germs-and-steel-the-fates-of-human-societies-jared-diamond",
+          "label": "Open Library metadata for Guns, Germs, and Steel: The Fates of Human Societies",
+          "url": "https://openlibrary.org/books/OL7458950M",
+          "accessedAt": "2026-05-13T22:20:28.221Z",
+          "confidence": "catalog",
+          "field": "book"
+        },
+        {
+          "id": "source-imprint-normalization",
+          "label": "Curated raw-publisher to imprint normalization",
+          "url": "",
+          "accessedAt": "2026-07-30T06:14:24.627Z",
+          "confidence": "manual",
+          "field": "publisher",
+          "note": "Curated mappings from raw catalog publisher strings to explicit imprint and parent-publisher records. Used by scripts/normalize-imprints.ts to generate sources/enrichment/imprints.normalized.json."
+        },
+        {
+          "id": "source-open-library-isbn-guns-germs-and-steel-the-fates-of-human-societies-jared-diamond",
+          "label": "Open Library ISBN discovery for Guns, Germs, and Steel: The Fates of Human Societies",
+          "url": "https://openlibrary.org/books/OL7458950M",
+          "accessedAt": "2026-05-13T19:46:51.256Z",
+          "confidence": "catalog",
+          "field": "isbn13",
+          "note": "Selected ISBN 9780393973860 from the earliest plausible edition candidate. Reasons: title_match:0.89; publish_year:1998; english; publisher:W W Norton & Co Inc (Np)."
+        },
+        {
+          "id": "source-wikipedia-guns-germs-and-steel-the-fates-of-human-societies-jared-diamond",
+          "label": "Wikipedia article for Guns, Germs, and Steel: The Fates of Human Societies",
+          "url": "https://en.wikipedia.org/wiki/Guns%2C_Germs%2C_and_Steel",
+          "accessedAt": "2026-05-18T21:16:03.977Z",
+          "confidence": "catalog",
+          "field": "book",
+          "note": "Matched by infobox_book:high; revision 1352681877."
+        }
+      ],
+      "existingReaderProfile": {
+        "readerLevel": "popular",
+        "narrativeScore": 0.059,
+        "accessibilityScore": 0.366,
+        "scholarlyScore": 0.137,
+        "traits": [
+          {
+            "id": "popular",
+            "score": 0.548,
+            "confidence": "medium",
+            "evidence": [
+              "catalog text contains \"gripping\"",
+              "trade publisher signal: W. W. Norton / W. W. Norton & Company",
+              "major-award recognition"
+            ]
+          },
+          {
+            "id": "accessible",
+            "score": 0.4,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"gripping\"",
+              "trade publisher signal: W. W. Norton / W. W. Norton & Company"
+            ]
+          },
+          {
+            "id": "essayistic",
+            "score": 0.4,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"criticism\"",
+              "literature/criticism subject or topic"
+            ]
+          },
+          {
+            "id": "reference",
+            "score": 0.28,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"manual\""
+            ]
+          },
+          {
+            "id": "argument_driven",
+            "score": 0.26,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"interpretation\"",
+              "scholarly subject/topic combination"
+            ]
+          },
+          {
+            "id": "narrative",
+            "score": 0.2,
+            "confidence": "low",
+            "evidence": [
+              "catalog text contains \"quest\""
+            ]
+          }
+        ],
+        "method": "deterministic_catalog_heuristics_v1"
+      },
+      "inputHash": "87c1a673b8746d9047578a75bd1ae277fe85419e1cde4a7391ebda9d0ba1f63c",
+      "model": "gpt-5.4-nano",
+      "status": "completed",
+      "validationWarnings": [],
+      "responseId": "resp_0998e339a0d023e0016a6e642a13588199acfe914437ebe522",
+      "rawProfile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 60,
+          "confidence": 0.42
+        },
+        "profileConfidence": 0.62
+      },
+      "profile": {
+        "centralFigures": [],
+        "centralPlaces": [],
+        "argument": {
+          "present": false,
+          "statement": "",
+          "confidence": 0
+        },
+        "academicOrientation": {
+          "score": 60,
+          "confidence": 0.42
+        },
+        "profileConfidence": 0.62
+      },
+      "usage": {
+        "inputTokens": 762,
+        "cachedInputTokens": 0,
+        "outputTokens": 65,
+        "reasoningTokens": 0,
+        "totalTokens": 827
+      },
+      "estimatedCostUsd": 0.00023365,
+      "review": {
+        "figuresCorrect": null,
+        "placesCorrect": null,
+        "argumentCorrect": null,
+        "academicOrientationReasonable": null,
+        "notes": ""
+      }
+    }
+  ]
+}

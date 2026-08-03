@@ -1,23 +1,23 @@
 {
-  "generatedAt": "2026-07-30T19:21:40.642Z",
+  "generatedAt": "2026-08-03T05:24:19.501Z",
   "rowCounts": {
-    "rows": 5243,
-    "completed": 5243,
-    "flagged": 333,
-    "review": 100
+    "rows": 5589,
+    "completed": 5589,
+    "flagged": 1553,
+    "review": 40
   },
   "summary": {
     "notes": "Experimental gpt-5.4-nano metadata bounded to supplied catalog metadata and summaries. A complete run is also written to generated enrichment for clearly labeled public experiments and discovery.",
     "configuration": {
-      "model": "gpt-5.4-nano-2026-03-17",
+      "model": "gpt-5.6-luna",
       "runLabel": "full-corpus",
-      "selectedBooks": 5243,
-      "reviewBooks": 100,
-      "concurrency": 10,
-      "checkpointEvery": 25,
+      "selectedBooks": 5589,
+      "reviewBooks": 40,
+      "concurrency": 6,
+      "checkpointEvery": 100,
       "maxSummaryChars": 4200,
-      "maxOutputTokens": 400,
-      "maxSpendUsd": 0.5,
+      "maxOutputTokens": 1600,
+      "maxSpendUsd": 6,
       "structuredOutput": true,
       "promptVersion": 8,
       "confidenceThresholds": {
@@ -28,42 +28,44 @@
       }
     },
     "summary": {
-      "selected": 5243,
-      "completed": 5243,
+      "selected": 5589,
+      "completed": 5589,
       "errors": 0,
       "laneCounts": {
-        "central_figures": 2138,
-        "central_places": 1628,
-        "argument": 443,
-        "null_control": 1034
+        "central_figures": 1791,
+        "mixed": 1081,
+        "central_places": 1067,
+        "argument": 750,
+        "null_control": 900
       },
-      "booksWithCentralFigures": 1725,
-      "totalCentralFigures": 2005,
-      "booksWithCentralPlaces": 878,
-      "totalCentralPlaces": 937,
-      "booksWithArgument": 1904,
-      "averageAcademicOrientation": 44.87,
-      "averageProfileConfidence": 0.64,
-      "rowsWithValidationWarnings": 333,
+      "booksWithCentralFigures": 2225,
+      "totalCentralFigures": 3127,
+      "booksWithCentralPlaces": 3226,
+      "totalCentralPlaces": 5218,
+      "booksWithArgument": 4576,
+      "averageAcademicOrientation": 43.32,
+      "averageProfileConfidence": 0.92,
+      "rowsWithValidationWarnings": 1553,
       "validationWarningCounts": {
-        "author_included_for_review": 293,
-        "central_figures_hit_schema_cap": 35,
-        "possible_duplicate_figure": 2,
-        "central_places_hit_schema_cap": 6
+        "high_confidence_from_short_summary": 601,
+        "central_figures_hit_schema_cap": 227,
+        "author_included_for_review": 342,
+        "central_places_hit_schema_cap": 525,
+        "possible_duplicate_figure": 4
       }
     },
     "tokenUsage": {
-      "inputTokens": 4609062,
+      "inputTokens": 4912805,
       "cachedInputTokens": 0,
-      "outputTokens": 508937,
-      "reasoningTokens": 0,
-      "totalTokens": 5117999
+      "outputTokens": 1449270,
+      "reasoningTokens": 886451,
+      "totalTokens": 6362075
     },
     "pricingBasisUsdPerMillionTokens": {
       "input": 0.2,
       "cachedInput": 0.02,
-      "output": 1.25
+      "output": 1.2
     },
-    "estimatedApiCostUsd": 1.557984
+    "estimatedApiCostUsd": 2.721685
   }
 }

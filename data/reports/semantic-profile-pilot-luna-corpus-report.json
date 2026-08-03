@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-08-03T05:01:19.916Z",
+  "rowCounts": {
+    "rows": 5589,
+    "completed": 5528,
+    "flagged": 1530,
+    "review": 40
+  },
+  "summary": {
+    "notes": "Report-only gpt-5.4-nano pilot. No output is applied to catalog or curation files. Model claims are bounded to supplied catalog metadata and summaries and require review before use.",
+    "configuration": {
+      "model": "gpt-5.6-luna",
+      "runLabel": "luna-corpus",
+      "selectedBooks": 5589,
+      "reviewBooks": 40,
+      "concurrency": 6,
+      "checkpointEvery": 50,
+      "maxSummaryChars": 4200,
+      "maxOutputTokens": 1200,
+      "maxSpendUsd": 8,
+      "structuredOutput": true,
+      "promptVersion": 8,
+      "confidenceThresholds": {
+        "centralFigures": 0.7,
+        "centralPlaces": 0.75,
+        "argument": 0.6,
+        "lowerConfidenceCandidates": 0.35
+      }
+    },
+    "summary": {
+      "selected": 5589,
+      "completed": 5528,
+      "errors": 61,
+      "laneCounts": {
+        "central_figures": 1791,
+        "mixed": 1081,
+        "central_places": 1065,
+        "argument": 752,
+        "null_control": 900
+      },
+      "booksWithCentralFigures": 2179,
+      "totalCentralFigures": 3053,
+      "booksWithCentralPlaces": 3176,
+      "totalCentralPlaces": 5126,
+      "booksWithArgument": 4518,
+      "averageAcademicOrientation": 43.34,
+      "averageProfileConfidence": 0.92,
+      "rowsWithValidationWarnings": 1530,
+      "validationWarningCounts": {
+        "high_confidence_from_short_summary": 600,
+        "central_figures_hit_schema_cap": 218,
+        "author_included_for_review": 335,
+        "central_places_hit_schema_cap": 513,
+        "possible_duplicate_figure": 4
+      }
+    },
+    "tokenUsage": {
+      "inputTokens": 4856259,
+      "cachedInputTokens": 0,
+      "outputTokens": 1425618,
+      "reasoningTokens": 870509,
+      "totalTokens": 6281877
+    },
+    "pricingBasisUsdPerMillionTokens": {
+      "input": 0.2,
+      "cachedInput": 0.02,
+      "output": 1.2
+    },
+    "estimatedApiCostUsd": 2.681993
+  }
+}
