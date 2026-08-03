@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LANGUAGE_NAMES } from "@/lib/book-language";
 import type { Metadata } from "next";
 import type React from "react";
 import { notFound } from "next/navigation";
@@ -132,6 +133,33 @@ export default async function BookPage({ params }: PageProps) {
             <RailMeta label="Publication year" value={metadataValue(book.publicationYear ? String(book.publicationYear) : undefined, wikipediaInfobox?.publicationDate, "Unknown")} />
             <RailMeta label="Pages" value={metadataValue(book.pageCount ? String(book.pageCount) : undefined, wikipediaInfobox?.pages, "Not yet sourced")} />
             <RailMeta label="ISBN" value={metadataValue(book.isbn13.join(", ") || undefined, wikipediaInfobox?.isbn, "Not yet sourced")} />
+            {book.originalLanguage && book.originalLanguage !== "en" ? (
+              <RailMeta
+                label="Original language"
+                value={LANGUAGE_NAMES[book.originalLanguage] ?? book.originalLanguage}
+              />
+            ) : null}
+            {book.englishEdition?.title ? (
+              <RailMeta
+                label="English edition"
+                value={
+                  <span>
+                    {book.englishEdition.title}
+                    {book.englishEdition.publisher || book.englishEdition.year ? (
+                      <span className="muted">
+                        {" "}
+                        ({[book.englishEdition.publisher, book.englishEdition.year].filter(Boolean).join(", ")})
+                      </span>
+                    ) : null}
+                    {book.englishEdition.isbn13 ? (
+                      <span className="muted block">ISBN {book.englishEdition.isbn13}</span>
+                    ) : null}
+                  </span>
+                }
+              />
+            ) : book.originalLanguage && book.originalLanguage !== "en" ? (
+              <RailMeta label="English edition" value="None found" />
+            ) : null}
           </dl>
         </aside>
 

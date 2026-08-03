@@ -29,7 +29,13 @@ type StagingEntry = {
   publisher?: string | null;
   originalLanguage?: string | null;
   polishTitle?: string | null;
-  englishEdition?: { status: string; englishTitle?: string; englishYear?: number; publisher?: string };
+  englishEdition?: {
+    status: string;
+    englishTitle?: string;
+    englishYear?: number;
+    publisher?: string;
+    isbn13?: string;
+  };
 };
 
 type StagingAward = {
@@ -152,6 +158,7 @@ function toEnglishEdition(english: StagingEntry["englishEdition"]): RawEnglishEd
       ...(english.englishTitle ? { title: english.englishTitle } : {}),
       ...(english.englishYear ? { year: english.englishYear } : {}),
       ...(english.publisher ? { publisher: english.publisher } : {}),
+      ...(english.isbn13 ? { isbn13: english.isbn13 } : {}),
     };
   }
   if (english.status === "no-english-found") return { status: "no-english-found" };
