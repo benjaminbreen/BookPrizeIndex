@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function WhatNonfictionTalksAboutPage() {
   return (
-    <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
+    <main className="mx-auto max-w-[96rem] px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
       <header className="grid gap-8 border-b hairline pb-10">
         <div>
           <p className="font-[var(--font-mono)] text-xs uppercase tracking-[0.18em] muted">Experiment / Claims over time</p>

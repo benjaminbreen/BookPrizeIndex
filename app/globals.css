@@ -39,6 +39,12 @@
   --chart-cat-8: var(--data-rose);
   --chart-cat-9: #b44f87;
   --chart-cat-10: #586e75;
+  /*
+   * The sticky site header (nav plus breadcrumb trail) measures 114px, so panels that
+   * stick below it need to clear that, not the 88px they used to assume -- at 88px the
+   * breadcrumb bar cropped the top of the panel.
+   */
+  --sticky-panel-top: 7.5rem;
 }
 
 :root.dark {
@@ -8441,7 +8447,7 @@ a.fun-idea-card:focus-visible {
 
 .llm-choice-aside {
   position: sticky;
-  top: 5.5rem;
+  top: var(--sticky-panel-top);
 }
 
 .llm-choice-chart-figure {
@@ -8709,8 +8715,8 @@ a.fun-idea-card:focus-visible {
 .talks-body {
   align-items: start;
   display: grid;
-  gap: 2rem;
-  grid-template-columns: minmax(0, 1fr) 19rem;
+  gap: 1.75rem;
+  grid-template-columns: minmax(0, 1fr) 17rem;
 }
 
 .talks-chart {
@@ -8721,8 +8727,8 @@ a.fun-idea-card:focus-visible {
 .talks-row {
   align-items: center;
   display: grid;
-  gap: 0.55rem;
-  grid-template-columns: 2.6rem 2rem minmax(0, 1fr);
+  gap: 0.45rem;
+  grid-template-columns: 2.4rem 1.9rem minmax(0, 1fr);
 }
 
 .talks-row-year {
@@ -8753,7 +8759,7 @@ a.fun-idea-card:focus-visible {
 
 .talks-detail {
   position: sticky;
-  top: 5.5rem;
+  top: var(--sticky-panel-top);
 }
 
 .talks-detail-inner {
