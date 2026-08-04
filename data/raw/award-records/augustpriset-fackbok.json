@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-03T18:17:39.349Z",
+  "generatedAt": "2026-08-03T18:35:08.089Z",
   "metadata": {
     "importer": "scripts/import-award-records/international-nonfiction.ts",
     "source": "Wikipedia: Augustpriset — Årets svenska fackbok",
     "notes": "Non-anglophone nonfiction prize (sv). Extracted by scripts/staging/extract-international-awards.py; English editions resolved by scripts/staging/resolve-english-editions.py.",
     "records": 198,
     "winners": 34,
-    "withConfirmedEnglishEdition": 30,
+    "withConfirmedEnglishEdition": 28,
     "yearRange": "1992-2025"
   },
   "records": [
@@ -817,10 +817,13 @@
       "sourceUrl": "https://sv.wikipedia.org/wiki/Augustpriset",
       "sourceLabel": "Wikipedia: Augustpriset — Årets svenska fackbok",
       "sourceConfidence": "secondary",
-      "notes": "Original language: sv. No English edition found.",
+      "notes": "Original language: sv. English edition: Witches' Rings (unknown publisher, 2021)",
       "originalLanguage": "sv",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "Witches' Rings",
+        "year": 2021,
+        "isbn13": "9781909408562"
       }
     },
     {
@@ -839,14 +842,10 @@
       "sourceUrl": "https://sv.wikipedia.org/wiki/Augustpriset",
       "sourceLabel": "Wikipedia: Augustpriset — Årets svenska fackbok",
       "sourceConfidence": "secondary",
-      "notes": "Original language: sv. English edition: White Storm (Simon and Schuster, 2025)",
+      "notes": "Original language: sv. No English edition found.",
       "originalLanguage": "sv",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "White Storm",
-        "year": 2025,
-        "publisher": "Simon and Schuster",
-        "isbn13": "9781493086368"
+        "status": "no-english-found"
       }
     },
     {
@@ -2183,10 +2182,14 @@
       "sourceUrl": "https://sv.wikipedia.org/wiki/Augustpriset",
       "sourceLabel": "Wikipedia: Augustpriset — Årets svenska fackbok",
       "sourceConfidence": "secondary",
-      "notes": "Original language: sv. No English edition found.",
+      "notes": "Original language: sv. English edition: Year-Round Edible Gardening (Simon and Schuster, 2022)",
       "originalLanguage": "sv",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "Year-Round Edible Gardening",
+        "year": 2022,
+        "publisher": "Simon and Schuster",
+        "isbn13": "9781510770171"
       }
     },
     {
@@ -2623,14 +2626,10 @@
       "sourceUrl": "https://sv.wikipedia.org/wiki/Augustpriset",
       "sourceLabel": "Wikipedia: Augustpriset — Årets svenska fackbok",
       "sourceConfidence": "secondary",
-      "notes": "Original language: sv. English edition: A Shift in Time (Skyhorse Publishing, Inc., 2016)",
+      "notes": "Original language: sv. No English edition found.",
       "originalLanguage": "sv",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "A Shift in Time",
-        "year": 2016,
-        "publisher": "Skyhorse Publishing, Inc.",
-        "isbn13": "9781631580994"
+        "status": "no-english-found"
       }
     },
     {
@@ -2827,13 +2826,10 @@
       "sourceUrl": "https://sv.wikipedia.org/wiki/Augustpriset",
       "sourceLabel": "Wikipedia: Augustpriset — Årets svenska fackbok",
       "sourceConfidence": "secondary",
-      "notes": "Original language: sv. English edition: Thinking Like a Mountain (unknown publisher, 2018)",
+      "notes": "Original language: sv. No English edition found.",
       "originalLanguage": "sv",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "Thinking Like a Mountain",
-        "year": 2018,
-        "isbn13": "9789186265410"
+        "status": "no-english-found"
       }
     },
     {
@@ -3152,14 +3148,10 @@
       "sourceUrl": "https://sv.wikipedia.org/wiki/Augustpriset",
       "sourceLabel": "Wikipedia: Augustpriset — Årets svenska fackbok",
       "sourceConfidence": "secondary",
-      "notes": "Original language: sv. English edition: The Beauty and the Sorrow (Vintage, 2012)",
+      "notes": "Original language: sv. No English edition found.",
       "originalLanguage": "sv",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "The Beauty and the Sorrow",
-        "year": 2012,
-        "publisher": "Vintage",
-        "isbn13": "9780307739285"
+        "status": "no-english-found"
       }
     },
     {
@@ -3401,12 +3393,10 @@
       "sourceUrl": "https://sv.wikipedia.org/wiki/Augustpriset",
       "sourceLabel": "Wikipedia: Augustpriset — Årets svenska fackbok",
       "sourceConfidence": "secondary",
-      "notes": "Original language: sv. English edition: The Literary Web (unknown publisher, 2000)",
+      "notes": "Original language: sv. No English edition found.",
       "originalLanguage": "sv",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "The Literary Web",
-        "year": 2000
+        "status": "no-english-found"
       }
     },
     {
@@ -3424,10 +3414,12 @@
       "sourceUrl": "https://sv.wikipedia.org/wiki/Augustpriset",
       "sourceLabel": "Wikipedia: Augustpriset — Årets svenska fackbok",
       "sourceConfidence": "secondary",
-      "notes": "Original language: sv. No English edition found.",
+      "notes": "Original language: sv. English edition: A Passion for Systems (unknown publisher, 2007)",
       "originalLanguage": "sv",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "A Passion for Systems",
+        "year": 2007
       }
     },
     {

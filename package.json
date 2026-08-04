@@ -17,7 +17,7 @@
     "covers:cache": "tsx scripts/cache-book-covers.ts",
     "fun:covers": "tsx scripts/build-cover-spectrum.ts",
     "fun:galaxy": "tsx scripts/build-nonfiction-galaxy.ts",
-    "fun:build": "npm run fun:covers && npm run fun:galaxy",
+    "fun:build": "npm run fun:covers && npm run fun:galaxy && npm run fun:llm-choice && npm run fun:talks && npm run fun:previews",
     "library-shelf:test": "tsx --test lib/library-call-number.test.ts lib/library-shelf-data.test.ts",
     "library-shelf:extract": "tsx scripts/enrich-library-classifications.ts --cache-only",
     "data:library-shelf": "npm run data:build && npm run library-shelf:extract && npm run data:build",
@@ -140,7 +140,11 @@
     "data:validate:raw": "tsx scripts/import-award-records/validate.ts",
     "logos:imprints": "tsx scripts/fetch-imprint-logos.ts",
     "lint": "tsc --noEmit",
-    "payload:check": "tsx scripts/check-page-payloads.ts"
+    "payload:check": "tsx scripts/check-page-payloads.ts",
+    "fun:llm-choice": "tsx scripts/build-llm-choice.ts",
+    "renown:promote": "tsx scripts/promote-renown-profiles.ts",
+    "fun:previews": "tsx scripts/build-fun-previews.ts",
+    "fun:talks": "tsx scripts/build-nonfiction-talks.ts"
   },
   "keywords": [],
   "author": "",

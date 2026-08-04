@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-03T18:17:39.343Z",
+  "generatedAt": "2026-08-03T18:35:08.083Z",
   "metadata": {
     "importer": "scripts/import-award-records/international-nonfiction.ts",
     "source": "Wikipedia: Preis der Leipziger Buchmesse — Sachbuch/Essayistik",
     "notes": "Non-anglophone nonfiction prize (de). Extracted by scripts/staging/extract-international-awards.py; English editions resolved by scripts/staging/resolve-english-editions.py.",
     "records": 107,
     "winners": 22,
-    "withConfirmedEnglishEdition": 34,
+    "withConfirmedEnglishEdition": 35,
     "yearRange": "2005-2026"
   },
   "records": [
@@ -543,10 +543,14 @@
       "sourceUrl": "https://de.wikipedia.org/wiki/Preis_der_Leipziger_Buchmesse/Sachbuch_und_Essayistik",
       "sourceLabel": "Wikipedia: Preis der Leipziger Buchmesse — Sachbuch/Essayistik",
       "sourceConfidence": "secondary",
-      "notes": "Original language: de. No English edition found.",
+      "notes": "Original language: de. English edition: Seeing Foucault's Pendulum (Princeton University Press, 2025)",
       "originalLanguage": "de",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "Seeing Foucault's Pendulum",
+        "year": 2025,
+        "publisher": "Princeton University Press",
+        "isbn13": "9781945861239"
       }
     },
     {
@@ -817,10 +821,14 @@
       "sourceUrl": "https://de.wikipedia.org/wiki/Preis_der_Leipziger_Buchmesse/Sachbuch_und_Essayistik",
       "sourceLabel": "Wikipedia: Preis der Leipziger Buchmesse — Sachbuch/Essayistik",
       "sourceConfidence": "secondary",
-      "notes": "Original language: de. No English edition found.",
+      "notes": "Original language: de. English edition: Aftermath (Random House, 2021)",
       "originalLanguage": "de",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "Aftermath",
+        "year": 2021,
+        "publisher": "Random House",
+        "isbn13": "9780753557891"
       }
     },
     {
@@ -1231,14 +1239,10 @@
       "sourceUrl": "https://de.wikipedia.org/wiki/Preis_der_Leipziger_Buchmesse/Sachbuch_und_Essayistik",
       "sourceLabel": "Wikipedia: Preis der Leipziger Buchmesse — Sachbuch/Essayistik",
       "sourceConfidence": "secondary",
-      "notes": "Original language: de. English edition: How the West Lost the Peace (John Wiley & Sons, 2023)",
+      "notes": "Original language: de. No English edition found.",
       "originalLanguage": "de",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "How the West Lost the Peace",
-        "year": 2023,
-        "publisher": "John Wiley & Sons",
-        "isbn13": "9781509550616"
+        "status": "no-english-found"
       }
     },
     {
@@ -1432,14 +1436,10 @@
       "sourceUrl": "https://de.wikipedia.org/wiki/Preis_der_Leipziger_Buchmesse/Sachbuch_und_Essayistik",
       "sourceLabel": "Wikipedia: Preis der Leipziger Buchmesse — Sachbuch/Essayistik",
       "sourceConfidence": "secondary",
-      "notes": "Original language: de. English edition: Hitler's Beneficiaries (Verso Books, 2016)",
+      "notes": "Original language: de. No English edition found.",
       "originalLanguage": "de",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "Hitler's Beneficiaries",
-        "year": 2016,
-        "publisher": "Verso Books",
-        "isbn13": "9781784786366"
+        "status": "no-english-found"
       }
     },
     {
@@ -2339,10 +2339,14 @@
       "sourceUrl": "https://de.wikipedia.org/wiki/Preis_der_Leipziger_Buchmesse/Sachbuch_und_Essayistik",
       "sourceLabel": "Wikipedia: Preis der Leipziger Buchmesse — Sachbuch/Essayistik",
       "sourceConfidence": "secondary",
-      "notes": "Original language: de. No English edition found.",
+      "notes": "Original language: de. English edition: Why the Germans? Why the Jews? (Macmillan, 2014)",
       "originalLanguage": "de",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "Why the Germans? Why the Jews?",
+        "year": 2014,
+        "publisher": "Macmillan",
+        "isbn13": "9780805097009"
       }
     },
     {

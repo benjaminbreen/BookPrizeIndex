@@ -1092,9 +1092,10 @@
     {
       "canonicalBookId": "book-strangers-in-their-own-land-anger-and-mourning-on-the-american-right-arlie-russell-hochschild",
       "duplicateBookIds": [
-        "book-strangers-in-their-own-land-anger-and-mourning-on-the-american-right-prof-arlie-russel-hochschil"
+        "book-strangers-in-their-own-land-anger-and-mourning-on-the-american-right-prof-arlie-russel-hochschil",
+        "book-strangers-in-their-own-land-anger-and-mourning-on-the-american-right-arlie-russel-hochschild"
       ],
-      "reason": "Same Hochschild book; the Polish source carries an honorific and misspells 'Russell'."
+      "reason": "Same Hochschild book; the Polish source carries an honorific and misspells 'Russell'. Both the pre- and post-honorific-strip slugs are listed, since fixing the extractor changed the generated id."
     },
     {
       "canonicalBookId": "book-tennyson-the-unquiet-heart-robert-bernard-martin",
@@ -1495,6 +1496,13 @@
         "book-scott-wilson-a-berg"
       ],
       "reason": "Shared ISBN; malformed title/author split turned A. Scott Berg's Wilson into Scott. Wilson by A. Berg."
+    },
+    {
+      "canonicalBookId": "book-pumpkinflowers-a-soldier-s-story-matti-friedman",
+      "duplicateBookIds": [
+        "book-pumpkinflowers-an-israeli-soldier-s-story-matti-friedman"
+      ],
+      "reason": "Shared ISBN 9781616204587; US (Algonquin) subtitle “A Soldier’s Story” and alternate “An Israeli Soldier’s Story” are the same 2016 Matti Friedman book, split across the RBC Taylor and Hilary Weston award records."
     }
   ]
 }

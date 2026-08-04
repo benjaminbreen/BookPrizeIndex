@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-03T18:17:39.352Z",
+  "generatedAt": "2026-08-03T18:35:08.092Z",
   "metadata": {
     "importer": "scripts/import-award-records/international-nonfiction.ts",
     "source": "Wikipedia: Nagroda im. Ryszarda Kapuścińskiego za Reportaż Literacki",
     "notes": "Non-anglophone nonfiction prize (pl). Extracted by scripts/staging/extract-international-awards.py; English editions resolved by scripts/staging/resolve-english-editions.py.",
     "records": 170,
     "winners": 18,
-    "withConfirmedEnglishEdition": 65,
+    "withConfirmedEnglishEdition": 63,
     "yearRange": "2010-2026"
   },
   "records": [
@@ -1860,7 +1860,7 @@
       "status": "longlist",
       "title": "Strangers in Their Own Land: Anger and Mourning on the American Right",
       "authors": [
-        "prof. Arlie Russel Hochschild"
+        "Arlie Russel Hochschild"
       ],
       "publisher": "wyd. Krytyka Polityczna",
       "sourceUrl": "https://pl.wikipedia.org/wiki/Nagroda_im._Ryszarda_Kapuścińskiego",
@@ -2127,13 +2127,10 @@
       "sourceUrl": "https://pl.wikipedia.org/wiki/Nagroda_im._Ryszarda_Kapuścińskiego",
       "sourceLabel": "Wikipedia: Nagroda im. Ryszarda Kapuścińskiego za Reportaż Literacki",
       "sourceConfidence": "secondary",
-      "notes": "Original language: pl. English edition: Did This Hand Kill? (unknown publisher, 2024)",
+      "notes": "Original language: pl. No English edition found.",
       "originalLanguage": "pl",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "Did This Hand Kill?",
-        "year": 2024,
-        "isbn13": "9781948830799"
+        "status": "no-english-found"
       }
     },
     {
@@ -3045,14 +3042,10 @@
       "sourceUrl": "https://pl.wikipedia.org/wiki/Nagroda_im._Ryszarda_Kapuścińskiego",
       "sourceLabel": "Wikipedia: Nagroda im. Ryszarda Kapuścińskiego za Reportaż Literacki",
       "sourceConfidence": "secondary",
-      "notes": "Original language: pl. English edition: Watercolours (Zubaan, 2017)",
+      "notes": "Original language: pl. No English edition found.",
       "originalLanguage": "pl",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "Watercolours",
-        "year": 2017,
-        "publisher": "Zubaan",
-        "isbn13": "9789385932335"
+        "status": "no-english-found"
       }
     },
     {
@@ -3641,13 +3634,14 @@
       "sourceUrl": "https://pl.wikipedia.org/wiki/Nagroda_im._Ryszarda_Kapuścińskiego",
       "sourceLabel": "Wikipedia: Nagroda im. Ryszarda Kapuścińskiego za Reportaż Literacki",
       "sourceConfidence": "secondary",
-      "notes": "Original language: fr. Polish edition title: Strategia antylop. English edition: The Strategy of Antelopes (Profile Books, 2009)",
+      "notes": "Original language: fr. Polish edition title: Strategia antylop. English edition: The Antelope's Strategy (Macmillan, 2009)",
       "originalLanguage": "fr",
       "englishEdition": {
         "status": "confirmed",
-        "title": "The Strategy of Antelopes",
+        "title": "The Antelope's Strategy",
         "year": 2009,
-        "publisher": "Profile Books"
+        "publisher": "Macmillan",
+        "isbn13": "9780374271039"
       }
     },
     {

@@ -263,6 +263,8 @@ function prepareBookRow(
     centralPlaces: book.experimentalSemanticProfile?.centralPlaces.map((place) => place.name) ?? [],
     academicOrientationScore: book.experimentalSemanticProfile?.academicOrientation.score,
     academicOrientationConfidence: book.experimentalSemanticProfile?.academicOrientation.confidence,
+    publicFame: book.renownProfile?.publicFame,
+    renownKnowsBook: book.renownProfile?.knowsBook,
     recognitionScore,
     text,
     contentText,

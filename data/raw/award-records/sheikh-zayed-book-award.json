@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-03T18:17:39.356Z",
+  "generatedAt": "2026-08-03T18:35:08.097Z",
   "metadata": {
     "importer": "scripts/import-award-records/international-nonfiction.ts",
     "source": "Wikipedia: جائزة الشيخ زايد للكتاب",
     "notes": "Non-anglophone nonfiction prize (ar). Extracted by scripts/staging/extract-international-awards.py; English editions resolved by scripts/staging/resolve-english-editions.py.",
     "records": 14,
     "winners": 14,
-    "withConfirmedEnglishEdition": 4,
+    "withConfirmedEnglishEdition": 5,
     "yearRange": "2007-2025"
   },
   "records": [
@@ -82,7 +82,7 @@
       "status": "co_winner",
       "title": "Al Islam wal Insan",
       "authors": [
-        "Mohammad Chahrour (Syria) for"
+        "Mohammad Chahrour"
       ],
       "publisher": "Islam and the Human Being",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sheikh_Zayed_Book_Award",
@@ -103,7 +103,7 @@
       "status": "co_winner",
       "title": "Fā‘iliyyat al-Khayāl al-Adabī",
       "authors": [
-        "Said Al Ghanimi (Iraq/Australia) for"
+        "Said Al Ghanimi"
       ],
       "publisher": "The Validity of Literary Fiction",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sheikh_Zayed_Book_Award",
@@ -124,7 +124,7 @@
       "status": "co_winner",
       "title": "Vom Denken der Natur zur Natur des Denkens",
       "authors": [
-        "David Wirmer for"
+        "David Wirmer"
       ],
       "sourceUrl": "https://en.wikipedia.org/wiki/Sheikh_Zayed_Book_Award",
       "sourceLabel": "Wikipedia: جائزة الشيخ زايد للكتاب",
@@ -144,7 +144,7 @@
       "status": "co_winner",
       "title": "Al-Fikr al-Adabi al-‘Arabi",
       "authors": [
-        "Said Yaktine for"
+        "Said Yaktine"
       ],
       "publisher": "Arabic Literary Thought",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sheikh_Zayed_Book_Award",
@@ -165,16 +165,20 @@
       "status": "co_winner",
       "title": "Al-Sarab",
       "authors": [
-        "Jamal Sanad Al-Suwaidi (UAE) for"
+        "Jamal Sanad Al-Suwaidi"
       ],
       "publisher": "The Mirage",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sheikh_Zayed_Book_Award",
       "sourceLabel": "Wikipedia: جائزة الشيخ زايد للكتاب",
       "sourceConfidence": "secondary",
-      "notes": "Original language: ar. No English edition found.",
+      "notes": "Original language: ar. English edition: The Mirage (Jamal Sanad Al- Suwaidi, 2020)",
       "originalLanguage": "ar",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "The Mirage",
+        "year": 2020,
+        "publisher": "Jamal Sanad Al- Suwaidi",
+        "isbn13": "9789948343103"
       }
     },
     {
@@ -186,7 +190,7 @@
       "status": "co_winner",
       "title": "Angles et Grandeur",
       "authors": [
-        "Roshdi Rashed (Egypt) for"
+        "Roshdi Rashed"
       ],
       "sourceUrl": "https://en.wikipedia.org/wiki/Sheikh_Zayed_Book_Award",
       "sourceLabel": "Wikipedia: جائزة الشيخ زايد للكتاب",
@@ -206,7 +210,7 @@
       "status": "winner",
       "title": "Arabian-Naito to Nihon-Jin",
       "authors": [
-        "Sugita Hideaki (Japan) for"
+        "Sugita Hideaki"
       ],
       "publisher": "\"The Arabian Nights and the Japanese\"",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sheikh_Zayed_Book_Award",
@@ -227,7 +231,7 @@
       "status": "winner",
       "title": "Al Takhayol Al Tarikhi",
       "authors": [
-        "Abdullah Ibrahim (Iraq)"
+        "Abdullah Ibrahim"
       ],
       "publisher": "Historic Visualization",
       "sourceUrl": "https://en.wikipedia.org/wiki/Sheikh_Zayed_Book_Award",

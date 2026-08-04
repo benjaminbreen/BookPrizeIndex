@@ -36,8 +36,22 @@ export function matchesLanguageFilter(
 export const LANGUAGE_NAMES: Record<string, string> = {
   de: "German", nl: "Dutch", sv: "Swedish", no: "Norwegian", pl: "Polish",
   fr: "French", es: "Spanish", it: "Italian", ru: "Russian", pt: "Portuguese",
-  uk: "Ukrainian", da: "Danish", cs: "Czech", en: "English",
+  uk: "Ukrainian", da: "Danish", cs: "Czech", en: "English", ar: "Arabic",
+  zh: "Chinese", ja: "Japanese", he: "Hebrew", tr: "Turkish", fi: "Finnish",
+  hu: "Hungarian", ro: "Romanian", el: "Greek", sr: "Serbian", hr: "Croatian",
+  sk: "Slovak", sl: "Slovenian", lt: "Lithuanian", bg: "Bulgarian",
+  be: "Belarusian", ca: "Catalan", fa: "Persian", af: "Afrikaans",
 };
+
+/**
+ * Human-readable language name. "und" is what the extractors emit when a source
+ * says a work is translated without naming the original language; never show the
+ * raw code to a reader.
+ */
+export function languageName(code: string | undefined | null): string {
+  if (!code || code === "und") return "Unknown";
+  return LANGUAGE_NAMES[code] ?? "Unknown";
+}
 
 /**
  * Title to show a reader. Translated works are catalogued under their original

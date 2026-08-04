@@ -352,6 +352,10 @@ function bookSearchText(book: Book, data: PublicData, awardsById: Map<string, Aw
   return [
     book.title,
     book.subtitle,
+    // A reader searching the English translation's title should find the work even
+    // though the catalog records it under its original title.
+    book.englishEdition?.title,
+    book.englishEdition?.isbn13,
     book.authors.map((author) => author.name).join(" "),
     data.publishers.find((publisher) => publisher.id === book.publisherId)?.name,
     data.imprints.find((imprint) => imprint.id === book.imprintId)?.name,

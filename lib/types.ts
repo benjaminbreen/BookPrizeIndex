@@ -173,6 +173,47 @@ export type ExperimentalSemanticProfile = {
   validationWarnings?: string[];
 };
 
+/**
+ * Model-estimated standing for a book, from the renown pass. These are LLM
+ * self-reports scored from title/author/year alone -- deliberately without a
+ * description, since fame is a recall question and a summary lets the model
+ * substitute "does this sound significant" for "do I actually know this".
+ *
+ * Treat every score as ordinal, not absolute. `publicFame` and `criticalRenown`
+ * spread well (sd ~21 and ~24 over the corpus); `llmAffinity` is compressed around
+ * 73 and correlates 0.67 with criticalRenown, so rank on `affinityResidual` rather
+ * than the raw value.
+ */
+export type BookRenownProfile = {
+  /** False when the model does not recognize the book. Its own strongest obscurity signal. */
+  knowsBook: boolean;
+  /** 0-100, how widely general readers would recognize it. */
+  publicFame: number;
+  /** 0-100, standing among critics and scholars, independent of sales. */
+  criticalRenown: number;
+  /** 0-100, how contested its reception has been at any point since publication. */
+  controversy: number;
+  /** 0-100, how strongly the model's own inclinations pull toward it. Compressed; prefer affinityResidual. */
+  llmAffinity: number;
+  /** llmAffinity net of what publicFame predicts. Positive means drawn to it but unlikely to surface it. */
+  affinityResidual: number;
+  /** Per-metric self-reported confidence, 0-1. Collapses to <=0.3 when knowsBook is false. */
+  confidence: {
+    publicFame: number;
+    criticalRenown: number;
+    controversy: number;
+    llmAffinity: number;
+  };
+  /** One value per dimension so books stay comparable. See TAG_DIMENSIONS in the renown script. */
+  tags: {
+    craft: string;
+    evidence: string;
+    stance: string;
+  };
+  model: string;
+  promptVersion: number;
+};
+
 export type Book = {
   id: string;
   slug: string;
@@ -214,6 +255,7 @@ export type Book = {
   relatedBookIds?: string[];
   centralFigures: string[];
   experimentalSemanticProfile?: ExperimentalSemanticProfile;
+  renownProfile?: BookRenownProfile;
   nytBestseller?: NytBestsellerStats;
   summary?: string;
   displaySummary?: string;

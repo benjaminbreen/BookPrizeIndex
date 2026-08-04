@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-03T18:17:39.347Z",
+  "generatedAt": "2026-08-03T18:35:08.087Z",
   "metadata": {
     "importer": "scripts/import-award-records/international-nonfiction.ts",
     "source": "Wikipedia: Libris Geschiedenis Prijs",
     "notes": "Non-anglophone nonfiction prize (nl). Extracted by scripts/staging/extract-international-awards.py; English editions resolved by scripts/staging/resolve-english-editions.py.",
     "records": 87,
     "winners": 19,
-    "withConfirmedEnglishEdition": 11,
+    "withConfirmedEnglishEdition": 13,
     "yearRange": "2007-2025"
   },
   "records": [
@@ -436,10 +436,13 @@
       "sourceUrl": "https://nl.wikipedia.org/wiki/Libris_Geschiedenis_Prijs",
       "sourceLabel": "Wikipedia: Libris Geschiedenis Prijs",
       "sourceConfidence": "secondary",
-      "notes": "Original language: nl. No English edition found.",
+      "notes": "Original language: nl. English edition: Hiding in Plain Sight: How a Jewish Girl Escaped Death and Found Love Among the Nazis (unknown publisher, 2023)",
       "originalLanguage": "nl",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "Hiding in Plain Sight: How a Jewish Girl Escaped Death and Found Love Among the Nazis",
+        "year": 2023,
+        "isbn13": "9781957363042"
       }
     },
     {
@@ -543,10 +546,13 @@
       "sourceUrl": "https://nl.wikipedia.org/wiki/Libris_Geschiedenis_Prijs",
       "sourceLabel": "Wikipedia: Libris Geschiedenis Prijs",
       "sourceConfidence": "secondary",
-      "notes": "Original language: nl. No English edition found.",
+      "notes": "Original language: nl. English edition: The Just (unknown publisher, 2021)",
       "originalLanguage": "nl",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "The Just",
+        "year": 2021,
+        "isbn13": "9781912854219"
       }
     },
     {
@@ -907,10 +913,14 @@
       "sourceUrl": "https://nl.wikipedia.org/wiki/Libris_Geschiedenis_Prijs",
       "sourceLabel": "Wikipedia: Libris Geschiedenis Prijs",
       "sourceConfidence": "secondary",
-      "notes": "Original language: nl. No English edition found.",
+      "notes": "Original language: nl. English edition: The Son and Heir (AmazonCrossing, 2020)",
       "originalLanguage": "nl",
       "englishEdition": {
-        "status": "no-english-found"
+        "status": "confirmed",
+        "title": "The Son and Heir",
+        "year": 2020,
+        "publisher": "AmazonCrossing",
+        "isbn13": "9781542004558"
       }
     },
     {
@@ -1761,14 +1771,10 @@
       "sourceUrl": "https://nl.wikipedia.org/wiki/Libris_Geschiedenis_Prijs",
       "sourceLabel": "Wikipedia: Libris Geschiedenis Prijs",
       "sourceConfidence": "secondary",
-      "notes": "Original language: nl. English edition: Reading Huizinga (Amsterdam University Press, 2010)",
+      "notes": "Original language: nl. No English edition found.",
       "originalLanguage": "nl",
       "englishEdition": {
-        "status": "confirmed",
-        "title": "Reading Huizinga",
-        "year": 2010,
-        "publisher": "Amsterdam University Press",
-        "isbn13": "9789089641809"
+        "status": "no-english-found"
       }
     },
     {

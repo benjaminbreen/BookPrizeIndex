@@ -51,6 +51,10 @@ export type SemanticBookIndexRow = {
   centralPlaces?: string[];
   academicOrientationScore?: number;
   academicOrientationConfidence?: number;
+  /** 0-100 model-estimated public recognition. Drives renown intent ranking. */
+  publicFame?: number;
+  /** False when the model did not recognize the book -- a strong obscurity signal in its own right. */
+  renownKnowsBook?: boolean;
   text: string;
   contentText?: string;
   experienceText?: string;
@@ -87,6 +91,12 @@ export type SemanticQueryInterpretation = {
   publicationDateIntent?: "older" | "newer" | "none";
   publicationDateMode?: "soft" | "filter" | "none";
   publicationYearCutoff?: number | null;
+  /**
+   * Orthogonal to publicationDateIntent. "classic" is both: old AND widely known,
+   * which is why treating it as a date preference alone returned obscure 1970s
+   * monographs.
+   */
+  renownIntent?: "obscure" | "canonical" | "none";
   eras: string[];
   subjects: string[];
   authorIntent?: SemanticAuthorIntent;
@@ -140,6 +150,8 @@ export type SemanticSearchResult = {
   publicationYearKnown?: boolean;
   lengthBoost?: number;
   pageCountKnown?: boolean;
+  renownBoost?: number;
+  publicFameKnown?: boolean;
   constraintCount?: number;
   constraintCoverage?: number;
   missingConstraints?: string[];
@@ -167,6 +179,7 @@ export function semanticContentTextForBook({
   const parts = [
     `Title: ${[book.title, book.subtitle].filter(Boolean).join(": ")}`,
     `Author: ${book.authors.map((author) => author.name).join(", ")}`,
+    book.englishEdition?.title ? `English edition title: ${book.englishEdition.title}` : "",
     summary ? `Description: ${summary}` : "",
     experimentalProfile?.argument.present ? `Interpretive claim: ${experimentalProfile.argument.statement}` : "",
     centralFigures.length ? `Central figures: ${centralFigures.join(", ")}` : "",
@@ -554,9 +567,26 @@ export function searchTerms(input: string) {
     "period",
     "periods",
     "public",
+    "acclaimed",
+    "canonical",
+    "classic",
+    "classics",
+    "essential",
+    "famous",
+    "forgotten",
+    "hidden",
+    "known",
+    "landmark",
+    "lesser",
+    "neglected",
+    "obscure",
+    "overlooked",
     "recommend",
     "recommendation",
     "recommendations",
+    "renowned",
+    "underrated",
+    "unknown",
     "read",
     "reading",
     "search",
@@ -693,6 +723,24 @@ export function inferPublicationPreference(query: string): SemanticPublicationPr
   return { intent: "none", cutoff: null, mode: "none" };
 }
 
+/**
+ * Regex fallback for renown intent. The model handles nuance, but short queries skip
+ * interpretation entirely and the model sometimes returns "none" for a plainly
+ * obscurity-shaped request, so this floor keeps the axis reachable either way.
+ */
+export function inferRenownIntent(query: string): NonNullable<SemanticQueryInterpretation["renownIntent"]> {
+  const normalized = query.toLowerCase();
+  // "forgotten wars" / "obscure corners of history" describe the SUBJECT, not the
+  // book's standing, so require the adjective to attach to a work-noun.
+  const workNoun = "(?:book|books|work|works|title|titles|read|reads|gem|gems|gems?|gemstone|classic|classics|gems|history|histories|biography|biographies|memoir|memoirs|monograph|monographs|nonfiction)";
+  const obscure = new RegExp(`\\b(?:lesser[- ]known|little[- ]known|less[- ]known|underrated|under[- ]?appreciated|overlooked|neglected|obscure|forgotten|hidden|deep[- ]cut|under[- ]the[- ]radar|undiscovered|unsung)(?:\\s+[a-z-]+){0,2}\\s+${workNoun}\\b`);
+  const canonical = new RegExp(`\\b(?:classic|canonical|landmark|essential|famous|renowned|celebrated|seminal|definitive|standard|best[- ]known|acclaimed)(?:\\s+[a-z-]+){0,2}\\s+${workNoun}\\b`);
+  if (obscure.test(normalized)) return "obscure";
+  if (canonical.test(normalized)) return "canonical";
+  if (/\bhidden gems?\b|\bdeep cuts?\b|\bunderrated\b/.test(normalized)) return "obscure";
+  return "none";
+}
+
 export function inferBookLengthIntent(query: string): "short" | "long" | "none" {
   const normalized = normalizeForSearch(query);
   if (
@@ -775,9 +823,15 @@ export function semanticHybridScore({
   const publicationYear = semanticPublicationYear(row);
   const publicationBoost = publicationPreferenceScore(interpretation, publicationYear);
   const lengthBoost = bookLengthPreferenceScore(queryContext.lengthIntent, row.pageCount);
+  const renownIntent = interpretation?.renownIntent ?? "none";
+  const renownBoost = renownPreferenceScore(renownIntent, row.publicFame, row.renownKnowsBook);
   const { coverage: constraintCoverage, missing: missingConstraints } = requiredConstraintCoverage(queryContext, row);
   const readerIntentBoost = readerIntentScore(query, interpretation, row);
-  const recognitionBoost = Math.min(1, Math.log1p(Math.max(0, row.recognitionScore)) / Math.log1p(32));
+  // Award density is a fame proxy. Leaving it on would quietly pull famous books back
+  // up the list for the exact query that asked for the opposite.
+  const recognitionBoost = renownIntent === "obscure"
+    ? 0
+    : Math.min(1, Math.log1p(Math.max(0, row.recognitionScore)) / Math.log1p(32));
   const legacySimilarity = queryEmbedding ? cosineSimilarity(queryEmbedding, row.embedding, row.norm) : undefined;
   const pairedContentSimilarity = rawQueryEmbedding && expandedQueryEmbedding
     ? dualCosineSimilarity(rawQueryEmbedding, expandedQueryEmbedding, row.embedding, row.norm)
@@ -815,7 +869,12 @@ export function semanticHybridScore({
     : readerExperienceQuery
       ? contentSimilarity * 0.5 + experienceSimilarity * 0.5
       : contentSimilarity * 0.88 + experienceSimilarity * 0.12;
-  const evidenceConfidence = semanticEvidenceConfidence(row);
+  // Books with thin metadata score low on evidence confidence, and thin metadata
+  // correlates with obscurity (mean recognitionScore 2.65 vs 3.78 across the corpus).
+  // Left alone it demotes precisely the books an obscurity query is asking for.
+  const evidenceConfidence = renownIntent === "obscure"
+    ? Math.max(0.75, semanticEvidenceConfidence(row))
+    : semanticEvidenceConfidence(row);
   const phraseBoost = phraseMatchBoost(query, interpretation, row);
   const positiveReaderIntentBoost = Math.max(0, readerIntentBoost);
   const lexicalScore = Math.min(1,
@@ -828,6 +887,7 @@ export function semanticHybridScore({
     periodBoost * 0.06 +
     publicationBoost * 0.08 +
     lengthBoost * 0.04 +
+    renownBoost * 0.08 +
     constraintCoverage * (queryContext.requiredConcepts.length ? 0.08 : 0) +
     phraseBoost * 0.04 +
     positiveReaderIntentBoost * 0.04,
@@ -843,6 +903,7 @@ export function semanticHybridScore({
     periodBoost ? "Matched period signal" : "",
     publicationBoost ? "Matched publication-date preference" : "",
     lengthBoost ? "Matched book-length preference" : "",
+    renownBoost >= 0.6 ? (renownIntent === "obscure" ? "Matched lesser-known preference" : "Matched canonical preference") : "",
     queryContext.requiredConcepts.length && constraintCoverage >= 0.72 ? "Matched required content" : "",
     missingConstraints.length ? `Missing required evidence: ${missingConstraints.slice(0, 3).join(", ")}` : "",
     readerIntentBoost ? "Matched reader-experience signal" : "",
@@ -859,6 +920,8 @@ export function semanticHybridScore({
     publicationYearKnown: Boolean(publicationYear),
     lengthBoost,
     pageCountKnown: Boolean(row.pageCount),
+    renownBoost,
+    publicFameKnown: row.publicFame !== undefined,
     constraintCount: queryContext.requiredConcepts.length,
     constraintCoverage,
     missingConstraints,
@@ -886,6 +949,7 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
   const entityRanks = positiveRanksBy(results, (row) => row.entityBoost ?? 0);
   const publicationRanks = positiveRanksBy(results, (row) => row.publicationBoost ?? 0);
   const lengthRanks = positiveRanksBy(results, (row) => row.lengthBoost ?? 0);
+  const renownRanks = positiveRanksBy(results, (row) => row.renownBoost ?? 0);
   const constraintRanks = positiveRanksBy(results, (row) => row.constraintCoverage ?? 0);
   const recognitionRanks = ranksBy(results, (row) => row.recognitionBoost);
   const hasReaderSignal = results.some((row) => Math.abs(row.readerIntentBoost ?? 0) > 0.001);
@@ -895,6 +959,7 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
   const hasEntitySignal = results.some((row) => (row.entityBoost ?? 0) > 0.001);
   const hasPublicationSignal = results.some((row) => (row.publicationBoost ?? 0) > 0.001);
   const hasLengthSignal = results.some((row) => (row.lengthBoost ?? 0) > 0.001);
+  const hasRenownSignal = results.some((row) => (row.renownBoost ?? 0) > 0.001);
   const hasConstraintSignal = results.some((row) => (row.constraintCount ?? 0) > 0);
   const k = 60;
   return results.map((row) => {
@@ -908,6 +973,7 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
       { active: hasEntitySignal, rank: entityRanks.get(row.bookId), weight: 0.16 },
       { active: hasPublicationSignal, rank: publicationRanks.get(row.bookId), weight: 0.28 },
       { active: hasLengthSignal, rank: lengthRanks.get(row.bookId), weight: 0.12 },
+      { active: hasRenownSignal, rank: renownRanks.get(row.bookId), weight: 0.3 },
       { active: hasConstraintSignal, rank: constraintRanks.get(row.bookId), weight: 0.22 },
       { active: hasReaderSignal, rank: readerRanks.get(row.bookId), weight: 0.08 },
       { active: true, rank: recognitionRanks.get(row.bookId), weight: 0.02 },
@@ -924,6 +990,11 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
     const lengthMismatchPenalty = hasLengthSignal && row.pageCountKnown
       ? (1 - (row.lengthBoost ?? 0)) * 0.1
       : 0;
+    // Only penalize books whose renown is actually known. An unscored book should
+    // fall back to topical ranking rather than be treated as a mismatch.
+    const renownMismatchPenalty = hasRenownSignal && row.publicFameKnown
+      ? (1 - (row.renownBoost ?? 0)) * 0.22
+      : 0;
     const constraintMismatchPenalty = hasConstraintSignal
       ? (1 - (row.constraintCoverage ?? 0)) * 0.32
       : 0;
@@ -938,6 +1009,7 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
       (row.entityBoost ?? 0) * 0.22 +
       (row.publicationBoost ?? 0) * 0.24 +
       (row.lengthBoost ?? 0) * 0.12 +
+      (row.renownBoost ?? 0) * 0.26 +
       (row.constraintCoverage ?? 0) * (hasConstraintSignal ? 0.14 : 0) +
       row.scopeBoost * 0.08 +
       row.recognitionBoost * 0.025
@@ -952,6 +1024,7 @@ export function semanticRankFusion(results: SemanticSearchResult[]) {
         readerPenalty -
         publicationMismatchPenalty -
         lengthMismatchPenalty -
+        renownMismatchPenalty -
         constraintMismatchPenalty -
         evidencePenalty
       ).toFixed(6)),
@@ -992,6 +1065,7 @@ function lexicalScore(row: SemanticSearchResult) {
     row.scopeBoost * 0.1 +
     row.periodBoost * 0.06 +
     (row.publicationBoost ?? 0) * 0.08 +
+    (row.renownBoost ?? 0) * 0.08 +
     Math.max(0, row.readerIntentBoost ?? 0) * 0.04;
 }
 
@@ -1048,6 +1122,30 @@ function publicationPreferenceScore(
   const age = new Date().getFullYear() - publicationYear;
   if (intent === "older") return clamp01((age - 10) / 60);
   return clamp01((25 - age) / 25);
+}
+
+/**
+ * Scores a book against an obscurity/canonicity request using the model-estimated
+ * publicFame value carried on the index row.
+ *
+ * Books the renown pass did not recognize are treated as maximally obscure when the
+ * reader asked for obscure, and as disqualified when they asked for canonical -- an
+ * unrecognized book is by definition not a landmark. Books with no renown data at all
+ * score 0 and are neither rewarded nor punished; the mismatch penalty in the fusion
+ * step is gated on publicFameKnown for the same reason.
+ */
+export function renownPreferenceScore(
+  intent: SemanticQueryInterpretation["renownIntent"],
+  publicFame: number | undefined,
+  knowsBook: boolean | undefined,
+) {
+  if (!intent || intent === "none" || publicFame === undefined) return 0;
+  if (intent === "obscure") {
+    if (knowsBook === false) return 1;
+    return clamp01((70 - publicFame) / 55);
+  }
+  if (knowsBook === false) return 0;
+  return clamp01((publicFame - 40) / 45);
 }
 
 function bookLengthPreferenceScore(

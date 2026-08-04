@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LANGUAGE_NAMES } from "@/lib/book-language";
+import { languageName } from "@/lib/book-language";
 import type { Metadata } from "next";
 import type React from "react";
 import { notFound } from "next/navigation";
@@ -136,7 +136,7 @@ export default async function BookPage({ params }: PageProps) {
             {book.originalLanguage && book.originalLanguage !== "en" ? (
               <RailMeta
                 label="Original language"
-                value={LANGUAGE_NAMES[book.originalLanguage] ?? book.originalLanguage}
+                value={languageName(book.originalLanguage)}
               />
             ) : null}
             {book.englishEdition?.title ? (

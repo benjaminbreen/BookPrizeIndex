@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-08-03T05:27:16.240Z",
+  "generatedAt": "2026-08-04T04:50:36.187Z",
   "dryRun": false,
   "embeddingModel": "text-embedding-3-small",
   "dimensions": 512,
   "inputVersion": 2,
   "vectorProfile": "content-experience",
-  "books": 9503,
-  "embeddedContent": 5063,
-  "embeddedExperience": 5034,
-  "reusedContent": 4440,
-  "reusedExperience": 4469,
-  "estimatedInputTokens": 2606678,
-  "estimatedSpendUsd": 0.0521,
+  "books": 9502,
+  "embeddedContent": 1,
+  "embeddedExperience": 0,
+  "reusedContent": 9501,
+  "reusedExperience": 9502,
+  "estimatedInputTokens": 204,
+  "estimatedSpendUsd": 0,
   "outputPath": "data/public/book-semantic-index.json",
   "vectorPath": "data/public/book-semantic-index.f32",
   "experienceVectorPath": "data/public/book-semantic-index.experience.f32",
-  "vectorBytes": 38924288
+  "vectorBytes": 38920192
 }

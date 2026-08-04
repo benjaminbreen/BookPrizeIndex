@@ -14,6 +14,7 @@ import {
   createSemanticQueryContext,
   inferPeriodRanges,
   inferPublicationPreference,
+  inferRenownIntent,
   semanticAdventurousConcepts,
   semanticCoreConcepts,
   semanticDirectScore,
@@ -83,7 +84,7 @@ type PromiseCacheEntry<T> = { expiresAt: number; promise: Promise<T> };
 type ValueCacheEntry<T> = { expiresAt: number; value: T };
 
 const DEFAULT_QUERY_EXPANSION_MODEL: SemanticQueryExpansionModel = DEFAULT_REASONING_MODEL;
-export const SEMANTIC_QUERY_INTERPRETATION_VERSION = 10;
+export const SEMANTIC_QUERY_INTERPRETATION_VERSION = 12;
 const QUERY_INTERPRETATION_PROMPT =
   [
     "Rewrite a reader's natural-language book discovery query into compact nonfiction search intent.",
@@ -95,6 +96,10 @@ const QUERY_INTERPRETATION_PROMPT =
     "Do not put inferred examples, taste references, prose style, accessibility, length, or optional adjacent ideas in requiredConcepts. Keep those in their existing fields.",
     "Set publicationDateIntent to older or newer only when the reader asks for classic/old/older/recent/newer books as publications. A historical period discussed inside a book belongs in eras instead. Set publicationYearCutoff to 0 unless the reader supplies or clearly implies a useful cutoff.",
     "Set publicationDateMode to filter only for an explicit publication requirement such as 'published before 1970' or 'released after 2015'. Use soft for classic, old, recent, or qualified language such as preferably. Otherwise use none.",
+    "Set renownIntent to obscure when the reader wants little-known, overlooked, forgotten, underrated, neglected, hidden, or deep-cut books. Set it to canonical when they want classics, landmarks, essential or famous works, or the standard book on a subject. Otherwise use none.",
+    "renownIntent is independent of publicationDateIntent. 'Classic histories' is both older and canonical. 'Recent overlooked books' is newer and obscure. 'Lesser known books about Rome' has no date intent at all.",
+    "Set renownIntent only when the obscurity or fame word describes the BOOK. When it describes the subject the book is about, use none: 'histories of forgotten wars', 'books about overlooked communities', and 'the forgotten war in Korea' are all renownIntent none, because it is the wars and communities that are forgotten, not the books.",
+    "Do not put obscurity or fame words such as lesser known, underrated, famous, classic, overlooked, or acclaimed into coreConcepts, requiredConcepts, subjects, or expandedQuery. They describe how well known a book is, not what it is about, and they are handled by renownIntent alone.",
     "This is semantic query expansion, not keyword extraction. Add only adjacent domains that materially improve retrieval.",
     "Core concepts are central meanings. Adventurous concepts are optional, surprising adjacent taste signals; omit them for straightforward topical queries.",
     "Distinguish a requested writing method or reading experience from subject matter. For a query asking for reported, narrative, lyrical, accessible, or scholarly writing without naming a topic, keep subjects empty and express the method or style in coreConcepts.",
@@ -112,6 +117,8 @@ const QUERY_INTERPRETATION_PROMPT =
     "Examples:",
     "Query: books about the remaking of modern Paris -> expandedQuery: nonfiction about the planning, public works, political authority, and social consequences that reshaped modern Paris; requiredConcepts: urban transformation, Paris; coreConcepts: urban transformation, public works, planning power; adventurousConcepts: infrastructure politics; namedFigures: Georges-Eugène Haussmann; namedPlaces: Paris; eras: 19th century; subjects: urban history, architecture; publicationDateIntent: none; publicationDateMode: none; publicationYearCutoff: 0.",
     "Query: older works worth rediscovering -> expandedQuery: earlier nonfiction works whose arguments or influence merit renewed attention; requiredConcepts: empty; coreConcepts: neglected works, intellectual rediscovery, changing reception; adventurousConcepts: empty; namedFigures: empty; namedPlaces: empty; eras: empty; subjects: criticism, intellectual history; publicationDateIntent: older; publicationDateMode: soft; publicationYearCutoff: 1990.",
+    "Query: lesser known books about the Civil War -> expandedQuery: nonfiction on the American Civil War beyond the standard narratives; requiredConcepts: American Civil War; coreConcepts: Civil War military and political history, wartime society; adventurousConcepts: empty; eras: 19th century; subjects: American history, military history; publicationDateIntent: none; publicationDateMode: none; publicationYearCutoff: 0; renownIntent: obscure.",
+    "Query: classic histories of Rome -> expandedQuery: landmark, enduring histories of ancient Rome; requiredConcepts: ancient Rome; coreConcepts: Roman politics, empire, historiography; adventurousConcepts: empty; namedPlaces: Rome; eras: antiquity; subjects: ancient history; publicationDateIntent: older; publicationDateMode: soft; publicationYearCutoff: 1990; renownIntent: canonical.",
     "Query: books Obama would like but weirder -> expandedQuery: politically serious, literary nonfiction with unconventional or idea-driven choices; requiredConcepts: empty; audienceTerms: empty; culturalReferences: Barack Obama; coreConcepts: democracy, race, power, global politics; adventurousConcepts: unusual natural history, experimental memoir; namedFigures: empty; namedPlaces: empty; eras: empty; subjects: politics, culture; publicationDateIntent: none; publicationDateMode: none; publicationYearCutoff: 0.",
     "Return JSON only.",
   ].join("\n");
@@ -137,6 +144,7 @@ const QUERY_INTERPRETATION_JSON_SCHEMA = {
     publicationDateIntent: { type: "string", enum: ["older", "newer", "none"] },
     publicationDateMode: { type: "string", enum: ["soft", "filter", "none"] },
     publicationYearCutoff: { type: "integer", minimum: 0, maximum: 2100 },
+    renownIntent: { type: "string", enum: ["obscure", "canonical", "none"] },
     eras: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 3 },
     subjects: { type: "array", items: { type: "string", maxLength: 60 }, maxItems: 4 },
     authorIntent: {
@@ -151,7 +159,7 @@ const QUERY_INTERPRETATION_JSON_SCHEMA = {
       required: ["countries", "lifeStatus", "platforms", "mode"],
     },
   },
-  required: ["expandedQuery", "audienceTerms", "culturalReferences", "concepts", "coreConcepts", "adventurousConcepts", "requiredConcepts", "namedFigures", "namedPlaces", "publicationDateIntent", "publicationDateMode", "publicationYearCutoff", "eras", "subjects", "authorIntent"],
+  required: ["expandedQuery", "audienceTerms", "culturalReferences", "concepts", "coreConcepts", "adventurousConcepts", "requiredConcepts", "namedFigures", "namedPlaces", "publicationDateIntent", "publicationDateMode", "publicationYearCutoff", "renownIntent", "eras", "subjects", "authorIntent"],
 };
 
 export async function POST(request: Request) {
@@ -412,7 +420,10 @@ async function interpretSemanticQueryUncached(
 ): Promise<SemanticInterpretationResult> {
   const fallback = fallbackInterpretation(query);
   if (!shouldInterpretQuery(query)) {
-    return fallback.publicationDateIntent && fallback.publicationDateIntent !== "none"
+    const hasDeterministicIntent =
+      (fallback.publicationDateIntent && fallback.publicationDateIntent !== "none") ||
+      (fallback.renownIntent && fallback.renownIntent !== "none");
+    return hasDeterministicIntent
       ? { interpretation: fallback, usedModelInterpretation: false }
       : { interpretation: null, usedModelInterpretation: false };
   }
@@ -603,6 +614,7 @@ function fallbackInterpretation(query: string): SemanticQueryInterpretation {
     publicationDateIntent: publicationPreference.intent,
     publicationDateMode: publicationPreference.mode,
     publicationYearCutoff: publicationPreference.cutoff,
+    renownIntent: inferRenownIntent(query),
     eras: unique(eras),
     subjects: [],
     authorIntent: fallbackAuthorIntent(query),
@@ -669,6 +681,13 @@ function sanitizeInterpretation(parsed: SemanticQueryInterpretation, fallback: S
     publicationDateIntent,
     publicationDateMode,
     publicationYearCutoff,
+    // The regex floor wins when it fires: it only matches an explicit request, and
+    // the model returned "none" for plainly obscurity-shaped queries in testing.
+    renownIntent: fallback.renownIntent && fallback.renownIntent !== "none"
+      ? fallback.renownIntent
+      : ["obscure", "canonical", "none"].includes(parsed.renownIntent ?? "")
+        ? parsed.renownIntent
+        : "none",
     eras,
     subjects: cleanPhrases(parsedSubjects.length ? parsedSubjects : fallback.subjects, 4, 60),
     authorIntent,

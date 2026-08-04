@@ -5,6 +5,7 @@ import {
   createSemanticQueryContext,
   inferBookLengthIntent,
   inferPublicationPreference,
+  inferRenownIntent,
   semanticDirectScore,
   semanticQueryText,
   semanticRetrievalModeForQuery,
@@ -12,6 +13,7 @@ import {
   semanticHybridScore,
   semanticRankFusion,
   semanticRowMatchesPublicationPreference,
+  renownPreferenceScore,
   type SemanticBookIndexRow,
   type SemanticQueryInterpretation,
   type SemanticSearchResult,
@@ -441,3 +443,85 @@ function semanticTestRow(
     ...overrides,
   };
 }
+
+test("an obscurity request ranks a little-known book above a famous one on the same topic", () => {
+  const interpretation: SemanticQueryInterpretation = {
+    expandedQuery: "nonfiction about the American Civil War",
+    concepts: ["civil war"],
+    coreConcepts: ["civil war"],
+    eras: [],
+    subjects: [],
+    renownIntent: "obscure",
+  };
+  const query = "lesser known books about the Civil War";
+  const rows = [
+    semanticTestRow("famous", "civil war history", {
+      embedding: [1, 0],
+      norm: 1,
+      publicFame: 92,
+      renownKnowsBook: true,
+      recognitionScore: 12,
+    }),
+    semanticTestRow("obscure", "civil war history", {
+      embedding: [1, 0],
+      norm: 1,
+      publicFame: 14,
+      renownKnowsBook: true,
+      recognitionScore: 2,
+    }),
+  ];
+  const context = createSemanticQueryContext(query, interpretation);
+  const scored = semanticRankFusion(rows.map((row) => ({
+    bookId: row.bookId,
+    ...semanticHybridScore({ context, interpretation, query, rawQueryEmbedding: [1, 0], expandedQueryEmbedding: [1, 0], row }),
+  })));
+  const ranked = [...scored].sort((a, b) => b.score - a.score);
+  assert.equal(ranked[0].bookId, "obscure");
+  // The award-density prior must be neutralized, not merely outweighed.
+  assert.equal(ranked.find((row) => row.bookId === "famous")?.recognitionBoost, 0);
+});
+
+test("renown scoring leaves books without renown data unpenalized", () => {
+  assert.equal(renownPreferenceScore("obscure", undefined, undefined), 0);
+  assert.equal(renownPreferenceScore("none", 10, true), 0);
+  // An unrecognized book is maximally obscure, and cannot be a canonical landmark.
+  assert.equal(renownPreferenceScore("obscure", 8, false), 1);
+  assert.equal(renownPreferenceScore("canonical", 8, false), 0);
+  assert.ok(renownPreferenceScore("obscure", 15, true) > renownPreferenceScore("obscure", 85, true));
+  assert.ok(renownPreferenceScore("canonical", 95, true) > renownPreferenceScore("canonical", 30, true));
+});
+
+test("fame words are not matched as topical search terms", () => {
+  const terms = semanticRankingTerms("lesser known classic books about Rome", null);
+  for (const word of ["lesser", "known", "classic"]) {
+    assert.ok(!terms.includes(word), `${word} should not be a ranking term`);
+  }
+  assert.ok(terms.includes("rome"));
+});
+
+test("renown intent is inferred only when the adjective describes the book, not the subject", () => {
+  for (const query of [
+    "lesser known books about the American Civil War",
+    "underrated science books",
+    "overlooked memoirs worth reading",
+    "hidden gems",
+  ]) {
+    assert.equal(inferRenownIntent(query), "obscure", query);
+  }
+  for (const query of [
+    "classic works of twentieth century history",
+    "classic histories of Rome",
+    "famous books about American political power",
+  ]) {
+    assert.equal(inferRenownIntent(query), "canonical", query);
+  }
+  // "forgotten" here modifies the wars, not the books written about them.
+  for (const query of [
+    "histories of forgotten wars",
+    "books about the forgotten war in Korea",
+    "narrative histories that are fun to read",
+    "books about race medicine and public health",
+  ]) {
+    assert.equal(inferRenownIntent(query), "none", query);
+  }
+});

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import rawCoverSpectrum from "@/data/public/cover-spectrum.json";
+import rawFunPreviews from "@/public/fun/previews.json";
 import type { CoverSpectrumData } from "@/lib/cover-spectrum-types";
 
 export const metadata = {
@@ -9,29 +10,41 @@ export const metadata = {
   alternates: { canonical: "/fun" },
 };
 
-const ideas = [
+const ideas: FunIdea[] = [
   {
     title: "The Chromatic Index",
     description: "Every locally cached cover arranged into a screen-sized spectrum by hue and brightness.",
     href: "/fun/chromatic-index",
     status: "Live",
+    preview: "spectrum",
   },
   {
     title: "The Nonfiction Galaxy",
     description: "A semantic map where nearby books share subjects, topics, people, and ideas.",
     href: "/fun/nonfiction-galaxy",
     status: "Live",
+    preview: "galaxy",
+  },
+  {
+    title: "The LLM's Choice",
+    description: "Which books a language model is drawn to, and where that pulls away from public recognition.",
+    href: "/fun/llm-choice",
+    status: "Live",
+    preview: "llmChoice",
   },
   {
     title: "What Nonfiction Talks About",
-    description: "The distinctive words and phrases of prize-recognized titles, moving across decades.",
-    status: "Concept",
+    description: "Every argument the corpus makes, one mark per book, placed in the year it was published.",
+    href: "/fun/what-nonfiction-talks-about",
+    status: "Live",
+    preview: "talks",
   },
   {
     title: "The Library of Congress Shelf",
     description: "Reshelve prize-recognized books by Library of Congress class and call number, from A to Z.",
     href: "/fun/library-of-congress-shelf",
     status: "Live",
+    preview: "libraryShelf",
   },
   {
     title: "The Infinite Bookshelf",
@@ -57,6 +70,9 @@ const ideas = [
 
 export default function FunPage() {
   const spectrum = rawCoverSpectrum as CoverSpectrumData;
+  const previews = rawFunPreviews as FunPreviews;
+  // Derived so the sentence cannot drift out of date as experiments ship.
+  const liveCount = ideas.filter((idea) => idea.status === "Live").length;
   const orderedBooks = spectrum.layouts.desktop.order.filter((bookIndex) => bookIndex >= 0);
   const previewBooks = Array.from({ length: 36 }, (_, index) => {
     const orderIndex = Math.floor((index * orderedBooks.length) / 36);
@@ -74,7 +90,7 @@ export default function FunPage() {
         </div>
         <p className="max-w-xl text-base leading-7 muted">
           Playful visualizations made from the books, covers, prize histories, titles, and relationships in the index.
-          Two are live; the rest are sketches for future experiments.
+          {" "}{liveCount} are live; the rest are sketches for future experiments.
         </p>
       </header>
 
@@ -82,10 +98,24 @@ export default function FunPage() {
         {ideas.map((idea, index) => {
           const content = (
             <>
-              {index === 0 ? (
+              {idea.preview === "spectrum" ? (
                 <div className="grid h-44 grid-cols-12 grid-rows-3 overflow-hidden border-b hairline" aria-hidden="true">
                   {previewBooks.map((book, previewIndex) => (
                     <img className="h-full w-full object-cover" key={`${book.slug}-${previewIndex}`} loading="lazy" src={book.thumbnailUrl} alt="" />
+                  ))}
+                </div>
+              ) : idea.preview === "galaxy" ? (
+                <div className="fun-preview fun-preview-galaxy" aria-hidden="true">
+                  <GalaxyPreview />
+                </div>
+              ) : idea.preview === "talks" ? (
+                <div className="fun-preview fun-preview-talks" aria-hidden="true">
+                  <TalksPreview />
+                </div>
+              ) : idea.preview ? (
+                <div className="fun-preview" aria-hidden="true">
+                  {previews[idea.preview as CoverPreviewKey].covers.map((cover: string, coverIndex: number) => (
+                    <img className="h-full w-full object-cover" key={`${cover}-${coverIndex}`} loading="lazy" src={cover} alt="" />
                   ))}
                 </div>
               ) : (
@@ -111,7 +141,7 @@ export default function FunPage() {
           );
 
           return idea.href ? (
-            <Link className={`fun-idea-card focus-ring ${index === 0 ? "md:col-span-2 xl:col-span-2" : ""}`} href={idea.href} key={idea.title}>
+            <Link className={`fun-idea-card focus-ring ${idea.preview === "spectrum" ? "md:col-span-2 xl:col-span-2" : ""}`} href={idea.href} key={idea.title}>
               {content}
             </Link>
           ) : (
@@ -122,5 +152,78 @@ export default function FunPage() {
         })}
       </section>
     </main>
+  );
+}
+
+type CoverPreviewKey = "llmChoice" | "libraryShelf";
+
+type FunIdea = {
+  title: string;
+  description: string;
+  href?: string;
+  status: string;
+  preview?: "spectrum" | "galaxy" | "talks" | CoverPreviewKey;
+};
+
+type FunPreviews = {
+  galaxy: { dots: number[][] };
+  talks: { rows: number[][]; maxRow: number };
+  llmChoice: { covers: string[] };
+  libraryShelf: { covers: string[] };
+};
+
+/**
+ * A sampled dot field standing in for the full projection. Colour cycles the
+ * categorical palette by subject index so clusters read as clusters, matching what
+ * the experiment itself shows.
+ */
+function GalaxyPreview() {
+  const previews = rawFunPreviews as FunPreviews;
+  return (
+    // Window centred on the projection's y median (~0.40) rather than on 0.5. A
+    // square viewBox cropped to this short band would sit above the dense middle and
+    // leave the lower half empty.
+    <svg className="h-full w-full" preserveAspectRatio="xMidYMid slice" viewBox="0 15 100 50">
+      {previews.galaxy.dots.map(([x, y, subjectIndex], index) => (
+        <circle
+          cx={x * 100}
+          cy={y * 100}
+          fill={`var(--chart-cat-${(subjectIndex % 10) + 1})`}
+          fillOpacity={0.72}
+          key={index}
+          r={0.85}
+        />
+      ))}
+    </svg>
+  );
+}
+
+/**
+ * The claim wedge in miniature: one bar per year, length proportional to that year's
+ * book count, segmented by stance. Same shape the experiment opens with.
+ */
+function TalksPreview() {
+  const { rows, maxRow } = (rawFunPreviews as FunPreviews).talks;
+  return (
+    <svg className="h-full w-full" preserveAspectRatio="none" viewBox={`0 0 ${maxRow} ${rows.length}`}>
+      {rows.map((segments, rowIndex) => {
+        let offset = 0;
+        return segments.map((width, stanceIndex) => {
+          const x = offset;
+          offset += width;
+          return width ? (
+            <rect
+              fill={`var(--chart-cat-${(stanceIndex % 10) + 1})`}
+              fillOpacity={stanceIndex === segments.length - 1 ? 0.18 : 0.85}
+              height={0.85}
+              key={`${rowIndex}-${stanceIndex}`}
+              width={width}
+              x={x}
+              y={rowIndex}
+            />
+          ) : null;
+        });
+      })}
+    </svg>
   );
 }

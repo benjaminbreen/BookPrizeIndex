@@ -341,16 +341,27 @@ async function fetchPagesByTitle(titles: string[]): Promise<CandidatePage[]> {
     .map(pageToCandidate);
 }
 
+/**
+ * Full-text search, not `action=opensearch`. opensearch is prefix autocomplete: a
+ * query like "Heartland Sarah Smarsh" matches only page titles that literally begin
+ * with that string, so it returned an empty list for every author-qualified query
+ * and the fallback path contributed nothing. list=search finds the disambiguated
+ * page ("Heartland (Smarsh book)") that the exact-title lookup cannot guess, since
+ * the suffix convention varies -- "(book)", "(Smarsh book)", "(1998 book)".
+ */
 async function searchWikipedia(query: string): Promise<string[]> {
   const params = new URLSearchParams({
-    action: "opensearch",
+    action: "query",
     format: "json",
-    namespace: "0",
-    limit: "8",
-    search: query,
+    list: "search",
+    srnamespace: "0",
+    srlimit: "8",
+    srsearch: query,
   });
-  const json = await fetchJson<[string, string[]]>(`https://en.wikipedia.org/w/api.php?${params}`);
-  return json[1] ?? [];
+  const json = await fetchJson<{ query?: { search?: Array<{ title?: string }> } }>(
+    `https://en.wikipedia.org/w/api.php?${params}`,
+  );
+  return (json.query?.search ?? []).flatMap((hit) => hit.title ? [hit.title] : []);
 }
 
 function pageToCandidate(page: QueryPage): CandidatePage {
@@ -588,7 +599,7 @@ function dedupePages(pages: CandidatePage[]) {
 async function fetchJson<T>(url: string, retries = 4): Promise<T> {
   await throttleRequests();
   const response = await fetch(url, {
-    headers: { "User-Agent": "book-prize-index-wikipedia-enrichment/0.1 (metadata enrichment; contact: local)" },
+    headers: { "User-Agent": "book-prize-index-wikipedia-enrichment/0.1 (metadata enrichment; contact: bebreen@ucsc.edu)" },
     signal: AbortSignal.timeout(12_000),
   });
   if ((response.status === 429 || response.status >= 500) && retries > 0) {

@@ -285,6 +285,19 @@ export function BookDrawer({
           <div className="sm:border-r hairline sm:pr-6">
             <Meta label="Publisher" value={metadataValue(publisher, wikipediaInfobox?.publisher, "Not yet sourced")} missing={!publisher && !wikipediaInfobox?.publisher} />
             <Meta label="Imprint" value={imprint ?? "Unknown"} missing={!imprint} />
+            {renderedBook.originalLanguage && renderedBook.originalLanguage !== "en" ? (
+              <Meta
+                label="English edition"
+                value={
+                  renderedBook.englishEdition?.title
+                    ? `${renderedBook.englishEdition.title}${
+                        renderedBook.englishEdition.year ? ` (${renderedBook.englishEdition.year})` : ""
+                      }`
+                    : "None found"
+                }
+                missing={!renderedBook.englishEdition?.title}
+              />
+            ) : null}
             <div className="grid gap-2 border-b hairline py-2.5">
               <dt className="font-[var(--font-mono)] text-xs uppercase tracking-[0.14em] muted">Primary subject</dt>
               <dd className="flex flex-wrap gap-2">

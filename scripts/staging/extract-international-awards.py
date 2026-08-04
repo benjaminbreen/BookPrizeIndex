@@ -356,10 +356,12 @@ def kap_item(line, year, status):
     if nm:
         native = clean(nm.group(1))
         raw = raw[: nm.start()] + raw[nm.end():]
+    # A "przeł." marker alone only proves the work is translated, not from what.
+    # Only the explicit "z jęz. <language>" clause identifies the source language.
     lang = "pl"
-    lm = re.search(r"prze[łl]\.(?: z j[ęe]z\.)? (\w+)", raw)
-    if lm:
-        lang = PL_LANG.get(lm.group(1).lower(), "und")
+    if re.search(r"prze[łl]\.", raw):
+        lm = re.search(r"prze[łl]\. z j[ęe]z\. (\w+)", raw)
+        lang = PL_LANG.get(lm.group(1).lower(), "und") if lm else "und"
     translator = None
     tm = re.search(r"prze[łl]\.(?: z j[ęe]z\. \w+)? ([^,]+)", clean(raw))
     if tm:
@@ -585,7 +587,10 @@ def zayed():
         if not it:
             continue  # Many years name only a laureate, with no book title.
         title = clean(it[0])
-        authors = people(clean(rest[: rest.index(it[0]) - 2]), sep=r",| and ")
+        head = clean(rest[: rest.index(it[0]) - 2])
+        head = re.sub(r"\s*\([^)]*\)\s*", " ", head)     # drop the (Country) qualifier
+        head = re.sub(r"\s+for\s*$", "", head, flags=re.I)  # drop the trailing "for"
+        authors = people(head, sep=r",| and ")
         pubm = re.search(r"\(([^)]*)\)\s*$", clean(rest))
         pub = clean(re.sub(r",?\s*\d{4}\s*$", "", pubm.group(1))) if pubm else None
         if title and authors:
