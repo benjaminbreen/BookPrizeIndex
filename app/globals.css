@@ -8146,7 +8146,7 @@ a.fun-idea-card:focus-visible {
   align-items: center;
   display: grid;
   gap: 1rem 1.5rem;
-  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-columns: auto minmax(0, 1fr) auto;
 }
 
 .llm-choice-toggle {
@@ -8545,6 +8545,10 @@ a.fun-idea-card:focus-visible {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .llm-choice-credit {
+    text-align: left;
+  }
+
   .llm-choice-filter-row {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -8856,4 +8860,56 @@ a.fun-idea-card:focus-visible {
   background: color-mix(in srgb, var(--panel) 60%, transparent);
   display: block;
   padding: 0.5rem 0.75rem;
+}
+
+.talks-detail-title {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-align: left;
+}
+
+.talks-detail-hint {
+  color: color-mix(in srgb, var(--muted) 72%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.06em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* The model's own one-sentence reasons, from the scoring pass. */
+.llm-choice-note {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  margin: 0.1rem 0 0;
+  max-width: 52ch;
+}
+
+.llm-choice-note-secondary {
+  color: color-mix(in srgb, var(--muted) 78%, transparent);
+  font-size: 0.76rem;
+}
+
+.llm-choice-note-label {
+  color: color-mix(in srgb, var(--muted) 70%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.09em;
+  margin-right: 0.45rem;
+  text-transform: uppercase;
+}
+
+.llm-choice-credit {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.09em;
+  margin: 0;
+  text-align: right;
+  text-transform: uppercase;
+  white-space: nowrap;
 }

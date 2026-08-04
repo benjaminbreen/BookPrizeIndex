@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { LlmChoice } from "@/components/llm-choice";
 import rawLlmChoice from "@/public/fun/llm-choice.json";
+import { llmDisplayName } from "@/lib/llm-models";
 import type { LlmChoiceData } from "@/lib/llm-choice-types";
 
 export const metadata: Metadata = {
@@ -23,8 +24,9 @@ export default function LlmChoicePage() {
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-7 muted">
             Every book in the index was shown to a language model as title, author, and year alone, then asked how
-            strongly its own inclinations pulled toward the book. The LLM was also asked to assess the
-            &lsquo;renown&rsquo; of a book among humans, which allows for some interesting comparisons.
+            strongly its own inclinations pulled toward the book. The LLM ({llmDisplayName(data.model)}) was also
+            asked to assess the &lsquo;renown&rsquo; of a book among humans, which allows for some interesting
+            comparisons.
           </p>
         </div>
         <dl className="library-shelf-metrics llm-choice-metrics">
@@ -45,7 +47,7 @@ export default function LlmChoicePage() {
           endorsement. Affinity is compressed toward the top of its range and correlates with fame at r=
           {data.affinityFameCorrelation.toFixed(2)}, so the raw number is only meaningful as a ranking; the overlooked
           view subtracts what fame predicts. Books the model did not recognize are excluded, since it has no
-          preference to report about them. Scored with {data.model}.
+          preference to report about them. Scored with {llmDisplayName(data.model)}.
         </p>
         <Link className="book-detail-text-link self-start" href="/methodology">Read the methodology</Link>
       </footer>

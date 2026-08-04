@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { llmDisplayName } from "@/lib/llm-models";
 import type { LlmChoiceBook, LlmChoiceData, LlmChoiceTagDimension } from "@/lib/llm-choice-types";
 
 type View = "overlooked" | "favorites";
@@ -86,6 +87,7 @@ export function LlmChoice({ data }: { data: LlmChoiceData }) {
           ))}
         </div>
         <p className="llm-choice-blurb">{activeView.blurb}</p>
+        <p className="llm-choice-credit">Rankings created by {llmDisplayName(data.model)}</p>
       </div>
 
       <div className="llm-choice-filters">
@@ -137,6 +139,18 @@ export function LlmChoice({ data }: { data: LlmChoiceData }) {
                   {book.publicationYear ? <span className="llm-choice-year"> · {book.publicationYear}</span> : null}
                 </p>
                 <ScoreBars affinity={book.affinity} fame={book.fame} />
+                {book.affinityNote ? (
+                  <p className="llm-choice-note">
+                    <span className="llm-choice-note-label">Affinity</span>
+                    {book.affinityNote}
+                  </p>
+                ) : null}
+                {book.fameNote ? (
+                  <p className="llm-choice-note llm-choice-note-secondary">
+                    <span className="llm-choice-note-label">Fame</span>
+                    {book.fameNote}
+                  </p>
+                ) : null}
                 <TagList tags={book.tags} />
               </div>
               <div className="llm-choice-figure">

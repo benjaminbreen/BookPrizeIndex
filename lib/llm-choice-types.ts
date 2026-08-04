@@ -17,8 +17,10 @@ export type LlmChoiceBook = {
   /** affinity net of what fame predicts. The "loves it, nobody reads it" axis. */
   residual: number;
   tags: Record<LlmChoiceTagDimension, string>;
-  /** One-sentence model rationale for the affinity score. */
-  note?: string;
+  /** The model's one-sentence reason for the affinity score. */
+  affinityNote?: string;
+  /** The model's one-sentence reason for the public-fame score. */
+  fameNote?: string;
 };
 
 export type LlmChoiceData = {

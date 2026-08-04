@@ -52,6 +52,22 @@ export const DEFAULT_REASONING_MODEL = "gpt-5.4-nano" as const satisfies LlmMode
  */
 export const ALTERNATE_REASONING_MODEL = "gpt-5.6-luna" as const satisfies LlmModelId;
 
+/**
+ * Human-facing names for the model ids, so user-visible credits stay tied to the id
+ * recorded in the data rather than being typed out per page. Unknown ids fall through
+ * to the raw id, which is wrong-looking enough to notice but never blank.
+ */
+const LLM_DISPLAY_NAMES: Record<string, string> = {
+  "gpt-4o-mini": "GPT-4o mini",
+  "gpt-5.4-nano": "GPT-5.4 Nano",
+  "gpt-5.6-luna": "GPT-5.6 Luna",
+  "gemini-3.5-flash": "Gemini 3.5 Flash",
+};
+
+export function llmDisplayName(model: string) {
+  return LLM_DISPLAY_NAMES[model] ?? model;
+}
+
 export function llmCostUsd(model: string, inputTokens: number, outputTokens: number) {
   const price = LLM_PRICING[model];
   if (!price) throw new Error(`No pricing recorded for model ${model}`);

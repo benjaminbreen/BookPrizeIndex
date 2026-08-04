@@ -42,7 +42,7 @@ async function main() {
 
   // Collected with label strings first; indices are assigned once both label sets are
   // complete, so a single pass over the catalog is enough.
-  type LabelledClaim = { stance: string; subject: string; title: string; slug: string; claim: string };
+  type LabelledClaim = { stance: string; subject: string; title: string; bookId: string; claim: string };
   const subjects = new Set<string>();
   const stances = new Set<string>();
   const byYear = new Map<number, { claims: LabelledClaim[]; unclaimed: number }>();
@@ -58,7 +58,7 @@ async function main() {
       const stance = book.renownProfile?.tags?.stance ?? "none";
       subjects.add(subject);
       stances.add(stance);
-      row.claims.push({ stance, subject, title: book.title, slug: book.slug, claim });
+      row.claims.push({ stance, subject, title: book.title, bookId: book.id, claim });
     } else {
       row.unclaimed += 1;
     }
@@ -82,7 +82,7 @@ async function main() {
           stance: stanceIndex.get(claim.stance) ?? stanceList.length - 1,
           subject: subjectIndex.get(claim.subject) ?? 0,
           title: claim.title,
-          slug: claim.slug,
+          bookId: claim.bookId,
           claim: claim.claim,
         }))
         .sort((a, b) => a.stance - b.stance || a.title.localeCompare(b.title)),

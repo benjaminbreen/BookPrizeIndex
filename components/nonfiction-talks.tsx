@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
+import { BookDrawer } from "@/components/book-drawer";
 import type { NonfictionTalksClaim, NonfictionTalksData } from "@/lib/nonfiction-talks-types";
 
 type Hovered = {
@@ -28,6 +28,8 @@ export function NonfictionTalks({ dataUrl }: { dataUrl: string }) {
   const [hovered, setHovered] = useState<Hovered | null>(null);
   const [subject, setSubject] = useState<string | null>(null);
   const [stance, setStance] = useState<string | null>(null);
+  /** Year plus position within that year's claims, so arrow keys can step along the row. */
+  const [selected, setSelected] = useState<{ year: number; index: number } | null>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -57,6 +59,8 @@ export function NonfictionTalks({ dataUrl }: { dataUrl: string }) {
   const matchCount = data.years.reduce(
     (sum, row) => sum + row.claims.filter(matches).length, 0,
   );
+  const selectedRow = selected ? data.years.find((row) => row.year === selected.year) ?? null : null;
+  const selectedClaim = selectedRow?.claims[selected!.index] ?? null;
 
   return (
     <div className="talks">
@@ -107,6 +111,7 @@ export function NonfictionTalks({ dataUrl }: { dataUrl: string }) {
               matches={matches}
               maxRow={data.maxRow}
               onHover={setHovered}
+              onSelect={(index) => setSelected({ year: row.year, index })}
               row={row}
               stances={data.stances}
             />
@@ -119,9 +124,13 @@ export function NonfictionTalks({ dataUrl }: { dataUrl: string }) {
               <>
                 <p className="talks-detail-year">{hovered.year}</p>
                 <p className="talks-detail-claim">{hovered.claim.claim}</p>
-                <Link className="talks-detail-title focus-ring" href={`/books/${hovered.claim.slug}`}>
+                <button
+                  className="talks-detail-title focus-ring"
+                  onClick={() => setSelected({ year: hovered.year, index: hovered.index })}
+                  type="button"
+                >
                   {hovered.claim.title}
-                </Link>
+                </button>
                 <p className="talks-detail-meta">
                   <span
                     className="talks-detail-swatch"
@@ -131,6 +140,7 @@ export function NonfictionTalks({ dataUrl }: { dataUrl: string }) {
                   <span className="talks-detail-sep">·</span>
                   {data.subjects[hovered.claim.subject]}
                 </p>
+                <p className="talks-detail-hint">Click to open · then ← → to move through {hovered.year}</p>
               </>
             ) : hovered ? (
               <>
@@ -141,13 +151,25 @@ export function NonfictionTalks({ dataUrl }: { dataUrl: string }) {
               </>
             ) : (
               <p className="talks-detail-empty">
-                Hover any mark to read the claim that book makes. Each mark is one book, placed in its
-                publication year and coloured by the stance it takes.
+                Hover any mark to read the claim that book makes, and click to open it. Each mark is one
+                book, placed in its publication year and coloured by the stance it takes.
               </p>
             )}
           </div>
         </aside>
       </div>
+
+      <BookDrawer
+        bookId={selectedClaim?.bookId ?? null}
+        currentLabel={selectedClaim ? `${selected!.index + 1} of ${selectedRow!.claims.length} in ${selected!.year}` : undefined}
+        onClose={() => setSelected(null)}
+        onNext={selectedRow && selected && selected.index < selectedRow.claims.length - 1
+          ? () => setSelected({ year: selected.year, index: selected.index + 1 })
+          : undefined}
+        onPrevious={selectedRow && selected && selected.index > 0
+          ? () => setSelected({ year: selected.year, index: selected.index - 1 })
+          : undefined}
+      />
     </div>
   );
 }
@@ -163,6 +185,7 @@ function YearRow({
   matches,
   maxRow,
   onHover,
+  onSelect,
   row,
   stances,
 }: {
@@ -170,18 +193,30 @@ function YearRow({
   matches: (claim: NonfictionTalksClaim) => boolean;
   maxRow: number;
   onHover: (value: Hovered | null) => void;
+  onSelect: (index: number) => void;
   row: NonfictionTalksData["years"][number];
   stances: string[];
 }) {
   const svgRef = useRef<SVGSVGElement>(null);
   const total = row.claims.length + row.unclaimed;
 
-  const handleMove = (event: React.MouseEvent<SVGSVGElement>) => {
+  const indexAt = (clientX: number) => {
     const bounds = svgRef.current?.getBoundingClientRect();
-    if (!bounds?.width) return;
-    const index = Math.floor(((event.clientX - bounds.left) / bounds.width) * maxRow);
-    if (index < 0 || index >= total) { onHover(null); return; }
+    if (!bounds?.width) return -1;
+    const index = Math.floor(((clientX - bounds.left) / bounds.width) * maxRow);
+    return index >= 0 && index < total ? index : -1;
+  };
+
+  const handleMove = (event: React.MouseEvent<SVGSVGElement>) => {
+    const index = indexAt(event.clientX);
+    if (index < 0) { onHover(null); return; }
     onHover({ year: row.year, index, claim: row.claims[index] ?? null });
+  };
+
+  // Only claimed marks open a drawer; the unclaimed tail carries no book id.
+  const handleClick = (event: React.MouseEvent<SVGSVGElement>) => {
+    const index = indexAt(event.clientX);
+    if (index >= 0 && index < row.claims.length) onSelect(index);
   };
 
   return (
@@ -190,6 +225,7 @@ function YearRow({
       <span className="talks-row-count">{total}</span>
       <svg
         className="talks-row-marks"
+        onClick={handleClick}
         onMouseMove={handleMove}
         preserveAspectRatio="none"
         ref={svgRef}

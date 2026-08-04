@@ -4,7 +4,8 @@ export type NonfictionTalksClaim = {
   /** Index into NonfictionTalksData.subjects. */
   subject: number;
   title: string;
-  slug: string;
+  /** Catalog id, passed straight to BookDrawer. */
+  bookId: string;
   /** The one-sentence interpretive claim. */
   claim: string;
 };

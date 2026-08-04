@@ -20,6 +20,10 @@ import type { LlmChoiceBook, LlmChoiceData, LlmChoiceTagDimension } from "../lib
 const ROOT = process.cwd();
 const CATALOG_PATH = path.join(ROOT, "data/public/catalog-books.json");
 const BROWSE_PATH = path.join(ROOT, "data/public/browse.json");
+// Rationales are not promoted into the catalog -- four per book across 9,503 books is
+// megabytes of text nothing else renders. Only the ranked books need them, so they are
+// read straight from the scoring report here.
+const REPORT_PATH = path.join(ROOT, "data/reports/renown-experiment-batch1-2000.json");
 const OUTPUT_PATH = path.join(ROOT, "public/fun/llm-choice.json");
 // Deep enough that filtering by a tag still leaves a real list. The panel derives
 // its chips from these ranked books rather than from corpus-wide counts, so a
@@ -28,12 +32,30 @@ const RANK_SIZE = 120;
 const TAG_KEYS: LlmChoiceTagDimension[] = ["craft", "evidence", "stance"];
 const GRID = 28;
 
+type ScoringReport = {
+  rows: Array<{
+    bookId: string;
+    status: string;
+    profile?: {
+      llmAffinity?: { rationale: string };
+      publicFame?: { rationale: string };
+    };
+  }>;
+};
+
 async function main() {
-  const [catalog, browse] = await Promise.all([
+  const [catalog, browse, report] = await Promise.all([
     readJson<{ books: Book[] }>(CATALOG_PATH),
     readJson<BrowseData>(BROWSE_PATH),
+    readJson<ScoringReport>(REPORT_PATH),
   ]);
   const browseById = new Map(browse.books.map((row) => [row.id, row]));
+  const notesById = new Map(report.rows
+    .filter((row) => row.status === "completed" && row.profile)
+    .map((row) => [row.bookId, {
+      affinityNote: row.profile!.llmAffinity?.rationale,
+      fameNote: row.profile!.publicFame?.rationale,
+    }]));
 
   const scored = catalog.books.flatMap((book) => {
     const profile = book.renownProfile;
@@ -52,6 +74,7 @@ async function main() {
       criticalRenown: profile.criticalRenown,
       residual: profile.affinityResidual,
       tags: profile.tags as Record<LlmChoiceTagDimension, string>,
+      ...notesById.get(book.id),
     } satisfies LlmChoiceBook];
   });
   if (!scored.length) throw new Error("No recognized books carry a renownProfile. Run promote-renown-profiles first.");
