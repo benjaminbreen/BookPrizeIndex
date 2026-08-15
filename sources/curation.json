@@ -2264,6 +2264,12 @@
       "sourceIds": [
         "source-isbn-repair-thatcher-volume-one"
       ]
+    },
+    "book-john-maynard-keynes-vol-2-the-economist-as-saviour-1920-1937-robert-skidelsky": {
+      "isbn13": [],
+      "sourceIds": [
+        "source-isbn-repair-keynes-economist-as-saviour"
+      ]
     }
   },
   "awards": {},
@@ -3547,6 +3553,14 @@
       "confidence": "official",
       "field": "book",
       "note": "US hardcover jacket supplied by the author; replaces the previously cached UK-edition cover."
+    },
+    "source-isbn-repair-keynes-economist-as-saviour": {
+      "id": "source-isbn-repair-keynes-economist-as-saviour",
+      "label": "ISBN repair for John Maynard Keynes, vol. 2",
+      "url": "https://openlibrary.org/search.json?q=9780143036159",
+      "confidence": "manual",
+      "field": "book",
+      "note": "Google Books matched this volume to 9780143036159, which Open Library confirms is the one-volume abridgement John Maynard Keynes 1883-1946. Cleared until a volume-2 ISBN is verified."
     }
   }
 }

@@ -887,6 +887,13 @@
       "reason": "Shared ISBN and same title; canonical keeps fuller author name."
     },
     {
+      "canonicalBookId": "book-neurotribes-the-legacy-of-autism-and-how-to-think-smarter-about-people-who-think-differently-ste",
+      "duplicateBookIds": [
+        "book-neurotribes-the-legacy-of-autism-and-the-future-of-neurodiversity-steve-silberman"
+      ],
+      "reason": "Same Silberman book; the second record uses the Allen & Unwin UK subtitle. Both carry ISBN 9781925575507."
+    },
+    {
       "canonicalBookId": "book-night-flyer-harriet-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles",
       "duplicateBookIds": [
         "book-night-flyer-harrier-tubman-and-the-faith-dreams-of-a-free-people-tiya-miles"
@@ -948,6 +955,13 @@
         "book-polar-imperatives-a-history-of-arctic-sovereignty-in-north-america-shelagh-d-grant"
       ],
       "reason": "Shelagh D. Grant's Polar Imperative recorded twice; the Shaughnessy Cohen record pluralises the title. Shared ISBN."
+    },
+    {
+      "canonicalBookId": "book-pumpkinflowers-a-soldier-s-story-matti-friedman",
+      "duplicateBookIds": [
+        "book-pumpkinflowers-an-israeli-soldier-s-story-matti-friedman"
+      ],
+      "reason": "Shared ISBN 9781616204587; US (Algonquin) subtitle “A Soldier’s Story” and alternate “An Israeli Soldier’s Story” are the same 2016 Matti Friedman book, split across the RBC Taylor and Hilary Weston award records."
     },
     {
       "canonicalBookId": "book-race-and-reunion-the-civil-war-in-american-memory-david-w-blight",
@@ -1496,13 +1510,6 @@
         "book-scott-wilson-a-berg"
       ],
       "reason": "Shared ISBN; malformed title/author split turned A. Scott Berg's Wilson into Scott. Wilson by A. Berg."
-    },
-    {
-      "canonicalBookId": "book-pumpkinflowers-a-soldier-s-story-matti-friedman",
-      "duplicateBookIds": [
-        "book-pumpkinflowers-an-israeli-soldier-s-story-matti-friedman"
-      ],
-      "reason": "Shared ISBN 9781616204587; US (Algonquin) subtitle “A Soldier’s Story” and alternate “An Israeli Soldier’s Story” are the same 2016 Matti Friedman book, split across the RBC Taylor and Hilary Weston award records."
     }
   ]
 }
