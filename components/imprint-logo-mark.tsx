@@ -18,7 +18,7 @@ export function ImprintLogoMark({
   return (
     <span className={`grid shrink-0 place-items-center overflow-hidden ${className}`}>
       {logoPath ? (
-        <img alt="" aria-hidden="true" className={imageClassName} src={logoPath} />
+        <img loading="lazy" decoding="async" alt="" aria-hidden="true" className={imageClassName} src={logoPath} />
       ) : (
         <span className={fallbackClassName}>{initial}</span>
       )}

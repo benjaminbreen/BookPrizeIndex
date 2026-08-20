@@ -1272,7 +1272,7 @@ function BookRowCover({ book, size = "standard" }: { book: BrowseBookRow; size?:
   if (book.thumbnailUrl && !imageFailed) {
     return (
       <span className={className} aria-hidden="true">
-        <img src={book.thumbnailUrl} alt="" onError={() => setImageFailed(true)} />
+        <img loading="lazy" decoding="async" src={book.thumbnailUrl} alt="" onError={() => setImageFailed(true)} />
       </span>
     );
   }

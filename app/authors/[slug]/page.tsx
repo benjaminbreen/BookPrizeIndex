@@ -277,7 +277,7 @@ function AuthorBookList({ author, books }: { author: Person; books: Book[] }) {
 function BookCover({ book }: { book: Book }) {
   return (
     <span className="author-book-cover" aria-hidden="true">
-      {book.thumbnailUrl ? <img alt="" src={book.thumbnailUrl} /> : <span>{book.title.charAt(0)}</span>}
+      {book.thumbnailUrl ? <img loading="lazy" decoding="async" alt="" src={book.thumbnailUrl} /> : <span>{book.title.charAt(0)}</span>}
     </span>
   );
 }

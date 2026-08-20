@@ -105,7 +105,7 @@ export function SavedLibraryIndex() {
             {library.books.map((book) => (
               <li key={book.bookId}>
                 <Link className="saved-book-cover focus-ring" href={`/books/${book.slug}`}>
-                  {book.thumbnailUrl ? <img alt="" src={book.thumbnailUrl} /> : <span>{book.title.slice(0, 1)}</span>}
+                  {book.thumbnailUrl ? <img loading="lazy" decoding="async" alt="" src={book.thumbnailUrl} /> : <span>{book.title.slice(0, 1)}</span>}
                 </Link>
                 <Link className="saved-book-main focus-ring" href={`/books/${book.slug}`}>
                   <strong>{book.title}</strong>
@@ -291,7 +291,7 @@ export function PersonalBookListDetail({ id }: { id: string }) {
               <li key={book.bookId}>
                 <span className="saved-list-rank">{String(index + 1).padStart(2, "0")}</span>
                 <Link className="saved-book-cover focus-ring" href={`/books/${book.slug}`}>
-                  {book.thumbnailUrl ? <img alt="" src={book.thumbnailUrl} /> : <span>{book.title.slice(0, 1)}</span>}
+                  {book.thumbnailUrl ? <img loading="lazy" decoding="async" alt="" src={book.thumbnailUrl} /> : <span>{book.title.slice(0, 1)}</span>}
                 </Link>
                 <Link className="saved-book-main focus-ring" href={`/books/${book.slug}`}>
                   <strong>{book.title}</strong>

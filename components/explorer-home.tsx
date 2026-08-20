@@ -476,7 +476,7 @@ function HomeBookCover({ book }: { book: HomeBookRow }) {
   if (book.thumbnailUrl && !imageFailed) {
     return (
       <span className="home-book-cover" aria-hidden="true">
-        <img src={book.thumbnailUrl} alt="" onError={() => setImageFailed(true)} />
+        <img loading="lazy" decoding="async" src={book.thumbnailUrl} alt="" onError={() => setImageFailed(true)} />
       </span>
     );
   }

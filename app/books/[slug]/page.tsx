@@ -182,13 +182,12 @@ export default async function BookPage({ params }: PageProps) {
               <ExpandableBookDescription text={detailDescription} />
             ) : (
               <>
+                <p className="muted">{recognitionSentence(appearances)}</p>
                 <p className="muted">
-                  Catalog metadata is still pending for this record. The prize history is available, but publisher,
-                  ISBN, cover, page count, and summary fields may need source-backed enrichment.
-                </p>
-                <p className="muted">
-                  Award history and subject assignments below are generated from the current imported prize records
-                  and catalog evidence that has already been matched.
+                  No summary has been sourced for this record yet.
+                  {pendingFieldLabels(book).length
+                    ? ` Also still unsourced: ${listSentence(pendingFieldLabels(book))}.`
+                    : ""}
                 </p>
               </>
             )}
@@ -554,6 +553,38 @@ function metadataValue(primary: string | undefined, fallback: string | undefined
       <span className="metadata-source">Wiki</span>
     </span>
   );
+}
+
+// The old copy named the same five fields on every incomplete record, so pages
+// that already had a cover and publisher still claimed both were missing.
+function pendingFieldLabels(book: Book) {
+  return [
+    book.publisherId ? "" : "publisher",
+    (book.isbn13 ?? []).length ? "" : "ISBN",
+    book.thumbnailUrl ? "" : "cover",
+    book.pageCount ? "" : "page count",
+    book.publicationYear ? "" : "publication year",
+  ].filter(Boolean);
+}
+
+function listSentence(items: string[]) {
+  if (items.length <= 1) return items.join("");
+  return `${items.slice(0, -1).join(", ")} and ${items.at(-1)}`;
+}
+
+function recognitionSentence(appearances: AwardAppearance[]) {
+  // Parenthesised status avoids having to bend every statusLabel into a verb
+  // phrase ("was a finalist" but "was shortlisted").
+  const named = appearances
+    .map((appearance) => {
+      const award = awardsById.get(appearance.awardId);
+      if (!award) return "";
+      return `the ${award.name} (${statusLabels[appearance.status].toLowerCase()}, ${appearance.year})`;
+    })
+    .filter(Boolean)
+    .slice(0, 3);
+  if (!named.length) return "This record has no matched prize appearances yet.";
+  return `Recognized by ${listSentence(named)}.`;
 }
 
 function detailPageDescription(book: Book) {

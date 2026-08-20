@@ -123,7 +123,7 @@ export function SemanticListView({
             <li key={book.bookId}>
               <span className="semantic-list-rank">{String(index + 1).padStart(2, "0")}</span>
               <Link className="semantic-list-cover focus-ring" href={`/books/${book.slug}`} aria-label={`Open ${book.title}`}>
-                {book.thumbnailUrl ? <img alt="" src={book.thumbnailUrl} /> : <span>{book.title.charAt(0)}</span>}
+                {book.thumbnailUrl ? <img loading="lazy" decoding="async" alt="" src={book.thumbnailUrl} /> : <span>{book.title.charAt(0)}</span>}
               </Link>
               <div className="min-w-0">
                 <Link className="semantic-list-book-title focus-ring" href={`/books/${book.slug}`}>{book.title}</Link>

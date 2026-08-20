@@ -239,7 +239,7 @@ function syncUrlToBook(book: LibraryShelfRow) {
 
 function ShelfCover({ row }: { row: LibraryShelfRow }) {
   if (row.thumbnailUrl) {
-    return <span className="library-shelf-cover" aria-hidden="true"><img alt="" src={row.thumbnailUrl} /></span>;
+    return <span className="library-shelf-cover" aria-hidden="true"><img loading="lazy" decoding="async" alt="" src={row.thumbnailUrl} /></span>;
   }
   return <span className="library-shelf-cover library-shelf-cover-placeholder" aria-hidden="true">{row.title.charAt(0)}</span>;
 }

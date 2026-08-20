@@ -1083,6 +1083,74 @@
           "rationale": "Korea under US occupation, a genuinely neglected episode."
         }
       ]
+    },
+    {
+      "query": "plague in early modern europe",
+      "description": "Topical query naming a subject and a period. Books whose titles state exactly this should outrank books that are merely thematically adjacent European or economic history.",
+      "relevantTitles": [
+        {
+          "title": "Florence Under Siege: Surviving Plague in an Early Modern City",
+          "rating": 3,
+          "rationale": "Plague in an early modern European city; exact subject and period."
+        },
+        {
+          "title": "Plague and Empire in the Early Modern Mediterranean World: The Ottoman Experience, 1347-1600",
+          "rating": 3,
+          "rationale": "Early modern plague history covering the Mediterranean and Ottoman Europe."
+        },
+        {
+          "title": "Medicine Before the Plague: Practitioners and Their Patients in the Crown of Aragon, 1285-1345",
+          "rating": 2,
+          "rationale": "Pre-plague European medicine; right region and adjacent period."
+        },
+        {
+          "title": "Plagues Upon the Earth: Disease and the Course of Human History",
+          "rating": 2,
+          "rationale": "Broad disease history that covers the early modern European outbreaks."
+        }
+      ]
+    },
+    {
+      "query": "the Chernobyl nuclear disaster",
+      "description": "Named-event query. Books about the event itself should outrank general nuclear-weapons or nuclear-waste histories.",
+      "relevantTitles": [
+        {
+          "title": "Midnight in Chernobyl: The Untold Story of the World's Greatest Nuclear Disaster",
+          "rating": 3,
+          "rationale": "Narrative history of the disaster itself."
+        },
+        {
+          "title": "Chernobyl: History of a Tragedy",
+          "rating": 3,
+          "rationale": "Full history of the disaster and its aftermath."
+        },
+        {
+          "title": "Manual for Survival: A Chernobyl Guide to the Future",
+          "rating": 3,
+          "rationale": "Chernobyl's long-term health and environmental consequences."
+        },
+        {
+          "title": "Command and Control: Nuclear Weapons, the Damascus Accident, and the Illusion of Safety",
+          "rating": 1,
+          "rationale": "Nuclear accident history, but a different event and country."
+        }
+      ]
+    },
+    {
+      "query": "the American Dust Bowl of the 1930s",
+      "description": "Named-event query with a decade. The two corpus books on the Dust Bowl should lead.",
+      "relevantTitles": [
+        {
+          "title": "The Worst Hard Time: The Untold Story of Those Who Survived the Great American Dust Bowl",
+          "rating": 3,
+          "rationale": "Narrative history of the Dust Bowl."
+        },
+        {
+          "title": "Dust Bowl: The Southern Plains in the 1930s",
+          "rating": 3,
+          "rationale": "Standard environmental history of the Dust Bowl."
+        }
+      ]
     }
   ]
 }
