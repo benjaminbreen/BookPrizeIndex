@@ -17,6 +17,9 @@ const STATIC_IMPRINT_PAGE_LIMIT = 80;
 const INITIAL_IMPRINT_BOOK_LIMIT = 100;
 
 export const dynamicParams = true;
+// Only the top pages are prerendered; caching the rest keeps sitemap crawls from
+// re-rendering thousands of cold routes.
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   return rankedImprints()

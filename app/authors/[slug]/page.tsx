@@ -11,6 +11,9 @@ import { rollupSubjectName, rollupSubjectSlug } from "@/lib/subject-rollup";
 import type { Book, Person } from "@/lib/types";
 
 export const dynamicParams = true;
+// Only the top pages are prerendered; caching the rest keeps sitemap crawls from
+// re-rendering thousands of cold routes.
+export const revalidate = 86400;
 
 type PageProps = {
   params: Promise<{ slug: string }>;

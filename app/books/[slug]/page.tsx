@@ -35,6 +35,9 @@ import type { BookAuthorPlatformLink } from "@/lib/book-drawer-types";
 const STATIC_BOOK_PAGE_LIMIT = 250;
 
 export const dynamicParams = true;
+// Only the top pages are prerendered; caching the rest keeps sitemap crawls from
+// re-rendering thousands of cold routes.
+export const revalidate = 86400;
 
 export function generateStaticParams() {
   return [...data.books]
